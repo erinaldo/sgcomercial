@@ -26,7 +26,7 @@ Public Class AltaPedidoDelivery
         Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
         ClientesBindingSource.Filter = "idcliente = 0"
         ClientesdomiciliosBindingSource.Filter = "idcliente = 0"
-
+        LabelTotal.Text = Nothing
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdclienteTextBox.TextChanged
