@@ -495,7 +495,7 @@ Public Class Principal
     End Sub
 
     Private Sub RecibidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RecibidosToolStripMenuItem.Click
-        'PedidosDeliveryRecibidos.MdiParent = Me
-        'PedidosDeliveryRecibidos.Visible = True
+        PedidosDeliveryRecibidos.MdiParent = Me
+        PedidosDeliveryRecibidos.Visible = True
     End Sub
 End Class

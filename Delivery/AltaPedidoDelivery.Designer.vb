@@ -34,6 +34,7 @@ Partial Class AltaPedidoDelivery
         Dim Label8 As System.Windows.Forms.Label
         Dim Label9 As System.Windows.Forms.Label
         Dim Label12 As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AltaPedidoDelivery))
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -83,16 +84,9 @@ Partial Class AltaPedidoDelivery
         Me.TextBoxTelefono = New System.Windows.Forms.TextBox()
         Me.TextBoxNombreCliente = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ClientesdomiciliosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClientesdomiciliosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PictureBoxEditarDomicilios = New System.Windows.Forms.PictureBox()
         Me.ComboBoxLocalidad = New System.Windows.Forms.ComboBox()
+        Me.ClientesdomiciliosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LocalidadesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComboBoxProvincia = New System.Windows.Forms.ComboBox()
         Me.ProvinciasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -101,6 +95,14 @@ Partial Class AltaPedidoDelivery
         Me.TextBoxCP = New System.Windows.Forms.TextBox()
         Me.TextBoxReferencias = New System.Windows.Forms.TextBox()
         Me.TextBoxDireccion = New System.Windows.Forms.TextBox()
+        Me.ClientesdomiciliosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ClientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.ClientesdomiciliosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesdomiciliosTableAdapter()
@@ -127,6 +129,30 @@ Partial Class AltaPedidoDelivery
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.BtnConfirmar = New System.Windows.Forms.Button()
+        Me.TextBoxPagaCon = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.PedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliveryTableAdapter()
+        Me.PedidosdeliveryDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn42 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn43 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn44 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn45 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn46 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn47 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn48 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn49 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn50 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PedidosdeliverydetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PedidosdeliverydetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliverydetalleTableAdapter()
+        Me.PedidosdeliverydetalleDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn52 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn53 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn54 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn55 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdclienteLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
@@ -148,15 +174,20 @@ Partial Class AltaPedidoDelivery
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.ClientesdomiciliosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxEditarDomicilios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesdomiciliosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LocalidadesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransportesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientesdomiciliosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.VentasdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PedidosdeliverydetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -282,13 +313,13 @@ Partial Class AltaPedidoDelivery
         'PictureSeleccionarCliente
         '
         Me.PictureSeleccionarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureSeleccionarCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureSeleccionarCliente.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureSeleccionarCliente.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSeleccionarCliente.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(194, 19)
         Me.PictureSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureSeleccionarCliente.Name = "PictureSeleccionarCliente"
-        Me.PictureSeleccionarCliente.Size = New System.Drawing.Size(29, 28)
+        Me.PictureSeleccionarCliente.Size = New System.Drawing.Size(30, 28)
         Me.PictureSeleccionarCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureSeleccionarCliente.TabIndex = 20
         Me.PictureSeleccionarCliente.TabStop = False
@@ -323,7 +354,7 @@ Partial Class AltaPedidoDelivery
         Me.TextBoxCuit.Location = New System.Drawing.Point(321, 84)
         Me.TextBoxCuit.Name = "TextBoxCuit"
         Me.TextBoxCuit.Size = New System.Drawing.Size(114, 22)
-        Me.TextBoxCuit.TabIndex = 29
+        Me.TextBoxCuit.TabIndex = 4
         '
         'ClientesBindingSource
         '
@@ -547,7 +578,8 @@ Partial Class AltaPedidoDelivery
         Me.CheckBoxNuevoCliente.Location = New System.Drawing.Point(314, 23)
         Me.CheckBoxNuevoCliente.Name = "CheckBoxNuevoCliente"
         Me.CheckBoxNuevoCliente.Size = New System.Drawing.Size(121, 21)
-        Me.CheckBoxNuevoCliente.TabIndex = 27
+        Me.CheckBoxNuevoCliente.TabIndex = 0
+        Me.CheckBoxNuevoCliente.TabStop = False
         Me.CheckBoxNuevoCliente.Text = "Nuevo Cliente!"
         Me.CheckBoxNuevoCliente.UseVisualStyleBackColor = True
         '
@@ -597,11 +629,12 @@ Partial Class AltaPedidoDelivery
         '
         'TextBoxEmail
         '
+        Me.TextBoxEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.TextBoxEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "email", True))
         Me.TextBoxEmail.Location = New System.Drawing.Point(101, 114)
         Me.TextBoxEmail.Name = "TextBoxEmail"
         Me.TextBoxEmail.Size = New System.Drawing.Size(334, 22)
-        Me.TextBoxEmail.TabIndex = 26
+        Me.TextBoxEmail.TabIndex = 3
         '
         'TextBoxTelefono
         '
@@ -609,19 +642,20 @@ Partial Class AltaPedidoDelivery
         Me.TextBoxTelefono.Location = New System.Drawing.Point(101, 84)
         Me.TextBoxTelefono.Name = "TextBoxTelefono"
         Me.TextBoxTelefono.Size = New System.Drawing.Size(118, 22)
-        Me.TextBoxTelefono.TabIndex = 24
+        Me.TextBoxTelefono.TabIndex = 2
         '
         'TextBoxNombreCliente
         '
+        Me.TextBoxNombreCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxNombreCliente.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "nombre", True))
         Me.TextBoxNombreCliente.Location = New System.Drawing.Point(101, 54)
         Me.TextBoxNombreCliente.Name = "TextBoxNombreCliente"
         Me.TextBoxNombreCliente.Size = New System.Drawing.Size(334, 22)
-        Me.TextBoxNombreCliente.TabIndex = 21
+        Me.TextBoxNombreCliente.TabIndex = 1
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.ClientesdomiciliosDataGridView)
+        Me.GroupBox2.Controls.Add(Me.PictureBoxEditarDomicilios)
         Me.GroupBox2.Controls.Add(Me.ComboBoxLocalidad)
         Me.GroupBox2.Controls.Add(Me.ComboBoxProvincia)
         Me.GroupBox2.Controls.Add(Label9)
@@ -641,13 +675,112 @@ Partial Class AltaPedidoDelivery
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Domicilio"
         '
+        'PictureBoxEditarDomicilios
+        '
+        Me.PictureBoxEditarDomicilios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBoxEditarDomicilios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxEditarDomicilios.Image = CType(resources.GetObject("PictureBoxEditarDomicilios.Image"), System.Drawing.Image)
+        Me.PictureBoxEditarDomicilios.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureBoxEditarDomicilios.Location = New System.Drawing.Point(82, 15)
+        Me.PictureBoxEditarDomicilios.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBoxEditarDomicilios.Name = "PictureBoxEditarDomicilios"
+        Me.PictureBoxEditarDomicilios.Size = New System.Drawing.Size(31, 30)
+        Me.PictureBoxEditarDomicilios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxEditarDomicilios.TabIndex = 38
+        Me.PictureBoxEditarDomicilios.TabStop = False
+        '
+        'ComboBoxLocalidad
+        '
+        Me.ComboBoxLocalidad.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ClientesdomiciliosBindingSource, "idlocalidad", True))
+        Me.ComboBoxLocalidad.DataSource = Me.LocalidadesBindingSource
+        Me.ComboBoxLocalidad.DisplayMember = "nombrelocalidad"
+        Me.ComboBoxLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxLocalidad.FormattingEnabled = True
+        Me.ComboBoxLocalidad.Location = New System.Drawing.Point(580, 112)
+        Me.ComboBoxLocalidad.Name = "ComboBoxLocalidad"
+        Me.ComboBoxLocalidad.Size = New System.Drawing.Size(112, 24)
+        Me.ComboBoxLocalidad.TabIndex = 5
+        Me.ComboBoxLocalidad.ValueMember = "idlocalidad"
+        '
+        'ClientesdomiciliosBindingSource
+        '
+        Me.ClientesdomiciliosBindingSource.DataMember = "clientesdomicilios"
+        Me.ClientesdomiciliosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'LocalidadesBindingSource
+        '
+        Me.LocalidadesBindingSource.DataMember = "localidades"
+        Me.LocalidadesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComboBoxProvincia
+        '
+        Me.ComboBoxProvincia.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ClientesdomiciliosBindingSource, "idprovincia", True))
+        Me.ComboBoxProvincia.DataSource = Me.ProvinciasBindingSource
+        Me.ComboBoxProvincia.DisplayMember = "nombreprovincia"
+        Me.ComboBoxProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxProvincia.FormattingEnabled = True
+        Me.ComboBoxProvincia.Location = New System.Drawing.Point(373, 112)
+        Me.ComboBoxProvincia.Name = "ComboBoxProvincia"
+        Me.ComboBoxProvincia.Size = New System.Drawing.Size(121, 24)
+        Me.ComboBoxProvincia.TabIndex = 4
+        Me.ComboBoxProvincia.ValueMember = "idprovincia"
+        '
+        'ProvinciasBindingSource
+        '
+        Me.ProvinciasBindingSource.DataMember = "provincias"
+        Me.ProvinciasBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComboBoxTransporte
+        '
+        Me.ComboBoxTransporte.DataSource = Me.TransportesBindingSource
+        Me.ComboBoxTransporte.DisplayMember = "nombretransporte"
+        Me.ComboBoxTransporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxTransporte.FormattingEnabled = True
+        Me.ComboBoxTransporte.Location = New System.Drawing.Point(96, 113)
+        Me.ComboBoxTransporte.Name = "ComboBoxTransporte"
+        Me.ComboBoxTransporte.Size = New System.Drawing.Size(197, 24)
+        Me.ComboBoxTransporte.TabIndex = 3
+        Me.ComboBoxTransporte.ValueMember = "idtransporte"
+        '
+        'TransportesBindingSource
+        '
+        Me.TransportesBindingSource.DataMember = "transportes"
+        Me.TransportesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'TextBoxCP
+        '
+        Me.TextBoxCP.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesdomiciliosBindingSource, "cp", True))
+        Me.TextBoxCP.Location = New System.Drawing.Point(560, 48)
+        Me.TextBoxCP.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxCP.Name = "TextBoxCP"
+        Me.TextBoxCP.Size = New System.Drawing.Size(84, 22)
+        Me.TextBoxCP.TabIndex = 2
+        '
+        'TextBoxReferencias
+        '
+        Me.TextBoxReferencias.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesdomiciliosBindingSource, "referencias", True))
+        Me.TextBoxReferencias.Location = New System.Drawing.Point(306, 48)
+        Me.TextBoxReferencias.Multiline = True
+        Me.TextBoxReferencias.Name = "TextBoxReferencias"
+        Me.TextBoxReferencias.Size = New System.Drawing.Size(240, 47)
+        Me.TextBoxReferencias.TabIndex = 1
+        '
+        'TextBoxDireccion
+        '
+        Me.TextBoxDireccion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesdomiciliosBindingSource, "direccion", True))
+        Me.TextBoxDireccion.Location = New System.Drawing.Point(10, 48)
+        Me.TextBoxDireccion.Multiline = True
+        Me.TextBoxDireccion.Name = "TextBoxDireccion"
+        Me.TextBoxDireccion.Size = New System.Drawing.Size(283, 47)
+        Me.TextBoxDireccion.TabIndex = 0
+        '
         'ClientesdomiciliosDataGridView
         '
         Me.ClientesdomiciliosDataGridView.AutoGenerateColumns = False
         Me.ClientesdomiciliosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ClientesdomiciliosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14})
         Me.ClientesdomiciliosDataGridView.DataSource = Me.ClientesdomiciliosBindingSource
-        Me.ClientesdomiciliosDataGridView.Location = New System.Drawing.Point(6, 137)
+        Me.ClientesdomiciliosDataGridView.Location = New System.Drawing.Point(120, 577)
         Me.ClientesdomiciliosDataGridView.Name = "ClientesdomiciliosDataGridView"
         Me.ClientesdomiciliosDataGridView.RowTemplate.Height = 24
         Me.ClientesdomiciliosDataGridView.Size = New System.Drawing.Size(30, 23)
@@ -696,91 +829,6 @@ Partial Class AltaPedidoDelivery
         Me.DataGridViewTextBoxColumn14.DataPropertyName = "cp"
         Me.DataGridViewTextBoxColumn14.HeaderText = "cp"
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        '
-        'ClientesdomiciliosBindingSource
-        '
-        Me.ClientesdomiciliosBindingSource.DataMember = "clientesdomicilios"
-        Me.ClientesdomiciliosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComboBoxLocalidad
-        '
-        Me.ComboBoxLocalidad.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ClientesdomiciliosBindingSource, "idlocalidad", True))
-        Me.ComboBoxLocalidad.DataSource = Me.LocalidadesBindingSource
-        Me.ComboBoxLocalidad.DisplayMember = "nombrelocalidad"
-        Me.ComboBoxLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxLocalidad.FormattingEnabled = True
-        Me.ComboBoxLocalidad.Location = New System.Drawing.Point(580, 112)
-        Me.ComboBoxLocalidad.Name = "ComboBoxLocalidad"
-        Me.ComboBoxLocalidad.Size = New System.Drawing.Size(112, 24)
-        Me.ComboBoxLocalidad.TabIndex = 36
-        Me.ComboBoxLocalidad.ValueMember = "idlocalidad"
-        '
-        'LocalidadesBindingSource
-        '
-        Me.LocalidadesBindingSource.DataMember = "localidades"
-        Me.LocalidadesBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComboBoxProvincia
-        '
-        Me.ComboBoxProvincia.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ClientesdomiciliosBindingSource, "idprovincia", True))
-        Me.ComboBoxProvincia.DataSource = Me.ProvinciasBindingSource
-        Me.ComboBoxProvincia.DisplayMember = "nombreprovincia"
-        Me.ComboBoxProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxProvincia.FormattingEnabled = True
-        Me.ComboBoxProvincia.Location = New System.Drawing.Point(373, 112)
-        Me.ComboBoxProvincia.Name = "ComboBoxProvincia"
-        Me.ComboBoxProvincia.Size = New System.Drawing.Size(121, 24)
-        Me.ComboBoxProvincia.TabIndex = 35
-        Me.ComboBoxProvincia.ValueMember = "idprovincia"
-        '
-        'ProvinciasBindingSource
-        '
-        Me.ProvinciasBindingSource.DataMember = "provincias"
-        Me.ProvinciasBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComboBoxTransporte
-        '
-        Me.ComboBoxTransporte.DataSource = Me.TransportesBindingSource
-        Me.ComboBoxTransporte.DisplayMember = "nombretransporte"
-        Me.ComboBoxTransporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxTransporte.FormattingEnabled = True
-        Me.ComboBoxTransporte.Location = New System.Drawing.Point(96, 113)
-        Me.ComboBoxTransporte.Name = "ComboBoxTransporte"
-        Me.ComboBoxTransporte.Size = New System.Drawing.Size(197, 24)
-        Me.ComboBoxTransporte.TabIndex = 32
-        Me.ComboBoxTransporte.ValueMember = "idtransporte"
-        '
-        'TransportesBindingSource
-        '
-        Me.TransportesBindingSource.DataMember = "transportes"
-        Me.TransportesBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'TextBoxCP
-        '
-        Me.TextBoxCP.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesdomiciliosBindingSource, "cp", True))
-        Me.TextBoxCP.Location = New System.Drawing.Point(560, 48)
-        Me.TextBoxCP.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBoxCP.Name = "TextBoxCP"
-        Me.TextBoxCP.Size = New System.Drawing.Size(84, 22)
-        Me.TextBoxCP.TabIndex = 31
-        '
-        'TextBoxReferencias
-        '
-        Me.TextBoxReferencias.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesdomiciliosBindingSource, "referencias", True))
-        Me.TextBoxReferencias.Location = New System.Drawing.Point(306, 48)
-        Me.TextBoxReferencias.Multiline = True
-        Me.TextBoxReferencias.Name = "TextBoxReferencias"
-        Me.TextBoxReferencias.Size = New System.Drawing.Size(240, 47)
-        Me.TextBoxReferencias.TabIndex = 28
-        '
-        'TextBoxDireccion
-        '
-        Me.TextBoxDireccion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesdomiciliosBindingSource, "direccion", True))
-        Me.TextBoxDireccion.Location = New System.Drawing.Point(10, 48)
-        Me.TextBoxDireccion.Multiline = True
-        Me.TextBoxDireccion.Name = "TextBoxDireccion"
-        Me.TextBoxDireccion.Size = New System.Drawing.Size(283, 47)
-        Me.TextBoxDireccion.TabIndex = 0
         '
         'ClientesTableAdapter
         '
@@ -1000,16 +1048,179 @@ Partial Class AltaPedidoDelivery
         Me.BtnConfirmar.Location = New System.Drawing.Point(508, 588)
         Me.BtnConfirmar.Name = "BtnConfirmar"
         Me.BtnConfirmar.Size = New System.Drawing.Size(162, 29)
-        Me.BtnConfirmar.TabIndex = 7
+        Me.BtnConfirmar.TabIndex = 3
         Me.BtnConfirmar.Text = "Confirmar"
         Me.BtnConfirmar.UseVisualStyleBackColor = True
+        '
+        'TextBoxPagaCon
+        '
+        Me.TextBoxPagaCon.Location = New System.Drawing.Point(846, 598)
+        Me.TextBoxPagaCon.Name = "TextBoxPagaCon"
+        Me.TextBoxPagaCon.Size = New System.Drawing.Size(100, 22)
+        Me.TextBoxPagaCon.TabIndex = 2
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(766, 600)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(74, 17)
+        Me.Label13.TabIndex = 9
+        Me.Label13.Text = "Paga Con:"
+        '
+        'PedidosdeliveryBindingSource
+        '
+        Me.PedidosdeliveryBindingSource.DataMember = "pedidosdelivery"
+        Me.PedidosdeliveryBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'PedidosdeliveryTableAdapter
+        '
+        Me.PedidosdeliveryTableAdapter.ClearBeforeFill = True
+        '
+        'PedidosdeliveryDataGridView
+        '
+        Me.PedidosdeliveryDataGridView.AutoGenerateColumns = False
+        Me.PedidosdeliveryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.PedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn43, Me.DataGridViewTextBoxColumn44, Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn47, Me.DataGridViewTextBoxColumn48, Me.DataGridViewTextBoxColumn49, Me.DataGridViewTextBoxColumn50, Me.DataGridViewTextBoxColumn51})
+        Me.PedidosdeliveryDataGridView.DataSource = Me.PedidosdeliveryBindingSource
+        Me.PedidosdeliveryDataGridView.Location = New System.Drawing.Point(84, 577)
+        Me.PedidosdeliveryDataGridView.Name = "PedidosdeliveryDataGridView"
+        Me.PedidosdeliveryDataGridView.RowTemplate.Height = 24
+        Me.PedidosdeliveryDataGridView.Size = New System.Drawing.Size(30, 23)
+        Me.PedidosdeliveryDataGridView.TabIndex = 10
+        Me.PedidosdeliveryDataGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn42
+        '
+        Me.DataGridViewTextBoxColumn42.DataPropertyName = "idpedidodelivery"
+        Me.DataGridViewTextBoxColumn42.HeaderText = "idpedidodelivery"
+        Me.DataGridViewTextBoxColumn42.Name = "DataGridViewTextBoxColumn42"
+        Me.DataGridViewTextBoxColumn42.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn43
+        '
+        Me.DataGridViewTextBoxColumn43.DataPropertyName = "idcliente"
+        Me.DataGridViewTextBoxColumn43.HeaderText = "idcliente"
+        Me.DataGridViewTextBoxColumn43.Name = "DataGridViewTextBoxColumn43"
+        '
+        'DataGridViewTextBoxColumn44
+        '
+        Me.DataGridViewTextBoxColumn44.DataPropertyName = "idventa"
+        Me.DataGridViewTextBoxColumn44.HeaderText = "idventa"
+        Me.DataGridViewTextBoxColumn44.Name = "DataGridViewTextBoxColumn44"
+        '
+        'DataGridViewTextBoxColumn45
+        '
+        Me.DataGridViewTextBoxColumn45.DataPropertyName = "idtransporte"
+        Me.DataGridViewTextBoxColumn45.HeaderText = "idtransporte"
+        Me.DataGridViewTextBoxColumn45.Name = "DataGridViewTextBoxColumn45"
+        '
+        'DataGridViewTextBoxColumn46
+        '
+        Me.DataGridViewTextBoxColumn46.DataPropertyName = "iddomicilio"
+        Me.DataGridViewTextBoxColumn46.HeaderText = "iddomicilio"
+        Me.DataGridViewTextBoxColumn46.Name = "DataGridViewTextBoxColumn46"
+        '
+        'DataGridViewTextBoxColumn47
+        '
+        Me.DataGridViewTextBoxColumn47.DataPropertyName = "pagoesperado"
+        Me.DataGridViewTextBoxColumn47.HeaderText = "pagoesperado"
+        Me.DataGridViewTextBoxColumn47.Name = "DataGridViewTextBoxColumn47"
+        '
+        'DataGridViewTextBoxColumn48
+        '
+        Me.DataGridViewTextBoxColumn48.DataPropertyName = "fechaalta"
+        Me.DataGridViewTextBoxColumn48.HeaderText = "fechaalta"
+        Me.DataGridViewTextBoxColumn48.Name = "DataGridViewTextBoxColumn48"
+        '
+        'DataGridViewTextBoxColumn49
+        '
+        Me.DataGridViewTextBoxColumn49.DataPropertyName = "usuarioalta"
+        Me.DataGridViewTextBoxColumn49.HeaderText = "usuarioalta"
+        Me.DataGridViewTextBoxColumn49.Name = "DataGridViewTextBoxColumn49"
+        '
+        'DataGridViewTextBoxColumn50
+        '
+        Me.DataGridViewTextBoxColumn50.DataPropertyName = "fechabaja"
+        Me.DataGridViewTextBoxColumn50.HeaderText = "fechabaja"
+        Me.DataGridViewTextBoxColumn50.Name = "DataGridViewTextBoxColumn50"
+        '
+        'DataGridViewTextBoxColumn51
+        '
+        Me.DataGridViewTextBoxColumn51.DataPropertyName = "usuariobaja"
+        Me.DataGridViewTextBoxColumn51.HeaderText = "usuariobaja"
+        Me.DataGridViewTextBoxColumn51.Name = "DataGridViewTextBoxColumn51"
+        '
+        'PedidosdeliverydetalleBindingSource
+        '
+        Me.PedidosdeliverydetalleBindingSource.DataMember = "pedidosdeliverydetalle"
+        Me.PedidosdeliverydetalleBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'PedidosdeliverydetalleTableAdapter
+        '
+        Me.PedidosdeliverydetalleTableAdapter.ClearBeforeFill = True
+        '
+        'PedidosdeliverydetalleDataGridView
+        '
+        Me.PedidosdeliverydetalleDataGridView.AutoGenerateColumns = False
+        Me.PedidosdeliverydetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.PedidosdeliverydetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn52, Me.DataGridViewTextBoxColumn53, Me.DataGridViewTextBoxColumn54, Me.DataGridViewTextBoxColumn55, Me.DataGridViewTextBoxColumn56, Me.DataGridViewTextBoxColumn57})
+        Me.PedidosdeliverydetalleDataGridView.DataSource = Me.PedidosdeliverydetalleBindingSource
+        Me.PedidosdeliverydetalleDataGridView.Location = New System.Drawing.Point(48, 577)
+        Me.PedidosdeliverydetalleDataGridView.Name = "PedidosdeliverydetalleDataGridView"
+        Me.PedidosdeliverydetalleDataGridView.RowTemplate.Height = 24
+        Me.PedidosdeliverydetalleDataGridView.Size = New System.Drawing.Size(30, 23)
+        Me.PedidosdeliverydetalleDataGridView.TabIndex = 11
+        Me.PedidosdeliverydetalleDataGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn52
+        '
+        Me.DataGridViewTextBoxColumn52.DataPropertyName = "idpedidodeliverydetalle"
+        Me.DataGridViewTextBoxColumn52.HeaderText = "idpedidodeliverydetalle"
+        Me.DataGridViewTextBoxColumn52.Name = "DataGridViewTextBoxColumn52"
+        Me.DataGridViewTextBoxColumn52.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn53
+        '
+        Me.DataGridViewTextBoxColumn53.DataPropertyName = "idpedidodelivery"
+        Me.DataGridViewTextBoxColumn53.HeaderText = "idpedidodelivery"
+        Me.DataGridViewTextBoxColumn53.Name = "DataGridViewTextBoxColumn53"
+        '
+        'DataGridViewTextBoxColumn54
+        '
+        Me.DataGridViewTextBoxColumn54.DataPropertyName = "idproducto"
+        Me.DataGridViewTextBoxColumn54.HeaderText = "idproducto"
+        Me.DataGridViewTextBoxColumn54.Name = "DataGridViewTextBoxColumn54"
+        '
+        'DataGridViewTextBoxColumn55
+        '
+        Me.DataGridViewTextBoxColumn55.DataPropertyName = "cantidad"
+        Me.DataGridViewTextBoxColumn55.HeaderText = "cantidad"
+        Me.DataGridViewTextBoxColumn55.Name = "DataGridViewTextBoxColumn55"
+        '
+        'DataGridViewTextBoxColumn56
+        '
+        Me.DataGridViewTextBoxColumn56.DataPropertyName = "precioventa"
+        Me.DataGridViewTextBoxColumn56.HeaderText = "precioventa"
+        Me.DataGridViewTextBoxColumn56.Name = "DataGridViewTextBoxColumn56"
+        '
+        'DataGridViewTextBoxColumn57
+        '
+        Me.DataGridViewTextBoxColumn57.DataPropertyName = "recargo"
+        Me.DataGridViewTextBoxColumn57.HeaderText = "recargo"
+        Me.DataGridViewTextBoxColumn57.Name = "DataGridViewTextBoxColumn57"
         '
         'AltaPedidoDelivery
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1179, 642)
+        Me.ClientSize = New System.Drawing.Size(1171, 642)
+        Me.Controls.Add(Me.PedidosdeliverydetalleDataGridView)
+        Me.Controls.Add(Me.PedidosdeliveryDataGridView)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.TextBoxPagaCon)
         Me.Controls.Add(Me.BtnConfirmar)
+        Me.Controls.Add(Me.ClientesdomiciliosDataGridView)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.LabelTotal)
@@ -1031,15 +1242,20 @@ Partial Class AltaPedidoDelivery
         CType(Me.ClientesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.ClientesdomiciliosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxEditarDomicilios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesdomiciliosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LocalidadesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransportesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientesdomiciliosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.VentasdetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PedidosdeliverydetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1140,4 +1356,29 @@ Partial Class AltaPedidoDelivery
     Friend WithEvents SubTotal As DataGridViewTextBoxColumn
     Friend WithEvents TextBoxCuit As TextBox
     Friend WithEvents BtnConfirmar As Button
+    Friend WithEvents PictureBoxEditarDomicilios As PictureBox
+    Friend WithEvents TextBoxPagaCon As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents PedidosdeliveryBindingSource As BindingSource
+    Friend WithEvents PedidosdeliveryTableAdapter As comercialDataSetTableAdapters.pedidosdeliveryTableAdapter
+    Friend WithEvents PedidosdeliveryDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn42 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn43 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn44 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn45 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn46 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn47 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn48 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn49 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn50 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn51 As DataGridViewTextBoxColumn
+    Friend WithEvents PedidosdeliverydetalleBindingSource As BindingSource
+    Friend WithEvents PedidosdeliverydetalleTableAdapter As comercialDataSetTableAdapters.pedidosdeliverydetalleTableAdapter
+    Friend WithEvents PedidosdeliverydetalleDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn52 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn53 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn54 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn55 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn56 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn57 As DataGridViewTextBoxColumn
 End Class

@@ -6,12 +6,16 @@ Public Class AltaPedidoDelivery
     Dim rtn As Boolean
 
     Private Sub AltaPedido_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidosdeliverydetalle' Puede moverla o quitarla según sea necesario.
+        'Me.PedidosdeliverydetalleTableAdapter.Fill(Me.ComercialDataSet.pedidosdeliverydetalle)
+        ''TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidosdelivery' Puede moverla o quitarla según sea necesario.
+        'Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.unidadesmedida' Puede moverla o quitarla según sea necesario.
         Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet.unidadesmedida)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
         Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+        'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
         Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.transportes' Puede moverla o quitarla según sea necesario.
@@ -27,6 +31,7 @@ Public Class AltaPedidoDelivery
         ClientesBindingSource.Filter = "idcliente = 0"
         ClientesdomiciliosBindingSource.Filter = "idcliente = 0"
         LabelTotal.Text = Nothing
+        CheckBoxNuevoCliente.Checked = True
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdclienteTextBox.TextChanged
@@ -42,6 +47,7 @@ Public Class AltaPedidoDelivery
         If gclienteseleccionado > 0 Then
             Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
             ClientesBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
+            Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
             ClientesdomiciliosBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
         End If
     End Sub
@@ -67,10 +73,12 @@ Public Class AltaPedidoDelivery
         If CheckBoxNuevoCliente.Checked Then
             IdclienteTextBox.Text = Nothing
             PictureSeleccionarCliente.Enabled = False
+            PictureBoxEditarDomicilios.Enabled = False
             ClientesBindingSource.Filter = "idcliente = 0 "
             ClientesdomiciliosBindingSource.Filter = "idcliente = 0 "
         Else
             IdclienteTextBox.Text = Nothing
+            PictureBoxEditarDomicilios.Enabled = True
             PictureSeleccionarCliente.Enabled = True
         End If
     End Sub
@@ -182,6 +190,10 @@ Public Class AltaPedidoDelivery
         LabelTotal.Text = total
     End Sub
     Private Sub validarcargadatos(ByRef rtn As Boolean)
+        If Len(Trim(TextBoxPagaCon.Text)) = 0 Then
+            TextBoxPagaCon.Text = "0"
+        End If
+
         If Not CheckBoxNuevoCliente.Checked Then
             If IdclienteTextBox.Text = "" Or IdclienteTextBox.Text = "0" Then
                 MsgBox("Seleccione un cliente válido", MsgBoxStyle.Exclamation)
@@ -253,27 +265,72 @@ Public Class AltaPedidoDelivery
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles BtnConfirmar.Click
+        If VentasdetalleDataGridView.RowCount = 0 Then
+            MsgBox("Debe cargar un producto!", MsgBoxStyle.Exclamation)
+            Return
+        End If
         validarcargadatos(rtn)
         If rtn = False Then
             Return
         Else
-            MsgBox("Datos Correctos")
+            'MsgBox("Datos Correctos")
         End If
         If Not MsgBox("Seguro desea guardar el pedido?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
             Return
         End If
+        '*******************************************************************************************************
+        Dim nvocliente As Long
+        Dim nvodomicilio As Long
+        Dim nvopedido As Long
         If CheckBoxNuevoCliente.Checked Then
-            Dim nvocliente
             Try
-                'nvocliente = ClientesTableAdapter.clientes_insertar(TextBoxNombreCliente.Text, TextBoxTelefono.Text, TextBoxEmail.Text, TextBoxDireccion.Text, TextBoxCuit.Text)
-                'ClientesdomiciliosTableAdapter.clientesdomicilios_insertar(nvocliente, TextBoxDireccion.Text, TextBoxReferencias.Text, ComboBoxTransporte.SelectedValue, ComboBoxProvincia.SelectedValue, ComboBoxLocalidad.SelectedValue, TextBoxCP.Text)
-
+                nvocliente = ClientesTableAdapter.clientes_insertar(TextBoxNombreCliente.Text, TextBoxTelefono.Text, TextBoxEmail.Text, TextBoxCuit.Text)
+                nvodomicilio = ClientesdomiciliosTableAdapter.clientesdomicilios_insertar(nvocliente, TextBoxDireccion.Text, TextBoxReferencias.Text, Val(ComboBoxProvincia.SelectedValue), Val(ComboBoxLocalidad.SelectedValue), TextBoxCP.Text)
             Catch ex As Exception
-                MsgBox("Ocurrio un error al tratar de guardar el pedido")
+                MsgBox("Ocurrio un error al tratar de guardar los datos del nuevo cliente: " + ex.Message)
+                Return
             End Try
-
-
+        Else
+            nvocliente = Val(IdclienteTextBox.Text)
+            nvodomicilio = ClientesdomiciliosDataGridView.Rows(0).Cells(0).Value
         End If
+        '*****************************************  inserter pedidodelivery ***************************************************************
+        Try
+            nvopedido = PedidosdeliveryTableAdapter.pedidosdelivery_insertar(nvocliente, Nothing, ComboBoxTransporte.SelectedValue, nvodomicilio, Convert.ToDecimal(TextBoxPagaCon.Text), Today, gusername, Nothing, Nothing)
+            For i = 0 To VentasdetalleDataGridView.RowCount - 1
+                Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
+                Dim cantidad As Long = VentasdetalleDataGridView.Rows(i).Cells(3).Value
+                Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells(6).Value
+                PedidosdeliverydetalleTableAdapter.pedidosdeliverydetalle_insertar(nvopedido, codigo, cantidad, precioventa, Nothing)
+            Next
+        Catch ex As Exception
+            MsgBox("Ocurrio un problema al tratar de guardar el pedido: " + ex.Message, MsgBoxStyle.Exclamation)
+            Return
+        End Try
+        MsgBox("Pedido cargado exitosanente!", MsgBoxStyle.Information)
+        Me.Close()
+    End Sub
 
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBoxEditarDomicilios.Click
+        If Val(IdclienteTextBox.Text) = 0 Then Return
+        Dim P As ClientesNuevoDomicilio
+        P = New ClientesNuevoDomicilio
+        gdomicilioseleccionado = 0
+        gclienteseleccionado = Val(IdclienteTextBox.Text)
+        P.ShowDialog()
+        If gdomicilioseleccionado = 0 Then Return
+        ' MsgBox("paso")
+        Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
+        ClientesdomiciliosBindingSource.Filter = "iddomicilio = " + gdomicilioseleccionado.ToString
+    End Sub
+
+    Private Sub TextBoxCuit_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCuit.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxCuit_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxCuit.KeyDown
+        If e.KeyCode = Keys.Tab Then
+            TextBoxDireccion.Select()
+        End If
     End Sub
 End Class

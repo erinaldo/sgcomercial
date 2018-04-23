@@ -147,6 +147,18 @@
     <Compile Include="Delivery\AltaPedidoDelivery.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Delivery\ClientesNuevoDomicilio.designer.vb">
+      <DependentUpon>ClientesNuevoDomicilio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\ClientesNuevoDomicilio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delivery\PedidosDeliveryRecibidos.designer.vb">
+      <DependentUpon>PedidosDeliveryRecibidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\PedidosDeliveryRecibidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -559,6 +571,12 @@
     <EmbeddedResource Include="BarCodePrint\RepPlantillaBarCode.rdlc" />
     <EmbeddedResource Include="Delivery\AltaPedidoDelivery.resx">
       <DependentUpon>AltaPedidoDelivery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\ClientesNuevoDomicilio.resx">
+      <DependentUpon>ClientesNuevoDomicilio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\PedidosDeliveryRecibidos.resx">
+      <DependentUpon>PedidosDeliveryRecibidos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
