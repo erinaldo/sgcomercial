@@ -107,10 +107,10 @@
                     Dim medida As Decimal = DataGridViewProductos.Rows(i).Cells(5).Value
                     Dim unidadmedida As Integer = DataGridViewProductos.Rows(i).Cells(4).Value
                     cantidad = cantidad * medida
-                    Dim preciocosto As Decimal = ProductosTableAdapter.productos_consultarpreciocosto(gcodigoproducto)
-                    Dim precioventa As Decimal = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
-                    Dim precioventamayorista As Decimal = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
-                    Dim precioventagranel As Decimal = ProductosTableAdapter.productos_consultarpreciogranel(gcodigoproducto)
+                    Dim preciocosto As Decimal = ProductosTableAdapter.productos_consultarpreciocosto(DataGridViewProductos.Rows(i).Cells(1).Value)
+                    Dim precioventa As Decimal = ProductosTableAdapter.productos_consultarprecioventa(DataGridViewProductos.Rows(i).Cells(1).Value)
+                    Dim precioventamayorista As Decimal = ProductosTableAdapter.productos_consultarpreciomayorista(DataGridViewProductos.Rows(i).Cells(1).Value)
+                    Dim precioventagranel As Decimal = ProductosTableAdapter.productos_consultarpreciogranel(DataGridViewProductos.Rows(i).Cells(1).Value)
                     If StockTableAdapter.stock_insertarmovimientoremito(DataGridViewProductos.Rows(i).Cells(0).Value, cantidad, Today, gusername, "S", idremito) > 0 Then
                         'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
                         FormPrincipal.reloadstock()
@@ -131,8 +131,8 @@
                 Me.Close()
             Catch ex As Exception
                 MsgBox(ex.Message)
-                    Return
-                End Try
+                Return
+            End Try
 
         End If
         '*******************************************************
