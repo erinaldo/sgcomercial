@@ -159,6 +159,12 @@
     <Compile Include="Delivery\PedidosDeliveryRecibidos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Delivery\Reportes\ViewerComanda.Designer.vb">
+      <DependentUpon>ViewerComanda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\Reportes\ViewerComanda.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -577,6 +583,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\PedidosDeliveryRecibidos.resx">
       <DependentUpon>PedidosDeliveryRecibidos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\Reportes\ReportComanda.rdlc" />
+    <EmbeddedResource Include="Delivery\Reportes\ViewerComanda.resx">
+      <DependentUpon>ViewerComanda.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

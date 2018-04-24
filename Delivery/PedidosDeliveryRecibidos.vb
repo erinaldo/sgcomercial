@@ -11,4 +11,18 @@
 
 
     End Sub
+
+    Private Sub ListapedidosdeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellContentClick
+
+    End Sub
+
+    Private Sub ListapedidosdeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellClick
+        Select Case e.ColumnIndex
+            Case 10
+                Dim p As ViewerComanda
+                p = New ViewerComanda
+                gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(0).Value
+                p.ShowDialog()
+        End Select
+    End Sub
 End Class

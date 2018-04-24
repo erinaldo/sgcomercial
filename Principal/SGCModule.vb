@@ -41,6 +41,8 @@ Module SGCModule
     Public gidproveedor As Long
     Public gidpedido As Long
     '*****************************
+    Public gidpedidodelivery As Long
+    '*****************************
     Public gidremito As Long
 
     '*******************************    GLOBAL FUNCTIONS        *********************************
