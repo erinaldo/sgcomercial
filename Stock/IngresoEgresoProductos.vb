@@ -73,6 +73,10 @@ Public Class ingresoegresoproductos
             MsgBox("La cantidad ingresada supera al stock disponible", MsgBoxStyle.Exclamation, "Advertencia")
             Return
         End If
+        If Len(Trim(TextBoxMedida.Text)) = 0 Then
+            MsgBox("Seleccione una unidad de medida válida", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         '********************registrar movimiento**********************
         Dim cantidad As Decimal = CantidadTextBox.Text
         Dim medida As Decimal = TextBoxMedida.Text
@@ -85,7 +89,6 @@ Public Class ingresoegresoproductos
             If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), cantidad, FechamovimientoDateTimePicker.Value.ToShortDateString, guserid, TipomovimientostockComboBox.SelectedValue) >= 0 Then
                 'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
                 textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
-                btnnuevo.PerformClick()
                 FormPrincipal.reloadstock()
                 'ParentForm.reloadstock()
                 Labeldescripcion.Text = ".............................................."
@@ -94,6 +97,8 @@ Public Class ingresoegresoproductos
                 textstockminimo.Text = Nothing
                 TextBoxEnvasado.Text = Nothing
                 ComboUnidad.SelectedIndex = -1
+                TextBoxMedida.Text = Nothing
+                nuevo()
             Else
                 MsgBox("No se pudo insertar el movimiento", MsgBoxStyle.Information, "Advertencia")
             End If
@@ -115,7 +120,7 @@ Public Class ingresoegresoproductos
         End If
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnuevo.Click
+    Private Sub nuevo()
         CantidadTextBox.Text = ""
         textdisponible.Text = ""
         textstockminimo.Text = ""
@@ -149,6 +154,8 @@ Public Class ingresoegresoproductos
                     codigoproductoTextBox.Select()
                     Labeldescripcion.Text = ""
                     textstockminimo.Text = ""
+                    ComboUnidad.SelectedIndex = -1
+                    TextBoxMedida.Text = ""
                     Return
                 End If
                 textstockminimo.Text = ProductosTableAdapter.productos_stockminimo(codigoproductoTextBox.Text)
@@ -162,6 +169,8 @@ Public Class ingresoegresoproductos
                     textdisponible.Text = ""
                     CantidadTextBox.Text = ""
                 End If
+                ComboUnidad.SelectedIndex = -1
+                TextBoxMedida.Text = ""
             Else
                 Labeldescripcion.Text = "No Registrado"
                 textdisponible.Text = ""
@@ -198,6 +207,8 @@ Public Class ingresoegresoproductos
                 textdisponible.Text = ""
                 CantidadTextBox.Text = ""
             End If
+            ComboUnidad.SelectedIndex = -1
+            TextBoxMedida.Text = Nothing
         Else
             Labeldescripcion.Text = "No Registrado"
             textdisponible.Text = ""

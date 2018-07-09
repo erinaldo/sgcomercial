@@ -217,7 +217,7 @@ Public Class RegistrarVenta
                 End If
             Next
             '**** insertar pago
-            idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), total, Today())
+            idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), total, Today(), idformapagocombo.SelectedValue, NrocomprobanteTextBox.Text)
             If idpagos > 0 Then
             Else
                 MsgBox("Ocurrio un error al registrar el pago", MsgBoxStyle.Information, "Advertencia")

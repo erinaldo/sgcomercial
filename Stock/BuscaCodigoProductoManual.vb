@@ -40,4 +40,18 @@
         gproductodescripcion = ProductosDataGridView.Rows(e.RowIndex).Cells(1).Value
         Me.Close()
     End Sub
+
+    Private Sub TextBoxfiltro_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxfiltro.KeyPress
+
+    End Sub
+
+    Private Sub TextBoxfiltro_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxfiltro.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            If ProductosDataGridView.RowCount = 1 Then
+                gcodigoproducto = ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells(0).Value
+                gproductodescripcion = ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells(1).Value
+                Me.Close()
+            End If
+        End If
+    End Sub
 End Class

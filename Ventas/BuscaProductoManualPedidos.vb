@@ -109,6 +109,7 @@ Public Class BuscaProductoManualPedidos
     End Sub
 
     Private Sub cantidadtextbox_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cantidadtextbox.KeyDown
+
         If Len(Trim(cantidadtextbox.Text)) = 0 Then Return
 
         If IsNumeric(cantidadtextbox.Text) = False Then
@@ -120,14 +121,28 @@ Public Class BuscaProductoManualPedidos
             Return
         End If
         If e.KeyCode = Keys.Enter Then
-            Dim cantidaddisponible As Decimal = textboxUnidades.Text
-            Dim cantidaddisponibleenv As Decimal = textboxEnvasado.Text
+            '*************************************
+            Dim cantidaddisponible As Decimal
+            Dim cantidaddisponibleenv As Decimal
+            '*************************************
+            If textboxUnidades.Text = "" Or textboxUnidades.Text = "0" Then
+                cantidaddisponible = 0
+            Else
+                cantidaddisponible = Convert.ToDecimal(textboxUnidades.Text)
+            End If
+            If textboxEnvasado.Text = "" Then
+                cantidaddisponibleenv = 0
+            Else
+                cantidaddisponibleenv = textboxEnvasado.Text
+            End If
+
+
             gcantidad = cantidadtextbox.Text
             gcantidad = Decimal.Round(gcantidad, 3)
             Select Case glistaprecio    '*********+++   validar stock disponible    ***************
                 Case 2 'es a granel
                     If cantidaddisponible < gcantidad And ValidarSTK = "Enable" Then
-                        MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto insuficiente ")
+
                         gcantidad = 0
                         gmontototal = 0
                         Return
@@ -212,6 +227,13 @@ Public Class BuscaProductoManualPedidos
         If e.KeyCode = Keys.Enter Then
             Dim cantidaddisponible As Decimal = textboxUnidades.Text
             Dim cantidaddisponibleenv As Decimal = textboxEnvasado.Text
+            Try
+                gcantidad = cantidadtextbox.Text
+            Catch ex As Exception
+                MsgBox("Verifique la cantidad ingresada!", MsgBoxStyle.Exclamation, "Advertencia")
+                cantidadtextbox.Select()
+                Return
+            End Try
             gcantidad = cantidadtextbox.Text
             gcantidad = Decimal.Round(gcantidad, 3)
             Select Case glistaprecio    '*********+++   validar stock disponible    ***************

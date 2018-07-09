@@ -121,8 +121,8 @@
   <data name="manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lup_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\lup_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="green-plus-icon-13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\green-plus-icon-13.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Alerta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alerta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,17 +130,20 @@
   <data name="appicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\appicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="green-plus-icon-13" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\green-plus-icon-13.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="box_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\box_img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="plus-orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\plus-orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lup_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\lup_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="products" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\products.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,7 +151,7 @@
   <data name="cashregister" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\cashregister.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="plus-orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\plus-orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cloud-sync-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\cloud-sync-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

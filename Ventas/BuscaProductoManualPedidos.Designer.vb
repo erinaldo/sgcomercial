@@ -38,6 +38,8 @@ Partial Class BuscaProductoManualPedidos
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.textboxEnvasado = New System.Windows.Forms.TextBox()
         Me.textboxUnidades = New System.Windows.Forms.TextBox()
         Me.ComboListaPrecios = New System.Windows.Forms.ComboBox()
@@ -184,19 +186,31 @@ Partial Class BuscaProductoManualPedidos
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Nothing
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
@@ -206,12 +220,18 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Me.ProductosTableAdapter
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
@@ -221,6 +241,8 @@ Partial Class BuscaProductoManualPedidos
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.textboxEnvasado)
         Me.GroupBox3.Controls.Add(Me.textboxUnidades)
         Me.GroupBox3.Controls.Add(Me.ComboListaPrecios)
@@ -238,9 +260,33 @@ Partial Class BuscaProductoManualPedidos
         Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(69, 57)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(37, 18)
+        Me.Label6.TabIndex = 17
+        Me.Label6.Text = "Env."
+        Me.Label6.Visible = False
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(15, 57)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(52, 18)
+        Me.Label5.TabIndex = 16
+        Me.Label5.Text = "Granel"
+        Me.Label5.Visible = False
+        '
         'textboxEnvasado
         '
-        Me.textboxEnvasado.Location = New System.Drawing.Point(76, 65)
+        Me.textboxEnvasado.Location = New System.Drawing.Point(67, 78)
         Me.textboxEnvasado.Name = "textboxEnvasado"
         Me.textboxEnvasado.Size = New System.Drawing.Size(39, 22)
         Me.textboxEnvasado.TabIndex = 15
@@ -248,7 +294,7 @@ Partial Class BuscaProductoManualPedidos
         '
         'textboxUnidades
         '
-        Me.textboxUnidades.Location = New System.Drawing.Point(27, 65)
+        Me.textboxUnidades.Location = New System.Drawing.Point(18, 78)
         Me.textboxUnidades.Name = "textboxUnidades"
         Me.textboxUnidades.Size = New System.Drawing.Size(43, 22)
         Me.textboxUnidades.TabIndex = 14
@@ -470,4 +516,6 @@ Partial Class BuscaProductoManualPedidos
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
 End Class

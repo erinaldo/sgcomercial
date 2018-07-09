@@ -43,6 +43,8 @@ Partial Class ingresoegresoproductos
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxEnvasado = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.textstockminimo = New System.Windows.Forms.TextBox()
         Me.textdisponible = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -68,7 +70,6 @@ Partial Class ingresoegresoproductos
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnnuevo = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.codigoproductoTextBox = New System.Windows.Forms.TextBox()
         Me.CantidadTextBox = New System.Windows.Forms.TextBox()
@@ -82,8 +83,6 @@ Partial Class ingresoegresoproductos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.ProductoscomponentesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productoscomponentesTableAdapter()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBoxEnvasado = New System.Windows.Forms.TextBox()
         IdproductoLabel = New System.Windows.Forms.Label()
         CantidadLabel = New System.Windows.Forms.Label()
         TipomovimientostockLabel = New System.Windows.Forms.Label()
@@ -185,7 +184,6 @@ Partial Class ingresoegresoproductos
         Me.GroupBox1.Controls.Add(Me.StockDataGridView)
         Me.GroupBox1.Controls.Add(Me.Labeldescripcion)
         Me.GroupBox1.Controls.Add(Me.ProductosDataGridView)
-        Me.GroupBox1.Controls.Add(Me.btnnuevo)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(IdproductoLabel)
         Me.GroupBox1.Controls.Add(Me.codigoproductoTextBox)
@@ -225,7 +223,7 @@ Partial Class ingresoegresoproductos
         Me.ComboUnidad.Location = New System.Drawing.Point(216, 84)
         Me.ComboUnidad.Name = "ComboUnidad"
         Me.ComboUnidad.Size = New System.Drawing.Size(112, 24)
-        Me.ComboUnidad.TabIndex = 19
+        Me.ComboUnidad.TabIndex = 1
         '
         'ProductoscomponentesDataGridView
         '
@@ -309,6 +307,26 @@ Partial Class ingresoegresoproductos
         Me.GroupBox2.TabIndex = 17
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Estado actual en Stock"
+        '
+        'TextBoxEnvasado
+        '
+        Me.TextBoxEnvasado.Location = New System.Drawing.Point(513, 34)
+        Me.TextBoxEnvasado.Name = "TextBoxEnvasado"
+        Me.TextBoxEnvasado.ReadOnly = True
+        Me.TextBoxEnvasado.Size = New System.Drawing.Size(100, 26)
+        Me.TextBoxEnvasado.TabIndex = 4
+        Me.TextBoxEnvasado.TabStop = False
+        Me.TextBoxEnvasado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(297, 37)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(198, 20)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Unidades Disponibles:"
         '
         'textstockminimo
         '
@@ -493,19 +511,9 @@ Partial Class ingresoegresoproductos
         Me.ProductosBindingSource.DataMember = "productos"
         Me.ProductosBindingSource.DataSource = Me.ComercialDataSet
         '
-        'btnnuevo
-        '
-        Me.btnnuevo.Location = New System.Drawing.Point(364, 388)
-        Me.btnnuevo.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(127, 28)
-        Me.btnnuevo.TabIndex = 8
-        Me.btnnuevo.Text = "Nuevo"
-        Me.btnnuevo.UseVisualStyleBackColor = True
-        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(228, 388)
+        Me.Button1.Location = New System.Drawing.Point(296, 388)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(127, 28)
@@ -519,7 +527,7 @@ Partial Class ingresoegresoproductos
         Me.codigoproductoTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.codigoproductoTextBox.Name = "codigoproductoTextBox"
         Me.codigoproductoTextBox.Size = New System.Drawing.Size(265, 22)
-        Me.codigoproductoTextBox.TabIndex = 1
+        Me.codigoproductoTextBox.TabIndex = 0
         '
         'CantidadTextBox
         '
@@ -584,19 +592,31 @@ Partial Class ingresoegresoproductos
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Nothing
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
@@ -606,12 +626,18 @@ Partial Class ingresoegresoproductos
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Me.ProductosTableAdapter
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
@@ -626,26 +652,6 @@ Partial Class ingresoegresoproductos
         'ProductoscomponentesTableAdapter
         '
         Me.ProductoscomponentesTableAdapter.ClearBeforeFill = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(297, 37)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(198, 20)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Unidades Disponibles:"
-        '
-        'TextBoxEnvasado
-        '
-        Me.TextBoxEnvasado.Location = New System.Drawing.Point(513, 34)
-        Me.TextBoxEnvasado.Name = "TextBoxEnvasado"
-        Me.TextBoxEnvasado.ReadOnly = True
-        Me.TextBoxEnvasado.Size = New System.Drawing.Size(100, 26)
-        Me.TextBoxEnvasado.TabIndex = 4
-        Me.TextBoxEnvasado.TabStop = False
-        Me.TextBoxEnvasado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ingresoegresoproductos
         '
@@ -687,7 +693,6 @@ Partial Class ingresoegresoproductos
     Friend WithEvents ComercialDataSet As sgcomercial.comercialDataSet
     Friend WithEvents TipomovimientostockBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TipomovimientostockTableAdapter As sgcomercial.comercialDataSetTableAdapters.tipomovimientostockTableAdapter
-    Friend WithEvents btnnuevo As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents ProductosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ProductosTableAdapter As sgcomercial.comercialDataSetTableAdapters.productosTableAdapter

@@ -1,4 +1,4 @@
-﻿
+﻿Imports System.Text.RegularExpressions
 Public Class AltaPedidoDelivery
     Dim productodisponible As Decimal
     Dim productodisponibleenvasado As Decimal
@@ -31,7 +31,12 @@ Public Class AltaPedidoDelivery
         ClientesBindingSource.Filter = "idcliente = 0"
         ClientesdomiciliosBindingSource.Filter = "idcliente = 0"
         LabelTotal.Text = Nothing
-        CheckBoxNuevoCliente.Checked = True
+        CheckBoxNuevoCliente.Checked = False
+        '/**************        defaluts    ****************/
+        ComboBoxLocalidad.Enabled = False
+        ComboBoxProvincia.SelectedIndex = 0
+        ComboBoxLocalidad.SelectedIndex = 0
+        ComboBoxProvincia.Enabled = False
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdclienteTextBox.TextChanged
@@ -76,6 +81,8 @@ Public Class AltaPedidoDelivery
             PictureBoxEditarDomicilios.Enabled = False
             ClientesBindingSource.Filter = "idcliente = 0 "
             ClientesdomiciliosBindingSource.Filter = "idcliente = 0 "
+            ComboBoxProvincia.SelectedIndex = 0
+            ComboBoxLocalidad.SelectedIndex = 0
         Else
             IdclienteTextBox.Text = Nothing
             PictureBoxEditarDomicilios.Enabled = True
@@ -118,6 +125,7 @@ Public Class AltaPedidoDelivery
         Dim addnewrow As Boolean = False
         Dim unidadmedida As Integer
         Dim medida As Decimal
+        glistaprecio = 0
         Dim p As BuscaProductoManualPedidos
         p = New BuscaProductoManualPedidos
         p.ShowDialog()
@@ -142,6 +150,7 @@ Public Class AltaPedidoDelivery
             VentasdetalleDataGridView.Rows(newrow).Cells(5).Value = medida
             VentasdetalleDataGridView.Rows(newrow).Cells(6).Value = gprecioventa
             VentasdetalleDataGridView.Rows(newrow).Cells(7).Value = gmontototal '*--- subtotal
+            VentasdetalleDataGridView.Rows(newrow).Cells(8).Value = glistaprecio '*--- glistaprecio
             VentasdetalleDataGridView.Select()
             recuento()
             Return
@@ -157,6 +166,7 @@ Public Class AltaPedidoDelivery
                     VentasdetalleDataGridView.Rows(i).Cells(5).Value = medida
                     VentasdetalleDataGridView.Rows(i).Cells(6).Value = gprecioventa
                     VentasdetalleDataGridView.Rows(i).Cells(7).Value = gmontototal '*--- subtotal
+                    VentasdetalleDataGridView.Rows(i).Cells(8).Value = glistaprecio '*--- glistaprecio
                     VentasdetalleDataGridView.Select()
                     recuento()
                     Return
@@ -174,6 +184,7 @@ Public Class AltaPedidoDelivery
                 VentasdetalleDataGridView.Rows(newrow).Cells(5).Value = medida
                 VentasdetalleDataGridView.Rows(newrow).Cells(6).Value = gprecioventa
                 VentasdetalleDataGridView.Rows(newrow).Cells(7).Value = gmontototal '*--- subtotal
+                VentasdetalleDataGridView.Rows(newrow).Cells(8).Value = glistaprecio '*--- glistaprecio
                 VentasdetalleDataGridView.Select()
                 recuento()
                 Return
@@ -284,8 +295,8 @@ Public Class AltaPedidoDelivery
         Dim nvopedido As Long
         If CheckBoxNuevoCliente.Checked Then
             Try
-                nvocliente = ClientesTableAdapter.clientes_insertar(TextBoxNombreCliente.Text, TextBoxTelefono.Text, TextBoxEmail.Text, TextBoxCuit.Text)
-                nvodomicilio = ClientesdomiciliosTableAdapter.clientesdomicilios_insertar(nvocliente, TextBoxDireccion.Text, TextBoxReferencias.Text, Val(ComboBoxProvincia.SelectedValue), Val(ComboBoxLocalidad.SelectedValue), TextBoxCP.Text)
+                nvocliente = ClientesTableAdapter.clientes_insertar(Nothing, TextBoxNombreCliente.Text, TextBoxTelefono.Text, TextBoxEmail.Text, TextBoxCuit.Text)
+                nvodomicilio = ClientesdomiciliosTableAdapter.clientesdomicilios_insertar(nvocliente, TextBoxDireccion.Text, TextBoxReferencias.Text, Val(ComboBoxProvincia.SelectedValue), Val(ComboBoxLocalidad.SelectedValue), TextBoxCP.Text, Nothing)
             Catch ex As Exception
                 MsgBox("Ocurrio un error al tratar de guardar los datos del nuevo cliente: " + ex.Message)
                 Return
@@ -300,13 +311,15 @@ Public Class AltaPedidoDelivery
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
                 Dim cantidad As Long = VentasdetalleDataGridView.Rows(i).Cells(3).Value
-                Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells(6).Value
-                PedidosdeliverydetalleTableAdapter.pedidosdeliverydetalle_insertar(nvopedido, codigo, cantidad, precioventa, Nothing)
+                Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells(7).Value
+                Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells(8).Value
+                PedidosdeliverydetalleTableAdapter.pedidosdeliverydetalle_insertar(nvopedido, codigo, cantidad, precioventa, Nothing, idlistaprecio)
             Next
         Catch ex As Exception
             MsgBox("Ocurrio un problema al tratar de guardar el pedido: " + ex.Message, MsgBoxStyle.Exclamation)
             Return
         End Try
+        PedidosdeliveryTableAdapter.pedidosdelivery_updateestado("RECIBIDO", nvopedido)
         MsgBox("Pedido cargado exitosanente!", MsgBoxStyle.Information)
         Me.Close()
     End Sub
@@ -331,6 +344,76 @@ Public Class AltaPedidoDelivery
     Private Sub TextBoxCuit_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxCuit.KeyDown
         If e.KeyCode = Keys.Tab Then
             TextBoxDireccion.Select()
+        End If
+    End Sub
+
+    Private Sub ComboBoxLocalidad_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxLocalidad.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub ComboBoxLocalidad_KeyDown(sender As Object, e As KeyEventArgs) Handles ComboBoxLocalidad.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            VentasdetalleDataGridView.Select()
+        End If
+    End Sub
+
+    Private Sub ComboBoxTransporte_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxTransporte.SelectedIndexChanged
+        If ComboBoxTransporte.SelectedIndex = 0 Then
+            ComboBoxLocalidad.SelectedIndex = 0
+            ComboBoxLocalidad.Enabled = False
+            ComboBoxProvincia.SelectedIndex = 0
+            ComboBoxProvincia.Enabled = False
+        Else
+            ComboBoxLocalidad.SelectedIndex = 0
+            ComboBoxLocalidad.Enabled = True
+            ComboBoxProvincia.SelectedIndex = 0
+            ComboBoxProvincia.Enabled = True
+        End If
+    End Sub
+
+    Private Sub ComboBoxTransporte_KeyDown(sender As Object, e As KeyEventArgs) Handles ComboBoxTransporte.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            VentasdetalleDataGridView.Select()
+        End If
+    End Sub
+
+    Private Sub TextBoxTelefono_TextChanged(sender As Object, e As EventArgs) Handles TextBoxTelefono.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxTelefono.KeyPress
+        If Char.IsControl(e.KeyChar) Then
+            Return
+        End If
+
+        If e.KeyChar = "." Then
+            e.KeyChar = ","
+            Return
+        End If
+        If e.KeyChar = "," Then
+            Return
+        End If
+        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
+            'MessageBox.Show("Solo se permiten numeros")
+            e.KeyChar = ""
+        End If
+    End Sub
+
+    Private Sub TextBoxCuit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxCuit.KeyPress
+        If Char.IsControl(e.KeyChar) Then
+            Return
+        End If
+
+        If e.KeyChar = "." Then
+            e.KeyChar = ","
+            Return
+        End If
+        If e.KeyChar = "," Then
+            Return
+        End If
+        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
+            'MessageBox.Show("Solo se permiten numeros")
+            e.KeyChar = ""
         End If
     End Sub
 End Class

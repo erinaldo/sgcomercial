@@ -120,6 +120,7 @@ Partial Class AltaPedidoDelivery
         Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idlistaprecio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         Me.ListaspreciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -153,6 +154,7 @@ Partial Class AltaPedidoDelivery
         Me.DataGridViewTextBoxColumn55 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListaspreciosBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         IdclienteLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
@@ -188,6 +190,7 @@ Partial Class AltaPedidoDelivery
         CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PedidosdeliverydetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListaspreciosBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -846,6 +849,9 @@ Partial Class AltaPedidoDelivery
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Me.ClientesdomiciliosTableAdapter
         Me.TableAdapterManager.clientesTableAdapter = Me.ClientesTableAdapter
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
@@ -871,6 +877,7 @@ Partial Class AltaPedidoDelivery
         Me.TableAdapterManager.provinciasTableAdapter = Me.ProvinciasTableAdapter
         Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -917,7 +924,7 @@ Partial Class AltaPedidoDelivery
         Me.VentasdetalleDataGridView.AllowUserToAddRows = False
         Me.VentasdetalleDataGridView.AllowUserToDeleteRows = False
         Me.VentasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.cantidad, Me.unidadmedida, Me.medida, Me.precioventa, Me.SubTotal})
+        Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.cantidad, Me.unidadmedida, Me.medida, Me.precioventa, Me.SubTotal, Me.idlistaprecio})
         Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(11, 21)
         Me.VentasdetalleDataGridView.MultiSelect = False
         Me.VentasdetalleDataGridView.Name = "VentasdetalleDataGridView"
@@ -991,6 +998,15 @@ Partial Class AltaPedidoDelivery
         Me.SubTotal.HeaderText = "SubTotal"
         Me.SubTotal.Name = "SubTotal"
         Me.SubTotal.ReadOnly = True
+        '
+        'idlistaprecio
+        '
+        Me.idlistaprecio.HeaderText = "idlistaprecio"
+        Me.idlistaprecio.Name = "idlistaprecio"
+        Me.idlistaprecio.ReadOnly = True
+        Me.idlistaprecio.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.idlistaprecio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.idlistaprecio.Visible = False
         '
         'StockTableAdapter
         '
@@ -1210,6 +1226,11 @@ Partial Class AltaPedidoDelivery
         Me.DataGridViewTextBoxColumn57.HeaderText = "recargo"
         Me.DataGridViewTextBoxColumn57.Name = "DataGridViewTextBoxColumn57"
         '
+        'ListaspreciosBindingSource1
+        '
+        Me.ListaspreciosBindingSource1.DataMember = "listasprecios"
+        Me.ListaspreciosBindingSource1.DataSource = Me.ComercialDataSet
+        '
         'AltaPedidoDelivery
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1256,6 +1277,7 @@ Partial Class AltaPedidoDelivery
         CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PedidosdeliverydetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListaspreciosBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1346,14 +1368,6 @@ Partial Class AltaPedidoDelivery
     Friend WithEvents LabelTotal As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents idproducto As DataGridViewTextBoxColumn
-    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
-    Friend WithEvents descripcion As DataGridViewTextBoxColumn
-    Friend WithEvents cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents unidadmedida As DataGridViewComboBoxColumn
-    Friend WithEvents medida As DataGridViewTextBoxColumn
-    Friend WithEvents precioventa As DataGridViewTextBoxColumn
-    Friend WithEvents SubTotal As DataGridViewTextBoxColumn
     Friend WithEvents TextBoxCuit As TextBox
     Friend WithEvents BtnConfirmar As Button
     Friend WithEvents PictureBoxEditarDomicilios As PictureBox
@@ -1381,4 +1395,14 @@ Partial Class AltaPedidoDelivery
     Friend WithEvents DataGridViewTextBoxColumn55 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn56 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn57 As DataGridViewTextBoxColumn
+    Friend WithEvents ListaspreciosBindingSource1 As BindingSource
+    Friend WithEvents idproducto As DataGridViewTextBoxColumn
+    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
+    Friend WithEvents descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents unidadmedida As DataGridViewComboBoxColumn
+    Friend WithEvents medida As DataGridViewTextBoxColumn
+    Friend WithEvents precioventa As DataGridViewTextBoxColumn
+    Friend WithEvents SubTotal As DataGridViewTextBoxColumn
+    Friend WithEvents idlistaprecio As DataGridViewTextBoxColumn
 End Class

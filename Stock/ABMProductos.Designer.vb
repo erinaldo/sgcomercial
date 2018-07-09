@@ -37,6 +37,7 @@ Partial Class ABMProductos
         Dim DescripcionLabel As System.Windows.Forms.Label
         Dim PrecioventagranelLabel As System.Windows.Forms.Label
         Dim PrecioventamayoristaLabel As System.Windows.Forms.Label
+        Dim Label4 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMProductos))
         Me.ProductosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
@@ -62,6 +63,7 @@ Partial Class ABMProductos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.UnidadesmedidaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.unidadesmedidaTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.PrecioventadistribuidorTextBox = New System.Windows.Forms.TextBox()
         Me.PrecioventamayoristaTextBox = New System.Windows.Forms.TextBox()
         Me.PrecioventagranelTextBox = New System.Windows.Forms.TextBox()
         Me.PictureBoxCalidacodigo = New System.Windows.Forms.PictureBox()
@@ -96,6 +98,7 @@ Partial Class ABMProductos
         DescripcionLabel = New System.Windows.Forms.Label()
         PrecioventagranelLabel = New System.Windows.Forms.Label()
         PrecioventamayoristaLabel = New System.Windows.Forms.Label()
+        Label4 = New System.Windows.Forms.Label()
         CType(Me.ProductosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProductosBindingNavigator.SuspendLayout()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -133,12 +136,12 @@ Partial Class ABMProductos
         'ModeloLabel
         '
         ModeloLabel.AutoSize = True
-        ModeloLabel.Location = New System.Drawing.Point(92, 145)
+        ModeloLabel.Location = New System.Drawing.Point(81, 145)
         ModeloLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ModeloLabel.Name = "ModeloLabel"
-        ModeloLabel.Size = New System.Drawing.Size(58, 17)
+        ModeloLabel.Size = New System.Drawing.Size(69, 17)
         ModeloLabel.TabIndex = 5
-        ModeloLabel.Text = "Modelo:"
+        ModeloLabel.Text = "Producto:"
         '
         'PresentacionLabel
         '
@@ -196,12 +199,12 @@ Partial Class ABMProductos
         PrecioventaLabel.AccessibleName = "Precio Vta. público (empaque cerrado):"
         PrecioventaLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolTip
         PrecioventaLabel.AutoSize = True
-        PrecioventaLabel.Location = New System.Drawing.Point(42, 252)
+        PrecioventaLabel.Location = New System.Drawing.Point(4, 252)
         PrecioventaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PrecioventaLabel.Name = "PrecioventaLabel"
-        PrecioventaLabel.Size = New System.Drawing.Size(93, 17)
+        PrecioventaLabel.Size = New System.Drawing.Size(130, 17)
         PrecioventaLabel.TabIndex = 109
-        PrecioventaLabel.Text = "Precio Venta:"
+        PrecioventaLabel.Text = "Precio Vta. público:"
         '
         'Label3
         '
@@ -236,7 +239,7 @@ Partial Class ABMProductos
         'PrecioventagranelLabel
         '
         PrecioventagranelLabel.AutoSize = True
-        PrecioventagranelLabel.Location = New System.Drawing.Point(329, 219)
+        PrecioventagranelLabel.Location = New System.Drawing.Point(297, 219)
         PrecioventagranelLabel.Name = "PrecioventagranelLabel"
         PrecioventagranelLabel.Size = New System.Drawing.Size(137, 17)
         PrecioventagranelLabel.TabIndex = 112
@@ -245,11 +248,20 @@ Partial Class ABMProductos
         'PrecioventamayoristaLabel
         '
         PrecioventamayoristaLabel.AutoSize = True
-        PrecioventamayoristaLabel.Location = New System.Drawing.Point(317, 252)
+        PrecioventamayoristaLabel.Location = New System.Drawing.Point(285, 252)
         PrecioventamayoristaLabel.Name = "PrecioventamayoristaLabel"
         PrecioventamayoristaLabel.Size = New System.Drawing.Size(149, 17)
         PrecioventamayoristaLabel.TabIndex = 113
         PrecioventamayoristaLabel.Text = "Precio Vta. por mayor:"
+        '
+        'Label4
+        '
+        Label4.AutoSize = True
+        Label4.Location = New System.Drawing.Point(574, 218)
+        Label4.Name = "Label4"
+        Label4.Size = New System.Drawing.Size(113, 17)
+        Label4.TabIndex = 115
+        Label4.Text = "Precio Vta. Dist.:"
         '
         'ProductosBindingNavigator
         '
@@ -266,7 +278,7 @@ Partial Class ABMProductos
         Me.ProductosBindingNavigator.MovePreviousItem = Nothing
         Me.ProductosBindingNavigator.Name = "ProductosBindingNavigator"
         Me.ProductosBindingNavigator.PositionItem = Nothing
-        Me.ProductosBindingNavigator.Size = New System.Drawing.Size(1028, 47)
+        Me.ProductosBindingNavigator.Size = New System.Drawing.Size(1164, 47)
         Me.ProductosBindingNavigator.TabIndex = 0
         Me.ProductosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -330,7 +342,7 @@ Partial Class ABMProductos
         '
         Me.ImagenPictureBox.BackColor = System.Drawing.Color.White
         Me.ImagenPictureBox.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ProductosBindingSource, "imagen", True))
-        Me.ImagenPictureBox.Location = New System.Drawing.Point(740, 83)
+        Me.ImagenPictureBox.Location = New System.Drawing.Point(897, 83)
         Me.ImagenPictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ImagenPictureBox.Name = "ImagenPictureBox"
         Me.ImagenPictureBox.Size = New System.Drawing.Size(236, 214)
@@ -353,7 +365,7 @@ Partial Class ABMProductos
         Me.ProductosDataGridView.Name = "ProductosDataGridView"
         Me.ProductosDataGridView.ReadOnly = True
         Me.ProductosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ProductosDataGridView.Size = New System.Drawing.Size(973, 234)
+        Me.ProductosDataGridView.Size = New System.Drawing.Size(1106, 234)
         Me.ProductosDataGridView.TabIndex = 19
         '
         'idrubro
@@ -379,6 +391,7 @@ Partial Class ABMProductos
         Me.DataGridViewTextBoxColumn1.HeaderText = "Cod. Producto"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 120
         '
         'DataGridViewTextBoxColumn2
         '
@@ -391,7 +404,7 @@ Partial Class ABMProductos
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "modelo"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Modelo"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Producto"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
         Me.DataGridViewTextBoxColumn3.Width = 250
@@ -416,7 +429,7 @@ Partial Class ABMProductos
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(740, 299)
+        Me.Button1.Location = New System.Drawing.Point(897, 299)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(100, 28)
@@ -435,19 +448,31 @@ Partial Class ABMProductos
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Nothing
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
@@ -457,12 +482,18 @@ Partial Class ABMProductos
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Me.ProductosTableAdapter
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
@@ -476,6 +507,8 @@ Partial Class ABMProductos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.PrecioventadistribuidorTextBox)
+        Me.GroupBox1.Controls.Add(Label4)
         Me.GroupBox1.Controls.Add(PrecioventamayoristaLabel)
         Me.GroupBox1.Controls.Add(Me.PrecioventamayoristaTextBox)
         Me.GroupBox1.Controls.Add(PrecioventagranelLabel)
@@ -502,15 +535,24 @@ Partial Class ABMProductos
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(996, 287)
+        Me.GroupBox1.Size = New System.Drawing.Size(1135, 287)
         Me.GroupBox1.TabIndex = 22
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Producto"
         '
+        'PrecioventadistribuidorTextBox
+        '
+        Me.PrecioventadistribuidorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventadistribuidor", True))
+        Me.PrecioventadistribuidorTextBox.Location = New System.Drawing.Point(692, 216)
+        Me.PrecioventadistribuidorTextBox.Name = "PrecioventadistribuidorTextBox"
+        Me.PrecioventadistribuidorTextBox.Size = New System.Drawing.Size(116, 22)
+        Me.PrecioventadistribuidorTextBox.TabIndex = 116
+        Me.PrecioventadistribuidorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'PrecioventamayoristaTextBox
         '
         Me.PrecioventamayoristaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventamayorista", True))
-        Me.PrecioventamayoristaTextBox.Location = New System.Drawing.Point(472, 249)
+        Me.PrecioventamayoristaTextBox.Location = New System.Drawing.Point(440, 249)
         Me.PrecioventamayoristaTextBox.Name = "PrecioventamayoristaTextBox"
         Me.PrecioventamayoristaTextBox.Size = New System.Drawing.Size(116, 22)
         Me.PrecioventamayoristaTextBox.TabIndex = 114
@@ -519,7 +561,7 @@ Partial Class ABMProductos
         'PrecioventagranelTextBox
         '
         Me.PrecioventagranelTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventagranel", True))
-        Me.PrecioventagranelTextBox.Location = New System.Drawing.Point(472, 213)
+        Me.PrecioventagranelTextBox.Location = New System.Drawing.Point(440, 213)
         Me.PrecioventagranelTextBox.Name = "PrecioventagranelTextBox"
         Me.PrecioventagranelTextBox.Size = New System.Drawing.Size(116, 22)
         Me.PrecioventagranelTextBox.TabIndex = 113
@@ -677,7 +719,7 @@ Partial Class ABMProductos
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(996, 303)
+        Me.GroupBox2.Size = New System.Drawing.Size(1135, 303)
         Me.GroupBox2.TabIndex = 23
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Todos los productos"
@@ -694,7 +736,7 @@ Partial Class ABMProductos
         '
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Código", "Marca"})
+        Me.ComboBox2.Items.AddRange(New Object() {"Código", "Marca", "Producto"})
         Me.ComboBox2.Location = New System.Drawing.Point(252, 16)
         Me.ComboBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox2.Name = "ComboBox2"
@@ -719,7 +761,7 @@ Partial Class ABMProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1028, 670)
+        Me.ClientSize = New System.Drawing.Size(1164, 670)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ProductosDataGridView)
         Me.Controls.Add(IdproductoLabel)
@@ -797,12 +839,13 @@ Partial Class ABMProductos
     Friend WithEvents IdproductoTextBox As System.Windows.Forms.TextBox
     Friend WithEvents DescripcionTextBox As System.Windows.Forms.TextBox
     Friend WithEvents MedidaTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents PictureBoxCalidacodigo As PictureBox
+    Friend WithEvents PrecioventamayoristaTextBox As TextBox
+    Friend WithEvents PrecioventagranelTextBox As TextBox
     Friend WithEvents idrubro As DataGridViewComboBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents PictureBoxCalidacodigo As PictureBox
-    Friend WithEvents PrecioventamayoristaTextBox As TextBox
-    Friend WithEvents PrecioventagranelTextBox As TextBox
+    Friend WithEvents PrecioventadistribuidorTextBox As TextBox
 End Class

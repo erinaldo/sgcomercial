@@ -10,7 +10,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>sgcomercial.My.MyApplication</StartupObject>
     <RootNamespace>sgcomercial</RootNamespace>
-    <AssemblyName>SG Comercial</AssemblyName>
+    <AssemblyName>SGComercial</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -26,9 +26,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
+    <ProductName>SGComercial</ProductName>
+    <PublisherName>sistemascomerciales.net</PublisherName>
+    <SuiteName>SGComercial</SuiteName>
+    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationVersion>4.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -39,7 +43,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>SG Comercial.xml</DocumentationFile>
+    <DocumentationFile>SGComercial.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
@@ -49,7 +53,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>SG Comercial.xml</DocumentationFile>
+    <DocumentationFile>SGComercial.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -99,6 +103,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -141,6 +146,18 @@
     <Compile Include="BarCodePrint\BuscarCodigoInterno.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CuentasCorrientes\CtasCtesPagar.Designer.vb">
+      <DependentUpon>CtasCtesPagar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\CtasCtesPagar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasCorrientes\EstadoCuentaCorriente.Designer.vb">
+      <DependentUpon>EstadoCuentaCorriente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\EstadoCuentaCorriente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Delivery\AltaPedidoDelivery.designer.vb">
       <DependentUpon>AltaPedidoDelivery.vb</DependentUpon>
     </Compile>
@@ -153,16 +170,46 @@
     <Compile Include="Delivery\ClientesNuevoDomicilio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Delivery\LotesEnvios.Designer.vb">
+      <DependentUpon>LotesEnvios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\LotesEnvios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delivery\PedidosDeliveryDespacho.Designer.vb">
+      <DependentUpon>PedidosDeliveryDespacho.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\PedidosDeliveryDespacho.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delivery\PedidosDeliveryPagar.Designer.vb">
+      <DependentUpon>PedidosDeliveryPagar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\PedidosDeliveryPagar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Delivery\PedidosDeliveryRecibidos.designer.vb">
       <DependentUpon>PedidosDeliveryRecibidos.vb</DependentUpon>
     </Compile>
     <Compile Include="Delivery\PedidosDeliveryRecibidos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Delivery\LotePedidosDeliveryRendir.Designer.vb">
+      <DependentUpon>LotePedidosDeliveryRendir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\LotePedidosDeliveryRendir.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Delivery\Reportes\ViewerComanda.Designer.vb">
       <DependentUpon>ViewerComanda.vb</DependentUpon>
     </Compile>
     <Compile Include="Delivery\Reportes\ViewerComanda.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delivery\Reportes\ViewerLoteEnvio.Designer.vb">
+      <DependentUpon>ViewerLoteEnvio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\Reportes\ViewerLoteEnvio.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -180,29 +227,72 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Principal\AcercaDe.Designer.vb">
+    <Compile Include="Principal\DataSets\comercialDataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>comercialDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\DataSets\MySQLDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MySQLDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\Modulos\DBCModule.vb" />
+    <Compile Include="Principal\Modulos\MySQLModule.vb" />
+    <Compile Include="Principal\ParametrosGenerales\ABMLocalidades.Designer.vb">
+      <DependentUpon>ABMLocalidades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\ABMLocalidades.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\ABMProvincias.Designer.vb">
+      <DependentUpon>ABMProvincias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\ABMProvincias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\ConfigInicial\AcercaDe.Designer.vb">
       <DependentUpon>AcercaDe.vb</DependentUpon>
     </Compile>
-    <Compile Include="Principal\AcercaDe.vb">
+    <Compile Include="Principal\ConfigInicial\AcercaDe.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal\ADModulos.Designer.vb">
+    <Compile Include="Principal\ParametrosGenerales\ADModulos.Designer.vb">
       <DependentUpon>ADModulos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Principal\ADModulos.vb">
+    <Compile Include="Principal\ParametrosGenerales\ADModulos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal\AsignarCaja.Designer.vb">
+    <Compile Include="Principal\ParametrosGenerales\AsignarCaja.Designer.vb">
       <DependentUpon>AsignarCaja.vb</DependentUpon>
     </Compile>
-    <Compile Include="Principal\AsignarCaja.vb">
+    <Compile Include="Principal\ParametrosGenerales\AsignarCaja.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal\SplashSC.Designer.vb">
+    <Compile Include="Principal\ParametrosGenerales\SCAltaDispositivo.Designer.vb">
+      <DependentUpon>SCAltaDispositivo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\SCAltaDispositivo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\Modulos\SCModule.vb" />
+    <Compile Include="Principal\Modulos\SettingsUserOverride.vb" />
+    <Compile Include="Principal\Styles\Sincronizando.Designer.vb">
+      <DependentUpon>Sincronizando.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\Styles\Sincronizando.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\Styles\SplashSC.Designer.vb">
       <DependentUpon>SplashSC.vb</DependentUpon>
     </Compile>
-    <Compile Include="Principal\SplashSC.vb">
+    <Compile Include="Principal\Styles\SplashSC.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\DataSets\siscomDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>siscomDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Stock\CodificarProductos.Designer.vb">
       <DependentUpon>CodificarProductos.vb</DependentUpon>
@@ -258,44 +348,44 @@
     <Compile Include="Usuarios\CambiarClaveAcceso.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal\comercialDataSet.Designer.vb">
+    <Compile Include="Principal\DataSets\comercialDataSet.Designer.vb">
       <DependentUpon>comercialDataSet.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Principal\comercialDataSet.vb">
+    <Compile Include="Principal\DataSets\comercialDataSet.vb">
       <DependentUpon>comercialDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Principal\comercialDataSet1.Designer.vb">
+    <Compile Include="Principal\DataSets\comercialDataSet1.Designer.vb">
       <DependentUpon>comercialDataSet.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Principal\FondoAplicacion.Designer.vb">
+    <Compile Include="Principal\ParametrosGenerales\FondoAplicacion.Designer.vb">
       <DependentUpon>FondoAplicacion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Principal\FondoAplicacion.vb">
+    <Compile Include="Principal\ParametrosGenerales\FondoAplicacion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal\loginform.Designer.vb">
+    <Compile Include="Principal\ConfigInicial\loginform.Designer.vb">
       <DependentUpon>loginform.vb</DependentUpon>
     </Compile>
-    <Compile Include="Principal\loginform.vb">
+    <Compile Include="Principal\ConfigInicial\loginform.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal\MiComercio.Designer.vb">
+    <Compile Include="Principal\ParametrosGenerales\MiComercio.Designer.vb">
       <DependentUpon>MiComercio.vb</DependentUpon>
     </Compile>
-    <Compile Include="Principal\MiComercio.vb">
+    <Compile Include="Principal\ParametrosGenerales\MiComercio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal\Principal.Designer.vb">
+    <Compile Include="Principal\ConfigInicial\Principal.Designer.vb">
       <DependentUpon>Principal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Principal\Principal.vb">
+    <Compile Include="Principal\ConfigInicial\Principal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal\SGCModule.vb" />
+    <Compile Include="Principal\Modulos\SGCModule.vb" />
     <Compile Include="Proveedores\ABMPedidos.Designer.vb">
       <DependentUpon>ABMPedidos.vb</DependentUpon>
     </Compile>
@@ -575,18 +665,40 @@
       <DependentUpon>BuscarCodigoInterno.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BarCodePrint\RepPlantillaBarCode.rdlc" />
+    <EmbeddedResource Include="CuentasCorrientes\CtasCtesPagar.resx">
+      <DependentUpon>CtasCtesPagar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasCorrientes\EstadoCuentaCorriente.resx">
+      <DependentUpon>EstadoCuentaCorriente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delivery\AltaPedidoDelivery.resx">
       <DependentUpon>AltaPedidoDelivery.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\ClientesNuevoDomicilio.resx">
       <DependentUpon>ClientesNuevoDomicilio.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\LotesEnvios.resx">
+      <DependentUpon>LotesEnvios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\PedidosDeliveryDespacho.resx">
+      <DependentUpon>PedidosDeliveryDespacho.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\PedidosDeliveryPagar.resx">
+      <DependentUpon>PedidosDeliveryPagar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delivery\PedidosDeliveryRecibidos.resx">
       <DependentUpon>PedidosDeliveryRecibidos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\LotePedidosDeliveryRendir.resx">
+      <DependentUpon>LotePedidosDeliveryRendir.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delivery\Reportes\ReportComanda.rdlc" />
+    <EmbeddedResource Include="Delivery\Reportes\ReportLoteEnvio.rdlc" />
     <EmbeddedResource Include="Delivery\Reportes\ViewerComanda.resx">
       <DependentUpon>ViewerComanda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\Reportes\ViewerLoteEnvio.resx">
+      <DependentUpon>ViewerLoteEnvio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -594,16 +706,28 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal\AcercaDe.resx">
+    <EmbeddedResource Include="Principal\ParametrosGenerales\ABMLocalidades.resx">
+      <DependentUpon>ABMLocalidades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\ParametrosGenerales\ABMProvincias.resx">
+      <DependentUpon>ABMProvincias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\ConfigInicial\AcercaDe.resx">
       <DependentUpon>AcercaDe.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal\ADModulos.resx">
+    <EmbeddedResource Include="Principal\ParametrosGenerales\ADModulos.resx">
       <DependentUpon>ADModulos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal\AsignarCaja.resx">
+    <EmbeddedResource Include="Principal\ParametrosGenerales\AsignarCaja.resx">
       <DependentUpon>AsignarCaja.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal\SplashSC.resx">
+    <EmbeddedResource Include="Principal\ParametrosGenerales\SCAltaDispositivo.resx">
+      <DependentUpon>SCAltaDispositivo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\Styles\Sincronizando.resx">
+      <DependentUpon>Sincronizando.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\Styles\SplashSC.resx">
       <DependentUpon>SplashSC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock\CodificarProductos.resx">
@@ -634,16 +758,16 @@
     <EmbeddedResource Include="Usuarios\CambiarClaveAcceso.resx">
       <DependentUpon>CambiarClaveAcceso.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal\FondoAplicacion.resx">
+    <EmbeddedResource Include="Principal\ParametrosGenerales\FondoAplicacion.resx">
       <DependentUpon>FondoAplicacion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal\loginform.resx">
+    <EmbeddedResource Include="Principal\ConfigInicial\loginform.resx">
       <DependentUpon>loginform.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal\MiComercio.resx">
+    <EmbeddedResource Include="Principal\ParametrosGenerales\MiComercio.resx">
       <DependentUpon>MiComercio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal\Principal.resx">
+    <EmbeddedResource Include="Principal\ConfigInicial\Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedores\ABMPedidos.resx">
@@ -793,8 +917,20 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="AppConfig\app.config" />
-    <None Include="My Project\app.manifest" />
-    <None Include="Principal\app.config" />
+    <None Include="My Project\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Principal\DataSets\MySQLDataSet.xsc">
+      <DependentUpon>MySQLDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Principal\DataSets\MySQLDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MySQLDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Principal\DataSets\MySQLDataSet.xss">
+      <DependentUpon>MySQLDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -805,16 +941,27 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="AppConfig\sgcomercial_TemporaryKey.pfx" />
-    <None Include="Principal\comercialDataSet.xsc">
+    <None Include="Principal\DataSets\comercialDataSet.xsc">
       <DependentUpon>comercialDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Principal\comercialDataSet.xsd">
+    <None Include="Principal\DataSets\comercialDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>comercialDataSet1.Designer.vb</LastGenOutput>
+      <LastGenOutput>comercialDataSet3.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Principal\comercialDataSet.xss">
+    <None Include="Principal\DataSets\comercialDataSet.xss">
       <DependentUpon>comercialDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Principal\DataSets\siscomDataSet.xsc">
+      <DependentUpon>siscomDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Principal\DataSets\siscomDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>siscomDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Principal\DataSets\siscomDataSet.xss">
+      <DependentUpon>siscomDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -843,6 +990,7 @@
     <None Include="My Project\img\Alerta.png" />
     <None Include="My Project\img\green-plus-icon-13.jpg" />
     <None Include="My Project\img\plus-orange.png" />
+    <None Include="My Project\img\cloud-sync-icon.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

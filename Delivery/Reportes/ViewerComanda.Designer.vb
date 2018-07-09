@@ -23,9 +23,9 @@ Partial Class ViewerComanda
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.listapedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -63,19 +63,19 @@ Partial Class ViewerComanda
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource4.Name = "MiComercio"
-        ReportDataSource4.Value = Me.MiComercioBindingSource
-        ReportDataSource5.Name = "ListaPedidosDelivery"
-        ReportDataSource5.Value = Me.listapedidosdeliveryBindingSource
-        ReportDataSource6.Name = "ListaPedidosDeliveryDetalle"
-        ReportDataSource6.Value = Me.listapedidosdeliverydetalleBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "ListaPedidosDelivery"
+        ReportDataSource2.Value = Me.listapedidosdeliveryBindingSource
+        ReportDataSource3.Name = "ListaPedidosDeliveryDetalle"
+        ReportDataSource3.Value = Me.listapedidosdeliverydetalleBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.ReportComanda.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(934, 670)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1468, 670)
         Me.ReportViewer1.TabIndex = 0
         '
         'MiComercioTableAdapter
@@ -94,12 +94,12 @@ Partial Class ViewerComanda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(934, 670)
+        Me.ClientSize = New System.Drawing.Size(1468, 670)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "ViewerComanda"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Tag = "ViewerComanda"
-        Me.Text = "ViewerComanda"
+        Me.Tag = "VisorComanda"
+        Me.Text = "Vista previa de orden"
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.listapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

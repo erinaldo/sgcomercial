@@ -20,6 +20,7 @@ Public Class ABMProductos
         enableedit(False)
         enablefilter(True)
         ComboBox2.SelectedIndex = 1
+        TextFiltro.Select()
     End Sub
 
     Private Sub ProductosBindingNavigatorSaveItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -146,6 +147,8 @@ Public Class ABMProductos
                 ProductosBindingSource.Filter = "codigoproducto like '%" + TextFiltro.Text + "%'"
             Case "Marca"
                 ProductosBindingSource.Filter = "marca like '%" + TextFiltro.Text + "%'"
+            Case "Producto"
+                ProductosBindingSource.Filter = "modelo like '%" + TextFiltro.Text + "%'"
             Case Else
                 TextFiltro.Text = ""
                 MsgBox("Seleccione un criterio de filtrado!", MsgBoxStyle.Exclamation, "Advertencia")
@@ -174,6 +177,7 @@ Public Class ABMProductos
         PictureBoxCalidacodigo.Enabled = status
         PrecioventagranelTextBox.Enabled = status
         PrecioventamayoristaTextBox.Enabled = status
+        PrecioventadistribuidorTextBox.Enabled = status
 
     End Sub
     Public Sub enablefilter(ByVal status As Boolean)
