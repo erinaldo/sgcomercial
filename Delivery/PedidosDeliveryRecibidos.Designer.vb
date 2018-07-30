@@ -63,6 +63,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.imprimircomanda = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Pagar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Baja = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
@@ -129,7 +130,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.ListapedidosdeliveryDataGridView.AllowUserToResizeRows = False
         Me.ListapedidosdeliveryDataGridView.AutoGenerateColumns = False
         Me.ListapedidosdeliveryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListapedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpedidodelivery, Me.estado, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.imprimircomanda, Me.Pagar, Me.saldo, Me.idcliente})
+        Me.ListapedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpedidodelivery, Me.estado, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.imprimircomanda, Me.Pagar, Me.Baja, Me.saldo, Me.idcliente})
         Me.ListapedidosdeliveryDataGridView.DataSource = Me.ListapedidosdeliveryBindingSource
         Me.ListapedidosdeliveryDataGridView.Location = New System.Drawing.Point(16, 35)
         Me.ListapedidosdeliveryDataGridView.MultiSelect = False
@@ -439,8 +440,19 @@ Partial Class PedidosDeliveryRecibidos
         Me.Pagar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Pagar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.Pagar.Text = "Pagar"
-        Me.Pagar.ToolTipText = "Pagar"
+        Me.Pagar.ToolTipText = "Cargar Pago"
         Me.Pagar.UseColumnTextForButtonValue = True
+        '
+        'Baja
+        '
+        Me.Baja.HeaderText = "Cancelar"
+        Me.Baja.Name = "Baja"
+        Me.Baja.ReadOnly = True
+        Me.Baja.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Baja.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Baja.Text = "Cancelar"
+        Me.Baja.ToolTipText = "Cancelar Pedido"
+        Me.Baja.UseColumnTextForButtonValue = True
         '
         'saldo
         '
@@ -521,6 +533,7 @@ Partial Class PedidosDeliveryRecibidos
     Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
     Friend WithEvents imprimircomanda As DataGridViewButtonColumn
     Friend WithEvents Pagar As DataGridViewButtonColumn
+    Friend WithEvents Baja As DataGridViewButtonColumn
     Friend WithEvents saldo As DataGridViewTextBoxColumn
     Friend WithEvents idcliente As DataGridViewTextBoxColumn
 End Class

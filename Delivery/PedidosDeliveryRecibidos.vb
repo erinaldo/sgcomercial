@@ -64,6 +64,12 @@
                     gidcliente = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
                     p.ShowDialog()
                 End If
+            Case 12
+                If MsgBox("Seguro desea dar de baja el pedido seleccionado?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                    PedidosdeliveryTableAdapter.pedidosdelivery_baja(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value)
+                    reloadpedidos()
+                End If
+
         End Select
     End Sub
 

@@ -161,7 +161,7 @@
             Return
         End If
         Dim idlote As Long
-        Dim idventasdetalle As Long
+        'Dim idventasdetalle As Long
         Dim v_rtn As Long
         Try
             idlote = LotesenviosTableAdapter.lotesenvios_insertar(ComboBoxResponsables.SelectedValue, Today())
