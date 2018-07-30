@@ -330,15 +330,14 @@
                 umedida = PedidoDetalleDataGridView.Rows(i).Cells(5).Value '''''''''''''''''''''''''''''''''''''
                 codigoproducto = PedidoDetalleDataGridView.Rows(i).Cells(6).Value
                 medida = ProductosTableAdapter.productos_consultarmedida(codigoproducto)
-                Select Case umedida
-                    Case 1  'kilos
-                        cantidad = cantidad * medida
-                    Case 2  'metros
-                        cantidad = cantidad * medida
-                    Case 3  'litros
-                        cantidad = cantidad * medida
-                End Select
-
+                'Select Case umedida
+                '    Case 1  'kilos
+                '        cantidad = cantidad * medida
+                '    Case 2  'metros
+                '        cantidad = cantidad * medida
+                '    Case 3  'litros
+                '        cantidad = cantidad * medida
+                'End Select
                 StockTableAdapter.stock_insertarmovimientorecepcion(idproducto, cantidad, Today, gusername, "E", rtn)
                 PedidosdetalleTableAdapter.pedidosdetalle_confirmarecepcion(1, rtn, 3)
             Next

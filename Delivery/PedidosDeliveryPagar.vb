@@ -146,9 +146,9 @@ Public Class PedidosDeliveryPagar
         End If
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        gidpago = -1
-        gidventa = -1
-        Me.Close()
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
+        'gidpago = -1
+        'gidventa = -1
+        'Me.Close()
     End Sub
 End Class

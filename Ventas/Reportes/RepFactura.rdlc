@@ -705,7 +705,7 @@
           <Top>4.12962cm</Top>
           <Left>4.00272cm</Left>
           <Height>0.6cm</Height>
-          <Width>10.91375cm</Width>
+          <Width>10.23642cm</Width>
           <ZIndex>8</ZIndex>
           <Style>
             <Border>
@@ -827,6 +827,40 @@
           <Height>0.6cm</Height>
           <Width>7.34717cm</Width>
           <ZIndex>12</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="idventa">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Nº: </Value>
+                  <Style />
+                </TextRun>
+                <TextRun>
+                  <Value>=Sum(Fields!idventa.Value, "libroventas")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>idventa</rd:DefaultName>
+          <Top>4.12962cm</Top>
+          <Left>14.34497cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.92703cm</Width>
+          <ZIndex>13</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>

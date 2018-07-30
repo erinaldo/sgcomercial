@@ -61,7 +61,7 @@ Partial Class LotesEnvios
         Me.GroupBox1.Size = New System.Drawing.Size(616, 659)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
+        Me.GroupBox1.Text = "Lista de Lotes"
         '
         'LotesenviosdetalleDataGridView
         '

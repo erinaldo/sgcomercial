@@ -30,6 +30,7 @@ Partial Class Principal
         Me.CambioMercaderíaVendidaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasPorDiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroMayorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarPreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -78,14 +79,17 @@ Partial Class Principal
         Me.ABMRubrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMProvinciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ABMTransportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMPermisosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ABMPerfilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeSGComercialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambiarContraseñaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SincronizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SysConfigToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AltaTerminalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMUnidadesMedidaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModulosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -145,7 +149,7 @@ Partial Class Principal
         Me.ListaprecioscajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaprecioscajaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaprecioscajaTableAdapter()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.AltaTerminalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.POSTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,6 +171,7 @@ Partial Class Principal
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SincronizarToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem})
+        Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
@@ -211,23 +216,30 @@ Partial Class Principal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LibroVentasToolStripMenuItem, Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(380, 28)
         Me.ReportesToolStripMenuItem.Tag = "ReportesParent"
         Me.ReportesToolStripMenuItem.Text = "Reportes"
         '
+        'LibroVentasToolStripMenuItem
+        '
+        Me.LibroVentasToolStripMenuItem.Name = "LibroVentasToolStripMenuItem"
+        Me.LibroVentasToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.LibroVentasToolStripMenuItem.Tag = "LibroVentasDetalladas"
+        Me.LibroVentasToolStripMenuItem.Text = "Libro Ventas Detalladas"
+        '
         'VentasPorDiaToolStripMenuItem
         '
         Me.VentasPorDiaToolStripMenuItem.Name = "VentasPorDiaToolStripMenuItem"
-        Me.VentasPorDiaToolStripMenuItem.Size = New System.Drawing.Size(177, 28)
+        Me.VentasPorDiaToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
         Me.VentasPorDiaToolStripMenuItem.Tag = "LibroDiario"
         Me.VentasPorDiaToolStripMenuItem.Text = "Libro Diario"
         '
         'LibroMayorToolStripMenuItem
         '
         Me.LibroMayorToolStripMenuItem.Name = "LibroMayorToolStripMenuItem"
-        Me.LibroMayorToolStripMenuItem.Size = New System.Drawing.Size(177, 28)
+        Me.LibroMayorToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
         Me.LibroMayorToolStripMenuItem.Tag = "LibroMayor"
         Me.LibroMayorToolStripMenuItem.Text = "Libro Mayor"
         '
@@ -541,7 +553,7 @@ Partial Class Principal
         '
         'ConfiguracionesToolStripMenuItem
         '
-        Me.ConfiguracionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MiComercioToolStripMenuItem, Me.FondoAplicaciónToolStripMenuItem, Me.ABMRubrosToolStripMenuItem, Me.ABMProvinciasToolStripMenuItem, Me.ABMLocalidadesToolStripMenuItem})
+        Me.ConfiguracionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MiComercioToolStripMenuItem, Me.FondoAplicaciónToolStripMenuItem, Me.ABMRubrosToolStripMenuItem, Me.ABMProvinciasToolStripMenuItem, Me.ABMLocalidadesToolStripMenuItem, Me.ABMTransportesToolStripMenuItem})
         Me.ConfiguracionesToolStripMenuItem.Name = "ConfiguracionesToolStripMenuItem"
         Me.ConfiguracionesToolStripMenuItem.Size = New System.Drawing.Size(145, 27)
         Me.ConfiguracionesToolStripMenuItem.Tag = "ModuloConfiguraciones"
@@ -583,9 +595,16 @@ Partial Class Principal
         Me.ABMLocalidadesToolStripMenuItem.Tag = "ABMLocalidades"
         Me.ABMLocalidadesToolStripMenuItem.Text = "ABM Localidades"
         '
+        'ABMTransportesToolStripMenuItem
+        '
+        Me.ABMTransportesToolStripMenuItem.Name = "ABMTransportesToolStripMenuItem"
+        Me.ABMTransportesToolStripMenuItem.Size = New System.Drawing.Size(217, 28)
+        Me.ABMTransportesToolStripMenuItem.Tag = "ABMTransportes"
+        Me.ABMTransportesToolStripMenuItem.Text = "ABM Transportes"
+        '
         'UsuariosToolStripMenuItem
         '
-        Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMUsuariosToolStripMenuItem, Me.ABMPermisosToolStripMenuItem})
+        Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMUsuariosToolStripMenuItem, Me.ABMPermisosToolStripMenuItem, Me.ABMPerfilesToolStripMenuItem})
         Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
         Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(87, 27)
         Me.UsuariosToolStripMenuItem.Tag = "ModuloSeguridad"
@@ -605,9 +624,16 @@ Partial Class Principal
         Me.ABMPermisosToolStripMenuItem.Tag = "ABMPermisos"
         Me.ABMPermisosToolStripMenuItem.Text = "ABM Permisos"
         '
+        'ABMPerfilesToolStripMenuItem
+        '
+        Me.ABMPerfilesToolStripMenuItem.Name = "ABMPerfilesToolStripMenuItem"
+        Me.ABMPerfilesToolStripMenuItem.Size = New System.Drawing.Size(194, 28)
+        Me.ABMPerfilesToolStripMenuItem.Tag = "ABMPerfiles"
+        Me.ABMPerfilesToolStripMenuItem.Text = "ABM Perfiles"
+        '
         'AyudaToolStripMenuItem
         '
-        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeSGComercialToolStripMenuItem, Me.CambiarContraseñaToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeSGComercialToolStripMenuItem, Me.CambiarContraseñaToolStripMenuItem, Me.POSTToolStripMenuItem})
         Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
         Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(70, 27)
         Me.AyudaToolStripMenuItem.Tag = "ModuloAyuda"
@@ -642,6 +668,12 @@ Partial Class Principal
         Me.SysConfigToolStripMenuItem.Size = New System.Drawing.Size(96, 27)
         Me.SysConfigToolStripMenuItem.Tag = "SysConfig"
         Me.SysConfigToolStripMenuItem.Text = "SysConfig"
+        '
+        'AltaTerminalToolStripMenuItem
+        '
+        Me.AltaTerminalToolStripMenuItem.Name = "AltaTerminalToolStripMenuItem"
+        Me.AltaTerminalToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
+        Me.AltaTerminalToolStripMenuItem.Text = "Alta Dispositivo"
         '
         'AsignarCajaToolStripMenuItem
         '
@@ -1112,11 +1144,12 @@ Partial Class Principal
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
         '
-        'AltaTerminalToolStripMenuItem
+        'POSTToolStripMenuItem
         '
-        Me.AltaTerminalToolStripMenuItem.Name = "AltaTerminalToolStripMenuItem"
-        Me.AltaTerminalToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
-        Me.AltaTerminalToolStripMenuItem.Text = "Alta Dispositivo"
+        Me.POSTToolStripMenuItem.Name = "POSTToolStripMenuItem"
+        Me.POSTToolStripMenuItem.Size = New System.Drawing.Size(263, 28)
+        Me.POSTToolStripMenuItem.Tag = "POSTForm"
+        Me.POSTToolStripMenuItem.Text = "POSTForm"
         '
         'Principal
         '
@@ -1283,4 +1316,8 @@ Partial Class Principal
     Friend WithEvents LotesDeEnvìosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SincronizarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AltaTerminalToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LibroVentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ABMPerfilesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ABMTransportesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents POSTToolStripMenuItem As ToolStripMenuItem
 End Class

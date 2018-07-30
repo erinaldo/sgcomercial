@@ -2,10 +2,20 @@
     Private Sub PedidosdeliveryBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
 
     End Sub
+    Sub reloadpedidos()
+        Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
+        If guserprofile = "ADMINISTRADOR" Then
+            Me.ListapedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.listapedidosdelivery)
+        Else
+            Me.ListapedidosdeliveryTableAdapter.FillByAptosPreparacion(Me.ComercialDataSet.listapedidosdelivery)
+            ListapedidosdeliveryDataGridView.Columns("Pagar").Visible = False
+        End If
+    End Sub
 
     Private Sub PedidosRecibidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
-        Me.ListapedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.listapedidosdelivery)
+        reloadpedidos()
+
         '***************    ordenamiento por estado del pedido  **********************
         Try
             Dim newColumn As DataGridViewColumn = ListapedidosdeliveryDataGridView.Columns(1)
@@ -24,7 +34,7 @@
 
     Private Sub ListapedidosdeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellClick
         Select Case e.ColumnIndex
-            Case 10
+            Case 10 ' imprimir orden de produccion
                 Dim p As ViewerComanda
                 p = New ViewerComanda
                 gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(0).Value
@@ -33,8 +43,6 @@
                 Dim estadopedido As String = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
                 p.ShowDialog()
                 If Not estadopedido = "DESPACHADO" Then
-
-
                     Try
                         PedidosdeliveryTableAdapter.pedidosdelivery_updateestado("ENPROCESO", gidpedidodelivery)
                         If idpedidoweb > 0 Then
@@ -43,10 +51,19 @@
                     Catch ex As Exception
                         MsgBox(ex.Message)
                     End Try
-
-                    Me.ListapedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.listapedidosdelivery)
+                    reloadpedidos()
                 End If
-
+            Case 11 ' cargar pago
+                If ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("saldo").Value > 0 Then
+                    Dim p As PedidosDeliveryPagar
+                    p = New PedidosDeliveryPagar
+                    gidpago = 0
+                    gidventa = 0
+                    'gmontoapagar = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(12).Value
+                    gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value
+                    gidcliente = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
+                    p.ShowDialog()
+                End If
         End Select
     End Sub
 

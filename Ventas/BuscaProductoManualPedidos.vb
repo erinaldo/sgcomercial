@@ -92,16 +92,23 @@ Public Class BuscaProductoManualPedidos
     End Sub
 
     Private Sub ProductosDataGridView_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ProductosDataGridView.CellClick
-        gcodigoproducto = ProductosDataGridView.CurrentRow.Cells(0).Value
-        gprecioventa = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
-        precioventatextbox.Text = gprecioventa
-        gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
-        ComboBox1.SelectedIndex = 1
-        cantidadtextbox.Text = Nothing
-        montotextbox.Text = Nothing
-        Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
-        textboxEnvasado.Text = StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
-        textboxUnidades.Text = StockTableAdapter.stock_consultardisponible(idproducto)
+        CallClick()
+    End Sub
+    Sub CallClick()
+        Try
+            gcodigoproducto = ProductosDataGridView.CurrentRow.Cells(0).Value
+            gprecioventa = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
+            precioventatextbox.Text = gprecioventa
+            gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
+            ComboBox1.SelectedIndex = 1
+            cantidadtextbox.Text = Nothing
+            montotextbox.Text = Nothing
+            Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
+            textboxEnvasado.Text = StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
+            textboxUnidades.Text = StockTableAdapter.stock_consultardisponible(idproducto)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub ProductosDataGridView_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ProductosDataGridView.CellContentClick
@@ -303,6 +310,14 @@ Public Class BuscaProductoManualPedidos
                 precioventatextbox.Text = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
                 gprecioventa = precioventatextbox.Text
                 'MsgBox("hola" + precioventamayorista.ToString)
+            Case 3
+                glistaprecio = 4
+                'precioventacomercios
+                precioventatextbox.Text = ProductosTableAdapter.productos_precioventadistribuidor(gcodigoproducto)
+                gprecioventa = precioventatextbox.Text
+                'MsgBox("hola" + precioventamayorista.ToString)
+            Case Else
+                MsgBox("Opcion no configurada", MsgBoxStyle.Exclamation)
         End Select
         calcular()
     End Sub
@@ -323,11 +338,39 @@ Public Class BuscaProductoManualPedidos
 
     Private Sub ProductosDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.SelectionChanged
         Try
+            CallClick()
             textboxEnvasado.Text = StockTableAdapter.stock_consultardisponibleenvasado(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells(0).Value)
             textboxUnidades.Text = StockTableAdapter.stock_consultardisponible(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells(0).Value)
         Catch ex As Exception
 
         End Try
+
+    End Sub
+
+    Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ProductosDataGridView.Select()
+            ProductosDataGridView.Rows(0).Selected = True
+        End If
+    End Sub
+
+    Private Sub ProductosDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles ProductosDataGridView.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            CallClick()
+            cantidadtextbox.Select()
+            e.SuppressKeyPress = True
+        End If
+    End Sub
+
+    Private Sub ProductosDataGridView_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.RowEnter
+
+    End Sub
+
+    Private Sub ProductosDataGridView_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ProductosDataGridView.KeyPress
+
+    End Sub
+
+    Private Sub ProductosDataGridView_RowLeave(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.RowLeave
 
     End Sub
 End Class

@@ -23,8 +23,8 @@ Partial Class PedidosDeliveryPagar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PedidosDeliveryPagar))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.nrocomprobante = New System.Windows.Forms.TextBox()
         Me.ComboTipoComprobante = New System.Windows.Forms.ComboBox()
         Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -90,7 +90,6 @@ Partial Class PedidosDeliveryPagar
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.nrocomprobante)
         Me.GroupBox1.Controls.Add(Me.ComboTipoComprobante)
         Me.GroupBox1.Controls.Add(Me.ComboFormapago)
@@ -108,15 +107,6 @@ Partial Class PedidosDeliveryPagar
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pago"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(327, 198)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(219, 45)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "A Cuenta Corriente"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'nrocomprobante
         '
@@ -183,7 +173,7 @@ Partial Class PedidosDeliveryPagar
         '
         'BtnConfirmar
         '
-        Me.BtnConfirmar.Location = New System.Drawing.Point(102, 198)
+        Me.BtnConfirmar.Location = New System.Drawing.Point(215, 198)
         Me.BtnConfirmar.Name = "BtnConfirmar"
         Me.BtnConfirmar.Size = New System.Drawing.Size(219, 45)
         Me.BtnConfirmar.TabIndex = 5
@@ -550,6 +540,7 @@ Partial Class PedidosDeliveryPagar
         Me.Controls.Add(Me.ListapedidosdeliveryDataGridView)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "PedidosDeliveryPagar"
@@ -622,6 +613,5 @@ Partial Class PedidosDeliveryPagar
     Friend WithEvents PagosTableAdapter As comercialDataSetTableAdapters.pagosTableAdapter
     Friend WithEvents CajasoperacionesTableAdapter As comercialDataSetTableAdapters.cajasoperacionesTableAdapter
     Friend WithEvents CajaseventosTableAdapter As comercialDataSetTableAdapters.cajaseventosTableAdapter
-    Friend WithEvents Button1 As Button
     Friend WithEvents ParametrosgeneralesTableAdapter1 As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
 End Class

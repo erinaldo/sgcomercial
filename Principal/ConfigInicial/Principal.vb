@@ -565,4 +565,24 @@ Public Class Principal
         SCAltaDispositivo.ShowDialog()
 
     End Sub
+
+    Private Sub LibroVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroVentasToolStripMenuItem.Click
+        LibroVentasDetalladas.MdiParent = Me
+        LibroVentasDetalladas.Visible = True
+    End Sub
+
+    Private Sub ABMPerfilesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMPerfilesToolStripMenuItem.Click
+        ABMPerfiles.MdiParent = Me
+        ABMPerfiles.Visible = True
+    End Sub
+
+    Private Sub ABMTransportesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMTransportesToolStripMenuItem.Click
+        ABMTransportes.MdiParent = Me
+        ABMTransportes.Visible = True
+    End Sub
+
+    Private Sub POSTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles POSTToolStripMenuItem.Click
+        POSTForm.MdiParent = Me
+        POSTForm.Visible = True
+    End Sub
 End Class

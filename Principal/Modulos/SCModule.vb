@@ -58,6 +58,8 @@ Module SCModule
                     LicenceValidDate = terminalesTableAdapter.terminales_validarlicencia(mac)
                     If parametrosgeneralesTableAdapter.parametrosgenerales_existeclave(MachineKey) > 0 Then
                         parametrosgeneralesTableAdapter.parametrosgenerales_updateprgstring1(MachineKey, LicenceValidDate.ToString) ' UPDATEA LOCAL
+                    Else
+                        parametrosgeneralesTableAdapter.parametrosgenerales_insertar(MachineKey, Nothing, LicenceValidDate, Nothing, Nothing) ' INSERT LOCAL
                     End If
                 Catch ex As Exception
                     LicenceValidDate = Nothing

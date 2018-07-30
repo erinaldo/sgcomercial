@@ -29,7 +29,7 @@
     <ProductName>SGComercial</ProductName>
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>4.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -158,6 +158,12 @@
     <Compile Include="CuentasCorrientes\EstadoCuentaCorriente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Delivery\ABMTransportes.Designer.vb">
+      <DependentUpon>ABMTransportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\ABMTransportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Delivery\AltaPedidoDelivery.designer.vb">
       <DependentUpon>AltaPedidoDelivery.vb</DependentUpon>
     </Compile>
@@ -200,6 +206,12 @@
     <Compile Include="Delivery\LotePedidosDeliveryRendir.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Delivery\POSTForm.Designer.vb">
+      <DependentUpon>POSTForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\POSTForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Delivery\Reportes\ViewerComanda.Designer.vb">
       <DependentUpon>ViewerComanda.vb</DependentUpon>
     </Compile>
@@ -226,11 +238,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Principal\DataSets\comercialDataSet3.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>comercialDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Principal\DataSets\MySQLDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -342,6 +349,12 @@
     <Compile Include="TransferenciaStock\SeleccionarProductoEnvio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Usuarios\ABMPerfiles.Designer.vb">
+      <DependentUpon>ABMPerfiles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\ABMPerfiles.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Usuarios\CambiarClaveAcceso.Designer.vb">
       <DependentUpon>CambiarClaveAcceso.vb</DependentUpon>
     </Compile>
@@ -349,6 +362,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal\DataSets\comercialDataSet.Designer.vb">
+      <DependentUpon>comercialDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Principal\DataSets\comercialDataSet3.Designer.vb">
       <DependentUpon>comercialDataSet.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -474,6 +492,12 @@
       <DependentUpon>ConsultarPrecios.vb</DependentUpon>
     </Compile>
     <Compile Include="Ventas\ConsultarPrecios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\LibroVentasDetalladas.Designer.vb">
+      <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\LibroVentasDetalladas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventas\Reportes\ReporteCierreCaja.Designer.vb">
@@ -671,6 +695,9 @@
     <EmbeddedResource Include="CuentasCorrientes\EstadoCuentaCorriente.resx">
       <DependentUpon>EstadoCuentaCorriente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\ABMTransportes.resx">
+      <DependentUpon>ABMTransportes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delivery\AltaPedidoDelivery.resx">
       <DependentUpon>AltaPedidoDelivery.vb</DependentUpon>
     </EmbeddedResource>
@@ -691,6 +718,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\LotePedidosDeliveryRendir.resx">
       <DependentUpon>LotePedidosDeliveryRendir.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\POSTForm.resx">
+      <DependentUpon>POSTForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\Reportes\ReportComanda.rdlc" />
     <EmbeddedResource Include="Delivery\Reportes\ReportLoteEnvio.rdlc" />
@@ -755,6 +785,9 @@
     <EmbeddedResource Include="TransferenciaStock\SeleccionarProductoEnvio.resx">
       <DependentUpon>SeleccionarProductoEnvio.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\ABMPerfiles.resx">
+      <DependentUpon>ABMPerfiles.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\CambiarClaveAcceso.resx">
       <DependentUpon>CambiarClaveAcceso.vb</DependentUpon>
     </EmbeddedResource>
@@ -815,6 +848,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\ConsultarPrecios.resx">
       <DependentUpon>ConsultarPrecios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\LibroVentasDetalladas.resx">
+      <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\RepEstadoResultados.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepLibroMayor.rdlc" />
@@ -945,8 +981,8 @@
       <DependentUpon>comercialDataSet.xsd</DependentUpon>
     </None>
     <None Include="Principal\DataSets\comercialDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>comercialDataSet3.Designer.vb</LastGenOutput>
     </None>
     <None Include="Principal\DataSets\comercialDataSet.xss">

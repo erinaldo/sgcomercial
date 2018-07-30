@@ -6,10 +6,6 @@ Public Class AltaPedidoDelivery
     Dim rtn As Boolean
 
     Private Sub AltaPedido_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidosdeliverydetalle' Puede moverla o quitarla según sea necesario.
-        'Me.PedidosdeliverydetalleTableAdapter.Fill(Me.ComercialDataSet.pedidosdeliverydetalle)
-        ''TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidosdelivery' Puede moverla o quitarla según sea necesario.
-        'Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.unidadesmedida' Puede moverla o quitarla según sea necesario.
         Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet.unidadesmedida)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
@@ -219,18 +215,18 @@ Public Class AltaPedidoDelivery
             rtn = False
             Return
         End If
-        If Len(Trim(TextBoxTelefono.Text)) = 0 Then
-            MsgBox("Cargar Teléfono", MsgBoxStyle.Exclamation)
-            TextBoxTelefono.Select()
-            rtn = False
-            Return
-        End If
-        If Len(Trim(TextBoxEmail.Text)) = 0 Then
-            MsgBox("Cargar Email", MsgBoxStyle.Exclamation)
-            TextBoxEmail.Select()
-            rtn = False
-            Return
-        End If
+        'If Len(Trim(TextBoxTelefono.Text)) = 0 Then
+        '    MsgBox("Cargar Teléfono", MsgBoxStyle.Exclamation)
+        '    TextBoxTelefono.Select()
+        '    rtn = False
+        '    Return
+        'End If
+        'If Len(Trim(TextBoxEmail.Text)) = 0 Then
+        '    MsgBox("Cargar Email", MsgBoxStyle.Exclamation)
+        '    TextBoxEmail.Select()
+        '    rtn = False
+        '    Return
+        'End If
         If Len(Trim(TextBoxDireccion.Text)) = 0 Then
             MsgBox("Cargar Dirección", MsgBoxStyle.Exclamation)
             TextBoxDireccion.Select()
@@ -320,6 +316,22 @@ Public Class AltaPedidoDelivery
             Return
         End Try
         PedidosdeliveryTableAdapter.pedidosdelivery_updateestado("RECIBIDO", nvopedido)
+        '****** REGISTRAR VENTA **********
+        Try
+            Dim nvavta As Long
+            nvavta = VentasTableAdapter.ventas_insertarventa(nvocliente, Today(), Nothing, Nothing, gusername, Nothing)
+            For i = 0 To VentasdetalleDataGridView.RowCount - 1
+                Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
+                Dim cantidad As Long = VentasdetalleDataGridView.Rows(i).Cells(3).Value
+                Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells(7).Value
+                Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells(8).Value
+                VentasdetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, codigo, cantidad, precioventa, idlistaprecio, Nothing)
+                PedidosdeliveryTableAdapter.pedidosdelivery_updateidventa(nvavta, nvopedido)
+            Next
+        Catch ex As Exception
+            MsgBox("No se pudo registrar la venta: " + ex.Message)
+        End Try
+        '****** FIN REGISTRAR VENTA **********
         MsgBox("Pedido cargado exitosanente!", MsgBoxStyle.Information)
         Me.Close()
     End Sub
