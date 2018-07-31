@@ -1,7 +1,9 @@
 ﻿Public Class EstadoCuentaCorriente
     Private Sub EstadoCuentaCorriente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listacuentascorrientes' Puede moverla o quitarla según sea necesario.
-
+        If gclienteseleccionado > 0 Then
+            filtrarcliente()
+        End If
 
     End Sub
 
@@ -11,6 +13,9 @@
         p = New SeleccionarCliente
         p.ShowDialog()
         IdclienteTextBox.Text = gclienteseleccionado.ToString
+        filtrarcliente()
+    End Sub
+    Public Sub filtrarcliente()
         If gclienteseleccionado > 1 Then
             Try
                 Me.ListacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.listacuentascorrientes)
@@ -71,14 +76,16 @@
     End Sub
 
     Private Sub ListacuentascorrientesDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListacuentascorrientesDataGridView.CellClick
-        If IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value) = True Then
-            Return
-        End If
+        'If IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value) = True Then
+        '    Return
+        'End If
+        '*************************************************
+        gidcliente = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
+        '*************************************************
         Select Case ListacuentascorrientesDataGridView.Columns(e.ColumnIndex).Name
             Case "saldo"
                 If ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value > 0 Then
                     gidventa = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("nro").Value
-                    gidcliente = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
                     Dim p As CtasCtesPagar
                     p = New CtasCtesPagar
                     p.TextBoxMontoaPagar.Text = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value
@@ -96,13 +103,31 @@
                         End Try
                     End If
                 End If
+            Case "nro"
+                gidpago = 0
+                gidventa = 0
+                If Not IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idventa").Value) Then
+                    gidventa = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idventa").Value
+                End If
+                If Not IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idpagos").Value) Then
+                    gidpago = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idpagos").Value
+                End If
+                '***********************************************************
+                If gidpago > 0 Then ' visualizar el pago
+                    Return
+                End If
+                If gidventa > 0 Then
+                    Dim p As ConsultarVenta 'ViewerFactura
+                    p = New ConsultarVenta 'ViewerFactura
+                    p.ShowDialog()
+                End If
+                gidpago = 0
+                gidventa = 0
             Case Else
-
-
         End Select
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdclienteTextBox.TextChanged
-
+        gclienteseleccionado = IdclienteTextBox.Text
     End Sub
 End Class

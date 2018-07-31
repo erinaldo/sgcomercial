@@ -58,16 +58,24 @@
                     Dim p As PedidosDeliveryPagar
                     p = New PedidosDeliveryPagar
                     gidpago = 0
-                    gidventa = 0
+
                     'gmontoapagar = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(12).Value
                     gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value
+                    gidventa = PedidosdeliveryTableAdapter.pedidosdelivery_consultaexisteventa(gidpedidodelivery)
                     gidcliente = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
                     p.ShowDialog()
+                Else
+                    MsgBox("El pedido ya se encuentra pagado!", MsgBoxStyle.Information)
                 End If
             Case 12
-                If MsgBox("Seguro desea dar de baja el pedido seleccionado?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
-                    PedidosdeliveryTableAdapter.pedidosdelivery_baja(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value)
-                    reloadpedidos()
+                Dim estadopedido As String = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
+                If Not estadopedido = "DESPACHADO" And Not estadopedido = "ENTREGADO" Then
+                    If MsgBox("Seguro desea dar de baja el pedido seleccionado?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                        PedidosdeliveryTableAdapter.pedidosdelivery_baja(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value)
+                        reloadpedidos()
+                    End If
+                Else
+                    MsgBox("No puede cancelar un pedido DESPACHADO/ENTREGADO")
                 End If
 
         End Select

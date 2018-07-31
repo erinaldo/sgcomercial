@@ -108,15 +108,18 @@ Public Class Cajasmovimientos
                     p.ShowDialog()
                 Case 5
                     If MsgBox("Seguro desea anular la operación?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                        CajasoperacionesTableAdapter.cajasoperaciones_bajaoperacionventa(MovimientoscajasDataGridView.CurrentRow.Cells(6).Value, gusername)
-                        '***************************** cargar datos
-                        Me.CajasmovimientosTableAdapter.Fill(Me.ComercialDataSet.cajasmovimientos)
-                        Me.V_gastosTableAdapter.Fill(Me.ComercialDataSet.v_gastos)
-                        '***************************** filtrar ingresos y gastos
-                        CajasmovimientosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
-                        VgastosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
-                        calculartotales(CajaseventosDataGridView.CurrentRow.Cells(0).Value())
-
+                        If MsgBox("Esta operacion anulará la venta y todos sus comprobantes de pago asociados. Desea continuar?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                            CajasoperacionesTableAdapter.cajasoperaciones_bajaoperacionventa(MovimientoscajasDataGridView.CurrentRow.Cells("idoperacion").Value, gusername)
+                            '***************************** cargar datos
+                            Me.CajasmovimientosTableAdapter.Fill(Me.ComercialDataSet.cajasmovimientos)
+                            Me.V_gastosTableAdapter.Fill(Me.ComercialDataSet.v_gastos)
+                            '***************************** filtrar ingresos y gastos
+                            CajasmovimientosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
+                            VgastosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
+                            calculartotales(CajaseventosDataGridView.CurrentRow.Cells(0).Value())
+                        Else
+                            MsgBox("Operacion cancelada")
+                        End If
                     End If
             End Select
         End If

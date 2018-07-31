@@ -95,6 +95,7 @@ Partial Class Principal
         Me.ModulosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMCajasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.POSTFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -149,7 +150,7 @@ Partial Class Principal
         Me.ListaprecioscajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaprecioscajaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaprecioscajaTableAdapter()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.POSTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroDeCuentasCorrientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -538,7 +539,7 @@ Partial Class Principal
         '
         'CuentasCorrientesToolStripMenuItem
         '
-        Me.CuentasCorrientesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EstadoDeCuentaToolStripMenuItem})
+        Me.CuentasCorrientesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EstadoDeCuentaToolStripMenuItem, Me.LibroDeCuentasCorrientesToolStripMenuItem})
         Me.CuentasCorrientesToolStripMenuItem.Name = "CuentasCorrientesToolStripMenuItem"
         Me.CuentasCorrientesToolStripMenuItem.Size = New System.Drawing.Size(167, 27)
         Me.CuentasCorrientesToolStripMenuItem.Tag = "ModuloCuentasCorrientes"
@@ -547,7 +548,7 @@ Partial Class Principal
         'EstadoDeCuentaToolStripMenuItem
         '
         Me.EstadoDeCuentaToolStripMenuItem.Name = "EstadoDeCuentaToolStripMenuItem"
-        Me.EstadoDeCuentaToolStripMenuItem.Size = New System.Drawing.Size(221, 28)
+        Me.EstadoDeCuentaToolStripMenuItem.Size = New System.Drawing.Size(298, 28)
         Me.EstadoDeCuentaToolStripMenuItem.Tag = "EstadoCuentaCorriente"
         Me.EstadoDeCuentaToolStripMenuItem.Text = "Estado de Cuenta"
         '
@@ -633,7 +634,7 @@ Partial Class Principal
         '
         'AyudaToolStripMenuItem
         '
-        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeSGComercialToolStripMenuItem, Me.CambiarContraseñaToolStripMenuItem, Me.POSTToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeSGComercialToolStripMenuItem, Me.CambiarContraseñaToolStripMenuItem})
         Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
         Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(70, 27)
         Me.AyudaToolStripMenuItem.Tag = "ModuloAyuda"
@@ -663,7 +664,7 @@ Partial Class Principal
         '
         'SysConfigToolStripMenuItem
         '
-        Me.SysConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem})
+        Me.SysConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem, Me.POSTFormToolStripMenuItem})
         Me.SysConfigToolStripMenuItem.Name = "SysConfigToolStripMenuItem"
         Me.SysConfigToolStripMenuItem.Size = New System.Drawing.Size(96, 27)
         Me.SysConfigToolStripMenuItem.Tag = "SysConfig"
@@ -710,6 +711,13 @@ Partial Class Principal
         Me.ABMSucursalesToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
         Me.ABMSucursalesToolStripMenuItem.Tag = "ABMSucursales"
         Me.ABMSucursalesToolStripMenuItem.Text = "ABM Sucursales"
+        '
+        'POSTFormToolStripMenuItem
+        '
+        Me.POSTFormToolStripMenuItem.Name = "POSTFormToolStripMenuItem"
+        Me.POSTFormToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
+        Me.POSTFormToolStripMenuItem.Tag = "POSTForm"
+        Me.POSTFormToolStripMenuItem.Text = "POSTForm"
         '
         'NotificacionesToolStripMenuItem
         '
@@ -1144,12 +1152,12 @@ Partial Class Principal
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
         '
-        'POSTToolStripMenuItem
+        'LibroDeCuentasCorrientesToolStripMenuItem
         '
-        Me.POSTToolStripMenuItem.Name = "POSTToolStripMenuItem"
-        Me.POSTToolStripMenuItem.Size = New System.Drawing.Size(263, 28)
-        Me.POSTToolStripMenuItem.Tag = "POSTForm"
-        Me.POSTToolStripMenuItem.Text = "POSTForm"
+        Me.LibroDeCuentasCorrientesToolStripMenuItem.Name = "LibroDeCuentasCorrientesToolStripMenuItem"
+        Me.LibroDeCuentasCorrientesToolStripMenuItem.Size = New System.Drawing.Size(298, 28)
+        Me.LibroDeCuentasCorrientesToolStripMenuItem.Tag = "LibroCuentasCorrientes"
+        Me.LibroDeCuentasCorrientesToolStripMenuItem.Text = "Libro de Cuentas Corrientes"
         '
         'Principal
         '
@@ -1319,5 +1327,6 @@ Partial Class Principal
     Friend WithEvents LibroVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMPerfilesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMTransportesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents POSTToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents POSTFormToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LibroDeCuentasCorrientesToolStripMenuItem As ToolStripMenuItem
 End Class

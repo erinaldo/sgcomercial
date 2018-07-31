@@ -24,38 +24,36 @@ Partial Class LibroVentasDetalladas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.LibroventasDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Imprimir = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LibroventasdetalleDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LibroventasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.LibroventasdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasdetalleTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.LibroventasdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibroventasdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -65,10 +63,28 @@ Partial Class LibroVentasDetalladas
         Me.GroupBox1.Controls.Add(Me.LibroventasDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(694, 676)
+        Me.GroupBox1.Size = New System.Drawing.Size(694, 613)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ventas"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy"
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(276, 33)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(124, 22)
+        Me.DateTimePicker1.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(219, 36)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(51, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Fecha:"
         '
         'LibroventasDataGridView
         '
@@ -76,7 +92,7 @@ Partial Class LibroVentasDetalladas
         Me.LibroventasDataGridView.AllowUserToDeleteRows = False
         Me.LibroventasDataGridView.AutoGenerateColumns = False
         Me.LibroventasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.Imprimir})
+        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn8, Me.Imprimir})
         Me.LibroventasDataGridView.DataSource = Me.LibroventasBindingSource
         Me.LibroventasDataGridView.Location = New System.Drawing.Point(6, 72)
         Me.LibroventasDataGridView.MultiSelect = False
@@ -84,8 +100,52 @@ Partial Class LibroVentasDetalladas
         Me.LibroventasDataGridView.ReadOnly = True
         Me.LibroventasDataGridView.RowTemplate.Height = 24
         Me.LibroventasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LibroventasDataGridView.Size = New System.Drawing.Size(670, 598)
+        Me.LibroventasDataGridView.Size = New System.Drawing.Size(670, 526)
         Me.LibroventasDataGridView.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "idventa"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Nº"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "fechaventa"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Fecha"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cuit"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "cuit"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Visible = False
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "tipocomprobante"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "tipocomprobante"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Visible = False
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "importe"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Importe"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
         '
         'Imprimir
         '
@@ -97,12 +157,22 @@ Partial Class LibroVentasDetalladas
         Me.Imprimir.ToolTipText = "Imprimir"
         Me.Imprimir.UseColumnTextForButtonValue = True
         '
+        'LibroventasBindingSource
+        '
+        Me.LibroventasBindingSource.DataMember = "libroventas"
+        Me.LibroventasBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.LibroventasdetalleDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(712, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(516, 676)
+        Me.GroupBox2.Size = New System.Drawing.Size(516, 613)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -115,30 +185,12 @@ Partial Class LibroVentasDetalladas
         Me.LibroventasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LibroventasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13})
         Me.LibroventasdetalleDataGridView.DataSource = Me.LibroventasdetalleBindingSource
-        Me.LibroventasdetalleDataGridView.Location = New System.Drawing.Point(13, 21)
+        Me.LibroventasdetalleDataGridView.Location = New System.Drawing.Point(20, 72)
         Me.LibroventasdetalleDataGridView.Name = "LibroventasdetalleDataGridView"
         Me.LibroventasdetalleDataGridView.ReadOnly = True
         Me.LibroventasdetalleDataGridView.RowTemplate.Height = 24
-        Me.LibroventasdetalleDataGridView.Size = New System.Drawing.Size(490, 649)
+        Me.LibroventasdetalleDataGridView.Size = New System.Drawing.Size(490, 526)
         Me.LibroventasdetalleDataGridView.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(219, 36)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Fecha:"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy"
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(276, 33)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(124, 22)
-        Me.DateTimePicker1.TabIndex = 2
         '
         'DataGridViewTextBoxColumn9
         '
@@ -182,75 +234,6 @@ Partial Class LibroVentasDetalladas
         '
         Me.LibroventasdetalleBindingSource.DataMember = "libroventasdetalle"
         Me.LibroventasdetalleBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "idventa"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Nº"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "fechaventa"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Fecha"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cuit"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "cuit"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Visible = False
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "formapago"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Forma Pago"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "tipocomprobante"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "tipocomprobante"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Visible = False
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "nrocomprobante"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "nrocomprobante"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Visible = False
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "importe"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Importe"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        '
-        'LibroventasBindingSource
-        '
-        Me.LibroventasBindingSource.DataMember = "libroventas"
-        Me.LibroventasBindingSource.DataSource = Me.ComercialDataSet
         '
         'LibroventasTableAdapter
         '
@@ -321,21 +304,24 @@ Partial Class LibroVentasDetalladas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1243, 700)
+        Me.ClientSize = New System.Drawing.Size(1243, 641)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "LibroVentasDetalladas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Tag = "LibroVentasDetallado"
         Me.Text = "Libro Ventas Detallado"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.LibroventasdetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LibroventasdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

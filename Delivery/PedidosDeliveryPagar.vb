@@ -11,7 +11,7 @@ Public Class PedidosDeliveryPagar
             Me.PedidosdeliverydetalleTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.pedidosdeliverydetalle, gidpedidodelivery)
             'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapedidosdelivery' Puede moverla o quitarla según sea necesario.
             Me.ListapedidosdeliveryTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.listapedidosdelivery, gidpedidodelivery)
-            TextBoxMontoaPagar.Text = ListapedidosdeliveryDataGridView.Rows(0).Cells(14).Value.ToString
+            TextBoxMontoaPagar.Text = ListapedidosdeliveryDataGridView.Rows(0).Cells("saldo").Value.ToString
             idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
         Catch ex As Exception
             MsgBox("No se pudo cargar el pedido!", MsgBoxStyle.Exclamation)
@@ -62,8 +62,8 @@ Public Class PedidosDeliveryPagar
         End If
 
         Dim pago As Decimal = pagotextbox.Text
-        Dim idventasdetalle As Long
-        Dim v_rtn As Long
+        'Dim idventasdetalle As Long
+        'Dim v_rtn As Long
         If pago <= 0 Then
             MsgBox("Monto inválido", MsgBoxStyle.Exclamation, "Advertencia")
             pagotextbox.Select()
@@ -73,34 +73,34 @@ Public Class PedidosDeliveryPagar
             ''******************************************************************************
             ''***********    REGISTRAR VENTA     *******************************************
             ''******************************************************************************
-            gidventa = VentasTableAdapter.ventas_insertarventa(gidcliente, Today, ComboFormapago.SelectedValue, ComboTipoComprobante.SelectedValue, gusername, nrocomprobante.Text)
-            If gidventa = 0 Then
-                Throw New Exception("Error al guardar la venta")
-            End If
+            'gidventa = VentasTableAdapter.ventas_insertarventa(gidcliente, Today, ComboFormapago.SelectedValue, ComboTipoComprobante.SelectedValue, gusername, nrocomprobante.Text)
+            'If gidventa = 0 Then
+            '    Throw New Exception("Error al guardar la venta")
+            'End If
             ''******************************************************************************
             ''***********     VENTA DETALLE     *******************************************
             ''******************************************************************************
-            Me.PedidosdeliverydetalleTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.pedidosdeliverydetalle, gidpedidodelivery)
-            Dim f As Integer
-            Dim idoperacioncaja As Long
-            For f = 0 To PedidosdeliverydetalleDataGridView.RowCount - 1
-                Dim idproducto As Long = PedidosdeliverydetalleDataGridView.Rows(f).Cells(2).Value
-                Dim cantidad As Decimal = PedidosdeliverydetalleDataGridView.Rows(f).Cells(3).Value
-                Dim precioventa As Decimal = PedidosdeliverydetalleDataGridView.Rows(f).Cells(4).Value
-                Dim idlistaprecio As Decimal = PedidosdeliverydetalleDataGridView.Rows(f).Cells(6).Value
+            'Me.PedidosdeliverydetalleTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.pedidosdeliverydetalle, gidpedidodelivery)
+            'Dim f As Integer
+            'Dim idoperacioncaja As Long
+            'For f = 0 To PedidosdeliverydetalleDataGridView.RowCount - 1
+            '    Dim idproducto As Long = PedidosdeliverydetalleDataGridView.Rows(f).Cells(2).Value
+            '    Dim cantidad As Decimal = PedidosdeliverydetalleDataGridView.Rows(f).Cells(3).Value
+            '    Dim precioventa As Decimal = PedidosdeliverydetalleDataGridView.Rows(f).Cells(4).Value
+            '    Dim idlistaprecio As Decimal = PedidosdeliverydetalleDataGridView.Rows(f).Cells(6).Value
 
-                idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(gidventa, idproducto, cantidad, precioventa, idlistaprecio, Nothing)
-                If idventasdetalle = 0 Then
-                    Throw New Exception("Error al INSERTAR el detalle de la venta")
-                End If
-            Next
+            '    idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(gidventa, idproducto, cantidad, precioventa, idlistaprecio, Nothing)
+            '    If idventasdetalle = 0 Then
+            '        Throw New Exception("Error al INSERTAR el detalle de la venta")
+            '    End If
+            'Next
             ''******************************************************************************
             ''***********    ACTUALIZAR PEDIDOSDELIVERY CON EL IDVENTA    *******************************************
             ''******************************************************************************
-            v_rtn = PedidosdeliveryTableAdapter.pedidosdelivery_updateidventa(gidventa, gidpedidodelivery)
-            If v_rtn = 0 Then
-                Throw New Exception("Error al actualizar la tabla pedidos -update:idventa-")
-            End If
+            'v_rtn = PedidosdeliveryTableAdapter.pedidosdelivery_updateidventa(gidventa, gidpedidodelivery)
+            'If v_rtn = 0 Then
+            '    Throw New Exception("Error al actualizar la tabla pedidos -update:idventa-")
+            'End If
             ''******************************************************************************
             ''***********    GENERAR EL PAGO    *******************************************
             ''******************************************************************************
@@ -111,6 +111,7 @@ Public Class PedidosDeliveryPagar
             '******************************************************************************
             '***********    INSERTAR OPERACION DE CAJA    *******************************************
             '******************************************************************************
+            Dim idoperacioncaja As Long
             idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, gidpago, ComboFormapago.SelectedValue, pago, gusername, Nothing)
             If idoperacioncaja = 0 Then
                 Throw New Exception("Error al insertar operacion de caja -cajasoperaciones-")

@@ -842,11 +842,15 @@ Public Class RegistrarVenta
         If permisoGenVale = 0 Then
             CheckBoxVale.Enabled = False
         Else
-            Dim vuelto As Decimal = vueltotextbox.Text
-            If vuelto > 0 Then
-                CheckBoxVale.Enabled = True
-            Else
-                CheckBoxVale.Enabled = False
+
+
+            If Val(vueltotextbox.Text) > 0 Then
+                Dim vuelto As Decimal = Convert.ToDecimal(vueltotextbox.Text)
+                If vuelto > 0 Then
+                    CheckBoxVale.Enabled = True
+                Else
+                    CheckBoxVale.Enabled = False
+                End If
             End If
         End If
         '''''''''''''''''''''''''''''''''''''''''''''''

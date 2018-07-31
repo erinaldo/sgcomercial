@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User I"& _ 
-            "D=sgcomercial;Password=sgcomercial*?")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=;Initial Catalog=comercial;Persist Security Info=True;User ID=;Passwo"& _ 
+            "rd=")>  _
         Public ReadOnly Property comercialConnectionString() As String
             Get
                 Return CType(Me("comercialConnectionString"),String)
@@ -68,8 +68,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server=;user id=_sgcweb;password=;database=sistema1_sgcaguadagrande;persistsecuri"& _ 
-            "tyinfo=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=;user id=;password=;database=;persistsecurityinfo=True")>  _
         Public ReadOnly Property MySQLConnectionString() As String
             Get
                 Return CType(Me("MySQLConnectionString"),String)
@@ -79,8 +78,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server=sistemascomerciales.net;user id=sistema1_siscom;password=Sistemascomercial"& _ 
-            "es*?;database=sistema1_siscom")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=;user id=;password=;database=")>  _
         Public ReadOnly Property SCConnectionString() As String
             Get
                 Return CType(Me("SCConnectionString"),String)

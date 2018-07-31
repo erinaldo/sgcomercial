@@ -1,6 +1,8 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class CtasCtesPagar
     Private Sub CtasCtesPagar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.
+        Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.formaspago' Puede moverla o quitarla según sea necesario.
         Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocomprobantes' Puede moverla o quitarla según sea necesario.
@@ -15,12 +17,12 @@ Public Class CtasCtesPagar
             Return
         End If
 
-        Dim idevento As Integer
+        'Dim idevento As Integer
         'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
         'lblCaja.Text = "Caja Nº: " + idcaja.ToString
-        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
+        gidevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
 
-        If idevento = 0 Then
+        If gidevento = 0 Then
             MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta o pago", MsgBoxStyle.Exclamation, "Advertencia")
         Else
             estado = True
@@ -59,9 +61,16 @@ Public Class CtasCtesPagar
             pagotextbox.Select()
             Return
         End If
+        If pago > Convert.ToDecimal(TextBoxMontoaPagar.Text) Then ' que el pago no sea mayor al monto a pagar
+            MsgBox("Monto inválido", MsgBoxStyle.Exclamation, "Advertencia")
+            pagotextbox.Select()
+            Return
+        End If
         '**************************
+        Dim idoperacioncaja As Long
         Try
             gidpago = PagosTableAdapter.pagos_insertarpago(gidventa, gidcliente, pago, Today(), ComboFormapago.SelectedValue, nrocomprobante.Text)
+            idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(gidevento, gidpago, ComboFormapago.SelectedValue, pago, gusername, Nothing)
             Me.Close()
         Catch ex As Exception
             MsgBox("Error al INSERTAR  el pago: " + ex.Message, MsgBoxStyle.Exclamation)

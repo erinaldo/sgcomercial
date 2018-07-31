@@ -29,7 +29,7 @@
     <ProductName>SGComercial</ProductName>
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
-    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>4.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -156,6 +156,12 @@
       <DependentUpon>EstadoCuentaCorriente.vb</DependentUpon>
     </Compile>
     <Compile Include="CuentasCorrientes\EstadoCuentaCorriente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasCorrientes\LibroCuentasCorrientes.Designer.vb">
+      <DependentUpon>LibroCuentasCorrientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\LibroCuentasCorrientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Delivery\ABMTransportes.Designer.vb">
@@ -694,6 +700,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\EstadoCuentaCorriente.resx">
       <DependentUpon>EstadoCuentaCorriente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasCorrientes\LibroCuentasCorrientes.resx">
+      <DependentUpon>LibroCuentasCorrientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\ABMTransportes.resx">
       <DependentUpon>ABMTransportes.vb</DependentUpon>

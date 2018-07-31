@@ -25,9 +25,9 @@ Partial Class EstadoCuentaCorriente
         Me.components = New System.ComponentModel.Container()
         Dim NombreLabel As System.Windows.Forms.Label
         Dim CuitLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -37,14 +37,6 @@ Partial Class EstadoCuentaCorriente
         Me.Label1 = New System.Windows.Forms.Label()
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.LabelTipoSaldo = New System.Windows.Forms.Label()
-        Me.Labeltotalgeneral = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Labeltotalhaber = New System.Windows.Forms.Label()
-        Me.Labeltotaldebe = New System.Windows.Forms.Label()
         Me.ListacuentascorrientesDataGridView = New System.Windows.Forms.DataGridView()
         Me.ListacuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListacuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listacuentascorrientesTableAdapter()
@@ -53,10 +45,21 @@ Partial Class EstadoCuentaCorriente
         Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nro = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.debe = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.haber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.saldo = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpagos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LabelTipoSaldo = New System.Windows.Forms.Label()
+        Me.Labeltotalgeneral = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Labeltotalhaber = New System.Windows.Forms.Label()
+        Me.Labeltotaldebe = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         CuitLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -66,6 +69,7 @@ Partial Class EstadoCuentaCorriente
         Me.GroupBox2.SuspendLayout()
         CType(Me.ListacuentascorrientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListacuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'NombreLabel
@@ -163,109 +167,13 @@ Partial Class EstadoCuentaCorriente
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.LabelTipoSaldo)
-        Me.GroupBox2.Controls.Add(Me.Labeltotalgeneral)
-        Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.Labeltotalhaber)
-        Me.GroupBox2.Controls.Add(Me.Labeltotaldebe)
         Me.GroupBox2.Controls.Add(Me.ListacuentascorrientesDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 118)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1065, 490)
+        Me.GroupBox2.Size = New System.Drawing.Size(1065, 340)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Estado de Cuenta"
-        '
-        'Label3
-        '
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Label3.Location = New System.Drawing.Point(742, 394)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(142, 23)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "Haber"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label2
-        '
-        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(593, 394)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(142, 23)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Debe"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LabelTipoSaldo
-        '
-        Me.LabelTipoSaldo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LabelTipoSaldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelTipoSaldo.Location = New System.Drawing.Point(742, 454)
-        Me.LabelTipoSaldo.Name = "LabelTipoSaldo"
-        Me.LabelTipoSaldo.Size = New System.Drawing.Size(142, 23)
-        Me.LabelTipoSaldo.TabIndex = 6
-        Me.LabelTipoSaldo.Text = "---------"
-        Me.LabelTipoSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Labeltotalgeneral
-        '
-        Me.Labeltotalgeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Labeltotalgeneral.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Labeltotalgeneral.Location = New System.Drawing.Point(593, 454)
-        Me.Labeltotalgeneral.Name = "Labeltotalgeneral"
-        Me.Labeltotalgeneral.Size = New System.Drawing.Size(142, 23)
-        Me.Labeltotalgeneral.TabIndex = 5
-        Me.Labeltotalgeneral.Text = "00000000"
-        Me.Labeltotalgeneral.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label5
-        '
-        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Label5.Location = New System.Drawing.Point(17, 454)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(569, 23)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "SALDO:"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label4
-        '
-        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Label4.Location = New System.Drawing.Point(17, 422)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(569, 23)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "TOTALES:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Labeltotalhaber
-        '
-        Me.Labeltotalhaber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Labeltotalhaber.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Labeltotalhaber.Location = New System.Drawing.Point(742, 422)
-        Me.Labeltotalhaber.Name = "Labeltotalhaber"
-        Me.Labeltotalhaber.Size = New System.Drawing.Size(142, 23)
-        Me.Labeltotalhaber.TabIndex = 2
-        Me.Labeltotalhaber.Text = "00000000"
-        Me.Labeltotalhaber.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Labeltotaldebe
-        '
-        Me.Labeltotaldebe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Labeltotaldebe.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Labeltotaldebe.Location = New System.Drawing.Point(593, 422)
-        Me.Labeltotaldebe.Name = "Labeltotaldebe"
-        Me.Labeltotaldebe.Size = New System.Drawing.Size(142, 23)
-        Me.Labeltotaldebe.TabIndex = 1
-        Me.Labeltotaldebe.Text = "00000000"
-        Me.Labeltotaldebe.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'ListacuentascorrientesDataGridView
         '
@@ -273,13 +181,13 @@ Partial Class EstadoCuentaCorriente
         Me.ListacuentascorrientesDataGridView.AllowUserToDeleteRows = False
         Me.ListacuentascorrientesDataGridView.AutoGenerateColumns = False
         Me.ListacuentascorrientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListacuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcliente, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn7, Me.nro, Me.debe, Me.haber, Me.saldo})
+        Me.ListacuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcliente, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn7, Me.nro, Me.debe, Me.haber, Me.saldo, Me.idventa, Me.idpagos})
         Me.ListacuentascorrientesDataGridView.DataSource = Me.ListacuentascorrientesBindingSource
         Me.ListacuentascorrientesDataGridView.Location = New System.Drawing.Point(17, 21)
         Me.ListacuentascorrientesDataGridView.Name = "ListacuentascorrientesDataGridView"
         Me.ListacuentascorrientesDataGridView.ReadOnly = True
         Me.ListacuentascorrientesDataGridView.RowTemplate.Height = 24
-        Me.ListacuentascorrientesDataGridView.Size = New System.Drawing.Size(1042, 370)
+        Me.ListacuentascorrientesDataGridView.Size = New System.Drawing.Size(1030, 299)
         Me.ListacuentascorrientesDataGridView.TabIndex = 0
         '
         'ListacuentascorrientesBindingSource
@@ -373,7 +281,7 @@ Partial Class EstadoCuentaCorriente
         Me.DataGridViewTextBoxColumn7.HeaderText = "Descripcion"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 320
+        Me.DataGridViewTextBoxColumn7.Width = 250
         '
         'nro
         '
@@ -381,34 +289,35 @@ Partial Class EstadoCuentaCorriente
         Me.nro.HeaderText = "Nº"
         Me.nro.Name = "nro"
         Me.nro.ReadOnly = True
+        Me.nro.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.nro.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.nro.Width = 90
         '
         'debe
         '
         Me.debe.DataPropertyName = "debe"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.debe.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.debe.DefaultCellStyle = DataGridViewCellStyle7
         Me.debe.HeaderText = "Debe"
         Me.debe.Name = "debe"
         Me.debe.ReadOnly = True
-        Me.debe.Width = 150
         '
         'haber
         '
         Me.haber.DataPropertyName = "haber"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.haber.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.haber.DefaultCellStyle = DataGridViewCellStyle8
         Me.haber.HeaderText = "Haber"
         Me.haber.Name = "haber"
         Me.haber.ReadOnly = True
-        Me.haber.Width = 150
         '
         'saldo
         '
         Me.saldo.DataPropertyName = "saldo"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red
-        Me.saldo.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Red
+        Me.saldo.DefaultCellStyle = DataGridViewCellStyle9
         Me.saldo.HeaderText = "Saldo"
         Me.saldo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.saldo.Name = "saldo"
@@ -417,13 +326,138 @@ Partial Class EstadoCuentaCorriente
         Me.saldo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.saldo.ToolTipText = "Click para cargar pago"
         '
+        'idventa
+        '
+        Me.idventa.DataPropertyName = "idventa"
+        Me.idventa.HeaderText = "idventa"
+        Me.idventa.Name = "idventa"
+        Me.idventa.ReadOnly = True
+        Me.idventa.Visible = False
+        '
+        'idpagos
+        '
+        Me.idpagos.DataPropertyName = "idpagos"
+        Me.idpagos.HeaderText = "idpagos"
+        Me.idpagos.Name = "idpagos"
+        Me.idpagos.ReadOnly = True
+        Me.idpagos.Visible = False
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label3)
+        Me.GroupBox3.Controls.Add(Me.Label2)
+        Me.GroupBox3.Controls.Add(Me.LabelTipoSaldo)
+        Me.GroupBox3.Controls.Add(Me.Labeltotalgeneral)
+        Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.Labeltotalhaber)
+        Me.GroupBox3.Controls.Add(Me.Labeltotaldebe)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 464)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(1065, 113)
+        Me.GroupBox3.TabIndex = 2
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Resumen"
+        '
+        'Label3
+        '
+        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.Label3.Location = New System.Drawing.Point(662, 15)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(102, 23)
+        Me.Label3.TabIndex = 16
+        Me.Label3.Text = "Haber"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(556, 15)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(102, 23)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "Debe"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LabelTipoSaldo
+        '
+        Me.LabelTipoSaldo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LabelTipoSaldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelTipoSaldo.Location = New System.Drawing.Point(662, 75)
+        Me.LabelTipoSaldo.Name = "LabelTipoSaldo"
+        Me.LabelTipoSaldo.Size = New System.Drawing.Size(102, 23)
+        Me.LabelTipoSaldo.TabIndex = 14
+        Me.LabelTipoSaldo.Text = "---------"
+        Me.LabelTipoSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Labeltotalgeneral
+        '
+        Me.Labeltotalgeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Labeltotalgeneral.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.Labeltotalgeneral.Location = New System.Drawing.Point(556, 75)
+        Me.Labeltotalgeneral.Name = "Labeltotalgeneral"
+        Me.Labeltotalgeneral.Size = New System.Drawing.Size(102, 23)
+        Me.Labeltotalgeneral.TabIndex = 13
+        Me.Labeltotalgeneral.Text = "00000000"
+        Me.Labeltotalgeneral.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label5
+        '
+        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.Label5.Location = New System.Drawing.Point(300, 75)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(252, 23)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "SALDO:"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.Label4.Location = New System.Drawing.Point(300, 43)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(252, 23)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "TOTALES:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Labeltotalhaber
+        '
+        Me.Labeltotalhaber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Labeltotalhaber.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.Labeltotalhaber.Location = New System.Drawing.Point(662, 43)
+        Me.Labeltotalhaber.Name = "Labeltotalhaber"
+        Me.Labeltotalhaber.Size = New System.Drawing.Size(102, 23)
+        Me.Labeltotalhaber.TabIndex = 10
+        Me.Labeltotalhaber.Text = "00000000"
+        Me.Labeltotalhaber.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Labeltotaldebe
+        '
+        Me.Labeltotaldebe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Labeltotaldebe.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Labeltotaldebe.Location = New System.Drawing.Point(556, 43)
+        Me.Labeltotaldebe.Name = "Labeltotaldebe"
+        Me.Labeltotaldebe.Size = New System.Drawing.Size(102, 23)
+        Me.Labeltotaldebe.TabIndex = 9
+        Me.Labeltotaldebe.Text = "00000000"
+        Me.Labeltotaldebe.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'EstadoCuentaCorriente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1089, 619)
+        Me.ClientSize = New System.Drawing.Size(1094, 583)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "EstadoCuentaCorriente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Estado de Cuenta Corriente"
@@ -435,6 +469,7 @@ Partial Class EstadoCuentaCorriente
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.ListacuentascorrientesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListacuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -453,19 +488,22 @@ Partial Class EstadoCuentaCorriente
     Friend WithEvents NombreTextBox As TextBox
     Friend WithEvents ClientesBindingSource As BindingSource
     Friend WithEvents CuitTextBox As TextBox
+    Friend WithEvents idcliente As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents nro As DataGridViewLinkColumn
+    Friend WithEvents debe As DataGridViewTextBoxColumn
+    Friend WithEvents haber As DataGridViewTextBoxColumn
+    Friend WithEvents saldo As DataGridViewLinkColumn
+    Friend WithEvents idventa As DataGridViewTextBoxColumn
+    Friend WithEvents idpagos As DataGridViewTextBoxColumn
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents LabelTipoSaldo As Label
+    Friend WithEvents Labeltotalgeneral As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Labeltotalhaber As Label
     Friend WithEvents Labeltotaldebe As Label
-    Friend WithEvents Labeltotalgeneral As Label
-    Friend WithEvents LabelTipoSaldo As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents idcliente As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents nro As DataGridViewTextBoxColumn
-    Friend WithEvents debe As DataGridViewTextBoxColumn
-    Friend WithEvents haber As DataGridViewTextBoxColumn
-    Friend WithEvents saldo As DataGridViewLinkColumn
 End Class

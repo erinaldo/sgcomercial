@@ -581,8 +581,17 @@ Public Class Principal
         ABMTransportes.Visible = True
     End Sub
 
-    Private Sub POSTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles POSTToolStripMenuItem.Click
+    Private Sub POSTToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub POSTFormToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles POSTFormToolStripMenuItem.Click
         POSTForm.MdiParent = Me
         POSTForm.Visible = True
+    End Sub
+
+    Private Sub LibroDeCuentasCorrientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroDeCuentasCorrientesToolStripMenuItem.Click
+        LibroCuentasCorrientes.MdiParent = Me
+        LibroCuentasCorrientes.Visible = True
     End Sub
 End Class
