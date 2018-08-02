@@ -28,30 +28,30 @@ Partial Class LotePedidosDeliveryRendir
         Dim NombreLabel As System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.PedidosdeliverydetalleDataGridView = New System.Windows.Forms.DataGridView()
-        Me.idlistaprecio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreTextBox = New System.Windows.Forms.TextBox()
-        Me.FechaasignacionDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.ListalotesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ListalotesdetalleDataGridView = New System.Windows.Forms.DataGridView()
-        Me.BtnFinalizar = New System.Windows.Forms.Button()
-        Me.EstadosentregadeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.ListalotesdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idlistaprecio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PedidosdeliverydetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.NombreTextBox = New System.Windows.Forms.TextBox()
         Me.ListalotesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FechaasignacionDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.ListalotesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ListalotesdetalleDataGridView = New System.Windows.Forms.DataGridView()
+        Me.EstadosentregadeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ListalotesdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BtnFinalizar = New System.Windows.Forms.Button()
         Me.ListalotesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listalotesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.LotesenviosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.lotesenviosTableAdapter()
@@ -79,19 +79,20 @@ Partial Class LotePedidosDeliveryRendir
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.importepagado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdloteenvioLabel = New System.Windows.Forms.Label()
         FechaasignacionLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PedidosdeliverydetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListalotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListalotesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.ListalotesdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstadosentregadeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListalotesdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ListalotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdloteenvioLabel
@@ -152,114 +153,6 @@ Partial Class LotePedidosDeliveryRendir
         Me.PedidosdeliverydetalleDataGridView.TabIndex = 3
         Me.PedidosdeliverydetalleDataGridView.Visible = False
         '
-        'idlistaprecio
-        '
-        Me.idlistaprecio.DataPropertyName = "idlistaprecio"
-        Me.idlistaprecio.HeaderText = "idlistaprecio"
-        Me.idlistaprecio.Name = "idlistaprecio"
-        '
-        'NombreTextBox
-        '
-        Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListalotesBindingSource, "nombre", True))
-        Me.NombreTextBox.Location = New System.Drawing.Point(788, 25)
-        Me.NombreTextBox.Name = "NombreTextBox"
-        Me.NombreTextBox.ReadOnly = True
-        Me.NombreTextBox.Size = New System.Drawing.Size(345, 22)
-        Me.NombreTextBox.TabIndex = 11
-        '
-        'FechaasignacionDateTimePicker
-        '
-        Me.FechaasignacionDateTimePicker.CustomFormat = "dd/mm/yyyy"
-        Me.FechaasignacionDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ListalotesBindingSource, "fechaasignacion", True))
-        Me.FechaasignacionDateTimePicker.Enabled = False
-        Me.FechaasignacionDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.FechaasignacionDateTimePicker.Location = New System.Drawing.Point(544, 25)
-        Me.FechaasignacionDateTimePicker.Name = "FechaasignacionDateTimePicker"
-        Me.FechaasignacionDateTimePicker.Size = New System.Drawing.Size(112, 22)
-        Me.FechaasignacionDateTimePicker.TabIndex = 10
-        '
-        'ListalotesDataGridView
-        '
-        Me.ListalotesDataGridView.AllowUserToAddRows = False
-        Me.ListalotesDataGridView.AllowUserToDeleteRows = False
-        Me.ListalotesDataGridView.AutoGenerateColumns = False
-        Me.ListalotesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListalotesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
-        Me.ListalotesDataGridView.DataSource = Me.ListalotesBindingSource
-        Me.ListalotesDataGridView.Location = New System.Drawing.Point(6, 34)
-        Me.ListalotesDataGridView.Name = "ListalotesDataGridView"
-        Me.ListalotesDataGridView.ReadOnly = True
-        Me.ListalotesDataGridView.RowTemplate.Height = 24
-        Me.ListalotesDataGridView.Size = New System.Drawing.Size(19, 16)
-        Me.ListalotesDataGridView.TabIndex = 9
-        Me.ListalotesDataGridView.Visible = False
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(264, 24)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(133, 24)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "Comenzar"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(153, 25)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox1.TabIndex = 0
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.ListalotesdetalleDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 91)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1315, 482)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Detalle"
-        '
-        'ListalotesdetalleDataGridView
-        '
-        Me.ListalotesdetalleDataGridView.AllowUserToAddRows = False
-        Me.ListalotesdetalleDataGridView.AllowUserToDeleteRows = False
-        Me.ListalotesdetalleDataGridView.AutoGenerateColumns = False
-        Me.ListalotesdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListalotesdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idloteenviodetalle, Me.idpedidodelivery, Me.DataGridViewTextBoxColumn13, Me.nombretransporte, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.montototal, Me.estadoentrega, Me.montoapagar, Me.nroguia, Me.DataGridViewTextBoxColumn5, Me.idcliente, Me.importepagado})
-        Me.ListalotesdetalleDataGridView.DataSource = Me.ListalotesdetalleBindingSource
-        Me.ListalotesdetalleDataGridView.Location = New System.Drawing.Point(16, 21)
-        Me.ListalotesdetalleDataGridView.MultiSelect = False
-        Me.ListalotesdetalleDataGridView.Name = "ListalotesdetalleDataGridView"
-        Me.ListalotesdetalleDataGridView.RowTemplate.Height = 24
-        Me.ListalotesdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ListalotesdetalleDataGridView.Size = New System.Drawing.Size(1279, 445)
-        Me.ListalotesdetalleDataGridView.TabIndex = 0
-        '
-        'BtnFinalizar
-        '
-        Me.BtnFinalizar.Location = New System.Drawing.Point(596, 589)
-        Me.BtnFinalizar.Name = "BtnFinalizar"
-        Me.BtnFinalizar.Size = New System.Drawing.Size(158, 35)
-        Me.BtnFinalizar.TabIndex = 2
-        Me.BtnFinalizar.Text = " Finalizar Lote"
-        Me.BtnFinalizar.UseVisualStyleBackColor = True
-        '
-        'EstadosentregadeliveryBindingSource
-        '
-        Me.EstadosentregadeliveryBindingSource.DataMember = "estadosentregadelivery"
-        Me.EstadosentregadeliveryBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ListalotesdetalleBindingSource
-        '
-        Me.ListalotesdetalleBindingSource.DataMember = "listalotesdetalle"
-        Me.ListalotesdetalleBindingSource.DataSource = Me.ComercialDataSet
-        '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "idpedidodeliverydetalle"
@@ -297,15 +190,62 @@ Partial Class LotePedidosDeliveryRendir
         Me.DataGridViewTextBoxColumn12.HeaderText = "recargo"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         '
+        'idlistaprecio
+        '
+        Me.idlistaprecio.DataPropertyName = "idlistaprecio"
+        Me.idlistaprecio.HeaderText = "idlistaprecio"
+        Me.idlistaprecio.Name = "idlistaprecio"
+        '
         'PedidosdeliverydetalleBindingSource
         '
         Me.PedidosdeliverydetalleBindingSource.DataMember = "pedidosdeliverydetalle"
         Me.PedidosdeliverydetalleBindingSource.DataSource = Me.ComercialDataSet
         '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'NombreTextBox
+        '
+        Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListalotesBindingSource, "nombre", True))
+        Me.NombreTextBox.Location = New System.Drawing.Point(788, 25)
+        Me.NombreTextBox.Name = "NombreTextBox"
+        Me.NombreTextBox.ReadOnly = True
+        Me.NombreTextBox.Size = New System.Drawing.Size(345, 22)
+        Me.NombreTextBox.TabIndex = 11
+        '
         'ListalotesBindingSource
         '
         Me.ListalotesBindingSource.DataMember = "listalotes"
         Me.ListalotesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'FechaasignacionDateTimePicker
+        '
+        Me.FechaasignacionDateTimePicker.CustomFormat = "dd/mm/yyyy"
+        Me.FechaasignacionDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ListalotesBindingSource, "fechaasignacion", True))
+        Me.FechaasignacionDateTimePicker.Enabled = False
+        Me.FechaasignacionDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.FechaasignacionDateTimePicker.Location = New System.Drawing.Point(544, 25)
+        Me.FechaasignacionDateTimePicker.Name = "FechaasignacionDateTimePicker"
+        Me.FechaasignacionDateTimePicker.Size = New System.Drawing.Size(112, 22)
+        Me.FechaasignacionDateTimePicker.TabIndex = 10
+        '
+        'ListalotesDataGridView
+        '
+        Me.ListalotesDataGridView.AllowUserToAddRows = False
+        Me.ListalotesDataGridView.AllowUserToDeleteRows = False
+        Me.ListalotesDataGridView.AutoGenerateColumns = False
+        Me.ListalotesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ListalotesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.ListalotesDataGridView.DataSource = Me.ListalotesBindingSource
+        Me.ListalotesDataGridView.Location = New System.Drawing.Point(6, 34)
+        Me.ListalotesDataGridView.Name = "ListalotesDataGridView"
+        Me.ListalotesDataGridView.ReadOnly = True
+        Me.ListalotesDataGridView.RowTemplate.Height = 24
+        Me.ListalotesDataGridView.Size = New System.Drawing.Size(19, 16)
+        Me.ListalotesDataGridView.TabIndex = 9
+        Me.ListalotesDataGridView.Visible = False
         '
         'DataGridViewTextBoxColumn1
         '
@@ -335,6 +275,67 @@ Partial Class LotePedidosDeliveryRendir
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(264, 24)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(133, 24)
+        Me.Button1.TabIndex = 9
+        Me.Button1.Text = "Comenzar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(153, 25)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox1.TabIndex = 0
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.ListalotesdetalleDataGridView)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 91)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(1315, 482)
+        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Detalle"
+        '
+        'ListalotesdetalleDataGridView
+        '
+        Me.ListalotesdetalleDataGridView.AllowUserToAddRows = False
+        Me.ListalotesdetalleDataGridView.AllowUserToDeleteRows = False
+        Me.ListalotesdetalleDataGridView.AutoGenerateColumns = False
+        Me.ListalotesdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ListalotesdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idloteenviodetalle, Me.idpedidodelivery, Me.DataGridViewTextBoxColumn13, Me.nombretransporte, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.montototal, Me.estadoentrega, Me.montoapagar, Me.nroguia, Me.DataGridViewTextBoxColumn5, Me.idcliente, Me.importepagado, Me.saldo})
+        Me.ListalotesdetalleDataGridView.DataSource = Me.ListalotesdetalleBindingSource
+        Me.ListalotesdetalleDataGridView.Location = New System.Drawing.Point(16, 21)
+        Me.ListalotesdetalleDataGridView.MultiSelect = False
+        Me.ListalotesdetalleDataGridView.Name = "ListalotesdetalleDataGridView"
+        Me.ListalotesdetalleDataGridView.RowTemplate.Height = 24
+        Me.ListalotesdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.ListalotesdetalleDataGridView.Size = New System.Drawing.Size(1279, 445)
+        Me.ListalotesdetalleDataGridView.TabIndex = 0
+        '
+        'EstadosentregadeliveryBindingSource
+        '
+        Me.EstadosentregadeliveryBindingSource.DataMember = "estadosentregadelivery"
+        Me.EstadosentregadeliveryBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ListalotesdetalleBindingSource
+        '
+        Me.ListalotesdetalleBindingSource.DataMember = "listalotesdetalle"
+        Me.ListalotesdetalleBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'BtnFinalizar
+        '
+        Me.BtnFinalizar.Location = New System.Drawing.Point(596, 589)
+        Me.BtnFinalizar.Name = "BtnFinalizar"
+        Me.BtnFinalizar.Size = New System.Drawing.Size(158, 35)
+        Me.BtnFinalizar.TabIndex = 2
+        Me.BtnFinalizar.Text = " Finalizar Lote"
+        Me.BtnFinalizar.UseVisualStyleBackColor = True
+        '
         'ListalotesTableAdapter
         '
         Me.ListalotesTableAdapter.ClearBeforeFill = True
@@ -352,6 +353,7 @@ Partial Class LotePedidosDeliveryRendir
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -539,6 +541,14 @@ Partial Class LotePedidosDeliveryRendir
         Me.importepagado.Name = "importepagado"
         Me.importepagado.ReadOnly = True
         '
+        'saldo
+        '
+        Me.saldo.DataPropertyName = "saldo"
+        Me.saldo.HeaderText = "saldo"
+        Me.saldo.Name = "saldo"
+        Me.saldo.ReadOnly = True
+        Me.saldo.Visible = False
+        '
         'LotePedidosDeliveryRendir
         '
         Me.AcceptButton = Me.Button1
@@ -554,14 +564,14 @@ Partial Class LotePedidosDeliveryRendir
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PedidosdeliverydetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListalotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListalotesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.ListalotesdetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EstadosentregadeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListalotesdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ListalotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -619,4 +629,5 @@ Partial Class LotePedidosDeliveryRendir
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents idcliente As DataGridViewTextBoxColumn
     Friend WithEvents importepagado As DataGridViewTextBoxColumn
+    Friend WithEvents saldo As DataGridViewTextBoxColumn
 End Class

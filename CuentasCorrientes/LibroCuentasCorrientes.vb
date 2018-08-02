@@ -30,6 +30,8 @@ Public Class LibroCuentasCorrientes
                 p.filtrarcliente()
                 p.PictureSeleccionarCliente.Enabled = False
                 p.ShowDialog()
+                Me.LibrocuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.librocuentascorrientes)
+                LibrocuentascorrientesDataGridView.Sort(LibrocuentascorrientesDataGridView.Columns("saldo"), ListSortDirection.Descending)
         End Select
     End Sub
 End Class

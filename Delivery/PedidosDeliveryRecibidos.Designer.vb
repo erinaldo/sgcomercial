@@ -27,13 +27,6 @@ Partial Class PedidosDeliveryRecibidos
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.PedidosdeliveryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.ListapedidosdeliveryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MySQLDataSet = New sgcomercial.MySQLDataSet()
-        Me.PedidosdeliveryBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PedidosdeliveryTableAdapter1 = New sgcomercial.MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter()
-        Me.TableAdapterManager1 = New sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager()
-        Me.ClientesTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.clientesTableAdapter()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,10 +40,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.ListapedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ListapedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliveryTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.PedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliveryTableAdapter()
+        Me.ListapedidosdeliveryDataGridView = New System.Windows.Forms.DataGridView()
         Me.idpedidodelivery = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,15 +56,25 @@ Partial Class PedidosDeliveryRecibidos
         Me.Baja = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListapedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MySQLDataSet = New sgcomercial.MySQLDataSet()
+        Me.PedidosdeliveryBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PedidosdeliveryTableAdapter1 = New sgcomercial.MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter()
+        Me.TableAdapterManager1 = New sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager()
+        Me.ClientesTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.clientesTableAdapter()
+        Me.ListapedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliveryTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.PedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliveryTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListapedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MySQLDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PedidosdeliveryBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ListapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -85,7 +85,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.GroupBox1.Controls.Add(Me.ListapedidosdeliveryDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1377, 605)
+        Me.GroupBox1.Size = New System.Drawing.Size(1318, 575)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lista de pedidos recibidos"
@@ -122,71 +122,6 @@ Partial Class PedidosDeliveryRecibidos
         Me.PedidosdeliveryDataGridView.Size = New System.Drawing.Size(45, 24)
         Me.PedidosdeliveryDataGridView.TabIndex = 2
         Me.PedidosdeliveryDataGridView.Visible = False
-        '
-        'ListapedidosdeliveryDataGridView
-        '
-        Me.ListapedidosdeliveryDataGridView.AllowUserToAddRows = False
-        Me.ListapedidosdeliveryDataGridView.AllowUserToDeleteRows = False
-        Me.ListapedidosdeliveryDataGridView.AllowUserToResizeRows = False
-        Me.ListapedidosdeliveryDataGridView.AutoGenerateColumns = False
-        Me.ListapedidosdeliveryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListapedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpedidodelivery, Me.estado, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.imprimircomanda, Me.Pagar, Me.Baja, Me.saldo, Me.idcliente})
-        Me.ListapedidosdeliveryDataGridView.DataSource = Me.ListapedidosdeliveryBindingSource
-        Me.ListapedidosdeliveryDataGridView.Location = New System.Drawing.Point(16, 35)
-        Me.ListapedidosdeliveryDataGridView.MultiSelect = False
-        Me.ListapedidosdeliveryDataGridView.Name = "ListapedidosdeliveryDataGridView"
-        Me.ListapedidosdeliveryDataGridView.ReadOnly = True
-        Me.ListapedidosdeliveryDataGridView.RowTemplate.Height = 24
-        Me.ListapedidosdeliveryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1341, 560)
-        Me.ListapedidosdeliveryDataGridView.TabIndex = 0
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "clientes"
-        Me.ClientesBindingSource.DataSource = Me.MySQLDataSet
-        '
-        'MySQLDataSet
-        '
-        Me.MySQLDataSet.DataSetName = "MySQLDataSet"
-        Me.MySQLDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PedidosdeliveryBindingSource1
-        '
-        Me.PedidosdeliveryBindingSource1.DataMember = "pedidosdelivery"
-        Me.PedidosdeliveryBindingSource1.DataSource = Me.MySQLDataSet
-        '
-        'PedidosdeliveryTableAdapter1
-        '
-        Me.PedidosdeliveryTableAdapter1.ClearBeforeFill = True
-        '
-        'TableAdapterManager1
-        '
-        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager1.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager1.clientesTableAdapter = Me.ClientesTableAdapter
-        Me.TableAdapterManager1.errorlogTableAdapter = Nothing
-        Me.TableAdapterManager1.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager1.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager1.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager1.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager1.pagosTableAdapter = Nothing
-        Me.TableAdapterManager1.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.pedidosdeliveryTableAdapter = Me.PedidosdeliveryTableAdapter1
-        Me.TableAdapterManager1.productosTableAdapter = Nothing
-        Me.TableAdapterManager1.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager1.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager1.stockTableAdapter = Nothing
-        Me.TableAdapterManager1.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager1.transportesTableAdapter = Nothing
-        Me.TableAdapterManager1.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager1.UpdateOrder = sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager1.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.ventasTableAdapter = Nothing
-        '
-        'ClientesTableAdapter
-        '
-        Me.ClientesTableAdapter.ClearBeforeFill = True
         '
         'DataGridViewTextBoxColumn3
         '
@@ -265,75 +200,23 @@ Partial Class PedidosDeliveryRecibidos
         Me.ComercialDataSet.DataSetName = "comercialDataSet"
         Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'ListapedidosdeliveryBindingSource
+        'ListapedidosdeliveryDataGridView
         '
-        Me.ListapedidosdeliveryBindingSource.DataMember = "listapedidosdelivery"
-        Me.ListapedidosdeliveryBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ListapedidosdeliveryTableAdapter
-        '
-        Me.ListapedidosdeliveryTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
-        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
-        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
-        Me.TableAdapterManager.cajasTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
-        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
-        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager.funcionesTableAdapter = Nothing
-        Me.TableAdapterManager.gastosTableAdapter = Nothing
-        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosTableAdapter = Nothing
-        Me.TableAdapterManager.perfilesTableAdapter = Nothing
-        Me.TableAdapterManager.permisosTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
-        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.remitosTableAdapter = Nothing
-        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager.stockTableAdapter = Nothing
-        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
-        Me.TableAdapterManager.transportesTableAdapter = Nothing
-        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.valesTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
-        'PedidosdeliveryTableAdapter
-        '
-        Me.PedidosdeliveryTableAdapter.ClearBeforeFill = True
+        Me.ListapedidosdeliveryDataGridView.AllowUserToAddRows = False
+        Me.ListapedidosdeliveryDataGridView.AllowUserToDeleteRows = False
+        Me.ListapedidosdeliveryDataGridView.AllowUserToResizeRows = False
+        Me.ListapedidosdeliveryDataGridView.AutoGenerateColumns = False
+        Me.ListapedidosdeliveryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ListapedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpedidodelivery, Me.estado, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.imprimircomanda, Me.Pagar, Me.Baja, Me.saldo, Me.idcliente})
+        Me.ListapedidosdeliveryDataGridView.DataSource = Me.ListapedidosdeliveryBindingSource
+        Me.ListapedidosdeliveryDataGridView.Location = New System.Drawing.Point(16, 35)
+        Me.ListapedidosdeliveryDataGridView.MultiSelect = False
+        Me.ListapedidosdeliveryDataGridView.Name = "ListapedidosdeliveryDataGridView"
+        Me.ListapedidosdeliveryDataGridView.ReadOnly = True
+        Me.ListapedidosdeliveryDataGridView.RowTemplate.Height = 24
+        Me.ListapedidosdeliveryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1283, 529)
+        Me.ListapedidosdeliveryDataGridView.TabIndex = 0
         '
         'idpedidodelivery
         '
@@ -470,26 +353,144 @@ Partial Class PedidosDeliveryRecibidos
         Me.idcliente.ReadOnly = True
         Me.idcliente.Visible = False
         '
+        'ListapedidosdeliveryBindingSource
+        '
+        Me.ListapedidosdeliveryBindingSource.DataMember = "listapedidosdelivery"
+        Me.ListapedidosdeliveryBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "clientes"
+        Me.ClientesBindingSource.DataSource = Me.MySQLDataSet
+        '
+        'MySQLDataSet
+        '
+        Me.MySQLDataSet.DataSetName = "MySQLDataSet"
+        Me.MySQLDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PedidosdeliveryBindingSource1
+        '
+        Me.PedidosdeliveryBindingSource1.DataMember = "pedidosdelivery"
+        Me.PedidosdeliveryBindingSource1.DataSource = Me.MySQLDataSet
+        '
+        'PedidosdeliveryTableAdapter1
+        '
+        Me.PedidosdeliveryTableAdapter1.ClearBeforeFill = True
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager1.clientesTableAdapter = Me.ClientesTableAdapter
+        Me.TableAdapterManager1.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager1.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager1.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager1.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager1.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager1.pagosTableAdapter = Nothing
+        Me.TableAdapterManager1.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.pedidosdeliveryTableAdapter = Me.PedidosdeliveryTableAdapter1
+        Me.TableAdapterManager1.productosTableAdapter = Nothing
+        Me.TableAdapterManager1.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager1.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager1.stockTableAdapter = Nothing
+        Me.TableAdapterManager1.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager1.transportesTableAdapter = Nothing
+        Me.TableAdapterManager1.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager1.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.ventasTableAdapter = Nothing
+        '
+        'ClientesTableAdapter
+        '
+        Me.ClientesTableAdapter.ClearBeforeFill = True
+        '
+        'ListapedidosdeliveryTableAdapter
+        '
+        Me.ListapedidosdeliveryTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
+        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
+        Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager.permisosTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'PedidosdeliveryTableAdapter
+        '
+        Me.PedidosdeliveryTableAdapter.ClearBeforeFill = True
+        '
         'PedidosDeliveryRecibidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1401, 627)
+        Me.ClientSize = New System.Drawing.Size(1340, 596)
         Me.Controls.Add(Me.GroupBox1)
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "PedidosDeliveryRecibidos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "PedidosRecibidos"
         Me.Text = "Pedidos Recibidos"
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListapedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MySQLDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PedidosdeliveryBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ListapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

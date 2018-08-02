@@ -1,5 +1,5 @@
 ﻿Module DBCModule
-    'AGUADA-PROD' Public comercialStrConn As String = "Data Source=SERVIDOR\SERVIDOR;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'AGUADA-PROD'
+    'AGUADA-PROD'Public comercialStrConn As String = "Data Source=SERVIDOR\SERVIDOR;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'AGUADA-PROD'
     Public comercialStrConn As String = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'DESA-local'
     ' Data Source=;Initial Catalog=;Persist Security Info=True;User ID=;Password=
     Public MySQLStrConn As String = "server=sistemascomerciales.net;user id=sistema1_sgcweb;password=sgcomercial*?;database=sistema1_sgcaguadagrande;persistsecurityinfo=True"

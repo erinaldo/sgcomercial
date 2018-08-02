@@ -83,7 +83,7 @@
                     ListalotesdetalleDataGridView.Rows(e.RowIndex).Cells("montoapagar").ReadOnly = True
                     ListalotesdetalleDataGridView.Rows(e.RowIndex).Cells("nroguia").ReadOnly = False
                 Case "EP"
-                    ListalotesdetalleDataGridView.Rows(e.RowIndex).Cells("montoapagar").Value = ListalotesdetalleDataGridView.Rows(e.RowIndex).Cells("montototal").Value
+                    ListalotesdetalleDataGridView.Rows(e.RowIndex).Cells("montoapagar").Value = ListalotesdetalleDataGridView.Rows(e.RowIndex).Cells("saldo").Value
                     ListalotesdetalleDataGridView.Rows(e.RowIndex).Cells("montoapagar").ReadOnly = True
                     ListalotesdetalleDataGridView.Rows(e.RowIndex).Cells("nroguia").ReadOnly = False
                 Case "ESCC"

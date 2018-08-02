@@ -72,7 +72,7 @@
     <Shape ID="DesignTable:lotesenvios" ZOrder="19" X="694" Y="753" Height="63" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="121" OldDataTableHeight="145" SplitterPosition="29" />
     <Shape ID="DesignTable:responsablesdelivery" ZOrder="18" X="695" Y="822" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="76" SplitterPosition="28" />
     <Shape ID="DesignTable:listalotes" ZOrder="17" X="696" Y="964" Height="62" Width="230" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="122" SplitterPosition="28" />
-    <Shape ID="DesignTable:listalotesdetalle" ZOrder="12" X="696" Y="893" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="76" OldDataTableHeight="306" SplitterPosition="28" />
+    <Shape ID="DesignTable:listalotesdetalle" ZOrder="12" X="696" Y="893" Height="388" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="76" OldDataTableHeight="306" SplitterPosition="306" />
     <Shape ID="DesignTable:estadosentregadelivery" ZOrder="16" X="697" Y="1033" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="76" SplitterPosition="28" />
     <Shape ID="DesignTable:estadospedidodelivery" ZOrder="15" X="696" Y="1104" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="76" SplitterPosition="28" />
     <Shape ID="DesignTable:cuentascorrientes" ZOrder="11" X="184" Y="447" Height="59" Width="158" AdapterExpanded="false" DataTableExpanded="true" OldAdapterHeight="84" OldDataTableHeight="0" SplitterPosition="25" />
