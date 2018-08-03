@@ -135,6 +135,7 @@ Public Class RegistrarVenta
         codigotextbox.Text = ""
         labeltotal.Text = ""
         NrocomprobanteTextBox.Text = ""
+        gclienteseleccionado = Nothing
     End Sub
     Private Sub BtnConfirmar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnConfirmar.Click
         Dim valida As Boolean
@@ -764,7 +765,7 @@ Public Class RegistrarVenta
             Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
             ClientesBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
         End If
-
+        gclienteseleccionado = Nothing
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IdclienteTextBox.TextChanged

@@ -34,4 +34,11 @@
         gclienteseleccionado = ClientesDataGridView.CurrentRow.Cells(0).Value
         Me.Close()
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim p As ABMClientes
+        p = New ABMClientes
+        p.ShowDialog()
+        Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
+    End Sub
 End Class

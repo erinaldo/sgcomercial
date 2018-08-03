@@ -66,6 +66,7 @@
         enabledit(True)
         ClientesDataGridView.Enabled = False
         filtrotextbox.Enabled = False
+        NombreTextBox.Select()
     End Sub
 
     Private Sub filtrotextbox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles filtrotextbox.TextChanged

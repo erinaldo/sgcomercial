@@ -731,8 +731,9 @@ Public Class RegistrarVentaCC
         If gclienteseleccionado > 0 Then
             Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
             ClientesBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
+            gclienteseleccionado = 0
         End If
-
+        gclienteseleccionado = 0
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IdclienteTextBox.TextChanged

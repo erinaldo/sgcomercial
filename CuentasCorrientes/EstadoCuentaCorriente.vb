@@ -1,5 +1,9 @@
 ﻿Public Class EstadoCuentaCorriente
     Private Sub EstadoCuentaCorriente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pagos' Puede moverla o quitarla según sea necesario.
+        Me.PagosTableAdapter.Fill(Me.ComercialDataSet.pagos)
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.ventas' Puede moverla o quitarla según sea necesario.
+        'Me.VentasTableAdapter.Fill(Me.ComercialDataSet.ventas)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listacuentascorrientes' Puede moverla o quitarla según sea necesario.
         If gclienteseleccionado > 0 Then
             filtrarcliente()
@@ -26,6 +30,16 @@
             Catch ex As Exception
                 MsgBox("Cliente no encontrado!", MsgBoxStyle.Exclamation)
                 ClientesBindingSource.Filter = "idcliente = " + "0"
+            End Try
+            Try
+                For i = 0 To ListacuentascorrientesDataGridView.RowCount - 1
+                    Select Case ListacuentascorrientesDataGridView.Rows(i).Cells("descripcion").Value
+                        Case "Pago"
+                            ListacuentascorrientesDataGridView.Rows(i).Cells("anular") = New DataGridViewTextBoxCell()
+                    End Select
+                Next
+            Catch ex As Exception
+                MsgBox(ex.Message)
             End Try
         Else
             ClientesBindingSource.Filter = "idcliente = " + "0"
@@ -135,13 +149,42 @@
                 gidventa = 0
                 If Not IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idventa").Value) Then
                     gidventa = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idventa").Value
+                    Dim debe As Decimal = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("debe").Value
+                    Dim saldo As Decimal = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value
+
+                    If debe <> saldo Then
+                        MsgBox("No es posible anular: existen pagos asociados a esta operación.", MsgBoxStyle.Exclamation, "Advertencia")
+                        Return
+                    Else
+                        If MsgBox("Seguro desea eliminar la venta?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                            Try
+                                VentasTableAdapter.ventas_bajaventa(gidventa, gusername)
+                                MsgBox("Operacion exitosa!", MsgBoxStyle.Information)
+                                filtrarcliente()
+                                Return
+                            Catch ex As Exception
+                                MsgBox("Ocurrio un error: " + ex.Message)
+                            End Try
+                        End If
+                    End If
                 End If
+                '*******************    anular pagos    ******************************************************
                 If Not IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idpagos").Value) Then
-                    gidpago = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idpagos").Value
+                    'MsgBox("No se puede anular el PAGO seleccionado", MsgBoxStyle.Exclamation)
+                    Return
+                    'gidpago = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idpagos").Value
+                    'If MsgBox("Seguro desea eliminar el pago?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                    '    Try
+                    '        PagosTableAdapter.pagos_anular(gidpago)
+                    '        MsgBox("Operacion exitosa!", MsgBoxStyle.Information)
+                    '        filtrarcliente()
+                    '        Return
+                    '    Catch ex As Exception
+                    '        MsgBox("Ocurrio un error: " + ex.Message)
+                    '    End Try
+                    'End If
                 End If
                 '***********************************************************
-
-                MsgBox("Seguro desea anular la operación?")
             Case Else
         End Select
     End Sub
