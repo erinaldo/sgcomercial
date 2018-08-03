@@ -25,22 +25,24 @@ Partial Class RegistrarVentaCC
         Me.components = New System.ComponentModel.Container()
         Dim IdclienteLabel As System.Windows.Forms.Label
         Dim FechaventaLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PagosDataGridView = New System.Windows.Forms.DataGridView()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.CheckBoxVale = New System.Windows.Forms.CheckBox()
         Me.LabelTotalVisible = New System.Windows.Forms.Label()
         Me.BtnDescuento = New System.Windows.Forms.Button()
+        Me.labeltotal = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CheckBoxVale = New System.Windows.Forms.CheckBox()
         Me.vueltotextbox = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.pagotextbox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.labeltotal = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.labelcliente = New System.Windows.Forms.Label()
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.FechaventaDateTimePicker = New System.Windows.Forms.DateTimePicker()
@@ -67,13 +69,11 @@ Partial Class RegistrarVentaCC
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.BtnNueva = New System.Windows.Forms.Button()
         Me.StockBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.CajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VentasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FormaspagoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VentasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ventasTableAdapter()
@@ -98,6 +98,8 @@ Partial Class RegistrarVentaCC
         CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,13 +110,11 @@ Partial Class RegistrarVentaCC
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VentasdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FormaspagoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,7 +124,7 @@ Partial Class RegistrarVentaCC
         'IdclienteLabel
         '
         IdclienteLabel.AutoSize = True
-        IdclienteLabel.Location = New System.Drawing.Point(9, 28)
+        IdclienteLabel.Location = New System.Drawing.Point(26, 28)
         IdclienteLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         IdclienteLabel.Name = "IdclienteLabel"
         IdclienteLabel.Size = New System.Drawing.Size(75, 17)
@@ -134,7 +134,7 @@ Partial Class RegistrarVentaCC
         'FechaventaLabel
         '
         FechaventaLabel.AutoSize = True
-        FechaventaLabel.Location = New System.Drawing.Point(3, 65)
+        FechaventaLabel.Location = New System.Drawing.Point(20, 65)
         FechaventaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         FechaventaLabel.Name = "FechaventaLabel"
         FechaventaLabel.Size = New System.Drawing.Size(92, 17)
@@ -144,7 +144,7 @@ Partial Class RegistrarVentaCC
         'PagosDataGridView
         '
         Me.PagosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.PagosDataGridView.Location = New System.Drawing.Point(101, 138)
+        Me.PagosDataGridView.Location = New System.Drawing.Point(88, 23)
         Me.PagosDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.PagosDataGridView.Name = "PagosDataGridView"
         Me.PagosDataGridView.Size = New System.Drawing.Size(24, 14)
@@ -161,21 +161,10 @@ Partial Class RegistrarVentaCC
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox4.Size = New System.Drawing.Size(853, 58)
+        Me.GroupBox4.Size = New System.Drawing.Size(859, 58)
         Me.GroupBox4.TabIndex = 9
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Resumen"
-        '
-        'CheckBoxVale
-        '
-        Me.CheckBoxVale.AutoSize = True
-        Me.CheckBoxVale.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.CheckBoxVale.Location = New System.Drawing.Point(659, 597)
-        Me.CheckBoxVale.Name = "CheckBoxVale"
-        Me.CheckBoxVale.Size = New System.Drawing.Size(58, 22)
-        Me.CheckBoxVale.TabIndex = 1
-        Me.CheckBoxVale.Text = "Vale"
-        Me.CheckBoxVale.UseVisualStyleBackColor = True
         '
         'LabelTotalVisible
         '
@@ -199,6 +188,40 @@ Partial Class RegistrarVentaCC
         Me.BtnDescuento.TabIndex = 9
         Me.BtnDescuento.Text = "Aplicar Descuento"
         Me.BtnDescuento.UseVisualStyleBackColor = True
+        '
+        'labeltotal
+        '
+        Me.labeltotal.AutoSize = True
+        Me.labeltotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.labeltotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labeltotal.Location = New System.Drawing.Point(540, 24)
+        Me.labeltotal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.labeltotal.Name = "labeltotal"
+        Me.labeltotal.Size = New System.Drawing.Size(2, 22)
+        Me.labeltotal.TabIndex = 2
+        Me.labeltotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.labeltotal.Visible = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(467, 25)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(44, 17)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Total:"
+        '
+        'CheckBoxVale
+        '
+        Me.CheckBoxVale.AutoSize = True
+        Me.CheckBoxVale.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.CheckBoxVale.Location = New System.Drawing.Point(659, 597)
+        Me.CheckBoxVale.Name = "CheckBoxVale"
+        Me.CheckBoxVale.Size = New System.Drawing.Size(58, 22)
+        Me.CheckBoxVale.TabIndex = 1
+        Me.CheckBoxVale.Text = "Vale"
+        Me.CheckBoxVale.UseVisualStyleBackColor = True
         '
         'vueltotextbox
         '
@@ -242,29 +265,6 @@ Partial Class RegistrarVentaCC
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Paga con:"
         '
-        'labeltotal
-        '
-        Me.labeltotal.AutoSize = True
-        Me.labeltotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labeltotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labeltotal.Location = New System.Drawing.Point(540, 24)
-        Me.labeltotal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.labeltotal.Name = "labeltotal"
-        Me.labeltotal.Size = New System.Drawing.Size(2, 22)
-        Me.labeltotal.TabIndex = 2
-        Me.labeltotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.labeltotal.Visible = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(467, 25)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(44, 17)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Total:"
-        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.labelcliente)
@@ -273,11 +273,11 @@ Partial Class RegistrarVentaCC
         Me.GroupBox3.Controls.Add(IdclienteLabel)
         Me.GroupBox3.Controls.Add(Me.FechaventaDateTimePicker)
         Me.GroupBox3.Controls.Add(FechaventaLabel)
-        Me.GroupBox3.Location = New System.Drawing.Point(221, 13)
+        Me.GroupBox3.Location = New System.Drawing.Point(13, 72)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox3.Size = New System.Drawing.Size(648, 148)
+        Me.GroupBox3.Size = New System.Drawing.Size(859, 96)
         Me.GroupBox3.TabIndex = 7
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Venta"
@@ -288,11 +288,21 @@ Partial Class RegistrarVentaCC
         Me.labelcliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.labelcliente.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "nombre", True))
         Me.labelcliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelcliente.Location = New System.Drawing.Point(220, 25)
+        Me.labelcliente.Location = New System.Drawing.Point(237, 25)
         Me.labelcliente.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.labelcliente.Name = "labelcliente"
         Me.labelcliente.Size = New System.Drawing.Size(2, 22)
         Me.labelcliente.TabIndex = 17
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "clientes"
+        Me.ClientesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'PictureSeleccionarCliente
         '
@@ -300,7 +310,7 @@ Partial Class RegistrarVentaCC
         Me.PictureSeleccionarCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureSeleccionarCliente.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSeleccionarCliente.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(181, 22)
+        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(198, 22)
         Me.PictureSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureSeleccionarCliente.Name = "PictureSeleccionarCliente"
         Me.PictureSeleccionarCliente.Size = New System.Drawing.Size(29, 28)
@@ -310,7 +320,7 @@ Partial Class RegistrarVentaCC
         '
         'IdclienteTextBox
         '
-        Me.IdclienteTextBox.Location = New System.Drawing.Point(88, 23)
+        Me.IdclienteTextBox.Location = New System.Drawing.Point(105, 23)
         Me.IdclienteTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.IdclienteTextBox.Name = "IdclienteTextBox"
         Me.IdclienteTextBox.Size = New System.Drawing.Size(84, 22)
@@ -319,7 +329,7 @@ Partial Class RegistrarVentaCC
         'FechaventaDateTimePicker
         '
         Me.FechaventaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FechaventaDateTimePicker.Location = New System.Drawing.Point(100, 60)
+        Me.FechaventaDateTimePicker.Location = New System.Drawing.Point(117, 60)
         Me.FechaventaDateTimePicker.Margin = New System.Windows.Forms.Padding(4)
         Me.FechaventaDateTimePicker.Name = "FechaventaDateTimePicker"
         Me.FechaventaDateTimePicker.Size = New System.Drawing.Size(144, 22)
@@ -337,7 +347,7 @@ Partial Class RegistrarVentaCC
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(856, 334)
+        Me.GroupBox2.Size = New System.Drawing.Size(859, 334)
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -433,27 +443,27 @@ Partial Class RegistrarVentaCC
         '
         'cantidad
         '
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle1
         Me.cantidad.HeaderText = "Cantidad"
         Me.cantidad.Name = "cantidad"
         Me.cantidad.ReadOnly = True
         '
         'precioventa
         '
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle20.Format = "C2"
-        DataGridViewCellStyle20.NullValue = Nothing
-        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "C2"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle2
         Me.precioventa.HeaderText = "Precio Venta"
         Me.precioventa.Name = "precioventa"
         Me.precioventa.ReadOnly = True
         '
         'subtotal
         '
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle21.Format = "C2"
-        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "C2"
+        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle3
         Me.subtotal.HeaderText = "Sub Total"
         Me.subtotal.Name = "subtotal"
         Me.subtotal.ReadOnly = True
@@ -477,6 +487,7 @@ Partial Class RegistrarVentaCC
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.StockDataGridView)
+        Me.GroupBox1.Controls.Add(Me.PagosDataGridView)
         Me.GroupBox1.Controls.Add(Me.CajasoperacionesDataGridView)
         Me.GroupBox1.Controls.Add(Me.CajaseventosDataGridView)
         Me.GroupBox1.Controls.Add(Me.ProductosDataGridView)
@@ -487,7 +498,7 @@ Partial Class RegistrarVentaCC
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(200, 146)
+        Me.GroupBox1.Size = New System.Drawing.Size(859, 59)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Opciones"
@@ -495,7 +506,7 @@ Partial Class RegistrarVentaCC
         'StockDataGridView
         '
         Me.StockDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.StockDataGridView.Location = New System.Drawing.Point(152, 126)
+        Me.StockDataGridView.Location = New System.Drawing.Point(152, 23)
         Me.StockDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.StockDataGridView.Name = "StockDataGridView"
         Me.StockDataGridView.Size = New System.Drawing.Size(24, 14)
@@ -505,7 +516,7 @@ Partial Class RegistrarVentaCC
         'CajasoperacionesDataGridView
         '
         Me.CajasoperacionesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CajasoperacionesDataGridView.Location = New System.Drawing.Point(120, 126)
+        Me.CajasoperacionesDataGridView.Location = New System.Drawing.Point(120, 23)
         Me.CajasoperacionesDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.CajasoperacionesDataGridView.Name = "CajasoperacionesDataGridView"
         Me.CajasoperacionesDataGridView.Size = New System.Drawing.Size(24, 14)
@@ -515,7 +526,7 @@ Partial Class RegistrarVentaCC
         'CajaseventosDataGridView
         '
         Me.CajaseventosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(56, 126)
+        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(56, 23)
         Me.CajaseventosDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.CajaseventosDataGridView.Name = "CajaseventosDataGridView"
         Me.CajaseventosDataGridView.Size = New System.Drawing.Size(24, 14)
@@ -525,7 +536,7 @@ Partial Class RegistrarVentaCC
         'ProductosDataGridView
         '
         Me.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ProductosDataGridView.Location = New System.Drawing.Point(24, 126)
+        Me.ProductosDataGridView.Location = New System.Drawing.Point(24, 23)
         Me.ProductosDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.ProductosDataGridView.Name = "ProductosDataGridView"
         Me.ProductosDataGridView.Size = New System.Drawing.Size(24, 14)
@@ -535,7 +546,7 @@ Partial Class RegistrarVentaCC
         'BtnConfirmar
         '
         Me.BtnConfirmar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnConfirmar.Location = New System.Drawing.Point(33, 95)
+        Me.BtnConfirmar.Location = New System.Drawing.Point(504, 18)
         Me.BtnConfirmar.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnConfirmar.Name = "BtnConfirmar"
         Me.BtnConfirmar.Size = New System.Drawing.Size(133, 28)
@@ -546,7 +557,7 @@ Partial Class RegistrarVentaCC
         'BtnCancelar
         '
         Me.BtnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancelar.Location = New System.Drawing.Point(33, 58)
+        Me.BtnCancelar.Location = New System.Drawing.Point(363, 18)
         Me.BtnCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnCancelar.Name = "BtnCancelar"
         Me.BtnCancelar.Size = New System.Drawing.Size(133, 28)
@@ -557,7 +568,7 @@ Partial Class RegistrarVentaCC
         'BtnNueva
         '
         Me.BtnNueva.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNueva.Location = New System.Drawing.Point(33, 23)
+        Me.BtnNueva.Location = New System.Drawing.Point(222, 18)
         Me.BtnNueva.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnNueva.Name = "BtnNueva"
         Me.BtnNueva.Size = New System.Drawing.Size(133, 28)
@@ -569,11 +580,6 @@ Partial Class RegistrarVentaCC
         '
         Me.StockBindingSource.DataMember = "stock"
         Me.StockBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CajasoperacionesBindingSource
         '
@@ -599,11 +605,6 @@ Partial Class RegistrarVentaCC
         '
         Me.VentasBindingSource.DataMember = "ventas"
         Me.VentasBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "clientes"
-        Me.ClientesBindingSource.DataSource = Me.ComercialDataSet
         '
         'TipocomprobantesBindingSource
         '
@@ -743,7 +744,6 @@ Partial Class RegistrarVentaCC
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(885, 575)
         Me.Controls.Add(Me.CheckBoxVale)
-        Me.Controls.Add(Me.PagosDataGridView)
         Me.Controls.Add(Me.pagotextbox)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.Label4)
@@ -764,6 +764,8 @@ Partial Class RegistrarVentaCC
         Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -775,13 +777,11 @@ Partial Class RegistrarVentaCC
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VentasdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FormaspagoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

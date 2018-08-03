@@ -25,9 +25,9 @@ Partial Class EstadoCuentaCorriente
         Me.components = New System.ComponentModel.Container()
         Dim NombreLabel As System.Windows.Forms.Label
         Dim CuitLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -42,15 +42,6 @@ Partial Class EstadoCuentaCorriente
         Me.ListacuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listacuentascorrientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.ClientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesTableAdapter()
-        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nro = New System.Windows.Forms.DataGridViewLinkColumn()
-        Me.debe = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.haber = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.saldo = New System.Windows.Forms.DataGridViewLinkColumn()
-        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpagos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -60,6 +51,16 @@ Partial Class EstadoCuentaCorriente
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Labeltotalhaber = New System.Windows.Forms.Label()
         Me.Labeltotaldebe = New System.Windows.Forms.Label()
+        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nro = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.debe = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.haber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.saldo = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpagos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Anular = New System.Windows.Forms.DataGridViewButtonColumn()
         NombreLabel = New System.Windows.Forms.Label()
         CuitLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -181,7 +182,7 @@ Partial Class EstadoCuentaCorriente
         Me.ListacuentascorrientesDataGridView.AllowUserToDeleteRows = False
         Me.ListacuentascorrientesDataGridView.AutoGenerateColumns = False
         Me.ListacuentascorrientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListacuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcliente, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn7, Me.nro, Me.debe, Me.haber, Me.saldo, Me.idventa, Me.idpagos})
+        Me.ListacuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcliente, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn7, Me.nro, Me.debe, Me.haber, Me.saldo, Me.idventa, Me.idpagos, Me.Anular})
         Me.ListacuentascorrientesDataGridView.DataSource = Me.ListacuentascorrientesBindingSource
         Me.ListacuentascorrientesDataGridView.Location = New System.Drawing.Point(17, 21)
         Me.ListacuentascorrientesDataGridView.Name = "ListacuentascorrientesDataGridView"
@@ -259,88 +260,6 @@ Partial Class EstadoCuentaCorriente
         'ClientesTableAdapter
         '
         Me.ClientesTableAdapter.ClearBeforeFill = True
-        '
-        'idcliente
-        '
-        Me.idcliente.DataPropertyName = "idcliente"
-        Me.idcliente.HeaderText = "idcliente"
-        Me.idcliente.Name = "idcliente"
-        Me.idcliente.ReadOnly = True
-        Me.idcliente.Visible = False
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "fecha"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Fecha"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "descripcion"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Descripcion"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 250
-        '
-        'nro
-        '
-        Me.nro.DataPropertyName = "nro"
-        Me.nro.HeaderText = "Nº"
-        Me.nro.Name = "nro"
-        Me.nro.ReadOnly = True
-        Me.nro.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.nro.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.nro.Width = 90
-        '
-        'debe
-        '
-        Me.debe.DataPropertyName = "debe"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.debe.DefaultCellStyle = DataGridViewCellStyle7
-        Me.debe.HeaderText = "Debe"
-        Me.debe.Name = "debe"
-        Me.debe.ReadOnly = True
-        '
-        'haber
-        '
-        Me.haber.DataPropertyName = "haber"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.haber.DefaultCellStyle = DataGridViewCellStyle8
-        Me.haber.HeaderText = "Haber"
-        Me.haber.Name = "haber"
-        Me.haber.ReadOnly = True
-        '
-        'saldo
-        '
-        Me.saldo.DataPropertyName = "saldo"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Red
-        Me.saldo.DefaultCellStyle = DataGridViewCellStyle9
-        Me.saldo.HeaderText = "Saldo"
-        Me.saldo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.saldo.Name = "saldo"
-        Me.saldo.ReadOnly = True
-        Me.saldo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.saldo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.saldo.ToolTipText = "Click para cargar pago"
-        '
-        'idventa
-        '
-        Me.idventa.DataPropertyName = "idventa"
-        Me.idventa.HeaderText = "idventa"
-        Me.idventa.Name = "idventa"
-        Me.idventa.ReadOnly = True
-        Me.idventa.Visible = False
-        '
-        'idpagos
-        '
-        Me.idpagos.DataPropertyName = "idpagos"
-        Me.idpagos.HeaderText = "idpagos"
-        Me.idpagos.Name = "idpagos"
-        Me.idpagos.ReadOnly = True
-        Me.idpagos.Visible = False
         '
         'GroupBox3
         '
@@ -447,6 +366,97 @@ Partial Class EstadoCuentaCorriente
         Me.Labeltotaldebe.Text = "00000000"
         Me.Labeltotaldebe.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'idcliente
+        '
+        Me.idcliente.DataPropertyName = "idcliente"
+        Me.idcliente.HeaderText = "idcliente"
+        Me.idcliente.Name = "idcliente"
+        Me.idcliente.ReadOnly = True
+        Me.idcliente.Visible = False
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "fecha"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Fecha"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Descripcion"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Width = 250
+        '
+        'nro
+        '
+        Me.nro.DataPropertyName = "nro"
+        Me.nro.HeaderText = "Nº"
+        Me.nro.Name = "nro"
+        Me.nro.ReadOnly = True
+        Me.nro.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.nro.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.nro.Width = 90
+        '
+        'debe
+        '
+        Me.debe.DataPropertyName = "debe"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.debe.DefaultCellStyle = DataGridViewCellStyle1
+        Me.debe.HeaderText = "Debe"
+        Me.debe.Name = "debe"
+        Me.debe.ReadOnly = True
+        '
+        'haber
+        '
+        Me.haber.DataPropertyName = "haber"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.haber.DefaultCellStyle = DataGridViewCellStyle2
+        Me.haber.HeaderText = "Haber"
+        Me.haber.Name = "haber"
+        Me.haber.ReadOnly = True
+        '
+        'saldo
+        '
+        Me.saldo.DataPropertyName = "saldo"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red
+        Me.saldo.DefaultCellStyle = DataGridViewCellStyle3
+        Me.saldo.HeaderText = "Saldo"
+        Me.saldo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.saldo.Name = "saldo"
+        Me.saldo.ReadOnly = True
+        Me.saldo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.saldo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.saldo.ToolTipText = "Click para cargar pago"
+        '
+        'idventa
+        '
+        Me.idventa.DataPropertyName = "idventa"
+        Me.idventa.HeaderText = "idventa"
+        Me.idventa.Name = "idventa"
+        Me.idventa.ReadOnly = True
+        Me.idventa.Visible = False
+        '
+        'idpagos
+        '
+        Me.idpagos.DataPropertyName = "idpagos"
+        Me.idpagos.HeaderText = "idpagos"
+        Me.idpagos.Name = "idpagos"
+        Me.idpagos.ReadOnly = True
+        Me.idpagos.Visible = False
+        '
+        'Anular
+        '
+        Me.Anular.HeaderText = "Anular"
+        Me.Anular.Name = "Anular"
+        Me.Anular.ReadOnly = True
+        Me.Anular.Text = "Anular"
+        Me.Anular.ToolTipText = "Anular"
+        Me.Anular.UseColumnTextForButtonValue = True
+        '
         'EstadoCuentaCorriente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -488,15 +498,6 @@ Partial Class EstadoCuentaCorriente
     Friend WithEvents NombreTextBox As TextBox
     Friend WithEvents ClientesBindingSource As BindingSource
     Friend WithEvents CuitTextBox As TextBox
-    Friend WithEvents idcliente As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents nro As DataGridViewLinkColumn
-    Friend WithEvents debe As DataGridViewTextBoxColumn
-    Friend WithEvents haber As DataGridViewTextBoxColumn
-    Friend WithEvents saldo As DataGridViewLinkColumn
-    Friend WithEvents idventa As DataGridViewTextBoxColumn
-    Friend WithEvents idpagos As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
@@ -506,4 +507,14 @@ Partial Class EstadoCuentaCorriente
     Friend WithEvents Label4 As Label
     Friend WithEvents Labeltotalhaber As Label
     Friend WithEvents Labeltotaldebe As Label
+    Friend WithEvents idcliente As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents nro As DataGridViewLinkColumn
+    Friend WithEvents debe As DataGridViewTextBoxColumn
+    Friend WithEvents haber As DataGridViewTextBoxColumn
+    Friend WithEvents saldo As DataGridViewLinkColumn
+    Friend WithEvents idventa As DataGridViewTextBoxColumn
+    Friend WithEvents idpagos As DataGridViewTextBoxColumn
+    Friend WithEvents Anular As DataGridViewButtonColumn
 End Class

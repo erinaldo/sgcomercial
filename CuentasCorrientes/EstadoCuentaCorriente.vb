@@ -80,10 +80,16 @@
         '    Return
         'End If
         '*************************************************
-        gidcliente = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
+        Try
+            gidcliente = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
+        Catch ex As Exception
+            Return
+        End Try
+
         '*************************************************
         Select Case ListacuentascorrientesDataGridView.Columns(e.ColumnIndex).Name
             Case "saldo"
+                If IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value) Then Return
                 If ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value > 0 Then
                     gidventa = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("nro").Value
                     Dim p As CtasCtesPagar
@@ -123,6 +129,19 @@
                 End If
                 gidpago = 0
                 gidventa = 0
+            Case "Anular"
+                '***************************** verificar si es venta o pago
+                gidpago = 0
+                gidventa = 0
+                If Not IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idventa").Value) Then
+                    gidventa = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idventa").Value
+                End If
+                If Not IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idpagos").Value) Then
+                    gidpago = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idpagos").Value
+                End If
+                '***********************************************************
+
+                MsgBox("Seguro desea anular la operación?")
             Case Else
         End Select
     End Sub
