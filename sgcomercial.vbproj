@@ -164,6 +164,12 @@
     <Compile Include="CuentasCorrientes\LibroCuentasCorrientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CuentasCorrientes\RegistrarVentaCC.Designer.vb">
+      <DependentUpon>RegistrarVentaCC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\RegistrarVentaCC.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Delivery\ABMTransportes.Designer.vb">
       <DependentUpon>ABMTransportes.vb</DependentUpon>
     </Compile>
@@ -703,6 +709,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\LibroCuentasCorrientes.resx">
       <DependentUpon>LibroCuentasCorrientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasCorrientes\RegistrarVentaCC.resx">
+      <DependentUpon>RegistrarVentaCC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\ABMTransportes.resx">
       <DependentUpon>ABMTransportes.vb</DependentUpon>

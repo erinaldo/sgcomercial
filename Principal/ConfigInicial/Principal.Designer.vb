@@ -73,6 +73,7 @@ Partial Class Principal
         Me.ABMMotivosValesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CuentasCorrientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadoDeCuentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroDeCuentasCorrientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MiComercioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FondoAplicaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -150,7 +151,7 @@ Partial Class Principal
         Me.ListaprecioscajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaprecioscajaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaprecioscajaTableAdapter()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.LibroDeCuentasCorrientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -539,7 +540,7 @@ Partial Class Principal
         '
         'CuentasCorrientesToolStripMenuItem
         '
-        Me.CuentasCorrientesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EstadoDeCuentaToolStripMenuItem, Me.LibroDeCuentasCorrientesToolStripMenuItem})
+        Me.CuentasCorrientesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EstadoDeCuentaToolStripMenuItem, Me.LibroDeCuentasCorrientesToolStripMenuItem, Me.RegistrarVentaACuentaCorrienteToolStripMenuItem})
         Me.CuentasCorrientesToolStripMenuItem.Name = "CuentasCorrientesToolStripMenuItem"
         Me.CuentasCorrientesToolStripMenuItem.Size = New System.Drawing.Size(167, 27)
         Me.CuentasCorrientesToolStripMenuItem.Tag = "ModuloCuentasCorrientes"
@@ -548,9 +549,16 @@ Partial Class Principal
         'EstadoDeCuentaToolStripMenuItem
         '
         Me.EstadoDeCuentaToolStripMenuItem.Name = "EstadoDeCuentaToolStripMenuItem"
-        Me.EstadoDeCuentaToolStripMenuItem.Size = New System.Drawing.Size(298, 28)
+        Me.EstadoDeCuentaToolStripMenuItem.Size = New System.Drawing.Size(352, 28)
         Me.EstadoDeCuentaToolStripMenuItem.Tag = "EstadoCuentaCorriente"
         Me.EstadoDeCuentaToolStripMenuItem.Text = "Estado de Cuenta"
+        '
+        'LibroDeCuentasCorrientesToolStripMenuItem
+        '
+        Me.LibroDeCuentasCorrientesToolStripMenuItem.Name = "LibroDeCuentasCorrientesToolStripMenuItem"
+        Me.LibroDeCuentasCorrientesToolStripMenuItem.Size = New System.Drawing.Size(352, 28)
+        Me.LibroDeCuentasCorrientesToolStripMenuItem.Tag = "LibroCuentasCorrientes"
+        Me.LibroDeCuentasCorrientesToolStripMenuItem.Text = "Libro de Cuentas Corrientes"
         '
         'ConfiguracionesToolStripMenuItem
         '
@@ -1152,12 +1160,12 @@ Partial Class Principal
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
         '
-        'LibroDeCuentasCorrientesToolStripMenuItem
+        'RegistrarVentaACuentaCorrienteToolStripMenuItem
         '
-        Me.LibroDeCuentasCorrientesToolStripMenuItem.Name = "LibroDeCuentasCorrientesToolStripMenuItem"
-        Me.LibroDeCuentasCorrientesToolStripMenuItem.Size = New System.Drawing.Size(298, 28)
-        Me.LibroDeCuentasCorrientesToolStripMenuItem.Tag = "LibroCuentasCorrientes"
-        Me.LibroDeCuentasCorrientesToolStripMenuItem.Text = "Libro de Cuentas Corrientes"
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Name = "RegistrarVentaACuentaCorrienteToolStripMenuItem"
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Size = New System.Drawing.Size(352, 28)
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Tag = "RegistrarVentaCuentaCorriente"
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Text = "Registrar Venta a Cuenta Corriente"
         '
         'Principal
         '
@@ -1329,4 +1337,5 @@ Partial Class Principal
     Friend WithEvents ABMTransportesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents POSTFormToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroDeCuentasCorrientesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RegistrarVentaACuentaCorrienteToolStripMenuItem As ToolStripMenuItem
 End Class

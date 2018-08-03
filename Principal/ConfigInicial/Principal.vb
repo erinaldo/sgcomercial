@@ -594,4 +594,9 @@ Public Class Principal
         LibroCuentasCorrientes.MdiParent = Me
         LibroCuentasCorrientes.Visible = True
     End Sub
+
+    Private Sub RegistrarVentaACuentaCorrienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarVentaACuentaCorrienteToolStripMenuItem.Click
+        RegistrarVentaCC.MdiParent = Me
+        RegistrarVentaCC.Visible = True
+    End Sub
 End Class
