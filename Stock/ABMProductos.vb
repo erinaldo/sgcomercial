@@ -178,7 +178,10 @@ Public Class ABMProductos
         PrecioventagranelTextBox.Enabled = status
         PrecioventamayoristaTextBox.Enabled = status
         PrecioventadistribuidorTextBox.Enabled = status
-
+        BPC1.Enabled = status
+        BPC2.Enabled = status
+        BPC3.Enabled = status
+        BPC4.Enabled = status
     End Sub
     Public Sub enablefilter(ByVal status As Boolean)
 
@@ -438,5 +441,75 @@ Public Class ABMProductos
             'MessageBox.Show("Solo se permiten numeros")
             e.KeyChar = ""
         End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BPC1.Click
+        Dim preciocalculado As String = PrecioventaTextBox.Text
+        calcularPrecioPC(preciocalculado)
+        PrecioventaTextBox.Text = Convert.ToDecimal(preciocalculado)
+    End Sub
+    Private Sub calcularPrecioPC(ByRef preciocalculado As String)
+        Dim original As String = preciocalculado
+        Try
+            gpreciocosto = PreciocostoTextBox.Text
+            gpreciocalculado = Nothing
+            If Not Convert.ToDecimal(gpreciocosto) > 0 Then
+                MsgBox("Ingrese un precio de costo", MsgBoxStyle.Exclamation, "Advertencia")
+                Return
+            End If
+            Dim p As CalculaMontoPC
+            p = New CalculaMontoPC
+            p.ShowDialog()
+            'MsgBox(gpreciocalculado)
+            If Convert.ToDecimal(gpreciocalculado) > 0 Then
+                preciocalculado = gpreciocalculado
+            Else
+                preciocalculado = preciocalculado
+            End If
+            gpreciocalculado = Nothing
+            gpreciocosto = Nothing
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub PrecioventadistribuidorTextBox_TextChanged(sender As Object, e As EventArgs) Handles PrecioventadistribuidorTextBox.TextChanged
+
+    End Sub
+
+    Private Sub PrecioventadistribuidorTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles PrecioventadistribuidorTextBox.KeyPress
+        If Char.IsControl(e.KeyChar) Then
+            Return
+        End If
+
+        If e.KeyChar = "." Then
+            e.KeyChar = ","
+            Return
+        End If
+        If e.KeyChar = "," Then
+            Return
+        End If
+        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
+            'MessageBox.Show("Solo se permiten numeros")
+            e.KeyChar = ""
+        End If
+    End Sub
+
+    Private Sub BPC2_Click(sender As Object, e As EventArgs) Handles BPC2.Click
+        Dim preciocalculado As String = PrecioventagranelTextBox.Text
+        calcularPrecioPC(preciocalculado)
+        PrecioventagranelTextBox.Text = Convert.ToDecimal(preciocalculado)
+    End Sub
+
+    Private Sub BPC3_Click(sender As Object, e As EventArgs) Handles BPC3.Click
+        Dim preciocalculado As String = PrecioventamayoristaTextBox.Text
+        calcularPrecioPC(preciocalculado)
+        PrecioventamayoristaTextBox.Text = Convert.ToDecimal(preciocalculado)
+    End Sub
+
+    Private Sub BPC4_Click(sender As Object, e As EventArgs) Handles BPC4.Click
+        Dim preciocalculado As String = PrecioventadistribuidorTextBox.Text
+        calcularPrecioPC(preciocalculado)
+        PrecioventadistribuidorTextBox.Text = Convert.ToDecimal(preciocalculado)
     End Sub
 End Class

@@ -26,6 +26,7 @@
     Public gcodigoproducto As String
     Public gproductodescripcion As String
     Public gprecioventa As String
+    Public gpreciocalculado As String
     Public gpreciocosto As String
     Public gprecioventagranel As String
     Public gprecioventamayorista As String

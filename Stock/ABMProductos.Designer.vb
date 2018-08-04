@@ -63,6 +63,10 @@ Partial Class ABMProductos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.UnidadesmedidaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.unidadesmedidaTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BPC4 = New System.Windows.Forms.Button()
+        Me.BPC3 = New System.Windows.Forms.Button()
+        Me.BPC2 = New System.Windows.Forms.Button()
+        Me.BPC1 = New System.Windows.Forms.Button()
         Me.PrecioventadistribuidorTextBox = New System.Windows.Forms.TextBox()
         Me.PrecioventamayoristaTextBox = New System.Windows.Forms.TextBox()
         Me.PrecioventagranelTextBox = New System.Windows.Forms.TextBox()
@@ -176,7 +180,7 @@ Partial Class ABMProductos
         'ImagenLabel
         '
         ImagenLabel.AutoSize = True
-        ImagenLabel.Location = New System.Drawing.Point(669, 83)
+        ImagenLabel.Location = New System.Drawing.Point(815, 24)
         ImagenLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ImagenLabel.Name = "ImagenLabel"
         ImagenLabel.Size = New System.Drawing.Size(58, 17)
@@ -239,7 +243,7 @@ Partial Class ABMProductos
         'PrecioventagranelLabel
         '
         PrecioventagranelLabel.AutoSize = True
-        PrecioventagranelLabel.Location = New System.Drawing.Point(297, 219)
+        PrecioventagranelLabel.Location = New System.Drawing.Point(305, 219)
         PrecioventagranelLabel.Name = "PrecioventagranelLabel"
         PrecioventagranelLabel.Size = New System.Drawing.Size(137, 17)
         PrecioventagranelLabel.TabIndex = 112
@@ -248,7 +252,7 @@ Partial Class ABMProductos
         'PrecioventamayoristaLabel
         '
         PrecioventamayoristaLabel.AutoSize = True
-        PrecioventamayoristaLabel.Location = New System.Drawing.Point(285, 252)
+        PrecioventamayoristaLabel.Location = New System.Drawing.Point(293, 252)
         PrecioventamayoristaLabel.Name = "PrecioventamayoristaLabel"
         PrecioventamayoristaLabel.Size = New System.Drawing.Size(149, 17)
         PrecioventamayoristaLabel.TabIndex = 113
@@ -257,7 +261,7 @@ Partial Class ABMProductos
         'Label4
         '
         Label4.AutoSize = True
-        Label4.Location = New System.Drawing.Point(574, 218)
+        Label4.Location = New System.Drawing.Point(594, 218)
         Label4.Name = "Label4"
         Label4.Size = New System.Drawing.Size(113, 17)
         Label4.TabIndex = 115
@@ -507,6 +511,10 @@ Partial Class ABMProductos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BPC4)
+        Me.GroupBox1.Controls.Add(Me.BPC3)
+        Me.GroupBox1.Controls.Add(Me.BPC2)
+        Me.GroupBox1.Controls.Add(Me.BPC1)
         Me.GroupBox1.Controls.Add(Me.PrecioventadistribuidorTextBox)
         Me.GroupBox1.Controls.Add(Label4)
         Me.GroupBox1.Controls.Add(PrecioventamayoristaLabel)
@@ -515,6 +523,7 @@ Partial Class ABMProductos
         Me.GroupBox1.Controls.Add(Me.PrecioventagranelTextBox)
         Me.GroupBox1.Controls.Add(Me.PictureBoxCalidacodigo)
         Me.GroupBox1.Controls.Add(Me.MedidaTextBox)
+        Me.GroupBox1.Controls.Add(ImagenLabel)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.MarcaTextBox)
         Me.GroupBox1.Controls.Add(Me.ModeloTextBox)
@@ -540,30 +549,70 @@ Partial Class ABMProductos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Producto"
         '
+        'BPC4
+        '
+        Me.BPC4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BPC4.Location = New System.Drawing.Point(821, 215)
+        Me.BPC4.Name = "BPC4"
+        Me.BPC4.Size = New System.Drawing.Size(26, 24)
+        Me.BPC4.TabIndex = 120
+        Me.BPC4.Text = "%"
+        Me.BPC4.UseVisualStyleBackColor = True
+        '
+        'BPC3
+        '
+        Me.BPC3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BPC3.Location = New System.Drawing.Point(557, 248)
+        Me.BPC3.Name = "BPC3"
+        Me.BPC3.Size = New System.Drawing.Size(26, 24)
+        Me.BPC3.TabIndex = 119
+        Me.BPC3.Text = "%"
+        Me.BPC3.UseVisualStyleBackColor = True
+        '
+        'BPC2
+        '
+        Me.BPC2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BPC2.Location = New System.Drawing.Point(557, 212)
+        Me.BPC2.Name = "BPC2"
+        Me.BPC2.Size = New System.Drawing.Size(26, 24)
+        Me.BPC2.TabIndex = 118
+        Me.BPC2.Text = "%"
+        Me.BPC2.UseVisualStyleBackColor = True
+        '
+        'BPC1
+        '
+        Me.BPC1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BPC1.Location = New System.Drawing.Point(252, 248)
+        Me.BPC1.Name = "BPC1"
+        Me.BPC1.Size = New System.Drawing.Size(26, 24)
+        Me.BPC1.TabIndex = 117
+        Me.BPC1.Text = "%"
+        Me.BPC1.UseVisualStyleBackColor = True
+        '
         'PrecioventadistribuidorTextBox
         '
         Me.PrecioventadistribuidorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventadistribuidor", True))
-        Me.PrecioventadistribuidorTextBox.Location = New System.Drawing.Point(692, 216)
+        Me.PrecioventadistribuidorTextBox.Location = New System.Drawing.Point(712, 216)
         Me.PrecioventadistribuidorTextBox.Name = "PrecioventadistribuidorTextBox"
-        Me.PrecioventadistribuidorTextBox.Size = New System.Drawing.Size(116, 22)
+        Me.PrecioventadistribuidorTextBox.Size = New System.Drawing.Size(108, 22)
         Me.PrecioventadistribuidorTextBox.TabIndex = 116
         Me.PrecioventadistribuidorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'PrecioventamayoristaTextBox
         '
         Me.PrecioventamayoristaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventamayorista", True))
-        Me.PrecioventamayoristaTextBox.Location = New System.Drawing.Point(440, 249)
+        Me.PrecioventamayoristaTextBox.Location = New System.Drawing.Point(448, 249)
         Me.PrecioventamayoristaTextBox.Name = "PrecioventamayoristaTextBox"
-        Me.PrecioventamayoristaTextBox.Size = New System.Drawing.Size(116, 22)
+        Me.PrecioventamayoristaTextBox.Size = New System.Drawing.Size(108, 22)
         Me.PrecioventamayoristaTextBox.TabIndex = 114
         Me.PrecioventamayoristaTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'PrecioventagranelTextBox
         '
         Me.PrecioventagranelTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventagranel", True))
-        Me.PrecioventagranelTextBox.Location = New System.Drawing.Point(440, 213)
+        Me.PrecioventagranelTextBox.Location = New System.Drawing.Point(448, 213)
         Me.PrecioventagranelTextBox.Name = "PrecioventagranelTextBox"
-        Me.PrecioventagranelTextBox.Size = New System.Drawing.Size(116, 22)
+        Me.PrecioventagranelTextBox.Size = New System.Drawing.Size(108, 22)
         Me.PrecioventagranelTextBox.TabIndex = 113
         Me.PrecioventagranelTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -640,7 +689,7 @@ Partial Class ABMProductos
         Me.PreciocostoTextBox.Location = New System.Drawing.Point(143, 213)
         Me.PreciocostoTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PreciocostoTextBox.Name = "PreciocostoTextBox"
-        Me.PreciocostoTextBox.Size = New System.Drawing.Size(132, 22)
+        Me.PreciocostoTextBox.Size = New System.Drawing.Size(108, 22)
         Me.PreciocostoTextBox.TabIndex = 7
         Me.PreciocostoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -653,7 +702,7 @@ Partial Class ABMProductos
         Me.PrecioventaTextBox.Location = New System.Drawing.Point(143, 249)
         Me.PrecioventaTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PrecioventaTextBox.Name = "PrecioventaTextBox"
-        Me.PrecioventaTextBox.Size = New System.Drawing.Size(132, 22)
+        Me.PrecioventaTextBox.Size = New System.Drawing.Size(108, 22)
         Me.PrecioventaTextBox.TabIndex = 8
         Me.PrecioventaTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -706,8 +755,9 @@ Partial Class ABMProductos
         Me.DescripcionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "descripcion", True))
         Me.DescripcionTextBox.Location = New System.Drawing.Point(409, 144)
         Me.DescripcionTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.DescripcionTextBox.Multiline = True
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
-        Me.DescripcionTextBox.Size = New System.Drawing.Size(304, 22)
+        Me.DescripcionTextBox.Size = New System.Drawing.Size(464, 53)
         Me.DescripcionTextBox.TabIndex = 11
         '
         'GroupBox2
@@ -770,7 +820,6 @@ Partial Class ABMProductos
         Me.Controls.Add(PresentacionLabel)
         Me.Controls.Add(UnidadmedidaLabel)
         Me.Controls.Add(MedidaLabel)
-        Me.Controls.Add(ImagenLabel)
         Me.Controls.Add(Me.ImagenPictureBox)
         Me.Controls.Add(Me.ProductosBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
@@ -848,4 +897,8 @@ Partial Class ABMProductos
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents PrecioventadistribuidorTextBox As TextBox
+    Friend WithEvents BPC4 As Button
+    Friend WithEvents BPC3 As Button
+    Friend WithEvents BPC2 As Button
+    Friend WithEvents BPC1 As Button
 End Class
