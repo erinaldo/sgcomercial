@@ -5,6 +5,8 @@
 
 
     Private Sub TerminalVerificadoraPrecios_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.parametrosgenerales' Puede moverla o quitarla según sea necesario.
+        Me.ParametrosgeneralesTableAdapter.Fill(Me.ComercialDataSet.parametrosgenerales)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listaprecioscaja' Puede moverla o quitarla según sea necesario.
         Me.ListaprecioscajaTableAdapter.Fill(Me.ComercialDataSet.listaprecioscaja)
         TextBox1.Left = (TextBox1.Parent.Width \ 2) - (TextBox1.Width \ 2)
@@ -13,10 +15,10 @@
         GroupBoxProducto.Top = (GroupBoxProducto.Parent.Height \ 2) - (GroupBoxProducto.Height \ 2)
 
         ListaprecioscajaBindingSource.Filter = "codigoproducto like 'N/A'"
-
-
-
-
+        '/*********************************/
+        '********** RecargoTC
+        grecargoTC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoTC")
+        '**********
     End Sub
 
     Private Sub TextBox1_SizeChanged(sender As Object, e As EventArgs) Handles TextBox1.SizeChanged
@@ -37,8 +39,14 @@
             Else
                 Dim precioventa As Decimal = PrecioventaTextBox.Text
                 Dim preciokilo As Decimal = PreciokiloTextBox.Text
-                et.Text = Math.Floor(precioventa * 1.1)
-                kt.Text = Math.Floor(preciokilo * 1.1)
+                If grecargoTC = 0 Then
+                    et.Text = Math.Floor(precioventa)
+                    kt.Text = Math.Floor(precioventa)
+                Else
+                    et.Text = Math.Floor(precioventa + precioventa * grecargoTC / 100)
+                    kt.Text = Math.Floor(precioventa + preciokilo * grecargoTC / 100)
+                End If
+
             End If
 
         Catch ex As Exception

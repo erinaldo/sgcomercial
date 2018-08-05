@@ -28,11 +28,22 @@ Public Class AltaPedidoDelivery
         ClientesdomiciliosBindingSource.Filter = "idcliente = 0"
         LabelTotal.Text = Nothing
         CheckBoxNuevoCliente.Checked = False
+        enableedit(False)
         '/**************        defaluts    ****************/
         ComboBoxLocalidad.Enabled = False
         ComboBoxProvincia.SelectedIndex = 0
         ComboBoxLocalidad.SelectedIndex = 0
         ComboBoxProvincia.Enabled = False
+    End Sub
+    Private Sub enableedit(ByVal status As String)
+        TextBoxNombreCliente.Enabled = status
+        TextBoxTelefono.Enabled = status
+        TextBoxEmail.Enabled = status
+        TextBoxCuit.Enabled = status
+        TextBoxDireccion.Enabled = status
+        TextBoxReferencias.Enabled = status
+        TextBoxCP.Enabled = status
+        ComboBoxTransporte.Enabled = status
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdclienteTextBox.TextChanged
@@ -79,10 +90,13 @@ Public Class AltaPedidoDelivery
             ClientesdomiciliosBindingSource.Filter = "idcliente = 0 "
             ComboBoxProvincia.SelectedIndex = 0
             ComboBoxLocalidad.SelectedIndex = 0
+            enableedit(True)
+            IdclienteTextBox.Select()
         Else
             IdclienteTextBox.Text = Nothing
             PictureBoxEditarDomicilios.Enabled = True
             PictureSeleccionarCliente.Enabled = True
+            enableedit(False)
         End If
     End Sub
 

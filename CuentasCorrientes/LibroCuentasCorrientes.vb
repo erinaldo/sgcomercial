@@ -21,17 +21,26 @@ Public Class LibroCuentasCorrientes
     End Sub
 
     Private Sub LibrocuentascorrientesDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles LibrocuentascorrientesDataGridView.CellClick
-        Select Case LibrocuentascorrientesDataGridView.Columns(e.ColumnIndex).Name
-            Case "nombre"
-                Dim p As EstadoCuentaCorriente
-                p = New EstadoCuentaCorriente
-                p.IdclienteTextBox.Text = LibrocuentascorrientesDataGridView.Rows(e.RowIndex).Cells(0).Value
-                gclienteseleccionado = LibrocuentascorrientesDataGridView.Rows(e.RowIndex).Cells(0).Value
-                p.filtrarcliente()
-                p.PictureSeleccionarCliente.Enabled = False
-                p.ShowDialog()
-                Me.LibrocuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.librocuentascorrientes)
-                LibrocuentascorrientesDataGridView.Sort(LibrocuentascorrientesDataGridView.Columns("saldo"), ListSortDirection.Descending)
-        End Select
+        Try
+            Select Case LibrocuentascorrientesDataGridView.Columns(e.ColumnIndex).Name
+                Case "nombre"
+                    Try
+                        Dim p As EstadoCuentaCorriente
+                        p = New EstadoCuentaCorriente
+                        p.IdclienteTextBox.Text = LibrocuentascorrientesDataGridView.Rows(e.RowIndex).Cells(0).Value
+                        gclienteseleccionado = LibrocuentascorrientesDataGridView.Rows(e.RowIndex).Cells(0).Value
+                        p.filtrarcliente()
+                        p.PictureSeleccionarCliente.Enabled = False
+                        p.ShowDialog()
+                        Me.LibrocuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.librocuentascorrientes)
+                        LibrocuentascorrientesDataGridView.Sort(LibrocuentascorrientesDataGridView.Columns("saldo"), ListSortDirection.Descending)
+                    Catch ex As Exception
+
+                    End Try
+            End Select
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class

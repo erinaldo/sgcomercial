@@ -9,6 +9,8 @@ Public Class ABMProductos
     End Sub
 
     Private Sub ABMProductos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
+        Me.StockTableAdapter1.Fill(Me.ComercialDataSet.stock)
         IdproductoTextBox.Visible = False
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.rubros' Puede moverla o quitarla según sea necesario.
         Me.RubrosTableAdapter.Fill(Me.ComercialDataSet.rubros)
@@ -19,6 +21,7 @@ Public Class ABMProductos
 
         enableedit(False)
         enablefilter(True)
+        stockinicialtextbox.Enabled = False
         ComboBox2.SelectedIndex = 1
         TextFiltro.Select()
     End Sub
@@ -40,7 +43,6 @@ Public Class ABMProductos
             Return
         End If
         '**********************************************
-
         If Len(Trim(MarcaTextBox.Text)) = 0 Then
             MsgBox("Ingrese la marca del producto", MsgBoxStyle.Exclamation, "Advertencia")
             MarcaTextBox.Select()
@@ -101,6 +103,16 @@ Public Class ABMProductos
             PrecioventamayoristaTextBox.Select()
             Return
         End If
+        If Len(Trim(PrecioventadistribuidorTextBox.Text)) = 0 Then
+            MsgBox("Ingrese un Precio Venta mayorista Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PrecioventamayoristaTextBox.Select()
+            Return
+        End If
+        If CDec(PrecioventadistribuidorTextBox.Text) <= 0 Then
+            MsgBox("Ingrese un Precio de Venta mayorista Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PrecioventamayoristaTextBox.Select()
+            Return
+        End If
         If Len(ComboBox3.Text) = 0 Then
             MsgBox("Seleccione rubro del producto!", MsgBoxStyle.Exclamation, "Advertencia")
             ComboBox3.Select()
@@ -110,7 +122,20 @@ Public Class ABMProductos
 
         Me.ProductosBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
+        '***************    insertar stock inicial  **************************
+        Try
+            If Convert.ToDecimal(stockinicialtextbox.Text) > 0 Then
+                If Not StockTableAdapter1.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E") >= 0 Then
+                    MsgBox("Ocurrioun error al insertar el stock inicial", MsgBoxStyle.Exclamation)
+                End If
+                stockinicialtextbox.Text = Nothing
+            End If
+        Catch ex As Exception
+            'MsgBox("Ocurrioun error al insertar el stock inicial: " + ex.Message)
+        End Try
+
         enableedit(False)
+        stockinicialtextbox.Enabled = False
         enablefilter(True)
         FormPrincipal.reloadstock()
 
@@ -182,18 +207,21 @@ Public Class ABMProductos
         BPC2.Enabled = status
         BPC3.Enabled = status
         BPC4.Enabled = status
+
     End Sub
     Public Sub enablefilter(ByVal status As Boolean)
 
         ComboBox2.Enabled = status
         TextFiltro.Enabled = status
         ProductosDataGridView.Enabled = status
+        stockinicialtextbox.Text = Nothing
     End Sub
 
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles editbtn.Click
         enableedit(True)
         enablefilter(False)
         ProductosBindingNavigatorSaveItem.Visible = True
+        stockinicialtextbox.Text = Nothing
 
     End Sub
 
@@ -201,6 +229,7 @@ Public Class ABMProductos
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
         Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
         enableedit(False)
+        stockinicialtextbox.Enabled = False
         enablefilter(True)
         ProductosBindingNavigatorSaveItem.Visible = False
     End Sub
@@ -218,6 +247,8 @@ Public Class ABMProductos
         enableedit(True)
         enablefilter(False)
         ProductosBindingNavigatorSaveItem.Visible = True
+        codigoproductoTextBox.Select()
+        stockinicialtextbox.Enabled = True
         codigoproductoTextBox.Select()
     End Sub
 

@@ -51,7 +51,20 @@
                 gcodigoproducto = ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells(0).Value
                 gproductodescripcion = ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells(1).Value
                 Me.Close()
+            Else
+                ProductosDataGridView.Select()
             End If
+
+        End If
+    End Sub
+
+    Private Sub ProductosDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles ProductosDataGridView.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            'CallClick()
+            gcodigoproducto = ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells(0).Value
+            gproductodescripcion = ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells(1).Value
+            Me.Close()
+            e.SuppressKeyPress = True
         End If
     End Sub
 End Class

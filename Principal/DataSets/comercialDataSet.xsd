@@ -1877,7 +1877,7 @@ SELECT idpagos, idventa, idcliente, importe, fechapago, idformapago, nrocomproba
               <Mapping SourceColumn="fechabaja" DataSetColumn="fechabaja" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.pagos_anular" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="pagos_anular" Modifier="Public" Name="pagos_anular" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="pagos_anular">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.pagos_anular" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="pagos_anular" Modifier="Public" Name="pagos_anular" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="pagos_anular">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.pagos_anular</CommandText>
@@ -1888,7 +1888,7 @@ SELECT idpagos, idventa, idcliente, importe, fechapago, idformapago, nrocomproba
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.pagos_insertarpago" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="pagos_insertarpago" Modifier="Public" Name="pagos_insertarpago" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="pagos_insertarpago">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.pagos_insertarpago" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="pagos_insertarpago" Modifier="Public" Name="pagos_insertarpago" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="pagos_insertarpago">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.pagos_insertarpago</CommandText>
@@ -2027,7 +2027,7 @@ SELECT idestadocaja, descripcion FROM cajasestados WHERE (idestadocaja = @idesta
               <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.libroventas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT fechaventa, nombre, cuit, tipocomprobante, idventa, importe FROM libroventas</CommandText>
+                    <CommandText>SELECT fechaventa, nombre, cuit, tipocomprobante, idventa, importe, formapago FROM libroventas</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -2040,12 +2040,13 @@ SELECT idestadocaja, descripcion FROM cajasestados WHERE (idestadocaja = @idesta
               <Mapping SourceColumn="tipocomprobante" DataSetColumn="tipocomprobante" />
               <Mapping SourceColumn="idventa" DataSetColumn="idventa" />
               <Mapping SourceColumn="importe" DataSetColumn="importe" />
+              <Mapping SourceColumn="formapago" DataSetColumn="formapago" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.libroventas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByFecha" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFecha" GeneratorSourceName="FillByFecha" GetMethodModifier="Public" GetMethodName="GetDataByFecha" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFecha" UserSourceName="FillByFecha">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT fechaventa, nombre, cuit, tipocomprobante, idventa, importe FROM libroventas WHERE (CONVERT (date, fechaventa) = CONVERT (date, @fecha))</CommandText>
+                    <CommandText>SELECT fechaventa, nombre, cuit, tipocomprobante, idventa, importe, formapago FROM libroventas WHERE (CONVERT (date, fechaventa) = CONVERT (date, @fecha))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="fecha" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="@fecha" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -2055,7 +2056,7 @@ SELECT idestadocaja, descripcion FROM cajasestados WHERE (idestadocaja = @idesta
               <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.libroventas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByIdventa" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIdventa" GeneratorSourceName="FillByIdventa" GetMethodModifier="Public" GetMethodName="GetDataByIdventa" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIdventa" UserSourceName="FillByIdventa">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT fechaventa, nombre, cuit, tipocomprobante, idventa, importe FROM libroventas WHERE (idventa = @idventa)</CommandText>
+                    <CommandText>SELECT fechaventa, nombre, cuit, tipocomprobante, idventa, importe, formapago FROM libroventas WHERE (idventa = @idventa)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="idventa" ColumnName="idventa" DataSourceName="comercial.dbo.libroventas" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@idventa" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idventa" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -4104,7 +4105,19 @@ SELECT idremitodetalle, idremito, idproducto, descripcion, cantidad, unidadmedid
               <Mapping SourceColumn="usuariocarga" DataSetColumn="usuariocarga" />
               <Mapping SourceColumn="fechaalta" DataSetColumn="fechaalta" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.listaremitos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByIDRemito" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIDRemito" GeneratorSourceName="FillByIDRemito" GetMethodModifier="Public" GetMethodName="GetDataByIDRemito" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIDRemito" UserSourceName="FillByIDRemito">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT idremito, tiporemito, nombre, direccion, telefono, usuariocarga, fechaalta FROM dbo.listaremitos
+where idremito = @idremito</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idremito" ColumnName="idremito" DataSourceName="comercial.dbo.listaremitos" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@idremito" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idremito" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="listaremitosdetalleTableAdapter" GeneratorDataComponentClassName="listaremitosdetalleTableAdapter" Name="listaremitosdetalle" UserDataComponentName="listaremitosdetalleTableAdapter">
             <MainSource>
@@ -4130,7 +4143,19 @@ SELECT idremitodetalle, idremito, idproducto, descripcion, cantidad, unidadmedid
               <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
               <Mapping SourceColumn="medida" DataSetColumn="medida" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.listaremitosdetalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByIDRemito" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIDRemito" GeneratorSourceName="FillByIDRemito" GetMethodModifier="Public" GetMethodName="GetDataByIDRemito" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIDRemito" UserSourceName="FillByIDRemito">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT codigoproducto, productodescripcion, cantidad, unidadmedidadescripcion, preciocosto, precioventa, precioventamayorista, precioventagranel, idremito, idproducto, medida FROM listaremitosdetalle
+where idremito = @idremito</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="idremito" ColumnName="idremito" DataSourceName="comercial.dbo.listaremitosdetalle" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@idremito" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idremito" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="bultosdeliveryTableAdapter" GeneratorDataComponentClassName="bultosdeliveryTableAdapter" Name="bultosdelivery" UserDataComponentName="bultosdeliveryTableAdapter">
             <MainSource>
@@ -4455,7 +4480,7 @@ SELECT idlocalidad, idprovincia, nombrelocalidad FROM localidades WHERE (idlocal
               <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.lotesenviosdetalle" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [lotesenviosdetalle] WHERE (([idloteenviodetalle] = @Original_idloteenviodetalle) AND ((@IsNull_idloteenvio = 1 AND [idloteenvio] IS NULL) OR ([idloteenvio] = @Original_idloteenvio)) AND ((@IsNull_idpedidodelivery = 1 AND [idpedidodelivery] IS NULL) OR ([idpedidodelivery] = @Original_idpedidodelivery)) AND ((@IsNull_estadoentrega = 1 AND [estadoentrega] IS NULL) OR ([estadoentrega] = @Original_estadoentrega)) AND ((@IsNull_nroguia = 1 AND [nroguia] IS NULL) OR ([nroguia] = @Original_nroguia)))</CommandText>
+                    <CommandText>DELETE FROM [lotesenviosdetalle] WHERE (([idloteenviodetalle] = @Original_idloteenviodetalle) AND ((@IsNull_idloteenvio = 1 AND [idloteenvio] IS NULL) OR ([idloteenvio] = @Original_idloteenvio)) AND ((@IsNull_idpedidodelivery = 1 AND [idpedidodelivery] IS NULL) OR ([idpedidodelivery] = @Original_idpedidodelivery)) AND ((@IsNull_estadoentrega = 1 AND [estadoentrega] IS NULL) OR ([estadoentrega] = @Original_estadoentrega)) AND ((@IsNull_nroguia = 1 AND [nroguia] IS NULL) OR ([nroguia] = @Original_nroguia)) AND ((@IsNull_montorendido = 1 AND [montorendido] IS NULL) OR ([montorendido] = @Original_montorendido)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idloteenviodetalle" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idloteenviodetalle" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idloteenvio" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idloteenvio" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -4466,36 +4491,40 @@ SELECT idlocalidad, idprovincia, nombrelocalidad FROM localidades WHERE (idlocal
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_estadoentrega" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="estadoentrega" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nroguia" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nroguia" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nroguia" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nroguia" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_montorendido" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="montorendido" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_montorendido" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="montorendido" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [lotesenviosdetalle] ([idloteenvio], [idpedidodelivery], [estadoentrega], [nroguia]) VALUES (@idloteenvio, @idpedidodelivery, @estadoentrega, @nroguia);
-SELECT idloteenviodetalle, idloteenvio, idpedidodelivery, estadoentrega, nroguia FROM lotesenviosdetalle WHERE (idloteenviodetalle = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [lotesenviosdetalle] ([idloteenvio], [idpedidodelivery], [estadoentrega], [nroguia], [montorendido]) VALUES (@idloteenvio, @idpedidodelivery, @estadoentrega, @nroguia, @montorendido);
+SELECT idloteenviodetalle, idloteenvio, idpedidodelivery, estadoentrega, nroguia, montorendido FROM lotesenviosdetalle WHERE (idloteenviodetalle = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idloteenvio" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idloteenvio" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idpedidodelivery" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idpedidodelivery" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@estadoentrega" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="estadoentrega" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nroguia" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nroguia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@montorendido" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="montorendido" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT idloteenviodetalle, idloteenvio, idpedidodelivery, estadoentrega, nroguia FROM lotesenviosdetalle</CommandText>
+                    <CommandText>SELECT idloteenviodetalle, idloteenvio, idpedidodelivery, estadoentrega, nroguia, montorendido FROM lotesenviosdetalle</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [lotesenviosdetalle] SET [idloteenvio] = @idloteenvio, [idpedidodelivery] = @idpedidodelivery, [estadoentrega] = @estadoentrega, [nroguia] = @nroguia WHERE (([idloteenviodetalle] = @Original_idloteenviodetalle) AND ((@IsNull_idloteenvio = 1 AND [idloteenvio] IS NULL) OR ([idloteenvio] = @Original_idloteenvio)) AND ((@IsNull_idpedidodelivery = 1 AND [idpedidodelivery] IS NULL) OR ([idpedidodelivery] = @Original_idpedidodelivery)) AND ((@IsNull_estadoentrega = 1 AND [estadoentrega] IS NULL) OR ([estadoentrega] = @Original_estadoentrega)) AND ((@IsNull_nroguia = 1 AND [nroguia] IS NULL) OR ([nroguia] = @Original_nroguia)));
-SELECT idloteenviodetalle, idloteenvio, idpedidodelivery, estadoentrega, nroguia FROM lotesenviosdetalle WHERE (idloteenviodetalle = @idloteenviodetalle)</CommandText>
+                    <CommandText>UPDATE [lotesenviosdetalle] SET [idloteenvio] = @idloteenvio, [idpedidodelivery] = @idpedidodelivery, [estadoentrega] = @estadoentrega, [nroguia] = @nroguia, [montorendido] = @montorendido WHERE (([idloteenviodetalle] = @Original_idloteenviodetalle) AND ((@IsNull_idloteenvio = 1 AND [idloteenvio] IS NULL) OR ([idloteenvio] = @Original_idloteenvio)) AND ((@IsNull_idpedidodelivery = 1 AND [idpedidodelivery] IS NULL) OR ([idpedidodelivery] = @Original_idpedidodelivery)) AND ((@IsNull_estadoentrega = 1 AND [estadoentrega] IS NULL) OR ([estadoentrega] = @Original_estadoentrega)) AND ((@IsNull_nroguia = 1 AND [nroguia] IS NULL) OR ([nroguia] = @Original_nroguia)) AND ((@IsNull_montorendido = 1 AND [montorendido] IS NULL) OR ([montorendido] = @Original_montorendido)));
+SELECT idloteenviodetalle, idloteenvio, idpedidodelivery, estadoentrega, nroguia, montorendido FROM lotesenviosdetalle WHERE (idloteenviodetalle = @idloteenviodetalle)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idloteenvio" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idloteenvio" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idpedidodelivery" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idpedidodelivery" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@estadoentrega" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="estadoentrega" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nroguia" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nroguia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@montorendido" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="montorendido" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idloteenviodetalle" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idloteenviodetalle" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idloteenvio" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idloteenvio" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idloteenvio" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idloteenvio" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -4505,6 +4534,8 @@ SELECT idloteenviodetalle, idloteenvio, idpedidodelivery, estadoentrega, nroguia
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_estadoentrega" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="estadoentrega" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nroguia" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nroguia" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nroguia" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nroguia" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_montorendido" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="montorendido" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_montorendido" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="montorendido" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="idloteenviodetalle" ColumnName="idloteenviodetalle" DataSourceName="comercial.dbo.lotesenviosdetalle" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@idloteenviodetalle" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idloteenviodetalle" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
@@ -4517,6 +4548,7 @@ SELECT idloteenviodetalle, idloteenvio, idpedidodelivery, estadoentrega, nroguia
               <Mapping SourceColumn="idpedidodelivery" DataSetColumn="idpedidodelivery" />
               <Mapping SourceColumn="estadoentrega" DataSetColumn="estadoentrega" />
               <Mapping SourceColumn="nroguia" DataSetColumn="nroguia" />
+              <Mapping SourceColumn="montorendido" DataSetColumn="montorendido" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="lotesenviosdetalle_insertar" Modifier="Public" Name="lotesenviosdetalle_insertar" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="lotesenviosdetalle_insertar">
@@ -4541,6 +4573,17 @@ SELECT idloteenviodetalle, idloteenvio, idpedidodelivery, estadoentrega, nroguia
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@nroguia" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@idlote" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@idpedidodelivery" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="lotesenviosdetalle_updatemontorendido" Modifier="Public" Name="lotesenviosdetalle_updatemontorendido" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="lotesenviosdetalle_updatemontorendido">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>update lotesenviosdetalle set montorendido = @montorendido where idpedidodelivery = @idpedidodelivery</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="montorendido" ColumnName="montorendido" DataSourceName="comercial.dbo.lotesenviosdetalle" DataTypeServer="numeric(18, 2)" DbType="Decimal" Direction="Input" ParameterName="@montorendido" Precision="18" ProviderType="Decimal" Scale="2" Size="9" SourceColumn="montorendido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="idpedidodelivery" ColumnName="idpedidodelivery" DataSourceName="comercial.dbo.lotesenviosdetalle" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@idpedidodelivery" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idpedidodelivery" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -5913,11 +5956,13 @@ SELECT idproducto, codigoproducto, marca, modelo, presentacion, unidadmedida, me
 		 saldo,
 		 telefono,
 		 usuarioalta 
- FROM listapedidosdelivery WHERE (nombreprovincia = 'La Rioja') AND (nombrelocalidad IN ('Capital')) AND (fechabaja IS NULL) 
+ FROM listapedidosdelivery WHERE (nombreprovincia = 'La Rioja') AND (nombrelocalidad IN ('La Rioja','Capital')) AND (fechabaja IS NULL) 
 
+ 
  UNION ALL 
+
  SELECT 
-		cuit,
+ cuit,
 		direccion,
 		email,
 		estado,
@@ -5935,9 +5980,13 @@ SELECT idproducto, codigoproducto, marca, modelo, presentacion, unidadmedida, me
 		saldo,
 		telefono,
 		usuarioalta
- FROM listapedidosdelivery AS listapedidosdelivery_2 WHERE (nombreprovincia = 'La Rioja') AND (nombrelocalidad IN ('La Rioja')) AND (fechabaja IS NULL) 
-
- UNION ALL 
+		
+FROM listapedidosdelivery AS listapedidosdelivery_1 
+WHERE (nombreprovincia = 'La Rioja') and nombrelocalidad not in ('La Rioja','Capital')
+AND (importepagado &gt; 0) 
+AND (fechabaja IS NULL)
+ 
+ union all
 
  SELECT 
 
@@ -5961,7 +6010,9 @@ SELECT idproducto, codigoproducto, marca, modelo, presentacion, unidadmedida, me
 		usuarioalta
 		
 FROM listapedidosdelivery AS listapedidosdelivery_1 
-WHERE (nombreprovincia &lt;&gt; 'La Rioja') AND (importepagado &gt; 0) AND (fechabaja IS NULL)</CommandText>
+WHERE (nombreprovincia &lt;&gt; 'La Rioja') 
+AND (importepagado &gt; 0) 
+AND (fechabaja IS NULL)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -6528,6 +6579,13 @@ WHERE (nombreprovincia &lt;&gt; 'La Rioja') AND (importepagado &gt; 0) AND (fech
               </xs:element>
               <xs:element name="idventa" msprop:Generator_ColumnVarNameInTable="columnidventa" msprop:Generator_ColumnPropNameInRow="idventa" msprop:Generator_ColumnPropNameInTable="idventaColumn" msprop:Generator_UserColumnName="idventa" type="xs:decimal" />
               <xs:element name="importe" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnimporte" msprop:Generator_ColumnPropNameInRow="importe" msprop:Generator_ColumnPropNameInTable="importeColumn" msprop:Generator_UserColumnName="importe" type="xs:decimal" minOccurs="0" />
+              <xs:element name="formapago" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnformapago" msprop:Generator_ColumnPropNameInRow="formapago" msprop:Generator_ColumnPropNameInTable="formapagoColumn" msprop:Generator_UserColumnName="formapago" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -7415,6 +7473,7 @@ WHERE (nombreprovincia &lt;&gt; 'La Rioja') AND (importepagado &gt; 0) AND (fech
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="montorendido" msprop:Generator_ColumnVarNameInTable="columnmontorendido" msprop:Generator_ColumnPropNameInRow="montorendido" msprop:Generator_ColumnPropNameInTable="montorendidoColumn" msprop:Generator_UserColumnName="montorendido" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

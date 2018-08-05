@@ -27,15 +27,15 @@ Partial Class ViewerRemito
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.listaremitosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.listaremitosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosTableAdapter()
         Me.listaremitosdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        Me.listaremitosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosTableAdapter()
         Me.listaremitosdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosdetalleTableAdapter()
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.listaremitosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.listaremitosdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -58,33 +58,33 @@ Partial Class ViewerRemito
         Me.ReportViewer1.Size = New System.Drawing.Size(970, 747)
         Me.ReportViewer1.TabIndex = 0
         '
-        'comercialDataSet
-        '
-        Me.comercialDataSet.DataSetName = "comercialDataSet"
-        Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'MiComercioBindingSource
         '
         Me.MiComercioBindingSource.DataMember = "MiComercio"
         Me.MiComercioBindingSource.DataSource = Me.comercialDataSet
         '
-        'MiComercioTableAdapter
+        'comercialDataSet
         '
-        Me.MiComercioTableAdapter.ClearBeforeFill = True
+        Me.comercialDataSet.DataSetName = "comercialDataSet"
+        Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'listaremitosBindingSource
         '
         Me.listaremitosBindingSource.DataMember = "listaremitos"
         Me.listaremitosBindingSource.DataSource = Me.comercialDataSet
         '
-        'listaremitosTableAdapter
-        '
-        Me.listaremitosTableAdapter.ClearBeforeFill = True
-        '
         'listaremitosdetalleBindingSource
         '
         Me.listaremitosdetalleBindingSource.DataMember = "listaremitosdetalle"
         Me.listaremitosdetalleBindingSource.DataSource = Me.comercialDataSet
+        '
+        'MiComercioTableAdapter
+        '
+        Me.MiComercioTableAdapter.ClearBeforeFill = True
+        '
+        'listaremitosTableAdapter
+        '
+        Me.listaremitosTableAdapter.ClearBeforeFill = True
         '
         'listaremitosdetalleTableAdapter
         '
@@ -97,9 +97,10 @@ Partial Class ViewerRemito
         Me.ClientSize = New System.Drawing.Size(970, 747)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "ViewerRemito"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Vista Previa Remito"
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.listaremitosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.listaremitosdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

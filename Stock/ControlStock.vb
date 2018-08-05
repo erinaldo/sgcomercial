@@ -28,4 +28,10 @@
                 StockgeneralBindingSource.Filter = "producto like '%" + TextBox1.Text + "%'"
         End Select
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim p As ViewerReporteControlStockGeneral
+        p = New ViewerReporteControlStockGeneral
+        p.ShowDialog()
+    End Sub
 End Class

@@ -11,7 +11,9 @@
 End Class
 
 Namespace comercialDataSetTableAdapters
-    
+    Partial Public Class listapedidosdeliveryTableAdapter
+    End Class
+
     Partial Public Class librodiarioTableAdapter
     End Class
 End Namespace
