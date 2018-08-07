@@ -151,6 +151,14 @@ Module MySQLModule
             Dim PedidosDeliveryTableAdapter As comercialDataSetTableAdapters.pedidosdeliveryTableAdapter
             PedidosDeliveryTableAdapter = New comercialDataSetTableAdapters.pedidosdeliveryTableAdapter()
             '****   -----   *********
+            '****   VentasTableAdapter  ******** LOCAL
+            Dim VentasTableAdapter As comercialDataSetTableAdapters.ventasTableAdapter
+            VentasTableAdapter = New comercialDataSetTableAdapters.ventasTableAdapter()
+            '****   -----   *********
+            '****   VentasDetalleTableAdapter  ******** LOCAL
+            Dim VentasDetalleTableAdapter As comercialDataSetTableAdapters.ventasdetalleTableAdapter
+            VentasDetalleTableAdapter = New comercialDataSetTableAdapters.ventasdetalleTableAdapter()
+            '****   -----   *********
             '****   PedidosDeliveryDetalleWEBTableAdapter  ******** WEB
             Dim PedidosDeliveryDetalleWEBTableAdapter As MySQLDataSetTableAdapters.pedidosdeliverydetalleTableAdapter
             PedidosDeliveryDetalleWEBTableAdapter = New MySQLDataSetTableAdapters.pedidosdeliverydetalleTableAdapter()
@@ -215,6 +223,7 @@ Module MySQLModule
                     End If
                     'obtengo el detalle del pedido web
                     PedidosDeliveryDetalleWEBTable = PedidosDeliveryDetalleWEBTableAdapter.GetDataByIdpedidodeliveryweb(idpedidosdeliveryweb)
+                    '****************   REGISTRO EL DETALLE DEL PEDIDO  **************
                     For j = 0 To PedidosDeliveryDetalleWEBTable.Rows.Count - 1
                         Dim idpedidodeliverydetalleweb As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idpedidosdeliverydetallewebColumn)
                         'Dim idventa As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idpedidosdeliverydetallewebColumn)
@@ -231,7 +240,22 @@ Module MySQLModule
                             MsgBox("No se pudo completar la Sincronización de PEDIDOS: " + ex.Message)
                         End Try
                     Next
-                    PedidosDeliveryTableAdapter.pedidosdelivery_insertfromweb(idclientelocal, Nothing, idtransporte, idclientedomiciliolocal, pagoesperado, fechaalta, "usuarioweb", "RECIBIDO", idpedidosdeliveryweb)
+                    Dim NvoPedido
+                    NvoPedido = PedidosDeliveryTableAdapter.pedidosdelivery_insertfromweb(idclientelocal, Nothing, idtransporte, idclientedomiciliolocal, pagoesperado, fechaalta, "usuarioweb", "RECIBIDO", idpedidosdeliveryweb)
+                    Dim nvavta As Int64
+                    '***************** REGISTRO LA VENTA    *******************************
+                    nvavta = VentasTableAdapter.ventas_insertarventa(idclientelocal, Now(), Nothing, 1, "usuarioweb", Nothing)
+                    '****************   REGISTRO EL DETALLE DE LA VENTA **************
+                    For j = 0 To PedidosDeliveryDetalleWEBTable.Rows.Count - 1
+                        Dim idpedidodeliverydetalleweb As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idpedidosdeliverydetallewebColumn)
+                        Dim idproducto As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idproductoColumn)
+                        Dim cantidad As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.cantidadColumn)
+                        Dim precioventa As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.precioventaColumn)
+                        Dim recargo As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.recargoColumn)
+                        Dim idlistaprecio As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idlistaprecioColumn)
+                        VentasDetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, idproducto, cantidad, precioventa, idlistaprecio, Nothing)
+                        PedidosDeliveryTableAdapter.pedidosdelivery_updateidventa(nvavta, NvoPedido)
+                    Next
                 Next
             End If
         Catch ex As Exception

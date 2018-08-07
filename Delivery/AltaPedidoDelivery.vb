@@ -91,7 +91,7 @@ Public Class AltaPedidoDelivery
             ComboBoxProvincia.SelectedIndex = 0
             ComboBoxLocalidad.SelectedIndex = 0
             enableedit(True)
-            IdclienteTextBox.Select()
+            TextBoxNombreCliente.Select()
         Else
             IdclienteTextBox.Text = Nothing
             PictureBoxEditarDomicilios.Enabled = True
@@ -426,6 +426,37 @@ Public Class AltaPedidoDelivery
     End Sub
 
     Private Sub TextBoxCuit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxCuit.KeyPress
+        If Char.IsControl(e.KeyChar) Then
+            Return
+        End If
+
+        If e.KeyChar = "." Then
+            e.KeyChar = ","
+            Return
+        End If
+        If e.KeyChar = "," Then
+            Return
+        End If
+        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
+            'MessageBox.Show("Solo se permiten numeros")
+            e.KeyChar = ""
+        End If
+    End Sub
+
+    Private Sub TextBoxPagaCon_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPagaCon.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxPagaCon_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxPagaCon.KeyDown
+
+    End Sub
+
+    Private Sub TextBoxPagaCon_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxPagaCon.KeyPress
+        ' Check for the flag being set in the KeyDown event.
+        'If nonNumberEntered = True Then
+        '    ' Stop the character from being entered into the control since it is non-numerical.
+        '    e.Handled = True
+        'End If
         If Char.IsControl(e.KeyChar) Then
             Return
         End If

@@ -29,6 +29,10 @@
                     Dim p As ViewerFactura
                     p = New ViewerFactura
                     p.ShowDialog()
+                Case "formapago"
+                    Dim p As VentaDetallePagosRealizados
+                    p = New VentaDetallePagosRealizados
+                    p.ShowDialog()
             End Select
             gidventa = Nothing
         Catch ex As Exception

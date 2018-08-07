@@ -43,12 +43,12 @@
         '        Case 0 ' se agrega el pedido clickeado a la lista
         '            ' verifico que el pedido seleccionado NO exista en el lote
         '            '-------------------------------------------------
-        '            For i = 0 To LotesEnviosDetalleDataGridView.RowCount() - 1
-        '                If ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value = LotesEnviosDetalleDataGridView.Rows(i).Cells(1).Value Then
-        '                    MsgBox("El pedido ya se incluyó en el lote actual!", MsgBoxStyle.Exclamation)
-        '                    Return
-        '                End If
-        '            Next
+        For i = 0 To LotesEnviosDetalleDataGridView.RowCount() - 1
+            If ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value = LotesEnviosDetalleDataGridView.Rows(i).Cells(1).Value Then
+                MsgBox("El pedido ya se incluyó en el lote actual!", MsgBoxStyle.Exclamation)
+                Return
+            End If
+        Next
         '            ' verifico si el delivery es en la rioja capital... si no es debe cargar el pago    
         '            '-------------------------------------------------
         '            If Trim(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(8).Value) = "La Rioja" Then

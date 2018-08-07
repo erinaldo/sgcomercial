@@ -115,7 +115,7 @@
         '***********    RENDICION DE LOTE  *******************************************
         '******************************************************************************
         Dim idventa As Long = 0
-        Dim idlote As Long = ListalotesdetalleDataGridView.Rows(0).Cells(0).Value
+        Dim idlote As Long = ListalotesdetalleDataGridView.Rows(0).Cells("idloteenvio").Value
         For i = 0 To ListalotesdetalleDataGridView.RowCount - 1
             Dim v_rtn As Long = 0
             Dim idpedidodelivery As Long = ListalotesdetalleDataGridView.Rows(i).Cells("idpedidodelivery").Value

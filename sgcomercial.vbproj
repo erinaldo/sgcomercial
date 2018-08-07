@@ -29,7 +29,7 @@
     <ProductName>SGComercial</ProductName>
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
-    <ApplicationRevision>20</ApplicationRevision>
+    <ApplicationRevision>24</ApplicationRevision>
     <ApplicationVersion>4.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -234,6 +234,12 @@
       <DependentUpon>ViewerLoteEnvio.vb</DependentUpon>
     </Compile>
     <Compile Include="Delivery\Reportes\ViewerLoteEnvio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delivery\Reportes\ViewerLoteRendido.Designer.vb">
+      <DependentUpon>ViewerLoteRendido.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\Reportes\ViewerLoteRendido.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -698,6 +704,12 @@
     <Compile Include="Ventas\TerminalVerificadoraPrecios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\VentaDetallePagosRealizados.Designer.vb">
+      <DependentUpon>VentaDetallePagosRealizados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\VentaDetallePagosRealizados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\VerEstadoCaja.Designer.vb">
       <DependentUpon>VerEstadoCaja.vb</DependentUpon>
     </Compile>
@@ -754,11 +766,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\Reportes\ReportComanda.rdlc" />
     <EmbeddedResource Include="Delivery\Reportes\ReportLoteEnvio.rdlc" />
+    <EmbeddedResource Include="Delivery\Reportes\ReportLoteRendido.rdlc" />
     <EmbeddedResource Include="Delivery\Reportes\ViewerComanda.resx">
       <DependentUpon>ViewerComanda.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\Reportes\ViewerLoteEnvio.resx">
       <DependentUpon>ViewerLoteEnvio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\Reportes\ViewerLoteRendido.resx">
+      <DependentUpon>ViewerLoteRendido.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -983,6 +999,9 @@
     <EmbeddedResource Include="Ventas\TerminalVerificadoraPrecios.resx">
       <DependentUpon>TerminalVerificadoraPrecios.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\VentaDetallePagosRealizados.resx">
+      <DependentUpon>VentaDetallePagosRealizados.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\VerEstadoCaja.resx">
       <DependentUpon>VerEstadoCaja.vb</DependentUpon>
     </EmbeddedResource>
@@ -1085,42 +1104,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

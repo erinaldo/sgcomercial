@@ -27,6 +27,8 @@ Partial Class LibroVentasDetalladas
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LibroventasDataGridView = New System.Windows.Forms.DataGridView()
+        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LibroventasdetalleDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -35,8 +37,6 @@ Partial Class LibroVentasDetalladas
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LibroventasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.LibroventasdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasdetalleTableAdapter()
@@ -45,16 +45,16 @@ Partial Class LibroVentasDetalladas
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.formapago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.formapago = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Imprimir = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.LibroventasdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibroventasdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -103,6 +103,16 @@ Partial Class LibroVentasDetalladas
         Me.LibroventasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.LibroventasDataGridView.Size = New System.Drawing.Size(672, 479)
         Me.LibroventasDataGridView.TabIndex = 0
+        '
+        'LibroventasBindingSource
+        '
+        Me.LibroventasBindingSource.DataMember = "libroventas"
+        Me.LibroventasBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox2
         '
@@ -171,16 +181,6 @@ Partial Class LibroVentasDetalladas
         '
         Me.LibroventasdetalleBindingSource.DataMember = "libroventasdetalle"
         Me.LibroventasdetalleBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LibroventasBindingSource
-        '
-        Me.LibroventasBindingSource.DataMember = "libroventas"
-        Me.LibroventasBindingSource.DataSource = Me.ComercialDataSet
         '
         'LibroventasTableAdapter
         '
@@ -287,9 +287,11 @@ Partial Class LibroVentasDetalladas
         'formapago
         '
         Me.formapago.DataPropertyName = "formapago"
-        Me.formapago.HeaderText = "formapago"
+        Me.formapago.HeaderText = "Forma pago"
         Me.formapago.Name = "formapago"
         Me.formapago.ReadOnly = True
+        Me.formapago.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.formapago.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'DataGridViewTextBoxColumn8
         '
@@ -325,11 +327,11 @@ Partial Class LibroVentasDetalladas
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.LibroventasdetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LibroventasdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -358,7 +360,7 @@ Partial Class LibroVentasDetalladas
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents formapago As DataGridViewTextBoxColumn
+    Friend WithEvents formapago As DataGridViewLinkColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents Imprimir As DataGridViewButtonColumn
 End Class

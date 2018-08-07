@@ -69,6 +69,11 @@ Public Class PedidosDeliveryPagar
             pagotextbox.Select()
             Return
         End If
+        If pago > Convert.ToDecimal(TextBoxMontoaPagar.Text) Then
+            MsgBox("Monto inválido", MsgBoxStyle.Exclamation, "Advertencia")
+            pagotextbox.Select()
+            Return
+        End If
         Try
             ''******************************************************************************
             ''***********    REGISTRAR VENTA     *******************************************

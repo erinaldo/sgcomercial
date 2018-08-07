@@ -22,3 +22,8 @@ Namespace comercialDataSetTableAdapters
     Partial Public Class valesTableAdapter
     End Class
 End Namespace
+
+Namespace comercialDataSetTableAdapters
+    Partial Public Class pedidosdeliveryTableAdapter
+    End Class
+End Namespace

@@ -517,7 +517,7 @@ Partial Class ingresoegresoproductos
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(127, 28)
-        Me.Button1.TabIndex = 7
+        Me.Button1.TabIndex = 4
         Me.Button1.Text = "Guardar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -535,7 +535,7 @@ Partial Class ingresoegresoproductos
         Me.CantidadTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.CantidadTextBox.Name = "CantidadTextBox"
         Me.CantidadTextBox.Size = New System.Drawing.Size(144, 22)
-        Me.CantidadTextBox.TabIndex = 2
+        Me.CantidadTextBox.TabIndex = 0
         '
         'TipomovimientostockComboBox
         '
@@ -547,7 +547,7 @@ Partial Class ingresoegresoproductos
         Me.TipomovimientostockComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.TipomovimientostockComboBox.Name = "TipomovimientostockComboBox"
         Me.TipomovimientostockComboBox.Size = New System.Drawing.Size(265, 24)
-        Me.TipomovimientostockComboBox.TabIndex = 3
+        Me.TipomovimientostockComboBox.TabIndex = 2
         Me.TipomovimientostockComboBox.ValueMember = "idtipomovimientostock"
         '
         'TipomovimientostockBindingSource
@@ -562,7 +562,7 @@ Partial Class ingresoegresoproductos
         Me.FechamovimientoDateTimePicker.Margin = New System.Windows.Forms.Padding(4)
         Me.FechamovimientoDateTimePicker.Name = "FechamovimientoDateTimePicker"
         Me.FechamovimientoDateTimePicker.Size = New System.Drawing.Size(132, 22)
-        Me.FechamovimientoDateTimePicker.TabIndex = 4
+        Me.FechamovimientoDateTimePicker.TabIndex = 3
         '
         'FechacargaDateTimePicker
         '

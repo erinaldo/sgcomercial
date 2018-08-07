@@ -33,16 +33,16 @@
     End Sub
 
     Private Sub ListapedidosdeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellClick
-        Select Case e.ColumnIndex
-            Case 10 ' imprimir orden de produccion
+        Select Case ListapedidosdeliveryDataGridView.Columns(e.ColumnIndex).Name
+            Case "imprimircomanda" ' imprimir orden de produccion
                 Dim p As ViewerComanda
                 p = New ViewerComanda
-                gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(0).Value
+                gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value
                 Dim idpedidoweb As Long
                 idpedidoweb = PedidosdeliveryTableAdapter.pedidosdelivery_consultarIDPedidoWeb(gidpedidodelivery)
-                Dim estadopedido As String = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
+                Dim estadopedido As String = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("estado").Value
                 p.ShowDialog()
-                If Not estadopedido = "DESPACHADO" Then
+                If estadopedido = "RECIBIDO" Then
                     Try
                         PedidosdeliveryTableAdapter.pedidosdelivery_updateestado("ENPROCESO", gidpedidodelivery)
                         If idpedidoweb > 0 Then
@@ -53,22 +53,24 @@
                     End Try
                     reloadpedidos()
                 End If
-            Case 11 ' cargar pago
+            Case "Pagar" ' cargar pago
                 If ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("saldo").Value > 0 Then
                     Dim p As PedidosDeliveryPagar
                     p = New PedidosDeliveryPagar
                     gidpago = 0
-
-                    'gmontoapagar = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(12).Value
                     gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value
                     gidventa = PedidosdeliveryTableAdapter.pedidosdelivery_consultaexisteventa(gidpedidodelivery)
                     gidcliente = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
                     p.ShowDialog()
+                    gidcliente = Nothing
+                    gidventa = Nothing
+                    gidpedidodelivery = Nothing
+                    reloadpedidos()
                 Else
                     MsgBox("El pedido ya se encuentra pagado!", MsgBoxStyle.Information)
                 End If
-            Case 12
-                Dim estadopedido As String = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
+            Case "Baja"
+                Dim estadopedido As String = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("estado").Value
                 If Not estadopedido = "DESPACHADO" And Not estadopedido = "ENTREGADO" Then
                     If MsgBox("Seguro desea dar de baja el pedido seleccionado?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
                         PedidosdeliveryTableAdapter.pedidosdelivery_baja(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value)
@@ -79,6 +81,7 @@
                 End If
 
         End Select
+
     End Sub
 
     Private Sub ListapedidosdeliveryDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles ListapedidosdeliveryDataGridView.KeyDown

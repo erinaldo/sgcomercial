@@ -57,8 +57,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=;Initial Catalog=comercial;Persist Security Info=True;User ID=;Passwo"& _ 
-            "rd=")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=;Initial Catalog=;Persist Security Info=True;User ID=;Password=")>  _
         Public ReadOnly Property comercialConnectionString() As String
             Get
                 Return CType(Me("comercialConnectionString"),String)

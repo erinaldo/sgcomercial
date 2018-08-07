@@ -24,6 +24,17 @@ Partial Class LotesEnvios
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CajaseventosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.LotesenviosdetalleDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -31,37 +42,115 @@ Partial Class LotesEnvios
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LotesenviosdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.LotesenviosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ver = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.LotesenviosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LotesenviosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.lotesenviosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.LotesenviosdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.lotesenviosdetalleTableAdapter()
+        Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechacierre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechaconfirmacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ver = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.rendicion = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Confirmar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LotesenviosdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LotesenviosdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LotesenviosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LotesenviosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.CajaseventosDataGridView)
         Me.GroupBox1.Controls.Add(Me.LotesenviosdetalleDataGridView)
         Me.GroupBox1.Controls.Add(Me.LotesenviosDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(616, 659)
+        Me.GroupBox1.Size = New System.Drawing.Size(1112, 567)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lista de Lotes"
+        '
+        'CajaseventosDataGridView
+        '
+        Me.CajaseventosDataGridView.AutoGenerateColumns = False
+        Me.CajaseventosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.CajaseventosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19})
+        Me.CajaseventosDataGridView.DataSource = Me.CajaseventosBindingSource
+        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(143, 21)
+        Me.CajaseventosDataGridView.Name = "CajaseventosDataGridView"
+        Me.CajaseventosDataGridView.RowTemplate.Height = 24
+        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(23, 20)
+        Me.CajaseventosDataGridView.TabIndex = 1
+        Me.CajaseventosDataGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "idevento"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "idevento"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "idcaja"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "idcaja"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "fechaapertura"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "fechaapertura"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "fechacierre"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "fechacierre"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "saldoinicial"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "saldoinicial"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "saldofinal"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "saldofinal"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.DataPropertyName = "usuarioapertura"
+        Me.DataGridViewTextBoxColumn18.HeaderText = "usuarioapertura"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.DataPropertyName = "usuariocierre"
+        Me.DataGridViewTextBoxColumn19.HeaderText = "usuariocierre"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        '
+        'CajaseventosBindingSource
+        '
+        Me.CajaseventosBindingSource.DataMember = "cajaseventos"
+        Me.CajaseventosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'LotesenviosdetalleDataGridView
         '
@@ -112,81 +201,20 @@ Partial Class LotesEnvios
         Me.LotesenviosdetalleBindingSource.DataMember = "lotesenviosdetalle"
         Me.LotesenviosdetalleBindingSource.DataSource = Me.ComercialDataSet
         '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'LotesenviosDataGridView
         '
         Me.LotesenviosDataGridView.AllowUserToAddRows = False
         Me.LotesenviosDataGridView.AllowUserToDeleteRows = False
         Me.LotesenviosDataGridView.AutoGenerateColumns = False
         Me.LotesenviosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LotesenviosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.Ver})
+        Me.LotesenviosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.fechacierre, Me.fechaconfirmacion, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.Ver, Me.rendicion, Me.Confirmar})
         Me.LotesenviosDataGridView.DataSource = Me.LotesenviosBindingSource
-        Me.LotesenviosDataGridView.Location = New System.Drawing.Point(6, 37)
+        Me.LotesenviosDataGridView.Location = New System.Drawing.Point(12, 28)
         Me.LotesenviosDataGridView.Name = "LotesenviosDataGridView"
         Me.LotesenviosDataGridView.ReadOnly = True
         Me.LotesenviosDataGridView.RowTemplate.Height = 24
-        Me.LotesenviosDataGridView.Size = New System.Drawing.Size(593, 595)
+        Me.LotesenviosDataGridView.Size = New System.Drawing.Size(1081, 520)
         Me.LotesenviosDataGridView.TabIndex = 0
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idloteenvio"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Lote N°"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechaasignacion"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Asignado"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 150
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "fechacierre"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Cierre"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 150
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "fechabaja"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Baja"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Visible = False
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "usuariocierre"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Usuario Cierre"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Visible = False
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "usuariobaja"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Usuario Baja"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Visible = False
-        '
-        'Ver
-        '
-        Me.Ver.HeaderText = "Ver"
-        Me.Ver.Name = "Ver"
-        Me.Ver.ReadOnly = True
-        Me.Ver.Text = "Ver/Imprimir"
-        Me.Ver.ToolTipText = "Ver/Imprimir"
-        Me.Ver.UseColumnTextForButtonValue = True
         '
         'LotesenviosBindingSource
         '
@@ -257,11 +285,103 @@ Partial Class LotesEnvios
         '
         Me.LotesenviosdetalleTableAdapter.ClearBeforeFill = True
         '
+        'CajaseventosTableAdapter
+        '
+        Me.CajaseventosTableAdapter.ClearBeforeFill = True
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idloteenvio"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Lote N°"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechaasignacion"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Asignado"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 150
+        '
+        'fechacierre
+        '
+        Me.fechacierre.DataPropertyName = "fechacierre"
+        Me.fechacierre.HeaderText = "Cierre"
+        Me.fechacierre.Name = "fechacierre"
+        Me.fechacierre.ReadOnly = True
+        Me.fechacierre.Width = 150
+        '
+        'fechaconfirmacion
+        '
+        Me.fechaconfirmacion.DataPropertyName = "fechaconfirmacion"
+        Me.fechaconfirmacion.HeaderText = "Confirmación"
+        Me.fechaconfirmacion.Name = "fechaconfirmacion"
+        Me.fechaconfirmacion.ReadOnly = True
+        Me.fechaconfirmacion.ToolTipText = "Fecha Confirmación"
+        Me.fechaconfirmacion.Width = 150
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "fechabaja"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Baja"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Visible = False
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "usuariocierre"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Usuario Cierre"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Visible = False
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "usuariobaja"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Usuario Baja"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        '
+        'Ver
+        '
+        Me.Ver.HeaderText = "Ver lote"
+        Me.Ver.Name = "Ver"
+        Me.Ver.ReadOnly = True
+        Me.Ver.Text = "Ver/Imprimir"
+        Me.Ver.ToolTipText = "Ver/Imprimir"
+        Me.Ver.UseColumnTextForButtonValue = True
+        Me.Ver.Width = 150
+        '
+        'rendicion
+        '
+        Me.rendicion.DataPropertyName = "idloteenvio"
+        Me.rendicion.HeaderText = "Ver rendición"
+        Me.rendicion.Name = "rendicion"
+        Me.rendicion.ReadOnly = True
+        Me.rendicion.Text = "Ver rendición"
+        Me.rendicion.ToolTipText = "Ver rendición"
+        Me.rendicion.UseColumnTextForButtonValue = True
+        Me.rendicion.Width = 150
+        '
+        'Confirmar
+        '
+        Me.Confirmar.DataPropertyName = "idloteenvio"
+        Me.Confirmar.HeaderText = "Confirmar($)"
+        Me.Confirmar.Name = "Confirmar"
+        Me.Confirmar.ReadOnly = True
+        Me.Confirmar.Text = "Confirmar"
+        Me.Confirmar.ToolTipText = "Confirmar"
+        Me.Confirmar.UseColumnTextForButtonValue = True
+        Me.Confirmar.Width = 150
+        '
         'LotesEnvios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(640, 676)
+        Me.ClientSize = New System.Drawing.Size(1136, 590)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -270,9 +390,11 @@ Partial Class LotesEnvios
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Lotes de Envíos"
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LotesenviosdetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LotesenviosdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LotesenviosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LotesenviosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -293,11 +415,25 @@ Partial Class LotesEnvios
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents CajaseventosBindingSource As BindingSource
+    Friend WithEvents CajaseventosTableAdapter As comercialDataSetTableAdapters.cajaseventosTableAdapter
+    Friend WithEvents CajaseventosDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents fechacierre As DataGridViewTextBoxColumn
+    Friend WithEvents fechaconfirmacion As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents Ver As DataGridViewButtonColumn
+    Friend WithEvents rendicion As DataGridViewButtonColumn
+    Friend WithEvents Confirmar As DataGridViewButtonColumn
 End Class
