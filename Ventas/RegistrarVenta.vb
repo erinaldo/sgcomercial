@@ -426,6 +426,8 @@ Public Class RegistrarVenta
                         If Not productodisponible >= 1 Then ''''''' validar stock disponible
                             MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto insuficiente")
                             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+                            codigotextbox.Select()
+                            codigotextbox.SelectAll()
                             Return
                         End If
                     End If
@@ -453,12 +455,16 @@ Public Class RegistrarVenta
                                 If productodisponible < gcantidad Then
                                     MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto suelto insuficiente")
                                     VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+                                    codigotextbox.Select()
+                                    codigotextbox.SelectAll()
                                     Return
                                 End If
                             Case Else
                                 If productodisponibleenvasado < gcantidad Then
                                     MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto envasado insuficiente")
                                     VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+                                    codigotextbox.Select()
+                                    codigotextbox.SelectAll()
                                     Return
                                 End If
                         End Select
@@ -485,11 +491,14 @@ Public Class RegistrarVenta
                                 If Not productodisponible >= gcantidad Then ''''''' validar stock disponible
                                     MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto insuficiente")
                                     VentasdetalleDataGridView.Rows(i).Selected = True
-                                    'VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+                                    codigotextbox.Select()
+                                    codigotextbox.SelectAll()
                                     Return
                                 Else
-                                    VentasdetalleDataGridView.Rows(i).Cells(2).Value = VentasdetalleDataGridView.Rows(i).Cells(2).Value + 1 '*******  cantidad
+                                    VentasdetalleDataGridView.Rows(i).Cells(2).Value = gcantidad '*******  cantidad
                                 End If
+                            Else
+                                VentasdetalleDataGridView.Rows(i).Cells(2).Value = gcantidad '*******  cantidad
                             End If
                         Else '****************** la unidad de medida es kilo litro o metros
                             Dim p As IngresaCantidad
@@ -509,12 +518,16 @@ Public Class RegistrarVenta
                                         If productodisponible < gcantidad Then
                                             MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto suelto insuficiente")
                                             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.Rows(i))
+                                            codigotextbox.Select()
+                                            codigotextbox.SelectAll()
                                             Return
                                         End If
                                     Case Else
                                         If productodisponibleenvasado < gcantidad Then
                                             MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto envasado insuficiente")
                                             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.Rows(i))
+                                            codigotextbox.Select()
+                                            codigotextbox.SelectAll()
                                             Return
                                         End If
                                 End Select
@@ -741,8 +754,19 @@ Public Class RegistrarVenta
             'labelcantidad.Text = cantidad.ToString
             labeltotal.Text = total.ToString
             LabelTotalVisible.Text = "$ " + total.ToString
+            '************ monto automatico debito   *************
+            Select Case idformapagocombo.Text
+                Case "Débito"
+                    pagotextbox.Text = total
+                Case "Tarjeta de Crédito"
+                    pagotextbox.Text = total
+                Case Else
+                    pagotextbox.Text = Nothing
+            End Select
+            '****************************************************
         Else
             total = 0
+            pagotextbox.Text = total
             'labelcantidad.Text = cantidad.ToString
             labeltotal.Text = total.ToString
             LabelTotalVisible.Text = "$ " + total.ToString

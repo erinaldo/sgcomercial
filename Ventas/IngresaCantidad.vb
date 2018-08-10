@@ -13,7 +13,7 @@ Public Class IngresaCantidad
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         Dim total As Decimal
         cantidadtextbox.Text = "1"
-        preciotextbox.Text = "$ " + precioventa.ToString
+        preciotextbox.Text = precioventa.ToString
         gprecioventa = precioventa
         glistaprecio = 1
         total = precioventa * Val(cantidadtextbox.Text)
@@ -38,8 +38,8 @@ Public Class IngresaCantidad
     Public Sub calcular()
         Dim total As Decimal
         '        cantidadtextbox.Text = "1"
-        'preciotextbox.Text = "$ " + precioventa.ToString
-        precioventa = preciotextbox.Text
+        'preciotextbox.Text = precioventa.ToString
+        'precioventa = preciotextbox.Text
         total = precioventa * cantidadtextbox.Text
         totaltextbox.Text = total.ToString
     End Sub
@@ -151,7 +151,7 @@ Public Class IngresaCantidad
         Select Case ComboBoxListaPrecios.SelectedIndex
             Case 0
                 precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
-                preciotextbox.Text = "$ " + String.Format(precioventa)
+                preciotextbox.Text = String.Format(precioventa)
                 gprecioventa = preciotextbox.Text
                 glistaprecio = 1
                 'MsgBox("hola" + precioventa.ToString)
@@ -159,13 +159,13 @@ Public Class IngresaCantidad
                 precioventagranel = ProductosTableAdapter.productos_consultarpreciogranel(codigoproducto)
                 Dim medida As Decimal
                 medida = ProductosTableAdapter.productos_consultarmedida(codigoproducto)
-                preciotextbox.Text = "$ " + String.Format(precioventagranel / medida)
+                preciotextbox.Text = String.Format(precioventagranel / medida)
                 gprecioventa = preciotextbox.Text
                 glistaprecio = 2
                 'MsgBox("hola" + precioventagranel.ToString)
             Case 2
                 precioventamayorista = ProductosTableAdapter.productos_consultarpreciomayorista(codigoproducto)
-                preciotextbox.Text = "$ " + String.Format(precioventamayorista)
+                preciotextbox.Text = String.Format(precioventamayorista)
                 gprecioventa = preciotextbox.Text
                 glistaprecio = 3
                 'MsgBox("hola" + precioventamayorista.ToString)

@@ -543,4 +543,9 @@ Public Class ABMProductos
         calcularPrecioPC(preciocalculado)
         PrecioventadistribuidorTextBox.Text = Convert.ToDecimal(preciocalculado)
     End Sub
+
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        TextFiltro.Select()
+        TextFiltro.SelectAll()
+    End Sub
 End Class
