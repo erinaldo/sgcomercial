@@ -125,7 +125,7 @@ Public Class ABMProductos
         '***************    insertar stock inicial  **************************
         Try
             If Convert.ToDecimal(stockinicialtextbox.Text) > 0 Then
-                If Not StockTableAdapter1.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E") >= 0 Then
+                If Not StockTableAdapter1.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E", "Inicial") >= 0 Then
                     MsgBox("Ocurrioun error al insertar el stock inicial", MsgBoxStyle.Exclamation)
                 End If
                 stockinicialtextbox.Text = Nothing

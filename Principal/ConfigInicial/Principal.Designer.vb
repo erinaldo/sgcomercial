@@ -74,6 +74,7 @@ Partial Class Principal
         Me.CuentasCorrientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadoDeCuentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroDeCuentasCorrientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MiComercioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FondoAplicaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -151,7 +152,7 @@ Partial Class Principal
         Me.ListaprecioscajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaprecioscajaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaprecioscajaTableAdapter()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MovimientosDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -353,7 +354,7 @@ Partial Class Principal
         '
         'StockToolStripMenuItem
         '
-        Me.StockToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresoDeProductosToolStripMenuItem, Me.ControlDeStockToolStripMenuItem, Me.StockEnAlertaToolStripMenuItem})
+        Me.StockToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresoDeProductosToolStripMenuItem, Me.ControlDeStockToolStripMenuItem, Me.StockEnAlertaToolStripMenuItem, Me.MovimientosDeStockToolStripMenuItem})
         Me.StockToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.products
         Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
         Me.StockToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
@@ -559,6 +560,13 @@ Partial Class Principal
         Me.LibroDeCuentasCorrientesToolStripMenuItem.Size = New System.Drawing.Size(352, 28)
         Me.LibroDeCuentasCorrientesToolStripMenuItem.Tag = "LibroCuentasCorrientes"
         Me.LibroDeCuentasCorrientesToolStripMenuItem.Text = "Libro de Cuentas Corrientes"
+        '
+        'RegistrarVentaACuentaCorrienteToolStripMenuItem
+        '
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Name = "RegistrarVentaACuentaCorrienteToolStripMenuItem"
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Size = New System.Drawing.Size(352, 28)
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Tag = "RegistrarVentaCuentaCorriente"
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Text = "Registrar Venta a Cuenta Corriente"
         '
         'ConfiguracionesToolStripMenuItem
         '
@@ -1160,12 +1168,12 @@ Partial Class Principal
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
         '
-        'RegistrarVentaACuentaCorrienteToolStripMenuItem
+        'MovimientosDeStockToolStripMenuItem
         '
-        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Name = "RegistrarVentaACuentaCorrienteToolStripMenuItem"
-        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Size = New System.Drawing.Size(352, 28)
-        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Tag = "RegistrarVentaCuentaCorriente"
-        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Text = "Registrar Venta a Cuenta Corriente"
+        Me.MovimientosDeStockToolStripMenuItem.Name = "MovimientosDeStockToolStripMenuItem"
+        Me.MovimientosDeStockToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
+        Me.MovimientosDeStockToolStripMenuItem.Tag = "MovimientosStock"
+        Me.MovimientosDeStockToolStripMenuItem.Text = "Movimientos de Stock"
         '
         'Principal
         '
@@ -1338,4 +1346,5 @@ Partial Class Principal
     Friend WithEvents POSTFormToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroDeCuentasCorrientesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistrarVentaACuentaCorrienteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MovimientosDeStockToolStripMenuItem As ToolStripMenuItem
 End Class

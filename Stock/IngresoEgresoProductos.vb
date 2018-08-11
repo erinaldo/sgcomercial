@@ -86,7 +86,7 @@ Public Class ingresoegresoproductos
             cantidad = cantidad 'son kilogramos de producto
         End If
         Try
-            If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), cantidad, FechamovimientoDateTimePicker.Value.ToShortDateString, guserid, TipomovimientostockComboBox.SelectedValue) >= 0 Then
+            If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), cantidad, FechamovimientoDateTimePicker.Value.ToShortDateString, guserid, TipomovimientostockComboBox.SelectedValue, "Manual") >= 0 Then
                 'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
                 textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
                 FormPrincipal.reloadstock()

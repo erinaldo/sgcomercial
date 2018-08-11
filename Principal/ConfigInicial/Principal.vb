@@ -599,4 +599,9 @@ Public Class Principal
         RegistrarVentaCC.MdiParent = Me
         RegistrarVentaCC.Visible = True
     End Sub
+
+    Private Sub MovimientosDeStockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MovimientosDeStockToolStripMenuItem.Click
+        StkMovimientos.MdiParent = Me
+        StkMovimientos.Visible = True
+    End Sub
 End Class
