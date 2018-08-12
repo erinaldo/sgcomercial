@@ -28,7 +28,7 @@
                 ClientesBindingSource.Filter = "idcliente = " + gclienteseleccionado.ToString
                 calculasaldos()
             Catch ex As Exception
-                MsgBox("Cliente no encontrado!", MsgBoxStyle.Exclamation, "catch2")
+                MsgBox("Ocurrió una excepción al buscar la información del cliente: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia!")
                 ClientesBindingSource.Filter = "idcliente = " + "0"
             End Try
             Try

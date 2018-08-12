@@ -30,6 +30,10 @@ Partial Class StkMovimientos
         Me.DPDesde = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.StkmovimientosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.StkmovimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.StkmovimientosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stkmovimientosTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -37,19 +41,18 @@ Partial Class StkMovimientos
         Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StkmovimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.StkmovimientosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stkmovimientosTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.StkmovimientosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StkmovimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.PictureSeleccionarCliente)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -117,66 +120,6 @@ Partial Class StkMovimientos
         Me.StkmovimientosDataGridView.RowTemplate.Height = 24
         Me.StkmovimientosDataGridView.Size = New System.Drawing.Size(1048, 510)
         Me.StkmovimientosDataGridView.TabIndex = 0
-        '
-        'codigoproducto
-        '
-        Me.codigoproducto.DataPropertyName = "codigoproducto"
-        Me.codigoproducto.HeaderText = "Código Producto"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.ToolTipText = "Código Producto"
-        Me.codigoproducto.Width = 150
-        '
-        'producto
-        '
-        Me.producto.DataPropertyName = "producto"
-        Me.producto.HeaderText = "Producto"
-        Me.producto.Name = "producto"
-        Me.producto.ReadOnly = True
-        Me.producto.ToolTipText = "Producto"
-        Me.producto.Width = 300
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "tipomovimiento"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Tipo Movimiento"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.ToolTipText = "Tipo Movimiento"
-        Me.DataGridViewTextBoxColumn1.Width = 150
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "origen"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Origen"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.ToolTipText = "Origen"
-        Me.DataGridViewTextBoxColumn2.Width = 150
-        '
-        'cantidad
-        '
-        Me.cantidad.DataPropertyName = "cantidad"
-        Me.cantidad.HeaderText = "cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechacarga"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Fecha Carga"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.ToolTipText = "Fecha Carga"
-        Me.DataGridViewTextBoxColumn3.Width = 150
-        '
-        'fecha
-        '
-        Me.fecha.DataPropertyName = "fecha"
-        Me.fecha.HeaderText = "fecha"
-        Me.fecha.Name = "fecha"
-        Me.fecha.ReadOnly = True
-        Me.fecha.Visible = False
         '
         'StkmovimientosBindingSource
         '
@@ -249,6 +192,80 @@ Partial Class StkMovimientos
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
+        'codigoproducto
+        '
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Código Producto"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.ToolTipText = "Código Producto"
+        Me.codigoproducto.Width = 150
+        '
+        'producto
+        '
+        Me.producto.DataPropertyName = "producto"
+        Me.producto.HeaderText = "Producto"
+        Me.producto.Name = "producto"
+        Me.producto.ReadOnly = True
+        Me.producto.ToolTipText = "Producto"
+        Me.producto.Width = 300
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "tipomovimiento"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Tipo Movimiento"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.ToolTipText = "Tipo Movimiento"
+        Me.DataGridViewTextBoxColumn1.Width = 150
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "origen"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Origen Movimiento"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.ToolTipText = "Origen"
+        Me.DataGridViewTextBoxColumn2.Width = 150
+        '
+        'cantidad
+        '
+        Me.cantidad.DataPropertyName = "cantidad"
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechacarga"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Fecha Carga"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.ToolTipText = "Fecha Carga"
+        Me.DataGridViewTextBoxColumn3.Width = 150
+        '
+        'fecha
+        '
+        Me.fecha.DataPropertyName = "fecha"
+        Me.fecha.HeaderText = "fecha"
+        Me.fecha.Name = "fecha"
+        Me.fecha.ReadOnly = True
+        Me.fecha.Visible = False
+        '
+        'PictureSeleccionarCliente
+        '
+        Me.PictureSeleccionarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureSeleccionarCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureSeleccionarCliente.Image = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureSeleccionarCliente.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(715, 26)
+        Me.PictureSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureSeleccionarCliente.Name = "PictureSeleccionarCliente"
+        Me.PictureSeleccionarCliente.Size = New System.Drawing.Size(29, 28)
+        Me.PictureSeleccionarCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureSeleccionarCliente.TabIndex = 16
+        Me.PictureSeleccionarCliente.TabStop = False
+        '
         'StkMovimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -265,6 +282,7 @@ Partial Class StkMovimientos
         CType(Me.StkmovimientosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StkmovimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -287,4 +305,5 @@ Partial Class StkMovimientos
     Friend WithEvents cantidad As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents fecha As DataGridViewTextBoxColumn
+    Friend WithEvents PictureSeleccionarCliente As PictureBox
 End Class

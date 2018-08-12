@@ -183,7 +183,7 @@ Public Class RegistrarVentaCC
             'End If
             'total = labeltotal.Text
             '********* insertar cabecera
-            idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, Nothing, Nothing, gusername, Nothing)
+            idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, Nothing, 1, gusername, Nothing)
             'MsgBox(idventas.ToString)
             '********* insertar detalle
             Dim i As Integer = 0

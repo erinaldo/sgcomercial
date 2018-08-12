@@ -38,6 +38,16 @@ Partial Class EstadoCuentaCorriente
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ListacuentascorrientesDataGridView = New System.Windows.Forms.DataGridView()
+        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nro = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.debe = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.haber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.saldo = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpagos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Anular = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.ListacuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListacuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listacuentascorrientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
@@ -76,16 +86,6 @@ Partial Class EstadoCuentaCorriente
         Me.Labeltotaldebe = New System.Windows.Forms.Label()
         Me.VentasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ventasTableAdapter()
         Me.PagosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pagosTableAdapter()
-        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nro = New System.Windows.Forms.DataGridViewLinkColumn()
-        Me.debe = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.haber = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.saldo = New System.Windows.Forms.DataGridViewLinkColumn()
-        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpagos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Anular = New System.Windows.Forms.DataGridViewButtonColumn()
         NombreLabel = New System.Windows.Forms.Label()
         CuitLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -219,6 +219,97 @@ Partial Class EstadoCuentaCorriente
         Me.ListacuentascorrientesDataGridView.RowTemplate.Height = 24
         Me.ListacuentascorrientesDataGridView.Size = New System.Drawing.Size(1030, 299)
         Me.ListacuentascorrientesDataGridView.TabIndex = 0
+        '
+        'idcliente
+        '
+        Me.idcliente.DataPropertyName = "idcliente"
+        Me.idcliente.HeaderText = "idcliente"
+        Me.idcliente.Name = "idcliente"
+        Me.idcliente.ReadOnly = True
+        Me.idcliente.Visible = False
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "fecha"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Fecha"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        '
+        'descripcion
+        '
+        Me.descripcion.DataPropertyName = "descripcion"
+        Me.descripcion.HeaderText = "Descripcion"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 250
+        '
+        'nro
+        '
+        Me.nro.DataPropertyName = "nro"
+        Me.nro.HeaderText = "Nº"
+        Me.nro.Name = "nro"
+        Me.nro.ReadOnly = True
+        Me.nro.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.nro.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.nro.Width = 90
+        '
+        'debe
+        '
+        Me.debe.DataPropertyName = "debe"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.debe.DefaultCellStyle = DataGridViewCellStyle1
+        Me.debe.HeaderText = "Debe"
+        Me.debe.Name = "debe"
+        Me.debe.ReadOnly = True
+        '
+        'haber
+        '
+        Me.haber.DataPropertyName = "haber"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.haber.DefaultCellStyle = DataGridViewCellStyle2
+        Me.haber.HeaderText = "Haber"
+        Me.haber.Name = "haber"
+        Me.haber.ReadOnly = True
+        '
+        'saldo
+        '
+        Me.saldo.DataPropertyName = "saldo"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red
+        Me.saldo.DefaultCellStyle = DataGridViewCellStyle3
+        Me.saldo.HeaderText = "Saldo"
+        Me.saldo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.saldo.Name = "saldo"
+        Me.saldo.ReadOnly = True
+        Me.saldo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.saldo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.saldo.ToolTipText = "Click para cargar pago"
+        '
+        'idventa
+        '
+        Me.idventa.DataPropertyName = "idventa"
+        Me.idventa.HeaderText = "idventa"
+        Me.idventa.Name = "idventa"
+        Me.idventa.ReadOnly = True
+        Me.idventa.Visible = False
+        '
+        'idpagos
+        '
+        Me.idpagos.DataPropertyName = "idpagos"
+        Me.idpagos.HeaderText = "idpagos"
+        Me.idpagos.Name = "idpagos"
+        Me.idpagos.ReadOnly = True
+        Me.idpagos.Visible = False
+        '
+        'Anular
+        '
+        Me.Anular.HeaderText = "Anular"
+        Me.Anular.Name = "Anular"
+        Me.Anular.ReadOnly = True
+        Me.Anular.Text = "Anular"
+        Me.Anular.ToolTipText = "Anular"
+        Me.Anular.UseColumnTextForButtonValue = True
         '
         'ListacuentascorrientesBindingSource
         '
@@ -556,97 +647,6 @@ Partial Class EstadoCuentaCorriente
         'PagosTableAdapter
         '
         Me.PagosTableAdapter.ClearBeforeFill = True
-        '
-        'idcliente
-        '
-        Me.idcliente.DataPropertyName = "idcliente"
-        Me.idcliente.HeaderText = "idcliente"
-        Me.idcliente.Name = "idcliente"
-        Me.idcliente.ReadOnly = True
-        Me.idcliente.Visible = False
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "fecha"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Fecha"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        '
-        'descripcion
-        '
-        Me.descripcion.DataPropertyName = "descripcion"
-        Me.descripcion.HeaderText = "Descripcion"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 250
-        '
-        'nro
-        '
-        Me.nro.DataPropertyName = "nro"
-        Me.nro.HeaderText = "Nº"
-        Me.nro.Name = "nro"
-        Me.nro.ReadOnly = True
-        Me.nro.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.nro.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.nro.Width = 90
-        '
-        'debe
-        '
-        Me.debe.DataPropertyName = "debe"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.debe.DefaultCellStyle = DataGridViewCellStyle1
-        Me.debe.HeaderText = "Debe"
-        Me.debe.Name = "debe"
-        Me.debe.ReadOnly = True
-        '
-        'haber
-        '
-        Me.haber.DataPropertyName = "haber"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.haber.DefaultCellStyle = DataGridViewCellStyle2
-        Me.haber.HeaderText = "Haber"
-        Me.haber.Name = "haber"
-        Me.haber.ReadOnly = True
-        '
-        'saldo
-        '
-        Me.saldo.DataPropertyName = "saldo"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red
-        Me.saldo.DefaultCellStyle = DataGridViewCellStyle3
-        Me.saldo.HeaderText = "Saldo"
-        Me.saldo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.saldo.Name = "saldo"
-        Me.saldo.ReadOnly = True
-        Me.saldo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.saldo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.saldo.ToolTipText = "Click para cargar pago"
-        '
-        'idventa
-        '
-        Me.idventa.DataPropertyName = "idventa"
-        Me.idventa.HeaderText = "idventa"
-        Me.idventa.Name = "idventa"
-        Me.idventa.ReadOnly = True
-        Me.idventa.Visible = False
-        '
-        'idpagos
-        '
-        Me.idpagos.DataPropertyName = "idpagos"
-        Me.idpagos.HeaderText = "idpagos"
-        Me.idpagos.Name = "idpagos"
-        Me.idpagos.ReadOnly = True
-        Me.idpagos.Visible = False
-        '
-        'Anular
-        '
-        Me.Anular.HeaderText = "Anular"
-        Me.Anular.Name = "Anular"
-        Me.Anular.ReadOnly = True
-        Me.Anular.Text = "Anular"
-        Me.Anular.ToolTipText = "Anular"
-        Me.Anular.UseColumnTextForButtonValue = True
         '
         'EstadoCuentaCorriente
         '

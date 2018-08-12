@@ -21,4 +21,16 @@
             StkmovimientosBindingSource.Filter = "tipomovimiento Like ''"
         End Try
     End Sub
+
+    Private Sub PictureSeleccionarCliente_Click(sender As Object, e As EventArgs) Handles PictureSeleccionarCliente.Click
+        gcodigoproducto = 0
+        'LabelDescripcion.Text = Nothing
+        'gproductodescripcion = Nothing
+        BuscarCodigoInterno.ShowDialog()
+        If Len(Trim(gcodigoproducto)) > 0 And gcodigoproducto <> "0" Then
+            TextBox1.Text = gcodigoproducto.ToString
+            'LabelDescripcion.Text = gproductodescripcion
+            'BtnImprimir.PerformClick()
+        End If
+    End Sub
 End Class
