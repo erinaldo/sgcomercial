@@ -236,6 +236,11 @@
         '******************************************************************************
         LotesenviosTableAdapter.lotesenvios_cerrarlote(Today(), gusername, idlote)
         MsgBox("Operacion exitosa! Lote de envío cerrado correctanente", MsgBoxStyle.Information)
+        Dim p As ViewerLoteRendido
+        p = New ViewerLoteRendido
+        gidlote = idlote
+        p.ShowDialog()
+        gidlote = Nothing
         Me.Close()
 
     End Sub
