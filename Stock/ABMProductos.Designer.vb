@@ -890,7 +890,7 @@ Partial Class ABMProductos
         Me.GroupBox2.Controls.Add(Me.TextFiltro)
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Location = New System.Drawing.Point(16, 356)
+        Me.GroupBox2.Location = New System.Drawing.Point(16, 354)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)

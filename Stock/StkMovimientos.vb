@@ -33,4 +33,29 @@
             'BtnImprimir.PerformClick()
         End If
     End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        If RadioButton1.Checked Then
+            DPDesde.Enabled = False
+            Try
+                'StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
+                StkmovimientosTableAdapter.Fill(Me.ComercialDataSet.stkmovimientos)
+            Catch ex As Exception
+                MsgBox("Ocurrió una excepción durante la consulta:" + ex.Message)
+            End Try
+        End If
+
+    End Sub
+
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        If RadioButton2.Checked Then
+            DPDesde.Enabled = True
+            Try
+                StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
+            Catch ex As Exception
+                MsgBox("Ocurrió una excepción durante la consulta:" + ex.Message)
+            End Try
+        End If
+
+    End Sub
 End Class

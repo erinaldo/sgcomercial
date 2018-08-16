@@ -25,9 +25,9 @@ Partial Class RegistrarVentaCC
         Me.components = New System.ComponentModel.Container()
         Dim IdclienteLabel As System.Windows.Forms.Label
         Dim FechaventaLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PagosDataGridView = New System.Windows.Forms.DataGridView()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.LabelTotalVisible = New System.Windows.Forms.Label()
@@ -93,6 +93,8 @@ Partial Class RegistrarVentaCC
         Me.ValesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.valesTableAdapter()
         Me.ListaspreciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaspreciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaspreciosTableAdapter()
+        Me.TextboxRecargoCC = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         IdclienteLabel = New System.Windows.Forms.Label()
         FechaventaLabel = New System.Windows.Forms.Label()
         CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -153,6 +155,8 @@ Partial Class RegistrarVentaCC
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Label2)
+        Me.GroupBox4.Controls.Add(Me.TextboxRecargoCC)
         Me.GroupBox4.Controls.Add(Me.LabelTotalVisible)
         Me.GroupBox4.Controls.Add(Me.BtnDescuento)
         Me.GroupBox4.Controls.Add(Me.labeltotal)
@@ -171,7 +175,7 @@ Partial Class RegistrarVentaCC
         Me.LabelTotalVisible.AutoSize = True
         Me.LabelTotalVisible.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.LabelTotalVisible.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelTotalVisible.Location = New System.Drawing.Point(510, 24)
+        Me.LabelTotalVisible.Location = New System.Drawing.Point(390, 26)
         Me.LabelTotalVisible.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelTotalVisible.Name = "LabelTotalVisible"
         Me.LabelTotalVisible.Size = New System.Drawing.Size(21, 22)
@@ -181,7 +185,7 @@ Partial Class RegistrarVentaCC
         '
         'BtnDescuento
         '
-        Me.BtnDescuento.Location = New System.Drawing.Point(310, 22)
+        Me.BtnDescuento.Location = New System.Drawing.Point(135, 23)
         Me.BtnDescuento.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnDescuento.Name = "BtnDescuento"
         Me.BtnDescuento.Size = New System.Drawing.Size(141, 28)
@@ -194,7 +198,7 @@ Partial Class RegistrarVentaCC
         Me.labeltotal.AutoSize = True
         Me.labeltotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.labeltotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labeltotal.Location = New System.Drawing.Point(540, 24)
+        Me.labeltotal.Location = New System.Drawing.Point(420, 26)
         Me.labeltotal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.labeltotal.Name = "labeltotal"
         Me.labeltotal.Size = New System.Drawing.Size(2, 22)
@@ -205,12 +209,12 @@ Partial Class RegistrarVentaCC
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(467, 25)
+        Me.Label3.Location = New System.Drawing.Point(292, 29)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(44, 17)
+        Me.Label3.Size = New System.Drawing.Size(87, 17)
         Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Total:"
+        Me.Label3.Text = "Monto Total:"
         '
         'CheckBoxVale
         '
@@ -443,27 +447,27 @@ Partial Class RegistrarVentaCC
         '
         'cantidad
         '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle7
         Me.cantidad.HeaderText = "Cantidad"
         Me.cantidad.Name = "cantidad"
         Me.cantidad.ReadOnly = True
         '
         'precioventa
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Format = "C2"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.Format = "C2"
+        DataGridViewCellStyle8.NullValue = Nothing
+        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle8
         Me.precioventa.HeaderText = "Precio Venta"
         Me.precioventa.Name = "precioventa"
         Me.precioventa.ReadOnly = True
         '
         'subtotal
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "C2"
-        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.Format = "C2"
+        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle9
         Me.subtotal.HeaderText = "Sub Total"
         Me.subtotal.Name = "subtotal"
         Me.subtotal.ReadOnly = True
@@ -738,6 +742,28 @@ Partial Class RegistrarVentaCC
         '
         Me.ListaspreciosTableAdapter.ClearBeforeFill = True
         '
+        'TextboxRecargoCC
+        '
+        Me.TextboxRecargoCC.AutoSize = True
+        Me.TextboxRecargoCC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextboxRecargoCC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextboxRecargoCC.Location = New System.Drawing.Point(721, 26)
+        Me.TextboxRecargoCC.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.TextboxRecargoCC.Name = "TextboxRecargoCC"
+        Me.TextboxRecargoCC.Size = New System.Drawing.Size(2, 22)
+        Me.TextboxRecargoCC.TabIndex = 11
+        Me.TextboxRecargoCC.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(540, 29)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(174, 17)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Monto a Cuenta Corriente:"
+        '
         'RegistrarVentaCC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -856,4 +882,6 @@ Partial Class RegistrarVentaCC
     Friend WithEvents ValesTableAdapter As comercialDataSetTableAdapters.valesTableAdapter
     Friend WithEvents ListaspreciosBindingSource As BindingSource
     Friend WithEvents ListaspreciosTableAdapter As comercialDataSetTableAdapters.listaspreciosTableAdapter
+    Friend WithEvents TextboxRecargoCC As Label
+    Friend WithEvents Label2 As Label
 End Class

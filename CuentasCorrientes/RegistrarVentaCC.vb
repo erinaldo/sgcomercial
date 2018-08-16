@@ -163,25 +163,7 @@ Public Class RegistrarVentaCC
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         If MsgBox("Seguro desea guardar la venta?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
             Dim idvale As Integer = Nothing
-            '***** PREGUNTO SI SE VA insertar VALE    ****************
-            'If CheckBoxVale.Checked = True Then
-            '    Dim vuelto As Decimal = vueltotextbox.Text
-            '    gmontovale = vuelto
-            '    IngresaMontoVale.TextBox1.Text = gmontovale
-            '    IngresaMontoVale.ShowDialog()
-            '    If gmontovale > 0 Then
-            '        idvale = ValesTableAdapter.vales_insertar("Vuelto", gmontovale, gusername)
-            '        MsgBox("Vale N°:" + vbTab + idvale.ToString + vbTab + " Generado exitosamente!")
-            '        '***** calculo el monto total de la venta
-            '        total = total + gmontovale
-            '    Else
-            '        MsgBox("No seleccionó el monto del vale! Operación cancelada!", MsgBoxStyle.Exclamation, "Advertencia!")
-            '        Return
-            '    End If
-            'Else '***************       NO SE GENERA VALE
-            '    total = labeltotal.Text
-            'End If
-            'total = labeltotal.Text
+
             '********* insertar cabecera
             idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, Nothing, 1, gusername, Nothing)
             'MsgBox(idventas.ToString)
@@ -196,7 +178,7 @@ Public Class RegistrarVentaCC
                 End If
                 'insertar ventas detalle
                 Try
-                    idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(2).Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(4).Value), VentasdetalleDataGridView.Rows(i).Cells(6).Value, Nothing)
+                    idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(2).Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(4).Value), VentasdetalleDataGridView.Rows(i).Cells(6).Value, grecargoCC)
                 Catch ex As Exception
                     MsgBox("error al grabar el detalle: " + ex.Message)
                 End Try
@@ -677,12 +659,13 @@ Public Class RegistrarVentaCC
     Private Sub recuento()
 
         '********** RecargoTC
-        grecargoTC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoTC")
+        grecargoCC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoCC")
         '**********
 
         Dim cantidad As Integer = 0
         Dim i As Integer
         total = 0
+        Dim recargo As Decimal = 0
 
         If VentasdetalleDataGridView.RowCount > 0 Then
             'labelcantidad.Text = VentasdetalleDataGridView.RowCount.ToString
@@ -695,24 +678,27 @@ Public Class RegistrarVentaCC
             Next
             total = Decimal.Round(total, 2)
             '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
-            'If idformapagocombo.Text = "Tarjeta de Crédito" And grecargoTC > 0 Then ' aplicar recargo en todos los items
-            '    For i = 0 To VentasdetalleDataGridView.RowCount - 1
-            '        precio = VentasdetalleDataGridView.Rows(i).Cells(4).Value + (VentasdetalleDataGridView.Rows(i).Cells(4).Value * grecargoTC) / 100
-            '        'VentasdetalleDataGridView.Rows(i).Cells(4).Value = precio
-            '    Next
-            '    total = total + (total * grecargoTC) / 100
-            '    total = Math.Round(total, 2)
-            'End If
+            If grecargoCC > 0 Then ' aplicar recargo en todos los items
+                For i = 0 To VentasdetalleDataGridView.RowCount - 1
+                    precio = VentasdetalleDataGridView.Rows(i).Cells(4).Value + (VentasdetalleDataGridView.Rows(i).Cells(4).Value * grecargoCC) / 100
+                    'VentasdetalleDataGridView.Rows(i).Cells(4).Value = precio
+                Next
+                recargo = total + (total * grecargoCC) / 100
+                recargo = Math.Round(recargo, 2)
+            End If
+
             '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
             '*****************************************************
             'labelcantidad.Text = cantidad.ToString
             labeltotal.Text = total.ToString
             LabelTotalVisible.Text = "$ " + total.ToString
+            TextboxRecargoCC.Text = recargo
         Else
-            total = 0
+                total = 0
             'labelcantidad.Text = cantidad.ToString
             labeltotal.Text = total.ToString
             LabelTotalVisible.Text = "$ " + total.ToString
+            TextboxRecargoCC.Text = recargo
         End If
 
         If Val(pagotextbox.Text) > 0 Then

@@ -75,6 +75,11 @@ Public Class MiComercio
         Dim recargo As Decimal = TextBoxRecargoTC.Text
         ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("RecargoTC", Nothing, "Enable", recargo)
         '***************    -----------     FIN     ------------  ******************************************
+        '*****************************************************************************************************
+        '***************    RecargoCC   ******************************************
+        Dim recargoCC As Decimal = TextBoxRecargoCC.Text
+        ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("RecargoCC", Nothing, "Enable", recargoCC)
+        '***************    -----------     FIN     ------------  ******************************************
 
 
     End Sub
@@ -140,6 +145,11 @@ Public Class MiComercio
         recargo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoTC")
         TextBoxRecargoTC.Text = recargo
         '**********
+        '********** RecargoCC
+        'Dim recargo As Decimal
+        recargo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoCC")
+        TextBoxRecargoCC.Text = recargo
+        '**********
     End Sub
     Private Sub enablebuttons(ByVal status As Boolean)
         textnombrecomercio.Enabled = status
@@ -189,6 +199,37 @@ Public Class MiComercio
     End Sub
 
     Private Sub TextBoxRecargoTC_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxRecargoTC.KeyPress
+        If Char.IsControl(e.KeyChar) Then
+            Return
+        End If
+
+        If e.KeyChar = "." Then
+            e.KeyChar = ","
+            Return
+        End If
+        If e.KeyChar = "," Then
+            Return
+        End If
+        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
+            'MessageBox.Show("Solo se permiten numeros")
+            e.KeyChar = ""
+        End If
+    End Sub
+
+    Private Sub TextBoxRecargoCC_TextChanged(sender As Object, e As EventArgs) Handles TextBoxRecargoCC.TextChanged
+        If TextBoxRecargoCC.Text = "" Then
+            Return
+        End If
+        Try
+            Convert.ToDecimal(TextBoxRecargoCC.Text)
+        Catch ex As Exception
+            MsgBox("ingrese un porcentaje válido!")
+            TextBoxRecargoCC.SelectAll()
+        End Try
+
+    End Sub
+
+    Private Sub TextBoxRecargoCC_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxRecargoCC.KeyPress
         If Char.IsControl(e.KeyChar) Then
             Return
         End If

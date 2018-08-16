@@ -65,6 +65,9 @@ Partial Class MiComercio
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.TextBoxRecargoTC = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxRecargoCC = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,6 +80,7 @@ Partial Class MiComercio
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -266,7 +270,7 @@ Partial Class MiComercio
         Me.ParametrosgeneralesBindingNavigator.MovePreviousItem = Nothing
         Me.ParametrosgeneralesBindingNavigator.Name = "ParametrosgeneralesBindingNavigator"
         Me.ParametrosgeneralesBindingNavigator.PositionItem = Nothing
-        Me.ParametrosgeneralesBindingNavigator.Size = New System.Drawing.Size(680, 27)
+        Me.ParametrosgeneralesBindingNavigator.Size = New System.Drawing.Size(1141, 27)
         Me.ParametrosgeneralesBindingNavigator.TabIndex = 1
         Me.ParametrosgeneralesBindingNavigator.Text = "BindingNavigator1"
         '
@@ -288,19 +292,31 @@ Partial Class MiComercio
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Me.ParametrosgeneralesTableAdapter
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Nothing
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
@@ -310,12 +326,18 @@ Partial Class MiComercio
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
@@ -416,9 +438,9 @@ Partial Class MiComercio
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.ComboBoxSaltoCarro)
-        Me.GroupBox4.Location = New System.Drawing.Point(9, 461)
+        Me.GroupBox4.Location = New System.Drawing.Point(672, 49)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(657, 68)
+        Me.GroupBox4.Size = New System.Drawing.Size(457, 68)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Lector de códigos de barra - Salto de carro"
@@ -436,9 +458,9 @@ Partial Class MiComercio
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.ComboBoxvalidarstock)
-        Me.GroupBox5.Location = New System.Drawing.Point(11, 532)
+        Me.GroupBox5.Location = New System.Drawing.Point(674, 120)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(657, 68)
+        Me.GroupBox5.Size = New System.Drawing.Size(455, 68)
         Me.GroupBox5.TabIndex = 5
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Validar existencia de stock al registrar venta"
@@ -457,9 +479,9 @@ Partial Class MiComercio
         '
         Me.GroupBox6.Controls.Add(Me.TextBoxRecargoTC)
         Me.GroupBox6.Controls.Add(Me.Label5)
-        Me.GroupBox6.Location = New System.Drawing.Point(11, 606)
+        Me.GroupBox6.Location = New System.Drawing.Point(674, 194)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(657, 68)
+        Me.GroupBox6.Size = New System.Drawing.Size(455, 68)
         Me.GroupBox6.TabIndex = 6
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Recargo Venta Tarjeta de Crédito"
@@ -480,11 +502,39 @@ Partial Class MiComercio
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Indicar el porcentaje (%):"
         '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.TextBoxRecargoCC)
+        Me.GroupBox7.Controls.Add(Me.Label6)
+        Me.GroupBox7.Location = New System.Drawing.Point(674, 268)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(455, 68)
+        Me.GroupBox7.TabIndex = 7
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Recargo Venta Cuenta Corriente"
+        '
+        'TextBoxRecargoCC
+        '
+        Me.TextBoxRecargoCC.Location = New System.Drawing.Point(363, 31)
+        Me.TextBoxRecargoCC.Name = "TextBoxRecargoCC"
+        Me.TextBoxRecargoCC.Size = New System.Drawing.Size(44, 22)
+        Me.TextBoxRecargoCC.TabIndex = 1
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(193, 32)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(166, 17)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Indicar el porcentaje (%):"
+        '
         'MiComercio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(680, 684)
+        Me.ClientSize = New System.Drawing.Size(1141, 474)
+        Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
@@ -515,6 +565,8 @@ Partial Class MiComercio
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -561,4 +613,7 @@ Partial Class MiComercio
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents TextBoxRecargoTC As TextBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents TextBoxRecargoCC As TextBox
+    Friend WithEvents Label6 As Label
 End Class

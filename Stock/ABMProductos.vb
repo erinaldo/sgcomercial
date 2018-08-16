@@ -123,16 +123,20 @@ Public Class ABMProductos
         Me.ProductosBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
         '***************    insertar stock inicial  **************************
-        Try
-            If Convert.ToDecimal(stockinicialtextbox.Text) > 0 Then
-                If Not StockTableAdapter1.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E", "Inicial") >= 0 Then
-                    MsgBox("Ocurrioun error al insertar el stock inicial", MsgBoxStyle.Exclamation)
+        If Len(Trim(stockinicialtextbox.Text)) > 0 Then
+            Try
+                If Convert.ToDecimal(stockinicialtextbox.Text) > 0 Then
+                    If Not StockTableAdapter1.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E", "Inicial") >= 0 Then
+                        MsgBox("Ocurrioun error al insertar el stock inicial", MsgBoxStyle.Exclamation)
+                    End If
+                    stockinicialtextbox.Text = Nothing
+                    MsgBox("Producto agregado correctamente!", MsgBoxStyle.Information, "Mensaje")
                 End If
-                stockinicialtextbox.Text = Nothing
-            End If
-        Catch ex As Exception
-            'MsgBox("Ocurrioun error al insertar el stock inicial: " + ex.Message)
-        End Try
+            Catch ex As Exception
+                MsgBox("Ocurrioun error al insertar el stock inicial: " + ex.Message)
+            End Try
+        End If
+
 
         enableedit(False)
         stockinicialtextbox.Enabled = False
@@ -547,5 +551,32 @@ Public Class ABMProductos
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
         TextFiltro.Select()
         TextFiltro.SelectAll()
+    End Sub
+
+    Private Sub stockinicialtextbox_TextChanged(sender As Object, e As EventArgs) Handles stockinicialtextbox.TextChanged
+
+    End Sub
+
+    Private Sub stockinicialtextbox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles stockinicialtextbox.KeyPress
+        ' Check for the flag being set in the KeyDown event.
+        'If nonNumberEntered = True Then
+        '    ' Stop the character from being entered into the control since it is non-numerical.
+        '    e.Handled = True
+        'End If
+        If Char.IsControl(e.KeyChar) Then
+            Return
+        End If
+
+        If e.KeyChar = "." Then
+            e.KeyChar = ","
+            Return
+        End If
+        If e.KeyChar = "," Then
+            Return
+        End If
+        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
+            'MessageBox.Show("Solo se permiten numeros")
+            e.KeyChar = ""
+        End If
     End Sub
 End Class

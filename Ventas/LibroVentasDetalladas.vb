@@ -42,6 +42,6 @@
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
-        Me.LibroventasTableAdapter.FillByFecha(Me.ComercialDataSet.libroventas, DateTimePicker1.Value)
+        Me.LibroventasTableAdapter.FillByFecha(Me.ComercialDataSet.libroventas, DateTimePicker1.Value.ToString)
     End Sub
 End Class

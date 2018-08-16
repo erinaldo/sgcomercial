@@ -31,6 +31,7 @@
     Public gprecioventagranel As String
     Public gprecioventamayorista As String
     Public grecargoTC As Decimal
+    Public grecargoCC As Decimal
     Public gidpago As Long
     Public gidcliente As Long
     '************************************

@@ -57,16 +57,6 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=;Initial Catalog=;Persist Security Info=True;User ID=;Password=")>  _
-        Public ReadOnly Property comercialConnectionString() As String
-            Get
-                Return CType(Me("comercialConnectionString"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
          Global.System.Configuration.DefaultSettingValueAttribute("server=;user id=;password=;database=;persistsecurityinfo=True")>  _
         Public ReadOnly Property MySQLConnectionString() As String
             Get
@@ -81,6 +71,17 @@ Namespace My
         Public ReadOnly Property SCConnectionString() As String
             Get
                 Return CType(Me("SCConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=;Persist Security Info=True;User ID=;Passwo"& _ 
+            "rd=")>  _
+        Public ReadOnly Property comercialConnectionString() As String
+            Get
+                Return CType(Me("comercialConnectionString"),String)
             End Get
         End Property
     End Class
