@@ -2,6 +2,7 @@
     '************************************************
     Public gValidarSTK As String
     Public gbalprefix As String
+    Public glistapreferida As Int16
     '************************************************
     Public FormPrincipal As Principal
     '************************************************

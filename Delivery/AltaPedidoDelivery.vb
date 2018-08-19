@@ -34,6 +34,7 @@ Public Class AltaPedidoDelivery
         ComboBoxProvincia.SelectedIndex = 0
         ComboBoxLocalidad.SelectedIndex = 0
         ComboBoxProvincia.Enabled = False
+        ComboBox1.SelectedIndex = 0
     End Sub
     Private Sub enableedit(ByVal status As String)
         TextBoxNombreCliente.Enabled = status
@@ -472,5 +473,14 @@ Public Class AltaPedidoDelivery
             'MessageBox.Show("Solo se permiten numeros")
             e.KeyChar = ""
         End If
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        glistapreferida = ComboBox1.SelectedValue
+        'MsgBox(glistapreferida.ToString)
+    End Sub
+
+    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
+
     End Sub
 End Class

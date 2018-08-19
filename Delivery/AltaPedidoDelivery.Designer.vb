@@ -178,6 +178,8 @@ Partial Class AltaPedidoDelivery
         Me.DataGridViewTextBoxColumn72 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn73 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn74 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         IdclienteLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
@@ -938,6 +940,8 @@ Partial Class AltaPedidoDelivery
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.ComboBox1)
+        Me.GroupBox3.Controls.Add(Me.Label14)
         Me.GroupBox3.Controls.Add(Me.VentasdetalleDataGridView)
         Me.GroupBox3.Location = New System.Drawing.Point(13, 188)
         Me.GroupBox3.Name = "GroupBox3"
@@ -952,13 +956,13 @@ Partial Class AltaPedidoDelivery
         Me.VentasdetalleDataGridView.AllowUserToDeleteRows = False
         Me.VentasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.cantidad, Me.unidadmedida, Me.medida, Me.precioventa, Me.SubTotal, Me.idlistaprecio})
-        Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(11, 21)
+        Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(11, 60)
         Me.VentasdetalleDataGridView.MultiSelect = False
         Me.VentasdetalleDataGridView.Name = "VentasdetalleDataGridView"
         Me.VentasdetalleDataGridView.ReadOnly = True
         Me.VentasdetalleDataGridView.RowTemplate.Height = 24
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1123, 335)
+        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1123, 296)
         Me.VentasdetalleDataGridView.TabIndex = 0
         '
         'idproducto
@@ -1406,6 +1410,27 @@ Partial Class AltaPedidoDelivery
         Me.DataGridViewTextBoxColumn74.HeaderText = "recargo"
         Me.DataGridViewTextBoxColumn74.Name = "DataGridViewTextBoxColumn74"
         '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(339, 29)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(166, 17)
+        Me.Label14.TabIndex = 1
+        Me.Label14.Text = "Lista de precio preferida:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataSource = Me.ListaspreciosBindingSource
+        Me.ComboBox1.DisplayMember = "descripcion"
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(512, 26)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(289, 24)
+        Me.ComboBox1.TabIndex = 2
+        Me.ComboBox1.ValueMember = "idlistaprecio"
+        '
         'AltaPedidoDelivery
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1447,6 +1472,7 @@ Partial Class AltaPedidoDelivery
         CType(Me.TransportesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesdomiciliosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         CType(Me.VentasdetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1609,4 +1635,6 @@ Partial Class AltaPedidoDelivery
     Friend WithEvents DataGridViewTextBoxColumn72 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn73 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn74 As DataGridViewTextBoxColumn
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label14 As Label
 End Class

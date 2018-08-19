@@ -50,6 +50,7 @@ Partial Class Principal
         Me.IngresoDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControlDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockEnAlertaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MovimientosDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpresiónEtiquetasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CodificarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -152,7 +153,6 @@ Partial Class Principal
         Me.ListaprecioscajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaprecioscajaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaprecioscajaTableAdapter()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MovimientosDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -267,7 +267,7 @@ Partial Class Principal
         Me.DeliveryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaPedidoToolStripMenuItem, Me.RecibidosToolStripMenuItem, Me.DespachoToolStripMenuItem, Me.LotesDeEnvìosToolStripMenuItem, Me.EntregasToolStripMenuItem})
         Me.DeliveryToolStripMenuItem.Name = "DeliveryToolStripMenuItem"
         Me.DeliveryToolStripMenuItem.Size = New System.Drawing.Size(82, 27)
-        Me.DeliveryToolStripMenuItem.Tag = "MooduloDelivery"
+        Me.DeliveryToolStripMenuItem.Tag = "ModuloDelivery"
         Me.DeliveryToolStripMenuItem.Text = "Delivery"
         '
         'AltaPedidoToolStripMenuItem
@@ -384,6 +384,13 @@ Partial Class Principal
         Me.StockEnAlertaToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
         Me.StockEnAlertaToolStripMenuItem.Tag = "StockAlerta"
         Me.StockEnAlertaToolStripMenuItem.Text = "Stock en Alerta"
+        '
+        'MovimientosDeStockToolStripMenuItem
+        '
+        Me.MovimientosDeStockToolStripMenuItem.Name = "MovimientosDeStockToolStripMenuItem"
+        Me.MovimientosDeStockToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
+        Me.MovimientosDeStockToolStripMenuItem.Tag = "MovimientosStock"
+        Me.MovimientosDeStockToolStripMenuItem.Text = "Movimientos de Stock"
         '
         'ImpresiónEtiquetasToolStripMenuItem
         '
@@ -1167,13 +1174,6 @@ Partial Class Principal
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
-        '
-        'MovimientosDeStockToolStripMenuItem
-        '
-        Me.MovimientosDeStockToolStripMenuItem.Name = "MovimientosDeStockToolStripMenuItem"
-        Me.MovimientosDeStockToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
-        Me.MovimientosDeStockToolStripMenuItem.Tag = "MovimientosStock"
-        Me.MovimientosDeStockToolStripMenuItem.Text = "Movimientos de Stock"
         '
         'Principal
         '

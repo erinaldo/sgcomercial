@@ -33,6 +33,9 @@ Public Class BuscaProductoManualPedidos
             ValidarSTK = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ValidarSTK")
         End If
         '********************************************************************************************************
+        If glistapreferida > 0 Then
+            ComboListaPrecios.SelectedValue = glistapreferida
+        End If
 
 
     End Sub

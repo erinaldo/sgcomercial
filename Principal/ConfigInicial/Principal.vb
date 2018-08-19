@@ -75,6 +75,9 @@ Public Class Principal
             End If
             If Not miitem.Name = "NotificacionesToolStripMenuItem" Then
                 gnombremodulo = miitem.Tag
+                'If Not gusername = "lucasmartinbs" Then
+                '    miitem.Enabled = False
+                'End If
                 InsertarFunciones(miitem, gnombremodulo)
             End If
         Next
@@ -102,6 +105,10 @@ Public Class Principal
                 FuncionesTableAdapter1.funciones_insertupdate(otroItem.Text, Trim(otroItem.Tag), gnombremodulo)
             End If
             ''''''''''''   fin   '''''''''''''''''''''''''''
+            If Not gusername = "lucasmartinbs" Then
+                otroItem.Enabled = False
+            End If
+
             'valor &= otroItem.Tag & ";"
             If otroItem.DropDownItems.Count > 0 Then InsertarFunciones(otroItem, gnombremodulo)
         Next
