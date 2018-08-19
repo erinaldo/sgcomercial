@@ -68,6 +68,9 @@ Partial Class MiComercio
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.TextBoxRecargoCC = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.balprefix = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,6 +84,7 @@ Partial Class MiComercio
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -529,11 +533,39 @@ Partial Class MiComercio
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "Indicar el porcentaje (%):"
         '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.balprefix)
+        Me.GroupBox8.Controls.Add(Me.Label7)
+        Me.GroupBox8.Location = New System.Drawing.Point(674, 342)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(455, 68)
+        Me.GroupBox8.TabIndex = 8
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Prefijo de código de balanza"
+        '
+        'balprefix
+        '
+        Me.balprefix.Location = New System.Drawing.Point(363, 31)
+        Me.balprefix.Name = "balprefix"
+        Me.balprefix.Size = New System.Drawing.Size(44, 22)
+        Me.balprefix.TabIndex = 1
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(193, 32)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(152, 17)
+        Me.Label7.TabIndex = 0
+        Me.Label7.Text = "Indicar un (1) caracter:"
+        '
         'MiComercio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1141, 474)
+        Me.Controls.Add(Me.GroupBox8)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
@@ -567,6 +599,8 @@ Partial Class MiComercio
         Me.GroupBox6.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -616,4 +650,7 @@ Partial Class MiComercio
     Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents TextBoxRecargoCC As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents GroupBox8 As GroupBox
+    Friend WithEvents balprefix As TextBox
+    Friend WithEvents Label7 As Label
 End Class

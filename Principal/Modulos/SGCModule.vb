@@ -1,6 +1,7 @@
 ﻿Module SGCModule
     '************************************************
     Public gValidarSTK As String
+    Public gbalprefix As String
     '************************************************
     Public FormPrincipal As Principal
     '************************************************

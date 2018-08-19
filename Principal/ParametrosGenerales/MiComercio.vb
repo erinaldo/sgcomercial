@@ -76,9 +76,8 @@ Public Class MiComercio
         ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("RecargoTC", Nothing, "Enable", recargo)
         '***************    -----------     FIN     ------------  ******************************************
         '*****************************************************************************************************
-        '***************    RecargoCC   ******************************************
-        Dim recargoCC As Decimal = TextBoxRecargoCC.Text
-        ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("RecargoCC", Nothing, "Enable", recargoCC)
+        '***************    BalPrefix   ******************************************
+        ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("BalPrefix", Nothing, balprefix.Text, Nothing)
         '***************    -----------     FIN     ------------  ******************************************
 
 
@@ -149,6 +148,11 @@ Public Class MiComercio
         'Dim recargo As Decimal
         recargo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoCC")
         TextBoxRecargoCC.Text = recargo
+        '**********
+        '********** BalPrefix
+        Dim VBalPrefix As String
+        VBalPrefix = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("BalPrefix")
+        balprefix.Text = VBalPrefix
         '**********
     End Sub
     Private Sub enablebuttons(ByVal status As Boolean)

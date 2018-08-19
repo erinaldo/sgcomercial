@@ -85,6 +85,8 @@ Public Class RegistrarVenta
         '********** ValidarSTK
         ValidarSTK = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ValidarSTK")
         '********************************************************************************************************
+        '********** GBalPrefix
+        gbalprefix = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("BalPrefix")
     End Sub
     Private Sub enablefields(ByRef status As Boolean)
         'IdventaTextBox.Enabled = status
@@ -686,7 +688,7 @@ Public Class RegistrarVenta
                 Return
             End If
 
-            If Len(Trim(codigotextbox.Text)) = 13 And Mid(codigotextbox.Text, 1, 1) = "2" Then
+            If Len(Trim(codigotextbox.Text)) = 13 And Mid(codigotextbox.Text, 1, 1) = gbalprefix And Len(codigotextbox.Text) = 13 Then
                 Labelproducto.Text = "es balanza"
                 buscaproductobalanza()
                 Return
@@ -952,7 +954,7 @@ Public Class RegistrarVenta
                 Return
             End If
 
-            If Len(Trim(codigotextbox.Text)) = 13 And Mid(codigotextbox.Text, 1, 1) = "2" Then
+            If Len(Trim(codigotextbox.Text)) = 13 And Mid(codigotextbox.Text, 1, 1) = gbalprefix And Len(codigotextbox.Text) = 13 Then
                 Labelproducto.Text = "es balanza"
                 buscaproductobalanza()
                 Return
