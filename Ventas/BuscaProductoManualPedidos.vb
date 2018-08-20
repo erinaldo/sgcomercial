@@ -13,7 +13,8 @@ Public Class BuscaProductoManualPedidos
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.parametrosgenerales' Puede moverla o quitarla según sea necesario.
         Me.ParametrosgeneralesTableAdapter.Fill(Me.ComercialDataSet.parametrosgenerales)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
-        Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
+        'Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
+        Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listaproductos' Puede moverla o quitarla según sea necesario.
         Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
@@ -109,6 +110,7 @@ Public Class BuscaProductoManualPedidos
             Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
             textboxEnvasado.Text = StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
             textboxUnidades.Text = StockTableAdapter.stock_consultardisponible(idproducto)
+            calculapreciolista()
         Catch ex As Exception
             ' MsgBox("LISTA VACIA" + ex.Message, MsgBoxStyle.Exclamation, "Advertencia")
         End Try
@@ -324,6 +326,41 @@ Public Class BuscaProductoManualPedidos
         End Select
         calcular()
     End Sub
+    Public Sub calculapreciolista()
+        Dim precioventagranel As Decimal = 0
+        Select Case ComboListaPrecios.SelectedIndex
+            Case 0
+                glistaprecio = 1
+                'precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
+                precioventatextbox.Text = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
+                gprecioventa = precioventatextbox.Text
+                'MsgBox("hola" + precioventa.ToString)
+            Case 1
+                glistaprecio = 2
+                precioventagranel = ProductosTableAdapter.productos_consultarpreciogranel(gcodigoproducto)
+                Dim medida As Decimal
+                medida = ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
+                precioventatextbox.Text = precioventagranel / medida
+                gprecioventa = precioventatextbox.Text
+                'MsgBox("hola" + precioventagranel.ToString)
+            Case 2
+                glistaprecio = 3
+                'precioventamayorista = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
+                precioventatextbox.Text = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
+                gprecioventa = precioventatextbox.Text
+                'MsgBox("hola" + precioventamayorista.ToString)
+            Case 3
+                glistaprecio = 4
+                'precioventacomercios
+                precioventatextbox.Text = ProductosTableAdapter.productos_precioventadistribuidor(gcodigoproducto)
+                gprecioventa = precioventatextbox.Text
+                'MsgBox("hola" + precioventamayorista.ToString)
+            Case Else
+                MsgBox("Opcion no configurada", MsgBoxStyle.Exclamation)
+        End Select
+        calcular()
+    End Sub
+
     Sub calcular()
         Dim total As Decimal
         '        cantidadtextbox.Text = "1"

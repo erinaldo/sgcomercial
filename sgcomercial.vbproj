@@ -29,7 +29,7 @@
     <ProductName>SGComercial</ProductName>
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
-    <ApplicationRevision>36</ApplicationRevision>
+    <ApplicationRevision>37</ApplicationRevision>
     <ApplicationVersion>4.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -265,6 +265,12 @@
     </Compile>
     <Compile Include="Principal\Modulos\DBCModule.vb" />
     <Compile Include="Principal\Modulos\MySQLModule.vb" />
+    <Compile Include="Principal\ParametrosGenerales\ABMListasprecios.Designer.vb">
+      <DependentUpon>ABMListasprecios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\ABMListasprecios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Principal\ParametrosGenerales\ABMLocalidades.Designer.vb">
       <DependentUpon>ABMLocalidades.vb</DependentUpon>
     </Compile>
@@ -788,6 +794,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\ParametrosGenerales\ABMListasprecios.resx">
+      <DependentUpon>ABMListasprecios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\ParametrosGenerales\ABMLocalidades.resx">
       <DependentUpon>ABMLocalidades.vb</DependentUpon>
