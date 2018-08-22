@@ -294,14 +294,14 @@ Public Class BuscaProductoManualPedidos
 
     Private Sub ComboListaPrecios_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboListaPrecios.SelectedIndexChanged
         Dim precioventagranel As Decimal = 0
-        Select Case ComboListaPrecios.SelectedIndex
-            Case 0
+        Select Case ComboListaPrecios.SelectedValue
+            Case 1
                 glistaprecio = 1
                 'precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
                 precioventatextbox.Text = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
                 gprecioventa = precioventatextbox.Text
                 'MsgBox("hola" + precioventa.ToString)
-            Case 1
+            Case 2
                 glistaprecio = 2
                 precioventagranel = ProductosTableAdapter.productos_consultarpreciogranel(gcodigoproducto)
                 Dim medida As Decimal
@@ -309,13 +309,13 @@ Public Class BuscaProductoManualPedidos
                 precioventatextbox.Text = precioventagranel / medida
                 gprecioventa = precioventatextbox.Text
                 'MsgBox("hola" + precioventagranel.ToString)
-            Case 2
+            Case 3
                 glistaprecio = 3
                 'precioventamayorista = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
                 precioventatextbox.Text = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
                 gprecioventa = precioventatextbox.Text
                 'MsgBox("hola" + precioventamayorista.ToString)
-            Case 3
+            Case 4
                 glistaprecio = 4
                 'precioventacomercios
                 precioventatextbox.Text = ProductosTableAdapter.productos_precioventadistribuidor(gcodigoproducto)

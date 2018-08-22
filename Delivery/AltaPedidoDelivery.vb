@@ -45,7 +45,7 @@ Public Class AltaPedidoDelivery
         TextBoxDireccion.Enabled = status
         TextBoxReferencias.Enabled = status
         TextBoxCP.Enabled = status
-        ComboBoxTransporte.Enabled = status
+        'ComboBoxTransporte.Enabled = status
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdclienteTextBox.TextChanged
@@ -94,11 +94,13 @@ Public Class AltaPedidoDelivery
             ComboBoxLocalidad.SelectedIndex = 0
             enableedit(True)
             TextBoxNombreCliente.Select()
+            ComboBoxTransporte.SelectedIndex = 0
         Else
             IdclienteTextBox.Text = Nothing
             PictureBoxEditarDomicilios.Enabled = True
             PictureSeleccionarCliente.Enabled = True
             enableedit(False)
+            ComboBoxTransporte.SelectedIndex = 0
         End If
     End Sub
 

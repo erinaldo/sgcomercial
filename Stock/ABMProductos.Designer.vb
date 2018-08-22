@@ -274,18 +274,18 @@ Partial Class ABMProductos
         PrecioventamayoristaLabel.AutoSize = True
         PrecioventamayoristaLabel.Location = New System.Drawing.Point(293, 252)
         PrecioventamayoristaLabel.Name = "PrecioventamayoristaLabel"
-        PrecioventamayoristaLabel.Size = New System.Drawing.Size(149, 17)
+        PrecioventamayoristaLabel.Size = New System.Drawing.Size(151, 17)
         PrecioventamayoristaLabel.TabIndex = 113
-        PrecioventamayoristaLabel.Text = "Precio Vta. por mayor:"
+        PrecioventamayoristaLabel.Text = "P. Vta. Dist./Mayorista:"
         '
         'Label4
         '
         Label4.AutoSize = True
         Label4.Location = New System.Drawing.Point(594, 218)
         Label4.Name = "Label4"
-        Label4.Size = New System.Drawing.Size(113, 17)
+        Label4.Size = New System.Drawing.Size(124, 17)
         Label4.TabIndex = 115
-        Label4.Text = "Precio Vta. Dist.:"
+        Label4.Text = "P. Vta. Comercios:"
         '
         'Label5
         '
@@ -677,7 +677,7 @@ Partial Class ABMProductos
         'BPC4
         '
         Me.BPC4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BPC4.Location = New System.Drawing.Point(821, 215)
+        Me.BPC4.Location = New System.Drawing.Point(832, 215)
         Me.BPC4.Name = "BPC4"
         Me.BPC4.Size = New System.Drawing.Size(26, 24)
         Me.BPC4.TabIndex = 120
@@ -717,7 +717,7 @@ Partial Class ABMProductos
         'PrecioventadistribuidorTextBox
         '
         Me.PrecioventadistribuidorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventadistribuidor", True))
-        Me.PrecioventadistribuidorTextBox.Location = New System.Drawing.Point(712, 216)
+        Me.PrecioventadistribuidorTextBox.Location = New System.Drawing.Point(723, 216)
         Me.PrecioventadistribuidorTextBox.Name = "PrecioventadistribuidorTextBox"
         Me.PrecioventadistribuidorTextBox.Size = New System.Drawing.Size(108, 22)
         Me.PrecioventadistribuidorTextBox.TabIndex = 10

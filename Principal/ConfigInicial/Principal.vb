@@ -613,7 +613,7 @@ Public Class Principal
     End Sub
 
     Private Sub ListasDePreciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListasDePreciosToolStripMenuItem.Click
-        ABMListasprecios.MdiParent = Me
+        'ABMListasprecios.MdiParent = Me
         ABMListasprecios.ShowDialog()
 
     End Sub

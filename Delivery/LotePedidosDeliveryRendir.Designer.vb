@@ -126,7 +126,7 @@ Partial Class LotePedidosDeliveryRendir
         'NombreLabel
         '
         NombreLabel.AutoSize = True
-        NombreLabel.Location = New System.Drawing.Point(651, 32)
+        NombreLabel.Location = New System.Drawing.Point(631, 32)
         NombreLabel.Name = "NombreLabel"
         NombreLabel.Size = New System.Drawing.Size(95, 17)
         NombreLabel.TabIndex = 10
@@ -147,7 +147,7 @@ Partial Class LotePedidosDeliveryRendir
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1315, 73)
+        Me.GroupBox1.Size = New System.Drawing.Size(1125, 73)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lote"
@@ -214,7 +214,7 @@ Partial Class LotePedidosDeliveryRendir
         '
         'BtnFinalizar
         '
-        Me.BtnFinalizar.Location = New System.Drawing.Point(1126, 23)
+        Me.BtnFinalizar.Location = New System.Drawing.Point(941, 23)
         Me.BtnFinalizar.Name = "BtnFinalizar"
         Me.BtnFinalizar.Size = New System.Drawing.Size(158, 35)
         Me.BtnFinalizar.TabIndex = 2
@@ -227,7 +227,7 @@ Partial Class LotePedidosDeliveryRendir
         Me.PedidosdeliverydetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.PedidosdeliverydetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.idlistaprecio})
         Me.PedidosdeliverydetalleDataGridView.DataSource = Me.PedidosdeliverydetalleBindingSource
-        Me.PedidosdeliverydetalleDataGridView.Location = New System.Drawing.Point(1136, 27)
+        Me.PedidosdeliverydetalleDataGridView.Location = New System.Drawing.Point(901, 25)
         Me.PedidosdeliverydetalleDataGridView.Name = "PedidosdeliverydetalleDataGridView"
         Me.PedidosdeliverydetalleDataGridView.RowTemplate.Height = 24
         Me.PedidosdeliverydetalleDataGridView.Size = New System.Drawing.Size(34, 27)
@@ -285,10 +285,10 @@ Partial Class LotePedidosDeliveryRendir
         'NombreTextBox
         '
         Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListalotesBindingSource, "nombre", True))
-        Me.NombreTextBox.Location = New System.Drawing.Point(753, 29)
+        Me.NombreTextBox.Location = New System.Drawing.Point(733, 29)
         Me.NombreTextBox.Name = "NombreTextBox"
         Me.NombreTextBox.ReadOnly = True
-        Me.NombreTextBox.Size = New System.Drawing.Size(345, 22)
+        Me.NombreTextBox.Size = New System.Drawing.Size(150, 22)
         Me.NombreTextBox.TabIndex = 11
         '
         'ListalotesBindingSource
@@ -372,7 +372,7 @@ Partial Class LotePedidosDeliveryRendir
         Me.GroupBox2.Controls.Add(Me.ListalotesdetalleDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 91)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1315, 435)
+        Me.GroupBox2.Size = New System.Drawing.Size(1125, 435)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -390,7 +390,7 @@ Partial Class LotePedidosDeliveryRendir
         Me.ListalotesdetalleDataGridView.Name = "ListalotesdetalleDataGridView"
         Me.ListalotesdetalleDataGridView.RowTemplate.Height = 24
         Me.ListalotesdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ListalotesdetalleDataGridView.Size = New System.Drawing.Size(1279, 395)
+        Me.ListalotesdetalleDataGridView.Size = New System.Drawing.Size(1092, 395)
         Me.ListalotesdetalleDataGridView.TabIndex = 0
         '
         'EstadosentregadeliveryBindingSource
@@ -543,6 +543,7 @@ Partial Class LotePedidosDeliveryRendir
         Me.DataGridViewTextBoxColumn18.HeaderText = "direccion"
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.ReadOnly = True
+        Me.DataGridViewTextBoxColumn18.Visible = False
         '
         'DataGridViewTextBoxColumn20
         '
@@ -550,6 +551,7 @@ Partial Class LotePedidosDeliveryRendir
         Me.DataGridViewTextBoxColumn20.HeaderText = "Provincia"
         Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
         Me.DataGridViewTextBoxColumn20.ReadOnly = True
+        Me.DataGridViewTextBoxColumn20.Visible = False
         '
         'DataGridViewTextBoxColumn21
         '
@@ -557,6 +559,7 @@ Partial Class LotePedidosDeliveryRendir
         Me.DataGridViewTextBoxColumn21.HeaderText = "Localidad"
         Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
         Me.DataGridViewTextBoxColumn21.ReadOnly = True
+        Me.DataGridViewTextBoxColumn21.Visible = False
         '
         'montototal
         '
@@ -621,7 +624,7 @@ Partial Class LotePedidosDeliveryRendir
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1347, 548)
+        Me.ClientSize = New System.Drawing.Size(1148, 548)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
