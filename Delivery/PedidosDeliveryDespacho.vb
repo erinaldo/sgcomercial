@@ -25,103 +25,108 @@
     End Sub
 
     Private Sub ListapedidosdeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellContentClick
-        gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
-        gidventa = 0
-        gidventa = PedidosdeliveryTableAdapter.pedidosdelivery_consultaexisteventa(gidpedidodelivery)
-        ' CONSULTAR SI EL PEDIDO EN CUESTION TIENE GENERADA LA VENTA
-        '*****************************************************************
-        'If gidventa > 0 Then
-        '    Dim newrow As Long = LotesEnviosDetalleDataGridView.Rows.Add
-        '    LotesEnviosDetalleDataGridView.Rows(newrow).Cells(1).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
-        '    LotesEnviosDetalleDataGridView.Rows(newrow).Cells(2).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(4).Value
-        '    LotesEnviosDetalleDataGridView.Rows(newrow).Cells(3).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(6).Value
-        '    LotesEnviosDetalleDataGridView.Rows(newrow).Cells(4).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(10).Value
-        '    LotesEnviosDetalleDataGridView.Rows(newrow).Cells(5).Value = "si"
-        'Else '*****************************************************************
-        '    Dim pagado As String = "no"
-        '    Select Case e.ColumnIndex
-        '        Case 0 ' se agrega el pedido clickeado a la lista
-        '            ' verifico que el pedido seleccionado NO exista en el lote
-        '            '-------------------------------------------------
-        For i = 0 To LotesEnviosDetalleDataGridView.RowCount() - 1
-            If ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value = LotesEnviosDetalleDataGridView.Rows(i).Cells(1).Value Then
-                MsgBox("El pedido ya se incluyó en el lote actual!", MsgBoxStyle.Exclamation)
-                Return
-            End If
-        Next
-        '            ' verifico si el delivery es en la rioja capital... si no es debe cargar el pago    
-        '            '-------------------------------------------------
-        '            If Trim(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(8).Value) = "La Rioja" Then
-        '                If Trim(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(9).Value) = "La Rioja" Or Trim(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(9).Value) = "Capital" Then
-        '                    pagado = "si"
-        '                Else
-        '                    If IsDBNull(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(11).Value) Then
-        '                        MsgBox("Debe cargar el pago", MsgBoxStyle.Information)
-        '                        Dim p As PedidosDeliveryPagar
-        '                        p = New PedidosDeliveryPagar
-        '                        gidpago = 0
-        '                        gidventa = 0
-        '                        'gmontoapagar = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(12).Value
-        '                        gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
-        '                        gidcliente = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(10).Value
-        '                        p.ShowDialog()
-        '                        If gidpago = 0 Or gidventa = 0 Then
-        '                            MsgBox("No se pudo procesar el pago!", MsgBoxStyle.Exclamation)
-        '                            Return
-        '                        End If
-        '                        If gidpago = -1 And gidventa = -1 Then
-        '                            pagado = "cc"
-        '                        Else
-        '                            pagado = "si"
-        '                        End If
+        Try
+            gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
+            gidventa = 0
+            gidventa = PedidosdeliveryTableAdapter.pedidosdelivery_consultaexisteventa(gidpedidodelivery)
+            ' CONSULTAR SI EL PEDIDO EN CUESTION TIENE GENERADA LA VENTA
+            '*****************************************************************
+            'If gidventa > 0 Then
+            '    Dim newrow As Long = LotesEnviosDetalleDataGridView.Rows.Add
+            '    LotesEnviosDetalleDataGridView.Rows(newrow).Cells(1).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
+            '    LotesEnviosDetalleDataGridView.Rows(newrow).Cells(2).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(4).Value
+            '    LotesEnviosDetalleDataGridView.Rows(newrow).Cells(3).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(6).Value
+            '    LotesEnviosDetalleDataGridView.Rows(newrow).Cells(4).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(10).Value
+            '    LotesEnviosDetalleDataGridView.Rows(newrow).Cells(5).Value = "si"
+            'Else '*****************************************************************
+            '    Dim pagado As String = "no"
+            '    Select Case e.ColumnIndex
+            '        Case 0 ' se agrega el pedido clickeado a la lista
+            '            ' verifico que el pedido seleccionado NO exista en el lote
+            '            '-------------------------------------------------
+            For i = 0 To LotesEnviosDetalleDataGridView.RowCount() - 1
+                If ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value = LotesEnviosDetalleDataGridView.Rows(i).Cells(1).Value Then
+                    MsgBox("El pedido ya se incluyó en el lote actual!", MsgBoxStyle.Exclamation)
+                    Return
+                End If
+            Next
+            '            ' verifico si el delivery es en la rioja capital... si no es debe cargar el pago    
+            '            '-------------------------------------------------
+            '            If Trim(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(8).Value) = "La Rioja" Then
+            '                If Trim(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(9).Value) = "La Rioja" Or Trim(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(9).Value) = "Capital" Then
+            '                    pagado = "si"
+            '                Else
+            '                    If IsDBNull(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(11).Value) Then
+            '                        MsgBox("Debe cargar el pago", MsgBoxStyle.Information)
+            '                        Dim p As PedidosDeliveryPagar
+            '                        p = New PedidosDeliveryPagar
+            '                        gidpago = 0
+            '                        gidventa = 0
+            '                        'gmontoapagar = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(12).Value
+            '                        gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
+            '                        gidcliente = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(10).Value
+            '                        p.ShowDialog()
+            '                        If gidpago = 0 Or gidventa = 0 Then
+            '                            MsgBox("No se pudo procesar el pago!", MsgBoxStyle.Exclamation)
+            '                            Return
+            '                        End If
+            '                        If gidpago = -1 And gidventa = -1 Then
+            '                            pagado = "cc"
+            '                        Else
+            '                            pagado = "si"
+            '                        End If
 
-        '                    Else
-        '                        pagado = "si"
-        '                    End If
-        '                End If
-        '            Else
-        '                If IsDBNull(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(11).Value) Then
-        '                    MsgBox("Debe cargar el pago", MsgBoxStyle.Information)
-        '                    Dim p As PedidosDeliveryPagar
-        '                    p = New PedidosDeliveryPagar
-        '                    gidpago = 0
-        '                    gidventa = 0
-        '                    'gmontoapagar = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(12).Value
-        '                    gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
-        '                    gidcliente = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(10).Value
-        '                    p.ShowDialog()
-        '                    If gidpago = 0 Or gidventa = 0 Then
-        '                        MsgBox("No se pudo procesar el pago!", MsgBoxStyle.Exclamation)
-        '                        Return
-        '                    End If
-        '                    If gidpago = -1 And gidventa = -1 Then
-        '                        pagado = "cc"
-        '                    Else
-        '                        pagado = "si"
-        '                    End If
+            '                    Else
+            '                        pagado = "si"
+            '                    End If
+            '                End If
+            '            Else
+            '                If IsDBNull(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(11).Value) Then
+            '                    MsgBox("Debe cargar el pago", MsgBoxStyle.Information)
+            '                    Dim p As PedidosDeliveryPagar
+            '                    p = New PedidosDeliveryPagar
+            '                    gidpago = 0
+            '                    gidventa = 0
+            '                    'gmontoapagar = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(12).Value
+            '                    gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
+            '                    gidcliente = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(10).Value
+            '                    p.ShowDialog()
+            '                    If gidpago = 0 Or gidventa = 0 Then
+            '                        MsgBox("No se pudo procesar el pago!", MsgBoxStyle.Exclamation)
+            '                        Return
+            '                    End If
+            '                    If gidpago = -1 And gidventa = -1 Then
+            '                        pagado = "cc"
+            '                    Else
+            '                        pagado = "si"
+            '                    End If
 
-        '                Else
-        '                    pagado = "si"
-        '                End If
-        '            End If
+            '                Else
+            '                    pagado = "si"
+            '                End If
+            '            End If
 
-        '            '-------------------------------------------------
-        '            '-------------------------------------------------
-        '            Dim newrow As Long = LotesEnviosDetalleDataGridView.Rows.Add
-        '            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(1).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
-        '            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(2).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(4).Value
-        '            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(3).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(6).Value
-        '            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(4).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(10).Value
-        '            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(5).Value = pagado
-        '    End Select
-        'End If
-        '*****************************************************************
-        Dim newrow As Long = LotesEnviosDetalleDataGridView.Rows.Add
-        LotesEnviosDetalleDataGridView.Rows(newrow).Cells(1).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
-        LotesEnviosDetalleDataGridView.Rows(newrow).Cells(2).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(4).Value
-        LotesEnviosDetalleDataGridView.Rows(newrow).Cells(3).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(6).Value
-        LotesEnviosDetalleDataGridView.Rows(newrow).Cells(4).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(10).Value
-        LotesEnviosDetalleDataGridView.Rows(newrow).Cells(5).Value = "si"
+            '            '-------------------------------------------------
+            '            '-------------------------------------------------
+            '            Dim newrow As Long = LotesEnviosDetalleDataGridView.Rows.Add
+            '            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(1).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
+            '            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(2).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(4).Value
+            '            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(3).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(6).Value
+            '            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(4).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(10).Value
+            '            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(5).Value = pagado
+            '    End Select
+            'End If
+            '*****************************************************************
+            Dim newrow As Long = LotesEnviosDetalleDataGridView.Rows.Add
+            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(1).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(1).Value
+            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(2).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(4).Value
+            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(3).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(6).Value
+            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(4).Value = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells(10).Value
+            LotesEnviosDetalleDataGridView.Rows(newrow).Cells(5).Value = "si"
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub LotesEnviosDetalleDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles LotesEnviosDetalleDataGridView.CellContentClick
@@ -269,6 +274,10 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ListapedidosdeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellClick
 
     End Sub
 End Class

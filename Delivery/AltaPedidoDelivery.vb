@@ -351,7 +351,31 @@ Public Class AltaPedidoDelivery
         End Try
         '****** FIN REGISTRAR VENTA **********
         MsgBox("Pedido cargado exitosanente!", MsgBoxStyle.Information)
-        Me.Close()
+        'Me.Close()
+        CheckBoxNuevoCliente.Checked = False
+        CheckBoxNuevoCliente.Checked = True
+        IdclienteTextBox.Text = Nothing
+        PictureSeleccionarCliente.Enabled = False
+        PictureBoxEditarDomicilios.Enabled = False
+        ClientesBindingSource.Filter = "idcliente = 0 "
+        ClientesdomiciliosBindingSource.Filter = "idcliente = 0 "
+        ComboBoxProvincia.SelectedIndex = 0
+        ComboBoxLocalidad.SelectedIndex = 0
+        enableedit(True)
+        TextBoxNombreCliente.Select()
+        ComboBoxTransporte.SelectedIndex = 0
+        limpiar()
+
+    End Sub
+    Private Sub limpiar()
+        TextBoxNombreCliente.Text = Nothing
+        TextBoxTelefono.Text = Nothing
+        TextBoxCuit.Text = Nothing
+        TextBoxEmail.Text = Nothing
+        TextBoxDireccion.Text = Nothing
+        TextBoxReferencias.Text = Nothing
+        TextBoxCP.Text = Nothing
+        VentasdetalleDataGridView.Rows.Clear()
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBoxEditarDomicilios.Click
