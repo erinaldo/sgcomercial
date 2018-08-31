@@ -509,7 +509,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ListaPedidosDelivery</DataSetName>
-        <Top>0.17639cm</Top>
+        <Top>1.12889cm</Top>
         <Left>0.7365cm</Left>
         <Height>2.31533cm</Height>
         <Width>8.5083cm</Width>
@@ -873,7 +873,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ListaPedidosDeliveryDetalle</DataSetName>
-        <Top>3.19617cm</Top>
+        <Top>4.14867cm</Top>
         <Left>0.7365cm</Left>
         <Height>1.8cm</Height>
         <Width>8.53959cm</Width>
@@ -885,7 +885,7 @@
         </Style>
       </Tablix>
       <Line Name="Line3">
-        <Top>3.04282cm</Top>
+        <Top>3.99532cm</Top>
         <Left>0.59069cm</Left>
         <Height>0cm</Height>
         <Width>8.8947cm</Width>
@@ -916,7 +916,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>2.44122cm</Top>
+        <Top>3.39372cm</Top>
         <Left>2.06823cm</Left>
         <Height>0.48684cm</Height>
         <Width>5.87613cm</Width>
@@ -1438,7 +1438,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ListaPedidosDelivery</DataSetName>
-        <Top>0.17639cm</Top>
+        <Top>1.12889cm</Top>
         <Left>11.86907cm</Left>
         <Height>2.31533cm</Height>
         <Width>8.5083cm</Width>
@@ -1803,7 +1803,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ListaPedidosDeliveryDetalle</DataSetName>
-        <Top>3.19617cm</Top>
+        <Top>4.14867cm</Top>
         <Left>11.86907cm</Left>
         <Height>1.8cm</Height>
         <Width>8.53959cm</Width>
@@ -1815,7 +1815,7 @@
         </Style>
       </Tablix>
       <Line Name="Line4">
-        <Top>3.04282cm</Top>
+        <Top>3.99532cm</Top>
         <Left>11.72326cm</Left>
         <Height>0cm</Height>
         <Width>8.8947cm</Width>
@@ -1846,7 +1846,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>2.44122cm</Top>
+        <Top>3.39372cm</Top>
         <Left>13.2008cm</Left>
         <Height>0.48684cm</Height>
         <Width>5.87613cm</Width>
@@ -1861,14 +1861,162 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Tablix Name="Tablix3">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>7.40923cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>="Pedido Nº:" + Fields!idpedidodelivery.Value.ToString</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Detalles4" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>ListaPedidosDelivery</DataSetName>
+        <Top>0.22225cm</Top>
+        <Left>1.23229cm</Left>
+        <Height>0.6cm</Height>
+        <Width>7.40923cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix6">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>7.40923cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>="Pedido Nº:" + Fields!idpedidodelivery.Value.ToString()</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Detalles5" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>ListaPedidosDelivery</DataSetName>
+        <Top>0.22225cm</Top>
+        <Left>12.58351cm</Left>
+        <Height>0.6cm</Height>
+        <Width>7.40923cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Tablix>
     </ReportItems>
-    <Height>5.33225cm</Height>
+    <Height>6.09425cm</Height>
     <Style />
   </Body>
   <Width>20.87109cm</Width>
   <Page>
     <PageHeader>
-      <Height>3.42901cm</Height>
+      <Height>2.84868cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <ReportItems>
         <Image Name="Image1">
@@ -2032,51 +2180,16 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox30">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Pedido</Value>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>2.82222cm</Top>
-          <Left>1.54409cm</Left>
-          <Height>0.48684cm</Height>
-          <Width>6.92441cm</Width>
-          <ZIndex>5</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Image Name="Image2">
           <Source>Database</Source>
           <Value>=First(Fields!Logo.Value, "MiComercio")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>0.2346cm</Top>
+          <Top>0.3616cm</Top>
           <Left>12.58351cm</Left>
           <Height>1.79563cm</Height>
           <Width>1.79563cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2101,11 +2214,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>NombreComercio</rd:DefaultName>
-          <Top>0.2346cm</Top>
+          <Top>0.3616cm</Top>
           <Left>14.60611cm</Left>
           <Height>0.50347cm</Height>
           <Width>5.38663cm</Width>
-          <ZIndex>7</ZIndex>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2141,11 +2254,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>CuitCuil</rd:DefaultName>
-          <Top>0.83532cm</Top>
+          <Top>0.96232cm</Top>
           <Left>14.60611cm</Left>
           <Height>0.50347cm</Height>
           <Width>5.38663cm</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2174,11 +2287,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Dirección</rd:DefaultName>
-          <Top>1.43151cm</Top>
+          <Top>1.55851cm</Top>
           <Left>14.60611cm</Left>
           <Height>0.50347cm</Height>
           <Width>5.38663cm</Width>
-          <ZIndex>9</ZIndex>
+          <ZIndex>8</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2214,46 +2327,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Teléfono</rd:DefaultName>
-          <Top>2.02771cm</Top>
+          <Top>2.15471cm</Top>
           <Left>14.60611cm</Left>
           <Height>0.50347cm</Height>
           <Width>5.38663cm</Width>
-          <ZIndex>10</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox31">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Pedido</Value>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>2.70757cm</Top>
-          <Left>12.89531cm</Left>
-          <Height>0.48684cm</Height>
-          <Width>6.92441cm</Width>
-          <ZIndex>11</ZIndex>
+          <ZIndex>9</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>

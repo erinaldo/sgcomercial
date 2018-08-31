@@ -20,7 +20,7 @@ Public Class ActualizacionPrecios
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
         Select Case ComboBox2.Text
-            Case "marca"
+            Case "Marca"
                 ListamarcasDataGridView.DataSource = ListamarcasBindingSource
             Case "Rubro"
                 ListamarcasDataGridView.DataSource = ListarubrosBindingSource
@@ -82,7 +82,7 @@ Public Class ActualizacionPrecios
         End If
         '************* ejecutar acción
         Select Case ComboBox2.Text
-            Case "marca"
+            Case "Marca"
                 Select Case ComboBox1.Text
                     Case "Monto fijo"
                         If Convert.ToDecimal(TextBox1.Text) > 0 Then
@@ -123,23 +123,29 @@ Public Class ActualizacionPrecios
     End Sub
 
     Private Sub ListamarcasDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListamarcasDataGridView.CellClick
-        If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
-            marcaseleccionada = Trim(ListamarcasDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Value())
+        Try
+            If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
+                marcaseleccionada = Trim(ListamarcasDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Value())
 
-        Else
-            ProductosBindingSource.Filter = ""
+            Else
+                ProductosBindingSource.Filter = ""
+                Return
+            End If
+        Catch ex As Exception
+            MsgBox("Revise la lista de productos y complete el campo MARCA", MsgBoxStyle.Exclamation, "Advertencia")
             Return
-        End If
+        End Try
 
-        Select Case ListamarcasDataGridView.Columns(0).DataPropertyName
+
+        Select Case ComboBox2.Text
             Case "Marca"
                 Try
-                    ProductosBindingSource.Filter = "trim(marca) like '%" + marcaseleccionada + "%'"
+                    ProductosBindingSource.Filter = "trim(marca) like '%" + Trim(marcaseleccionada) + "%'"
                     'MsgBox("marca like '%" + marcaseleccionada + "%'")
                 Catch ex As Exception
                     ProductosBindingSource.Filter = ""
                 End Try
-            Case "Descripción"
+            Case "Rubro"
                 RubrosTableAdapter.rubros_getidrubro(marcaseleccionada)
                 'MsgBox(marcaseleccionada)
                 Try
@@ -151,5 +157,17 @@ Public Class ActualizacionPrecios
 
     End Sub
 
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+        Try
+            Select Case ComboBox2.Text
+                Case "Marca"
+                    ListamarcasBindingSource.Filter = "marca like '%" + TextBox2.Text + "%'"
+                Case "Rubro"
+                    ListarubrosBindingSource.Filter = "Descripción like '%" + TextBox2.Text + "%'"
+            End Select
 
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

@@ -373,7 +373,7 @@
         </TablixRowHierarchy>
         <DataSetName>libroventasdetalle</DataSetName>
         <Top>0.14111cm</Top>
-        <Left>2.43743cm</Left>
+        <Left>0.21493cm</Left>
         <Height>2.47584cm</Height>
         <Width>14.82513cm</Width>
         <Style>
@@ -397,10 +397,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>21cm</Height>
+    <Height>3.11417cm</Height>
     <Style />
   </Body>
-  <Width>19.7cm</Width>
+  <Width>15.36083cm</Width>
   <Page>
     <PageHeader>
       <Height>6.81567cm</Height>
@@ -425,7 +425,7 @@
           </Paragraphs>
           <rd:DefaultName>NombreComercio</rd:DefaultName>
           <Top>0.94728cm</Top>
-          <Left>6.33825cm</Left>
+          <Left>4.11575cm</Left>
           <Height>0.6cm</Height>
           <Width>8.5325cm</Width>
           <Style>
@@ -462,7 +462,7 @@
           </Paragraphs>
           <rd:DefaultName>CuitCuil</rd:DefaultName>
           <Top>1.70223cm</Top>
-          <Left>6.33825cm</Left>
+          <Left>4.11575cm</Left>
           <Height>0.6cm</Height>
           <Width>8.5325cm</Width>
           <ZIndex>1</ZIndex>
@@ -494,7 +494,7 @@
           </Paragraphs>
           <rd:DefaultName>Dirección</rd:DefaultName>
           <Top>2.45717cm</Top>
-          <Left>6.33825cm</Left>
+          <Left>4.11575cm</Left>
           <Height>0.6cm</Height>
           <Width>8.5325cm</Width>
           <ZIndex>2</ZIndex>
@@ -532,7 +532,7 @@
           </Paragraphs>
           <rd:DefaultName>Teléfono</rd:DefaultName>
           <Top>3.21211cm</Top>
-          <Left>6.33825cm</Left>
+          <Left>4.11575cm</Left>
           <Height>0.6cm</Height>
           <Width>8.5325cm</Width>
           <ZIndex>3</ZIndex>
@@ -552,7 +552,7 @@
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>FitProportional</Sizing>
           <Top>0.94728cm</Top>
-          <Left>3.08187cm</Left>
+          <Left>0.85937cm</Left>
           <Height>2.86483cm</Height>
           <Width>2.86483cm</Width>
           <ZIndex>4</ZIndex>
@@ -588,7 +588,7 @@
           </Paragraphs>
           <rd:DefaultName>nombre</rd:DefaultName>
           <Top>4.98306cm</Top>
-          <Left>2.44687cm</Left>
+          <Left>0.22437cm</Left>
           <Height>0.6cm</Height>
           <Width>8.80688cm</Width>
           <ZIndex>5</ZIndex>
@@ -628,7 +628,7 @@
           </Paragraphs>
           <rd:DefaultName>cuit</rd:DefaultName>
           <Top>5.72417cm</Top>
-          <Left>2.44687cm</Left>
+          <Left>0.22437cm</Left>
           <Height>0.6cm</Height>
           <Width>6.90188cm</Width>
           <ZIndex>6</ZIndex>
@@ -668,7 +668,7 @@
           </Paragraphs>
           <rd:DefaultName>formapago</rd:DefaultName>
           <Top>5.68889cm</Top>
-          <Left>11.8872cm</Left>
+          <Left>9.6647cm</Left>
           <Height>0.6cm</Height>
           <Width>5.3848cm</Width>
           <ZIndex>7</ZIndex>
@@ -703,7 +703,7 @@
           </Paragraphs>
           <rd:DefaultName>tipocomprobante</rd:DefaultName>
           <Top>4.12962cm</Top>
-          <Left>4.00272cm</Left>
+          <Left>1.78022cm</Left>
           <Height>0.6cm</Height>
           <Width>10.23642cm</Width>
           <ZIndex>8</ZIndex>
@@ -719,7 +719,7 @@
         </Textbox>
         <Line Name="Line1">
           <Top>6.75428cm</Top>
-          <Left>2.44687cm</Left>
+          <Left>0.22437cm</Left>
           <Height>0cm</Height>
           <Width>14.82513cm</Width>
           <ZIndex>9</ZIndex>
@@ -755,7 +755,7 @@
           </Paragraphs>
           <rd:DefaultName>fechaventa</rd:DefaultName>
           <Top>4.98306cm</Top>
-          <Left>11.8872cm</Left>
+          <Left>9.6647cm</Left>
           <Height>0.6cm</Height>
           <Width>5.3848cm</Width>
           <ZIndex>10</ZIndex>
@@ -788,7 +788,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.081cm</Top>
-          <Left>0.65231cm</Left>
+          <Left>0.21493cm</Left>
           <Height>0.6cm</Height>
           <Width>5.3575cm</Width>
           <ZIndex>11</ZIndex>
@@ -823,7 +823,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.081cm</Top>
-          <Left>11.70053cm</Left>
+          <Left>7.69289cm</Left>
           <Height>0.6cm</Height>
           <Width>7.34717cm</Width>
           <ZIndex>12</ZIndex>
@@ -857,7 +857,7 @@
           </Paragraphs>
           <rd:DefaultName>idventa</rd:DefaultName>
           <Top>4.12962cm</Top>
-          <Left>14.34497cm</Left>
+          <Left>12.12247cm</Left>
           <Height>0.6cm</Height>
           <Width>2.92703cm</Width>
           <ZIndex>13</ZIndex>
@@ -880,10 +880,10 @@
     </PageHeader>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>1cm</LeftMargin>
-    <RightMargin>1cm</RightMargin>
+    <LeftMargin>1.5cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
     <TopMargin>0cm</TopMargin>
-    <BottomMargin>1cm</BottomMargin>
+    <BottomMargin>0cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
