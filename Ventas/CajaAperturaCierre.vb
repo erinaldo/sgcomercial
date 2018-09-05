@@ -96,7 +96,12 @@
             End If
             '******************************
             Dim rtn As Integer
-            rtn = CajaseventosTableAdapter.cajaseventos_cerrarcaja(Now(), gmontofinal, idcaja, gusername)
+            Try
+                rtn = CajaseventosTableAdapter.cajaseventos_cerrarcaja(Now(), gmontofinal, idcaja, gusername)
+            Catch ex As Exception
+                MsgBox("Ocurrió una excepción al cerrar la caja: " + ex.Message)
+            End Try
+
             If rtn = 1 Then
                 MsgBox("Caja Cerrada Exitosamente!", MsgBoxStyle.Information, "Mensaje")
                 isopen(idcaja)

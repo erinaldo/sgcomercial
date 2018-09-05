@@ -64,6 +64,9 @@ Public Class loginform
         gmacadress = getMacAddress()
         MachineKey = "LLAuth" + gmacadress
         'MsgBox(gmacadress)
+        If My.Computer.Name = "LUCASMARTINBS-N" Then
+            comercialStrConn = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'DESA-local'
+        End If
         '********************************
         My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn)
         My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
@@ -78,8 +81,9 @@ Public Class loginform
                 '=======================================
                 version.Text = "Versión "
                 version.Text += My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString
-                version.Text += "." + My.Application.Info.Version.MinorRevision.ToString
-                textusuario.Select()
+            version.Text += "." + My.Application.Info.Version.Build.ToString
+            version.Text += "." + My.Application.Info.Version.MinorRevision.ToString
+            textusuario.Select()
 
                 gidcaja = 0
                 gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)

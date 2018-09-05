@@ -524,7 +524,7 @@ Public Class Principal
         ABMProvincias.Visible = True
     End Sub
 
-    Private Sub ABMLocalidadesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMLocalidadesToolStripMenuItem.Click
+    Private Sub ABMLocalidadesToolStripMenuItem_Click(sender As Object, e As EventArgs) 
         ABMLocalidades.MdiParent = Me
         ABMLocalidades.Visible = True
     End Sub

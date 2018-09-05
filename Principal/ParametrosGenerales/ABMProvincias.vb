@@ -18,4 +18,22 @@
         Me.ProvinciasTableAdapter.Fill(Me.ComercialDataSet.provincias)
 
     End Sub
+
+    Private Sub ProvinciasDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProvinciasDataGridView.CellContentClick
+
+    End Sub
+
+    Private Sub ProvinciasDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProvinciasDataGridView.CellClick
+        Try
+            Select Case ProvinciasDataGridView.Columns(e.ColumnIndex).Name
+                Case "ver"
+                    gprovinciaseleccionada = ProvinciasDataGridView.Rows(e.RowIndex).Cells("DataGridViewTextBoxColumn1").Value
+                    ABMLocalidades.ShowDialog()
+                    gprovinciaseleccionada = Nothing
+            End Select
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

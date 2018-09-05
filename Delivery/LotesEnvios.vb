@@ -74,11 +74,14 @@ Public Class LotesEnvios
             Select Case LotesenviosDataGridView.Columns(e.ColumnIndex).Name
                 Case "Ver"
                     imprimirreportelote(gidlote)
+                    gidlote = Nothing
+                    Me.LotesenviosTableAdapter.Fill(Me.ComercialDataSet.lotesenvios)
                 Case "rendicion"
                     Dim p As ViewerLoteRendido
                     p = New ViewerLoteRendido
                     p.ShowDialog()
                     gidlote = Nothing
+                    Me.LotesenviosTableAdapter.Fill(Me.ComercialDataSet.lotesenvios)
                 Case "Confirmar"
                     If IsDBNull(LotesenviosDataGridView.Rows(e.RowIndex).Cells("fechacierre").Value) Then
                         MsgBox("El lote todavia se encuentra en proceso de entrega", MsgBoxStyle.Exclamation, "Advertencia")
@@ -96,12 +99,12 @@ Public Class LotesEnvios
                     Else
                         MsgBox("El pedido ya se encuentra confirmado", MsgBoxStyle.Exclamation, "Advertencia")
                     End If
-
+                    gidlote = Nothing
+                    Me.LotesenviosTableAdapter.Fill(Me.ComercialDataSet.lotesenvios)
             End Select
-            gidlote = Nothing
-            Me.LotesenviosTableAdapter.Fill(Me.ComercialDataSet.lotesenvios)
+
         Catch ex As Exception
-            MsgBox("Ocurrio un error: " + ex.Message)
+            ' MsgBox("Ocurrio un error: " + ex.Message)
             gidlote = Nothing
         End Try
 

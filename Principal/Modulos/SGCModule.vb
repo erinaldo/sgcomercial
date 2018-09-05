@@ -3,6 +3,8 @@
     Public gValidarSTK As String
     Public gbalprefix As String
     Public glistapreferida As Int16
+    Public glocalidadseleccionada As Int64
+    Public gprovinciaseleccionada As Int64
     '************************************************
     Public FormPrincipal As Principal
     '************************************************

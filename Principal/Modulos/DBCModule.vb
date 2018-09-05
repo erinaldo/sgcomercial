@@ -1,5 +1,7 @@
 ﻿Module DBCModule
     '/************  BASE DE DATOS LOCAL  *******************************/
+
+
     Public comercialStrConn As String = "Data Source=SERVIDOR\SERVIDOR;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'AGUADA-PROD'
     'Public comercialStrConn As String = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'DESA-local'
 

@@ -23,7 +23,6 @@
                 Case "RECIBIDO"
                     ListapedidosdeliveryDataGridView.Rows(i).DefaultCellStyle.BackColor = Color.LightGreen
             End Select
-
         Next
         ListapedidosdeliveryDataGridView.Refresh()
     End Sub
@@ -69,6 +68,7 @@
                             MsgBox(ex.Message)
                         End Try
                         reloadpedidos()
+                        colorear()
                     End If
                 Case "Pagar" ' cargar pago
                     If ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("saldo").Value > 0 Then
@@ -83,6 +83,7 @@
                         gidventa = Nothing
                         gidpedidodelivery = Nothing
                         reloadpedidos()
+                        colorear()
                     Else
                         MsgBox("El pedido ya se encuentra pagado!", MsgBoxStyle.Information)
                     End If
@@ -107,6 +108,7 @@
     Private Sub ListapedidosdeliveryDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles ListapedidosdeliveryDataGridView.KeyDown
         If e.KeyCode = Keys.F5 Then
             Me.ListapedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.listapedidosdelivery)
+            colorear()
         End If
     End Sub
 

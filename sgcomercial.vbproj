@@ -29,7 +29,7 @@
     <ProductName>SGComercial</ProductName>
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>4.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -299,6 +299,12 @@
       <DependentUpon>AsignarCaja.vb</DependentUpon>
     </Compile>
     <Compile Include="Principal\ParametrosGenerales\AsignarCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\NuevaLocalidad.Designer.vb">
+      <DependentUpon>NuevaLocalidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\NuevaLocalidad.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal\ParametrosGenerales\SCAltaDispositivo.Designer.vb">
@@ -813,6 +819,9 @@
     <EmbeddedResource Include="Principal\ParametrosGenerales\AsignarCaja.resx">
       <DependentUpon>AsignarCaja.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Principal\ParametrosGenerales\NuevaLocalidad.resx">
+      <DependentUpon>NuevaLocalidad.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\ParametrosGenerales\SCAltaDispositivo.resx">
       <DependentUpon>SCAltaDispositivo.vb</DependentUpon>
     </EmbeddedResource>
@@ -1123,42 +1132,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

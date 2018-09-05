@@ -7,7 +7,7 @@
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.provincias' Puede moverla o quitarla según sea necesario.
         Me.ProvinciasTableAdapter.Fill(Me.ComercialDataSet.provincias)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.localidades' Puede moverla o quitarla según sea necesario.
-        Me.LocalidadesTableAdapter.Fill(Me.ComercialDataSet.localidades)
+        Me.LocalidadesTableAdapter.FillByIdprovincia(Me.ComercialDataSet.localidades, gprovinciaseleccionada)
 
 
     End Sub
@@ -30,6 +30,10 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        LocalidadesTableAdapter.Update(ComercialDataSet)
+        Dim p As NuevaLocalidad
+        p = NuevaLocalidad
+        p.ShowDialog()
+        p.Dispose()
+        Me.LocalidadesTableAdapter.FillByIdprovincia(Me.ComercialDataSet.localidades, gprovinciaseleccionada)
     End Sub
 End Class

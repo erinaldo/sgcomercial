@@ -49,6 +49,7 @@ Partial Class ABMProvincias
         Me.ProvinciasDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ver = New System.Windows.Forms.DataGridViewButtonColumn()
         IdprovinciaLabel = New System.Windows.Forms.Label()
         NombreprovinciaLabel = New System.Windows.Forms.Label()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,7 +63,7 @@ Partial Class ABMProvincias
         'IdprovinciaLabel
         '
         IdprovinciaLabel.AutoSize = True
-        IdprovinciaLabel.Location = New System.Drawing.Point(141, 56)
+        IdprovinciaLabel.Location = New System.Drawing.Point(24, 40)
         IdprovinciaLabel.Name = "IdprovinciaLabel"
         IdprovinciaLabel.Size = New System.Drawing.Size(25, 17)
         IdprovinciaLabel.TabIndex = 5
@@ -71,7 +72,7 @@ Partial Class ABMProvincias
         'NombreprovinciaLabel
         '
         NombreprovinciaLabel.AutoSize = True
-        NombreprovinciaLabel.Location = New System.Drawing.Point(104, 84)
+        NombreprovinciaLabel.Location = New System.Drawing.Point(166, 40)
         NombreprovinciaLabel.Name = "NombreprovinciaLabel"
         NombreprovinciaLabel.Size = New System.Drawing.Size(62, 17)
         NombreprovinciaLabel.TabIndex = 7
@@ -103,6 +104,9 @@ Partial Class ABMProvincias
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
@@ -159,7 +163,7 @@ Partial Class ABMProvincias
         Me.ProvinciasBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.ProvinciasBindingNavigator.Name = "ProvinciasBindingNavigator"
         Me.ProvinciasBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ProvinciasBindingNavigator.Size = New System.Drawing.Size(402, 27)
+        Me.ProvinciasBindingNavigator.Size = New System.Drawing.Size(572, 27)
         Me.ProvinciasBindingNavigator.TabIndex = 0
         Me.ProvinciasBindingNavigator.Text = "BindingNavigator1"
         '
@@ -171,6 +175,7 @@ Partial Class ABMProvincias
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(24, 24)
         Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
+        Me.BindingNavigatorAddNewItem.Visible = False
         '
         'BindingNavigatorCountItem
         '
@@ -187,6 +192,7 @@ Partial Class ABMProvincias
         Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(24, 24)
         Me.BindingNavigatorDeleteItem.Text = "Eliminar"
+        Me.BindingNavigatorDeleteItem.Visible = False
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -255,6 +261,7 @@ Partial Class ABMProvincias
         Me.ProvinciasBindingNavigatorSaveItem.Name = "ProvinciasBindingNavigatorSaveItem"
         Me.ProvinciasBindingNavigatorSaveItem.Size = New System.Drawing.Size(24, 24)
         Me.ProvinciasBindingNavigatorSaveItem.Text = "Guardar datos"
+        Me.ProvinciasBindingNavigatorSaveItem.Visible = False
         '
         'GroupBox1
         '
@@ -264,7 +271,7 @@ Partial Class ABMProvincias
         Me.GroupBox1.Controls.Add(Me.NombreprovinciaTextBox)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 30)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(377, 127)
+        Me.GroupBox1.Size = New System.Drawing.Size(542, 127)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Provincia"
@@ -273,7 +280,7 @@ Partial Class ABMProvincias
         '
         Me.IdprovinciaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProvinciasBindingSource, "idprovincia", True))
         Me.IdprovinciaTextBox.Enabled = False
-        Me.IdprovinciaTextBox.Location = New System.Drawing.Point(172, 53)
+        Me.IdprovinciaTextBox.Location = New System.Drawing.Point(55, 37)
         Me.IdprovinciaTextBox.Name = "IdprovinciaTextBox"
         Me.IdprovinciaTextBox.Size = New System.Drawing.Size(100, 22)
         Me.IdprovinciaTextBox.TabIndex = 6
@@ -282,7 +289,7 @@ Partial Class ABMProvincias
         'NombreprovinciaTextBox
         '
         Me.NombreprovinciaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProvinciasBindingSource, "nombreprovincia", True))
-        Me.NombreprovinciaTextBox.Location = New System.Drawing.Point(172, 81)
+        Me.NombreprovinciaTextBox.Location = New System.Drawing.Point(234, 37)
         Me.NombreprovinciaTextBox.Name = "NombreprovinciaTextBox"
         Me.NombreprovinciaTextBox.Size = New System.Drawing.Size(100, 22)
         Me.NombreprovinciaTextBox.TabIndex = 8
@@ -293,13 +300,15 @@ Partial Class ABMProvincias
         Me.ProvinciasDataGridView.AllowUserToDeleteRows = False
         Me.ProvinciasDataGridView.AutoGenerateColumns = False
         Me.ProvinciasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ProvinciasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.ProvinciasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.ver})
         Me.ProvinciasDataGridView.DataSource = Me.ProvinciasBindingSource
         Me.ProvinciasDataGridView.Location = New System.Drawing.Point(12, 163)
+        Me.ProvinciasDataGridView.MultiSelect = False
         Me.ProvinciasDataGridView.Name = "ProvinciasDataGridView"
         Me.ProvinciasDataGridView.ReadOnly = True
         Me.ProvinciasDataGridView.RowTemplate.Height = 24
-        Me.ProvinciasDataGridView.Size = New System.Drawing.Size(377, 220)
+        Me.ProvinciasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.ProvinciasDataGridView.Size = New System.Drawing.Size(542, 220)
         Me.ProvinciasDataGridView.TabIndex = 5
         '
         'DataGridViewTextBoxColumn1
@@ -318,11 +327,21 @@ Partial Class ABMProvincias
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         Me.DataGridViewTextBoxColumn2.Width = 250
         '
+        'ver
+        '
+        Me.ver.HeaderText = "Ver Localidades"
+        Me.ver.Name = "ver"
+        Me.ver.ReadOnly = True
+        Me.ver.Text = "Ver"
+        Me.ver.ToolTipText = "Ver"
+        Me.ver.UseColumnTextForButtonValue = True
+        Me.ver.Width = 150
+        '
         'ABMProvincias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(402, 399)
+        Me.ClientSize = New System.Drawing.Size(572, 399)
         Me.Controls.Add(Me.ProvinciasDataGridView)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ProvinciasBindingNavigator)
@@ -367,4 +386,5 @@ Partial Class ABMProvincias
     Friend WithEvents ProvinciasDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents ver As DataGridViewButtonColumn
 End Class

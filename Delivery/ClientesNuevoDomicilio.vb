@@ -17,6 +17,15 @@
 
 
         ClientesdomiciliosBindingSource.Filter = "idcliente =" + gclienteseleccionado.ToString
+        If ClientesdomiciliosBindingSource.Count = 0 Then
+            DireccionTextBox.Enabled = False
+            ReferenciasTextBox.Enabled = False
+            CpTextBox.Enabled = False
+        Else
+            DireccionTextBox.Enabled = True
+            ReferenciasTextBox.Enabled = True
+            CpTextBox.Enabled = True
+        End If
 
     End Sub
 
@@ -39,7 +48,9 @@
     End Sub
 
     Private Sub BindingNavigatorAddNewItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorAddNewItem.Click
-
+        DireccionTextBox.Enabled = True
+        ReferenciasTextBox.Enabled = True
+        CpTextBox.Enabled = True
 
     End Sub
 
