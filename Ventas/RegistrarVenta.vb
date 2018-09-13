@@ -101,6 +101,7 @@ Public Class RegistrarVenta
         pagotextbox.Enabled = status
         PictureBox1.Enabled = status
         BtnDescuento.Enabled = status
+        CheckBoxFP2.Enabled = status
         '''''''''''''''''''''''''''' permiso GenVale
         If permisoGenVale = 0 Then
             CheckBoxVale.Enabled = False
@@ -142,27 +143,48 @@ Public Class RegistrarVenta
     Private Sub BtnConfirmar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnConfirmar.Click
         Dim valida As Boolean
         Dim idproducto As Long
-
+        Dim pago As Decimal = pagotextbox.Text
+        Dim tot As Decimal = labeltotal.Text
+        Dim monto1 As Decimal
+        Dim monto2 As Decimal
         '******************
         validardatos(valida)
         If valida = False Then Return
         '*******************
-        If Val(pagotextbox.Text) = 0 Then
-            MsgBox("Monto insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
-            pagotextbox.Select()
-            Return
+        '****************************   validar FORMAS DE PAGO  ****************************
+        If CheckBoxFP2.Checked = True Then
+            Try
+                monto1 = pagotextbox.Text
+                monto2 = pagotextbox2.Text
+                pago = monto1 + monto2
+                If Not pago = tot Then
+                    MsgBox("Monto Incorrecto", MsgBoxStyle.Exclamation, "Advertencia")
+                    pagotextbox.Select()
+                    Return
+                End If
+            Catch ex2 As Exception
+                MsgBox("Montos Incorrectos! " + ex2.Message, MsgBoxStyle.Exclamation, "Aviso!")
+            End Try
+        Else
+            If Val(pagotextbox.Text) = 0 Then
+                MsgBox("Monto insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
+                pagotextbox.Select()
+                Return
+            End If
+
+            If tot = 0 Then
+                MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
+                Return
+            End If
+            If pago < tot Then
+                MsgBox("Monto insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
+                pagotextbox.Select()
+                Return
+            End If
+
         End If
-        Dim pago As Decimal = pagotextbox.Text
-        Dim tot As Decimal = labeltotal.Text
-        If tot = 0 Then
-            MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
-            Return
-        End If
-        If pago < tot Then
-            MsgBox("Monto insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
-            pagotextbox.Select()
-            Return
-        End If
+
+
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         ''''''''''''''''''''''''''''''''''''' DATOS CARGADOS CORRECTAMENTE! GUARDAMOS LA VENTA  '''''''''''''''''''''''''
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -219,19 +241,59 @@ Public Class RegistrarVenta
                     Return
                 End If
             Next
-            '**** insertar pago
-            idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), total, Today(), idformapagocombo.SelectedValue, NrocomprobanteTextBox.Text)
-            If idpagos > 0 Then
+            '**************************************************************
+            '**** INSERTAR EL PAGO *******************************************
+            '**************************************************************
+            If CheckBoxFP2.Checked = True Then
+                '*****************  EL PRIMER PAGO COMBINADO   **********************
+                idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), monto1, Today(), idformapagocombo.SelectedValue, NrocomprobanteTextBox.Text)
+                If idpagos > 0 Then
+                    '**************************************************************
+                    '***** insertar movimiento de caja PAGO 1
+                    '**************************************************************
+                    idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, monto1, gusername, idvale)
+                    If idoperacioncaja > 0 Then
+                    Else
+                        MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
+                        Return
+                    End If
+                    idpagos = Nothing
+                Else
+                    MsgBox("Ocurrio un error al registrar el pago 1", MsgBoxStyle.Information, "Advertencia")
+                    Return
+                End If
+                '*****************  EL SEGUNDO PAGO COMBINADO   **********************
+                idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), monto2, Today(), idformapagocombo2.SelectedValue, NrocomprobanteTextBox2.Text)
+                If idpagos > 0 Then
+                    '**************************************************************
+                    '***** insertar movimiento de caja PAGO 2
+                    '**************************************************************
+                    idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, monto2, gusername, idvale)
+                    If idoperacioncaja > 0 Then
+                    Else
+                        MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
+                        Return
+                    End If
+                Else
+                    MsgBox("Ocurrio un error al registrar el pago 2", MsgBoxStyle.Information, "Advertencia")
+                    Return
+                End If
             Else
-                MsgBox("Ocurrio un error al registrar el pago", MsgBoxStyle.Information, "Advertencia")
-                Return
-            End If
-            '***** insertar movimiento de caja
-            idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, total, gusername, idvale)
-            If idoperacioncaja > 0 Then
-            Else
-                MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
-                Return
+                idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), total, Today(), idformapagocombo.SelectedValue, NrocomprobanteTextBox.Text)
+                If idpagos > 0 Then
+                Else
+                    MsgBox("Ocurrio un error al registrar el pago", MsgBoxStyle.Information, "Advertencia")
+                    Return
+                End If
+                '**************************************************************
+                '***** insertar movimiento de caja
+                '**************************************************************
+                idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, total, gusername, idvale)
+                If idoperacioncaja > 0 Then
+                Else
+                    MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
+                    Return
+                End If
             End If
             '**************************************************************
             'MsgBox("Venta registrada exitosamente", MsgBoxStyle.Information, "Infomración")
@@ -304,6 +366,20 @@ Public Class RegistrarVenta
             valida = False
             Return
         End If
+        If CheckBoxFP2.Checked = True Then '**** forma de pago 2
+            If Val(idformapagocombo2.SelectedValue) > 0 Then
+            Else
+                MsgBox("Seleccione una forma de pago 2", MsgBoxStyle.Exclamation, "Advertencia")
+                valida = False
+                Return
+            End If
+            If Val(pagotextbox2.Text) = 0 Then
+                MsgBox("Monto 2 insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
+                pagotextbox.Select()
+                Return
+            End If
+        End If
+
         valida = True
     End Sub
     Private Sub buscaproductobalanza()
@@ -1031,5 +1107,54 @@ Public Class RegistrarVenta
 
     Private Sub idformapagocombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles idformapagocombo.SelectedIndexChanged
         recuento()
+
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxFP2.CheckedChanged
+        '********************************************
+        If CheckBoxFP2.Checked = True Then
+            idformapagocombo2.Enabled = CheckBoxFP2.Checked
+            pagotextbox2.Enabled = CheckBoxFP2.Checked
+            NrocomprobanteTextBox2.Enabled = CheckBoxFP2.Checked
+            LabelVuelto.Visible = False
+            vueltotextbox.Visible = False
+            Try
+                Dim monto1 As Decimal = pagotextbox.Text
+                Dim monto2 As Decimal = labeltotal.Text
+                Dim saldo As Decimal = monto2 - monto1
+                pagotextbox2.Text = saldo
+            Catch ex As Exception
+
+            End Try
+        Else
+            idformapagocombo2.Enabled = CheckBoxFP2.Checked
+            pagotextbox2.Enabled = CheckBoxFP2.Checked
+            NrocomprobanteTextBox2.Enabled = CheckBoxFP2.Checked
+            LabelVuelto.Visible = True
+            vueltotextbox.Visible = True
+        End If
+        '********************************************
+    End Sub
+
+    Private Sub pagotextbox2_TextChanged(sender As Object, e As EventArgs) Handles pagotextbox2.TextChanged
+
+    End Sub
+
+    Private Sub pagotextbox2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles pagotextbox2.KeyPress
+        If Char.IsControl(e.KeyChar) Then
+            Return
+        End If
+
+        If e.KeyChar = "." Then
+            e.KeyChar = ","
+            Return
+        End If
+        If e.KeyChar = "," Then
+            Return
+        End If
+        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
+            'MessageBox.Show("Solo se permiten numeros")
+            e.KeyChar = ""
+        End If
     End Sub
 End Class

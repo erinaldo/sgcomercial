@@ -28,6 +28,8 @@ Partial Class RegistrarVenta
         Dim IdformapagoLabel As System.Windows.Forms.Label
         Dim IdtipocomprobanteLabel As System.Windows.Forms.Label
         Dim NrocomprobanteLabel As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
+        Dim Label7 As System.Windows.Forms.Label
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -113,7 +115,7 @@ Partial Class RegistrarVenta
         Me.LabelTotalVisible = New System.Windows.Forms.Label()
         Me.BtnDescuento = New System.Windows.Forms.Button()
         Me.vueltotextbox = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LabelVuelto = New System.Windows.Forms.Label()
         Me.pagotextbox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.labeltotal = New System.Windows.Forms.Label()
@@ -135,11 +137,20 @@ Partial Class RegistrarVenta
         Me.ValesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.valesTableAdapter()
         Me.ListaspreciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaspreciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaspreciosTableAdapter()
+        Me.GFP2 = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxFP2 = New System.Windows.Forms.CheckBox()
+        Me.NrocomprobanteTextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.pagotextbox2 = New System.Windows.Forms.TextBox()
+        Me.idformapagocombo2 = New System.Windows.Forms.ComboBox()
+        Me.FormaspagoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         IdclienteLabel = New System.Windows.Forms.Label()
         FechaventaLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
         IdtipocomprobanteLabel = New System.Windows.Forms.Label()
         NrocomprobanteLabel = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
+        Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.StockDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -164,6 +175,8 @@ Partial Class RegistrarVenta
         CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GFP2.SuspendLayout()
+        CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -214,6 +227,25 @@ Partial Class RegistrarVenta
         NrocomprobanteLabel.Size = New System.Drawing.Size(117, 17)
         NrocomprobanteLabel.TabIndex = 17
         NrocomprobanteLabel.Text = "N° Comprobante:"
+        '
+        'Label2
+        '
+        Label2.AutoSize = True
+        Label2.Location = New System.Drawing.Point(37, 30)
+        Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New System.Drawing.Size(89, 17)
+        Label2.TabIndex = 14
+        Label2.Text = "Forma Pago:"
+        '
+        'Label7
+        '
+        Label7.AutoSize = True
+        Label7.Location = New System.Drawing.Point(567, 30)
+        Label7.Name = "Label7"
+        Label7.Size = New System.Drawing.Size(117, 17)
+        Label7.TabIndex = 19
+        Label7.Text = "N° Comprobante:"
         '
         'BtnNueva
         '
@@ -535,7 +567,7 @@ Partial Class RegistrarVenta
         Me.GroupBox2.Controls.Add(Me.codigotextbox)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.VentasdetalleDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(16, 159)
+        Me.GroupBox2.Location = New System.Drawing.Point(16, 153)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
@@ -810,19 +842,31 @@ Partial Class RegistrarVenta
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Nothing
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
@@ -832,12 +876,18 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
@@ -867,12 +917,12 @@ Partial Class RegistrarVenta
         Me.GroupBox4.Controls.Add(Me.LabelTotalVisible)
         Me.GroupBox4.Controls.Add(Me.BtnDescuento)
         Me.GroupBox4.Controls.Add(Me.vueltotextbox)
-        Me.GroupBox4.Controls.Add(Me.Label5)
+        Me.GroupBox4.Controls.Add(Me.LabelVuelto)
         Me.GroupBox4.Controls.Add(Me.pagotextbox)
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.labeltotal)
         Me.GroupBox4.Controls.Add(Me.Label3)
-        Me.GroupBox4.Location = New System.Drawing.Point(16, 501)
+        Me.GroupBox4.Location = New System.Drawing.Point(16, 489)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
@@ -927,15 +977,15 @@ Partial Class RegistrarVenta
         Me.vueltotextbox.TabStop = False
         Me.vueltotextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label5
+        'LabelVuelto
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(553, 26)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(73, 17)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "Su Vuelto:"
+        Me.LabelVuelto.AutoSize = True
+        Me.LabelVuelto.Location = New System.Drawing.Point(553, 26)
+        Me.LabelVuelto.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabelVuelto.Name = "LabelVuelto"
+        Me.LabelVuelto.Size = New System.Drawing.Size(73, 17)
+        Me.LabelVuelto.TabIndex = 6
+        Me.LabelVuelto.Text = "Su Vuelto:"
         '
         'pagotextbox
         '
@@ -1070,11 +1120,86 @@ Partial Class RegistrarVenta
         '
         Me.ListaspreciosTableAdapter.ClearBeforeFill = True
         '
+        'GFP2
+        '
+        Me.GFP2.Controls.Add(Me.CheckBoxFP2)
+        Me.GFP2.Controls.Add(Label7)
+        Me.GFP2.Controls.Add(Me.NrocomprobanteTextBox2)
+        Me.GFP2.Controls.Add(Me.Label6)
+        Me.GFP2.Controls.Add(Me.pagotextbox2)
+        Me.GFP2.Controls.Add(Label2)
+        Me.GFP2.Controls.Add(Me.idformapagocombo2)
+        Me.GFP2.Location = New System.Drawing.Point(16, 550)
+        Me.GFP2.Name = "GFP2"
+        Me.GFP2.Size = New System.Drawing.Size(853, 58)
+        Me.GFP2.TabIndex = 5
+        Me.GFP2.TabStop = False
+        Me.GFP2.Text = "Segundo medio de pago"
+        '
+        'CheckBoxFP2
+        '
+        Me.CheckBoxFP2.AutoSize = True
+        Me.CheckBoxFP2.Location = New System.Drawing.Point(12, 30)
+        Me.CheckBoxFP2.Name = "CheckBoxFP2"
+        Me.CheckBoxFP2.Size = New System.Drawing.Size(18, 17)
+        Me.CheckBoxFP2.TabIndex = 21
+        Me.CheckBoxFP2.UseVisualStyleBackColor = True
+        '
+        'NrocomprobanteTextBox2
+        '
+        Me.NrocomprobanteTextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VentasBindingSource, "nrocomprobante", True))
+        Me.NrocomprobanteTextBox2.Enabled = False
+        Me.NrocomprobanteTextBox2.Location = New System.Drawing.Point(689, 27)
+        Me.NrocomprobanteTextBox2.Name = "NrocomprobanteTextBox2"
+        Me.NrocomprobanteTextBox2.Size = New System.Drawing.Size(144, 22)
+        Me.NrocomprobanteTextBox2.TabIndex = 20
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(367, 30)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(51, 17)
+        Me.Label6.TabIndex = 16
+        Me.Label6.Text = "Monto:"
+        '
+        'pagotextbox2
+        '
+        Me.pagotextbox2.Enabled = False
+        Me.pagotextbox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pagotextbox2.Location = New System.Drawing.Point(428, 25)
+        Me.pagotextbox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.pagotextbox2.Name = "pagotextbox2"
+        Me.pagotextbox2.Size = New System.Drawing.Size(132, 26)
+        Me.pagotextbox2.TabIndex = 15
+        Me.pagotextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'idformapagocombo2
+        '
+        Me.idformapagocombo2.DataSource = Me.FormaspagoBindingSource1
+        Me.idformapagocombo2.DisplayMember = "descripcion"
+        Me.idformapagocombo2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.idformapagocombo2.Enabled = False
+        Me.idformapagocombo2.FormattingEnabled = True
+        Me.idformapagocombo2.Location = New System.Drawing.Point(134, 26)
+        Me.idformapagocombo2.Margin = New System.Windows.Forms.Padding(4)
+        Me.idformapagocombo2.Name = "idformapagocombo2"
+        Me.idformapagocombo2.Size = New System.Drawing.Size(201, 24)
+        Me.idformapagocombo2.TabIndex = 8
+        Me.idformapagocombo2.ValueMember = "idformapago"
+        '
+        'FormaspagoBindingSource1
+        '
+        Me.FormaspagoBindingSource1.DataMember = "formaspago"
+        Me.FormaspagoBindingSource1.DataSource = Me.ComercialDataSet
+        '
         'RegistrarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(885, 583)
+        Me.ClientSize = New System.Drawing.Size(879, 613)
+        Me.Controls.Add(Me.GFP2)
         Me.Controls.Add(Me.PagosDataGridView)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -1114,6 +1239,9 @@ Partial Class RegistrarVenta
         CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GFP2.ResumeLayout(False)
+        Me.GFP2.PerformLayout()
+        CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1173,7 +1301,7 @@ Partial Class RegistrarVenta
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents vueltotextbox As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents LabelVuelto As System.Windows.Forms.Label
     Friend WithEvents pagotextbox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents PagosBindingSource As System.Windows.Forms.BindingSource
@@ -1221,4 +1349,11 @@ Partial Class RegistrarVenta
     Friend WithEvents subtotal As DataGridViewTextBoxColumn
     Friend WithEvents eliminar As DataGridViewButtonColumn
     Friend WithEvents listasprecios As DataGridViewTextBoxColumn
+    Friend WithEvents GFP2 As GroupBox
+    Friend WithEvents NrocomprobanteTextBox2 As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents pagotextbox2 As TextBox
+    Friend WithEvents idformapagocombo2 As ComboBox
+    Friend WithEvents CheckBoxFP2 As CheckBox
+    Friend WithEvents FormaspagoBindingSource1 As BindingSource
 End Class

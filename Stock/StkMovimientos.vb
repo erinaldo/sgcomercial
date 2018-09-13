@@ -58,4 +58,23 @@
         End If
 
     End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
+        RadioButton2.Checked = True
+    End Sub
+
+    Private Sub StkmovimientosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles StkmovimientosDataGridView.CellContentClick
+
+    End Sub
+
+    Private Sub StkmovimientosDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles StkmovimientosDataGridView.CellClick
+        Try
+            If e.RowIndex = -1 And e.ColumnIndex = -1 Then
+                StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

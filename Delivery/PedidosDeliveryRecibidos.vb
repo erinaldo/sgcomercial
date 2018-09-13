@@ -97,7 +97,15 @@
                     Else
                         MsgBox("No puede cancelar un pedido DESPACHADO/ENTREGADO")
                     End If
-
+                Case "modificar"
+                    Dim j As PedidosDeliveryModificar
+                    j = New PedidosDeliveryModificar
+                    gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value
+                    j.ShowDialog()
+                    gidpedidodelivery = Nothing
+                    reloadpedidos()
+                    colorear()
+                    'MsgBox("vamos a modificar: " + ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value.ToString)
             End Select
 
         Catch ex As Exception

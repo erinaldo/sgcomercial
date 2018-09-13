@@ -5,6 +5,8 @@
     Public glistapreferida As Int16
     Public glocalidadseleccionada As Int64
     Public gprovinciaseleccionada As Int64
+    Public gpagocombinadoconfirmado As Boolean
+
     '************************************************
     Public FormPrincipal As Principal
     '************************************************

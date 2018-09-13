@@ -27,11 +27,31 @@
             Case "Producto"
                 StockgeneralBindingSource.Filter = "producto like '%" + TextBox1.Text + "%'"
         End Select
+        TextBox1.Select()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim p As ViewerReporteControlStockGeneral
         p = New ViewerReporteControlStockGeneral
         p.ShowDialog()
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        Me.StockgeneralTableAdapter.Fill(Me.ComercialDataSet.stockgeneral)
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        TextBox1.Select()
+    End Sub
+
+    Private Sub StockgeneralDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles StockgeneralDataGridView.CellClick
+        Try
+            If e.RowIndex = -1 And e.ColumnIndex = -1 Then
+                Me.StockgeneralTableAdapter.Fill(Me.ComercialDataSet.stockgeneral)
+            End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class

@@ -29,8 +29,8 @@
     <ProductName>SGComercial</ProductName>
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
-    <ApplicationRevision>7</ApplicationRevision>
-    <ApplicationVersion>4.0.1.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>4.0.2.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -103,6 +103,10 @@
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -199,6 +203,12 @@
       <DependentUpon>PedidosDeliveryDespacho.vb</DependentUpon>
     </Compile>
     <Compile Include="Delivery\PedidosDeliveryDespacho.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delivery\PedidosDeliveryModificar.Designer.vb">
+      <DependentUpon>PedidosDeliveryModificar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\PedidosDeliveryModificar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Delivery\PedidosDeliveryPagar.Designer.vb">
@@ -549,6 +559,12 @@
     <Compile Include="Ventas\LibroVentasDetalladas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\PagoCombinado.Designer.vb">
+      <DependentUpon>PagoCombinado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\PagoCombinado.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\Reportes\ReporteCierreCaja.Designer.vb">
       <DependentUpon>ReporteCierreCaja.vb</DependentUpon>
     </Compile>
@@ -771,6 +787,9 @@
     <EmbeddedResource Include="Delivery\PedidosDeliveryDespacho.resx">
       <DependentUpon>PedidosDeliveryDespacho.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\PedidosDeliveryModificar.resx">
+      <DependentUpon>PedidosDeliveryModificar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delivery\PedidosDeliveryPagar.resx">
       <DependentUpon>PedidosDeliveryPagar.vb</DependentUpon>
     </EmbeddedResource>
@@ -933,6 +952,9 @@
     <EmbeddedResource Include="Ventas\LibroVentasDetalladas.resx">
       <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\PagoCombinado.resx">
+      <DependentUpon>PagoCombinado.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\RepEstadoResultados.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepLibroMayor.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepCabecera.rdlc" />
@@ -1040,6 +1062,7 @@
     <None Include="My Project\app.manifest">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Principal\DataSets\MySQLDataSet.xsc">
       <DependentUpon>MySQLDataSet.xsd</DependentUpon>
     </None>
@@ -1111,6 +1134,8 @@
     <None Include="My Project\img\green-plus-icon-13.jpg" />
     <None Include="My Project\img\plus-orange.png" />
     <None Include="My Project\img\cloud-sync-icon.png" />
+    <None Include="My Project\img\refresh-icon.png" />
+    <None Include="My Project\img\reload-512.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />
@@ -1132,42 +1157,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

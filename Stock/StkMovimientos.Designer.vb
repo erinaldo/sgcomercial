@@ -24,12 +24,15 @@ Partial Class StkMovimientos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DPDesde = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.StkmovimientosDataGridView = New System.Windows.Forms.DataGridView()
         Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,11 +45,10 @@ Partial Class StkMovimientos
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.StkmovimientosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stkmovimientosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StkmovimientosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StkmovimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,6 +68,28 @@ Partial Class StkMovimientos
         Me.GroupBox1.Size = New System.Drawing.Size(1080, 59)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Checked = True
+        Me.RadioButton2.Location = New System.Drawing.Point(115, 24)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(77, 21)
+        Me.RadioButton2.TabIndex = 18
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "A fecha"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(882, 24)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(84, 21)
+        Me.RadioButton1.TabIndex = 17
+        Me.RadioButton1.Text = "Historico"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'PictureSeleccionarCliente
         '
@@ -117,12 +141,27 @@ Partial Class StkMovimientos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.PictureBox1)
         Me.GroupBox2.Controls.Add(Me.StkmovimientosDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 63)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(1080, 525)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.AccessibleDescription = "Recargar Grilla"
+        Me.PictureBox1.AccessibleName = "Recargar Grilla"
+        Me.PictureBox1.BackColor = System.Drawing.SystemColors.Window
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.reload_512
+        Me.PictureBox1.Location = New System.Drawing.Point(26, 23)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 6
+        Me.PictureBox1.TabStop = False
         '
         'StkmovimientosDataGridView
         '
@@ -136,6 +175,7 @@ Partial Class StkMovimientos
         Me.StkmovimientosDataGridView.Name = "StkmovimientosDataGridView"
         Me.StkmovimientosDataGridView.ReadOnly = True
         Me.StkmovimientosDataGridView.RowTemplate.Height = 24
+        Me.StkmovimientosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.StkmovimientosDataGridView.Size = New System.Drawing.Size(1048, 493)
         Me.StkmovimientosDataGridView.TabIndex = 0
         '
@@ -270,28 +310,6 @@ Partial Class StkMovimientos
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(882, 24)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(84, 21)
-        Me.RadioButton1.TabIndex = 17
-        Me.RadioButton1.Text = "Historico"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Checked = True
-        Me.RadioButton2.Location = New System.Drawing.Point(115, 24)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(77, 21)
-        Me.RadioButton2.TabIndex = 18
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "A fecha"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
         'StkMovimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -309,6 +327,7 @@ Partial Class StkMovimientos
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StkmovimientosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StkmovimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -337,4 +356,5 @@ Partial Class StkMovimientos
     Friend WithEvents PictureSeleccionarCliente As PictureBox
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

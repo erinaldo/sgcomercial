@@ -142,6 +142,9 @@ Public Class ABMProductos
         stockinicialtextbox.Enabled = False
         enablefilter(True)
         FormPrincipal.reloadstock()
+        '*************************
+        editbtn.Visible = True
+        BindingNavigatorAddNewItem.Visible = True
 
     End Sub
 
@@ -226,6 +229,9 @@ Public Class ABMProductos
         enablefilter(False)
         ProductosBindingNavigatorSaveItem.Visible = True
         stockinicialtextbox.Text = Nothing
+        '******************************************
+        BindingNavigatorAddNewItem.Visible = False
+        editbtn.Visible = False
 
     End Sub
 
@@ -236,6 +242,9 @@ Public Class ABMProductos
         stockinicialtextbox.Enabled = False
         enablefilter(True)
         ProductosBindingNavigatorSaveItem.Visible = False
+        '************************************************
+        editbtn.Visible = True
+        BindingNavigatorAddNewItem.Visible = True
     End Sub
 
     Private Sub ProductosDataGridView_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ProductosDataGridView.CellContentClick
@@ -254,6 +263,9 @@ Public Class ABMProductos
         codigoproductoTextBox.Select()
         stockinicialtextbox.Enabled = True
         codigoproductoTextBox.Select()
+        '******************************************
+        BindingNavigatorAddNewItem.Visible = False
+        editbtn.Visible = False
     End Sub
 
     Private Sub codigoproductoTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -578,5 +590,15 @@ Public Class ABMProductos
             'MessageBox.Show("Solo se permiten numeros")
             e.KeyChar = ""
         End If
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Select Case ComboBox1.Text
+            Case "Otras Unidades"
+                MedidaTextBox.Text = "1"
+                MedidaTextBox.Enabled = False
+            Case Else
+                MedidaTextBox.Enabled = True
+        End Select
     End Sub
 End Class

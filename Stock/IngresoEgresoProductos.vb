@@ -224,7 +224,7 @@ Public Class ingresoegresoproductos
         Dim p As BuscaCodigoProductoManual
         p = New BuscaCodigoProductoManual
         p.ShowDialog()
-        If gcodigoproducto = 0 Then Return
+        If Len(Trim(gcodigoproducto)) = 0 Then Return
         codigoproductoTextBox.Text = gcodigoproducto
 
 
