@@ -268,7 +268,7 @@ Public Class RegistrarVenta
                     '**************************************************************
                     '***** insertar movimiento de caja PAGO 2
                     '**************************************************************
-                    idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, monto2, gusername, idvale)
+                    idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo2.SelectedValue, monto2, gusername, idvale)
                     If idoperacioncaja > 0 Then
                     Else
                         MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")

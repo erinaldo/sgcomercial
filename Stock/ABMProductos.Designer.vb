@@ -393,7 +393,7 @@ Partial Class ABMProductos
         Me.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ProductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idrubro, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
         Me.ProductosDataGridView.DataSource = Me.ProductosBindingSource
-        Me.ProductosDataGridView.Location = New System.Drawing.Point(27, 412)
+        Me.ProductosDataGridView.Location = New System.Drawing.Point(27, 380)
         Me.ProductosDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.ProductosDataGridView.MultiSelect = False
         Me.ProductosDataGridView.Name = "ProductosDataGridView"
@@ -573,7 +573,7 @@ Partial Class ABMProductos
         Me.GroupBox1.Controls.Add(Me.IdproductoTextBox)
         Me.GroupBox1.Controls.Add(DescripcionLabel)
         Me.GroupBox1.Controls.Add(Me.DescripcionTextBox)
-        Me.GroupBox1.Location = New System.Drawing.Point(16, 61)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 43)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
@@ -890,11 +890,11 @@ Partial Class ABMProductos
         Me.GroupBox2.Controls.Add(Me.TextFiltro)
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Location = New System.Drawing.Point(16, 354)
+        Me.GroupBox2.Location = New System.Drawing.Point(16, 336)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1135, 303)
+        Me.GroupBox2.Size = New System.Drawing.Size(1135, 289)
         Me.GroupBox2.TabIndex = 23
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Todos los productos"
@@ -944,7 +944,7 @@ Partial Class ABMProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1164, 670)
+        Me.ClientSize = New System.Drawing.Size(1164, 632)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ProductosDataGridView)
         Me.Controls.Add(IdproductoLabel)
