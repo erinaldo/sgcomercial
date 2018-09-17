@@ -219,7 +219,7 @@ Partial Class ingresoegresoproductos
         '
         Me.ComboUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboUnidad.FormattingEnabled = True
-        Me.ComboUnidad.Items.AddRange(New Object() {"Kilos", "Unidades"})
+        Me.ComboUnidad.Items.AddRange(New Object() {"Fraccionado", "Unidades"})
         Me.ComboUnidad.Location = New System.Drawing.Point(216, 84)
         Me.ComboUnidad.Name = "ComboUnidad"
         Me.ComboUnidad.Size = New System.Drawing.Size(112, 24)

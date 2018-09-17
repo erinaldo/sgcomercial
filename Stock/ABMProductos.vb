@@ -122,21 +122,6 @@ Public Class ABMProductos
 
         Me.ProductosBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
-        '***************    insertar stock inicial  **************************
-        If Len(Trim(stockinicialtextbox.Text)) > 0 Then
-            Try
-                If Convert.ToDecimal(stockinicialtextbox.Text) > 0 Then
-                    If Not StockTableAdapter1.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E", "Inicial") >= 0 Then
-                        MsgBox("Ocurrioun error al insertar el stock inicial", MsgBoxStyle.Exclamation)
-                    End If
-                    stockinicialtextbox.Text = Nothing
-                    MsgBox("Producto agregado correctamente!", MsgBoxStyle.Information, "Mensaje")
-                End If
-            Catch ex As Exception
-                MsgBox("Ocurrioun error al insertar el stock inicial: " + ex.Message)
-            End Try
-        End If
-
 
         enableedit(False)
         stockinicialtextbox.Enabled = False
@@ -245,6 +230,7 @@ Public Class ABMProductos
         '************************************************
         editbtn.Visible = True
         BindingNavigatorAddNewItem.Visible = True
+        GuardarNuevo.Visible = False
     End Sub
 
     Private Sub ProductosDataGridView_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ProductosDataGridView.CellContentClick
@@ -259,7 +245,8 @@ Public Class ABMProductos
     Private Sub BindingNavigatorAddNewItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BindingNavigatorAddNewItem.Click
         enableedit(True)
         enablefilter(False)
-        ProductosBindingNavigatorSaveItem.Visible = True
+        ProductosBindingNavigatorSaveItem.Visible = False
+        GuardarNuevo.Visible = True
         codigoproductoTextBox.Select()
         stockinicialtextbox.Enabled = True
         codigoproductoTextBox.Select()
@@ -600,5 +587,135 @@ Public Class ABMProductos
             Case Else
                 MedidaTextBox.Enabled = True
         End Select
+    End Sub
+
+    Private Sub GuardarNuevo_Click(sender As Object, e As EventArgs) Handles GuardarNuevo.Click
+        Me.Validate()
+        '*************  VALIDAR DATOS CARGADOS ************
+        '****************   primero valido el codigo
+        Dim res As Boolean = True
+        validacodigoproducto(res)
+        If res = False Then
+            Return
+        End If
+        '**********************************************
+        If Len(Trim(MarcaTextBox.Text)) = 0 Then
+            MsgBox("Ingrese la marca del producto", MsgBoxStyle.Exclamation, "Advertencia")
+            MarcaTextBox.Select()
+            Return
+        End If
+        If Len(Trim(ModeloTextBox.Text)) = 0 Then
+            MsgBox("Ingrese modelo del producto", MsgBoxStyle.Exclamation, "Advertencia")
+            ModeloTextBox.Select()
+            Return
+        End If
+        If Len(Trim(PresentacionTextBox.Text)) = 0 Then
+            MsgBox("Ingrese presentacion del producto", MsgBoxStyle.Exclamation, "Advertencia")
+            PresentacionTextBox.Select()
+            Return
+        End If
+        If Len(ComboBox1.Text) = 0 Then
+            MsgBox("Seleccione unidad de medida!", MsgBoxStyle.Exclamation, "Advertencia")
+            ComboBox1.Select()
+            Return
+        End If
+        If Len(Trim(PreciocostoTextBox.Text)) = 0 Then
+            MsgBox("Ingrese un Precio Costo Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PreciocostoTextBox.Select()
+            Return
+        End If
+        If CDec(PreciocostoTextBox.Text) <= 0 Then
+            MsgBox("Ingrese un Precio Costo Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PreciocostoTextBox.Select()
+            Return
+        End If
+        If Len(Trim(PrecioventaTextBox.Text)) = 0 Then
+            MsgBox("Ingrese un Precio Venta Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PrecioventaTextBox.Select()
+            Return
+        End If
+        If CDec(PrecioventaTextBox.Text) <= 0 Then
+            MsgBox("Ingrese un Precio de Venta Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PrecioventaTextBox.Select()
+            Return
+        End If
+        If Len(Trim(PrecioventagranelTextBox.Text)) = 0 Then
+            MsgBox("Ingrese un Precio Venta a granel Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PrecioventagranelTextBox.Select()
+            Return
+        End If
+        If CDec(PrecioventagranelTextBox.Text) <= 0 Then
+            MsgBox("Ingrese un Precio de Venta a granel  Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PrecioventagranelTextBox.Select()
+            Return
+        End If
+        If Len(Trim(PrecioventamayoristaTextBox.Text)) = 0 Then
+            MsgBox("Ingrese un Precio Venta mayorista Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PrecioventamayoristaTextBox.Select()
+            Return
+        End If
+        If CDec(PrecioventamayoristaTextBox.Text) <= 0 Then
+            MsgBox("Ingrese un Precio de Venta mayorista Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PrecioventamayoristaTextBox.Select()
+            Return
+        End If
+        If Len(Trim(PrecioventadistribuidorTextBox.Text)) = 0 Then
+            MsgBox("Ingrese un Precio Venta mayorista Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PrecioventamayoristaTextBox.Select()
+            Return
+        End If
+        If CDec(PrecioventadistribuidorTextBox.Text) <= 0 Then
+            MsgBox("Ingrese un Precio de Venta mayorista Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            PrecioventamayoristaTextBox.Select()
+            Return
+        End If
+        If Len(ComboBox3.Text) = 0 Then
+            MsgBox("Seleccione rubro del producto!", MsgBoxStyle.Exclamation, "Advertencia")
+            ComboBox3.Select()
+            Return
+        End If
+
+
+        Me.ProductosBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
+        '/*******************************************************************/
+        Try
+            If Val(stockinicialtextbox.Text) > 0 Then
+                Try
+                    If Convert.ToDecimal(stockinicialtextbox.Text) > 0 Then
+                        Dim idprod
+                        idprod = ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)
+                        If Not StockTableAdapter1.stock_insertarmovimiento(idprod, Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E", "Nvo. Producto Stock Inicial") >= 0 Then
+                            MsgBox("Ocurrioun error al insertar el stock inicial", MsgBoxStyle.Exclamation)
+                        End If
+                        stockinicialtextbox.Text = Nothing
+                        MsgBox("Producto agregado correctamente!", MsgBoxStyle.Information, "Mensaje")
+                    End If
+                Catch ex As Exception
+                    MsgBox("Ocurrioun error al insertar el stock inicial: " + ex.Message)
+                End Try
+            End If
+        Catch ex As Exception
+
+        End Try
+        '/*******************************************************************/
+
+
+        enableedit(False)
+        stockinicialtextbox.Enabled = False
+        enablefilter(True)
+        FormPrincipal.reloadstock()
+        '*************************
+        editbtn.Visible = True
+        BindingNavigatorAddNewItem.Visible = True
+
+        enableedit(False)
+        stockinicialtextbox.Enabled = False
+        enablefilter(True)
+        FormPrincipal.reloadstock()
+        '*************************
+        editbtn.Visible = True
+        BindingNavigatorAddNewItem.Visible = True
+        GuardarNuevo.Visible = False
     End Sub
 End Class

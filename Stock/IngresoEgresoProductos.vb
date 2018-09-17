@@ -169,8 +169,9 @@ Public Class ingresoegresoproductos
                     textdisponible.Text = ""
                     CantidadTextBox.Text = ""
                 End If
-                ComboUnidad.SelectedIndex = -1
-                TextBoxMedida.Text = ""
+
+                ComboUnidad.SelectedIndex = 1
+                TextBoxMedida.Text = "1"
             Else
                 Labeldescripcion.Text = "No Registrado"
                 textdisponible.Text = ""
@@ -271,7 +272,8 @@ Public Class ingresoegresoproductos
             medida = ProductosTableAdapter.productos_consultarmedida(codigoproductoTextBox.Text)
             TextBoxEnvasado.Text = Math.Round(disponible / medida, 2)
         Catch ex As Exception
-
+            textdisponible.Text = Nothing
+            TextBoxEnvasado.Text = Nothing
         End Try
 
     End Sub

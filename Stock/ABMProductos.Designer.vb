@@ -48,6 +48,7 @@ Partial Class ABMProductos
         Me.ProductosBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.editbtn = New System.Windows.Forms.ToolStripButton()
         Me.cancelbtn = New System.Windows.Forms.ToolStripButton()
+        Me.GuardarNuevo = New System.Windows.Forms.ToolStripButton()
         Me.ImagenPictureBox = New System.Windows.Forms.PictureBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
         Me.idrubro = New System.Windows.Forms.DataGridViewComboBoxColumn()
@@ -140,7 +141,7 @@ Partial Class ABMProductos
         'IdproductoLabel
         '
         IdproductoLabel.AutoSize = True
-        IdproductoLabel.Location = New System.Drawing.Point(48, 81)
+        IdproductoLabel.Location = New System.Drawing.Point(48, 63)
         IdproductoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         IdproductoLabel.Name = "IdproductoLabel"
         IdproductoLabel.Size = New System.Drawing.Size(102, 17)
@@ -150,7 +151,7 @@ Partial Class ABMProductos
         'MarcaLabel
         '
         MarcaLabel.AutoSize = True
-        MarcaLabel.Location = New System.Drawing.Point(99, 113)
+        MarcaLabel.Location = New System.Drawing.Point(99, 95)
         MarcaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         MarcaLabel.Name = "MarcaLabel"
         MarcaLabel.Size = New System.Drawing.Size(51, 17)
@@ -160,7 +161,7 @@ Partial Class ABMProductos
         'ModeloLabel
         '
         ModeloLabel.AutoSize = True
-        ModeloLabel.Location = New System.Drawing.Point(81, 145)
+        ModeloLabel.Location = New System.Drawing.Point(81, 127)
         ModeloLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ModeloLabel.Name = "ModeloLabel"
         ModeloLabel.Size = New System.Drawing.Size(69, 17)
@@ -170,7 +171,7 @@ Partial Class ABMProductos
         'PresentacionLabel
         '
         PresentacionLabel.AutoSize = True
-        PresentacionLabel.Location = New System.Drawing.Point(56, 177)
+        PresentacionLabel.Location = New System.Drawing.Point(56, 159)
         PresentacionLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PresentacionLabel.Name = "PresentacionLabel"
         PresentacionLabel.Size = New System.Drawing.Size(95, 17)
@@ -180,7 +181,7 @@ Partial Class ABMProductos
         'UnidadmedidaLabel
         '
         UnidadmedidaLabel.AutoSize = True
-        UnidadmedidaLabel.Location = New System.Drawing.Point(23, 209)
+        UnidadmedidaLabel.Location = New System.Drawing.Point(23, 189)
         UnidadmedidaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         UnidadmedidaLabel.Name = "UnidadmedidaLabel"
         UnidadmedidaLabel.Size = New System.Drawing.Size(127, 17)
@@ -190,7 +191,7 @@ Partial Class ABMProductos
         'MedidaLabel
         '
         MedidaLabel.AutoSize = True
-        MedidaLabel.Location = New System.Drawing.Point(92, 241)
+        MedidaLabel.Location = New System.Drawing.Point(92, 227)
         MedidaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         MedidaLabel.Name = "MedidaLabel"
         MedidaLabel.Size = New System.Drawing.Size(58, 17)
@@ -210,7 +211,7 @@ Partial Class ABMProductos
         'PreciounitarioLabel
         '
         PreciounitarioLabel.AutoSize = True
-        PreciounitarioLabel.Location = New System.Drawing.Point(42, 219)
+        PreciounitarioLabel.Location = New System.Drawing.Point(42, 215)
         PreciounitarioLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PreciounitarioLabel.Name = "PreciounitarioLabel"
         PreciounitarioLabel.Size = New System.Drawing.Size(92, 17)
@@ -223,7 +224,7 @@ Partial Class ABMProductos
         PrecioventaLabel.AccessibleName = "Precio Vta. público (empaque cerrado):"
         PrecioventaLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolTip
         PrecioventaLabel.AutoSize = True
-        PrecioventaLabel.Location = New System.Drawing.Point(4, 252)
+        PrecioventaLabel.Location = New System.Drawing.Point(4, 251)
         PrecioventaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PrecioventaLabel.Name = "PrecioventaLabel"
         PrecioventaLabel.Size = New System.Drawing.Size(130, 17)
@@ -304,7 +305,7 @@ Partial Class ABMProductos
         Me.ProductosBindingNavigator.CountItem = Nothing
         Me.ProductosBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.ProductosBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ProductosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.ProductosBindingNavigatorSaveItem, Me.editbtn, Me.cancelbtn})
+        Me.ProductosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.ProductosBindingNavigatorSaveItem, Me.editbtn, Me.cancelbtn, Me.GuardarNuevo})
         Me.ProductosBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.ProductosBindingNavigator.MoveFirstItem = Nothing
         Me.ProductosBindingNavigator.MoveLastItem = Nothing
@@ -349,8 +350,8 @@ Partial Class ABMProductos
         '
         Me.ProductosBindingNavigatorSaveItem.Image = CType(resources.GetObject("ProductosBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.ProductosBindingNavigatorSaveItem.Name = "ProductosBindingNavigatorSaveItem"
-        Me.ProductosBindingNavigatorSaveItem.Size = New System.Drawing.Size(107, 44)
-        Me.ProductosBindingNavigatorSaveItem.Text = "Guardar datos"
+        Me.ProductosBindingNavigatorSaveItem.Size = New System.Drawing.Size(128, 44)
+        Me.ProductosBindingNavigatorSaveItem.Text = "Guardar Cambios"
         Me.ProductosBindingNavigatorSaveItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.ProductosBindingNavigatorSaveItem.Visible = False
         '
@@ -371,6 +372,15 @@ Partial Class ABMProductos
         Me.cancelbtn.Size = New System.Drawing.Size(70, 44)
         Me.cancelbtn.Text = "Cancelar"
         Me.cancelbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'GuardarNuevo
+        '
+        Me.GuardarNuevo.Image = CType(resources.GetObject("GuardarNuevo.Image"), System.Drawing.Image)
+        Me.GuardarNuevo.Name = "GuardarNuevo"
+        Me.GuardarNuevo.Size = New System.Drawing.Size(177, 44)
+        Me.GuardarNuevo.Text = "Guardar Nuevo Producto"
+        Me.GuardarNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.GuardarNuevo.Visible = False
         '
         'ImagenPictureBox
         '
@@ -1052,4 +1062,5 @@ Partial Class ABMProductos
     Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents GuardarNuevo As ToolStripButton
 End Class
