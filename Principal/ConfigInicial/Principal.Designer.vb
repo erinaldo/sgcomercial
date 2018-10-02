@@ -153,6 +153,7 @@ Partial Class Principal
         Me.ListaprecioscajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaprecioscajaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaprecioscajaTableAdapter()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.CambioMultipleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -185,7 +186,7 @@ Partial Class Principal
         '
         'GestionDeProductosToolStripMenuItem
         '
-        Me.GestionDeProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem, Me.CambioMercaderíaVendidaToolStripMenuItem, Me.ABMClientesToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConsultarPreciosToolStripMenuItem, Me.TerminalVerificadoraDePreciosToolStripMenuItem})
+        Me.GestionDeProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem, Me.CambioMercaderíaVendidaToolStripMenuItem, Me.CambioMultipleToolStripMenuItem, Me.ABMClientesToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConsultarPreciosToolStripMenuItem, Me.TerminalVerificadoraDePreciosToolStripMenuItem})
         Me.GestionDeProductosToolStripMenuItem.Name = "GestionDeProductosToolStripMenuItem"
         Me.GestionDeProductosToolStripMenuItem.Size = New System.Drawing.Size(73, 27)
         Me.GestionDeProductosToolStripMenuItem.Tag = "ModuloVentas"
@@ -1175,6 +1176,13 @@ Partial Class Principal
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
         '
+        'CambioMultipleToolStripMenuItem
+        '
+        Me.CambioMultipleToolStripMenuItem.Name = "CambioMultipleToolStripMenuItem"
+        Me.CambioMultipleToolStripMenuItem.Size = New System.Drawing.Size(380, 28)
+        Me.CambioMultipleToolStripMenuItem.Tag = "CambioMultiple"
+        Me.CambioMultipleToolStripMenuItem.Text = "Cambio Multiple"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1347,4 +1355,5 @@ Partial Class Principal
     Friend WithEvents RegistrarVentaACuentaCorrienteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MovimientosDeStockToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListasDePreciosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CambioMultipleToolStripMenuItem As ToolStripMenuItem
 End Class

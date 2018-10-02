@@ -617,4 +617,28 @@ Public Class Principal
         ABMListasprecios.ShowDialog()
 
     End Sub
+
+    Private Sub CambioMultipleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CambioMultipleToolStripMenuItem.Click
+        '***************    consultar el estado de caja *************
+        gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
+        If gidcaja = 0 Then
+            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
+
+        Dim idevento As Integer
+        'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
+        'lblCaja.Text = "Caja Nº: " + idcaja.ToString
+        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
+        gidevento = idevento
+        If idevento = 0 Then
+            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+        Else
+            'RegistrarVenta.MdiParent = Me
+            'RegistrarVenta.Visible = True
+            CambioMultipleMV.MdiParent = Me
+            CambioMultipleMV.Visible = True
+        End If
+        '***************    FIN consultar el estado de caja *************
+    End Sub
 End Class

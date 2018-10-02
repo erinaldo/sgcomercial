@@ -32,23 +32,26 @@ Partial Class PedidosDeliveryModificar
         Dim ReferenciasLabel As System.Windows.Forms.Label
         Dim NombreprovinciaLabel As System.Windows.Forms.Label
         Dim NombrelocalidadLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PedidosDeliveryModificar))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.NombreprovinciaTextBox = New System.Windows.Forms.TextBox()
         Me.ListapedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.DireccionTextBox = New System.Windows.Forms.TextBox()
+        Me.NombrelocalidadTextBox = New System.Windows.Forms.TextBox()
+        Me.ReferenciasTextBox = New System.Windows.Forms.TextBox()
+        Me.NombretransporteTextBox = New System.Windows.Forms.TextBox()
+        Me.EmailTextBox = New System.Windows.Forms.TextBox()
+        Me.CuitTextBox = New System.Windows.Forms.TextBox()
+        Me.TelefonoTextBox = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.NombreTextBox = New System.Windows.Forms.TextBox()
+        Me.IdpedidodeliveryTextBox = New System.Windows.Forms.TextBox()
         Me.ListapedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliveryTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.IdpedidodeliveryTextBox = New System.Windows.Forms.TextBox()
-        Me.NombreTextBox = New System.Windows.Forms.TextBox()
-        Me.TelefonoTextBox = New System.Windows.Forms.TextBox()
-        Me.CuitTextBox = New System.Windows.Forms.TextBox()
-        Me.EmailTextBox = New System.Windows.Forms.TextBox()
-        Me.NombretransporteTextBox = New System.Windows.Forms.TextBox()
-        Me.DireccionTextBox = New System.Windows.Forms.TextBox()
-        Me.ReferenciasTextBox = New System.Windows.Forms.TextBox()
-        Me.NombreprovinciaTextBox = New System.Windows.Forms.TextBox()
-        Me.NombrelocalidadTextBox = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.PictureBoxEditarDomicilios = New System.Windows.Forms.PictureBox()
         NombreLabel = New System.Windows.Forms.Label()
         TelefonoLabel = New System.Windows.Forms.Label()
         CuitLabel = New System.Windows.Forms.Label()
@@ -59,23 +62,96 @@ Partial Class PedidosDeliveryModificar
         NombreprovinciaLabel = New System.Windows.Forms.Label()
         NombrelocalidadLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.PictureBoxEditarDomicilios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'NombreLabel
+        '
+        NombreLabel.AutoSize = True
+        NombreLabel.Location = New System.Drawing.Point(99, 18)
+        NombreLabel.Name = "NombreLabel"
+        NombreLabel.Size = New System.Drawing.Size(62, 17)
+        NombreLabel.TabIndex = 16
+        NombreLabel.Text = "Nombre:"
+        '
+        'TelefonoLabel
+        '
+        TelefonoLabel.AutoSize = True
+        TelefonoLabel.Location = New System.Drawing.Point(6, 63)
+        TelefonoLabel.Name = "TelefonoLabel"
+        TelefonoLabel.Size = New System.Drawing.Size(68, 17)
+        TelefonoLabel.TabIndex = 18
+        TelefonoLabel.Text = "Teléfono:"
+        '
+        'CuitLabel
+        '
+        CuitLabel.AutoSize = True
+        CuitLabel.Location = New System.Drawing.Point(212, 63)
+        CuitLabel.Name = "CuitLabel"
+        CuitLabel.Size = New System.Drawing.Size(43, 17)
+        CuitLabel.TabIndex = 20
+        CuitLabel.Text = "CUIT:"
+        '
+        'EmailLabel
+        '
+        EmailLabel.AutoSize = True
+        EmailLabel.Location = New System.Drawing.Point(6, 128)
+        EmailLabel.Name = "EmailLabel"
+        EmailLabel.Size = New System.Drawing.Size(51, 17)
+        EmailLabel.TabIndex = 22
+        EmailLabel.Text = "E-mail:"
+        '
+        'NombretransporteLabel
+        '
+        NombretransporteLabel.AutoSize = True
+        NombretransporteLabel.Location = New System.Drawing.Point(229, 108)
+        NombretransporteLabel.Name = "NombretransporteLabel"
+        NombretransporteLabel.Size = New System.Drawing.Size(82, 17)
+        NombretransporteLabel.TabIndex = 24
+        NombretransporteLabel.Text = "Transporte:"
+        '
+        'DireccionLabel
+        '
+        DireccionLabel.AutoSize = True
+        DireccionLabel.Location = New System.Drawing.Point(6, 18)
+        DireccionLabel.Name = "DireccionLabel"
+        DireccionLabel.Size = New System.Drawing.Size(71, 17)
+        DireccionLabel.TabIndex = 26
+        DireccionLabel.Text = "Dirección:"
+        '
+        'ReferenciasLabel
+        '
+        ReferenciasLabel.AutoSize = True
+        ReferenciasLabel.Location = New System.Drawing.Point(229, 18)
+        ReferenciasLabel.Name = "ReferenciasLabel"
+        ReferenciasLabel.Size = New System.Drawing.Size(88, 17)
+        ReferenciasLabel.TabIndex = 28
+        ReferenciasLabel.Text = "Referencias:"
+        '
+        'NombreprovinciaLabel
+        '
+        NombreprovinciaLabel.AutoSize = True
+        NombreprovinciaLabel.Location = New System.Drawing.Point(7, 63)
+        NombreprovinciaLabel.Name = "NombreprovinciaLabel"
+        NombreprovinciaLabel.Size = New System.Drawing.Size(70, 17)
+        NombreprovinciaLabel.TabIndex = 30
+        NombreprovinciaLabel.Text = "Provincia:"
+        '
+        'NombrelocalidadLabel
+        '
+        NombrelocalidadLabel.AutoSize = True
+        NombrelocalidadLabel.Location = New System.Drawing.Point(7, 108)
+        NombrelocalidadLabel.Name = "NombrelocalidadLabel"
+        NombrelocalidadLabel.Size = New System.Drawing.Size(73, 17)
+        NombrelocalidadLabel.TabIndex = 32
+        NombrelocalidadLabel.Text = "Localidad:"
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(NombreprovinciaLabel)
-        Me.GroupBox1.Controls.Add(DireccionLabel)
-        Me.GroupBox1.Controls.Add(Me.NombreprovinciaTextBox)
-        Me.GroupBox1.Controls.Add(NombretransporteLabel)
-        Me.GroupBox1.Controls.Add(NombrelocalidadLabel)
-        Me.GroupBox1.Controls.Add(Me.DireccionTextBox)
-        Me.GroupBox1.Controls.Add(Me.NombrelocalidadTextBox)
         Me.GroupBox1.Controls.Add(EmailLabel)
-        Me.GroupBox1.Controls.Add(Me.ReferenciasTextBox)
-        Me.GroupBox1.Controls.Add(ReferenciasLabel)
-        Me.GroupBox1.Controls.Add(Me.NombretransporteTextBox)
         Me.GroupBox1.Controls.Add(CuitLabel)
         Me.GroupBox1.Controls.Add(Me.EmailTextBox)
         Me.GroupBox1.Controls.Add(TelefonoLabel)
@@ -87,19 +163,120 @@ Partial Class PedidosDeliveryModificar
         Me.GroupBox1.Controls.Add(Me.IdpedidodeliveryTextBox)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(974, 165)
+        Me.GroupBox1.Size = New System.Drawing.Size(408, 165)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Cliente"
+        '
+        'NombreprovinciaTextBox
+        '
+        Me.NombreprovinciaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombreprovincia", True))
+        Me.NombreprovinciaTextBox.Enabled = False
+        Me.NombreprovinciaTextBox.Location = New System.Drawing.Point(10, 83)
+        Me.NombreprovinciaTextBox.Name = "NombreprovinciaTextBox"
+        Me.NombreprovinciaTextBox.Size = New System.Drawing.Size(199, 22)
+        Me.NombreprovinciaTextBox.TabIndex = 31
+        '
+        'ListapedidosdeliveryBindingSource
+        '
+        Me.ListapedidosdeliveryBindingSource.DataMember = "listapedidosdelivery"
+        Me.ListapedidosdeliveryBindingSource.DataSource = Me.ComercialDataSet
         '
         'ComercialDataSet
         '
         Me.ComercialDataSet.DataSetName = "comercialDataSet"
         Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'ListapedidosdeliveryBindingSource
+        'DireccionTextBox
         '
-        Me.ListapedidosdeliveryBindingSource.DataMember = "listapedidosdelivery"
-        Me.ListapedidosdeliveryBindingSource.DataSource = Me.ComercialDataSet
+        Me.DireccionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "direccion", True))
+        Me.DireccionTextBox.Enabled = False
+        Me.DireccionTextBox.Location = New System.Drawing.Point(9, 38)
+        Me.DireccionTextBox.Name = "DireccionTextBox"
+        Me.DireccionTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.DireccionTextBox.TabIndex = 27
+        '
+        'NombrelocalidadTextBox
+        '
+        Me.NombrelocalidadTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombrelocalidad", True))
+        Me.NombrelocalidadTextBox.Enabled = False
+        Me.NombrelocalidadTextBox.Location = New System.Drawing.Point(10, 128)
+        Me.NombrelocalidadTextBox.Name = "NombrelocalidadTextBox"
+        Me.NombrelocalidadTextBox.Size = New System.Drawing.Size(199, 22)
+        Me.NombrelocalidadTextBox.TabIndex = 33
+        '
+        'ReferenciasTextBox
+        '
+        Me.ReferenciasTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "referencias", True))
+        Me.ReferenciasTextBox.Enabled = False
+        Me.ReferenciasTextBox.Location = New System.Drawing.Point(232, 38)
+        Me.ReferenciasTextBox.Multiline = True
+        Me.ReferenciasTextBox.Name = "ReferenciasTextBox"
+        Me.ReferenciasTextBox.Size = New System.Drawing.Size(330, 67)
+        Me.ReferenciasTextBox.TabIndex = 29
+        '
+        'NombretransporteTextBox
+        '
+        Me.NombretransporteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombretransporte", True))
+        Me.NombretransporteTextBox.Enabled = False
+        Me.NombretransporteTextBox.Location = New System.Drawing.Point(232, 130)
+        Me.NombretransporteTextBox.Name = "NombretransporteTextBox"
+        Me.NombretransporteTextBox.Size = New System.Drawing.Size(330, 22)
+        Me.NombretransporteTextBox.TabIndex = 25
+        '
+        'EmailTextBox
+        '
+        Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "email", True))
+        Me.EmailTextBox.Enabled = False
+        Me.EmailTextBox.Location = New System.Drawing.Point(63, 128)
+        Me.EmailTextBox.Name = "EmailTextBox"
+        Me.EmailTextBox.Size = New System.Drawing.Size(316, 22)
+        Me.EmailTextBox.TabIndex = 23
+        '
+        'CuitTextBox
+        '
+        Me.CuitTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "cuit", True))
+        Me.CuitTextBox.Enabled = False
+        Me.CuitTextBox.Location = New System.Drawing.Point(215, 83)
+        Me.CuitTextBox.Name = "CuitTextBox"
+        Me.CuitTextBox.Size = New System.Drawing.Size(181, 22)
+        Me.CuitTextBox.TabIndex = 21
+        '
+        'TelefonoTextBox
+        '
+        Me.TelefonoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "telefono", True))
+        Me.TelefonoTextBox.Enabled = False
+        Me.TelefonoTextBox.Location = New System.Drawing.Point(6, 83)
+        Me.TelefonoTextBox.Name = "TelefonoTextBox"
+        Me.TelefonoTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.TelefonoTextBox.TabIndex = 19
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 18)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(75, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Pedido Nº:"
+        '
+        'NombreTextBox
+        '
+        Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombre", True))
+        Me.NombreTextBox.Enabled = False
+        Me.NombreTextBox.Location = New System.Drawing.Point(102, 38)
+        Me.NombreTextBox.Name = "NombreTextBox"
+        Me.NombreTextBox.Size = New System.Drawing.Size(294, 22)
+        Me.NombreTextBox.TabIndex = 17
+        '
+        'IdpedidodeliveryTextBox
+        '
+        Me.IdpedidodeliveryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "idpedidodelivery", True))
+        Me.IdpedidodeliveryTextBox.Enabled = False
+        Me.IdpedidodeliveryTextBox.Location = New System.Drawing.Point(6, 38)
+        Me.IdpedidodeliveryTextBox.Name = "IdpedidodeliveryTextBox"
+        Me.IdpedidodeliveryTextBox.Size = New System.Drawing.Size(86, 22)
+        Me.IdpedidodeliveryTextBox.TabIndex = 3
         '
         'ListapedidosdeliveryTableAdapter
         '
@@ -162,177 +339,6 @@ Partial Class PedidosDeliveryModificar
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'IdpedidodeliveryTextBox
-        '
-        Me.IdpedidodeliveryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "idpedidodelivery", True))
-        Me.IdpedidodeliveryTextBox.Location = New System.Drawing.Point(6, 31)
-        Me.IdpedidodeliveryTextBox.Name = "IdpedidodeliveryTextBox"
-        Me.IdpedidodeliveryTextBox.Size = New System.Drawing.Size(86, 22)
-        Me.IdpedidodeliveryTextBox.TabIndex = 3
-        '
-        'NombreLabel
-        '
-        NombreLabel.AutoSize = True
-        NombreLabel.Location = New System.Drawing.Point(99, 11)
-        NombreLabel.Name = "NombreLabel"
-        NombreLabel.Size = New System.Drawing.Size(62, 17)
-        NombreLabel.TabIndex = 16
-        NombreLabel.Text = "Nombre:"
-        '
-        'NombreTextBox
-        '
-        Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombre", True))
-        Me.NombreTextBox.Location = New System.Drawing.Point(102, 31)
-        Me.NombreTextBox.Name = "NombreTextBox"
-        Me.NombreTextBox.Size = New System.Drawing.Size(294, 22)
-        Me.NombreTextBox.TabIndex = 17
-        '
-        'TelefonoLabel
-        '
-        TelefonoLabel.AutoSize = True
-        TelefonoLabel.Location = New System.Drawing.Point(6, 56)
-        TelefonoLabel.Name = "TelefonoLabel"
-        TelefonoLabel.Size = New System.Drawing.Size(68, 17)
-        TelefonoLabel.TabIndex = 18
-        TelefonoLabel.Text = "Teléfono:"
-        '
-        'TelefonoTextBox
-        '
-        Me.TelefonoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "telefono", True))
-        Me.TelefonoTextBox.Location = New System.Drawing.Point(6, 76)
-        Me.TelefonoTextBox.Name = "TelefonoTextBox"
-        Me.TelefonoTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.TelefonoTextBox.TabIndex = 19
-        '
-        'CuitLabel
-        '
-        CuitLabel.AutoSize = True
-        CuitLabel.Location = New System.Drawing.Point(212, 56)
-        CuitLabel.Name = "CuitLabel"
-        CuitLabel.Size = New System.Drawing.Size(43, 17)
-        CuitLabel.TabIndex = 20
-        CuitLabel.Text = "CUIT:"
-        '
-        'CuitTextBox
-        '
-        Me.CuitTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "cuit", True))
-        Me.CuitTextBox.Location = New System.Drawing.Point(215, 76)
-        Me.CuitTextBox.Name = "CuitTextBox"
-        Me.CuitTextBox.Size = New System.Drawing.Size(181, 22)
-        Me.CuitTextBox.TabIndex = 21
-        '
-        'EmailLabel
-        '
-        EmailLabel.AutoSize = True
-        EmailLabel.Location = New System.Drawing.Point(6, 101)
-        EmailLabel.Name = "EmailLabel"
-        EmailLabel.Size = New System.Drawing.Size(51, 17)
-        EmailLabel.TabIndex = 22
-        EmailLabel.Text = "E-mail:"
-        '
-        'EmailTextBox
-        '
-        Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "email", True))
-        Me.EmailTextBox.Location = New System.Drawing.Point(6, 121)
-        Me.EmailTextBox.Name = "EmailTextBox"
-        Me.EmailTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.EmailTextBox.TabIndex = 23
-        '
-        'NombretransporteLabel
-        '
-        NombretransporteLabel.AutoSize = True
-        NombretransporteLabel.Location = New System.Drawing.Point(622, 101)
-        NombretransporteLabel.Name = "NombretransporteLabel"
-        NombretransporteLabel.Size = New System.Drawing.Size(82, 17)
-        NombretransporteLabel.TabIndex = 24
-        NombretransporteLabel.Text = "Transporte:"
-        '
-        'NombretransporteTextBox
-        '
-        Me.NombretransporteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombretransporte", True))
-        Me.NombretransporteTextBox.Location = New System.Drawing.Point(625, 123)
-        Me.NombretransporteTextBox.Name = "NombretransporteTextBox"
-        Me.NombretransporteTextBox.Size = New System.Drawing.Size(330, 22)
-        Me.NombretransporteTextBox.TabIndex = 25
-        '
-        'DireccionLabel
-        '
-        DireccionLabel.AutoSize = True
-        DireccionLabel.Location = New System.Drawing.Point(399, 11)
-        DireccionLabel.Name = "DireccionLabel"
-        DireccionLabel.Size = New System.Drawing.Size(71, 17)
-        DireccionLabel.TabIndex = 26
-        DireccionLabel.Text = "Dirección:"
-        '
-        'DireccionTextBox
-        '
-        Me.DireccionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "direccion", True))
-        Me.DireccionTextBox.Location = New System.Drawing.Point(402, 31)
-        Me.DireccionTextBox.Name = "DireccionTextBox"
-        Me.DireccionTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.DireccionTextBox.TabIndex = 27
-        '
-        'ReferenciasLabel
-        '
-        ReferenciasLabel.AutoSize = True
-        ReferenciasLabel.Location = New System.Drawing.Point(622, 11)
-        ReferenciasLabel.Name = "ReferenciasLabel"
-        ReferenciasLabel.Size = New System.Drawing.Size(88, 17)
-        ReferenciasLabel.TabIndex = 28
-        ReferenciasLabel.Text = "Referencias:"
-        '
-        'ReferenciasTextBox
-        '
-        Me.ReferenciasTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "referencias", True))
-        Me.ReferenciasTextBox.Location = New System.Drawing.Point(625, 31)
-        Me.ReferenciasTextBox.Multiline = True
-        Me.ReferenciasTextBox.Name = "ReferenciasTextBox"
-        Me.ReferenciasTextBox.Size = New System.Drawing.Size(330, 67)
-        Me.ReferenciasTextBox.TabIndex = 29
-        '
-        'NombreprovinciaLabel
-        '
-        NombreprovinciaLabel.AutoSize = True
-        NombreprovinciaLabel.Location = New System.Drawing.Point(400, 56)
-        NombreprovinciaLabel.Name = "NombreprovinciaLabel"
-        NombreprovinciaLabel.Size = New System.Drawing.Size(70, 17)
-        NombreprovinciaLabel.TabIndex = 30
-        NombreprovinciaLabel.Text = "Provincia:"
-        '
-        'NombreprovinciaTextBox
-        '
-        Me.NombreprovinciaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombreprovincia", True))
-        Me.NombreprovinciaTextBox.Location = New System.Drawing.Point(403, 76)
-        Me.NombreprovinciaTextBox.Name = "NombreprovinciaTextBox"
-        Me.NombreprovinciaTextBox.Size = New System.Drawing.Size(199, 22)
-        Me.NombreprovinciaTextBox.TabIndex = 31
-        '
-        'NombrelocalidadLabel
-        '
-        NombrelocalidadLabel.AutoSize = True
-        NombrelocalidadLabel.Location = New System.Drawing.Point(400, 101)
-        NombrelocalidadLabel.Name = "NombrelocalidadLabel"
-        NombrelocalidadLabel.Size = New System.Drawing.Size(73, 17)
-        NombrelocalidadLabel.TabIndex = 32
-        NombrelocalidadLabel.Text = "Localidad:"
-        '
-        'NombrelocalidadTextBox
-        '
-        Me.NombrelocalidadTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombrelocalidad", True))
-        Me.NombrelocalidadTextBox.Location = New System.Drawing.Point(403, 121)
-        Me.NombrelocalidadTextBox.Name = "NombrelocalidadTextBox"
-        Me.NombrelocalidadTextBox.Size = New System.Drawing.Size(199, 22)
-        Me.NombrelocalidadTextBox.TabIndex = 33
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 11)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(75, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Pedido Nº:"
-        '
         'GroupBox2
         '
         Me.GroupBox2.Location = New System.Drawing.Point(12, 183)
@@ -342,11 +348,46 @@ Partial Class PedidosDeliveryModificar
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.PictureBoxEditarDomicilios)
+        Me.GroupBox3.Controls.Add(DireccionLabel)
+        Me.GroupBox3.Controls.Add(NombreprovinciaLabel)
+        Me.GroupBox3.Controls.Add(Me.NombrelocalidadTextBox)
+        Me.GroupBox3.Controls.Add(Me.ReferenciasTextBox)
+        Me.GroupBox3.Controls.Add(Me.DireccionTextBox)
+        Me.GroupBox3.Controls.Add(Me.NombreprovinciaTextBox)
+        Me.GroupBox3.Controls.Add(ReferenciasLabel)
+        Me.GroupBox3.Controls.Add(NombrelocalidadLabel)
+        Me.GroupBox3.Controls.Add(NombretransporteLabel)
+        Me.GroupBox3.Controls.Add(Me.NombretransporteTextBox)
+        Me.GroupBox3.Location = New System.Drawing.Point(426, 12)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(570, 165)
+        Me.GroupBox3.TabIndex = 34
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Entrega"
+        '
+        'PictureBoxEditarDomicilios
+        '
+        Me.PictureBoxEditarDomicilios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBoxEditarDomicilios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxEditarDomicilios.Image = CType(resources.GetObject("PictureBoxEditarDomicilios.Image"), System.Drawing.Image)
+        Me.PictureBoxEditarDomicilios.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureBoxEditarDomicilios.Location = New System.Drawing.Point(186, 9)
+        Me.PictureBoxEditarDomicilios.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBoxEditarDomicilios.Name = "PictureBoxEditarDomicilios"
+        Me.PictureBoxEditarDomicilios.Size = New System.Drawing.Size(23, 26)
+        Me.PictureBoxEditarDomicilios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxEditarDomicilios.TabIndex = 39
+        Me.PictureBoxEditarDomicilios.TabStop = False
+        '
         'PedidosDeliveryModificar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1000, 625)
+        Me.ClientSize = New System.Drawing.Size(1006, 625)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -356,8 +397,11 @@ Partial Class PedidosDeliveryModificar
         Me.Text = "PedidosDeliveryModificar"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        CType(Me.PictureBoxEditarDomicilios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -379,4 +423,6 @@ Partial Class PedidosDeliveryModificar
     Friend WithEvents NombrelocalidadTextBox As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents PictureBoxEditarDomicilios As PictureBox
 End Class

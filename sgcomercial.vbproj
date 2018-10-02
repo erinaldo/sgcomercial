@@ -547,6 +547,12 @@
     <Compile Include="Ventas\CambioMercaderiaVendida.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\CambioMultipleMV.Designer.vb">
+      <DependentUpon>CambioMultipleMV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\CambioMultipleMV.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\ConsultarPrecios.Designer.vb">
       <DependentUpon>ConsultarPrecios.vb</DependentUpon>
     </Compile>
@@ -945,6 +951,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\CambioMercaderiaVendida.resx">
       <DependentUpon>CambioMercaderiaVendida.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\CambioMultipleMV.resx">
+      <DependentUpon>CambioMultipleMV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\ConsultarPrecios.resx">
       <DependentUpon>ConsultarPrecios.vb</DependentUpon>
