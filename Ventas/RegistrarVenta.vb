@@ -143,6 +143,7 @@ Public Class RegistrarVenta
     Private Sub BtnConfirmar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnConfirmar.Click
         Dim valida As Boolean
         Dim idproducto As Long
+        If pagotextbox.Text = "" Then Return
         Dim pago As Decimal = pagotextbox.Text
         Dim tot As Decimal = labeltotal.Text
         Dim monto1 As Decimal
@@ -181,10 +182,7 @@ Public Class RegistrarVenta
                 pagotextbox.Select()
                 Return
             End If
-
         End If
-
-
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         ''''''''''''''''''''''''''''''''''''' DATOS CARGADOS CORRECTAMENTE! GUARDAMOS LA VENTA  '''''''''''''''''''''''''
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -758,6 +756,7 @@ Public Class RegistrarVenta
         '*************************
     End Sub
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles codigotextbox.TextChanged
+        'LimpiarCodigo(codigotextbox.Text)
         If BCScanerCR = "Disable" Then
             If Len(Trim(codigotextbox.Text)) = 0 Then
                 Labelproducto.Text = ""
@@ -1022,9 +1021,11 @@ Public Class RegistrarVenta
             buscaproductomanual()
         End If
         If e.KeyCode = Keys.Space Then
+            codigotextbox.Text = LimpiarCodigo(codigotextbox.Text)
             pagotextbox.Select()
         End If
         If e.KeyCode = Keys.Enter Then
+            codigotextbox.Text = LimpiarCodigo(codigotextbox.Text)
             If Len(Trim(codigotextbox.Text)) = 0 Then
                 Labelproducto.Text = ""
                 Return

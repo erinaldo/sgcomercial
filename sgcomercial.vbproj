@@ -29,8 +29,8 @@
     <ProductName>SGComercial</ProductName>
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
-    <ApplicationRevision>4</ApplicationRevision>
-    <ApplicationVersion>4.0.3.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>4.0.4.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -559,6 +559,12 @@
     <Compile Include="Ventas\ConsultarPrecios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\EditarCliente.Designer.vb">
+      <DependentUpon>EditarCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\EditarCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\LibroVentasDetalladas.Designer.vb">
       <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
     </Compile>
@@ -957,6 +963,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\ConsultarPrecios.resx">
       <DependentUpon>ConsultarPrecios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\EditarCliente.resx">
+      <DependentUpon>EditarCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\LibroVentasDetalladas.resx">
       <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>

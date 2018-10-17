@@ -34,24 +34,52 @@ Partial Class PedidosDeliveryModificar
         Dim NombrelocalidadLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PedidosDeliveryModificar))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.NombreprovinciaTextBox = New System.Windows.Forms.TextBox()
-        Me.ListapedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.DireccionTextBox = New System.Windows.Forms.TextBox()
-        Me.NombrelocalidadTextBox = New System.Windows.Forms.TextBox()
-        Me.ReferenciasTextBox = New System.Windows.Forms.TextBox()
-        Me.NombretransporteTextBox = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.IdClienteTextBox = New System.Windows.Forms.TextBox()
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.CuitTextBox = New System.Windows.Forms.TextBox()
         Me.TelefonoTextBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
         Me.IdpedidodeliveryTextBox = New System.Windows.Forms.TextBox()
-        Me.ListapedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliveryTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.NombreprovinciaTextBox = New System.Windows.Forms.TextBox()
+        Me.DireccionTextBox = New System.Windows.Forms.TextBox()
+        Me.NombrelocalidadTextBox = New System.Windows.Forms.TextBox()
+        Me.ReferenciasTextBox = New System.Windows.Forms.TextBox()
+        Me.NombretransporteTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxEditarDomicilios = New System.Windows.Forms.PictureBox()
+        Me.PedidosdeliveryDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ListapedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PedidosdeliverydetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ListapedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliveryTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.PedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliveryTableAdapter()
+        Me.PedidosdeliverydetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliverydetalleTableAdapter()
+        Me.ListapedidosdeliverydetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ListapedidosdeliverydetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliverydetalleTableAdapter()
+        Me.ListapedidosdeliverydetalleDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpedidodelivery = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         NombreLabel = New System.Windows.Forms.Label()
         TelefonoLabel = New System.Windows.Forms.Label()
         CuitLabel = New System.Windows.Forms.Label()
@@ -62,10 +90,17 @@ Partial Class PedidosDeliveryModificar
         NombreprovinciaLabel = New System.Windows.Forms.Label()
         NombrelocalidadLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.ListapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.PictureBoxEditarDomicilios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListapedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListapedidosdeliverydetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NombreLabel
@@ -151,6 +186,8 @@ Partial Class PedidosDeliveryModificar
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.PictureBox1)
+        Me.GroupBox1.Controls.Add(Me.IdClienteTextBox)
         Me.GroupBox1.Controls.Add(EmailLabel)
         Me.GroupBox1.Controls.Add(CuitLabel)
         Me.GroupBox1.Controls.Add(Me.EmailTextBox)
@@ -168,61 +205,28 @@ Partial Class PedidosDeliveryModificar
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cliente"
         '
-        'NombreprovinciaTextBox
+        'PictureBox1
         '
-        Me.NombreprovinciaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombreprovincia", True))
-        Me.NombreprovinciaTextBox.Enabled = False
-        Me.NombreprovinciaTextBox.Location = New System.Drawing.Point(10, 83)
-        Me.NombreprovinciaTextBox.Name = "NombreprovinciaTextBox"
-        Me.NombreprovinciaTextBox.Size = New System.Drawing.Size(199, 22)
-        Me.NombreprovinciaTextBox.TabIndex = 31
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureBox1.Location = New System.Drawing.Point(341, 9)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(23, 26)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 40
+        Me.PictureBox1.TabStop = False
         '
-        'ListapedidosdeliveryBindingSource
+        'IdClienteTextBox
         '
-        Me.ListapedidosdeliveryBindingSource.DataMember = "listapedidosdelivery"
-        Me.ListapedidosdeliveryBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DireccionTextBox
-        '
-        Me.DireccionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "direccion", True))
-        Me.DireccionTextBox.Enabled = False
-        Me.DireccionTextBox.Location = New System.Drawing.Point(9, 38)
-        Me.DireccionTextBox.Name = "DireccionTextBox"
-        Me.DireccionTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.DireccionTextBox.TabIndex = 27
-        '
-        'NombrelocalidadTextBox
-        '
-        Me.NombrelocalidadTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombrelocalidad", True))
-        Me.NombrelocalidadTextBox.Enabled = False
-        Me.NombrelocalidadTextBox.Location = New System.Drawing.Point(10, 128)
-        Me.NombrelocalidadTextBox.Name = "NombrelocalidadTextBox"
-        Me.NombrelocalidadTextBox.Size = New System.Drawing.Size(199, 22)
-        Me.NombrelocalidadTextBox.TabIndex = 33
-        '
-        'ReferenciasTextBox
-        '
-        Me.ReferenciasTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "referencias", True))
-        Me.ReferenciasTextBox.Enabled = False
-        Me.ReferenciasTextBox.Location = New System.Drawing.Point(232, 38)
-        Me.ReferenciasTextBox.Multiline = True
-        Me.ReferenciasTextBox.Name = "ReferenciasTextBox"
-        Me.ReferenciasTextBox.Size = New System.Drawing.Size(330, 67)
-        Me.ReferenciasTextBox.TabIndex = 29
-        '
-        'NombretransporteTextBox
-        '
-        Me.NombretransporteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombretransporte", True))
-        Me.NombretransporteTextBox.Enabled = False
-        Me.NombretransporteTextBox.Location = New System.Drawing.Point(232, 130)
-        Me.NombretransporteTextBox.Name = "NombretransporteTextBox"
-        Me.NombretransporteTextBox.Size = New System.Drawing.Size(330, 22)
-        Me.NombretransporteTextBox.TabIndex = 25
+        Me.IdClienteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "idcliente", True))
+        Me.IdClienteTextBox.Location = New System.Drawing.Point(371, 13)
+        Me.IdClienteTextBox.Name = "IdClienteTextBox"
+        Me.IdClienteTextBox.Size = New System.Drawing.Size(25, 22)
+        Me.IdClienteTextBox.TabIndex = 24
+        Me.IdClienteTextBox.Visible = False
         '
         'EmailTextBox
         '
@@ -278,6 +282,202 @@ Partial Class PedidosDeliveryModificar
         Me.IdpedidodeliveryTextBox.Size = New System.Drawing.Size(86, 22)
         Me.IdpedidodeliveryTextBox.TabIndex = 3
         '
+        'NombreprovinciaTextBox
+        '
+        Me.NombreprovinciaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombreprovincia", True))
+        Me.NombreprovinciaTextBox.Enabled = False
+        Me.NombreprovinciaTextBox.Location = New System.Drawing.Point(10, 83)
+        Me.NombreprovinciaTextBox.Name = "NombreprovinciaTextBox"
+        Me.NombreprovinciaTextBox.Size = New System.Drawing.Size(199, 22)
+        Me.NombreprovinciaTextBox.TabIndex = 31
+        '
+        'DireccionTextBox
+        '
+        Me.DireccionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "direccion", True))
+        Me.DireccionTextBox.Enabled = False
+        Me.DireccionTextBox.Location = New System.Drawing.Point(9, 38)
+        Me.DireccionTextBox.Name = "DireccionTextBox"
+        Me.DireccionTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.DireccionTextBox.TabIndex = 27
+        '
+        'NombrelocalidadTextBox
+        '
+        Me.NombrelocalidadTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombrelocalidad", True))
+        Me.NombrelocalidadTextBox.Enabled = False
+        Me.NombrelocalidadTextBox.Location = New System.Drawing.Point(10, 128)
+        Me.NombrelocalidadTextBox.Name = "NombrelocalidadTextBox"
+        Me.NombrelocalidadTextBox.Size = New System.Drawing.Size(199, 22)
+        Me.NombrelocalidadTextBox.TabIndex = 33
+        '
+        'ReferenciasTextBox
+        '
+        Me.ReferenciasTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "referencias", True))
+        Me.ReferenciasTextBox.Enabled = False
+        Me.ReferenciasTextBox.Location = New System.Drawing.Point(232, 38)
+        Me.ReferenciasTextBox.Multiline = True
+        Me.ReferenciasTextBox.Name = "ReferenciasTextBox"
+        Me.ReferenciasTextBox.Size = New System.Drawing.Size(330, 67)
+        Me.ReferenciasTextBox.TabIndex = 29
+        '
+        'NombretransporteTextBox
+        '
+        Me.NombretransporteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListapedidosdeliveryBindingSource, "nombretransporte", True))
+        Me.NombretransporteTextBox.Enabled = False
+        Me.NombretransporteTextBox.Location = New System.Drawing.Point(232, 130)
+        Me.NombretransporteTextBox.Name = "NombretransporteTextBox"
+        Me.NombretransporteTextBox.Size = New System.Drawing.Size(330, 22)
+        Me.NombretransporteTextBox.TabIndex = 25
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.ListapedidosdeliverydetalleDataGridView)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 183)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(974, 387)
+        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Detalle"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.PictureBoxEditarDomicilios)
+        Me.GroupBox3.Controls.Add(DireccionLabel)
+        Me.GroupBox3.Controls.Add(NombreprovinciaLabel)
+        Me.GroupBox3.Controls.Add(Me.NombrelocalidadTextBox)
+        Me.GroupBox3.Controls.Add(Me.ReferenciasTextBox)
+        Me.GroupBox3.Controls.Add(Me.DireccionTextBox)
+        Me.GroupBox3.Controls.Add(Me.NombreprovinciaTextBox)
+        Me.GroupBox3.Controls.Add(ReferenciasLabel)
+        Me.GroupBox3.Controls.Add(NombrelocalidadLabel)
+        Me.GroupBox3.Controls.Add(NombretransporteLabel)
+        Me.GroupBox3.Controls.Add(Me.NombretransporteTextBox)
+        Me.GroupBox3.Location = New System.Drawing.Point(426, 12)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(570, 165)
+        Me.GroupBox3.TabIndex = 34
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Entrega"
+        '
+        'PictureBoxEditarDomicilios
+        '
+        Me.PictureBoxEditarDomicilios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBoxEditarDomicilios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxEditarDomicilios.Image = CType(resources.GetObject("PictureBoxEditarDomicilios.Image"), System.Drawing.Image)
+        Me.PictureBoxEditarDomicilios.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureBoxEditarDomicilios.Location = New System.Drawing.Point(186, 9)
+        Me.PictureBoxEditarDomicilios.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBoxEditarDomicilios.Name = "PictureBoxEditarDomicilios"
+        Me.PictureBoxEditarDomicilios.Size = New System.Drawing.Size(23, 26)
+        Me.PictureBoxEditarDomicilios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxEditarDomicilios.TabIndex = 39
+        Me.PictureBoxEditarDomicilios.TabStop = False
+        '
+        'PedidosdeliveryDataGridView
+        '
+        Me.PedidosdeliveryDataGridView.AutoGenerateColumns = False
+        Me.PedidosdeliveryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.PedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12})
+        Me.PedidosdeliveryDataGridView.DataSource = Me.PedidosdeliveryBindingSource
+        Me.PedidosdeliveryDataGridView.Location = New System.Drawing.Point(227, -4)
+        Me.PedidosdeliveryDataGridView.Name = "PedidosdeliveryDataGridView"
+        Me.PedidosdeliveryDataGridView.RowTemplate.Height = 24
+        Me.PedidosdeliveryDataGridView.Size = New System.Drawing.Size(30, 23)
+        Me.PedidosdeliveryDataGridView.TabIndex = 34
+        Me.PedidosdeliveryDataGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idpedidodelivery"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idpedidodelivery"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idcliente"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "idcliente"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "idventa"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "idventa"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "idtransporte"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "idtransporte"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "iddomicilio"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "iddomicilio"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "pagoesperado"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "pagoesperado"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "fechaalta"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "fechaalta"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "usuarioalta"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "usuarioalta"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "fechabaja"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "fechabaja"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "usuariobaja"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "usuariobaja"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "estado"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "estado"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "idpedidosdeliveryweb"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "idpedidosdeliveryweb"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        '
+        'PedidosdeliveryBindingSource
+        '
+        Me.PedidosdeliveryBindingSource.DataMember = "pedidosdelivery"
+        Me.PedidosdeliveryBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ListapedidosdeliveryBindingSource
+        '
+        Me.ListapedidosdeliveryBindingSource.DataMember = "listapedidosdelivery"
+        Me.ListapedidosdeliveryBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'PedidosdeliverydetalleBindingSource
+        '
+        Me.PedidosdeliverydetalleBindingSource.DataMember = "pedidosdeliverydetalle"
+        Me.PedidosdeliverydetalleBindingSource.DataSource = Me.ComercialDataSet
+        '
         'ListapedidosdeliveryTableAdapter
         '
         Me.ListapedidosdeliveryTableAdapter.ClearBeforeFill = True
@@ -291,6 +491,7 @@ Partial Class PedidosDeliveryModificar
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
@@ -339,54 +540,92 @@ Partial Class PedidosDeliveryModificar
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'GroupBox2
+        'PedidosdeliveryTableAdapter
         '
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 183)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(974, 430)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Detalle"
+        Me.PedidosdeliveryTableAdapter.ClearBeforeFill = True
         '
-        'GroupBox3
+        'PedidosdeliverydetalleTableAdapter
         '
-        Me.GroupBox3.Controls.Add(Me.PictureBoxEditarDomicilios)
-        Me.GroupBox3.Controls.Add(DireccionLabel)
-        Me.GroupBox3.Controls.Add(NombreprovinciaLabel)
-        Me.GroupBox3.Controls.Add(Me.NombrelocalidadTextBox)
-        Me.GroupBox3.Controls.Add(Me.ReferenciasTextBox)
-        Me.GroupBox3.Controls.Add(Me.DireccionTextBox)
-        Me.GroupBox3.Controls.Add(Me.NombreprovinciaTextBox)
-        Me.GroupBox3.Controls.Add(ReferenciasLabel)
-        Me.GroupBox3.Controls.Add(NombrelocalidadLabel)
-        Me.GroupBox3.Controls.Add(NombretransporteLabel)
-        Me.GroupBox3.Controls.Add(Me.NombretransporteTextBox)
-        Me.GroupBox3.Location = New System.Drawing.Point(426, 12)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(570, 165)
-        Me.GroupBox3.TabIndex = 34
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Entrega"
+        Me.PedidosdeliverydetalleTableAdapter.ClearBeforeFill = True
         '
-        'PictureBoxEditarDomicilios
+        'ListapedidosdeliverydetalleBindingSource
         '
-        Me.PictureBoxEditarDomicilios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBoxEditarDomicilios.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBoxEditarDomicilios.Image = CType(resources.GetObject("PictureBoxEditarDomicilios.Image"), System.Drawing.Image)
-        Me.PictureBoxEditarDomicilios.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureBoxEditarDomicilios.Location = New System.Drawing.Point(186, 9)
-        Me.PictureBoxEditarDomicilios.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBoxEditarDomicilios.Name = "PictureBoxEditarDomicilios"
-        Me.PictureBoxEditarDomicilios.Size = New System.Drawing.Size(23, 26)
-        Me.PictureBoxEditarDomicilios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBoxEditarDomicilios.TabIndex = 39
-        Me.PictureBoxEditarDomicilios.TabStop = False
+        Me.ListapedidosdeliverydetalleBindingSource.DataMember = "listapedidosdeliverydetalle"
+        Me.ListapedidosdeliverydetalleBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ListapedidosdeliverydetalleTableAdapter
+        '
+        Me.ListapedidosdeliverydetalleTableAdapter.ClearBeforeFill = True
+        '
+        'ListapedidosdeliverydetalleDataGridView
+        '
+        Me.ListapedidosdeliverydetalleDataGridView.AllowUserToAddRows = False
+        Me.ListapedidosdeliverydetalleDataGridView.AllowUserToDeleteRows = False
+        Me.ListapedidosdeliverydetalleDataGridView.AutoGenerateColumns = False
+        Me.ListapedidosdeliverydetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ListapedidosdeliverydetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn13, Me.idpedidodelivery, Me.idproducto, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.cantidad})
+        Me.ListapedidosdeliverydetalleDataGridView.DataSource = Me.ListapedidosdeliverydetalleBindingSource
+        Me.ListapedidosdeliverydetalleDataGridView.Location = New System.Drawing.Point(20, 32)
+        Me.ListapedidosdeliverydetalleDataGridView.MultiSelect = False
+        Me.ListapedidosdeliverydetalleDataGridView.Name = "ListapedidosdeliverydetalleDataGridView"
+        Me.ListapedidosdeliverydetalleDataGridView.ReadOnly = True
+        Me.ListapedidosdeliverydetalleDataGridView.RowTemplate.Height = 24
+        Me.ListapedidosdeliverydetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.ListapedidosdeliverydetalleDataGridView.Size = New System.Drawing.Size(930, 329)
+        Me.ListapedidosdeliverydetalleDataGridView.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "idpedidodeliverydetalle"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "idpedidodeliverydetalle"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Visible = False
+        '
+        'idpedidodelivery
+        '
+        Me.idpedidodelivery.DataPropertyName = "idpedidodelivery"
+        Me.idpedidodelivery.HeaderText = "idpedidodelivery"
+        Me.idpedidodelivery.Name = "idpedidodelivery"
+        Me.idpedidodelivery.ReadOnly = True
+        Me.idpedidodelivery.Visible = False
+        '
+        'idproducto
+        '
+        Me.idproducto.DataPropertyName = "idproducto"
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "producto"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "producto"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        Me.DataGridViewTextBoxColumn16.Width = 400
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "precioventa"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "Precio"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.ReadOnly = True
+        '
+        'cantidad
+        '
+        Me.cantidad.DataPropertyName = "cantidad"
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
         '
         'PedidosDeliveryModificar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1006, 625)
+        Me.ClientSize = New System.Drawing.Size(1010, 583)
+        Me.Controls.Add(Me.PedidosdeliveryDataGridView)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -394,14 +633,22 @@ Partial Class PedidosDeliveryModificar
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "PedidosDeliveryModificar"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PedidosDeliveryModificar"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.ListapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.PictureBoxEditarDomicilios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListapedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListapedidosdeliverydetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListapedidosdeliverydetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -425,4 +672,32 @@ Partial Class PedidosDeliveryModificar
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents PictureBoxEditarDomicilios As PictureBox
+    Friend WithEvents IdClienteTextBox As TextBox
+    Friend WithEvents PedidosdeliveryBindingSource As BindingSource
+    Friend WithEvents PedidosdeliveryTableAdapter As comercialDataSetTableAdapters.pedidosdeliveryTableAdapter
+    Friend WithEvents PedidosdeliveryDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PedidosdeliverydetalleBindingSource As BindingSource
+    Friend WithEvents PedidosdeliverydetalleTableAdapter As comercialDataSetTableAdapters.pedidosdeliverydetalleTableAdapter
+    Friend WithEvents ListapedidosdeliverydetalleBindingSource As BindingSource
+    Friend WithEvents ListapedidosdeliverydetalleTableAdapter As comercialDataSetTableAdapters.listapedidosdeliverydetalleTableAdapter
+    Friend WithEvents ListapedidosdeliverydetalleDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents idpedidodelivery As DataGridViewTextBoxColumn
+    Friend WithEvents idproducto As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
+    Friend WithEvents cantidad As DataGridViewTextBoxColumn
 End Class

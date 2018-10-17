@@ -92,6 +92,18 @@
     End Sub
 
     Private Sub CambioMultipleMV_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pagos' Puede moverla o quitarla según sea necesario.
+        Me.PagosTableAdapter.Fill(Me.ComercialDataSet.pagos)
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.formaspago' Puede moverla o quitarla según sea necesario.
+        Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.
+        Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cambiodevolucion' Puede moverla o quitarla según sea necesario.
+        Me.CambiodevolucionTableAdapter.Fill(Me.ComercialDataSet.cambiodevolucion)
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cambiodevoluciondetalle' Puede moverla o quitarla según sea necesario.
+        Me.CambiodevoluciondetalleTableAdapter.Fill(Me.ComercialDataSet.cambiodevoluciondetalle)
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
+        Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
         Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
 
@@ -262,6 +274,11 @@
         Dim diferencia As Decimal = 0
         Try
             diferencia = montosaliente - montoentrante
+            If diferencia > 0 Then
+                GroupBox5.Enabled = True
+            Else
+                GroupBox5.Enabled = False
+            End If
             MontoDiferencia.Text = diferencia
             btnConfirmar.Enabled = True
         Catch ex As Exception
@@ -272,133 +289,88 @@
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         '/////////////////
-        'Calcular.PerformClick()
+        Button1.PerformClick()
         '/////////////////
-        '    Dim cantidadentrante As Decimal
-        '    Dim cantidadsaliente As Decimal
-        '    Dim idproductodevuelto As Long
-        '    Dim idproductonuevo As Long
-        '    '****************   validar datos cargados
-        '    '************************** producto entrante **************************
-        '    idproductodevuelto = ProductosTableAdapter.productos_existeproducto(codigotextbox.Text)
-        '    'MsgBox(existeproducto.ToString)
-        '    If Not idproductodevuelto > 0 Then
-        '        MsgBox("Producto devuelto incorrecto!")
-        '        codigotextbox.SelectAll()
-        '        Return
-        '    End If
-        '    '************************** producto saliente **************************
-        '    idproductonuevo = ProductosTableAdapter.productos_existeproducto(TextBoxCodigoSaliente.Text)
-        '    If Not idproductonuevo > 0 Then
-        '        MsgBox("Producto nuevo incorrecto!")
-        '        codigotextbox.SelectAll()
-        '        Return
-        '    End If
-        '    '************************** CANTIDAD producto Entrante **************************
-        '    Try
-        '        cantidadentrante = TextBoxCantidadEntrante.Text
-        '        If Not cantidadentrante > 0 Then
-        '            MsgBox("Cantidad devuelto incorrecta")
-        '            Return
-        '        End If
-        '    Catch ex As Exception
-        '        MsgBox("Cantidad devuelto incorrecta")
-        '        Return
-        '    End Try
-        '    '************************** MONTO producto Entrante **************************
-        '    Try
-        '        montoentrante = TextBoxMontoEntrante.Text
-        '        If Not montoentrante > 0 Then
-        '            MsgBox("Monto de producto devuelto incorrecto!")
-        '            Return
-        '        End If
-        '    Catch ex As Exception
-        '        MsgBox("Monto de producto devuelto incorrecto!")
-        '        Return
-        '    End Try
-        '    '************************** CANTIDAD producto saliente **************************
-        '    Try
-        '        cantidadsaliente = TextBoxCantidadSaliente.Text
-        '        If Not cantidadsaliente > 0 Then
-        '            MsgBox("Cantidad producto nuevo incorrecta")
-        '            Return
-        '        End If
-        '    Catch ex As Exception
-        '        MsgBox("Cantidad producto nuevo incorrecta")
-        '        Return
-        '    End Try
-        '    '************************** MONTO producto nuevo saliente **************************
-        '    Try
-        '        montosaliente = TextBoxMontoSaliente.Text
-        '        If Not montosaliente > 0 Then
-        '            MsgBox("Monto de producto nuevo incorrecto!")
-        '            Return
-        '        End If
-        '    Catch ex As Exception
-        '        MsgBox("Monto de producto nuevo incorrecto!")
-        '        Return
-        '    End Try
-        '    '*******************************
-        '    If Not ComboBox1.SelectedIndex >= 0 Then
-        '        MsgBox("Seleccione la medida del producto devuelto")
-        '        Return
-        '    End If
-        '    If Not ComboBox2.SelectedIndex >= 0 Then
-        '        MsgBox("Seleccione la medida del producto nuevo")
-        '        Return
-        '    End If
-        '    '*************************************************FIN VALIDACIONES************************************************
-        '    If MsgBox("Seguro desea realizar el cambio?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
-        '        '1_'************ ingresar producto a stock   *******************************
-        '        medida = ProductosTableAdapter.productos_consultarmedida(codigotextbox.Text)
-        '        Dim medidaentrante As Decimal = medida
-        '        If ComboBox1.SelectedIndex() = 1 Then
-        '            cantidadentrante = cantidadentrante * medida
-        '        End If
-        '        Try
-        '            If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigotextbox.Text), cantidadentrante, Today, guserid, "E", "Cambio Mercadería") >= 0 Then
-        '                'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
-        '                FormPrincipal.reloadstock()
-        '                'ParentForm.reloadstock()
-        '            Else
-        '                MsgBox("No se pudo insertar el movimiento de entrada", MsgBoxStyle.Information, "Advertencia")
-        '            End If
-        '            FormPrincipal.reloadstock()
-        '        Catch ex As Exception
-        '            MsgBox(ex.Message)
-        '        End Try
-        '        '2_'************ QUITAR PRODUCTO NUEVO DEL stock   *******************************
-        '        medida = ProductosTableAdapter.productos_consultarmedida(TextBoxCodigoSaliente.Text)
-        '        Dim medidasaliente As Decimal = medida
-        '        If ComboBox2.SelectedIndex() = 1 Then
-        '            cantidadsaliente = cantidadsaliente * medida
-        '        End If
-        '        Try
-        '            If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(TextBoxCodigoSaliente.Text), cantidadsaliente, Today, guserid, "S", "Cambio Mercadería") >= 0 Then
-        '                'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
-        '                FormPrincipal.reloadstock()
-        '                'ParentForm.reloadstock()
-        '            Else
-        '                MsgBox("No se pudo insertar el movimiento de salida", MsgBoxStyle.Information, "Advertencia")
-        '            End If
-        '            FormPrincipal.reloadstock()
-        '        Catch ex As Exception
-        '            MsgBox(ex.Message)
-        '        End Try
-        '        '*************  REGISTRAR CAMBIO DEVOLUCION ************************************
-        '        Dim IDCAMBIODEVOLUCION As Long
-        '        IDCAMBIODEVOLUCION = CambiodevolucionTableAdapter.cambiodevolucion_insertar(idproductodevuelto, cantidadentrante, montoentrante, medidaentrante, idproductonuevo, cantidadsaliente, montosaliente, medidasaliente, Today, gusername)
-        '        If Not IDCAMBIODEVOLUCION > 0 Then
-        '            MsgBox("Ocurrio un error al intentar escribir en cambiodevolución")
-        '            Return
-        '        End If
-        '        '*********************  ingreso o egreso de dinero segun corresponda **************************
-        '        Dim MONTO As Decimal = MontoDiferencia.Text
-        '        CajasoperacionesTableAdapter.cajasoperaciones_insertarcambiodevolucion(gidevento, IDCAMBIODEVOLUCION, MONTO, gusername)
-        '        '********************** todo OK cierro la pantalla! **************************************
-        '        Me.Close()
-        '    Else
-        '        MsgBox("Operacion cancelada")
-        '    End If
+
+        If MsgBox("Seguro desea realizar el cambio?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+            '*************  REGISTRAR CAMBIO DEVOLUCION ************************************
+            Dim IDCAMBIODEVOLUCION As Long
+            IDCAMBIODEVOLUCION = CambiodevolucionTableAdapter.cambiodevolucion_insertar(0, 0, montoentrante, 0, 0, 0, montosaliente, 0, Today, gusername)
+            If Not IDCAMBIODEVOLUCION > 0 Then
+                MsgBox("Ocurrio un error al intentar escribir en cambiodevolución")
+                Return
+            End If
+            '****************************************************************************
+            '1_'************ ingresar producto a stock   *******************************
+            '****************************************************************************
+            Dim i As Integer
+            Dim medida As Integer
+            For i = 0 To DataGridView1.RowCount - 1
+                medida = ProductosTableAdapter.productos_consultarmedida(DataGridView1.Rows(i).Cells("codigoproducto").Value)
+                Try
+                    If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(DataGridView1.Rows(i).Cells("codigoproducto").Value), DataGridView1.Rows(i).Cells("cantidad").Value, Today, guserid, "E", "Cambio Mercaderías Varias") >= 0 Then
+                        Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(DataGridView1.Rows(i).Cells("codigoproducto").Value)
+                        Dim cant As Decimal = DataGridView1.Rows(i).Cells("cantidad").Value
+                        Dim subt As Decimal = DataGridView1.Rows(i).Cells("subtotal").Value
+                        CambiodevoluciondetalleTableAdapter.cambiodevoluciondetalle_insertar(IDCAMBIODEVOLUCION, idproducto, "E", cant, subt)
+                        'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
+                        'FormPrincipal.reloadstock()
+                        'ParentForm.reloadstock()
+                    Else
+                        MsgBox("No se pudo insertar el movimiento de entrada", MsgBoxStyle.Information, "Advertencia")
+                        Return
+                    End If
+                    'FormPrincipal.reloadstock()
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            Next
+
+            '        Dim medidaentrante As Decimal = medida
+            '        If ComboBox1.SelectedIndex() = 1 Then
+            '            cantidadentrante = cantidadentrante * medida
+            '        End If
+            '        
+            '2_'************ QUITAR PRODUCTO NUEVO DEL stock   *******************************
+            For i = 0 To DataGridView2.RowCount - 1
+                medida = ProductosTableAdapter.productos_consultarmedida(DataGridView2.Rows(i).Cells("codigoproducto2").Value)
+                Try
+                    If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(DataGridView2.Rows(i).Cells("codigoproducto2").Value), DataGridView2.Rows(i).Cells("cantidad2").Value, Today, guserid, "S", "Cambio Mercaderías Varias") >= 0 Then
+                        Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(DataGridView2.Rows(i).Cells("codigoproducto2").Value)
+                        Dim cant As Decimal = DataGridView2.Rows(i).Cells("cantidad2").Value
+                        Dim subt As Decimal = DataGridView2.Rows(i).Cells("subtotal2").Value
+                        CambiodevoluciondetalleTableAdapter.cambiodevoluciondetalle_insertar(IDCAMBIODEVOLUCION, idproducto, "S", cant, subt)
+                    Else
+                        MsgBox("No se pudo insertar el movimiento de salida", MsgBoxStyle.Information, "Advertencia")
+                        Return
+                    End If
+                    'FormPrincipal.reloadstock()
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            Next
+
+            Dim idpagos As Long
+            Dim MONTO As Decimal = MontoDiferencia.Text
+            If MONTO > 0 Then
+                '**************************************************************
+                '***** insertar EL PAGO
+                '**************************************************************
+                idpagos = PagosTableAdapter.pagos_insertarpagocambio(IDCAMBIODEVOLUCION, 1, MONTO, Val(idformapagocombo.SelectedValue), NrocomprobanteTextBox.text) '"NrocomprobanteTextBox"
+                If idpagos > 0 Then
+                Else
+                    MsgBox("Ocurrio un error al registrar el pago", MsgBoxStyle.Information, "Advertencia")
+                    Return
+                End If
+            End If
+            '**************************************************************
+            '***** insertar movimiento de caja
+            '**************************************************************
+            CajasoperacionesTableAdapter.cajasoperaciones_insertarcambiodevolucion(gidevento, IDCAMBIODEVOLUCION, MONTO, gusername)
+            '********************** todo OK cierro la pantalla! **************************************
+            Me.Close()
+        Else
+            MsgBox("Operacion cancelada")
+        End If
     End Sub
 End Class

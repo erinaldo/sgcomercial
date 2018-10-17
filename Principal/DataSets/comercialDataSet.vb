@@ -1,4 +1,11 @@
 ﻿Partial Class comercialDataSet
+    Partial Public Class pagosDataTable
+        Private Sub pagosDataTable_pagosRowChanging(sender As Object, e As pagosRowChangeEvent) Handles Me.pagosRowChanging
+
+        End Sub
+
+    End Class
+
     Partial Public Class librodiarioDataTable
         Private Sub librodiarioDataTable_ColumnChanging(sender As Object, e As DataColumnChangeEventArgs) Handles Me.ColumnChanging
             If (e.Column.ColumnName = Me.idoperacionColumn.ColumnName) Then

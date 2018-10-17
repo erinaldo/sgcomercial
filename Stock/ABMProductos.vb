@@ -1,6 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class ABMProductos
-
+    Dim codigolimpio As String
     Private Sub ProductosBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Validate()
         Me.ProductosBindingSource.EndEdit()
@@ -159,18 +159,28 @@ Public Class ABMProductos
     End Sub
 
     Private Sub TextFiltro_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextFiltro.TextChanged
-        Select Case ComboBox2.Text
-            Case "Código"
-                ProductosBindingSource.Filter = "codigoproducto like '%" + TextFiltro.Text + "%'"
-            Case "Marca"
-                ProductosBindingSource.Filter = "marca like '%" + TextFiltro.Text + "%'"
-            Case "Producto"
-                ProductosBindingSource.Filter = "modelo like '%" + TextFiltro.Text + "%'"
-            Case Else
-                TextFiltro.Text = ""
-                MsgBox("Seleccione un criterio de filtrado!", MsgBoxStyle.Exclamation, "Advertencia")
-                ComboBox2.Select()
-        End Select
+        codigolimpio = TextFiltro.Text
+        Try
+            Select Case ComboBox2.Text
+                Case "Código"
+                    LimpiarCodigo(codigolimpio)
+                    ProductosBindingSource.Filter = "codigoproducto like '%" + codigolimpio + "%'"
+                Case "Marca"
+                    LimpiarCodigo(codigolimpio)
+                    ProductosBindingSource.Filter = "marca like '%" + codigolimpio + "%'"
+                Case "Producto"
+                    LimpiarCodigo(codigolimpio)
+                    ProductosBindingSource.Filter = "modelo like '%" + codigolimpio + "%'"
+                Case Else
+                    TextFiltro.Text = ""
+                    MsgBox("Seleccione un criterio de filtrado!", MsgBoxStyle.Exclamation, "Advertencia")
+                    'ComboBox2.Select()
+            End Select
+        Catch ex As Exception
+            MsgBox("Ocurrió un problema al leer el código de barras: " + ex.Message)
+        End Try
+
+        'TextFiltro.Select()
     End Sub
 
 
@@ -371,7 +381,8 @@ Public Class ABMProductos
         End If
     End Sub
     Public Sub validacodigoproducto(ByRef res As Boolean)
-
+        codigoproductoTextBox.Text = LimpiarCodigo(codigoproductoTextBox.Text)
+        '        MsgBox(codigoproductoTextBox.Text)
         '****************   primero valido el codigo
         If Len(Trim(codigoproductoTextBox.Text)) = 0 Then
             MsgBox("Ingrese un código de producto válido", MsgBoxStyle.Exclamation, "Advertencia")
@@ -717,5 +728,16 @@ Public Class ABMProductos
         editbtn.Visible = True
         BindingNavigatorAddNewItem.Visible = True
         GuardarNuevo.Visible = False
+    End Sub
+
+    Private Sub TextFiltro_KeyDown(sender As Object, e As KeyEventArgs) Handles TextFiltro.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Dim res As Boolean
+            TextFiltro.Text = LimpiarCodigo(TextFiltro.Text)
+
+            If res = False Then
+                Return
+            End If
+        End If
     End Sub
 End Class

@@ -344,4 +344,10 @@
             Return
         End Try
     End Sub
+    Public Function LimpiarCodigo(ByRef codigo As String) As String
+        codigo = Trim(codigo)
+        codigo = codigo.Replace("'", "-")
+
+        Return codigo
+    End Function
 End Module
