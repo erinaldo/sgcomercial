@@ -641,4 +641,9 @@ Public Class Principal
         End If
         '***************    FIN consultar el estado de caja *************
     End Sub
+
+    Private Sub ImportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarProductosToolStripMenuItem.Click
+        ImportarProductos.MdiParent = Me
+        ImportarProductos.Visible = True
+    End Sub
 End Class

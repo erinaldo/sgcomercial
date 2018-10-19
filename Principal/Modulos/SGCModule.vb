@@ -1,5 +1,8 @@
 ﻿Module SGCModule
     '************************************************
+    Public gstrSheetName As New List(Of String)
+    Public gstrSheetSelected As String
+    '************************************************
     Public gValidarSTK As String
     Public gbalprefix As String
     Public glistapreferida As Int16

@@ -28,6 +28,7 @@ Partial Class Principal
         Me.GestionDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambioMercaderíaVendidaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CambioMultipleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -153,7 +154,7 @@ Partial Class Principal
         Me.ListaprecioscajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaprecioscajaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaprecioscajaTableAdapter()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.CambioMultipleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -208,6 +209,13 @@ Partial Class Principal
         Me.CambioMercaderíaVendidaToolStripMenuItem.Size = New System.Drawing.Size(380, 28)
         Me.CambioMercaderíaVendidaToolStripMenuItem.Tag = "CambioMercaderiaVendida"
         Me.CambioMercaderíaVendidaToolStripMenuItem.Text = "Cambio Mercadería Vendida"
+        '
+        'CambioMultipleToolStripMenuItem
+        '
+        Me.CambioMultipleToolStripMenuItem.Name = "CambioMultipleToolStripMenuItem"
+        Me.CambioMultipleToolStripMenuItem.Size = New System.Drawing.Size(380, 28)
+        Me.CambioMultipleToolStripMenuItem.Tag = "CambioMultiple"
+        Me.CambioMultipleToolStripMenuItem.Text = "Cambio Multiple"
         '
         'ABMClientesToolStripMenuItem
         '
@@ -313,7 +321,7 @@ Partial Class Principal
         '
         'VentasToolStripMenuItem
         '
-        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProductosToolStripMenuItem, Me.ActualizacionDePreciosToolStripMenuItem, Me.StockToolStripMenuItem, Me.ImpresiónEtiquetasToolStripMenuItem, Me.CodificarProductosToolStripMenuItem})
+        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProductosToolStripMenuItem, Me.ActualizacionDePreciosToolStripMenuItem, Me.StockToolStripMenuItem, Me.ImpresiónEtiquetasToolStripMenuItem, Me.CodificarProductosToolStripMenuItem, Me.ImportarProductosToolStripMenuItem})
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
         Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(99, 27)
         Me.VentasToolStripMenuItem.Tag = "ModuloStock"
@@ -1085,6 +1093,7 @@ Partial Class Principal
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
@@ -1176,12 +1185,12 @@ Partial Class Principal
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
         '
-        'CambioMultipleToolStripMenuItem
+        'ImportarProductosToolStripMenuItem
         '
-        Me.CambioMultipleToolStripMenuItem.Name = "CambioMultipleToolStripMenuItem"
-        Me.CambioMultipleToolStripMenuItem.Size = New System.Drawing.Size(380, 28)
-        Me.CambioMultipleToolStripMenuItem.Tag = "CambioMultiple"
-        Me.CambioMultipleToolStripMenuItem.Text = "Cambio Multiple"
+        Me.ImportarProductosToolStripMenuItem.Name = "ImportarProductosToolStripMenuItem"
+        Me.ImportarProductosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
+        Me.ImportarProductosToolStripMenuItem.Tag = "ImportarProductos"
+        Me.ImportarProductosToolStripMenuItem.Text = "Importar Productos"
         '
         'Principal
         '
@@ -1356,4 +1365,5 @@ Partial Class Principal
     Friend WithEvents MovimientosDeStockToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListasDePreciosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CambioMultipleToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImportarProductosToolStripMenuItem As ToolStripMenuItem
 End Class

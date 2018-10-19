@@ -84,6 +84,15 @@ Namespace My
                 Return CType(Me("comercialConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString)>  _
+        Public ReadOnly Property Setting() As String
+            Get
+                Return CType(Me("Setting"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
