@@ -57,7 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server=;user id=;password=;database=;persistsecurityinfo=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=sistemascomerciales.net;user id=sistema1_sgcweb;password=sgcomercial*?;dat"& _ 
+            "abase=sistema1_sgcaguadagrande;persistsecurityinfo=True")>  _
         Public ReadOnly Property MySQLConnectionString() As String
             Get
                 Return CType(Me("MySQLConnectionString"),String)
@@ -77,8 +78,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomer"& _ 
-            "cial;Password=")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User I"& _ 
+            "D=sgcomercial;Password=sgcomercial*?")>  _
         Public ReadOnly Property comercialConnectionString() As String
             Get
                 Return CType(Me("comercialConnectionString"),String)
