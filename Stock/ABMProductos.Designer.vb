@@ -284,9 +284,10 @@ Partial Class ABMProductos
         Label4.AutoSize = True
         Label4.Location = New System.Drawing.Point(594, 218)
         Label4.Name = "Label4"
-        Label4.Size = New System.Drawing.Size(124, 17)
+        Label4.Size = New System.Drawing.Size(114, 17)
         Label4.TabIndex = 115
-        Label4.Text = "P. Vta. Comercios:"
+        Label4.Tag = "Precio Vta. Distribuidores y comercios"
+        Label4.Text = "P. Vta. Dist/Com:"
         '
         'Label5
         '
@@ -498,6 +499,7 @@ Partial Class ABMProductos
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing

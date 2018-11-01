@@ -57,6 +57,10 @@
     Public gidlote As Long
     '*****************************
     Public gidremito As Long
+    '**************************
+    Public importarubro As Integer
+    Public importadescripcion As Integer
+    Public importastockminimo As Integer
 
     '*******************************    GLOBAL FUNCTIONS        *********************************
     '***************************    NormalizarCodigo    ***************************************************
@@ -353,4 +357,55 @@
 
         Return codigo
     End Function
+    Public Sub validarcolumnasProdImportados(ByVal dgv1 As DataGridView, ByRef rtn As Boolean, ByRef msg As String)
+        Dim columnas(100) As String
+        Dim camposrequeridos(13) As String
+        Dim camposfaltantes As List(Of String) = New List(Of String)
+        Dim strfaltantes As String
+        '***************************************
+        camposrequeridos(0) = "codigoproducto"
+        camposrequeridos(1) = "marca"
+        camposrequeridos(2) = "modelo"
+        camposrequeridos(3) = "presentacion"
+        camposrequeridos(4) = "unidadmedida"
+        camposrequeridos(5) = "medida"
+        camposrequeridos(6) = "preciocosto"
+        camposrequeridos(7) = "precioventa"
+        camposrequeridos(8) = "precioventagranel"
+        camposrequeridos(9) = "precioventamayorista"
+        camposrequeridos(10) = "precioventadistribuidor"
+        camposrequeridos(11) = "idrubro"
+        camposrequeridos(12) = "stockminimo"
+        camposrequeridos(13) = "descripcion"
+        '***************************************
+        For i = 0 To dgv1.Columns.Count - 1
+            columnas(i) = dgv1.Columns(i).Name
+        Next
+        ' verifico existencia de los campos en el listado de columnas
+        For i = 0 To camposrequeridos.Count - 1
+            If columnas.Contains(camposrequeridos(i)) Then
+                'MsgBox("Existe: " + camposrequeridos(i))
+            Else
+                camposfaltantes.Add(camposrequeridos(i))
+                'MsgBox("No existe: " + camposrequeridos(i))
+            End If
+        Next
+
+
+        For i = 0 To camposfaltantes.Count - 1
+            strfaltantes = strfaltantes + " -" + camposfaltantes.Item(i)
+        Next
+        If camposfaltantes.Count > 0 Then
+            'MsgBox("No se han encontrado los siguientes campos requeridos: " + strfaltantes, MsgBoxStyle.Exclamation)
+            msg = "No se han encontrado los siguientes campos requeridos: " + strfaltantes
+            rtn = False
+            Return
+        Else
+            'MsgBox("Todo correcto", MsgBoxStyle.Information)
+            msg = "Todo Correcto"
+            rtn = True
+            Return
+        End If
+    End Sub
 End Module
+
