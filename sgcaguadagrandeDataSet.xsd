@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="sgcaguadagrandeDataSet" targetNamespace="http://tempuri.org/sgcaguadagrandeDataSet.xsd" xmlns:mstns="http://tempuri.org/sgcaguadagrandeDataSet.xsd" xmlns="http://tempuri.org/sgcaguadagrandeDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="MySQLConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MySQLConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.sgcomercial.My.MySettings.GlobalReference.Default.MySQLConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="clientesTableAdapter" GeneratorDataComponentClassName="clientesTableAdapter" Name="clientes" UserDataComponentName="clientesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.clientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idclienteweb, nombre, cuit, telefono, email, sync FROM clientes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="clientesdomiciliosTableAdapter" GeneratorDataComponentClassName="clientesdomiciliosTableAdapter" Name="clientesdomicilios" UserDataComponentName="clientesdomiciliosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.clientesdomicilios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idclientesdomiciliosweb, idclienteweb, direccion, referencias, idprovincia, idlocalidad, cp, sync FROM clientesdomicilios</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="errorlogTableAdapter" GeneratorDataComponentClassName="errorlogTableAdapter" Name="errorlog" UserDataComponentName="errorlogTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.errorlog" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT iderrorlog, fecha, origen, tipo, proceso, mensaje FROM errorlog</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="estadospedidodeliveryTableAdapter" GeneratorDataComponentClassName="estadospedidodeliveryTableAdapter" Name="estadospedidodelivery" UserDataComponentName="estadospedidodeliveryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.estadospedidodelivery" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idestadospedidodelivery, descripcion FROM estadospedidodelivery</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="formaspagoTableAdapter" GeneratorDataComponentClassName="formaspagoTableAdapter" Name="formaspago" UserDataComponentName="formaspagoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.formaspago" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idformaspago, descripcion FROM formaspago</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="listaspreciosTableAdapter" GeneratorDataComponentClassName="listaspreciosTableAdapter" Name="listasprecios" UserDataComponentName="listaspreciosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.listasprecios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idlistaprecio, descripcion FROM listasprecios</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="localidadesTableAdapter" GeneratorDataComponentClassName="localidadesTableAdapter" Name="localidades" UserDataComponentName="localidadesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.localidades" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idlocalidad, idprovincia, nombrelocalidad FROM localidades</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="pagosTableAdapter" GeneratorDataComponentClassName="pagosTableAdapter" Name="pagos" UserDataComponentName="pagosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.pagos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idpagosweb, idventasweb, idclienteweb, importe, fechapago, idformapago, nrocomprobante, sync FROM pagos</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="pedidosdeliveryTableAdapter" GeneratorDataComponentClassName="pedidosdeliveryTableAdapter" Name="pedidosdelivery" UserDataComponentName="pedidosdeliveryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.pedidosdelivery" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idpedidodeliveryweb, idclienteweb, idventaweb, idtransporte, iddomicilio, pagoesperado, fechaalta, estado, nroguia, sync FROM pedidosdelivery</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="pedidosdeliverydetalleTableAdapter" GeneratorDataComponentClassName="pedidosdeliverydetalleTableAdapter" Name="pedidosdeliverydetalle" UserDataComponentName="pedidosdeliverydetalleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.pedidosdeliverydetalle" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idpedidosdeliverydetalleweb, idpedidodeliveryweb, idproducto, cantidad, precioventa, recargo, idlistaprecio FROM pedidosdeliverydetalle</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="productosTableAdapter" GeneratorDataComponentClassName="productosTableAdapter" Name="productos" UserDataComponentName="productosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.productos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idproducto, codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, imagen, idrubro, stockminimo, productocompuesto, fechabaja, precioventagranel, precioventamayorista, precioventadistribuidor, estado FROM productos</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="provinciasTableAdapter" GeneratorDataComponentClassName="provinciasTableAdapter" Name="provincias" UserDataComponentName="provinciasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.provincias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idprovincia, nombreprovincia FROM provincias</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="rubrosTableAdapter" GeneratorDataComponentClassName="rubrosTableAdapter" Name="rubros" UserDataComponentName="rubrosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.rubros" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idrubro, descripcion FROM rubros</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="stockTableAdapter" GeneratorDataComponentClassName="stockTableAdapter" Name="stock" UserDataComponentName="stockTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.stock" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idstock, idproducto, cantidad FROM stock</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tipocomprobantesTableAdapter" GeneratorDataComponentClassName="tipocomprobantesTableAdapter" Name="tipocomprobantes" UserDataComponentName="tipocomprobantesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.tipocomprobantes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idtipocomprobante, descripcion FROM tipocomprobantes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="transportesTableAdapter" GeneratorDataComponentClassName="transportesTableAdapter" Name="transportes" UserDataComponentName="transportesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.transportes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idtransportes, nombretransporte FROM transportes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="unidadesmedidaTableAdapter" GeneratorDataComponentClassName="unidadesmedidaTableAdapter" Name="unidadesmedida" UserDataComponentName="unidadesmedidaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.unidadesmedida" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idunidadmedida, descripcion FROM unidadesmedida</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ventasTableAdapter" GeneratorDataComponentClassName="ventasTableAdapter" Name="ventas" UserDataComponentName="ventasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.ventas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idventasweb, idtipocomprobante, idclienteweb, fechaventa, fechaalta, fechabaja, sync FROM ventas</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ventasdetalleTableAdapter" GeneratorDataComponentClassName="ventasdetalleTableAdapter" Name="ventasdetalle" UserDataComponentName="ventasdetalleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MySQLConnectionString (MySettings)" DbObjectName="sistema1_sgcaguadagrande.ventasdetalle" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idventasdetalleweb, idventaweb, idproducto, cantidad, precioventa, idlistaprecio, recargo FROM ventasdetalle</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="sgcaguadagrandeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="sgcaguadagrandeDataSet" msprop:Generator_UserDSName="sgcaguadagrandeDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="clientes" msprop:Generator_TableClassName="clientesDataTable" msprop:Generator_TableVarName="tableclientes" msprop:Generator_TablePropName="clientes" msprop:Generator_RowDeletingName="clientesRowDeleting" msprop:Generator_RowChangingName="clientesRowChanging" msprop:Generator_RowEvHandlerName="clientesRowChangeEventHandler" msprop:Generator_RowDeletedName="clientesRowDeleted" msprop:Generator_UserTableName="clientes" msprop:Generator_RowChangedName="clientesRowChanged" msprop:Generator_RowEvArgName="clientesRowChangeEvent" msprop:Generator_RowClassName="clientesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="clientesdomicilios" msprop:Generator_TableClassName="clientesdomiciliosDataTable" msprop:Generator_TableVarName="tableclientesdomicilios" msprop:Generator_TablePropName="clientesdomicilios" msprop:Generator_RowDeletingName="clientesdomiciliosRowDeleting" msprop:Generator_RowChangingName="clientesdomiciliosRowChanging" msprop:Generator_RowEvHandlerName="clientesdomiciliosRowChangeEventHandler" msprop:Generator_RowDeletedName="clientesdomiciliosRowDeleted" msprop:Generator_UserTableName="clientesdomicilios" msprop:Generator_RowChangedName="clientesdomiciliosRowChanged" msprop:Generator_RowEvArgName="clientesdomiciliosRowChangeEvent" msprop:Generator_RowClassName="clientesdomiciliosRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="errorlog" msprop:Generator_TableClassName="errorlogDataTable" msprop:Generator_TableVarName="tableerrorlog" msprop:Generator_TablePropName="errorlog" msprop:Generator_RowDeletingName="errorlogRowDeleting" msprop:Generator_RowChangingName="errorlogRowChanging" msprop:Generator_RowEvHandlerName="errorlogRowChangeEventHandler" msprop:Generator_RowDeletedName="errorlogRowDeleted" msprop:Generator_UserTableName="errorlog" msprop:Generator_RowChangedName="errorlogRowChanged" msprop:Generator_RowEvArgName="errorlogRowChangeEvent" msprop:Generator_RowClassName="errorlogRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="estadospedidodelivery" msprop:Generator_TableClassName="estadospedidodeliveryDataTable" msprop:Generator_TableVarName="tableestadospedidodelivery" msprop:Generator_TablePropName="estadospedidodelivery" msprop:Generator_RowDeletingName="estadospedidodeliveryRowDeleting" msprop:Generator_RowChangingName="estadospedidodeliveryRowChanging" msprop:Generator_RowEvHandlerName="estadospedidodeliveryRowChangeEventHandler" msprop:Generator_RowDeletedName="estadospedidodeliveryRowDeleted" msprop:Generator_UserTableName="estadospedidodelivery" msprop:Generator_RowChangedName="estadospedidodeliveryRowChanged" msprop:Generator_RowEvArgName="estadospedidodeliveryRowChangeEvent" msprop:Generator_RowClassName="estadospedidodeliveryRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="formaspago" msprop:Generator_TableClassName="formaspagoDataTable" msprop:Generator_TableVarName="tableformaspago" msprop:Generator_TablePropName="formaspago" msprop:Generator_RowDeletingName="formaspagoRowDeleting" msprop:Generator_RowChangingName="formaspagoRowChanging" msprop:Generator_RowEvHandlerName="formaspagoRowChangeEventHandler" msprop:Generator_RowDeletedName="formaspagoRowDeleted" msprop:Generator_UserTableName="formaspago" msprop:Generator_RowChangedName="formaspagoRowChanged" msprop:Generator_RowEvArgName="formaspagoRowChangeEvent" msprop:Generator_RowClassName="formaspagoRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="listasprecios" msprop:Generator_TableClassName="listaspreciosDataTable" msprop:Generator_TableVarName="tablelistasprecios" msprop:Generator_TablePropName="listasprecios" msprop:Generator_RowDeletingName="listaspreciosRowDeleting" msprop:Generator_RowChangingName="listaspreciosRowChanging" msprop:Generator_RowEvHandlerName="listaspreciosRowChangeEventHandler" msprop:Generator_RowDeletedName="listaspreciosRowDeleted" msprop:Generator_UserTableName="listasprecios" msprop:Generator_RowChangedName="listaspreciosRowChanged" msprop:Generator_RowEvArgName="listaspreciosRowChangeEvent" msprop:Generator_RowClassName="listaspreciosRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="localidades" msprop:Generator_TableClassName="localidadesDataTable" msprop:Generator_TableVarName="tablelocalidades" msprop:Generator_TablePropName="localidades" msprop:Generator_RowDeletingName="localidadesRowDeleting" msprop:Generator_RowChangingName="localidadesRowChanging" msprop:Generator_RowEvHandlerName="localidadesRowChangeEventHandler" msprop:Generator_RowDeletedName="localidadesRowDeleted" msprop:Generator_UserTableName="localidades" msprop:Generator_RowChangedName="localidadesRowChanged" msprop:Generator_RowEvArgName="localidadesRowChangeEvent" msprop:Generator_RowClassName="localidadesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="pagos" msprop:Generator_TableClassName="pagosDataTable" msprop:Generator_TableVarName="tablepagos" msprop:Generator_TablePropName="pagos" msprop:Generator_RowDeletingName="pagosRowDeleting" msprop:Generator_RowChangingName="pagosRowChanging" msprop:Generator_RowEvHandlerName="pagosRowChangeEventHandler" msprop:Generator_RowDeletedName="pagosRowDeleted" msprop:Generator_UserTableName="pagos" msprop:Generator_RowChangedName="pagosRowChanged" msprop:Generator_RowEvArgName="pagosRowChangeEvent" msprop:Generator_RowClassName="pagosRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="pedidosdelivery" msprop:Generator_TableClassName="pedidosdeliveryDataTable" msprop:Generator_TableVarName="tablepedidosdelivery" msprop:Generator_TablePropName="pedidosdelivery" msprop:Generator_RowDeletingName="pedidosdeliveryRowDeleting" msprop:Generator_RowChangingName="pedidosdeliveryRowChanging" msprop:Generator_RowEvHandlerName="pedidosdeliveryRowChangeEventHandler" msprop:Generator_RowDeletedName="pedidosdeliveryRowDeleted" msprop:Generator_UserTableName="pedidosdelivery" msprop:Generator_RowChangedName="pedidosdeliveryRowChanged" msprop:Generator_RowEvArgName="pedidosdeliveryRowChangeEvent" msprop:Generator_RowClassName="pedidosdeliveryRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="pedidosdeliverydetalle" msprop:Generator_TableClassName="pedidosdeliverydetalleDataTable" msprop:Generator_TableVarName="tablepedidosdeliverydetalle" msprop:Generator_TablePropName="pedidosdeliverydetalle" msprop:Generator_RowDeletingName="pedidosdeliverydetalleRowDeleting" msprop:Generator_RowChangingName="pedidosdeliverydetalleRowChanging" msprop:Generator_RowEvHandlerName="pedidosdeliverydetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="pedidosdeliverydetalleRowDeleted" msprop:Generator_UserTableName="pedidosdeliverydetalle" msprop:Generator_RowChangedName="pedidosdeliverydetalleRowChanged" msprop:Generator_RowEvArgName="pedidosdeliverydetalleRowChangeEvent" msprop:Generator_RowClassName="pedidosdeliverydetalleRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="productos" msprop:Generator_TableClassName="productosDataTable" msprop:Generator_TableVarName="tableproductos" msprop:Generator_TablePropName="productos" msprop:Generator_RowDeletingName="productosRowDeleting" msprop:Generator_RowChangingName="productosRowChanging" msprop:Generator_RowEvHandlerName="productosRowChangeEventHandler" msprop:Generator_RowDeletedName="productosRowDeleted" msprop:Generator_UserTableName="productos" msprop:Generator_RowChangedName="productosRowChanged" msprop:Generator_RowEvArgName="productosRowChangeEvent" msprop:Generator_RowClassName="productosRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="provincias" msprop:Generator_TableClassName="provinciasDataTable" msprop:Generator_TableVarName="tableprovincias" msprop:Generator_TablePropName="provincias" msprop:Generator_RowDeletingName="provinciasRowDeleting" msprop:Generator_RowChangingName="provinciasRowChanging" msprop:Generator_RowEvHandlerName="provinciasRowChangeEventHandler" msprop:Generator_RowDeletedName="provinciasRowDeleted" msprop:Generator_UserTableName="provincias" msprop:Generator_RowChangedName="provinciasRowChanged" msprop:Generator_RowEvArgName="provinciasRowChangeEvent" msprop:Generator_RowClassName="provinciasRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="rubros" msprop:Generator_TableClassName="rubrosDataTable" msprop:Generator_TableVarName="tablerubros" msprop:Generator_TablePropName="rubros" msprop:Generator_RowDeletingName="rubrosRowDeleting" msprop:Generator_RowChangingName="rubrosRowChanging" msprop:Generator_RowEvHandlerName="rubrosRowChangeEventHandler" msprop:Generator_RowDeletedName="rubrosRowDeleted" msprop:Generator_UserTableName="rubros" msprop:Generator_RowChangedName="rubrosRowChanged" msprop:Generator_RowEvArgName="rubrosRowChangeEvent" msprop:Generator_RowClassName="rubrosRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="stock" msprop:Generator_TableClassName="stockDataTable" msprop:Generator_TableVarName="tablestock" msprop:Generator_TablePropName="stock" msprop:Generator_RowDeletingName="stockRowDeleting" msprop:Generator_RowChangingName="stockRowChanging" msprop:Generator_RowEvHandlerName="stockRowChangeEventHandler" msprop:Generator_RowDeletedName="stockRowDeleted" msprop:Generator_UserTableName="stock" msprop:Generator_RowChangedName="stockRowChanged" msprop:Generator_RowEvArgName="stockRowChangeEvent" msprop:Generator_RowClassName="stockRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tipocomprobantes" msprop:Generator_TableClassName="tipocomprobantesDataTable" msprop:Generator_TableVarName="tabletipocomprobantes" msprop:Generator_TablePropName="tipocomprobantes" msprop:Generator_RowDeletingName="tipocomprobantesRowDeleting" msprop:Generator_RowChangingName="tipocomprobantesRowChanging" msprop:Generator_RowEvHandlerName="tipocomprobantesRowChangeEventHandler" msprop:Generator_RowDeletedName="tipocomprobantesRowDeleted" msprop:Generator_UserTableName="tipocomprobantes" msprop:Generator_RowChangedName="tipocomprobantesRowChanged" msprop:Generator_RowEvArgName="tipocomprobantesRowChangeEvent" msprop:Generator_RowClassName="tipocomprobantesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="transportes" msprop:Generator_TableClassName="transportesDataTable" msprop:Generator_TableVarName="tabletransportes" msprop:Generator_TablePropName="transportes" msprop:Generator_RowDeletingName="transportesRowDeleting" msprop:Generator_RowChangingName="transportesRowChanging" msprop:Generator_RowEvHandlerName="transportesRowChangeEventHandler" msprop:Generator_RowDeletedName="transportesRowDeleted" msprop:Generator_UserTableName="transportes" msprop:Generator_RowChangedName="transportesRowChanged" msprop:Generator_RowEvArgName="transportesRowChangeEvent" msprop:Generator_RowClassName="transportesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="unidadesmedida" msprop:Generator_TableClassName="unidadesmedidaDataTable" msprop:Generator_TableVarName="tableunidadesmedida" msprop:Generator_TablePropName="unidadesmedida" msprop:Generator_RowDeletingName="unidadesmedidaRowDeleting" msprop:Generator_RowChangingName="unidadesmedidaRowChanging" msprop:Generator_RowEvHandlerName="unidadesmedidaRowChangeEventHandler" msprop:Generator_RowDeletedName="unidadesmedidaRowDeleted" msprop:Generator_UserTableName="unidadesmedida" msprop:Generator_RowChangedName="unidadesmedidaRowChanged" msprop:Generator_RowEvArgName="unidadesmedidaRowChangeEvent" msprop:Generator_RowClassName="unidadesmedidaRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ventas" msprop:Generator_TableClassName="ventasDataTable" msprop:Generator_TableVarName="tableventas" msprop:Generator_TablePropName="ventas" msprop:Generator_RowDeletingName="ventasRowDeleting" msprop:Generator_RowChangingName="ventasRowChanging" msprop:Generator_RowEvHandlerName="ventasRowChangeEventHandler" msprop:Generator_RowDeletedName="ventasRowDeleted" msprop:Generator_UserTableName="ventas" msprop:Generator_RowChangedName="ventasRowChanged" msprop:Generator_RowEvArgName="ventasRowChangeEvent" msprop:Generator_RowClassName="ventasRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ventasdetalle" msprop:Generator_TableClassName="ventasdetalleDataTable" msprop:Generator_TableVarName="tableventasdetalle" msprop:Generator_TablePropName="ventasdetalle" msprop:Generator_RowDeletingName="ventasdetalleRowDeleting" msprop:Generator_RowChangingName="ventasdetalleRowChanging" msprop:Generator_RowEvHandlerName="ventasdetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="ventasdetalleRowDeleted" msprop:Generator_UserTableName="ventasdetalle" msprop:Generator_RowChangedName="ventasdetalleRowChanged" msprop:Generator_RowEvArgName="ventasdetalleRowChangeEvent" msprop:Generator_RowClassName="ventasdetalleRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
