@@ -137,6 +137,7 @@ La primer fila en el archivo debe corresponder al nombre de la columna, el archi
 	11-precioventadistribuidor
 	12-idrubro
 	13-stockminimo
-	14-descripcion</value>
+	14-descripcion
+	15-stock (opcional)</value>
   </data>
 </root>

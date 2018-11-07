@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Revisar los valores de los atributos del ensamblado
 
 <Assembly: AssemblyTitle("SGComercial")>
-<Assembly: AssemblyDescription("Fecha de compilación: 14/9/2018 22:19")>
+<Assembly: AssemblyDescription("Fecha de compilación: 7/11/2018")>
 <Assembly: AssemblyCompany("sistemascomerciales.net")>
 <Assembly: AssemblyProduct("Sistema de Gestión Comercial")>
 <Assembly: AssemblyCopyright("sistemascomerciales.net")>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' mediante el asterisco ('*'), como se muestra a continuación:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("4.0.5.0")>
-<Assembly: AssemblyFileVersion("4.0.5.0")>
+<Assembly: AssemblyVersion("4.0.5.4")>
+<Assembly: AssemblyFileVersion("4.0.5.4")>
