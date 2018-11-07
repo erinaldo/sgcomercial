@@ -1,5 +1,8 @@
 ﻿Imports System.IO
+Imports MySql.Data.MySqlClient
 Public Class ImportarProductos
+
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         BtnConfirmar.Enabled = False
         Try
@@ -280,6 +283,8 @@ Public Class ImportarProductos
     End Sub
 
     Private Sub ImportarProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
+        Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.errorlog' Puede moverla o quitarla según sea necesario.
         Me.ErrorlogTableAdapter.Fill(Me.ComercialDataSet.errorlog)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.unidadesmedida' Puede moverla o quitarla según sea necesario.
@@ -292,6 +297,9 @@ Public Class ImportarProductos
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles BtnConfirmar.Click
+        Dim ProductosWebTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
+        ProductosWebTableAdapter = New MySQLDataSetTableAdapters.productosTableAdapter()
+        '****************************************
         If MsgBox("Seguro desea aplicar los cambios?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
             '************************************************************************************************
             Dim existe As Long
@@ -326,7 +334,7 @@ Public Class ImportarProductos
                         Dim preciocosto As Decimal
                         preciocosto = DataGridView1.Rows(i).Cells("preciocosto").Value
                         Dim precioventa As Decimal
-                        precioventa = DataGridView1.Rows(i).Cells("preciocosto").Value
+                        precioventa = DataGridView1.Rows(i).Cells("precioventa").Value
                         Dim idrubro As Long = 0
                         '*** obtengo el rubro   ******
                         idrubro = RubrosTableAdapter.rubros_getidrubro(DataGridView1.Rows(i).Cells("idrubro").Value)
@@ -349,7 +357,32 @@ Public Class ImportarProductos
                         precioventadistribuidor = DataGridView1.Rows(i).Cells("precioventadistribuidor").Value
                         '*************************************************************************************
                         ProductosTableAdapter.productos_upd_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, existe)
-                        'actualizaciones = actualizaciones + 1
+                        ProductosWebTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, 0, precioventadistribuidor, idrubro, codigoproducto)
+                        '*************************************************************************************
+                        '====== actualizar stock actual ====
+                        Try
+                            Dim diferencia As Decimal
+                            Dim stock As Decimal
+                            stock = DataGridView1.Rows(i).Cells("stock").Value
+                            If stock > 0 Then 'voy a insertar stock
+                                Dim stockactual As Decimal
+                                stockactual = StockTableAdapter.stock_consultardisponible(existe)
+                                diferencia = stockactual - stock
+                                If diferencia <> 0 Then
+                                    If diferencia > 0 Then
+                                        stock = Math.Abs(diferencia)
+                                        StockTableAdapter.stock_insertarmovimiento(existe, stock, Today, gusername, "S", "Ajuste Stock Importación Excel")
+                                    Else
+                                        stock = Math.Abs(diferencia)
+                                        StockTableAdapter.stock_insertarmovimiento(existe, stock, Today, gusername, "E", "Ajuste Stock Importación Excel")
+                                    End If
+                                End If
+                            End If
+                        Catch ex As Exception
+                            'MsgBox("No se incluyó el stock")
+                            'Return
+                        End Try
+                        '====== actualizar stock actual ====
                     Else
                         '************************************************************************************************
                         '*****************************      ALTA DE NUEVOS PRODUCTOS  *******************************************************************
@@ -378,8 +411,8 @@ Public Class ImportarProductos
                         Dim preciocosto As Decimal
                         preciocosto = DataGridView1.Rows(i).Cells("preciocosto").Value
                         Dim precioventa As Decimal
-                        precioventa = DataGridView1.Rows(i).Cells("preciocosto").Value
-                        Dim idrubro As Long = 0
+                        precioventa = DataGridView1.Rows(i).Cells("precioventa").Value
+                        Dim idrubro As Integer = 0
                         Dim idrubrostr As String = Nothing
                         '*** obtengo el rubro   ******
                         idrubrostr = DataGridView1.Rows(i).Cells("idrubro").Value
@@ -401,15 +434,32 @@ Public Class ImportarProductos
                         precioventamayorista = DataGridView1.Rows(i).Cells("precioventamayorista").Value
                         Dim precioventadistribuidor As Decimal
                         precioventadistribuidor = DataGridView1.Rows(i).Cells("precioventadistribuidor").Value
+
                         '*************************************************************************************
                         ProductosTableAdapter.productos_ins_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, 1)
+                        ProductosWebTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, 0, precioventadistribuidor, idrubro)
+                        '=========== tomo el nuevo id de producto para insertar stock
+                        existe = ProductosTableAdapter.productos_existeproducto(codigoproducto) ' traigo el codigo del nuevo producto
+                        '====== nuevo stock actual ====
+                        Try
+                            Dim stockactual As Decimal
+                            stockactual = DataGridView1.Rows(i).Cells("stock").Value
+                            'MsgBox("con stock")
+                            If stockactual > 0 Then 'voy a insertar stock
+                                StockTableAdapter.stock_insertarmovimiento(existe, stockactual, Today, gusername, "E", "Ajuste Stock Importación Excel")
+                            End If
+                        Catch ex As Exception
+                            'MsgBox("No se incluyó el stock")
+                            'Return
+                        End Try
+                        '====== nuevo stock actual ====
                     End If
                 Catch ex As Exception
                     ErrorlogTableAdapter.errorlog_insertar(Today, "ImportarProductos", "Exception", "Button4_Click", "Error al importar: " + ex.Message)
                     MsgBox("Error al importar: " + ex.Message)
                 End Try
             Next
-            MsgBox("El proceso a finalizado correctamente!", MsgBoxStyle.Information, "Aviso")
+            MsgBox("El proceso ha finalizado correctamente!", MsgBoxStyle.Information, "Aviso")
             Me.Close()
             '************************************************************************************************
         End If

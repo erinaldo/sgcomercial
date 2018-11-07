@@ -38,10 +38,18 @@ Partial Class ImportarProductos
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
         Me.RubrosDataGridView = New System.Windows.Forms.DataGridView()
         Me.UnidadesmedidaDataGridView = New System.Windows.Forms.DataGridView()
+        Me.ErrorlogDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ErrorlogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UnidadesmedidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RubrosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -69,26 +77,35 @@ Partial Class ImportarProductos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.RubrosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.rubrosTableAdapter()
         Me.UnidadesmedidaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.unidadesmedidaTableAdapter()
-        Me.ErrorlogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ErrorlogTableAdapter = New sgcomercial.comercialDataSetTableAdapters.errorlogTableAdapter()
-        Me.ErrorlogDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StockBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
+        Me.StockDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn32 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn36 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn37 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn38 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn39 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn40 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RubrosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UnidadesmedidaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorlogDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorlogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RubrosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ErrorlogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ErrorlogDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StockDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -256,6 +273,65 @@ Partial Class ImportarProductos
         Me.UnidadesmedidaDataGridView.TabIndex = 3
         Me.UnidadesmedidaDataGridView.Visible = False
         '
+        'ErrorlogDataGridView
+        '
+        Me.ErrorlogDataGridView.AutoGenerateColumns = False
+        Me.ErrorlogDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ErrorlogDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28})
+        Me.ErrorlogDataGridView.DataSource = Me.ErrorlogBindingSource
+        Me.ErrorlogDataGridView.Location = New System.Drawing.Point(239, 0)
+        Me.ErrorlogDataGridView.Name = "ErrorlogDataGridView"
+        Me.ErrorlogDataGridView.RowTemplate.Height = 24
+        Me.ErrorlogDataGridView.Size = New System.Drawing.Size(22, 20)
+        Me.ErrorlogDataGridView.TabIndex = 4
+        Me.ErrorlogDataGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.DataPropertyName = "iderrorlog"
+        Me.DataGridViewTextBoxColumn23.HeaderText = "iderrorlog"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        '
+        'DataGridViewTextBoxColumn24
+        '
+        Me.DataGridViewTextBoxColumn24.DataPropertyName = "fecha"
+        Me.DataGridViewTextBoxColumn24.HeaderText = "fecha"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        '
+        'DataGridViewTextBoxColumn25
+        '
+        Me.DataGridViewTextBoxColumn25.DataPropertyName = "origen"
+        Me.DataGridViewTextBoxColumn25.HeaderText = "origen"
+        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        '
+        'DataGridViewTextBoxColumn26
+        '
+        Me.DataGridViewTextBoxColumn26.DataPropertyName = "tipo"
+        Me.DataGridViewTextBoxColumn26.HeaderText = "tipo"
+        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
+        '
+        'DataGridViewTextBoxColumn27
+        '
+        Me.DataGridViewTextBoxColumn27.DataPropertyName = "proceso"
+        Me.DataGridViewTextBoxColumn27.HeaderText = "proceso"
+        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
+        '
+        'DataGridViewTextBoxColumn28
+        '
+        Me.DataGridViewTextBoxColumn28.DataPropertyName = "mensage"
+        Me.DataGridViewTextBoxColumn28.HeaderText = "mensage"
+        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
+        '
+        'ErrorlogBindingSource
+        '
+        Me.ErrorlogBindingSource.DataMember = "errorlog"
+        Me.ErrorlogBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'DataGridViewTextBoxColumn21
         '
         Me.DataGridViewTextBoxColumn21.DataPropertyName = "idunidadmedida"
@@ -273,11 +349,6 @@ Partial Class ImportarProductos
         '
         Me.UnidadesmedidaBindingSource.DataMember = "unidadesmedida"
         Me.UnidadesmedidaBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'DataGridViewTextBoxColumn19
         '
@@ -487,69 +558,111 @@ Partial Class ImportarProductos
         '
         Me.UnidadesmedidaTableAdapter.ClearBeforeFill = True
         '
-        'ErrorlogBindingSource
-        '
-        Me.ErrorlogBindingSource.DataMember = "errorlog"
-        Me.ErrorlogBindingSource.DataSource = Me.ComercialDataSet
-        '
         'ErrorlogTableAdapter
         '
         Me.ErrorlogTableAdapter.ClearBeforeFill = True
         '
-        'ErrorlogDataGridView
+        'StockBindingSource
         '
-        Me.ErrorlogDataGridView.AutoGenerateColumns = False
-        Me.ErrorlogDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ErrorlogDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28})
-        Me.ErrorlogDataGridView.DataSource = Me.ErrorlogBindingSource
-        Me.ErrorlogDataGridView.Location = New System.Drawing.Point(239, 0)
-        Me.ErrorlogDataGridView.Name = "ErrorlogDataGridView"
-        Me.ErrorlogDataGridView.RowTemplate.Height = 24
-        Me.ErrorlogDataGridView.Size = New System.Drawing.Size(22, 20)
-        Me.ErrorlogDataGridView.TabIndex = 4
-        Me.ErrorlogDataGridView.Visible = False
+        Me.StockBindingSource.DataMember = "stock"
+        Me.StockBindingSource.DataSource = Me.ComercialDataSet
         '
-        'DataGridViewTextBoxColumn23
+        'StockTableAdapter
         '
-        Me.DataGridViewTextBoxColumn23.DataPropertyName = "iderrorlog"
-        Me.DataGridViewTextBoxColumn23.HeaderText = "iderrorlog"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        Me.StockTableAdapter.ClearBeforeFill = True
         '
-        'DataGridViewTextBoxColumn24
+        'StockDataGridView
         '
-        Me.DataGridViewTextBoxColumn24.DataPropertyName = "fecha"
-        Me.DataGridViewTextBoxColumn24.HeaderText = "fecha"
-        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        Me.StockDataGridView.AutoGenerateColumns = False
+        Me.StockDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.StockDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn31, Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn35, Me.DataGridViewTextBoxColumn36, Me.DataGridViewTextBoxColumn37, Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40})
+        Me.StockDataGridView.DataSource = Me.StockBindingSource
+        Me.StockDataGridView.Location = New System.Drawing.Point(267, 3)
+        Me.StockDataGridView.Name = "StockDataGridView"
+        Me.StockDataGridView.RowTemplate.Height = 24
+        Me.StockDataGridView.Size = New System.Drawing.Size(19, 17)
+        Me.StockDataGridView.TabIndex = 5
+        Me.StockDataGridView.Visible = False
         '
-        'DataGridViewTextBoxColumn25
+        'DataGridViewTextBoxColumn29
         '
-        Me.DataGridViewTextBoxColumn25.DataPropertyName = "origen"
-        Me.DataGridViewTextBoxColumn25.HeaderText = "origen"
-        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        Me.DataGridViewTextBoxColumn29.DataPropertyName = "idstock"
+        Me.DataGridViewTextBoxColumn29.HeaderText = "idstock"
+        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
+        Me.DataGridViewTextBoxColumn29.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn26
+        'DataGridViewTextBoxColumn30
         '
-        Me.DataGridViewTextBoxColumn26.DataPropertyName = "tipo"
-        Me.DataGridViewTextBoxColumn26.HeaderText = "tipo"
-        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
+        Me.DataGridViewTextBoxColumn30.DataPropertyName = "idproducto"
+        Me.DataGridViewTextBoxColumn30.HeaderText = "idproducto"
+        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
         '
-        'DataGridViewTextBoxColumn27
+        'DataGridViewTextBoxColumn31
         '
-        Me.DataGridViewTextBoxColumn27.DataPropertyName = "proceso"
-        Me.DataGridViewTextBoxColumn27.HeaderText = "proceso"
-        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
+        Me.DataGridViewTextBoxColumn31.DataPropertyName = "cantidad"
+        Me.DataGridViewTextBoxColumn31.HeaderText = "cantidad"
+        Me.DataGridViewTextBoxColumn31.Name = "DataGridViewTextBoxColumn31"
         '
-        'DataGridViewTextBoxColumn28
+        'DataGridViewTextBoxColumn32
         '
-        Me.DataGridViewTextBoxColumn28.DataPropertyName = "mensage"
-        Me.DataGridViewTextBoxColumn28.HeaderText = "mensage"
-        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
+        Me.DataGridViewTextBoxColumn32.DataPropertyName = "fechamovimiento"
+        Me.DataGridViewTextBoxColumn32.HeaderText = "fechamovimiento"
+        Me.DataGridViewTextBoxColumn32.Name = "DataGridViewTextBoxColumn32"
+        '
+        'DataGridViewTextBoxColumn33
+        '
+        Me.DataGridViewTextBoxColumn33.DataPropertyName = "fechacarga"
+        Me.DataGridViewTextBoxColumn33.HeaderText = "fechacarga"
+        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
+        '
+        'DataGridViewTextBoxColumn34
+        '
+        Me.DataGridViewTextBoxColumn34.DataPropertyName = "usuariocarga"
+        Me.DataGridViewTextBoxColumn34.HeaderText = "usuariocarga"
+        Me.DataGridViewTextBoxColumn34.Name = "DataGridViewTextBoxColumn34"
+        '
+        'DataGridViewTextBoxColumn35
+        '
+        Me.DataGridViewTextBoxColumn35.DataPropertyName = "tipomovimientostock"
+        Me.DataGridViewTextBoxColumn35.HeaderText = "tipomovimientostock"
+        Me.DataGridViewTextBoxColumn35.Name = "DataGridViewTextBoxColumn35"
+        '
+        'DataGridViewTextBoxColumn36
+        '
+        Me.DataGridViewTextBoxColumn36.DataPropertyName = "fechabaja"
+        Me.DataGridViewTextBoxColumn36.HeaderText = "fechabaja"
+        Me.DataGridViewTextBoxColumn36.Name = "DataGridViewTextBoxColumn36"
+        '
+        'DataGridViewTextBoxColumn37
+        '
+        Me.DataGridViewTextBoxColumn37.DataPropertyName = "idventa"
+        Me.DataGridViewTextBoxColumn37.HeaderText = "idventa"
+        Me.DataGridViewTextBoxColumn37.Name = "DataGridViewTextBoxColumn37"
+        '
+        'DataGridViewTextBoxColumn38
+        '
+        Me.DataGridViewTextBoxColumn38.DataPropertyName = "idpedido"
+        Me.DataGridViewTextBoxColumn38.HeaderText = "idpedido"
+        Me.DataGridViewTextBoxColumn38.Name = "DataGridViewTextBoxColumn38"
+        '
+        'DataGridViewTextBoxColumn39
+        '
+        Me.DataGridViewTextBoxColumn39.DataPropertyName = "idremito"
+        Me.DataGridViewTextBoxColumn39.HeaderText = "idremito"
+        Me.DataGridViewTextBoxColumn39.Name = "DataGridViewTextBoxColumn39"
+        '
+        'DataGridViewTextBoxColumn40
+        '
+        Me.DataGridViewTextBoxColumn40.DataPropertyName = "origen"
+        Me.DataGridViewTextBoxColumn40.HeaderText = "origen"
+        Me.DataGridViewTextBoxColumn40.Name = "DataGridViewTextBoxColumn40"
         '
         'ImportarProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1300, 554)
+        Me.ClientSize = New System.Drawing.Size(1300, 553)
+        Me.Controls.Add(Me.StockDataGridView)
         Me.Controls.Add(Me.ErrorlogDataGridView)
         Me.Controls.Add(Me.UnidadesmedidaDataGridView)
         Me.Controls.Add(Me.RubrosDataGridView)
@@ -565,12 +678,14 @@ Partial Class ImportarProductos
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RubrosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UnidadesmedidaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorlogDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorlogBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RubrosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ErrorlogBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ErrorlogDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StockDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -630,4 +745,19 @@ Partial Class ImportarProductos
     Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
+    Friend WithEvents StockBindingSource As BindingSource
+    Friend WithEvents StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
+    Friend WithEvents StockDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn29 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn30 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn31 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn32 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn33 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn34 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn35 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn36 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn37 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn38 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn39 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn40 As DataGridViewTextBoxColumn
 End Class
