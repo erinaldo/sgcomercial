@@ -283,6 +283,8 @@ Public Class ImportarProductos
     End Sub
 
     Private Sub ImportarProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productosproveedores' Puede moverla o quitarla según sea necesario.
+        Me.ProductosproveedoresTableAdapter.Fill(Me.ComercialDataSet.productosproveedores)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
         Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.errorlog' Puede moverla o quitarla según sea necesario.
@@ -357,7 +359,7 @@ Public Class ImportarProductos
                         precioventadistribuidor = DataGridView1.Rows(i).Cells("precioventadistribuidor").Value
                         '*************************************************************************************
                         ProductosTableAdapter.productos_upd_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, existe)
-                        ProductosWebTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, 0, precioventadistribuidor, idrubro, codigoproducto)
+                        ProductosWebTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, codigoproducto)
                         '*************************************************************************************
                         '====== actualizar stock actual ====
                         Try
@@ -434,10 +436,11 @@ Public Class ImportarProductos
                         precioventamayorista = DataGridView1.Rows(i).Cells("precioventamayorista").Value
                         Dim precioventadistribuidor As Decimal
                         precioventadistribuidor = DataGridView1.Rows(i).Cells("precioventadistribuidor").Value
-
                         '*************************************************************************************
                         ProductosTableAdapter.productos_ins_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, 1)
-                        ProductosWebTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, 0, precioventadistribuidor, idrubro)
+                        'ProductosproveedoresTableAdapter.Insert()
+                        ProductosWebTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro)
+
                         '=========== tomo el nuevo id de producto para insertar stock
                         existe = ProductosTableAdapter.productos_existeproducto(codigoproducto) ' traigo el codigo del nuevo producto
                         '====== nuevo stock actual ====

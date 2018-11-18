@@ -275,19 +275,19 @@ Partial Class ABMProductos
         PrecioventamayoristaLabel.AutoSize = True
         PrecioventamayoristaLabel.Location = New System.Drawing.Point(293, 252)
         PrecioventamayoristaLabel.Name = "PrecioventamayoristaLabel"
-        PrecioventamayoristaLabel.Size = New System.Drawing.Size(151, 17)
+        PrecioventamayoristaLabel.Size = New System.Drawing.Size(155, 17)
         PrecioventamayoristaLabel.TabIndex = 113
-        PrecioventamayoristaLabel.Text = "P. Vta. Dist./Mayorista:"
+        PrecioventamayoristaLabel.Text = "P. Vta. Com./Mayorista:"
         '
         'Label4
         '
         Label4.AutoSize = True
         Label4.Location = New System.Drawing.Point(594, 218)
         Label4.Name = "Label4"
-        Label4.Size = New System.Drawing.Size(114, 17)
+        Label4.Size = New System.Drawing.Size(130, 17)
         Label4.TabIndex = 115
         Label4.Tag = "Precio Vta. Distribuidores y comercios"
-        Label4.Text = "P. Vta. Dist/Com:"
+        Label4.Text = "P. Vta. Distribuidor:"
         '
         'Label5
         '
@@ -504,6 +504,7 @@ Partial Class ABMProductos
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -526,6 +527,7 @@ Partial Class ABMProductos
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Me.ProductosTableAdapter
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing

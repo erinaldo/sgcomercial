@@ -1,11 +1,13 @@
 ﻿Public Class PedidosDeliveryModificar
     Private Sub PedidosDeliveryModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
+        'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapedidosdeliverydetalle' Puede moverla o quitarla según sea necesario.
         Me.ListapedidosdeliverydetalleTableAdapter.FillByIdPedidodelivery(Me.ComercialDataSet.listapedidosdeliverydetalle, gidpedidodelivery)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidosdeliverydetalle' Puede moverla o quitarla según sea necesario.
         Me.PedidosdeliverydetalleTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.pedidosdeliverydetalle, gidpedidodelivery)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidosdelivery' Puede moverla o quitarla según sea necesario.
-        Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
+        'Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapedidosdelivery' Puede moverla o quitarla según sea necesario.
         'Me.ListapedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.listapedidosdelivery)
         Me.ListapedidosdeliveryTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.listapedidosdelivery, gidpedidodelivery)
@@ -67,5 +69,40 @@
             'VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(7).Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
             'recuento()
         End If
+    End Sub
+
+    Private Sub ListapedidosdeliverydetalleDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliverydetalleDataGridView.CellClick
+        Try
+            Select Case ListapedidosdeliverydetalleDataGridView.Columns(e.ColumnIndex).Name
+                Case "modificar"
+                    'If e.KeyCode = Keys.Multiply Then
+                    Dim p As SeleccionarCantidad
+                        p = New SeleccionarCantidad
+                        gcodigoproducto = 0
+                    p.ShowDialog()
+                    p.TextBox1.Text = ListapedidosdeliverydetalleDataGridView.Rows(e.RowIndex).Cells("cantidad").Value
+                    If Not gcantidad > 0 Then
+                        Return
+                    End If
+                    Dim cantidad As Decimal = gcantidad
+                    Dim listaprecio As Long = ListapedidosdeliverydetalleDataGridView.Rows(e.RowIndex).Cells("idlistaprecio").Value
+                    Dim idproducto As Long = ListapedidosdeliverydetalleDataGridView.Rows(e.RowIndex).Cells("idproducto").Value
+                    Dim precio As Decimal
+                    precio = ProductosTableAdapter.productos_calculaprecio(idproducto, listaprecio, cantidad)
+                    If Not precio > 0 Then
+                        Return
+                    End If
+                    PedidosdeliverydetalleTableAdapter.pedidosdeliverydetalle_modificapreciocantidad(cantidad, precio, gidpedidodelivery, idproducto)
+                    Me.ListapedidosdeliverydetalleTableAdapter.FillByIdPedidodelivery(Me.ComercialDataSet.listapedidosdeliverydetalle, gidpedidodelivery)
+                Case "eliminar"
+                    If MsgBox("Seguro desea eliminar el artículo del pedido?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                        PedidosdeliverydetalleTableAdapter.pedidodeliverydetalle_eliminar(ListapedidosdeliverydetalleDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value, ListapedidosdeliverydetalleDataGridView.Rows(e.RowIndex).Cells("idproducto").Value)
+                        Me.ListapedidosdeliverydetalleTableAdapter.FillByIdPedidodelivery(Me.ComercialDataSet.listapedidosdeliverydetalle, gidpedidodelivery)
+                    End If
+            End Select
+        Catch ex As Exception
+            MsgBox("No se pudo realizar la operación: " + ex.Message)
+        End Try
+
     End Sub
 End Class
