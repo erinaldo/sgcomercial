@@ -90,23 +90,23 @@ Public Class Cajasmovimientos
     End Sub
 
     Private Sub MovimientoscajasDataGridView_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles MovimientoscajasDataGridView.CellClick
-        If MovimientoscajasDataGridView.CurrentRow.Cells(3).Value = "Cambio Dif. (+)" Then Return
+        If MovimientoscajasDataGridView.CurrentRow.Cells("nombre").Value = "Cambio Dif. (+)" Then Return
         Dim i As Integer = 0
         If MovimientoscajasDataGridView.CurrentCell.ColumnIndex >= 0 Then
-            Select Case MovimientoscajasDataGridView.CurrentCell.ColumnIndex
-                Case 3
+            Select Case MovimientoscajasDataGridView.Columns(e.ColumnIndex).Name
+                Case "idventa"
                     Dim p As ConsultarVenta
                     p = New ConsultarVenta
-                    gidoperacion = MovimientoscajasDataGridView.CurrentRow.Cells(6).Value
+                    gidoperacion = MovimientoscajasDataGridView.CurrentRow.Cells("idoperacion").Value
                     gidventa = CajasoperacionesTableAdapter.cajasoperaciones_consultaridventa(gidoperacion)
                     p.ShowDialog()
-                Case 4
+                Case "nombre"
                     Dim p As ConsultarVenta
                     p = New ConsultarVenta
-                    gidoperacion = MovimientoscajasDataGridView.CurrentRow.Cells(6).Value
+                    gidoperacion = MovimientoscajasDataGridView.CurrentRow.Cells("idoperacion").Value
                     gidventa = CajasoperacionesTableAdapter.cajasoperaciones_consultaridventa(gidoperacion)
                     p.ShowDialog()
-                Case 5
+                Case "anular"
                     If MsgBox("Seguro desea anular la operación?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
                         If MsgBox("Esta operacion anulará la venta y todos sus comprobantes de pago asociados. Desea continuar?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
                             CajasoperacionesTableAdapter.cajasoperaciones_bajaoperacionventa(MovimientoscajasDataGridView.CurrentRow.Cells("idoperacion").Value, gusername)
@@ -114,9 +114,9 @@ Public Class Cajasmovimientos
                             Me.CajasmovimientosTableAdapter.Fill(Me.ComercialDataSet.cajasmovimientos)
                             Me.V_gastosTableAdapter.Fill(Me.ComercialDataSet.v_gastos)
                             '***************************** filtrar ingresos y gastos
-                            CajasmovimientosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
-                            VgastosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
-                            calculartotales(CajaseventosDataGridView.CurrentRow.Cells(0).Value())
+                            CajasmovimientosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value().ToString
+                            VgastosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value().ToString
+                            calculartotales(CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value())
                         Else
                             MsgBox("Operacion cancelada")
                         End If
@@ -131,7 +131,7 @@ Public Class Cajasmovimientos
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
 
-        gideventoseleccionado = CajaseventosTableAdapter.cajaseventos_isopen(CajaseventosDataGridView.Rows(CajaseventosDataGridView.CurrentRow.Index).Cells(1).Value)
+        gideventoseleccionado = CajaseventosTableAdapter.cajaseventos_isopen(CajaseventosDataGridView.Rows(CajaseventosDataGridView.CurrentRow.Index).Cells("idcaja").Value)
 
         If gideventoseleccionado > 0 Then
             '************ abro pantalla arqueo FINAL para ver estado ******************

@@ -49,7 +49,7 @@ Partial Class ConsultarVenta
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LibroventasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
@@ -57,12 +57,11 @@ Partial Class ConsultarVenta
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.totaltextbox = New System.Windows.Forms.TextBox()
-        Me.cantidadtextbox = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.VentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VentasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ventasTableAdapter()
         Me.PagosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pagosTableAdapter()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         FechaventaLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         CuitLabel = New System.Windows.Forms.Label()
@@ -281,7 +280,7 @@ Partial Class ConsultarVenta
         Me.LibroventasdetalleDataGridView.AllowUserToResizeRows = False
         Me.LibroventasdetalleDataGridView.AutoGenerateColumns = False
         Me.LibroventasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LibroventasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
+        Me.LibroventasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.subtotal})
         Me.LibroventasdetalleDataGridView.DataSource = Me.LibroventasdetalleBindingSource
         Me.LibroventasdetalleDataGridView.Location = New System.Drawing.Point(23, 26)
         Me.LibroventasdetalleDataGridView.Margin = New System.Windows.Forms.Padding(4)
@@ -324,12 +323,12 @@ Partial Class ConsultarVenta
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn5
+        'subtotal
         '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "precioventa"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Sub Total ($)"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.subtotal.DataPropertyName = "precioventa"
+        Me.subtotal.HeaderText = "Sub Total ($)"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
         '
         'LibroventasdetalleBindingSource
         '
@@ -349,11 +348,13 @@ Partial Class ConsultarVenta
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -376,6 +377,7 @@ Partial Class ConsultarVenta
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -403,11 +405,10 @@ Partial Class ConsultarVenta
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.LinkLabel1)
         Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Controls.Add(Me.totaltextbox)
-        Me.GroupBox3.Controls.Add(Me.cantidadtextbox)
         Me.GroupBox3.Controls.Add(Me.Label2)
-        Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Location = New System.Drawing.Point(17, 560)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
@@ -419,7 +420,7 @@ Partial Class ConsultarVenta
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(253, 30)
+        Me.Button1.Location = New System.Drawing.Point(62, 33)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(115, 25)
         Me.Button1.TabIndex = 4
@@ -428,47 +429,25 @@ Partial Class ConsultarVenta
         '
         'totaltextbox
         '
+        Me.totaltextbox.Cursor = System.Windows.Forms.Cursors.Hand
         Me.totaltextbox.Enabled = False
         Me.totaltextbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.totaltextbox.Location = New System.Drawing.Point(521, 25)
+        Me.totaltextbox.Location = New System.Drawing.Point(355, 30)
         Me.totaltextbox.Margin = New System.Windows.Forms.Padding(4)
         Me.totaltextbox.Name = "totaltextbox"
         Me.totaltextbox.Size = New System.Drawing.Size(121, 30)
         Me.totaltextbox.TabIndex = 3
         '
-        'cantidadtextbox
-        '
-        Me.cantidadtextbox.Enabled = False
-        Me.cantidadtextbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cantidadtextbox.Location = New System.Drawing.Point(275, 25)
-        Me.cantidadtextbox.Margin = New System.Windows.Forms.Padding(4)
-        Me.cantidadtextbox.Name = "cantidadtextbox"
-        Me.cantidadtextbox.Size = New System.Drawing.Size(75, 30)
-        Me.cantidadtextbox.TabIndex = 2
-        Me.cantidadtextbox.Visible = False
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(375, 30)
+        Me.Label2.Location = New System.Drawing.Point(209, 33)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(134, 25)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Monto Total:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(9, 30)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(237, 25)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Cantidad de productos:"
-        Me.Label1.Visible = False
         '
         'VentasBindingSource
         '
@@ -482,6 +461,16 @@ Partial Class ConsultarVenta
         'PagosTableAdapter
         '
         Me.PagosTableAdapter.ClearBeforeFill = True
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(515, 35)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(115, 17)
+        Me.LinkLabel1.TabIndex = 5
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Detalle de pagos"
         '
         'ConsultarVenta
         '
@@ -526,16 +515,9 @@ Partial Class ConsultarVenta
     Friend WithEvents LibroventasdetalleBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents LibroventasdetalleTableAdapter As sgcomercial.comercialDataSetTableAdapters.libroventasdetalleTableAdapter
     Friend WithEvents LibroventasdetalleDataGridView As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents totaltextbox As System.Windows.Forms.TextBox
-    Friend WithEvents cantidadtextbox As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Button1 As Button
     Friend WithEvents VentasBindingSource As BindingSource
     Friend WithEvents VentasTableAdapter As comercialDataSetTableAdapters.ventasTableAdapter
@@ -548,4 +530,10 @@ Partial Class ConsultarVenta
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents subtotal As DataGridViewTextBoxColumn
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class

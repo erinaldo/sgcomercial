@@ -140,7 +140,7 @@ Partial Class RegistrarVenta
         Me.GFP2 = New System.Windows.Forms.GroupBox()
         Me.CheckBoxFP2 = New System.Windows.Forms.CheckBox()
         Me.NrocomprobanteTextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LabelMontoFP2 = New System.Windows.Forms.Label()
         Me.pagotextbox2 = New System.Windows.Forms.TextBox()
         Me.idformapagocombo2 = New System.Windows.Forms.ComboBox()
         Me.FormaspagoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
@@ -848,10 +848,12 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -874,6 +876,7 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -1000,10 +1003,11 @@ Partial Class RegistrarVenta
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(327, 26)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(316, 26)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(72, 17)
+        Me.Label4.Size = New System.Drawing.Size(84, 18)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Paga con:"
         '
@@ -1125,7 +1129,7 @@ Partial Class RegistrarVenta
         Me.GFP2.Controls.Add(Me.CheckBoxFP2)
         Me.GFP2.Controls.Add(Label7)
         Me.GFP2.Controls.Add(Me.NrocomprobanteTextBox2)
-        Me.GFP2.Controls.Add(Me.Label6)
+        Me.GFP2.Controls.Add(Me.LabelMontoFP2)
         Me.GFP2.Controls.Add(Me.pagotextbox2)
         Me.GFP2.Controls.Add(Label2)
         Me.GFP2.Controls.Add(Me.idformapagocombo2)
@@ -1154,15 +1158,19 @@ Partial Class RegistrarVenta
         Me.NrocomprobanteTextBox2.Size = New System.Drawing.Size(144, 22)
         Me.NrocomprobanteTextBox2.TabIndex = 20
         '
-        'Label6
+        'LabelMontoFP2
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(367, 30)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(51, 17)
-        Me.Label6.TabIndex = 16
-        Me.Label6.Text = "Monto:"
+        Me.LabelMontoFP2.AccessibleDescription = "Click para autocompletar el monto"
+        Me.LabelMontoFP2.AutoSize = True
+        Me.LabelMontoFP2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LabelMontoFP2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelMontoFP2.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.LabelMontoFP2.Location = New System.Drawing.Point(359, 30)
+        Me.LabelMontoFP2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabelMontoFP2.Name = "LabelMontoFP2"
+        Me.LabelMontoFP2.Size = New System.Drawing.Size(61, 18)
+        Me.LabelMontoFP2.TabIndex = 16
+        Me.LabelMontoFP2.Text = "Monto:"
         '
         'pagotextbox2
         '
@@ -1351,7 +1359,7 @@ Partial Class RegistrarVenta
     Friend WithEvents listasprecios As DataGridViewTextBoxColumn
     Friend WithEvents GFP2 As GroupBox
     Friend WithEvents NrocomprobanteTextBox2 As TextBox
-    Friend WithEvents Label6 As Label
+    Friend WithEvents LabelMontoFP2 As Label
     Friend WithEvents pagotextbox2 As TextBox
     Friend WithEvents idformapagocombo2 As ComboBox
     Friend WithEvents CheckBoxFP2 As CheckBox

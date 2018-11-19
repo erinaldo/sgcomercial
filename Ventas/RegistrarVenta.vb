@@ -102,6 +102,7 @@ Public Class RegistrarVenta
         PictureBox1.Enabled = status
         BtnDescuento.Enabled = status
         CheckBoxFP2.Enabled = status
+        LabelMontoFP2.Enabled = status
         '''''''''''''''''''''''''''' permiso GenVale
         If permisoGenVale = 0 Then
             CheckBoxVale.Enabled = False
@@ -121,7 +122,14 @@ Public Class RegistrarVenta
         labeltotal.Text = ""
         idformapagocombo.SelectedIndex = 0
         NrocomprobanteTextBox.Text = Nothing
-        CheckBoxVale.Checked = False
+        '''''''''''''''''''''''''''' permiso GenVale
+        If permisoGenVale = 0 Then
+            CheckBoxVale.Enabled = False
+        Else
+            CheckBoxVale.Enabled = True
+        End If
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        CheckBoxFP2.Checked = False
     End Sub
 
     Private Sub BtnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCancelar.Click
@@ -139,6 +147,10 @@ Public Class RegistrarVenta
         labeltotal.Text = ""
         NrocomprobanteTextBox.Text = ""
         gclienteseleccionado = Nothing
+        CheckBoxFP2.Checked = False
+        pagotextbox2.Text = ""
+        NrocomprobanteTextBox2.Text = ""
+        LabelMontoFP2.Enabled = False
     End Sub
     Private Sub BtnConfirmar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnConfirmar.Click
         Dim valida As Boolean
@@ -310,6 +322,9 @@ Public Class RegistrarVenta
             VentasdetalleDataGridView.Rows.Clear()
             recuento()
             enablefields(False)
+            CheckBoxFP2.Checked = False
+            pagotextbox2.Text = ""
+            NrocomprobanteTextBox2.Text = ""
             '******************* 
             '****** impresion ticket
             '******************* 
@@ -373,6 +388,11 @@ Public Class RegistrarVenta
             End If
             If Val(pagotextbox2.Text) = 0 Then
                 MsgBox("Monto 2 insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
+                pagotextbox.Select()
+                Return
+            End If
+            If Val(pagotextbox.Text) = 0 Then
+                MsgBox("Monto 1 Incorrecto", MsgBoxStyle.Exclamation, "Advertencia")
                 pagotextbox.Select()
                 Return
             End If
@@ -818,28 +838,42 @@ Public Class RegistrarVenta
             Next
             total = Decimal.Round(total, 2)
             '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
-            If idformapagocombo.Text = "Tarjeta de Crédito" And grecargoTC > 0 Then ' aplicar recargo en todos los items
-                For i = 0 To VentasdetalleDataGridView.RowCount - 1
-                    precio = VentasdetalleDataGridView.Rows(i).Cells(4).Value + (VentasdetalleDataGridView.Rows(i).Cells(4).Value * grecargoTC) / 100
+            If grecargoTC > 0 Then
+                If idformapagocombo.Text = "Tarjeta de Crédito" Or idformapagocombo2.Text = "Tarjeta de Crédito" Then ' aplicar recargo en todos los items
+                    'For i = 0 To VentasdetalleDataGridView.RowCount - 1
+                    'precio = VentasdetalleDataGridView.Rows(i).Cells(4).Value + (VentasdetalleDataGridView.Rows(i).Cells(4).Value * grecargoTC) / 100
                     'VentasdetalleDataGridView.Rows(i).Cells(4).Value = precio
-                Next
-                total = total + (total * grecargoTC) / 100
-                total = Math.Round(total, 2)
+                    'Next
+                    total = total + (total * grecargoTC) / 100
+                    total = Math.Round(total, 2)
+                End If
             End If
-            '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
+            '*********  FIN calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
             '*****************************************************
             'labelcantidad.Text = cantidad.ToString
             labeltotal.Text = total.ToString
             LabelTotalVisible.Text = "$ " + total.ToString
-            '************ monto automatico debito   *************
+            '************ monto automatico DEBITO/CREDITO   *************
             Select Case idformapagocombo.Text
                 Case "Débito"
                     pagotextbox.Text = total
                 Case "Tarjeta de Crédito"
                     pagotextbox.Text = total
-                Case Else
-                    pagotextbox.Text = Nothing
+                    'Case Else
+                    '    pagotextbox.Text = Nothing
             End Select
+            Try
+                If CheckBoxFP2.Checked = True Then
+                    Select Case idformapagocombo2.Text
+                        Case "Débito"
+                            pagotextbox2.Text = total - pagotextbox.Text
+                        Case "Tarjeta de Crédito"
+                            pagotextbox2.Text = total - pagotextbox.Text
+                    End Select
+                End If
+            Catch ex As Exception
+
+            End Try
             '****************************************************
         Else
             total = 0
@@ -1119,6 +1153,7 @@ Public Class RegistrarVenta
             NrocomprobanteTextBox2.Enabled = CheckBoxFP2.Checked
             LabelVuelto.Visible = False
             vueltotextbox.Visible = False
+            LabelMontoFP2.Enabled = True
             Try
                 Dim monto1 As Decimal = pagotextbox.Text
                 Dim monto2 As Decimal = labeltotal.Text
@@ -1133,6 +1168,8 @@ Public Class RegistrarVenta
             NrocomprobanteTextBox2.Enabled = CheckBoxFP2.Checked
             LabelVuelto.Visible = True
             vueltotextbox.Visible = True
+            idformapagocombo2.SelectedIndex = -1
+            LabelMontoFP2.Enabled = False
         End If
         '********************************************
     End Sub
@@ -1157,5 +1194,40 @@ Public Class RegistrarVenta
             'MessageBox.Show("Solo se permiten numeros")
             e.KeyChar = ""
         End If
+    End Sub
+
+    Private Sub idformapagocombo2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles idformapagocombo2.SelectedIndexChanged
+        recuento()
+        '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
+        If grecargoTC > 0 Then
+            If idformapagocombo.Text = "Tarjeta de Crédito" Or idformapagocombo2.Text = "Tarjeta de Crédito" Then ' aplicar recargo en todos los items
+                total = 0
+                For i = 0 To VentasdetalleDataGridView.RowCount - 1
+                    precio = VentasdetalleDataGridView.Rows(i).Cells(4).Value
+                    total = total + precio
+                Next
+                total = total + (total * grecargoTC) / 100
+                total = Math.Round(total, 2)
+            End If
+        End If
+        '*********  FIN calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
+        '*****************************************************
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles LabelMontoFP2.Click
+        Try
+            If CheckBoxFP2.Checked = True Then
+                Select Case idformapagocombo2.Text
+                    'Case "Débito"
+                    '    pagotextbox2.Text = total - pagotextbox.Text
+                    'Case "Tarjeta de Crédito"
+                    Case Else
+                        pagotextbox2.Text = total - pagotextbox.Text
+                End Select
+            End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class

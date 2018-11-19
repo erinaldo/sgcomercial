@@ -202,11 +202,13 @@ Partial Class VentaDetallePagosRealizados
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -229,6 +231,7 @@ Partial Class VentaDetallePagosRealizados
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -285,6 +288,8 @@ Partial Class VentaDetallePagosRealizados
         '
         Me.ListapagosDataGridView.AllowUserToAddRows = False
         Me.ListapagosDataGridView.AllowUserToDeleteRows = False
+        Me.ListapagosDataGridView.AllowUserToResizeColumns = False
+        Me.ListapagosDataGridView.AllowUserToResizeRows = False
         Me.ListapagosDataGridView.AutoGenerateColumns = False
         Me.ListapagosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ListapagosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
@@ -301,6 +306,7 @@ Partial Class VentaDetallePagosRealizados
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "idpagos"
         Me.DataGridViewTextBoxColumn1.HeaderText = "Nº"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.ToolTipText = "Nº"
         '
         'DataGridViewTextBoxColumn4
@@ -308,6 +314,7 @@ Partial Class VentaDetallePagosRealizados
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "importe"
         Me.DataGridViewTextBoxColumn4.HeaderText = "Importe"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
         Me.DataGridViewTextBoxColumn4.ToolTipText = "Importe"
         '
         'DataGridViewTextBoxColumn5
@@ -315,12 +322,14 @@ Partial Class VentaDetallePagosRealizados
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "nrocomprobante"
         Me.DataGridViewTextBoxColumn5.HeaderText = "Nº comprobante"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "fechapago"
         Me.DataGridViewTextBoxColumn6.HeaderText = "Fecha"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
         Me.DataGridViewTextBoxColumn6.Width = 150
         '
         'DataGridViewTextBoxColumn7
@@ -328,6 +337,7 @@ Partial Class VentaDetallePagosRealizados
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "descripcion"
         Me.DataGridViewTextBoxColumn7.HeaderText = "Forma Pago"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
         Me.DataGridViewTextBoxColumn7.Width = 170
         '
         'ListapagosBindingSource
@@ -350,6 +360,7 @@ Partial Class VentaDetallePagosRealizados
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "VentaDetallePagosRealizados"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Detalle de pagos asociados"
         CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()

@@ -145,11 +145,11 @@ Public Class AltaPedidoDelivery
         p.ShowDialog()
         ''***********************
         If Val(gcantidad) = 0 Then Return
-        productodisponible = StockTableAdapter.stock_consultardisponible(gcodigoproducto)
-        productodisponibleenvasado = StockTableAdapter.stock_consultardisponibleenvasado(gcodigoproducto)
-        'Labelproducto.Text = gproductodescripcion
         v_precioventa = gprecioventa
         idproducto = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
+        '--------------------------------------------------------------------------
+        productodisponible = StockTableAdapter.stock_consultardisponible(idproducto)
+        productodisponibleenvasado = StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
         descripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
         unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(gcodigoproducto)
         medida = ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
