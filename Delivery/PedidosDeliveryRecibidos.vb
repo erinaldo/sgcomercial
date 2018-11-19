@@ -49,6 +49,7 @@
 
     Private Sub ListapedidosdeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellClick
         Try
+            Dim estadopedido As String = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("estado").Value
             Select Case ListapedidosdeliveryDataGridView.Columns(e.ColumnIndex).Name
                 Case "imprimircomanda" ' imprimir orden de produccion
                     Dim p As ViewerComanda
@@ -56,7 +57,6 @@
                     gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value
                     Dim idpedidoweb As Long
                     idpedidoweb = PedidosdeliveryTableAdapter.pedidosdelivery_consultarIDPedidoWeb(gidpedidodelivery)
-                    Dim estadopedido As String = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("estado").Value
                     p.ShowDialog()
                     If estadopedido = "RECIBIDO" Then
                         Try
@@ -71,6 +71,10 @@
                         colorear()
                     End If
                 Case "Pagar" ' cargar pago
+                    If estadopedido = "CANCELADO" Then
+                        MsgBox("Opción no disponible", MsgBoxStyle.Exclamation, "Advertencia")
+                        Return
+                    End If
                     If ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("saldo").Value > 0 Then
                         Dim p As PedidosDeliveryPagar
                         p = New PedidosDeliveryPagar
@@ -88,7 +92,10 @@
                         MsgBox("El pedido ya se encuentra pagado!", MsgBoxStyle.Information)
                     End If
                 Case "Baja"
-                    Dim estadopedido As String = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("estado").Value
+                    If estadopedido = "CANCELADO" Then
+                        MsgBox("Opción no disponible", MsgBoxStyle.Exclamation, "Advertencia")
+                        Return
+                    End If
                     If Not estadopedido = "DESPACHADO" And Not estadopedido = "ENTREGADO" Then
                         If MsgBox("Seguro desea dar de baja el pedido seleccionado?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
                             PedidosdeliveryTableAdapter.pedidosdelivery_baja(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value)
@@ -98,6 +105,10 @@
                         MsgBox("No puede cancelar un pedido DESPACHADO/ENTREGADO")
                     End If
                 Case "modificar"
+                    If estadopedido = "CANCELADO" Then
+                        MsgBox("Opción no disponible", MsgBoxStyle.Exclamation, "Advertencia")
+                        Return
+                    End If
                     Dim j As PedidosDeliveryModificar
                     j = New PedidosDeliveryModificar
                     gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value
@@ -109,7 +120,7 @@
             End Select
 
         Catch ex As Exception
-
+            MsgBox("No se pudo completar la operación: " + ex.Message)
         End Try
     End Sub
 

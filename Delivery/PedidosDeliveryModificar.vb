@@ -95,6 +95,13 @@
                     PedidosdeliverydetalleTableAdapter.pedidosdeliverydetalle_modificapreciocantidad(cantidad, precio, gidpedidodelivery, idproducto)
                     Me.ListapedidosdeliverydetalleTableAdapter.FillByIdPedidodelivery(Me.ComercialDataSet.listapedidosdeliverydetalle, gidpedidodelivery)
                 Case "eliminar"
+                    If ListapedidosdeliverydetalleDataGridView.RowCount = 1 Then
+                        If MsgBox("Si elimina el último artículo de la lista el pedido se cancela automaticamente. Desea continuar?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                            PedidosdeliveryTableAdapter.pedidosdelivery_baja(gidpedidodelivery)
+                            Me.Close()
+                            Return
+                        End If
+                    End If
                     If MsgBox("Seguro desea eliminar el artículo del pedido?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
                         PedidosdeliverydetalleTableAdapter.pedidodeliverydetalle_eliminar(ListapedidosdeliverydetalleDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value, ListapedidosdeliverydetalleDataGridView.Rows(e.RowIndex).Cells("idproducto").Value)
                         Me.ListapedidosdeliverydetalleTableAdapter.FillByIdPedidodelivery(Me.ComercialDataSet.listapedidosdeliverydetalle, gidpedidodelivery)
