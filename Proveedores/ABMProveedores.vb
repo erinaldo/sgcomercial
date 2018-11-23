@@ -37,6 +37,7 @@
         EmailTextBox.Enabled = status
         'CondicionivaComboBox.Enabled = status
         PersonacontactoTextBox.Enabled = status
+        ComboCondicionIVA.Enabled = status
         If status = True Then
             ProveedoresDataGridView.Enabled = False
         Else

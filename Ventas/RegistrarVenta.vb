@@ -67,6 +67,7 @@ Public Class RegistrarVenta
         Labelproducto.Text = ""
         stockdisp.Visible = False
         NrocomprobanteTextBox.Text = ""
+        fechavencimientoDateTimePicker.Enabled = False
 
         '******************* 
         '****** BCScanerCR
@@ -103,6 +104,7 @@ Public Class RegistrarVenta
         BtnDescuento.Enabled = status
         CheckBoxFP2.Enabled = status
         LabelMontoFP2.Enabled = status
+
         '''''''''''''''''''''''''''' permiso GenVale
         If permisoGenVale = 0 Then
             CheckBoxVale.Enabled = False
@@ -154,15 +156,15 @@ Public Class RegistrarVenta
     End Sub
     Private Sub BtnConfirmar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnConfirmar.Click
         Dim valida As Boolean
+        validardatos(valida)
+        If valida = False Then Return
+        '================================
         Dim idproducto As Long
-        If pagotextbox.Text = "" Then Return
+        'If pagotextbox.Text = "" And Not idformapagocombo.Text = "Cuenta Corriente" Then Return
         Dim pago As Decimal = pagotextbox.Text
         Dim tot As Decimal = labeltotal.Text
         Dim monto1 As Decimal
         Dim monto2 As Decimal
-        '******************
-        validardatos(valida)
-        If valida = False Then Return
         '*******************
         '****************************   validar FORMAS DE PAGO  ****************************
         If CheckBoxFP2.Checked = True Then
@@ -220,7 +222,7 @@ Public Class RegistrarVenta
             End If
             'total = labeltotal.Text
             '********* insertar cabecera
-            idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, idformapagocombo.SelectedValue, Idtipocomprobantecombo.SelectedValue, gusername, NrocomprobanteTextBox.Text)
+            idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, idformapagocombo.SelectedValue, Idtipocomprobantecombo.SelectedValue, gusername, NrocomprobanteTextBox.Text, FechavencimientoDateTimePicker.Value)
             'MsgBox(idventas.ToString)
             '********* insertar detalle
             Dim i As Integer = 0
@@ -251,60 +253,67 @@ Public Class RegistrarVenta
                     Return
                 End If
             Next
+
             '**************************************************************
-            '**** INSERTAR EL PAGO *******************************************
+            '************   PREGUNTO SI =NO= ES UNA VENTA A CUENTA CORRIENTE
             '**************************************************************
-            If CheckBoxFP2.Checked = True Then
-                '*****************  EL PRIMER PAGO COMBINADO   **********************
-                idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), monto1, Today(), idformapagocombo.SelectedValue, NrocomprobanteTextBox.Text)
-                If idpagos > 0 Then
+            If Not idformapagocombo.Text = "Cuenta Corriente" Then
+                '**************************************************************
+                '**** INSERTAR EL PAGO *******************************************
+                '**************************************************************
+                If CheckBoxFP2.Checked = True Then
+                    '*****************  EL PRIMER PAGO COMBINADO   **********************
+                    idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), monto1, Today(), idformapagocombo.SelectedValue, NrocomprobanteTextBox.Text)
+                    If idpagos > 0 Then
+                        '**************************************************************
+                        '***** insertar movimiento de caja PAGO 1
+                        '**************************************************************
+                        idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, monto1, gusername, idvale)
+                        If idoperacioncaja > 0 Then
+                        Else
+                            MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
+                            Return
+                        End If
+                        idpagos = Nothing
+                    Else
+                        MsgBox("Ocurrio un error al registrar el pago 1", MsgBoxStyle.Information, "Advertencia")
+                        Return
+                    End If
+                    '*****************  EL SEGUNDO PAGO COMBINADO   **********************
+                    idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), monto2, Today(), idformapagocombo2.SelectedValue, NrocomprobanteTextBox2.Text)
+                    If idpagos > 0 Then
+                        '**************************************************************
+                        '***** insertar movimiento de caja PAGO 2
+                        '**************************************************************
+                        idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo2.SelectedValue, monto2, gusername, idvale)
+                        If idoperacioncaja > 0 Then
+                        Else
+                            MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
+                            Return
+                        End If
+                    Else
+                        MsgBox("Ocurrio un error al registrar el pago 2", MsgBoxStyle.Information, "Advertencia")
+                        Return
+                    End If
+                Else
+                    idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), total, Today(), idformapagocombo.SelectedValue, NrocomprobanteTextBox.Text)
+                    If idpagos > 0 Then
+                    Else
+                        MsgBox("Ocurrio un error al registrar el pago", MsgBoxStyle.Information, "Advertencia")
+                        Return
+                    End If
                     '**************************************************************
-                    '***** insertar movimiento de caja PAGO 1
+                    '***** insertar movimiento de caja
                     '**************************************************************
-                    idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, monto1, gusername, idvale)
+                    idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, total, gusername, idvale)
                     If idoperacioncaja > 0 Then
                     Else
                         MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
                         Return
                     End If
-                    idpagos = Nothing
-                Else
-                    MsgBox("Ocurrio un error al registrar el pago 1", MsgBoxStyle.Information, "Advertencia")
-                    Return
-                End If
-                '*****************  EL SEGUNDO PAGO COMBINADO   **********************
-                idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), monto2, Today(), idformapagocombo2.SelectedValue, NrocomprobanteTextBox2.Text)
-                If idpagos > 0 Then
-                    '**************************************************************
-                    '***** insertar movimiento de caja PAGO 2
-                    '**************************************************************
-                    idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo2.SelectedValue, monto2, gusername, idvale)
-                    If idoperacioncaja > 0 Then
-                    Else
-                        MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
-                        Return
-                    End If
-                Else
-                    MsgBox("Ocurrio un error al registrar el pago 2", MsgBoxStyle.Information, "Advertencia")
-                    Return
-                End If
-            Else
-                idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), total, Today(), idformapagocombo.SelectedValue, NrocomprobanteTextBox.Text)
-                If idpagos > 0 Then
-                Else
-                    MsgBox("Ocurrio un error al registrar el pago", MsgBoxStyle.Information, "Advertencia")
-                    Return
-                End If
-                '**************************************************************
-                '***** insertar movimiento de caja
-                '**************************************************************
-                idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, total, gusername, idvale)
-                If idoperacioncaja > 0 Then
-                Else
-                    MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
-                    Return
                 End If
             End If
+
             '**************************************************************
             'MsgBox("Venta registrada exitosamente", MsgBoxStyle.Information, "Infomración")
             '********************************************************************************************
@@ -356,6 +365,10 @@ Public Class RegistrarVenta
     End Sub
     Private Sub validardatos(ByRef valida As Boolean)
         '******************* valida cargade datos   *********************
+        If idformapagocombo.Text = "Cuenta Corriente" And Val(IdclienteTextBox.Text) = 1 Then
+            MsgBox("Seleccione un cliente válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         If VentasdetalleDataGridView.RowCount = 0 Then
             MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
             valida = False
@@ -379,6 +392,18 @@ Public Class RegistrarVenta
             valida = False
             Return
         End If
+
+        If Val(pagotextbox.Text) = 0 Then
+            If idformapagocombo.Text = "Cuenta Corriente" Then
+                pagotextbox.Text = total.ToString
+                CheckBoxFP2.Checked = False
+            Else
+                MsgBox("Monto 1 Incorrecto", MsgBoxStyle.Exclamation, "Advertencia")
+                pagotextbox.Select()
+                Return
+            End If
+        End If
+
         If CheckBoxFP2.Checked = True Then '**** forma de pago 2
             If Val(idformapagocombo2.SelectedValue) > 0 Then
             Else
@@ -391,12 +416,8 @@ Public Class RegistrarVenta
                 pagotextbox.Select()
                 Return
             End If
-            If Val(pagotextbox.Text) = 0 Then
-                MsgBox("Monto 1 Incorrecto", MsgBoxStyle.Exclamation, "Advertencia")
-                pagotextbox.Select()
-                Return
-            End If
         End If
+
 
         valida = True
     End Sub
@@ -1139,10 +1160,20 @@ Public Class RegistrarVenta
             BtnConfirmar.PerformClick()
         End If
     End Sub
-
+    Private Sub VtaCC()
+        If idformapagocombo.Text = "Cuenta Corriente" Then
+            If PermisoVtaCC = 0 Then
+                MsgBox("No tiene permisos para utilizar esta función", MsgBoxStyle.Exclamation)
+                Return
+            Else
+                FechavencimientoDateTimePicker.Enabled = True
+                CheckBoxFP2.Checked = False
+            End If
+        End If
+    End Sub
     Private Sub idformapagocombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles idformapagocombo.SelectedIndexChanged
         recuento()
-
+        VtaCC()
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxFP2.CheckedChanged

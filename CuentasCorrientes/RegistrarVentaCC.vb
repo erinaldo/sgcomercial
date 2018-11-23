@@ -100,6 +100,7 @@ Public Class RegistrarVentaCC
         pagotextbox.Enabled = status
         PictureBox1.Enabled = status
         BtnDescuento.Enabled = status
+        VencimientoDateTimePicker.Enabled = status
         '''''''''''''''''''''''''''' permiso GenVale
         If permisoGenVale = 0 Then
             CheckBoxVale.Enabled = False
@@ -144,32 +145,24 @@ Public Class RegistrarVentaCC
         validardatos(valida)
         If valida = False Then Return
         '*******************
-        'If Val(pagotextbox.Text) = 0 Then
-        '    MsgBox("Monto insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
-        '    pagotextbox.Select()
-        '    Return
-        'End If
-        'Dim pago As Decimal = pagotextbox.Text
         Dim tot As Decimal = labeltotal.Text
         If tot = 0 Then
             MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
             Return
         End If
-        'If pago < tot Then
-        '    MsgBox("Monto insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
-        '    pagotextbox.Select()
-        '    Return
-        'End If
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         ''''''''''''''''''''''''''''''''''''' DATOS CARGADOS CORRECTAMENTE! GUARDAMOS LA VENTA  '''''''''''''''''''''''''
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         If MsgBox("Seguro desea guardar la venta?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
             Dim idvale As Integer = Nothing
-
-            '********* insertar cabecera
-            idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, Nothing, 1, gusername, Nothing)
+            '====================================================
+            '********* insertar VENTAS cabecera
+            '====================================================
+            idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, Nothing, 1, gusername, Nothing, VencimientoDateTimePicker.Value)
             'MsgBox(idventas.ToString)
-            '********* insertar detalle
+            '====================================================
+            '********* insertar ventas detalle
+            '====================================================
             Dim i As Integer = 0
             '******** fin recargo
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
@@ -191,7 +184,7 @@ Public Class RegistrarVentaCC
                     Return
                 End If
             Next
-
+            '====================================================
             '**************************************************************
             'MsgBox("Venta registrada exitosamente", MsgBoxStyle.Information, "Infomración")
             '********************************************************************************************

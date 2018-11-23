@@ -24,6 +24,8 @@ Public Class Principal
         If Not gusername = "lucasmartinbs" Then
             cargapermisos()
         End If
+        ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
+        PermisoVtaCC = PermisosTableAdapter.permisos_consultabyidfuncion(guserprofile, 44)
         ''''''''''''''''''''''''''''''''''''''  ALERTA STOCK '''''''''''''''''''''''''''''''''''''
         permiso = 0
         permiso = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "StockParent")
@@ -34,6 +36,7 @@ Public Class Principal
         ''''''''''''''''''''''''''''''''''''''  FIN '''''''''''''''''''''''''''''''''''''
 
         CuadroBienvenida()
+
 
     End Sub
     Public Shared LastSysTime As DateTime

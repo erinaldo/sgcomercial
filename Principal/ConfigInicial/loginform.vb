@@ -3,7 +3,6 @@ Imports System.Data.SqlClient
 
 
 Public Class loginform
-
     Dim sqlserverconnection As SqlConnection
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -76,27 +75,36 @@ Public Class loginform
 
         '********************************
         Try
-                sqlserverconnection = New SqlConnection(sgcomercial.My.MySettings.Default.comercialConnectionString)
-                sqlserverconnection.Open()
-                '=======================================
-                version.Text = "Versión "
-                version.Text += My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString
+            sqlserverconnection = New SqlConnection(sgcomercial.My.MySettings.Default.comercialConnectionString)
+            sqlserverconnection.Open()
+            '=======================================
+            StrSysCurrentVersion = ParametrosgeneralesTableAdapter1.parametrosgenerales_GetPrgstring1("SysCurrentVersion")
+            SysCurrentVersion = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byclave("SysCurrentVersion")
+            StrSysCurrentVersion = "Versión " + StrSysCurrentVersion
+            Dim softwareversion As String
+            version.Text = "Versión "
+            version.Text += My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString
             version.Text += "." + My.Application.Info.Version.Build.ToString
             version.Text += "." + My.Application.Info.Version.MinorRevision.ToString
+            softwareversion = My.Application.Info.Version.Major.ToString + My.Application.Info.Version.Minor.ToString + My.Application.Info.Version.Build.ToString + My.Application.Info.Version.MinorRevision.ToString
             textusuario.Select()
+            If Val(softwareversion) < SysCurrentVersion Then
+                MsgBox("Tu sistema se encuentra desactualizado!", MsgBoxStyle.Exclamation, "Contacto: sistemascomerciales.net")
+                enablebuttons(False)
+            End If
 
-                gidcaja = 0
-                gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
-                '=======================================
-            Catch ex As Exception
-                MsgBox("No se pudo conectar con el servidor LOCAL", MsgBoxStyle.Exclamation)
-                sqlserverconnection.Dispose()
-                textusuario.Enabled = False
-                textpassword.Enabled = False
-                Button1.Enabled = False
-                Button2.PerformClick()
-            End Try
-            Cursor.Current = Cursors.Default
+            gidcaja = 0
+            gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
+            '=======================================
+        Catch ex As Exception
+            MsgBox("No se pudo conectar con el servidor LOCAL", MsgBoxStyle.Exclamation)
+            sqlserverconnection.Dispose()
+            textusuario.Enabled = False
+            textpassword.Enabled = False
+            Button1.Enabled = False
+            Button2.PerformClick()
+        End Try
+        Cursor.Current = Cursors.Default
 
     End Sub
     Private Sub enablebuttons(ByVal status As Boolean)

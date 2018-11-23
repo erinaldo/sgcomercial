@@ -8,13 +8,13 @@
   <Shapes>
     <Shape ID="DesignTable:cajaseventos" ZOrder="68" X="8" Y="110" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="121" OldDataTableHeight="140" SplitterPosition="28" />
     <Shape ID="DesignTable:cajasoperaciones" ZOrder="66" X="13" Y="251" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="121" OldDataTableHeight="140" SplitterPosition="28" />
-    <Shape ID="DesignTable:clientes" ZOrder="29" X="707" Y="425" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="168" OldDataTableHeight="145" SplitterPosition="28" />
+    <Shape ID="DesignTable:clientes" ZOrder="29" X="707" Y="425" Height="267" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="168" OldDataTableHeight="145" SplitterPosition="159" />
     <Shape ID="DesignTable:formaspago" ZOrder="10" X="1041" Y="267" Height="62" Width="253" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="64" SplitterPosition="28" />
     <Shape ID="DesignTable:gastos" ZOrder="28" X="699" Y="-86" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="64" OldDataTableHeight="102" SplitterPosition="28" />
     <Shape ID="DesignTable:perfiles" ZOrder="75" X="1038" Y="195" Height="62" Width="238" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="44" OldDataTableHeight="46" SplitterPosition="28" />
     <Shape ID="DesignTable:permisos" ZOrder="62" X="12" Y="891" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="145" OldDataTableHeight="352" SplitterPosition="28" />
     <Shape ID="DesignTable:usuarios" ZOrder="11" X="1036" Y="123" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="214" OldDataTableHeight="287" SplitterPosition="28" />
-    <Shape ID="DesignTable:ventas" ZOrder="27" X="698" Y="129" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="305" OldDataTableHeight="159" SplitterPosition="28" />
+    <Shape ID="DesignTable:ventas" ZOrder="27" X="698" Y="129" Height="324" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="305" OldDataTableHeight="159" SplitterPosition="235" />
     <Shape ID="DesignTable:ventasdetalle" ZOrder="26" X="699" Y="-12" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="168" OldDataTableHeight="191" SplitterPosition="28" />
     <Shape ID="DesignTable:unidadesmedida" ZOrder="5" X="1041" Y="765" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="83" OldDataTableHeight="64" SplitterPosition="28" />
     <Shape ID="DesignTable:tipomovimientostock" ZOrder="48" X="376" Y="129" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="84" OldDataTableHeight="76" SplitterPosition="28" />

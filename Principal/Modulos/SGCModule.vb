@@ -3,6 +3,9 @@
     Public gstrSheetName As New List(Of String)
     Public gstrSheetSelected As String
     '************************************************
+    Public StrSysCurrentVersion As String
+    Public SysCurrentVersion As Long
+    Public PermisoVtaCC As Long
     Public gValidarSTK As String
     Public gbalprefix As String
     Public glistapreferida As Int16
