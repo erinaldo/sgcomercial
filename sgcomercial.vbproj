@@ -186,6 +186,12 @@
     <Compile Include="BarCodePrint\BuscarCodigoInterno.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CuentasCorrientes\AlertaCuentasCorrientes.Designer.vb">
+      <DependentUpon>AlertaCuentasCorrientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\AlertaCuentasCorrientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CuentasCorrientes\CtasCtesPagar.Designer.vb">
       <DependentUpon>CtasCtesPagar.vb</DependentUpon>
     </Compile>
@@ -825,6 +831,9 @@
       <DependentUpon>BuscarCodigoInterno.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BarCodePrint\RepPlantillaBarCode.rdlc" />
+    <EmbeddedResource Include="CuentasCorrientes\AlertaCuentasCorrientes.resx">
+      <DependentUpon>AlertaCuentasCorrientes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\CtasCtesPagar.resx">
       <DependentUpon>CtasCtesPagar.vb</DependentUpon>
     </EmbeddedResource>

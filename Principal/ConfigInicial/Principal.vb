@@ -13,7 +13,7 @@ Public Class Principal
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.modulos' Puede moverla o quitarla según sea necesario.
         Me.ModulosTableAdapter.Fill(Me.ComercialDataSet.modulos)
         Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
-        Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
+        'Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
         '''''''''''''''''''''''''''''''''''
         ParametrosgeneralesTableAdapter.FillByPrgclave(Me.ComercialDataSet.parametrosgenerales, "FondoAplicacion")
         FormPrincipal.BackgroundImage = PictureBox1.Image
@@ -24,21 +24,31 @@ Public Class Principal
         If Not gusername = "lucasmartinbs" Then
             cargapermisos()
         End If
-        ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
-        PermisoVtaCC = PermisosTableAdapter.permisos_consultabyidfuncion(guserprofile, 44)
+
+        EjecutarAlertas()
+        CuadroBienvenida()
+    End Sub
+    Private Sub EjecutarAlertas()
+        '====================================================================
+        ''''''''''''''''''''''''''''''''''''''  ALERTASSSSSSSSSSSS '''''''''''''''''''''''''''''''''''''
+        '====================================================================
         ''''''''''''''''''''''''''''''''''''''  ALERTA STOCK '''''''''''''''''''''''''''''''''''''
         permiso = 0
         permiso = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "StockParent")
         If Not permiso = 0 Then
-            'MsgBox("alerta")
             reloadstock()
         End If
+        ''''''''''''''''''''''''''''''''''''''  ALERTA CUENTAS CORRIENTES '''''''''''''''''''''''''''''''''''''
+        permiso = 0
+        permiso = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "LibroCuentasCorrientes")
+        If Not permiso = 0 Then
+            AlertaCuentasCorrientes()
+        End If
+        '====================================================================
         ''''''''''''''''''''''''''''''''''''''  FIN '''''''''''''''''''''''''''''''''''''
-
-        CuadroBienvenida()
-
-
+        '====================================================================
     End Sub
+
     Public Shared LastSysTime As DateTime
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -98,6 +108,9 @@ Public Class Principal
                 miitem.Visible = False
             End If
         Next
+        ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
+        PermisoVtaCC = PermisosTableAdapter.permisos_consultabyidfuncion(guserprofile, 44)
+
     End Sub
     Private Sub InsertarFunciones(ByVal Oneitem As ToolStripMenuItem, ByVal modulonombre As String)
 
@@ -141,13 +154,13 @@ Public Class Principal
 
         Me.StockalertaTableAdapter.Fill(Me.ComercialDataSet.stockalerta)
         If DataGridViewStockAlerta.RowCount > 0 Then
-            If Alerta1ToolStripMenuItem.Visible = False Then
+            If Alerta1ToolStripMenuItem.Text = "Alerta1" Then
                 Alerta1ToolStripMenuItem.Visible = True
                 NotificacionesToolStripMenuItem.Visible = True
                 Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!"
                 Return
             End If
-            If Alerta2ToolStripMenuItem.Visible = False Then
+            If Alerta2ToolStripMenuItem.Text = "Alerta2" Then
                 NotificacionesToolStripMenuItem.Visible = True
                 Alerta2ToolStripMenuItem.Visible = True
                 Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!"
@@ -155,7 +168,25 @@ Public Class Principal
             End If
         Else
             NotificacionesToolStripMenuItem.Visible = False
-
+        End If
+    End Sub
+    Public Sub AlertaCuentasCorrientes()
+        Me.AlertacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.alertacuentascorrientes)
+        If AlertacuentascorrientesDataGridView.RowCount > 0 Then
+            If Alerta1ToolStripMenuItem.Text = "Alerta1" Then
+                Alerta1ToolStripMenuItem.Visible = True
+                NotificacionesToolStripMenuItem.Visible = True
+                Alerta1ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!"
+                Return
+            End If
+            If Alerta2ToolStripMenuItem.Text = "Alerta2" Then
+                NotificacionesToolStripMenuItem.Visible = True
+                Alerta2ToolStripMenuItem.Visible = True
+                Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!"
+                Return
+            End If
+        Else
+            'NotificacionesToolStripMenuItem.Visible = False
         End If
     End Sub
 
@@ -304,14 +335,7 @@ Public Class Principal
 
     End Sub
 
-    Private Sub Alerta1ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Alerta1ToolStripMenuItem.Click
-        Select Case Alerta1ToolStripMenuItem.Text
-            Case "Se necesita reponer productos!"
-                'Dim p As StockAlerta
-                'p = New StockAlerta
-                StockAlerta.ShowDialog()
-        End Select
-    End Sub
+
 
     Private Sub ActualizacionDePreciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizacionDePreciosToolStripMenuItem.Click
         'Dim p As ActualizacionPrecios
@@ -361,6 +385,7 @@ Public Class Principal
         If Not gusername = "lucasmartinbs" Then
             cargapermisos()
         End If
+        EjecutarAlertas()
     End Sub
 
     Private Sub ABMPedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMPedidosToolStripMenuItem.Click
@@ -648,5 +673,35 @@ Public Class Principal
     Private Sub ImportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarProductosToolStripMenuItem.Click
         ImportarProductos.MdiParent = Me
         ImportarProductos.Visible = True
+    End Sub
+
+
+    Private Sub Alerta1ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Alerta1ToolStripMenuItem.Click
+        Select Case Alerta1ToolStripMenuItem.Text
+            Case "Se necesita reponer productos!"
+                'Dim p As StockAlerta
+                'p = New StockAlerta
+                StockAlerta.ShowDialog()
+            Case "Revisar Cuentas Vencidas!"
+                Dim p As AlertaCuentasCorrientes
+                p = New AlertaCuentasCorrientes
+                p.ShowDialog()
+        End Select
+    End Sub
+    Private Sub Alerta2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Alerta2ToolStripMenuItem.Click
+        Select Case Alerta2ToolStripMenuItem.Text
+            Case "Se necesita reponer productos!"
+                'Dim p As StockAlerta
+                'p = New StockAlerta
+                StockAlerta.ShowDialog()
+            Case "Revisar Cuentas Vencidas!"
+                Dim p As AlertaCuentasCorrientes
+                p = New AlertaCuentasCorrientes
+                p.ShowDialog()
+        End Select
+    End Sub
+
+    Private Sub Principal_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+
     End Sub
 End Class
