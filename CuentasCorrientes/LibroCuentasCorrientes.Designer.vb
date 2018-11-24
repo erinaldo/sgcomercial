@@ -24,35 +24,89 @@ Partial Class LibroCuentasCorrientes
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.LibrocuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LibrocuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librocuentascorrientesTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.LibrocuentascorrientesDataGridView = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.LibrocuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.LibrocuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librocuentascorrientesTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LibrocuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.saldovencido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.LibrocuentascorrientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.LibrocuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ComercialDataSet
+        'LibrocuentascorrientesDataGridView
         '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.LibrocuentascorrientesDataGridView.AllowUserToAddRows = False
+        Me.LibrocuentascorrientesDataGridView.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        Me.LibrocuentascorrientesDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.LibrocuentascorrientesDataGridView.AutoGenerateColumns = False
+        Me.LibrocuentascorrientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.LibrocuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.nombre, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.saldo, Me.saldovencido})
+        Me.LibrocuentascorrientesDataGridView.DataSource = Me.LibrocuentascorrientesBindingSource
+        Me.LibrocuentascorrientesDataGridView.Location = New System.Drawing.Point(15, 93)
+        Me.LibrocuentascorrientesDataGridView.MultiSelect = False
+        Me.LibrocuentascorrientesDataGridView.Name = "LibrocuentascorrientesDataGridView"
+        Me.LibrocuentascorrientesDataGridView.ReadOnly = True
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        Me.LibrocuentascorrientesDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.LibrocuentascorrientesDataGridView.RowTemplate.Height = 24
+        Me.LibrocuentascorrientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.LibrocuentascorrientesDataGridView.Size = New System.Drawing.Size(978, 452)
+        Me.LibrocuentascorrientesDataGridView.TabIndex = 1
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.LibrocuentascorrientesDataGridView)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(1011, 569)
+        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Lista"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(102, 38)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(286, 22)
+        Me.TextBox1.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(34, 41)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(62, 17)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Nombre:"
         '
         'LibrocuentascorrientesBindingSource
         '
         Me.LibrocuentascorrientesBindingSource.DataMember = "librocuentascorrientes"
         Me.LibrocuentascorrientesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'LibrocuentascorrientesTableAdapter
         '
@@ -67,11 +121,13 @@ Partial Class LibroCuentasCorrientes
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -94,6 +150,7 @@ Partial Class LibroCuentasCorrientes
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -114,51 +171,6 @@ Partial Class LibroCuentasCorrientes
         Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
-        'LibrocuentascorrientesDataGridView
-        '
-        Me.LibrocuentascorrientesDataGridView.AllowUserToAddRows = False
-        Me.LibrocuentascorrientesDataGridView.AllowUserToDeleteRows = False
-        Me.LibrocuentascorrientesDataGridView.AutoGenerateColumns = False
-        Me.LibrocuentascorrientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LibrocuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.nombre, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.saldo})
-        Me.LibrocuentascorrientesDataGridView.DataSource = Me.LibrocuentascorrientesBindingSource
-        Me.LibrocuentascorrientesDataGridView.Location = New System.Drawing.Point(15, 93)
-        Me.LibrocuentascorrientesDataGridView.MultiSelect = False
-        Me.LibrocuentascorrientesDataGridView.Name = "LibrocuentascorrientesDataGridView"
-        Me.LibrocuentascorrientesDataGridView.ReadOnly = True
-        Me.LibrocuentascorrientesDataGridView.RowTemplate.Height = 24
-        Me.LibrocuentascorrientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LibrocuentascorrientesDataGridView.Size = New System.Drawing.Size(877, 452)
-        Me.LibrocuentascorrientesDataGridView.TabIndex = 1
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.LibrocuentascorrientesDataGridView)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(910, 569)
-        Me.GroupBox1.TabIndex = 2
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Lista"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(102, 38)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(286, 22)
-        Me.TextBox1.TabIndex = 3
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(34, 41)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(62, 17)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Nombre:"
         '
         'DataGridViewTextBoxColumn1
         '
@@ -206,18 +218,27 @@ Partial Class LibroCuentasCorrientes
         'saldo
         '
         Me.saldo.DataPropertyName = "saldo"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.saldo.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.saldo.DefaultCellStyle = DataGridViewCellStyle2
         Me.saldo.HeaderText = "Saldo"
         Me.saldo.Name = "saldo"
         Me.saldo.ReadOnly = True
         Me.saldo.ToolTipText = "Saldo"
         '
+        'saldovencido
+        '
+        Me.saldovencido.DataPropertyName = "saldovencido"
+        Me.saldovencido.HeaderText = "Saldo Vencido"
+        Me.saldovencido.Name = "saldovencido"
+        Me.saldovencido.ReadOnly = True
+        Me.saldovencido.ToolTipText = "Saldo Vencido"
+        Me.saldovencido.Width = 120
+        '
         'LibroCuentasCorrientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(938, 589)
+        Me.ClientSize = New System.Drawing.Size(1035, 589)
         Me.Controls.Add(Me.GroupBox1)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -225,11 +246,11 @@ Partial Class LibroCuentasCorrientes
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "LibroCuentasCorrientes"
         Me.Text = "Libro Cuentas Corrientes"
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LibrocuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LibrocuentascorrientesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.LibrocuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -248,4 +269,5 @@ Partial Class LibroCuentasCorrientes
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents saldo As DataGridViewTextBoxColumn
+    Friend WithEvents saldovencido As DataGridViewTextBoxColumn
 End Class

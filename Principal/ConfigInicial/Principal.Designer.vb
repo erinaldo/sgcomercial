@@ -54,6 +54,7 @@ Partial Class Principal
         Me.MovimientosDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpresiónEtiquetasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CodificarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMPedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -104,30 +105,8 @@ Partial Class Principal
         Me.Alerta1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.ParametrosgeneralesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.DataGridViewStockAlerta = New System.Windows.Forms.DataGridView()
-        Me.IdproductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodigoproductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RubroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DisponibleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StockminimoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StockalertaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CajaseventosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GBBienvenido = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -137,11 +116,34 @@ Partial Class Principal
         Me.LabelUsuario = New System.Windows.Forms.Label()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.ModulosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ModulosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdproductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodigoproductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RubroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DisponibleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StockminimoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StockalertaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.ParametrosgeneralesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PermisosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
@@ -153,22 +155,20 @@ Partial Class Principal
         Me.ModulosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.modulosTableAdapter()
         Me.ListaprecioscajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaprecioscajaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaprecioscajaTableAdapter()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ImportarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewStockAlerta, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.StockalertaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GBBienvenido.SuspendLayout()
         CType(Me.ModulosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModulosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StockalertaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PermisosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaprecioscajaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -414,6 +414,13 @@ Partial Class Principal
         Me.CodificarProductosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.CodificarProductosToolStripMenuItem.Tag = "CodificarProductos"
         Me.CodificarProductosToolStripMenuItem.Text = "Codificar Productos"
+        '
+        'ImportarProductosToolStripMenuItem
+        '
+        Me.ImportarProductosToolStripMenuItem.Name = "ImportarProductosToolStripMenuItem"
+        Me.ImportarProductosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
+        Me.ImportarProductosToolStripMenuItem.Tag = "ImportarProductos"
+        Me.ImportarProductosToolStripMenuItem.Text = "Importar Productos"
         '
         'ProveedoresToolStripMenuItem
         '
@@ -793,53 +800,6 @@ Partial Class Principal
         Me.ParametrosgeneralesDataGridView.TabIndex = 3
         Me.ParametrosgeneralesDataGridView.Visible = False
         '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "prgid"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "prgid"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "prgclave"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "prgclave"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "prgvalor1"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "prgvalor1"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "prgstring1"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "prgstring1"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "prgdecimal1"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "prgdecimal1"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewImageColumn1
-        '
-        Me.DataGridViewImageColumn1.DataPropertyName = "prgimagen1"
-        Me.DataGridViewImageColumn1.HeaderText = "prgimagen1"
-        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
-        '
-        'ParametrosgeneralesBindingSource
-        '
-        Me.ParametrosgeneralesBindingSource.DataMember = "parametrosgenerales"
-        Me.ParametrosgeneralesBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'DataGridViewStockAlerta
         '
         Me.DataGridViewStockAlerta.AllowUserToAddRows = False
@@ -856,53 +816,6 @@ Partial Class Principal
         Me.DataGridViewStockAlerta.TabIndex = 6
         Me.DataGridViewStockAlerta.Visible = False
         '
-        'IdproductoDataGridViewTextBoxColumn
-        '
-        Me.IdproductoDataGridViewTextBoxColumn.DataPropertyName = "idproducto"
-        Me.IdproductoDataGridViewTextBoxColumn.HeaderText = "idproducto"
-        Me.IdproductoDataGridViewTextBoxColumn.Name = "IdproductoDataGridViewTextBoxColumn"
-        Me.IdproductoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CodigoproductoDataGridViewTextBoxColumn
-        '
-        Me.CodigoproductoDataGridViewTextBoxColumn.DataPropertyName = "codigoproducto"
-        Me.CodigoproductoDataGridViewTextBoxColumn.HeaderText = "codigoproducto"
-        Me.CodigoproductoDataGridViewTextBoxColumn.Name = "CodigoproductoDataGridViewTextBoxColumn"
-        Me.CodigoproductoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'RubroDataGridViewTextBoxColumn
-        '
-        Me.RubroDataGridViewTextBoxColumn.DataPropertyName = "rubro"
-        Me.RubroDataGridViewTextBoxColumn.HeaderText = "rubro"
-        Me.RubroDataGridViewTextBoxColumn.Name = "RubroDataGridViewTextBoxColumn"
-        Me.RubroDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ProductoDataGridViewTextBoxColumn
-        '
-        Me.ProductoDataGridViewTextBoxColumn.DataPropertyName = "producto"
-        Me.ProductoDataGridViewTextBoxColumn.HeaderText = "producto"
-        Me.ProductoDataGridViewTextBoxColumn.Name = "ProductoDataGridViewTextBoxColumn"
-        Me.ProductoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DisponibleDataGridViewTextBoxColumn
-        '
-        Me.DisponibleDataGridViewTextBoxColumn.DataPropertyName = "disponible"
-        Me.DisponibleDataGridViewTextBoxColumn.HeaderText = "disponible"
-        Me.DisponibleDataGridViewTextBoxColumn.Name = "DisponibleDataGridViewTextBoxColumn"
-        Me.DisponibleDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'StockminimoDataGridViewTextBoxColumn
-        '
-        Me.StockminimoDataGridViewTextBoxColumn.DataPropertyName = "stockminimo"
-        Me.StockminimoDataGridViewTextBoxColumn.HeaderText = "stockminimo"
-        Me.StockminimoDataGridViewTextBoxColumn.Name = "StockminimoDataGridViewTextBoxColumn"
-        Me.StockminimoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'StockalertaBindingSource
-        '
-        Me.StockalertaBindingSource.DataMember = "stockalerta"
-        Me.StockalertaBindingSource.DataSource = Me.ComercialDataSet
-        '
         'CajaseventosDataGridView
         '
         Me.CajaseventosDataGridView.AutoGenerateColumns = False
@@ -915,48 +828,6 @@ Partial Class Principal
         Me.CajaseventosDataGridView.Size = New System.Drawing.Size(44, 30)
         Me.CajaseventosDataGridView.TabIndex = 7
         Me.CajaseventosDataGridView.Visible = False
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "idevento"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "idevento"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "idcaja"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "idcaja"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "fechaapertura"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "fechaapertura"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "fechacierre"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "fechacierre"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "saldoinicial"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "saldoinicial"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "saldofinal"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "saldofinal"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        '
-        'CajaseventosBindingSource
-        '
-        Me.CajaseventosBindingSource.DataMember = "cajaseventos"
-        Me.CajaseventosBindingSource.DataSource = Me.ComercialDataSet
         '
         'GBBienvenido
         '
@@ -1045,6 +916,17 @@ Partial Class Principal
         Me.ModulosDataGridView.TabIndex = 10
         Me.ModulosDataGridView.Visible = False
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ParametrosgeneralesBindingSource, "prgimagen1", True))
+        Me.PictureBox1.Location = New System.Drawing.Point(1104, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(78, 23)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 4
+        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.WaitOnLoad = True
+        '
         'DataGridViewTextBoxColumn12
         '
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "idmodulo"
@@ -1075,6 +957,142 @@ Partial Class Principal
         Me.ModulosBindingSource.DataMember = "modulos"
         Me.ModulosBindingSource.DataSource = Me.ComercialDataSet
         '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "idevento"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "idevento"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "idcaja"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "idcaja"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "fechaapertura"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "fechaapertura"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "fechacierre"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "fechacierre"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "saldoinicial"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "saldoinicial"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "saldofinal"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "saldofinal"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        '
+        'CajaseventosBindingSource
+        '
+        Me.CajaseventosBindingSource.DataMember = "cajaseventos"
+        Me.CajaseventosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'IdproductoDataGridViewTextBoxColumn
+        '
+        Me.IdproductoDataGridViewTextBoxColumn.DataPropertyName = "idproducto"
+        Me.IdproductoDataGridViewTextBoxColumn.HeaderText = "idproducto"
+        Me.IdproductoDataGridViewTextBoxColumn.Name = "IdproductoDataGridViewTextBoxColumn"
+        Me.IdproductoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CodigoproductoDataGridViewTextBoxColumn
+        '
+        Me.CodigoproductoDataGridViewTextBoxColumn.DataPropertyName = "codigoproducto"
+        Me.CodigoproductoDataGridViewTextBoxColumn.HeaderText = "codigoproducto"
+        Me.CodigoproductoDataGridViewTextBoxColumn.Name = "CodigoproductoDataGridViewTextBoxColumn"
+        Me.CodigoproductoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'RubroDataGridViewTextBoxColumn
+        '
+        Me.RubroDataGridViewTextBoxColumn.DataPropertyName = "rubro"
+        Me.RubroDataGridViewTextBoxColumn.HeaderText = "rubro"
+        Me.RubroDataGridViewTextBoxColumn.Name = "RubroDataGridViewTextBoxColumn"
+        Me.RubroDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ProductoDataGridViewTextBoxColumn
+        '
+        Me.ProductoDataGridViewTextBoxColumn.DataPropertyName = "producto"
+        Me.ProductoDataGridViewTextBoxColumn.HeaderText = "producto"
+        Me.ProductoDataGridViewTextBoxColumn.Name = "ProductoDataGridViewTextBoxColumn"
+        Me.ProductoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DisponibleDataGridViewTextBoxColumn
+        '
+        Me.DisponibleDataGridViewTextBoxColumn.DataPropertyName = "disponible"
+        Me.DisponibleDataGridViewTextBoxColumn.HeaderText = "disponible"
+        Me.DisponibleDataGridViewTextBoxColumn.Name = "DisponibleDataGridViewTextBoxColumn"
+        Me.DisponibleDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'StockminimoDataGridViewTextBoxColumn
+        '
+        Me.StockminimoDataGridViewTextBoxColumn.DataPropertyName = "stockminimo"
+        Me.StockminimoDataGridViewTextBoxColumn.HeaderText = "stockminimo"
+        Me.StockminimoDataGridViewTextBoxColumn.Name = "StockminimoDataGridViewTextBoxColumn"
+        Me.StockminimoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'StockalertaBindingSource
+        '
+        Me.StockalertaBindingSource.DataMember = "stockalerta"
+        Me.StockalertaBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "prgid"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "prgid"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "prgclave"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "prgclave"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "prgvalor1"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "prgvalor1"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "prgstring1"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "prgstring1"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "prgdecimal1"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "prgdecimal1"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewImageColumn1
+        '
+        Me.DataGridViewImageColumn1.DataPropertyName = "prgimagen1"
+        Me.DataGridViewImageColumn1.HeaderText = "prgimagen1"
+        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
+        '
+        'ParametrosgeneralesBindingSource
+        '
+        Me.ParametrosgeneralesBindingSource.DataMember = "parametrosgenerales"
+        Me.ParametrosgeneralesBindingSource.DataSource = Me.ComercialDataSet
+        '
         'PermisosBindingSource
         '
         Me.PermisosBindingSource.DataMember = "permisos"
@@ -1098,6 +1116,7 @@ Partial Class Principal
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -1120,6 +1139,7 @@ Partial Class Principal
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -1174,24 +1194,6 @@ Partial Class Principal
         '
         Me.ListaprecioscajaTableAdapter.ClearBeforeFill = True
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ParametrosgeneralesBindingSource, "prgimagen1", True))
-        Me.PictureBox1.Location = New System.Drawing.Point(1104, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(78, 23)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
-        Me.PictureBox1.WaitOnLoad = True
-        '
-        'ImportarProductosToolStripMenuItem
-        '
-        Me.ImportarProductosToolStripMenuItem.Name = "ImportarProductosToolStripMenuItem"
-        Me.ImportarProductosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
-        Me.ImportarProductosToolStripMenuItem.Tag = "ImportarProductos"
-        Me.ImportarProductosToolStripMenuItem.Text = "Importar Productos"
-        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1218,19 +1220,19 @@ Partial Class Principal
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewStockAlerta, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.StockalertaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GBBienvenido.ResumeLayout(False)
         Me.GBBienvenido.PerformLayout()
         CType(Me.ModulosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ModulosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StockalertaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PermisosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaprecioscajaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -10,6 +10,32 @@
         End If
 
     End Sub
+    Private Sub colorear()
+        'Dim fechavencimiento
+
+        For i = 0 To ListacuentascorrientesDataGridView.RowCount - 1
+            If Not IsDBNull(ListacuentascorrientesDataGridView.Rows(i).Cells("fechavencimiento").Value) Then
+                If ListacuentascorrientesDataGridView.Rows(i).Cells("fechavencimiento").Value < Today Then
+                    If Not ListacuentascorrientesDataGridView.Rows(i).Cells("saldo").Value = 0 Then
+                        ListacuentascorrientesDataGridView.Rows(i).DefaultCellStyle.BackColor = Color.LightSalmon
+                    Else
+                        ListacuentascorrientesDataGridView.Rows(i).DefaultCellStyle.BackColor = Color.LightGreen
+                    End If
+                End If
+            End If
+
+
+            'Select Case ListacuentascorrientesDataGridView.Rows(i).Cells("estado").Value.ToString
+            '    Case "ENTREGADO"
+            '        ListacuentascorrientesDataGridView.Rows(i).DefaultCellStyle.BackColor = Color.LightBlue
+            '    Case "ENPROCESO"
+            '        ListacuentascorrientesDataGridView.Rows(i).DefaultCellStyle.BackColor = Color.LightCyan
+            '    Case "RECIBIDO"
+            '        ListacuentascorrientesDataGridView.Rows(i).DefaultCellStyle.BackColor = Color.LightGreen
+            'End Select
+        Next
+        ListacuentascorrientesDataGridView.Refresh()
+    End Sub
 
     Private Sub PictureSeleccionarCliente_Click(sender As Object, e As EventArgs) Handles PictureSeleccionarCliente.Click
         gclienteseleccionado = 0
@@ -79,6 +105,7 @@
             Labeltotalgeneral.ForeColor = Color.Green
         End If
         '********************************************************
+        colorear()
     End Sub
 
     Private Sub ListacuentascorrientesDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListacuentascorrientesDataGridView.CellContentClick
@@ -101,6 +128,9 @@
         End Try
 
         '*************************************************
+        If Not e.ColumnIndex >= 0 Then
+            Return
+        End If
         Select Case ListacuentascorrientesDataGridView.Columns(e.ColumnIndex).Name
             Case "saldo"
                 If IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value) Then Return
@@ -191,5 +221,9 @@
 
     Private Sub IdclienteTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdclienteTextBox.TextChanged
         gclienteseleccionado = IdclienteTextBox.Text
+    End Sub
+
+    Private Sub ListacuentascorrientesDataGridView_Sorted(sender As Object, e As EventArgs) Handles ListacuentascorrientesDataGridView.Sorted
+        colorear()
     End Sub
 End Class

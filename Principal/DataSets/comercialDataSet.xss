@@ -75,7 +75,7 @@
     <Shape ID="DesignTable:estadosentregadelivery" ZOrder="16" X="706" Y="711" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="76" SplitterPosition="28" />
     <Shape ID="DesignTable:estadospedidodelivery" ZOrder="15" X="706" Y="782" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="76" SplitterPosition="28" />
     <Shape ID="DesignTable:cuentascorrientes" ZOrder="51" X="10" Y="525" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="84" OldDataTableHeight="168" SplitterPosition="28" />
-    <Shape ID="DesignTable:listacuentascorrientes" ZOrder="9" X="1039" Y="338" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="97" OldDataTableHeight="310" SplitterPosition="28" />
+    <Shape ID="DesignTable:listacuentascorrientes" ZOrder="9" X="1039" Y="338" Height="388" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="97" OldDataTableHeight="310" SplitterPosition="306" />
     <Shape ID="DesignTable:productos" ZOrder="6" X="1040" Y="684" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="581" OldDataTableHeight="48" SplitterPosition="28" />
     <Shape ID="DesignTable:librocuentascorrientes" ZOrder="64" X="18" Y="384" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="53" SplitterPosition="28" />
     <Shape ID="DesignTable:listapagos" ZOrder="14" X="705" Y="1001" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="99" OldDataTableHeight="191" SplitterPosition="28" />

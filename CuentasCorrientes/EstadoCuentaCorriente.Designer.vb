@@ -25,6 +25,7 @@ Partial Class EstadoCuentaCorriente
         Me.components = New System.ComponentModel.Container()
         Dim NombreLabel As System.Windows.Forms.Label
         Dim CuitLabel As System.Windows.Forms.Label
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -48,6 +49,7 @@ Partial Class EstadoCuentaCorriente
         Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpagos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Anular = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.fechavencimiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListacuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListacuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listacuentascorrientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
@@ -209,14 +211,22 @@ Partial Class EstadoCuentaCorriente
         '
         Me.ListacuentascorrientesDataGridView.AllowUserToAddRows = False
         Me.ListacuentascorrientesDataGridView.AllowUserToDeleteRows = False
+        Me.ListacuentascorrientesDataGridView.AllowUserToResizeColumns = False
+        Me.ListacuentascorrientesDataGridView.AllowUserToResizeRows = False
         Me.ListacuentascorrientesDataGridView.AutoGenerateColumns = False
         Me.ListacuentascorrientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListacuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcliente, Me.DataGridViewTextBoxColumn8, Me.descripcion, Me.nro, Me.debe, Me.haber, Me.saldo, Me.idventa, Me.idpagos, Me.Anular})
+        Me.ListacuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcliente, Me.DataGridViewTextBoxColumn8, Me.descripcion, Me.nro, Me.debe, Me.haber, Me.saldo, Me.idventa, Me.idpagos, Me.Anular, Me.fechavencimiento})
         Me.ListacuentascorrientesDataGridView.DataSource = Me.ListacuentascorrientesBindingSource
         Me.ListacuentascorrientesDataGridView.Location = New System.Drawing.Point(17, 21)
+        Me.ListacuentascorrientesDataGridView.MultiSelect = False
         Me.ListacuentascorrientesDataGridView.Name = "ListacuentascorrientesDataGridView"
         Me.ListacuentascorrientesDataGridView.ReadOnly = True
+        Me.ListacuentascorrientesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.InactiveBorder
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        Me.ListacuentascorrientesDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.ListacuentascorrientesDataGridView.RowTemplate.Height = 24
+        Me.ListacuentascorrientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ListacuentascorrientesDataGridView.Size = New System.Drawing.Size(1030, 299)
         Me.ListacuentascorrientesDataGridView.TabIndex = 0
         '
@@ -311,6 +321,14 @@ Partial Class EstadoCuentaCorriente
         Me.Anular.ToolTipText = "Anular"
         Me.Anular.UseColumnTextForButtonValue = True
         '
+        'fechavencimiento
+        '
+        Me.fechavencimiento.DataPropertyName = "fechavencimiento"
+        Me.fechavencimiento.HeaderText = "Fecha Vto."
+        Me.fechavencimiento.Name = "fechavencimiento"
+        Me.fechavencimiento.ReadOnly = True
+        Me.fechavencimiento.ToolTipText = "Fecha Vto."
+        '
         'ListacuentascorrientesBindingSource
         '
         Me.ListacuentascorrientesBindingSource.DataMember = "listacuentascorrientes"
@@ -329,11 +347,13 @@ Partial Class EstadoCuentaCorriente
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -356,6 +376,7 @@ Partial Class EstadoCuentaCorriente
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -737,4 +758,5 @@ Partial Class EstadoCuentaCorriente
     Friend WithEvents idventa As DataGridViewTextBoxColumn
     Friend WithEvents idpagos As DataGridViewTextBoxColumn
     Friend WithEvents Anular As DataGridViewButtonColumn
+    Friend WithEvents fechavencimiento As DataGridViewTextBoxColumn
 End Class
