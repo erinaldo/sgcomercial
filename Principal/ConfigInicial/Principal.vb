@@ -104,8 +104,8 @@ Public Class Principal
                     recorrer(miitem)
                 End If
             Else
-                miitem.Enabled = False
                 miitem.Visible = False
+                miitem.Enabled = False
             End If
         Next
         ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
@@ -476,8 +476,8 @@ Public Class Principal
         ConsultarPrecios.Visible = True
     End Sub
 
-    Private Sub TerminalVerificadoraDePreciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TerminalVerificadoraDePreciosToolStripMenuItem.Click
-        TerminalVerificadoraPrecios.Visible = True
+    Private Sub TerminalVerificadoraDePreciosToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub CodificarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CodificarProductosToolStripMenuItem.Click
@@ -552,7 +552,7 @@ Public Class Principal
         ABMProvincias.Visible = True
     End Sub
 
-    Private Sub ABMLocalidadesToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+    Private Sub ABMLocalidadesToolStripMenuItem_Click(sender As Object, e As EventArgs)
         ABMLocalidades.MdiParent = Me
         ABMLocalidades.Visible = True
     End Sub
@@ -670,9 +670,8 @@ Public Class Principal
         '***************    FIN consultar el estado de caja *************
     End Sub
 
-    Private Sub ImportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarProductosToolStripMenuItem.Click
-        ImportarProductos.MdiParent = Me
-        ImportarProductos.Visible = True
+    Private Sub ImportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
 
 
@@ -707,5 +706,14 @@ Public Class Principal
 
     Private Sub ABMTiposIVAToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMTiposIVAToolStripMenuItem.Click
         ABMTiposIVA.ShowDialog()
+    End Sub
+
+    Private Sub TerminalVerificadoraDePreciosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TerminalVerificadoraDePreciosToolStripMenuItem1.Click
+        TerminalVerificadoraPrecios.Visible = True
+    End Sub
+
+    Private Sub ImportarProductosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ImportarProductosToolStripMenuItem1.Click
+        ImportarProductos.MdiParent = Me
+        ImportarProductos.Visible = True
     End Sub
 End Class
