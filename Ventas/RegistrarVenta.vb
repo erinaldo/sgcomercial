@@ -16,6 +16,7 @@ Public Class RegistrarVenta
     Dim BCScanerCR As String
     Dim ValidarSTK As String
     Dim permisoGenVale As Integer = 0
+    Dim diasvencimiento As Integer = 0
 
     Private nonNumberEntered As Boolean = False
     Private Sub VentasBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -153,6 +154,8 @@ Public Class RegistrarVenta
         pagotextbox2.Text = ""
         NrocomprobanteTextBox2.Text = ""
         LabelMontoFP2.Enabled = False
+        FechavencimientoDateTimePicker.Value = Today
+        FechavencimientoDateTimePicker.Enabled = False
     End Sub
     Private Sub BtnConfirmar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnConfirmar.Click
         Dim valida As Boolean
@@ -315,28 +318,13 @@ Public Class RegistrarVenta
             End If
 
             '**************************************************************
-            'MsgBox("Venta registrada exitosamente", MsgBoxStyle.Information, "Infomración")
+            '================   VENTA REGISTRADA EXITOSAMENTE ======================
             '********************************************************************************************
-            codigotextbox.Text = ""
-            BtnCancelar.Enabled = False
-            BtnNueva.Enabled = True
-            BtnConfirmar.Enabled = False
-            Labelproducto.Text = ""
-            labelcliente.Text = ""
-            IdclienteTextBox.Text = ""
-            vueltotextbox.Text = ""
-            pagotextbox.Text = ""
-            LabelTotalVisible.Text = "$"
-            NrocomprobanteTextBox.Text = ""
-            VentasdetalleDataGridView.Rows.Clear()
-            recuento()
-            enablefields(False)
-            CheckBoxFP2.Checked = False
-            pagotextbox2.Text = ""
-            NrocomprobanteTextBox2.Text = ""
-            '******************* 
+            '=================== RESETAR CONTROLES  ================================
+            resetearcontroles()
+            '******************************************************************************************** 
             '****** impresion ticket
-            '******************* 
+            '*****************************************************************************
             gidventa = idventas
             Dim impresion As String
             impresion = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ImpresionTicket")
@@ -362,6 +350,27 @@ Public Class RegistrarVenta
         Else
             Return
         End If
+    End Sub
+    Private Sub resetearcontroles()
+        codigotextbox.Text = ""
+        BtnCancelar.Enabled = False
+        BtnNueva.Enabled = True
+        BtnConfirmar.Enabled = False
+        Labelproducto.Text = ""
+        labelcliente.Text = ""
+        IdclienteTextBox.Text = ""
+        vueltotextbox.Text = ""
+        pagotextbox.Text = ""
+        LabelTotalVisible.Text = "$"
+        NrocomprobanteTextBox.Text = ""
+        VentasdetalleDataGridView.Rows.Clear()
+        recuento()
+        enablefields(False)
+        CheckBoxFP2.Checked = False
+        pagotextbox2.Text = ""
+        NrocomprobanteTextBox2.Text = ""
+        FechavencimientoDateTimePicker.Value = Today
+        FechavencimientoDateTimePicker.Enabled = False
     End Sub
     Private Sub validardatos(ByRef valida As Boolean)
         '******************* valida cargade datos   *********************
@@ -920,8 +929,21 @@ Public Class RegistrarVenta
         If gclienteseleccionado > 0 Then
             Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
             ClientesBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
+            calculafechavencimiento()
         End If
         gclienteseleccionado = Nothing
+    End Sub
+    Private Sub calculafechavencimiento()
+        Try
+            diasvencimiento = ClientesTableAdapter.clientes_consultadiasvencimiento(gclienteseleccionado)
+            Dim fechavenc As Date
+            fechavenc = Today.AddDays(diasvencimiento)
+            FechavencimientoDateTimePicker.Value = fechavenc
+        Catch ex As Exception
+
+        End Try
+        diasvencimiento = ClientesTableAdapter.clientes_consultadiasvencimiento(gclienteseleccionado)
+
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IdclienteTextBox.TextChanged

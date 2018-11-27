@@ -6,6 +6,7 @@
         TelefonoTextBox.Enabled = status
         EmailTextBox.Enabled = status
         ComboCondicionIVA.Enabled = status
+        DiasvencimientoTextBox.Enabled = status
         'DireccionTextBox.Enabled = status
     End Sub
 
@@ -56,6 +57,7 @@
     Private Sub enabledit(ByVal status As Boolean)
         'ToolStripButton1.Visible = status
         ToolStripButton2.Visible = status
+        DiasvencimientoTextBox.Enabled = status
         If status = False Then
             ToolStripButton1.Visible = True
         Else

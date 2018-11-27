@@ -340,6 +340,12 @@
     <Compile Include="Principal\ConfigInicial\AcercaDe.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Principal\ParametrosGenerales\ABMTiposIVA.Designer.vb">
+      <DependentUpon>ABMTiposIVA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\ABMTiposIVA.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Principal\ParametrosGenerales\ADModulos.Designer.vb">
       <DependentUpon>ADModulos.vb</DependentUpon>
     </Compile>
@@ -905,6 +911,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\ConfigInicial\AcercaDe.resx">
       <DependentUpon>AcercaDe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\ParametrosGenerales\ABMTiposIVA.resx">
+      <DependentUpon>ABMTiposIVA.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\ParametrosGenerales\ADModulos.resx">
       <DependentUpon>ADModulos.vb</DependentUpon>

@@ -704,4 +704,8 @@ Public Class Principal
     Private Sub Principal_Activated(sender As Object, e As EventArgs) Handles Me.Activated
 
     End Sub
+
+    Private Sub ABMTiposIVAToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMTiposIVAToolStripMenuItem.Click
+        ABMTiposIVA.ShowDialog()
+    End Sub
 End Class

@@ -39,6 +39,7 @@ Partial Class ABMProductos
         Dim PrecioventamayoristaLabel As System.Windows.Forms.Label
         Dim Label4 As System.Windows.Forms.Label
         Dim Label5 As System.Windows.Forms.Label
+        Dim Label6 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMProductos))
         Me.ProductosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
@@ -106,6 +107,9 @@ Partial Class ABMProductos
         Me.RubrosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.rubrosTableAdapter()
         Me.StockTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.stockTableAdapter()
         Me.StockTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
+        Me.IvaComboBox = New System.Windows.Forms.ComboBox()
+        Me.TipoivaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TipoivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipoivaTableAdapter()
         IdproductoLabel = New System.Windows.Forms.Label()
         MarcaLabel = New System.Windows.Forms.Label()
         ModeloLabel = New System.Windows.Forms.Label()
@@ -122,6 +126,7 @@ Partial Class ABMProductos
         PrecioventamayoristaLabel = New System.Windows.Forms.Label()
         Label4 = New System.Windows.Forms.Label()
         Label5 = New System.Windows.Forms.Label()
+        Label6 = New System.Windows.Forms.Label()
         CType(Me.ProductosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProductosBindingNavigator.SuspendLayout()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,6 +141,7 @@ Partial Class ABMProductos
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxCalidacodigo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.TipoivaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdproductoLabel
@@ -298,6 +304,16 @@ Partial Class ABMProductos
         Label5.Size = New System.Drawing.Size(86, 17)
         Label5.TabIndex = 121
         Label5.Text = "Stock Inicial:"
+        '
+        'Label6
+        '
+        Label6.AutoSize = True
+        Label6.Location = New System.Drawing.Point(611, 252)
+        Label6.Name = "Label6"
+        Label6.Size = New System.Drawing.Size(113, 17)
+        Label6.TabIndex = 123
+        Label6.Tag = "Precio Vta. Distribuidores y comercios"
+        Label6.Text = "Alícuota IVA (%):"
         '
         'ProductosBindingNavigator
         '
@@ -539,6 +555,8 @@ Partial Class ABMProductos
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -555,6 +573,8 @@ Partial Class ABMProductos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.IvaComboBox)
+        Me.GroupBox1.Controls.Add(Label6)
         Me.GroupBox1.Controls.Add(Me.StockDataGridView)
         Me.GroupBox1.Controls.Add(Me.stockinicialtextbox)
         Me.GroupBox1.Controls.Add(Label5)
@@ -591,7 +611,7 @@ Partial Class ABMProductos
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(1135, 287)
+        Me.GroupBox1.Size = New System.Drawing.Size(1135, 301)
         Me.GroupBox1.TabIndex = 22
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Producto"
@@ -954,6 +974,29 @@ Partial Class ABMProductos
         '
         Me.StockTableAdapter1.ClearBeforeFill = True
         '
+        'IvaComboBox
+        '
+        Me.IvaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "iva", True))
+        Me.IvaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ProductosBindingSource, "iva", True))
+        Me.IvaComboBox.DataSource = Me.TipoivaBindingSource
+        Me.IvaComboBox.DisplayMember = "alicuota"
+        Me.IvaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.IvaComboBox.FormattingEnabled = True
+        Me.IvaComboBox.Location = New System.Drawing.Point(723, 249)
+        Me.IvaComboBox.Name = "IvaComboBox"
+        Me.IvaComboBox.Size = New System.Drawing.Size(108, 24)
+        Me.IvaComboBox.TabIndex = 124
+        Me.IvaComboBox.ValueMember = "alicuota"
+        '
+        'TipoivaBindingSource
+        '
+        Me.TipoivaBindingSource.DataMember = "tipoiva"
+        Me.TipoivaBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'TipoivaTableAdapter
+        '
+        Me.TipoivaTableAdapter.ClearBeforeFill = True
+        '
         'ABMProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -996,6 +1039,7 @@ Partial Class ABMProductos
         CType(Me.PictureBoxCalidacodigo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.TipoivaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1067,4 +1111,7 @@ Partial Class ABMProductos
     Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
     Friend WithEvents GuardarNuevo As ToolStripButton
+    Friend WithEvents IvaComboBox As ComboBox
+    Friend WithEvents TipoivaBindingSource As BindingSource
+    Friend WithEvents TipoivaTableAdapter As comercialDataSetTableAdapters.tipoivaTableAdapter
 End Class

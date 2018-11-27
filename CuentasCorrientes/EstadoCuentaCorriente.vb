@@ -48,10 +48,11 @@
     Public Sub filtrarcliente()
         If gclienteseleccionado > 1 Then
             Try
-                Me.ListacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.listacuentascorrientes)
+                'Me.ListacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.listacuentascorrientes)
+                ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
                 ListacuentascorrientesTableAdapter.FillByidcliente(Me.ComercialDataSet.listacuentascorrientes, gclienteseleccionado)
-                ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
-                ClientesBindingSource.Filter = "idcliente = " + gclienteseleccionado.ToString
+                'ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
+                'ClientesBindingSource.Filter = "idcliente = " + gclienteseleccionado.ToString
                 calculasaldos()
             Catch ex As Exception
                 MsgBox("Ocurrió una excepción al buscar la información del cliente: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia!")
@@ -68,8 +69,13 @@
                 MsgBox(ex.Message)
             End Try
         Else
+            IdclienteTextBox.Text = "0"
             ClientesBindingSource.Filter = "idcliente = " + "0"
+            ListacuentascorrientesTableAdapter.FillByidcliente(Me.ComercialDataSet.listacuentascorrientes, gclienteseleccionado)
+            'ListacuentascorrientesBindingSource.Filter = "idcliente = " + "0"
+
             MsgBox("Indique un cliente válido!", MsgBoxStyle.Exclamation)
+
         End If
     End Sub
     Private Sub calculasaldos()
@@ -220,7 +226,12 @@
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdclienteTextBox.TextChanged
+        'Try
         gclienteseleccionado = IdclienteTextBox.Text
+        'Catch ex As Exception
+
+        ' End Try
+
     End Sub
 
     Private Sub ListacuentascorrientesDataGridView_Sorted(sender As Object, e As EventArgs) Handles ListacuentascorrientesDataGridView.Sorted

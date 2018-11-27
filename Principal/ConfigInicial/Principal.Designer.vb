@@ -165,6 +165,7 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ABMTiposIVAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -605,7 +606,7 @@ Partial Class Principal
         '
         'ConfiguracionesToolStripMenuItem
         '
-        Me.ConfiguracionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MiComercioToolStripMenuItem, Me.FondoAplicaciónToolStripMenuItem, Me.ABMRubrosToolStripMenuItem, Me.ABMProvinciasToolStripMenuItem, Me.ABMTransportesToolStripMenuItem, Me.ListasDePreciosToolStripMenuItem})
+        Me.ConfiguracionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MiComercioToolStripMenuItem, Me.FondoAplicaciónToolStripMenuItem, Me.ABMRubrosToolStripMenuItem, Me.ABMProvinciasToolStripMenuItem, Me.ABMTransportesToolStripMenuItem, Me.ListasDePreciosToolStripMenuItem, Me.ABMTiposIVAToolStripMenuItem})
         Me.ConfiguracionesToolStripMenuItem.Name = "ConfiguracionesToolStripMenuItem"
         Me.ConfiguracionesToolStripMenuItem.Size = New System.Drawing.Size(145, 27)
         Me.ConfiguracionesToolStripMenuItem.Tag = "ModuloConfiguraciones"
@@ -785,7 +786,7 @@ Partial Class Principal
         '
         Me.Alerta1ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
         Me.Alerta1ToolStripMenuItem.Name = "Alerta1ToolStripMenuItem"
-        Me.Alerta1ToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.Alerta1ToolStripMenuItem.Size = New System.Drawing.Size(140, 28)
         Me.Alerta1ToolStripMenuItem.Tag = "Alerta1"
         Me.Alerta1ToolStripMenuItem.Text = "Alerta1"
         Me.Alerta1ToolStripMenuItem.Visible = False
@@ -794,7 +795,7 @@ Partial Class Principal
         '
         Me.Alerta2ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
         Me.Alerta2ToolStripMenuItem.Name = "Alerta2ToolStripMenuItem"
-        Me.Alerta2ToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.Alerta2ToolStripMenuItem.Size = New System.Drawing.Size(140, 28)
         Me.Alerta2ToolStripMenuItem.Tag = "Alerta2"
         Me.Alerta2ToolStripMenuItem.Text = "Alerta2"
         Me.Alerta2ToolStripMenuItem.Visible = False
@@ -1270,6 +1271,13 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22.HeaderText = "saldovencido"
         Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
         '
+        'ABMTiposIVAToolStripMenuItem
+        '
+        Me.ABMTiposIVAToolStripMenuItem.Name = "ABMTiposIVAToolStripMenuItem"
+        Me.ABMTiposIVAToolStripMenuItem.Size = New System.Drawing.Size(217, 28)
+        Me.ABMTiposIVAToolStripMenuItem.Tag = "ABMTiposIVA"
+        Me.ABMTiposIVAToolStripMenuItem.Text = "ABM TiposIVA"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1457,4 +1465,5 @@ Partial Class Principal
     Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
+    Friend WithEvents ABMTiposIVAToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -9,6 +9,8 @@ Public Class ABMProductos
     End Sub
 
     Private Sub ABMProductos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipoiva' Puede moverla o quitarla según sea necesario.
+        Me.TipoivaTableAdapter.Fill(Me.ComercialDataSet.tipoiva)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
         Me.StockTableAdapter1.Fill(Me.ComercialDataSet.stock)
         IdproductoTextBox.Visible = False
@@ -209,6 +211,7 @@ Public Class ABMProductos
         BPC2.Enabled = status
         BPC3.Enabled = status
         BPC4.Enabled = status
+        IvaComboBox.Enabled = status
 
     End Sub
     Public Sub enablefilter(ByVal status As Boolean)
