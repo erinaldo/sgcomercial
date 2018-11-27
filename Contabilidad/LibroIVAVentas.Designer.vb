@@ -39,6 +39,7 @@ Partial Class LibroIVAVentas
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.condicionivadescripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ivaventas = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -61,7 +62,7 @@ Partial Class LibroIVAVentas
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1079, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(1233, 100)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consultar"
@@ -116,7 +117,7 @@ Partial Class LibroIVAVentas
         Me.GroupBox2.Controls.Add(Me.LibroventasDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 118)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1079, 557)
+        Me.GroupBox2.Size = New System.Drawing.Size(1233, 557)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado"
@@ -132,14 +133,14 @@ Partial Class LibroIVAVentas
         Me.LibroventasDataGridView.AutoGenerateColumns = False
         Me.LibroventasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.LibroventasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.idventa, Me.ivaventas, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.ver})
+        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.condicionivadescripcion, Me.DataGridViewTextBoxColumn4, Me.idventa, Me.ivaventas, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.ver})
         Me.LibroventasDataGridView.DataSource = Me.LibroventasBindingSource
         Me.LibroventasDataGridView.Location = New System.Drawing.Point(22, 34)
         Me.LibroventasDataGridView.MultiSelect = False
         Me.LibroventasDataGridView.Name = "LibroventasDataGridView"
         Me.LibroventasDataGridView.ReadOnly = True
         Me.LibroventasDataGridView.RowTemplate.Height = 24
-        Me.LibroventasDataGridView.Size = New System.Drawing.Size(1036, 499)
+        Me.LibroventasDataGridView.Size = New System.Drawing.Size(1194, 499)
         Me.LibroventasDataGridView.TabIndex = 0
         '
         'LibroventasBindingSource
@@ -245,6 +246,15 @@ Partial Class LibroIVAVentas
         Me.DataGridViewTextBoxColumn3.ToolTipText = "CUIT"
         Me.DataGridViewTextBoxColumn3.Width = 68
         '
+        'condicionivadescripcion
+        '
+        Me.condicionivadescripcion.DataPropertyName = "condicionivadescripcion"
+        Me.condicionivadescripcion.HeaderText = "Condición Frente al IVA"
+        Me.condicionivadescripcion.Name = "condicionivadescripcion"
+        Me.condicionivadescripcion.ReadOnly = True
+        Me.condicionivadescripcion.ToolTipText = "Condición Frente al IVA"
+        Me.condicionivadescripcion.Width = 136
+        '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "tipocomprobante"
@@ -303,7 +313,7 @@ Partial Class LibroIVAVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1103, 687)
+        Me.ClientSize = New System.Drawing.Size(1257, 687)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "LibroIVAVentas"
@@ -335,6 +345,7 @@ Partial Class LibroIVAVentas
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents condicionivadescripcion As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents idventa As DataGridViewTextBoxColumn
     Friend WithEvents ivaventas As DataGridViewTextBoxColumn
