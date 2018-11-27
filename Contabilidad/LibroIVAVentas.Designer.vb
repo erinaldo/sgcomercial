@@ -40,10 +40,11 @@ Partial Class LibroIVAVentas
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ivaventas = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ver = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,7 +61,7 @@ Partial Class LibroIVAVentas
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(986, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(1079, 100)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consultar"
@@ -115,7 +116,7 @@ Partial Class LibroIVAVentas
         Me.GroupBox2.Controls.Add(Me.LibroventasDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 118)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(986, 557)
+        Me.GroupBox2.Size = New System.Drawing.Size(1079, 557)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado"
@@ -131,14 +132,14 @@ Partial Class LibroIVAVentas
         Me.LibroventasDataGridView.AutoGenerateColumns = False
         Me.LibroventasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.LibroventasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.ivaventas, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.idventa, Me.ivaventas, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.ver})
         Me.LibroventasDataGridView.DataSource = Me.LibroventasBindingSource
         Me.LibroventasDataGridView.Location = New System.Drawing.Point(22, 34)
         Me.LibroventasDataGridView.MultiSelect = False
         Me.LibroventasDataGridView.Name = "LibroventasDataGridView"
         Me.LibroventasDataGridView.ReadOnly = True
         Me.LibroventasDataGridView.RowTemplate.Height = 24
-        Me.LibroventasDataGridView.Size = New System.Drawing.Size(943, 499)
+        Me.LibroventasDataGridView.Size = New System.Drawing.Size(1036, 499)
         Me.LibroventasDataGridView.TabIndex = 0
         '
         'LibroventasBindingSource
@@ -253,14 +254,14 @@ Partial Class LibroIVAVentas
         Me.DataGridViewTextBoxColumn4.ToolTipText = "Tipo Comprobante"
         Me.DataGridViewTextBoxColumn4.Width = 141
         '
-        'DataGridViewTextBoxColumn5
+        'idventa
         '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "idventa"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.ToolTipText = "N°"
-        Me.DataGridViewTextBoxColumn5.Width = 53
+        Me.idventa.DataPropertyName = "idventa"
+        Me.idventa.HeaderText = "N°"
+        Me.idventa.Name = "idventa"
+        Me.idventa.ReadOnly = True
+        Me.idventa.ToolTipText = "N°"
+        Me.idventa.Width = 53
         '
         'ivaventas
         '
@@ -289,11 +290,20 @@ Partial Class LibroIVAVentas
         Me.DataGridViewTextBoxColumn7.ToolTipText = "Forma Pago"
         Me.DataGridViewTextBoxColumn7.Width = 105
         '
+        'ver
+        '
+        Me.ver.HeaderText = "Ver"
+        Me.ver.Name = "ver"
+        Me.ver.ReadOnly = True
+        Me.ver.Text = "Ver"
+        Me.ver.UseColumnTextForButtonValue = True
+        Me.ver.Width = 36
+        '
         'LibroIVAVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1010, 687)
+        Me.ClientSize = New System.Drawing.Size(1103, 687)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "LibroIVAVentas"
@@ -326,8 +336,9 @@ Partial Class LibroIVAVentas
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents idventa As DataGridViewTextBoxColumn
     Friend WithEvents ivaventas As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents ver As DataGridViewButtonColumn
 End Class

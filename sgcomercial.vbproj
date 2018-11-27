@@ -1072,9 +1072,10 @@
       <DependentUpon>PagoCombinado.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\RepEstadoResultados.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepFactura.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepFacturaIVA.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepLibroMayor.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepCabecera.rdlc" />
-    <EmbeddedResource Include="Ventas\Reportes\RepFactura.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepCierreCaja.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepLibroMayorVentasCompras.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\ReporteCierreCaja.resx">

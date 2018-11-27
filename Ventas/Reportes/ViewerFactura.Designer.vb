@@ -23,9 +23,10 @@ Partial Class ViewerFactura
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.libroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -34,10 +35,13 @@ Partial Class ViewerFactura
         Me.libroventasdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasdetalleTableAdapter()
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.libroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
+        Me.ivaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ivaresumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ivaresumenTableAdapter()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.libroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.libroventasdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ivaresumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MiComercioBindingSource
@@ -63,16 +67,19 @@ Partial Class ViewerFactura
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource4.Name = "MiComercio"
-        ReportDataSource4.Value = Me.MiComercioBindingSource
-        ReportDataSource5.Name = "libroventas"
-        ReportDataSource5.Value = Me.libroventasBindingSource
-        ReportDataSource6.Name = "libroventasdetalle"
-        ReportDataSource6.Value = Me.libroventasdetalleBindingSource
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "libroventas"
+        ReportDataSource2.Value = Me.libroventasBindingSource
+        ReportDataSource3.Name = "libroventasdetalle"
+        ReportDataSource3.Value = Me.libroventasdetalleBindingSource
+        ReportDataSource4.Name = "ivaresumen"
+        ReportDataSource4.Value = Me.ivaresumenBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFactura.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFacturaIVA.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(935, 664)
@@ -90,6 +97,15 @@ Partial Class ViewerFactura
         '
         Me.libroventasTableAdapter.ClearBeforeFill = True
         '
+        'ivaresumenBindingSource
+        '
+        Me.ivaresumenBindingSource.DataMember = "ivaresumen"
+        Me.ivaresumenBindingSource.DataSource = Me.comercialDataSet
+        '
+        'ivaresumenTableAdapter
+        '
+        Me.ivaresumenTableAdapter.ClearBeforeFill = True
+        '
         'ViewerFactura
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -103,6 +119,7 @@ Partial Class ViewerFactura
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.libroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.libroventasdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ivaresumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -115,4 +132,6 @@ Partial Class ViewerFactura
     Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
     Friend WithEvents libroventasBindingSource As BindingSource
     Friend WithEvents libroventasTableAdapter As comercialDataSetTableAdapters.libroventasTableAdapter
+    Friend WithEvents ivaresumenBindingSource As BindingSource
+    Friend WithEvents ivaresumenTableAdapter As comercialDataSetTableAdapters.ivaresumenTableAdapter
 End Class
