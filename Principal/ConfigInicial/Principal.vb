@@ -716,4 +716,14 @@ Public Class Principal
         ImportarProductos.MdiParent = Me
         ImportarProductos.Visible = True
     End Sub
+
+    Private Sub AsignaciónDeIVAMasivoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsignaciónDeIVAMasivoToolStripMenuItem.Click
+        AsignacionIVAMasivo.ShowDialog()
+
+    End Sub
+
+    Private Sub LibroIVAVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroIVAVentasToolStripMenuItem.Click
+        LibroIVAVentas.ShowDialog()
+
+    End Sub
 End Class

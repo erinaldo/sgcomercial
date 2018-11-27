@@ -186,6 +186,18 @@
     <Compile Include="BarCodePrint\BuscarCodigoInterno.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Contabilidad\AsignacionIVAMasivo.Designer.vb">
+      <DependentUpon>AsignacionIVAMasivo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\AsignacionIVAMasivo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\LibroIVAVentas.Designer.vb">
+      <DependentUpon>LibroIVAVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\LibroIVAVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CuentasCorrientes\AlertaCuentasCorrientes.Designer.vb">
       <DependentUpon>AlertaCuentasCorrientes.vb</DependentUpon>
     </Compile>
@@ -837,6 +849,12 @@
       <DependentUpon>BuscarCodigoInterno.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BarCodePrint\RepPlantillaBarCode.rdlc" />
+    <EmbeddedResource Include="Contabilidad\AsignacionIVAMasivo.resx">
+      <DependentUpon>AsignacionIVAMasivo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\LibroIVAVentas.resx">
+      <DependentUpon>LibroIVAVentas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\AlertaCuentasCorrientes.resx">
       <DependentUpon>AlertaCuentasCorrientes.vb</DependentUpon>
     </EmbeddedResource>
