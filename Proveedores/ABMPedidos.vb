@@ -11,20 +11,8 @@
     End Sub
 
     Private Sub ABMPedidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapedidosreporte' Puede moverla o quitarla según sea necesario.
-        Me.listapedidosreporteTableAdapter.Fill(Me.ComercialDataSet.listapedidosreporte)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.MiComercio' Puede moverla o quitarla según sea necesario.
+
         Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapedidos' Puede moverla o quitarla según sea necesario.
-        'Me.listapedidosTableAdapter.Fill(Me.ComercialDataSet.listapedidos)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.proveedores' Puede moverla o quitarla según sea necesario.
-        Me.ProveedoresTableAdapter.Fill(Me.ComercialDataSet.proveedores)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidosdetalle' Puede moverla o quitarla según sea necesario.
-        Me.PedidosdetalleTableAdapter.Fill(Me.ComercialDataSet.pedidosdetalle)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidos' Puede moverla o quitarla según sea necesario.
-        Me.PedidosTableAdapter.Fill(Me.ComercialDataSet.pedidos)
-        ProveedoresBindingSource.Filter = "idproveedor = 0"
-        PedidosBindingSource.Filter = "idpedido = 0"
 
         Me.ReportViewer1.RefreshReport()
     End Sub
@@ -140,9 +128,12 @@
             buscaproductomanual()
         End If
         If e.KeyCode.ToString = "Escape" Then
-            If MsgBox("Seguro desea salir de Registrar Venta?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+            If MsgBox("Seguro desea salir de " + Me.Text + " ?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
                 Me.Close()
             End If
+        End If
+        If e.KeyCode = e.KeyCode.Space Then
+            Button1.PerformClick()
         End If
     End Sub
 
@@ -224,9 +215,10 @@
 
     Private Sub IdproveedorTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdproveedorTextBox.TextChanged
         Try
-            ProveedoresBindingSource.Filter = "idproveedor = " + IdproveedorTextBox.Text
+
+            Me.ProveedoresTableAdapter.FillByIdproveedor(Me.ComercialDataSet.proveedores, Val(IdproveedorTextBox.Text))
         Catch ex As Exception
-            Me.ProveedoresTableAdapter.Fill(Me.ComercialDataSet.proveedores)
+            Me.ProveedoresTableAdapter.FillByIdproveedor(Me.ComercialDataSet.proveedores, 0)
             LabelProveedor.Text = Nothing
         End Try
     End Sub

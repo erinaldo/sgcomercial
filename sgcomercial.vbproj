@@ -192,6 +192,12 @@
     <Compile Include="Contabilidad\AsignacionIVAMasivo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Contabilidad\LibroIVACompras.Designer.vb">
+      <DependentUpon>LibroIVACompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\LibroIVACompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Contabilidad\LibroIVAVentas.Designer.vb">
       <DependentUpon>LibroIVAVentas.vb</DependentUpon>
     </Compile>
@@ -851,6 +857,9 @@
     <EmbeddedResource Include="BarCodePrint\RepPlantillaBarCode.rdlc" />
     <EmbeddedResource Include="Contabilidad\AsignacionIVAMasivo.resx">
       <DependentUpon>AsignacionIVAMasivo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\LibroIVACompras.resx">
+      <DependentUpon>LibroIVACompras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\LibroIVAVentas.resx">
       <DependentUpon>LibroIVAVentas.vb</DependentUpon>

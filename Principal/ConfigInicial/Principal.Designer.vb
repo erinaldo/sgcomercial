@@ -81,6 +81,7 @@ Partial Class Principal
         Me.RegistrarVentaACuentaCorrienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContabilidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignaciónDeIVAMasivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroIVAVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MiComercioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FondoAplicaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -171,7 +172,7 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LibroIVAVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroIVAComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -619,7 +620,7 @@ Partial Class Principal
         '
         'ContabilidadToolStripMenuItem
         '
-        Me.ContabilidadToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AsignaciónDeIVAMasivoToolStripMenuItem, Me.LibroIVAVentasToolStripMenuItem})
+        Me.ContabilidadToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AsignaciónDeIVAMasivoToolStripMenuItem, Me.LibroIVAVentasToolStripMenuItem, Me.LibroIVAComprasToolStripMenuItem})
         Me.ContabilidadToolStripMenuItem.Name = "ContabilidadToolStripMenuItem"
         Me.ContabilidadToolStripMenuItem.Size = New System.Drawing.Size(119, 27)
         Me.ContabilidadToolStripMenuItem.Tag = "ModuloContabilidad"
@@ -631,6 +632,13 @@ Partial Class Principal
         Me.AsignaciónDeIVAMasivoToolStripMenuItem.Size = New System.Drawing.Size(282, 28)
         Me.AsignaciónDeIVAMasivoToolStripMenuItem.Tag = "AsignacionIVAMasivo"
         Me.AsignaciónDeIVAMasivoToolStripMenuItem.Text = "Asignación de IVA Masivo"
+        '
+        'LibroIVAVentasToolStripMenuItem
+        '
+        Me.LibroIVAVentasToolStripMenuItem.Name = "LibroIVAVentasToolStripMenuItem"
+        Me.LibroIVAVentasToolStripMenuItem.Size = New System.Drawing.Size(282, 28)
+        Me.LibroIVAVentasToolStripMenuItem.Tag = "LibroIVAVentas"
+        Me.LibroIVAVentasToolStripMenuItem.Text = "Libro IVA Ventas"
         '
         'ConfiguracionesToolStripMenuItem
         '
@@ -1324,12 +1332,12 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22.HeaderText = "saldovencido"
         Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
         '
-        'LibroIVAVentasToolStripMenuItem
+        'LibroIVAComprasToolStripMenuItem
         '
-        Me.LibroIVAVentasToolStripMenuItem.Name = "LibroIVAVentasToolStripMenuItem"
-        Me.LibroIVAVentasToolStripMenuItem.Size = New System.Drawing.Size(282, 28)
-        Me.LibroIVAVentasToolStripMenuItem.Tag = "LibroIVAVentas"
-        Me.LibroIVAVentasToolStripMenuItem.Text = "Libro IVA Ventas"
+        Me.LibroIVAComprasToolStripMenuItem.Name = "LibroIVAComprasToolStripMenuItem"
+        Me.LibroIVAComprasToolStripMenuItem.Size = New System.Drawing.Size(282, 28)
+        Me.LibroIVAComprasToolStripMenuItem.Tag = "LibroIVACompras"
+        Me.LibroIVAComprasToolStripMenuItem.Text = "Libro IVA Compras"
         '
         'Principal
         '
@@ -1525,4 +1533,5 @@ Partial Class Principal
     Friend WithEvents ContabilidadToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AsignaciónDeIVAMasivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroIVAVentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LibroIVAComprasToolStripMenuItem As ToolStripMenuItem
 End Class

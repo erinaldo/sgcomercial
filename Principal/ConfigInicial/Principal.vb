@@ -700,9 +700,9 @@ Public Class Principal
         End Select
     End Sub
 
-    Private Sub Principal_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-
-    End Sub
+    'Private Sub Principal_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+    '    'holamundo?
+    'End Sub
 
     Private Sub ABMTiposIVAToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMTiposIVAToolStripMenuItem.Click
         ABMTiposIVA.ShowDialog()
@@ -724,6 +724,11 @@ Public Class Principal
 
     Private Sub LibroIVAVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroIVAVentasToolStripMenuItem.Click
         LibroIVAVentas.ShowDialog()
+
+    End Sub
+
+    Private Sub LibroIVAComprasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroIVAComprasToolStripMenuItem.Click
+        LibroIVACompras.ShowDialog()
 
     End Sub
 End Class

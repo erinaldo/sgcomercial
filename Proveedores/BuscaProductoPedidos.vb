@@ -221,4 +221,42 @@ Public Class BuscaProductoPedidos
         ABMProductos.ShowDialog()
         Me.ListaproductosTableAdapter.FillByProductosNoCompuestos(Me.ComercialDataSet.listaproductos)
     End Sub
+
+    Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ProductosDataGridView.Select()
+            Try
+                ProductosDataGridView.Rows(0).Selected = True
+
+            Catch ex As Exception
+                MsgBox("Debe seleccionar al menos un producto de la lista", MsgBoxStyle.Exclamation, "Advertencia!")
+            End Try
+
+        End If
+    End Sub
+
+    Private Sub ProductosDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles ProductosDataGridView.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            CallClick()
+            cantidadtextbox.Select()
+            e.SuppressKeyPress = True
+        End If
+    End Sub
+    Sub CallClick()
+        Try
+            gcodigoproducto = ProductosDataGridView.CurrentRow.Cells(0).Value
+            gprecioventa = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
+            precioventatextbox.Text = gprecioventa
+            gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
+            'ComboBox1.SelectedIndex = 1
+            cantidadtextbox.Text = Nothing
+            montotextbox.Text = Nothing
+            Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
+            'textboxEnvasado.Text = StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
+            'textboxUnidades.Text = StockTableAdapter.stock_consultardisponible(idproducto)
+            'calculapreciolista()
+        Catch ex As Exception
+            ' MsgBox("LISTA VACIA" + ex.Message, MsgBoxStyle.Exclamation, "Advertencia")
+        End Try
+    End Sub
 End Class
