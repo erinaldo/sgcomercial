@@ -23,7 +23,7 @@ Partial Class LibroIVACompras
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DateTimePickerHasta = New System.Windows.Forms.DateTimePicker()
@@ -36,19 +36,25 @@ Partial Class LibroIVACompras
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.LibrocomprasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librocomprasTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxTotal = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.idpedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ivacompras = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ver = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.LibrocomprasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibrocomprasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -60,14 +66,14 @@ Partial Class LibroIVACompras
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1079, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(1079, 62)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consultar"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(418, 36)
+        Me.Button1.Location = New System.Drawing.Point(418, 14)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(155, 37)
         Me.Button1.TabIndex = 4
@@ -78,7 +84,7 @@ Partial Class LibroIVACompras
         '
         Me.DateTimePickerHasta.CustomFormat = "dd/MM/yyyy"
         Me.DateTimePickerHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePickerHasta.Location = New System.Drawing.Point(277, 43)
+        Me.DateTimePickerHasta.Location = New System.Drawing.Point(277, 21)
         Me.DateTimePickerHasta.Name = "DateTimePickerHasta"
         Me.DateTimePickerHasta.Size = New System.Drawing.Size(106, 22)
         Me.DateTimePickerHasta.TabIndex = 3
@@ -87,7 +93,7 @@ Partial Class LibroIVACompras
         '
         Me.DateTimePickerDesde.CustomFormat = "dd/MM/yyyy"
         Me.DateTimePickerDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePickerDesde.Location = New System.Drawing.Point(98, 43)
+        Me.DateTimePickerDesde.Location = New System.Drawing.Point(98, 21)
         Me.DateTimePickerDesde.Name = "DateTimePickerDesde"
         Me.DateTimePickerDesde.Size = New System.Drawing.Size(106, 22)
         Me.DateTimePickerDesde.TabIndex = 2
@@ -95,7 +101,7 @@ Partial Class LibroIVACompras
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(218, 46)
+        Me.Label2.Location = New System.Drawing.Point(218, 24)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(45, 17)
         Me.Label2.TabIndex = 1
@@ -104,7 +110,7 @@ Partial Class LibroIVACompras
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(31, 46)
+        Me.Label1.Location = New System.Drawing.Point(31, 24)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 17)
         Me.Label1.TabIndex = 0
@@ -113,9 +119,9 @@ Partial Class LibroIVACompras
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.LibrocomprasDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 118)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 79)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1079, 557)
+        Me.GroupBox2.Size = New System.Drawing.Size(1079, 497)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado"
@@ -126,18 +132,19 @@ Partial Class LibroIVACompras
         Me.LibrocomprasDataGridView.AllowUserToDeleteRows = False
         Me.LibrocomprasDataGridView.AllowUserToResizeColumns = False
         Me.LibrocomprasDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.LibrocomprasDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.LibrocomprasDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.LibrocomprasDataGridView.AutoGenerateColumns = False
         Me.LibrocomprasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.LibrocomprasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LibrocomprasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn8})
+        Me.LibrocomprasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpedido, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.ivacompras, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn8, Me.ver})
         Me.LibrocomprasDataGridView.DataSource = Me.LibrocomprasBindingSource
         Me.LibrocomprasDataGridView.Location = New System.Drawing.Point(15, 31)
+        Me.LibrocomprasDataGridView.MultiSelect = False
         Me.LibrocomprasDataGridView.Name = "LibrocomprasDataGridView"
         Me.LibrocomprasDataGridView.ReadOnly = True
         Me.LibrocomprasDataGridView.RowTemplate.Height = 24
-        Me.LibrocomprasDataGridView.Size = New System.Drawing.Size(1041, 504)
+        Me.LibrocomprasDataGridView.Size = New System.Drawing.Size(1041, 447)
         Me.LibrocomprasDataGridView.TabIndex = 0
         '
         'LibrocomprasBindingSource
@@ -216,14 +223,47 @@ Partial Class LibroIVACompras
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'DataGridViewTextBoxColumn1
+        'GroupBox3
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idpedido"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.ToolTipText = "N°"
-        Me.DataGridViewTextBoxColumn1.Width = 53
+        Me.GroupBox3.Controls.Add(Me.TextBoxTotal)
+        Me.GroupBox3.Controls.Add(Me.Label3)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 582)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(1079, 64)
+        Me.GroupBox3.TabIndex = 3
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Resumen"
+        '
+        'TextBoxTotal
+        '
+        Me.TextBoxTotal.Enabled = False
+        Me.TextBoxTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxTotal.ForeColor = System.Drawing.Color.Red
+        Me.TextBoxTotal.Location = New System.Drawing.Point(912, 23)
+        Me.TextBoxTotal.Name = "TextBoxTotal"
+        Me.TextBoxTotal.Size = New System.Drawing.Size(126, 27)
+        Me.TextBoxTotal.TabIndex = 1
+        Me.TextBoxTotal.TabStop = False
+        Me.TextBoxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(707, 26)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(198, 20)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Crédito Fiscal TOTAL:"
+        '
+        'idpedido
+        '
+        Me.idpedido.DataPropertyName = "idpedido"
+        Me.idpedido.HeaderText = "N°"
+        Me.idpedido.Name = "idpedido"
+        Me.idpedido.ReadOnly = True
+        Me.idpedido.ToolTipText = "N°"
+        Me.idpedido.Width = 53
         '
         'DataGridViewTextBoxColumn2
         '
@@ -261,14 +301,14 @@ Partial Class LibroIVACompras
         Me.DataGridViewTextBoxColumn5.ToolTipText = "Condición Frente al IVA"
         Me.DataGridViewTextBoxColumn5.Width = 136
         '
-        'DataGridViewTextBoxColumn7
+        'ivacompras
         '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "ivacompras"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "IVA"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.ToolTipText = "IVA"
-        Me.DataGridViewTextBoxColumn7.Width = 58
+        Me.ivacompras.DataPropertyName = "ivacompras"
+        Me.ivacompras.HeaderText = "IVA"
+        Me.ivacompras.Name = "ivacompras"
+        Me.ivacompras.ReadOnly = True
+        Me.ivacompras.ToolTipText = "IVA"
+        Me.ivacompras.Width = 58
         '
         'DataGridViewTextBoxColumn6
         '
@@ -288,13 +328,25 @@ Partial Class LibroIVACompras
         Me.DataGridViewTextBoxColumn8.Visible = False
         Me.DataGridViewTextBoxColumn8.Width = 115
         '
+        'ver
+        '
+        Me.ver.HeaderText = "Ver"
+        Me.ver.Name = "ver"
+        Me.ver.ReadOnly = True
+        Me.ver.Text = "Ver"
+        Me.ver.ToolTipText = "ver"
+        Me.ver.UseColumnTextForButtonValue = True
+        Me.ver.Width = 36
+        '
         'LibroIVACompras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1103, 687)
+        Me.ClientSize = New System.Drawing.Size(1103, 653)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "LibroIVACompras"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "LibroIVACompras"
@@ -305,6 +357,8 @@ Partial Class LibroIVACompras
         CType(Me.LibrocomprasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LibrocomprasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -321,12 +375,17 @@ Partial Class LibroIVACompras
     Friend WithEvents LibrocomprasTableAdapter As comercialDataSetTableAdapters.librocomprasTableAdapter
     Friend WithEvents TableAdapterManager As comercialDataSetTableAdapters.TableAdapterManager
     Friend WithEvents LibrocomprasDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents TextBoxTotal As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents idpedido As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents ivacompras As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents ver As DataGridViewButtonColumn
 End Class

@@ -23,7 +23,7 @@ Partial Class LibroIVAVentas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DateTimePickerHasta = New System.Windows.Forms.DateTimePicker()
@@ -32,10 +32,6 @@ Partial Class LibroIVAVentas
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LibroventasDataGridView = New System.Windows.Forms.DataGridView()
-        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,11 +42,19 @@ Partial Class LibroIVAVentas
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ver = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxTotal = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -62,14 +66,14 @@ Partial Class LibroIVAVentas
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1233, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(1233, 72)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consultar"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(418, 36)
+        Me.Button1.Location = New System.Drawing.Point(418, 20)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(155, 37)
         Me.Button1.TabIndex = 4
@@ -80,7 +84,7 @@ Partial Class LibroIVAVentas
         '
         Me.DateTimePickerHasta.CustomFormat = "dd/MM/yyyy"
         Me.DateTimePickerHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePickerHasta.Location = New System.Drawing.Point(277, 43)
+        Me.DateTimePickerHasta.Location = New System.Drawing.Point(277, 27)
         Me.DateTimePickerHasta.Name = "DateTimePickerHasta"
         Me.DateTimePickerHasta.Size = New System.Drawing.Size(106, 22)
         Me.DateTimePickerHasta.TabIndex = 3
@@ -89,7 +93,7 @@ Partial Class LibroIVAVentas
         '
         Me.DateTimePickerDesde.CustomFormat = "dd/MM/yyyy"
         Me.DateTimePickerDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePickerDesde.Location = New System.Drawing.Point(98, 43)
+        Me.DateTimePickerDesde.Location = New System.Drawing.Point(98, 27)
         Me.DateTimePickerDesde.Name = "DateTimePickerDesde"
         Me.DateTimePickerDesde.Size = New System.Drawing.Size(106, 22)
         Me.DateTimePickerDesde.TabIndex = 2
@@ -97,7 +101,7 @@ Partial Class LibroIVAVentas
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(218, 46)
+        Me.Label2.Location = New System.Drawing.Point(218, 30)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(45, 17)
         Me.Label2.TabIndex = 1
@@ -106,7 +110,7 @@ Partial Class LibroIVAVentas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(31, 46)
+        Me.Label1.Location = New System.Drawing.Point(31, 30)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 17)
         Me.Label1.TabIndex = 0
@@ -115,9 +119,9 @@ Partial Class LibroIVAVentas
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.LibroventasDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 118)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 87)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1233, 557)
+        Me.GroupBox2.Size = New System.Drawing.Size(1233, 488)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado"
@@ -128,8 +132,8 @@ Partial Class LibroIVAVentas
         Me.LibroventasDataGridView.AllowUserToDeleteRows = False
         Me.LibroventasDataGridView.AllowUserToResizeColumns = False
         Me.LibroventasDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.LibroventasDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.LibroventasDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.LibroventasDataGridView.AutoGenerateColumns = False
         Me.LibroventasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.LibroventasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -140,8 +144,98 @@ Partial Class LibroIVAVentas
         Me.LibroventasDataGridView.Name = "LibroventasDataGridView"
         Me.LibroventasDataGridView.ReadOnly = True
         Me.LibroventasDataGridView.RowTemplate.Height = 24
-        Me.LibroventasDataGridView.Size = New System.Drawing.Size(1194, 499)
+        Me.LibroventasDataGridView.Size = New System.Drawing.Size(1194, 433)
         Me.LibroventasDataGridView.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "fechaventa"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Fecha Vta."
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.ToolTipText = "Fecha Vta."
+        Me.DataGridViewTextBoxColumn1.Width = 97
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Razón Social"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.ToolTipText = "Razón Social"
+        Me.DataGridViewTextBoxColumn2.Width = 110
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cuit"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "CUIT"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.ToolTipText = "CUIT"
+        Me.DataGridViewTextBoxColumn3.Width = 68
+        '
+        'condicionivadescripcion
+        '
+        Me.condicionivadescripcion.DataPropertyName = "condicionivadescripcion"
+        Me.condicionivadescripcion.HeaderText = "Condición Frente al IVA"
+        Me.condicionivadescripcion.Name = "condicionivadescripcion"
+        Me.condicionivadescripcion.ReadOnly = True
+        Me.condicionivadescripcion.ToolTipText = "Condición Frente al IVA"
+        Me.condicionivadescripcion.Width = 136
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "tipocomprobante"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Tipo Comprobante"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.ToolTipText = "Tipo Comprobante"
+        Me.DataGridViewTextBoxColumn4.Width = 141
+        '
+        'idventa
+        '
+        Me.idventa.DataPropertyName = "idventa"
+        Me.idventa.HeaderText = "N°"
+        Me.idventa.Name = "idventa"
+        Me.idventa.ReadOnly = True
+        Me.idventa.ToolTipText = "N°"
+        Me.idventa.Width = 53
+        '
+        'ivaventas
+        '
+        Me.ivaventas.DataPropertyName = "ivaventas"
+        Me.ivaventas.HeaderText = "IVA"
+        Me.ivaventas.Name = "ivaventas"
+        Me.ivaventas.ReadOnly = True
+        Me.ivaventas.ToolTipText = "IVA"
+        Me.ivaventas.Width = 58
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "importe"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Importe Total"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.ToolTipText = "Importe Total"
+        Me.DataGridViewTextBoxColumn6.Width = 110
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "formapago"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Forma Pago"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.ToolTipText = "Forma Pago"
+        Me.DataGridViewTextBoxColumn7.Width = 105
+        '
+        'ver
+        '
+        Me.ver.HeaderText = "Ver"
+        Me.ver.Name = "ver"
+        Me.ver.ReadOnly = True
+        Me.ver.Text = "Ver"
+        Me.ver.UseColumnTextForButtonValue = True
+        Me.ver.Width = 36
         '
         'LibroventasBindingSource
         '
@@ -219,103 +313,48 @@ Partial Class LibroIVAVentas
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'DataGridViewTextBoxColumn1
+        'GroupBox3
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "fechaventa"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Fecha Vta."
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.ToolTipText = "Fecha Vta."
-        Me.DataGridViewTextBoxColumn1.Width = 105
+        Me.GroupBox3.Controls.Add(Me.TextBoxTotal)
+        Me.GroupBox3.Controls.Add(Me.Label3)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 581)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(1233, 62)
+        Me.GroupBox3.TabIndex = 4
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Resumen"
         '
-        'DataGridViewTextBoxColumn2
+        'TextBoxTotal
         '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Razón Social"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.ToolTipText = "Razón Social"
-        Me.DataGridViewTextBoxColumn2.Width = 120
+        Me.TextBoxTotal.Enabled = False
+        Me.TextBoxTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxTotal.ForeColor = System.Drawing.Color.Red
+        Me.TextBoxTotal.Location = New System.Drawing.Point(1090, 20)
+        Me.TextBoxTotal.Name = "TextBoxTotal"
+        Me.TextBoxTotal.Size = New System.Drawing.Size(126, 27)
+        Me.TextBoxTotal.TabIndex = 1
+        Me.TextBoxTotal.TabStop = False
+        Me.TextBoxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'DataGridViewTextBoxColumn3
+        'Label3
         '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cuit"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "CUIT"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.ToolTipText = "CUIT"
-        Me.DataGridViewTextBoxColumn3.Width = 68
-        '
-        'condicionivadescripcion
-        '
-        Me.condicionivadescripcion.DataPropertyName = "condicionivadescripcion"
-        Me.condicionivadescripcion.HeaderText = "Condición Frente al IVA"
-        Me.condicionivadescripcion.Name = "condicionivadescripcion"
-        Me.condicionivadescripcion.ReadOnly = True
-        Me.condicionivadescripcion.ToolTipText = "Condición Frente al IVA"
-        Me.condicionivadescripcion.Width = 136
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "tipocomprobante"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Tipo Comprobante"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.ToolTipText = "Tipo Comprobante"
-        Me.DataGridViewTextBoxColumn4.Width = 141
-        '
-        'idventa
-        '
-        Me.idventa.DataPropertyName = "idventa"
-        Me.idventa.HeaderText = "N°"
-        Me.idventa.Name = "idventa"
-        Me.idventa.ReadOnly = True
-        Me.idventa.ToolTipText = "N°"
-        Me.idventa.Width = 53
-        '
-        'ivaventas
-        '
-        Me.ivaventas.DataPropertyName = "ivaventas"
-        Me.ivaventas.HeaderText = "IVA"
-        Me.ivaventas.Name = "ivaventas"
-        Me.ivaventas.ReadOnly = True
-        Me.ivaventas.ToolTipText = "IVA"
-        Me.ivaventas.Width = 58
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "importe"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Importe Total"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.ToolTipText = "Importe Total"
-        Me.DataGridViewTextBoxColumn6.Width = 110
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "formapago"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Forma Pago"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.ToolTipText = "Forma Pago"
-        Me.DataGridViewTextBoxColumn7.Width = 105
-        '
-        'ver
-        '
-        Me.ver.HeaderText = "Ver"
-        Me.ver.Name = "ver"
-        Me.ver.ReadOnly = True
-        Me.ver.Text = "Ver"
-        Me.ver.UseColumnTextForButtonValue = True
-        Me.ver.Width = 36
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(885, 23)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(192, 20)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Débito Fiscal TOTAL:"
         '
         'LibroIVAVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1257, 687)
+        Me.ClientSize = New System.Drawing.Size(1257, 653)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "LibroIVAVentas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "LibroIVAVentas"
@@ -326,6 +365,8 @@ Partial Class LibroIVAVentas
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -352,4 +393,7 @@ Partial Class LibroIVAVentas
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents ver As DataGridViewButtonColumn
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents TextBoxTotal As TextBox
+    Friend WithEvents Label3 As Label
 End Class

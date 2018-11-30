@@ -723,12 +723,15 @@ Public Class Principal
     End Sub
 
     Private Sub LibroIVAVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroIVAVentasToolStripMenuItem.Click
-        LibroIVAVentas.ShowDialog()
+        'LibroIVAVentas.ShowDialog()
+        LibroIVAVentas.MdiParent = Me
+        LibroIVAVentas.Visible = True
 
     End Sub
 
     Private Sub LibroIVAComprasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroIVAComprasToolStripMenuItem.Click
-        LibroIVACompras.ShowDialog()
-
+        'LibroIVACompras.ShowDialog()
+        LibroIVACompras.MdiParent = Me
+        LibroIVACompras.Visible = True
     End Sub
 End Class

@@ -6,6 +6,7 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.LibroventasTableAdapter.FillByRangoFechas(Me.ComercialDataSet.libroventas, DateTimePickerDesde.Value, DateTimePickerHasta.Value)
+        calcular()
     End Sub
 
     Private Sub LibroventasDataGri1dView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles LibroventasDataGridView.CellContentClick
@@ -21,5 +22,18 @@
             MsgBox("Ocurrio un problema al intentar recuperar la factura: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia")
         End Try
 
+    End Sub
+    Private Sub calcular()
+        Dim monto As Decimal
+        Dim total As Decimal
+        For i = 0 To LibroventasDataGridView.RowCount - 1
+            monto = LibroventasDataGridView.Rows(i).Cells("ivaventas").Value
+            total = total + monto
+        Next
+        TextBoxTotal.Text = total.ToString
+    End Sub
+
+    Private Sub LibroIVAVentas_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        Me.Close()
     End Sub
 End Class

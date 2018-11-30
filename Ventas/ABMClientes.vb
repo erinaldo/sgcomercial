@@ -29,10 +29,9 @@
     Private Sub ABMClientes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocondicioniva' Puede moverla o quitarla según sea necesario.
         Me.TipocondicionivaTableAdapter.Fill(Me.ComercialDataSet.tipocondicioniva)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.clientes' Puede moverla o quitarla según sea necesario.
 
 
-        Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
+        Me.ClientesTableAdapter.FillByClientesTodos(Me.ComercialDataSet.clientes)
         enablefields(False)
 
     End Sub
@@ -49,7 +48,7 @@
         enablefields(False)
         enabledit(False)
         ClientesBindingSource.ResetBindings(True)
-        Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
+        Me.ClientesTableAdapter.FillByClientesTodos(Me.ComercialDataSet.clientes)
         ClientesDataGridView.Enabled = True
         ClientesDataGridView.Enabled = True
         filtrotextbox.Enabled = True
@@ -60,8 +59,10 @@
         DiasvencimientoTextBox.Enabled = status
         If status = False Then
             ToolStripButton1.Visible = True
+            BindingNavigatorAddNewItem.Enabled = True
         Else
             ToolStripButton1.Visible = False
+            BindingNavigatorAddNewItem.Enabled = False
         End If
         ClientesBindingNavigatorSaveItem.Visible = status
     End Sub
