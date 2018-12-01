@@ -734,4 +734,8 @@ Public Class Principal
         LibroIVACompras.MdiParent = Me
         LibroIVACompras.Visible = True
     End Sub
+
+    Private Sub ExportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarProductosToolStripMenuItem.Click
+        ExportarProductos.ShowDialog()
+    End Sub
 End Class

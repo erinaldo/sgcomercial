@@ -31,7 +31,7 @@
     <ProductName>SGComercial</ProductName>
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>4.0.7.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -429,6 +429,12 @@
       <DependentUpon>CodificarProductos.vb</DependentUpon>
     </Compile>
     <Compile Include="Stock\CodificarProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\ExportarProductos.Designer.vb">
+      <DependentUpon>ExportarProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\ExportarProductos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Stock\ImportarProductos.Designer.vb">
@@ -978,9 +984,13 @@
     <EmbeddedResource Include="Stock\CodificarProductos.resx">
       <DependentUpon>CodificarProductos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stock\ExportarProductos.resx">
+      <DependentUpon>ExportarProductos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stock\ImportarProductos.resx">
       <DependentUpon>ImportarProductos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stock\RepExportarProd.rdlc" />
     <EmbeddedResource Include="Stock\RptControlStockGeneral.rdlc" />
     <EmbeddedResource Include="Stock\AyudaImportarProductos.resx">
       <DependentUpon>AyudaImportarProductos.vb</DependentUpon>

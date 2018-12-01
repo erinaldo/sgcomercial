@@ -13,6 +13,7 @@ Public Class ImportarProductos
             Else
                 HDR = "NO"
             End If
+            HDR = "SI"
             Dim ds As System.Data.DataSet
             Dim myadapter As System.Data.OleDb.OleDbDataAdapter
             If radioxls.Checked = True Then ' connn for XLS file
@@ -185,7 +186,11 @@ Public Class ImportarProductos
                     Dim medida As Decimal
                     medida = DataGridView1.Rows(i).Cells("medida").Value
                     Dim descripcion As String
-                    descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
+                    If Not IsDBNull(DataGridView1.Rows(i).Cells("descripcion").Value) Then
+                        descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
+                    Else
+                        descripcion = Nothing
+                    End If
                     Dim preciocosto As Decimal
                     preciocosto = DataGridView1.Rows(i).Cells("preciocosto").Value
                     Dim precioventa As Decimal
@@ -202,7 +207,11 @@ Public Class ImportarProductos
                         End Try
                     End If
                     Dim stockminimo As Long
-                    stockminimo = DataGridView1.Rows(i).Cells("stockminimo").Value
+                    If Not IsDBNull(DataGridView1.Rows(i).Cells("stockminimo").Value) Then
+                        stockminimo = DataGridView1.Rows(i).Cells("stockminimo").Value
+                    Else
+                        stockminimo = Nothing
+                    End If
                     Dim precioventagranel As Decimal
                     precioventagranel = DataGridView1.Rows(i).Cells("precioventagranel").Value
                     Dim precioventamayorista As Decimal
@@ -236,7 +245,11 @@ Public Class ImportarProductos
                     Dim medida As Decimal
                     medida = DataGridView1.Rows(i).Cells("medida").Value
                     Dim descripcion As String
-                    descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
+                    If Not IsDBNull(DataGridView1.Rows(i).Cells("descripcion").Value) Then
+                        descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
+                    Else
+                        descripcion = Nothing
+                    End If
                     Dim preciocosto As Decimal
                     preciocosto = DataGridView1.Rows(i).Cells("preciocosto").Value
                     Dim precioventa As Decimal
@@ -255,7 +268,11 @@ Public Class ImportarProductos
                         End Try
                     End If
                     Dim stockminimo As Long
-                    stockminimo = DataGridView1.Rows(i).Cells("stockminimo").Value
+                    If Not IsDBNull(DataGridView1.Rows(i).Cells("stockminimo").Value) Then
+                        stockminimo = DataGridView1.Rows(i).Cells("stockminimo").Value
+                    Else
+                        stockminimo = Nothing
+                    End If
                     Dim precioventagranel As Decimal
                     precioventagranel = DataGridView1.Rows(i).Cells("precioventagranel").Value
                     Dim precioventamayorista As Decimal
@@ -304,6 +321,7 @@ Public Class ImportarProductos
         '****************************************
         If MsgBox("Seguro desea aplicar los cambios?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
             '************************************************************************************************
+            Cursor.Current = Cursors.WaitCursor
             Dim existe As Long
             For i = 0 To DataGridView1.RowCount - 1
                 Try 'comienzo a recorrer la grilla
@@ -332,7 +350,11 @@ Public Class ImportarProductos
                         Dim medida As Decimal
                         medida = DataGridView1.Rows(i).Cells("medida").Value
                         Dim descripcion As String
-                        descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
+                        If Not IsDBNull(DataGridView1.Rows(i).Cells("descripcion").Value) Then
+                            descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
+                        Else
+                            descripcion = Nothing
+                        End If
                         Dim preciocosto As Decimal
                         preciocosto = DataGridView1.Rows(i).Cells("preciocosto").Value
                         Dim precioventa As Decimal
@@ -350,7 +372,11 @@ Public Class ImportarProductos
                             End Try
                         End If
                         Dim stockminimo As Long
-                        stockminimo = DataGridView1.Rows(i).Cells("stockminimo").Value
+                        If Not IsDBNull(DataGridView1.Rows(i).Cells("stockminimo").Value) Then
+                            stockminimo = DataGridView1.Rows(i).Cells("stockminimo").Value
+                        Else
+                            stockminimo = Nothing
+                        End If
                         Dim precioventagranel As Decimal
                         precioventagranel = DataGridView1.Rows(i).Cells("precioventagranel").Value
                         Dim precioventamayorista As Decimal
@@ -359,7 +385,8 @@ Public Class ImportarProductos
                         precioventadistribuidor = DataGridView1.Rows(i).Cells("precioventadistribuidor").Value
                         '*************************************************************************************
                         ProductosTableAdapter.productos_upd_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, existe)
-                        ProductosWebTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, codigoproducto)
+                        '************* update productos web
+                        'ProductosWebTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, codigoproducto)
                         '*************************************************************************************
                         '====== actualizar stock actual ====
                         Try
@@ -409,7 +436,11 @@ Public Class ImportarProductos
                         Dim medida As Decimal
                         medida = DataGridView1.Rows(i).Cells("medida").Value
                         Dim descripcion As String
-                        descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
+                        If Not IsDBNull(DataGridView1.Rows(i).Cells("descripcion").Value) Then
+                            descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
+                        Else
+                            descripcion = Nothing
+                        End If
                         Dim preciocosto As Decimal
                         preciocosto = DataGridView1.Rows(i).Cells("preciocosto").Value
                         Dim precioventa As Decimal
@@ -429,7 +460,11 @@ Public Class ImportarProductos
                             End Try
                         End If
                         Dim stockminimo As Long
-                        stockminimo = DataGridView1.Rows(i).Cells("stockminimo").Value
+                        If Not IsDBNull(DataGridView1.Rows(i).Cells("stockminimo").Value) Then
+                            stockminimo = DataGridView1.Rows(i).Cells("stockminimo").Value
+                        Else
+                            stockminimo = Nothing
+                        End If
                         Dim precioventagranel As Decimal
                         precioventagranel = DataGridView1.Rows(i).Cells("precioventagranel").Value
                         Dim precioventamayorista As Decimal
@@ -438,8 +473,8 @@ Public Class ImportarProductos
                         precioventadistribuidor = DataGridView1.Rows(i).Cells("precioventadistribuidor").Value
                         '*************************************************************************************
                         ProductosTableAdapter.productos_ins_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, 1)
-                        'ProductosproveedoresTableAdapter.Insert()
-                        ProductosWebTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro)
+                        '************* INSERT productos web
+                        'ProductosWebTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro)
 
                         '=========== tomo el nuevo id de producto para insertar stock
                         existe = ProductosTableAdapter.productos_existeproducto(codigoproducto) ' traigo el codigo del nuevo producto
@@ -452,16 +487,19 @@ Public Class ImportarProductos
                                 StockTableAdapter.stock_insertarmovimiento(existe, stockactual, Today, gusername, "E", "Ajuste Stock Importación Excel")
                             End If
                         Catch ex As Exception
+                            Cursor.Current = Cursors.Default
                             'MsgBox("No se incluyó el stock")
                             'Return
                         End Try
                         '====== nuevo stock actual ====
                     End If
                 Catch ex As Exception
+                    Cursor.Current = Cursors.Default
                     ErrorlogTableAdapter.errorlog_insertar(Today, "ImportarProductos", "Exception", "Button4_Click", "Error al importar: " + ex.Message)
                     MsgBox("Error al importar: " + ex.Message)
                 End Try
             Next
+            Cursor.Current = Cursors.Default
             MsgBox("El proceso ha finalizado correctamente!", MsgBoxStyle.Information, "Aviso")
             Me.Close()
             '************************************************************************************************

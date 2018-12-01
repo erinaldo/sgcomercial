@@ -940,9 +940,8 @@ Public Class RegistrarVenta
             fechavenc = Today.AddDays(diasvencimiento)
             FechavencimientoDateTimePicker.Value = fechavenc
         Catch ex As Exception
-
+            MsgBox("No se pudo calcular la fecha de vencimiento: " + ex.Message)
         End Try
-        diasvencimiento = ClientesTableAdapter.clientes_consultadiasvencimiento(gclienteseleccionado)
 
     End Sub
 

@@ -82,6 +82,7 @@ Partial Class Principal
         Me.ContabilidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignaciónDeIVAMasivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroIVAVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroIVAComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MiComercioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FondoAplicaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -172,7 +173,6 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LibroIVAComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -639,6 +639,13 @@ Partial Class Principal
         Me.LibroIVAVentasToolStripMenuItem.Size = New System.Drawing.Size(282, 28)
         Me.LibroIVAVentasToolStripMenuItem.Tag = "LibroIVAVentas"
         Me.LibroIVAVentasToolStripMenuItem.Text = "Libro IVA Ventas"
+        '
+        'LibroIVAComprasToolStripMenuItem
+        '
+        Me.LibroIVAComprasToolStripMenuItem.Name = "LibroIVAComprasToolStripMenuItem"
+        Me.LibroIVAComprasToolStripMenuItem.Size = New System.Drawing.Size(282, 28)
+        Me.LibroIVAComprasToolStripMenuItem.Tag = "LibroIVACompras"
+        Me.LibroIVAComprasToolStripMenuItem.Text = "Libro IVA Compras"
         '
         'ConfiguracionesToolStripMenuItem
         '
@@ -1331,13 +1338,6 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22.DataPropertyName = "saldovencido"
         Me.DataGridViewTextBoxColumn22.HeaderText = "saldovencido"
         Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        '
-        'LibroIVAComprasToolStripMenuItem
-        '
-        Me.LibroIVAComprasToolStripMenuItem.Name = "LibroIVAComprasToolStripMenuItem"
-        Me.LibroIVAComprasToolStripMenuItem.Size = New System.Drawing.Size(282, 28)
-        Me.LibroIVAComprasToolStripMenuItem.Tag = "LibroIVACompras"
-        Me.LibroIVAComprasToolStripMenuItem.Text = "Libro IVA Compras"
         '
         'Principal
         '
