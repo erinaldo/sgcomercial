@@ -107,6 +107,8 @@ Partial Class AlertaCuentasCorrientes
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -131,6 +133,7 @@ Partial Class AlertaCuentasCorrientes
         Me.AlertacuentascorrientesDataGridView.Location = New System.Drawing.Point(18, 34)
         Me.AlertacuentascorrientesDataGridView.MultiSelect = False
         Me.AlertacuentascorrientesDataGridView.Name = "AlertacuentascorrientesDataGridView"
+        Me.AlertacuentascorrientesDataGridView.ReadOnly = True
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
@@ -145,6 +148,7 @@ Partial Class AlertaCuentasCorrientes
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "idcliente"
         Me.DataGridViewTextBoxColumn1.HeaderText = "idcliente"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Visible = False
         '
         'DataGridViewTextBoxColumn2
@@ -152,6 +156,7 @@ Partial Class AlertaCuentasCorrientes
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
         Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
         Me.DataGridViewTextBoxColumn2.ToolTipText = "Nombre"
         Me.DataGridViewTextBoxColumn2.Width = 87
         '
@@ -160,6 +165,7 @@ Partial Class AlertaCuentasCorrientes
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "cuit"
         Me.DataGridViewTextBoxColumn3.HeaderText = "CUIT"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
         Me.DataGridViewTextBoxColumn3.ToolTipText = "CUIT"
         Me.DataGridViewTextBoxColumn3.Width = 68
         '
@@ -168,6 +174,7 @@ Partial Class AlertaCuentasCorrientes
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "telefono"
         Me.DataGridViewTextBoxColumn4.HeaderText = "Teléfono"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
         Me.DataGridViewTextBoxColumn4.ToolTipText = "Teléfono"
         Me.DataGridViewTextBoxColumn4.Width = 93
         '
@@ -176,6 +183,7 @@ Partial Class AlertaCuentasCorrientes
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "email"
         Me.DataGridViewTextBoxColumn5.HeaderText = "Email"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
         Me.DataGridViewTextBoxColumn5.ToolTipText = "Email"
         Me.DataGridViewTextBoxColumn5.Visible = False
         '
@@ -184,6 +192,7 @@ Partial Class AlertaCuentasCorrientes
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "saldo"
         Me.DataGridViewTextBoxColumn6.HeaderText = "Saldo"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
         Me.DataGridViewTextBoxColumn6.ToolTipText = "Saldo"
         Me.DataGridViewTextBoxColumn6.Visible = False
         '
@@ -192,6 +201,7 @@ Partial Class AlertaCuentasCorrientes
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "saldovencido"
         Me.DataGridViewTextBoxColumn7.HeaderText = "Saldo Vencido"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
         Me.DataGridViewTextBoxColumn7.ToolTipText = "Saldo Vencido"
         Me.DataGridViewTextBoxColumn7.Width = 128
         '

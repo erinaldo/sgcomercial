@@ -2,13 +2,14 @@
 Public Class StockAlerta
     Public filtro As String
     Private Sub StockAlerta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+        ComboBoxFiltro.SelectedIndex = 1
+        ''TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
+        'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productoscomponentes' Puede moverla o quitarla según sea necesario.
-        Me.ProductoscomponentesTableAdapter.Fill(Me.ComercialDataSet.productoscomponentes)
+        'Me.ProductoscomponentesTableAdapter.Fill(Me.ComercialDataSet.productoscomponentes)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stockalerta' Puede moverla o quitarla según sea necesario.
         Me.StockalertaTableAdapter.Fill(Me.ComercialDataSet.stockalerta)
-        filtro = "producto"
+        'filtro = "producto"
 
     End Sub
     Public Sub reloadstock()
@@ -49,21 +50,21 @@ Public Class StockAlerta
             StockalertaBindingSource.Filter = ""
             Return
         End If
-        Select Case filtro
-            Case "disponible"
+        Select Case ComboBoxFiltro.Text
+            Case "Código"
                 Try
-                    StockalertaBindingSource.Filter = filtro + " = " + TextBox1.Text
+                    StockalertaBindingSource.Filter = "codigoproducto" + " like '%" + TextBox1.Text + "%'"
                 Catch ex As Exception
 
                 End Try
-            Case "stockminimo"
+            Case "Producto"
                 Try
-                    StockalertaBindingSource.Filter = filtro + " = " + TextBox1.Text
+                    StockalertaBindingSource.Filter = "producto" + " like '%" + TextBox1.Text + "%'"
                 Catch ex As Exception
 
                 End Try
             Case Else
-                StockalertaBindingSource.Filter = filtro + " like '%" + TextBox1.Text + "%'"
+                StockalertaBindingSource.Filter = ""
         End Select
 
     End Sub
@@ -72,5 +73,8 @@ Public Class StockAlerta
         reloadstock()
     End Sub
 
+    Private Sub ComboBoxFiltro_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxFiltro.SelectedIndexChanged
+        TextBox1.Select()
 
+    End Sub
 End Class

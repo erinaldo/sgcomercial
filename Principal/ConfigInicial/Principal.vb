@@ -46,6 +46,13 @@ Public Class Principal
             AlertaCuentasCorrientes()
         End If
         '====================================================================
+        '====================================================================
+        If Alerta1ToolStripMenuItem.Text = "Alerta1" And Alerta2ToolStripMenuItem.Text = "Alerta2" Then
+            NotificacionesToolStripMenuItem.Visible = False
+        Else
+            NotificacionesToolStripMenuItem.Visible = True
+        End If
+        '====================================================================
         ''''''''''''''''''''''''''''''''''''''  FIN '''''''''''''''''''''''''''''''''''''
         '====================================================================
     End Sub
@@ -152,8 +159,26 @@ Public Class Principal
         FormPrincipal.BackgroundImage = PictureBox1.Image
     End Sub
     Public Sub reloadstock()
-
         Me.StockalertaTableAdapter.Fill(Me.ComercialDataSet.stockalerta)
+        '=========== VERIFICO SI HAY ALERTA ACTIVA
+        If Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!" Or Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
+            If DataGridViewStockAlerta.RowCount > 0 Then ' SI HAY PRODUCTOS EN ALERTA ENTONCES ESTA TODO OK... SALGO
+                Return
+            Else ' NO HAY PRODUCTOS EN ALERTA - reseteo los menues de alerta a cero e invisible
+                If Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
+                    Alerta1ToolStripMenuItem.Text = "Alerta1"
+                    Alerta1ToolStripMenuItem.Visible = False
+                    Return
+                End If
+                If Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
+                    Alerta2ToolStripMenuItem.Text = "Alerta2"
+                    Alerta2ToolStripMenuItem.Visible = False
+                    Return
+                End If
+            End If
+
+        End If
+        '=========== SETEO ALERTA - LAS ALERTAS ESTAN APAGADAS
         If DataGridViewStockAlerta.RowCount > 0 Then
             If Alerta1ToolStripMenuItem.Text = "Alerta1" Then
                 Alerta1ToolStripMenuItem.Visible = True
@@ -168,11 +193,41 @@ Public Class Principal
                 Return
             End If
         Else
-            NotificacionesToolStripMenuItem.Visible = False
+            If Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
+                Alerta1ToolStripMenuItem.Text = "Alerta1"
+                Alerta1ToolStripMenuItem.Visible = True
+                Return
+            End If
+            If Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
+                Alerta2ToolStripMenuItem.Text = "Alerta2"
+                Alerta2ToolStripMenuItem.Visible = True
+                Return
+            End If
+            'NotificacionesToolStripMenuItem.Visible = False
         End If
     End Sub
     Public Sub AlertaCuentasCorrientes()
+        '==================
         Me.AlertacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.alertacuentascorrientes)
+        '=========== VERIFICO SI HAY ALERTA ACTIVA
+        If Alerta1ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Or Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
+            If AlertacuentascorrientesDataGridView.RowCount > 0 Then ' SI HAY PRODUCTOS EN ALERTA ENTONCES ESTA TODO OK... SALGO
+                Return
+            Else ' NO HAY PRODUCTOS EN ALERTA - reseteo los menues de alerta a cero e invisible
+                If Alerta1ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
+                    Alerta1ToolStripMenuItem.Text = "Alerta1"
+                    Alerta1ToolStripMenuItem.Visible = False
+                    Return
+                End If
+                If Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
+                    Alerta2ToolStripMenuItem.Text = "Alerta2"
+                    Alerta2ToolStripMenuItem.Visible = False
+                    Return
+                End If
+            End If
+
+        End If
+        '=========== SETEO ALERTA - LAS ALERTAS ESTAN APAGADAS
         If AlertacuentascorrientesDataGridView.RowCount > 0 Then
             If Alerta1ToolStripMenuItem.Text = "Alerta1" Then
                 Alerta1ToolStripMenuItem.Visible = True
@@ -187,8 +242,18 @@ Public Class Principal
                 Return
             End If
         Else
-            'NotificacionesToolStripMenuItem.Visible = False
+            If Alerta1ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
+                Alerta1ToolStripMenuItem.Text = "Alerta1"
+                Alerta1ToolStripMenuItem.Visible = True
+                Return
+            End If
+            If Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
+                Alerta2ToolStripMenuItem.Text = "Alerta2"
+                Alerta2ToolStripMenuItem.Visible = True
+                Return
+            End If
         End If
+        '=============================
     End Sub
 
     Private Sub GestionDeProductosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GestionDeProductosToolStripMenuItem.Click

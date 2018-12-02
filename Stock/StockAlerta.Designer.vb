@@ -56,14 +56,15 @@ Partial Class StockAlerta
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.StockalertaDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewLinkColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductoscomponentesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productoscomponentesTableAdapter()
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
+        Me.ComboBoxFiltro = New System.Windows.Forms.ComboBox()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockalertaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -92,17 +93,34 @@ Partial Class StockAlerta
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Nothing
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
@@ -110,28 +128,40 @@ Partial Class StockAlerta
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ComboBoxFiltro)
         Me.GroupBox1.Controls.Add(Me.ProductosDataGridView)
         Me.GroupBox1.Controls.Add(Me.ProductoscomponentesDataGridView)
         Me.GroupBox1.Controls.Add(Me.LabelFiltro)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1294, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(894, 100)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Opciones"
@@ -287,13 +317,13 @@ Partial Class StockAlerta
         Me.LabelFiltro.AutoSize = True
         Me.LabelFiltro.Location = New System.Drawing.Point(220, 41)
         Me.LabelFiltro.Name = "LabelFiltro"
-        Me.LabelFiltro.Size = New System.Drawing.Size(134, 17)
+        Me.LabelFiltro.Size = New System.Drawing.Size(73, 17)
         Me.LabelFiltro.TabIndex = 1
-        Me.LabelFiltro.Text = "Filtrar por Producto:"
+        Me.LabelFiltro.Text = "Filtrar por:"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(372, 39)
+        Me.TextBox1.Location = New System.Drawing.Point(444, 37)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(314, 22)
         Me.TextBox1.TabIndex = 0
@@ -303,7 +333,7 @@ Partial Class StockAlerta
         Me.GroupBox2.Controls.Add(Me.StockalertaDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 118)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1294, 340)
+        Me.GroupBox2.Size = New System.Drawing.Size(894, 340)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lista de Productos"
@@ -312,9 +342,12 @@ Partial Class StockAlerta
         '
         Me.StockalertaDataGridView.AllowUserToAddRows = False
         Me.StockalertaDataGridView.AllowUserToDeleteRows = False
+        Me.StockalertaDataGridView.AllowUserToResizeColumns = False
+        Me.StockalertaDataGridView.AllowUserToResizeRows = False
         Me.StockalertaDataGridView.AutoGenerateColumns = False
+        Me.StockalertaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.StockalertaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.StockalertaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
+        Me.StockalertaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.codigoproducto, Me.DataGridViewTextBoxColumn3, Me.producto, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
         Me.StockalertaDataGridView.DataSource = Me.StockalertaBindingSource
         Me.StockalertaDataGridView.Location = New System.Drawing.Point(16, 32)
         Me.StockalertaDataGridView.MultiSelect = False
@@ -322,63 +355,8 @@ Partial Class StockAlerta
         Me.StockalertaDataGridView.ReadOnly = True
         Me.StockalertaDataGridView.RowTemplate.Height = 24
         Me.StockalertaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.StockalertaDataGridView.Size = New System.Drawing.Size(1258, 288)
+        Me.StockalertaDataGridView.Size = New System.Drawing.Size(834, 288)
         Me.StockalertaDataGridView.TabIndex = 2
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idproducto"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idproducto"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "codigoproducto"
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Código"
-        Me.DataGridViewTextBoxColumn2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.DataGridViewTextBoxColumn2.Text = "Click para ajustar stock!"
-        Me.DataGridViewTextBoxColumn2.ToolTipText = "Click para ajustar stock!"
-        Me.DataGridViewTextBoxColumn2.Width = 150
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "rubro"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Rubro"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 200
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "producto"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Producto"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 400
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "disponible"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Disponible"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "stockminimo"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Mínimo"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
         '
         'ProductoscomponentesTableAdapter
         '
@@ -388,11 +366,79 @@ Partial Class StockAlerta
         '
         Me.ProductosTableAdapter.ClearBeforeFill = True
         '
+        'ComboBoxFiltro
+        '
+        Me.ComboBoxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxFiltro.FormattingEnabled = True
+        Me.ComboBoxFiltro.Items.AddRange(New Object() {"Código", "Producto"})
+        Me.ComboBoxFiltro.Location = New System.Drawing.Point(299, 37)
+        Me.ComboBoxFiltro.Name = "ComboBoxFiltro"
+        Me.ComboBoxFiltro.Size = New System.Drawing.Size(139, 24)
+        Me.ComboBoxFiltro.TabIndex = 4
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idproducto"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idproducto"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        Me.DataGridViewTextBoxColumn1.Width = 104
+        '
+        'codigoproducto
+        '
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        Me.codigoproducto.DefaultCellStyle = DataGridViewCellStyle1
+        Me.codigoproducto.HeaderText = "Código"
+        Me.codigoproducto.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.codigoproducto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.codigoproducto.Text = "Click para ajustar stock!"
+        Me.codigoproducto.ToolTipText = "Click para ajustar stock!"
+        Me.codigoproducto.Width = 81
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "rubro"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Rubro"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 76
+        '
+        'producto
+        '
+        Me.producto.DataPropertyName = "producto"
+        Me.producto.HeaderText = "Producto"
+        Me.producto.Name = "producto"
+        Me.producto.ReadOnly = True
+        Me.producto.Width = 94
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "disponible"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Disponible"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 103
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "stockminimo"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Mínimo"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 81
+        '
         'StockAlerta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1326, 478)
+        Me.ClientSize = New System.Drawing.Size(922, 478)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -424,12 +470,6 @@ Partial Class StockAlerta
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents StockalertaDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewLinkColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents ProductoscomponentesBindingSource As BindingSource
     Friend WithEvents ProductoscomponentesTableAdapter As comercialDataSetTableAdapters.productoscomponentesTableAdapter
     Friend WithEvents ProductoscomponentesDataGridView As DataGridView
@@ -454,4 +494,11 @@ Partial Class StockAlerta
     Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
+    Friend WithEvents ComboBoxFiltro As ComboBox
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents codigoproducto As DataGridViewLinkColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents producto As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
 End Class

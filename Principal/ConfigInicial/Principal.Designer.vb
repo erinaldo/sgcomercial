@@ -62,6 +62,7 @@ Partial Class Principal
         Me.ListaDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecepciónDePedidoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecepciónSinPedidoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProductosPorProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransferenciaStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnviarStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecibirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -175,7 +176,6 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductosPorProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -494,6 +494,13 @@ Partial Class Principal
         Me.RecepciónSinPedidoToolStripMenuItem.Size = New System.Drawing.Size(376, 28)
         Me.RecepciónSinPedidoToolStripMenuItem.Tag = "RecepcionSinPedido"
         Me.RecepciónSinPedidoToolStripMenuItem.Text = "Recepción de mercaderías sin pedido"
+        '
+        'ProductosPorProveedorToolStripMenuItem
+        '
+        Me.ProductosPorProveedorToolStripMenuItem.Name = "ProductosPorProveedorToolStripMenuItem"
+        Me.ProductosPorProveedorToolStripMenuItem.Size = New System.Drawing.Size(376, 28)
+        Me.ProductosPorProveedorToolStripMenuItem.Tag = "ProductosPorProveedor"
+        Me.ProductosPorProveedorToolStripMenuItem.Text = "Productos por Proveedor"
         '
         'TransferenciaStockToolStripMenuItem
         '
@@ -1304,14 +1311,17 @@ Partial Class Principal
         '
         'AlertacuentascorrientesDataGridView
         '
+        Me.AlertacuentascorrientesDataGridView.AllowUserToAddRows = False
+        Me.AlertacuentascorrientesDataGridView.AllowUserToDeleteRows = False
         Me.AlertacuentascorrientesDataGridView.AutoGenerateColumns = False
         Me.AlertacuentascorrientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.AlertacuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22})
         Me.AlertacuentascorrientesDataGridView.DataSource = Me.AlertacuentascorrientesBindingSource
-        Me.AlertacuentascorrientesDataGridView.Location = New System.Drawing.Point(461, 145)
+        Me.AlertacuentascorrientesDataGridView.Location = New System.Drawing.Point(893, 547)
         Me.AlertacuentascorrientesDataGridView.Name = "AlertacuentascorrientesDataGridView"
+        Me.AlertacuentascorrientesDataGridView.ReadOnly = True
         Me.AlertacuentascorrientesDataGridView.RowTemplate.Height = 24
-        Me.AlertacuentascorrientesDataGridView.Size = New System.Drawing.Size(24, 31)
+        Me.AlertacuentascorrientesDataGridView.Size = New System.Drawing.Size(102, 91)
         Me.AlertacuentascorrientesDataGridView.TabIndex = 11
         Me.AlertacuentascorrientesDataGridView.Visible = False
         '
@@ -1320,49 +1330,49 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn16.DataPropertyName = "idcliente"
         Me.DataGridViewTextBoxColumn16.HeaderText = "idcliente"
         Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
         '
         'DataGridViewTextBoxColumn17
         '
         Me.DataGridViewTextBoxColumn17.DataPropertyName = "nombre"
         Me.DataGridViewTextBoxColumn17.HeaderText = "nombre"
         Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.ReadOnly = True
         '
         'DataGridViewTextBoxColumn18
         '
         Me.DataGridViewTextBoxColumn18.DataPropertyName = "cuit"
         Me.DataGridViewTextBoxColumn18.HeaderText = "cuit"
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        Me.DataGridViewTextBoxColumn18.ReadOnly = True
         '
         'DataGridViewTextBoxColumn19
         '
         Me.DataGridViewTextBoxColumn19.DataPropertyName = "telefono"
         Me.DataGridViewTextBoxColumn19.HeaderText = "telefono"
         Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        Me.DataGridViewTextBoxColumn19.ReadOnly = True
         '
         'DataGridViewTextBoxColumn20
         '
         Me.DataGridViewTextBoxColumn20.DataPropertyName = "email"
         Me.DataGridViewTextBoxColumn20.HeaderText = "email"
         Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        Me.DataGridViewTextBoxColumn20.ReadOnly = True
         '
         'DataGridViewTextBoxColumn21
         '
         Me.DataGridViewTextBoxColumn21.DataPropertyName = "saldo"
         Me.DataGridViewTextBoxColumn21.HeaderText = "saldo"
         Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        Me.DataGridViewTextBoxColumn21.ReadOnly = True
         '
         'DataGridViewTextBoxColumn22
         '
         Me.DataGridViewTextBoxColumn22.DataPropertyName = "saldovencido"
         Me.DataGridViewTextBoxColumn22.HeaderText = "saldovencido"
         Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        '
-        'ProductosPorProveedorToolStripMenuItem
-        '
-        Me.ProductosPorProveedorToolStripMenuItem.Name = "ProductosPorProveedorToolStripMenuItem"
-        Me.ProductosPorProveedorToolStripMenuItem.Size = New System.Drawing.Size(376, 28)
-        Me.ProductosPorProveedorToolStripMenuItem.Tag = "ProductosPorProveedor"
-        Me.ProductosPorProveedorToolStripMenuItem.Text = "Productos por Proveedor"
+        Me.DataGridViewTextBoxColumn22.ReadOnly = True
         '
         'Principal
         '
