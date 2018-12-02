@@ -24,11 +24,12 @@ Partial Class ProductosProveedores
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
-        Me.IdproveedorTextBox = New System.Windows.Forms.TextBox()
         Me.LabelProveedor = New System.Windows.Forms.Label()
+        Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.IdproveedorTextBox = New System.Windows.Forms.TextBox()
+        Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
         Me.ProveedoresDataGridView = New System.Windows.Forms.DataGridView()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -36,12 +37,8 @@ Partial Class ProductosProveedores
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.ProveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.proveedoresTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.ListaproductosproveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ListaproductosproveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaproductosproveedoresTableAdapter()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ListaproductosproveedoresDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -49,15 +46,18 @@ Partial Class ProductosProveedores
         Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.presentacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ListaproductosproveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ProveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.proveedoresTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.ListaproductosproveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaproductosproveedoresTableAdapter()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProveedoresDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ListaproductosproveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaproductosproveedoresDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListaproductosproveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -71,6 +71,33 @@ Partial Class ProductosProveedores
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Seleccione Proveedor"
+        '
+        'LabelProveedor
+        '
+        Me.LabelProveedor.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "nombre", True))
+        Me.LabelProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelProveedor.Location = New System.Drawing.Point(189, 22)
+        Me.LabelProveedor.Name = "LabelProveedor"
+        Me.LabelProveedor.Size = New System.Drawing.Size(540, 23)
+        Me.LabelProveedor.TabIndex = 19
+        Me.LabelProveedor.Text = "Proveedor"
+        '
+        'ProveedoresBindingSource
+        '
+        Me.ProveedoresBindingSource.DataMember = "proveedores"
+        Me.ProveedoresBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IdproveedorTextBox
+        '
+        Me.IdproveedorTextBox.Location = New System.Drawing.Point(50, 22)
+        Me.IdproveedorTextBox.Name = "IdproveedorTextBox"
+        Me.IdproveedorTextBox.Size = New System.Drawing.Size(77, 22)
+        Me.IdproveedorTextBox.TabIndex = 18
         '
         'PictureSeleccionarCliente
         '
@@ -86,23 +113,6 @@ Partial Class ProductosProveedores
         Me.PictureSeleccionarCliente.TabIndex = 17
         Me.PictureSeleccionarCliente.TabStop = False
         '
-        'IdproveedorTextBox
-        '
-        Me.IdproveedorTextBox.Location = New System.Drawing.Point(50, 22)
-        Me.IdproveedorTextBox.Name = "IdproveedorTextBox"
-        Me.IdproveedorTextBox.Size = New System.Drawing.Size(77, 22)
-        Me.IdproveedorTextBox.TabIndex = 18
-        '
-        'LabelProveedor
-        '
-        Me.LabelProveedor.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "nombre", True))
-        Me.LabelProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.LabelProveedor.Location = New System.Drawing.Point(189, 22)
-        Me.LabelProveedor.Name = "LabelProveedor"
-        Me.LabelProveedor.Size = New System.Drawing.Size(540, 23)
-        Me.LabelProveedor.TabIndex = 19
-        Me.LabelProveedor.Text = "Proveedor"
-        '
         'ProveedoresDataGridView
         '
         Me.ProveedoresDataGridView.AutoGenerateColumns = False
@@ -115,17 +125,6 @@ Partial Class ProductosProveedores
         Me.ProveedoresDataGridView.Size = New System.Drawing.Size(20, 21)
         Me.ProveedoresDataGridView.TabIndex = 2
         Me.ProveedoresDataGridView.Visible = False
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Button1)
-        Me.GroupBox2.Controls.Add(Me.ListaproductosproveedoresDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 84)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(847, 532)
-        Me.GroupBox2.TabIndex = 3
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Lista de productos"
         '
         'DataGridViewTextBoxColumn1
         '
@@ -170,89 +169,26 @@ Partial Class ProductosProveedores
         Me.DataGridViewTextBoxColumn7.HeaderText = "personacontacto"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         '
-        'ProveedoresBindingSource
+        'GroupBox2
         '
-        Me.ProveedoresBindingSource.DataMember = "proveedores"
-        Me.ProveedoresBindingSource.DataSource = Me.ComercialDataSet
+        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.ListaproductosproveedoresDataGridView)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 84)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(847, 532)
+        Me.GroupBox2.TabIndex = 3
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Lista de productos"
         '
-        'ComercialDataSet
+        'Button1
         '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ProveedoresTableAdapter
-        '
-        Me.ProveedoresTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
-        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
-        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
-        Me.TableAdapterManager.cajasTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
-        Me.TableAdapterManager.errorlogTableAdapter = Nothing
-        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
-        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager.funcionesTableAdapter = Nothing
-        Me.TableAdapterManager.gastosTableAdapter = Nothing
-        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosTableAdapter = Nothing
-        Me.TableAdapterManager.perfilesTableAdapter = Nothing
-        Me.TableAdapterManager.permisosTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
-        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
-        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.proveedoresTableAdapter = Me.ProveedoresTableAdapter
-        Me.TableAdapterManager.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.remitosTableAdapter = Nothing
-        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager.stockTableAdapter = Nothing
-        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
-        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
-        Me.TableAdapterManager.transportesTableAdapter = Nothing
-        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.valesTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
-        'ListaproductosproveedoresBindingSource
-        '
-        Me.ListaproductosproveedoresBindingSource.DataMember = "listaproductosproveedores"
-        Me.ListaproductosproveedoresBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ListaproductosproveedoresTableAdapter
-        '
-        Me.ListaproductosproveedoresTableAdapter.ClearBeforeFill = True
+        Me.Button1.Enabled = False
+        Me.Button1.Location = New System.Drawing.Point(676, 22)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(154, 28)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Agregar"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'ListaproductosproveedoresDataGridView
         '
@@ -327,14 +263,79 @@ Partial Class ProductosProveedores
         Me.precioventa.ToolTipText = "Precio Venta"
         Me.precioventa.Width = 118
         '
-        'Button1
+        'ListaproductosproveedoresBindingSource
         '
-        Me.Button1.Location = New System.Drawing.Point(676, 22)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(154, 28)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Agregar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ListaproductosproveedoresBindingSource.DataMember = "listaproductosproveedores"
+        Me.ListaproductosproveedoresBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ProveedoresTableAdapter
+        '
+        Me.ProveedoresTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
+        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
+        Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager.permisosTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.proveedoresTableAdapter = Me.ProveedoresTableAdapter
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'ListaproductosproveedoresTableAdapter
+        '
+        Me.ListaproductosproveedoresTableAdapter.ClearBeforeFill = True
         '
         'ProductosProveedores
         '
@@ -351,13 +352,13 @@ Partial Class ProductosProveedores
         Me.Text = " Productos Proveedores"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProveedoresDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
-        CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ListaproductosproveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaproductosproveedoresDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListaproductosproveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
