@@ -38,18 +38,20 @@ Partial Class ProductosProveedores
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ButtonAgregar = New System.Windows.Forms.Button()
         Me.ListaproductosproveedoresDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.presentacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListaproductosproveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.proveedoresTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.ListaproductosproveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaproductosproveedoresTableAdapter()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idproductoproveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idproveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.presentacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.desvincular = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,7 +78,7 @@ Partial Class ProductosProveedores
         '
         Me.LabelProveedor.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "nombre", True))
         Me.LabelProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.LabelProveedor.Location = New System.Drawing.Point(189, 22)
+        Me.LabelProveedor.Location = New System.Drawing.Point(189, 28)
         Me.LabelProveedor.Name = "LabelProveedor"
         Me.LabelProveedor.Size = New System.Drawing.Size(540, 23)
         Me.LabelProveedor.TabIndex = 19
@@ -94,7 +96,7 @@ Partial Class ProductosProveedores
         '
         'IdproveedorTextBox
         '
-        Me.IdproveedorTextBox.Location = New System.Drawing.Point(50, 22)
+        Me.IdproveedorTextBox.Location = New System.Drawing.Point(50, 28)
         Me.IdproveedorTextBox.Name = "IdproveedorTextBox"
         Me.IdproveedorTextBox.Size = New System.Drawing.Size(77, 22)
         Me.IdproveedorTextBox.TabIndex = 18
@@ -105,7 +107,7 @@ Partial Class ProductosProveedores
         Me.PictureSeleccionarCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureSeleccionarCliente.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSeleccionarCliente.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(134, 19)
+        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(134, 25)
         Me.PictureSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureSeleccionarCliente.Name = "PictureSeleccionarCliente"
         Me.PictureSeleccionarCliente.Size = New System.Drawing.Size(29, 28)
@@ -115,12 +117,15 @@ Partial Class ProductosProveedores
         '
         'ProveedoresDataGridView
         '
+        Me.ProveedoresDataGridView.AllowUserToAddRows = False
+        Me.ProveedoresDataGridView.AllowUserToDeleteRows = False
         Me.ProveedoresDataGridView.AutoGenerateColumns = False
         Me.ProveedoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ProveedoresDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
         Me.ProveedoresDataGridView.DataSource = Me.ProveedoresBindingSource
         Me.ProveedoresDataGridView.Location = New System.Drawing.Point(12, -5)
         Me.ProveedoresDataGridView.Name = "ProveedoresDataGridView"
+        Me.ProveedoresDataGridView.ReadOnly = True
         Me.ProveedoresDataGridView.RowTemplate.Height = 24
         Me.ProveedoresDataGridView.Size = New System.Drawing.Size(20, 21)
         Me.ProveedoresDataGridView.TabIndex = 2
@@ -138,40 +143,46 @@ Partial Class ProductosProveedores
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
         Me.DataGridViewTextBoxColumn2.HeaderText = "nombre"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "cuitcuil"
         Me.DataGridViewTextBoxColumn3.HeaderText = "cuitcuil"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "telefono"
         Me.DataGridViewTextBoxColumn4.HeaderText = "telefono"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "email"
         Me.DataGridViewTextBoxColumn5.HeaderText = "email"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "condicioniva"
         Me.DataGridViewTextBoxColumn6.HeaderText = "condicioniva"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "personacontacto"
         Me.DataGridViewTextBoxColumn7.HeaderText = "personacontacto"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.ButtonAgregar)
         Me.GroupBox2.Controls.Add(Me.ListaproductosproveedoresDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 84)
         Me.GroupBox2.Name = "GroupBox2"
@@ -180,15 +191,15 @@ Partial Class ProductosProveedores
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lista de productos"
         '
-        'Button1
+        'ButtonAgregar
         '
-        Me.Button1.Enabled = False
-        Me.Button1.Location = New System.Drawing.Point(676, 22)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(154, 28)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Agregar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ButtonAgregar.Enabled = False
+        Me.ButtonAgregar.Location = New System.Drawing.Point(676, 22)
+        Me.ButtonAgregar.Name = "ButtonAgregar"
+        Me.ButtonAgregar.Size = New System.Drawing.Size(154, 28)
+        Me.ButtonAgregar.TabIndex = 1
+        Me.ButtonAgregar.Text = "Agregar"
+        Me.ButtonAgregar.UseVisualStyleBackColor = True
         '
         'ListaproductosproveedoresDataGridView
         '
@@ -199,7 +210,7 @@ Partial Class ProductosProveedores
         Me.ListaproductosproveedoresDataGridView.AutoGenerateColumns = False
         Me.ListaproductosproveedoresDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.ListaproductosproveedoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListaproductosproveedoresDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.marca, Me.modelo, Me.presentacion, Me.precioventa})
+        Me.ListaproductosproveedoresDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.idproductoproveedor, Me.idproveedor, Me.marca, Me.modelo, Me.presentacion, Me.precioventa, Me.desvincular})
         Me.ListaproductosproveedoresDataGridView.DataSource = Me.ListaproductosproveedoresBindingSource
         Me.ListaproductosproveedoresDataGridView.Location = New System.Drawing.Point(15, 59)
         Me.ListaproductosproveedoresDataGridView.Name = "ListaproductosproveedoresDataGridView"
@@ -208,60 +219,6 @@ Partial Class ProductosProveedores
         Me.ListaproductosproveedoresDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ListaproductosproveedoresDataGridView.Size = New System.Drawing.Size(815, 455)
         Me.ListaproductosproveedoresDataGridView.TabIndex = 0
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "idproducto"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "idproducto"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Visible = False
-        Me.DataGridViewTextBoxColumn8.Width = 104
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "idproveedor"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "idproveedor"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Visible = False
-        Me.DataGridViewTextBoxColumn9.Width = 113
-        '
-        'marca
-        '
-        Me.marca.DataPropertyName = "marca"
-        Me.marca.HeaderText = "Marca"
-        Me.marca.Name = "marca"
-        Me.marca.ReadOnly = True
-        Me.marca.ToolTipText = "Marca"
-        Me.marca.Width = 76
-        '
-        'modelo
-        '
-        Me.modelo.DataPropertyName = "modelo"
-        Me.modelo.HeaderText = "Modelo"
-        Me.modelo.Name = "modelo"
-        Me.modelo.ReadOnly = True
-        Me.modelo.ToolTipText = "Modelo"
-        Me.modelo.Width = 83
-        '
-        'presentacion
-        '
-        Me.presentacion.DataPropertyName = "presentacion"
-        Me.presentacion.HeaderText = "Presentación"
-        Me.presentacion.Name = "presentacion"
-        Me.presentacion.ReadOnly = True
-        Me.presentacion.ToolTipText = "Presentación"
-        Me.presentacion.Width = 120
-        '
-        'precioventa
-        '
-        Me.precioventa.DataPropertyName = "precioventa"
-        Me.precioventa.HeaderText = "Precio Venta"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        Me.precioventa.ToolTipText = "Precio Venta"
-        Me.precioventa.Width = 118
         '
         'ListaproductosproveedoresBindingSource
         '
@@ -337,6 +294,79 @@ Partial Class ProductosProveedores
         '
         Me.ListaproductosproveedoresTableAdapter.ClearBeforeFill = True
         '
+        'idproducto
+        '
+        Me.idproducto.DataPropertyName = "idproducto"
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        Me.idproducto.Width = 104
+        '
+        'idproductoproveedor
+        '
+        Me.idproductoproveedor.DataPropertyName = "idproductoproveedor"
+        Me.idproductoproveedor.HeaderText = "idproductoproveedor"
+        Me.idproductoproveedor.Name = "idproductoproveedor"
+        Me.idproductoproveedor.ReadOnly = True
+        Me.idproductoproveedor.Visible = False
+        Me.idproductoproveedor.Width = 169
+        '
+        'idproveedor
+        '
+        Me.idproveedor.DataPropertyName = "idproveedor"
+        Me.idproveedor.HeaderText = "idproveedor"
+        Me.idproveedor.Name = "idproveedor"
+        Me.idproveedor.ReadOnly = True
+        Me.idproveedor.Visible = False
+        Me.idproveedor.Width = 113
+        '
+        'marca
+        '
+        Me.marca.DataPropertyName = "marca"
+        Me.marca.HeaderText = "Marca"
+        Me.marca.Name = "marca"
+        Me.marca.ReadOnly = True
+        Me.marca.ToolTipText = "Marca"
+        Me.marca.Width = 76
+        '
+        'modelo
+        '
+        Me.modelo.DataPropertyName = "modelo"
+        Me.modelo.HeaderText = "Modelo"
+        Me.modelo.Name = "modelo"
+        Me.modelo.ReadOnly = True
+        Me.modelo.ToolTipText = "Modelo"
+        Me.modelo.Width = 83
+        '
+        'presentacion
+        '
+        Me.presentacion.DataPropertyName = "presentacion"
+        Me.presentacion.HeaderText = "Presentación"
+        Me.presentacion.Name = "presentacion"
+        Me.presentacion.ReadOnly = True
+        Me.presentacion.ToolTipText = "Presentación"
+        Me.presentacion.Width = 120
+        '
+        'precioventa
+        '
+        Me.precioventa.DataPropertyName = "precioventa"
+        Me.precioventa.HeaderText = "Precio Venta"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.ToolTipText = "Precio Venta"
+        Me.precioventa.Width = 118
+        '
+        'desvincular
+        '
+        Me.desvincular.HeaderText = "Desvincular"
+        Me.desvincular.Name = "desvincular"
+        Me.desvincular.ReadOnly = True
+        Me.desvincular.Text = "Desvincular"
+        Me.desvincular.ToolTipText = "Desvincular"
+        Me.desvincular.UseColumnTextForButtonValue = True
+        Me.desvincular.Width = 88
+        '
         'ProductosProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -383,11 +413,13 @@ Partial Class ProductosProveedores
     Friend WithEvents ListaproductosproveedoresBindingSource As BindingSource
     Friend WithEvents ListaproductosproveedoresTableAdapter As comercialDataSetTableAdapters.listaproductosproveedoresTableAdapter
     Friend WithEvents ListaproductosproveedoresDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents ButtonAgregar As Button
+    Friend WithEvents idproducto As DataGridViewTextBoxColumn
+    Friend WithEvents idproductoproveedor As DataGridViewTextBoxColumn
+    Friend WithEvents idproveedor As DataGridViewTextBoxColumn
     Friend WithEvents marca As DataGridViewTextBoxColumn
     Friend WithEvents modelo As DataGridViewTextBoxColumn
     Friend WithEvents presentacion As DataGridViewTextBoxColumn
     Friend WithEvents precioventa As DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As Button
+    Friend WithEvents desvincular As DataGridViewButtonColumn
 End Class
