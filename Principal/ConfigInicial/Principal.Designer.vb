@@ -115,6 +115,10 @@ Partial Class Principal
         Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EstadisticasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -198,7 +202,7 @@ Partial Class Principal
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SincronizarToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SincronizarToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -891,6 +895,35 @@ Partial Class Principal
         Me.Alerta2ToolStripMenuItem.Text = "Alerta2"
         Me.Alerta2ToolStripMenuItem.Visible = False
         '
+        'EstadisticasToolStripMenuItem
+        '
+        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MisVentasToolStripMenuItem, Me.MisClientesToolStripMenuItem, Me.MisProveedoresToolStripMenuItem})
+        Me.EstadisticasToolStripMenuItem.Name = "EstadisticasToolStripMenuItem"
+        Me.EstadisticasToolStripMenuItem.Size = New System.Drawing.Size(108, 27)
+        Me.EstadisticasToolStripMenuItem.Tag = "ModuloEstadisticas"
+        Me.EstadisticasToolStripMenuItem.Text = "Estadisticas"
+        '
+        'MisVentasToolStripMenuItem
+        '
+        Me.MisVentasToolStripMenuItem.Name = "MisVentasToolStripMenuItem"
+        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisVentasToolStripMenuItem.Tag = "EstadisticaVentas"
+        Me.MisVentasToolStripMenuItem.Text = "Ventas"
+        '
+        'MisClientesToolStripMenuItem
+        '
+        Me.MisClientesToolStripMenuItem.Name = "MisClientesToolStripMenuItem"
+        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisClientesToolStripMenuItem.Tag = "EstadisticaClientes"
+        Me.MisClientesToolStripMenuItem.Text = "Clientes"
+        '
+        'MisProveedoresToolStripMenuItem
+        '
+        Me.MisProveedoresToolStripMenuItem.Name = "MisProveedoresToolStripMenuItem"
+        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisProveedoresToolStripMenuItem.Tag = "EstadisticaProveedores"
+        Me.MisProveedoresToolStripMenuItem.Text = "Proveedores"
+        '
         'ParametrosgeneralesDataGridView
         '
         Me.ParametrosgeneralesDataGridView.AutoGenerateColumns = False
@@ -1572,4 +1605,8 @@ Partial Class Principal
     Friend WithEvents UtilidadesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImprimirPlantillasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductosPorProveedorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EstadisticasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MisVentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MisClientesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MisProveedoresToolStripMenuItem As ToolStripMenuItem
 End Class

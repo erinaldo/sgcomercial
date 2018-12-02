@@ -2663,7 +2663,7 @@ SELECT prgid, prgclave, prgvalor1, prgstring1, prgdecimal1, prgimagen1 FROM para
               <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.stockalerta" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT idproducto, codigoproducto, rubro, producto, disponible, stockminimo FROM dbo.stockalerta</CommandText>
+                    <CommandText>SELECT idproducto, codigoproducto, rubro, producto, disponible, stockminimo, medida FROM stockalerta</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -2676,6 +2676,7 @@ SELECT prgid, prgclave, prgvalor1, prgstring1, prgdecimal1, prgimagen1 FROM para
               <Mapping SourceColumn="producto" DataSetColumn="producto" />
               <Mapping SourceColumn="disponible" DataSetColumn="disponible" />
               <Mapping SourceColumn="stockminimo" DataSetColumn="stockminimo" />
+              <Mapping SourceColumn="medida" DataSetColumn="medida" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -6837,7 +6838,7 @@ SELECT idproductoproveedor, idproducto, idproveedor, precioventa, volumen1, desc
               <Mapping SourceColumn="descuento2" DataSetColumn="descuento2" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="productosproveedores_delete" Modifier="Public" Name="productosproveedores_delete" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="productosproveedores_delete">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="productosproveedores_delete" Modifier="Public" Name="productosproveedores_delete" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="productosproveedores_delete">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>delete from productosproveedores where idproducto = @idproducto and idproveedor = @idproveedor</CommandText>
@@ -6848,7 +6849,7 @@ SELECT idproductoproveedor, idproducto, idproveedor, precioventa, volumen1, desc
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="productosproveedores_existe" Modifier="Public" Name="productosproveedores_existe" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="productosproveedores_existe">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="productosproveedores_existe" Modifier="Public" Name="productosproveedores_existe" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="productosproveedores_existe">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM productosproveedores 
@@ -6860,7 +6861,7 @@ where idproducto = @idproducto and idproveedor = @idproveedor</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="productosproveedores_insertar" Modifier="Public" Name="productosproveedores_insertar" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="productosproveedores_insertar">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="productosproveedores_insertar" Modifier="Public" Name="productosproveedores_insertar" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="productosproveedores_insertar">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[productosproveedores] 
@@ -6880,7 +6881,7 @@ VALUES (@idproducto, @idproveedor, @precioventa, @volumen1, @descuento1, @volume
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="productosproveedores_update" Modifier="Public" Name="productosproveedores_update" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="productosproveedores_update">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="productosproveedores_update" Modifier="Public" Name="productosproveedores_update" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="productosproveedores_update">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [dbo].[productosproveedores] 
@@ -7218,6 +7219,65 @@ WHERE (CONVERT (date, fechaalta) &gt;= @desde) AND (CONVERT (date, fechaalta) &l
                 </DeleteCommand>
               </DbSource>
             </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="estcantconsumoclienteTableAdapter" GeneratorDataComponentClassName="estcantconsumoclienteTableAdapter" Name="estcantconsumocliente" UserDataComponentName="estcantconsumoclienteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.estcantconsumocliente" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idcliente, anio, mes, mesdescripcion, idproducto, producto, cantidad FROM estcantconsumocliente</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idcliente" DataSetColumn="idcliente" />
+              <Mapping SourceColumn="anio" DataSetColumn="anio" />
+              <Mapping SourceColumn="mes" DataSetColumn="mes" />
+              <Mapping SourceColumn="mesdescripcion" DataSetColumn="mesdescripcion" />
+              <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
+              <Mapping SourceColumn="producto" DataSetColumn="producto" />
+              <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.estcantconsumocliente" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByidcliente" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByidcliente" GeneratorSourceName="FillByidcliente" GetMethodModifier="Public" GetMethodName="GetDataByidcliente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByidcliente" UserSourceName="FillByidcliente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT idcliente, anio, mes, mesdescripcion, idproducto, producto, cantidad FROM estcantconsumocliente
+
+where idcliente = @idcliente</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="idcliente" ColumnName="idcliente" DataSourceName="comercial.dbo.estcantconsumocliente" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@idcliente" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idcliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="estcantconsumoproveedorTableAdapter" GeneratorDataComponentClassName="estcantconsumoproveedorTableAdapter" Name="estcantconsumoproveedor" UserDataComponentName="estcantconsumoproveedorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.estcantconsumoproveedor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idcliente, anio, mes, mesdescripcion, idproducto, idproveedor, nombre, producto, cantidad FROM dbo.estcantconsumoproveedor</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idcliente" DataSetColumn="idcliente" />
+              <Mapping SourceColumn="anio" DataSetColumn="anio" />
+              <Mapping SourceColumn="mes" DataSetColumn="mes" />
+              <Mapping SourceColumn="mesdescripcion" DataSetColumn="mesdescripcion" />
+              <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
+              <Mapping SourceColumn="idproveedor" DataSetColumn="idproveedor" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="producto" DataSetColumn="producto" />
+              <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
+            </Mappings>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
@@ -7966,6 +8026,7 @@ WHERE (CONVERT (date, fechaalta) &gt;= @desde) AND (CONVERT (date, fechaalta) &l
               </xs:element>
               <xs:element name="disponible" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndisponible" msprop:Generator_ColumnPropNameInRow="disponible" msprop:Generator_ColumnPropNameInTable="disponibleColumn" msprop:Generator_UserColumnName="disponible" type="xs:decimal" minOccurs="0" />
               <xs:element name="stockminimo" msprop:Generator_ColumnVarNameInTable="columnstockminimo" msprop:Generator_ColumnPropNameInRow="stockminimo" msprop:Generator_ColumnPropNameInTable="stockminimoColumn" msprop:Generator_UserColumnName="stockminimo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="medida" msprop:Generator_ColumnVarNameInTable="columnmedida" msprop:Generator_ColumnPropNameInRow="medida" msprop:Generator_ColumnPropNameInTable="medidaColumn" msprop:Generator_UserColumnName="medida" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -9594,6 +9655,76 @@ WHERE (CONVERT (date, fechaalta) &gt;= @desde) AND (CONVERT (date, fechaalta) &l
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="estcantconsumocliente" msprop:Generator_TableClassName="estcantconsumoclienteDataTable" msprop:Generator_TableVarName="tableestcantconsumocliente" msprop:Generator_TablePropName="estcantconsumocliente" msprop:Generator_RowDeletingName="estcantconsumoclienteRowDeleting" msprop:Generator_RowChangingName="estcantconsumoclienteRowChanging" msprop:Generator_RowEvHandlerName="estcantconsumoclienteRowChangeEventHandler" msprop:Generator_RowDeletedName="estcantconsumoclienteRowDeleted" msprop:Generator_UserTableName="estcantconsumocliente" msprop:Generator_RowChangedName="estcantconsumoclienteRowChanged" msprop:Generator_RowEvArgName="estcantconsumoclienteRowChangeEvent" msprop:Generator_RowClassName="estcantconsumoclienteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idcliente" msprop:Generator_ColumnVarNameInTable="columnidcliente" msprop:Generator_ColumnPropNameInRow="idcliente" msprop:Generator_ColumnPropNameInTable="idclienteColumn" msprop:Generator_UserColumnName="idcliente" type="xs:decimal" minOccurs="0" />
+              <xs:element name="anio" msprop:Generator_ColumnVarNameInTable="columnanio" msprop:Generator_ColumnPropNameInRow="anio" msprop:Generator_ColumnPropNameInTable="anioColumn" msprop:Generator_UserColumnName="anio" type="xs:int" minOccurs="0" />
+              <xs:element name="mes" msprop:Generator_ColumnVarNameInTable="columnmes" msprop:Generator_ColumnPropNameInRow="mes" msprop:Generator_ColumnPropNameInTable="mesColumn" msprop:Generator_UserColumnName="mes" type="xs:int" minOccurs="0" />
+              <xs:element name="mesdescripcion" msprop:Generator_ColumnVarNameInTable="columnmesdescripcion" msprop:Generator_ColumnPropNameInRow="mesdescripcion" msprop:Generator_ColumnPropNameInTable="mesdescripcionColumn" msprop:Generator_UserColumnName="mesdescripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" msprop:Generator_UserColumnName="idproducto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="producto" msprop:Generator_ColumnVarNameInTable="columnproducto" msprop:Generator_ColumnPropNameInRow="producto" msprop:Generator_ColumnPropNameInTable="productoColumn" msprop:Generator_UserColumnName="producto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="302" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="estcantconsumoproveedor" msprop:Generator_TableClassName="estcantconsumoproveedorDataTable" msprop:Generator_TableVarName="tableestcantconsumoproveedor" msprop:Generator_TablePropName="estcantconsumoproveedor" msprop:Generator_RowDeletingName="estcantconsumoproveedorRowDeleting" msprop:Generator_RowChangingName="estcantconsumoproveedorRowChanging" msprop:Generator_RowEvHandlerName="estcantconsumoproveedorRowChangeEventHandler" msprop:Generator_RowDeletedName="estcantconsumoproveedorRowDeleted" msprop:Generator_UserTableName="estcantconsumoproveedor" msprop:Generator_RowChangedName="estcantconsumoproveedorRowChanged" msprop:Generator_RowEvArgName="estcantconsumoproveedorRowChangeEvent" msprop:Generator_RowClassName="estcantconsumoproveedorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idcliente" msprop:Generator_ColumnVarNameInTable="columnidcliente" msprop:Generator_ColumnPropNameInRow="idcliente" msprop:Generator_ColumnPropNameInTable="idclienteColumn" msprop:Generator_UserColumnName="idcliente" type="xs:decimal" minOccurs="0" />
+              <xs:element name="anio" msprop:Generator_ColumnVarNameInTable="columnanio" msprop:Generator_ColumnPropNameInRow="anio" msprop:Generator_ColumnPropNameInTable="anioColumn" msprop:Generator_UserColumnName="anio" type="xs:int" minOccurs="0" />
+              <xs:element name="mes" msprop:Generator_ColumnVarNameInTable="columnmes" msprop:Generator_ColumnPropNameInRow="mes" msprop:Generator_ColumnPropNameInTable="mesColumn" msprop:Generator_UserColumnName="mes" type="xs:int" minOccurs="0" />
+              <xs:element name="mesdescripcion" msprop:Generator_ColumnVarNameInTable="columnmesdescripcion" msprop:Generator_ColumnPropNameInRow="mesdescripcion" msprop:Generator_ColumnPropNameInTable="mesdescripcionColumn" msprop:Generator_UserColumnName="mesdescripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" msprop:Generator_UserColumnName="idproducto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idproveedor" msprop:Generator_ColumnVarNameInTable="columnidproveedor" msprop:Generator_ColumnPropNameInRow="idproveedor" msprop:Generator_ColumnPropNameInTable="idproveedorColumn" msprop:Generator_UserColumnName="idproveedor" type="xs:decimal" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="producto" msprop:Generator_ColumnVarNameInTable="columnproducto" msprop:Generator_ColumnPropNameInRow="producto" msprop:Generator_ColumnPropNameInTable="productoColumn" msprop:Generator_UserColumnName="producto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="302" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -9871,6 +10002,10 @@ WHERE (CONVERT (date, fechaalta) &gt;= @desde) AND (CONVERT (date, fechaalta) &l
     <xs:unique name="listaproductosproveedores_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:listaproductosproveedores" />
       <xs:field xpath="mstns:idproducto" />
+    </xs:unique>
+    <xs:unique name="estcantconsumoproveedor_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:estcantconsumoproveedor" />
+      <xs:field xpath="mstns:idproveedor" />
     </xs:unique>
   </xs:element>
 </xs:schema>

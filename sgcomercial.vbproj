@@ -312,6 +312,12 @@
     <Compile Include="Delivery\Reportes\ViewerLoteRendido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estadisticas\Cliente\EstadisticasCliente.Designer.vb">
+      <DependentUpon>EstadisticasCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Cliente\EstadisticasCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -957,6 +963,10 @@
     <EmbeddedResource Include="Delivery\Reportes\ViewerLoteRendido.resx">
       <DependentUpon>ViewerLoteRendido.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Cliente\EstadisticasCliente.resx">
+      <DependentUpon>EstadisticasCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Cliente\GraphCantConsumoCliente.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -1404,7 +1414,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Estadisticas\Proveedor\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="packages\System.Data.SQLite.Core.1.0.109.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('packages\System.Data.SQLite.Core.1.0.109.2\build\net40\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
