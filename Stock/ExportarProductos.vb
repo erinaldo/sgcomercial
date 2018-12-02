@@ -5,8 +5,9 @@ Imports System.IO
 Imports System.Data
 Public Class ExportarProductos
     Private Sub ExportarProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        Me.productosTableAdapter.Fill(Me.comercialDataSet.productos)
+        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.listaprodexport' Puede moverla o quitarla según sea necesario.
+        Me.listaprodexportTableAdapter.Fill(Me.comercialDataSet.listaprodexport)
+
 
         Me.ReportViewer1.RefreshReport()
     End Sub
@@ -63,7 +64,13 @@ Public Class ExportarProductos
         For Each extension As RenderingExtension In extensions
             If extension.Name = "EXCELOPENXML" Then
                 If MsgBox("Este proceso puede tardar unos minutos. Desea continuar?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
-                    ReportViewer1.ExportDialog(extension)
+                    Dim rtn As Integer
+                    If ReportViewer1.ExportDialog(extension) Then
+                        MsgBox("Proceso finalizado correctamente!", MsgBoxStyle.Information, "Mensaje")
+                        Me.Close()
+
+                    End If
+
                 End If
             End If
         Next

@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel
+Imports System.IO
 Imports System.Net
 Imports System.Net.Sockets
 Imports System.Runtime.InteropServices
@@ -237,7 +238,7 @@ Public Class Principal
 
     End Sub
 
-    Private Sub ABMCajasToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) 
+    Private Sub ABMCajasToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 
@@ -737,5 +738,48 @@ Public Class Principal
 
     Private Sub ExportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarProductosToolStripMenuItem.Click
         ExportarProductos.ShowDialog()
+    End Sub
+
+    Private Sub Principal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+
+    End Sub
+
+    Private Sub Principal_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
+
+    End Sub
+
+    Private Sub Principal_Leave(sender As Object, e As EventArgs) Handles Me.Leave
+
+    End Sub
+
+    Private Sub Principal_CausesValidationChanged(sender As Object, e As EventArgs) Handles Me.CausesValidationChanged
+
+    End Sub
+
+    Private Sub Principal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If MsgBox("    Seguro desea salir del sistema?   ", MessageBoxButtons.YesNo, "Pregunta") = MsgBoxResult.No Then
+            e.Cancel = True
+        Else
+            End
+        End If
+    End Sub
+
+    Private Sub ImprimirPlantillasToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ImprimirPlantillasToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ImprimirPlantillasToolStripMenuItem.Click
+        ImprimirPlantillas.MdiParent = Me
+        ImprimirPlantillas.Visible = True
+    End Sub
+
+    Private Sub ProductosPorProveedorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProductosPorProveedorToolStripMenuItem.Click
+        ProductosProveedores.MdiParent = Me
+        ProductosProveedores.Visible = True
     End Sub
 End Class

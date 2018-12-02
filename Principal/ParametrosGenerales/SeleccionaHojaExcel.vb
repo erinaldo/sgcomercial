@@ -8,7 +8,13 @@
     End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+        Try
+            gstrSheetSelected = ListBox1.SelectedItem
+            ListBox1.Items.Clear()
+            Me.Close()
+        Catch ex As Exception
 
+        End Try
     End Sub
 
     Private Sub ListBox1_DoubleClick(sender As Object, e As EventArgs) Handles ListBox1.DoubleClick
@@ -18,6 +24,10 @@
     End Sub
 
     Private Sub SeleccionaHojaExcel_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+
+    End Sub
+
+    Private Sub ListBox1_CausesValidationChanged(sender As Object, e As EventArgs) Handles ListBox1.CausesValidationChanged
 
     End Sub
 End Class

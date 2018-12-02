@@ -83,6 +83,8 @@ Partial Class Principal
         Me.AsignaciónDeIVAMasivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroIVAVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroIVAComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UtilidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImprimirPlantillasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MiComercioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FondoAplicaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -173,6 +175,7 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductosPorProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -195,7 +198,7 @@ Partial Class Principal
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SincronizarToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SincronizarToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -451,7 +454,7 @@ Partial Class Principal
         '
         'ProveedoresToolStripMenuItem
         '
-        Me.ProveedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProveedoresToolStripMenuItem, Me.ABMPedidosToolStripMenuItem, Me.ListaDePedidosToolStripMenuItem, Me.RecepciónDePedidoToolStripMenuItem, Me.RecepciónSinPedidoToolStripMenuItem})
+        Me.ProveedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProveedoresToolStripMenuItem, Me.ABMPedidosToolStripMenuItem, Me.ListaDePedidosToolStripMenuItem, Me.RecepciónDePedidoToolStripMenuItem, Me.RecepciónSinPedidoToolStripMenuItem, Me.ProductosPorProveedorToolStripMenuItem})
         Me.ProveedoresToolStripMenuItem.Name = "ProveedoresToolStripMenuItem"
         Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(116, 27)
         Me.ProveedoresToolStripMenuItem.Tag = "ModuloProveedores"
@@ -646,6 +649,21 @@ Partial Class Principal
         Me.LibroIVAComprasToolStripMenuItem.Size = New System.Drawing.Size(282, 28)
         Me.LibroIVAComprasToolStripMenuItem.Tag = "LibroIVACompras"
         Me.LibroIVAComprasToolStripMenuItem.Text = "Libro IVA Compras"
+        '
+        'UtilidadesToolStripMenuItem
+        '
+        Me.UtilidadesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImprimirPlantillasToolStripMenuItem})
+        Me.UtilidadesToolStripMenuItem.Name = "UtilidadesToolStripMenuItem"
+        Me.UtilidadesToolStripMenuItem.Size = New System.Drawing.Size(97, 27)
+        Me.UtilidadesToolStripMenuItem.Tag = "ModuloUtilidades"
+        Me.UtilidadesToolStripMenuItem.Text = "Utilidades"
+        '
+        'ImprimirPlantillasToolStripMenuItem
+        '
+        Me.ImprimirPlantillasToolStripMenuItem.Name = "ImprimirPlantillasToolStripMenuItem"
+        Me.ImprimirPlantillasToolStripMenuItem.Size = New System.Drawing.Size(223, 28)
+        Me.ImprimirPlantillasToolStripMenuItem.Tag = "ImprimirPlantillas"
+        Me.ImprimirPlantillasToolStripMenuItem.Text = "Imprimir Plantillas"
         '
         'ConfiguracionesToolStripMenuItem
         '
@@ -1339,6 +1357,13 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22.HeaderText = "saldovencido"
         Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
         '
+        'ProductosPorProveedorToolStripMenuItem
+        '
+        Me.ProductosPorProveedorToolStripMenuItem.Name = "ProductosPorProveedorToolStripMenuItem"
+        Me.ProductosPorProveedorToolStripMenuItem.Size = New System.Drawing.Size(376, 28)
+        Me.ProductosPorProveedorToolStripMenuItem.Tag = "ProductosPorProveedor"
+        Me.ProductosPorProveedorToolStripMenuItem.Text = "Productos por Proveedor"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1534,4 +1559,7 @@ Partial Class Principal
     Friend WithEvents AsignaciónDeIVAMasivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroIVAVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroIVAComprasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UtilidadesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImprimirPlantillasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProductosPorProveedorToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -7122,6 +7122,74 @@ WHERE (CONVERT (date, fechaalta) &gt;= @desde) AND (CONVERT (date, fechaalta) &l
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="listaprodexportTableAdapter" GeneratorDataComponentClassName="listaprodexportTableAdapter" Name="listaprodexport" UserDataComponentName="listaprodexportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.listaprodexport" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idproducto, codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, imagen, idrubro, stockminimo, productocompuesto, fechabaja, precioventagranel, precioventamayorista, precioventadistribuidor, estado, iva FROM dbo.listaprodexport</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
+              <Mapping SourceColumn="codigoproducto" DataSetColumn="codigoproducto" />
+              <Mapping SourceColumn="marca" DataSetColumn="marca" />
+              <Mapping SourceColumn="modelo" DataSetColumn="modelo" />
+              <Mapping SourceColumn="presentacion" DataSetColumn="presentacion" />
+              <Mapping SourceColumn="unidadmedida" DataSetColumn="unidadmedida" />
+              <Mapping SourceColumn="medida" DataSetColumn="medida" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="preciocosto" DataSetColumn="preciocosto" />
+              <Mapping SourceColumn="precioventa" DataSetColumn="precioventa" />
+              <Mapping SourceColumn="imagen" DataSetColumn="imagen" />
+              <Mapping SourceColumn="idrubro" DataSetColumn="idrubro" />
+              <Mapping SourceColumn="stockminimo" DataSetColumn="stockminimo" />
+              <Mapping SourceColumn="productocompuesto" DataSetColumn="productocompuesto" />
+              <Mapping SourceColumn="fechabaja" DataSetColumn="fechabaja" />
+              <Mapping SourceColumn="precioventagranel" DataSetColumn="precioventagranel" />
+              <Mapping SourceColumn="precioventamayorista" DataSetColumn="precioventamayorista" />
+              <Mapping SourceColumn="precioventadistribuidor" DataSetColumn="precioventadistribuidor" />
+              <Mapping SourceColumn="estado" DataSetColumn="estado" />
+              <Mapping SourceColumn="iva" DataSetColumn="iva" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="listaproductosproveedoresTableAdapter" GeneratorDataComponentClassName="listaproductosproveedoresTableAdapter" Name="listaproductosproveedores" UserDataComponentName="listaproductosproveedoresTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.listaproductosproveedores" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idproducto, idproveedor, marca, modelo, presentacion, precioventa FROM dbo.listaproductosproveedores</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
+              <Mapping SourceColumn="idproveedor" DataSetColumn="idproveedor" />
+              <Mapping SourceColumn="marca" DataSetColumn="marca" />
+              <Mapping SourceColumn="modelo" DataSetColumn="modelo" />
+              <Mapping SourceColumn="presentacion" DataSetColumn="presentacion" />
+              <Mapping SourceColumn="precioventa" DataSetColumn="precioventa" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.listaproductosproveedores" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByidproveedor" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByidproveedor" GeneratorSourceName="FillByidproveedor" GetMethodModifier="Public" GetMethodName="GetDataByidproveedor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByidproveedor" UserSourceName="FillByidproveedor">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT idproducto, idproveedor, marca, modelo, presentacion, precioventa FROM dbo.listaproductosproveedores
+where idproveedor = @idproveedor</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="idproveedor" ColumnName="idproveedor" DataSourceName="comercial.dbo.listaproductosproveedores" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@idproveedor" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idproveedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -9386,6 +9454,116 @@ WHERE (CONVERT (date, fechaalta) &gt;= @desde) AND (CONVERT (date, fechaalta) &l
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="listaprodexport" msprop:Generator_TableClassName="listaprodexportDataTable" msprop:Generator_TableVarName="tablelistaprodexport" msprop:Generator_RowChangedName="listaprodexportRowChanged" msprop:Generator_TablePropName="listaprodexport" msprop:Generator_RowDeletingName="listaprodexportRowDeleting" msprop:Generator_RowChangingName="listaprodexportRowChanging" msprop:Generator_RowEvHandlerName="listaprodexportRowChangeEventHandler" msprop:Generator_RowDeletedName="listaprodexportRowDeleted" msprop:Generator_RowClassName="listaprodexportRow" msprop:Generator_UserTableName="listaprodexport" msprop:Generator_RowEvArgName="listaprodexportRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" msprop:Generator_UserColumnName="idproducto" type="xs:decimal" />
+              <xs:element name="codigoproducto" msprop:Generator_ColumnVarNameInTable="columncodigoproducto" msprop:Generator_ColumnPropNameInRow="codigoproducto" msprop:Generator_ColumnPropNameInTable="codigoproductoColumn" msprop:Generator_UserColumnName="codigoproducto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="marca" msprop:Generator_ColumnVarNameInTable="columnmarca" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_UserColumnName="marca" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="modelo" msprop:Generator_ColumnVarNameInTable="columnmodelo" msprop:Generator_ColumnPropNameInRow="modelo" msprop:Generator_ColumnPropNameInTable="modeloColumn" msprop:Generator_UserColumnName="modelo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="presentacion" msprop:Generator_ColumnVarNameInTable="columnpresentacion" msprop:Generator_ColumnPropNameInRow="presentacion" msprop:Generator_ColumnPropNameInTable="presentacionColumn" msprop:Generator_UserColumnName="presentacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="unidadmedida" msprop:Generator_ColumnVarNameInTable="columnunidadmedida" msprop:Generator_ColumnPropNameInRow="unidadmedida" msprop:Generator_ColumnPropNameInTable="unidadmedidaColumn" msprop:Generator_UserColumnName="unidadmedida">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="medida" msprop:Generator_ColumnVarNameInTable="columnmedida" msprop:Generator_ColumnPropNameInRow="medida" msprop:Generator_ColumnPropNameInTable="medidaColumn" msprop:Generator_UserColumnName="medida" type="xs:decimal" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="preciocosto" msprop:Generator_ColumnVarNameInTable="columnpreciocosto" msprop:Generator_ColumnPropNameInRow="preciocosto" msprop:Generator_ColumnPropNameInTable="preciocostoColumn" msprop:Generator_UserColumnName="preciocosto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="precioventa" msprop:Generator_ColumnVarNameInTable="columnprecioventa" msprop:Generator_ColumnPropNameInRow="precioventa" msprop:Generator_ColumnPropNameInTable="precioventaColumn" msprop:Generator_UserColumnName="precioventa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="imagen" msprop:Generator_ColumnVarNameInTable="columnimagen" msprop:Generator_ColumnPropNameInRow="imagen" msprop:Generator_ColumnPropNameInTable="imagenColumn" msprop:Generator_UserColumnName="imagen" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="idrubro" msprop:Generator_ColumnVarNameInTable="columnidrubro" msprop:Generator_ColumnPropNameInRow="idrubro" msprop:Generator_ColumnPropNameInTable="idrubroColumn" msprop:Generator_UserColumnName="idrubro" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stockminimo" msprop:Generator_ColumnVarNameInTable="columnstockminimo" msprop:Generator_ColumnPropNameInRow="stockminimo" msprop:Generator_ColumnPropNameInTable="stockminimoColumn" msprop:Generator_UserColumnName="stockminimo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="productocompuesto" msprop:Generator_ColumnVarNameInTable="columnproductocompuesto" msprop:Generator_ColumnPropNameInRow="productocompuesto" msprop:Generator_ColumnPropNameInTable="productocompuestoColumn" msprop:Generator_UserColumnName="productocompuesto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechabaja" msprop:Generator_ColumnVarNameInTable="columnfechabaja" msprop:Generator_ColumnPropNameInRow="fechabaja" msprop:Generator_ColumnPropNameInTable="fechabajaColumn" msprop:Generator_UserColumnName="fechabaja" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="precioventagranel" msprop:Generator_ColumnVarNameInTable="columnprecioventagranel" msprop:Generator_ColumnPropNameInRow="precioventagranel" msprop:Generator_ColumnPropNameInTable="precioventagranelColumn" msprop:Generator_UserColumnName="precioventagranel" type="xs:decimal" minOccurs="0" />
+              <xs:element name="precioventamayorista" msprop:Generator_ColumnVarNameInTable="columnprecioventamayorista" msprop:Generator_ColumnPropNameInRow="precioventamayorista" msprop:Generator_ColumnPropNameInTable="precioventamayoristaColumn" msprop:Generator_UserColumnName="precioventamayorista" type="xs:decimal" minOccurs="0" />
+              <xs:element name="precioventadistribuidor" msprop:Generator_ColumnVarNameInTable="columnprecioventadistribuidor" msprop:Generator_ColumnPropNameInRow="precioventadistribuidor" msprop:Generator_ColumnPropNameInTable="precioventadistribuidorColumn" msprop:Generator_UserColumnName="precioventadistribuidor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_UserColumnName="estado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="iva" msprop:Generator_ColumnVarNameInTable="columniva" msprop:Generator_ColumnPropNameInRow="iva" msprop:Generator_ColumnPropNameInTable="ivaColumn" msprop:Generator_UserColumnName="iva" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="listaproductosproveedores" msprop:Generator_TableClassName="listaproductosproveedoresDataTable" msprop:Generator_TableVarName="tablelistaproductosproveedores" msprop:Generator_TablePropName="listaproductosproveedores" msprop:Generator_RowDeletingName="listaproductosproveedoresRowDeleting" msprop:Generator_RowChangingName="listaproductosproveedoresRowChanging" msprop:Generator_RowEvHandlerName="listaproductosproveedoresRowChangeEventHandler" msprop:Generator_RowDeletedName="listaproductosproveedoresRowDeleted" msprop:Generator_UserTableName="listaproductosproveedores" msprop:Generator_RowChangedName="listaproductosproveedoresRowChanged" msprop:Generator_RowEvArgName="listaproductosproveedoresRowChangeEvent" msprop:Generator_RowClassName="listaproductosproveedoresRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" msprop:Generator_UserColumnName="idproducto" type="xs:decimal" />
+              <xs:element name="idproveedor" msprop:Generator_ColumnVarNameInTable="columnidproveedor" msprop:Generator_ColumnPropNameInRow="idproveedor" msprop:Generator_ColumnPropNameInTable="idproveedorColumn" msprop:Generator_UserColumnName="idproveedor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="marca" msprop:Generator_ColumnVarNameInTable="columnmarca" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_UserColumnName="marca" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="modelo" msprop:Generator_ColumnVarNameInTable="columnmodelo" msprop:Generator_ColumnPropNameInRow="modelo" msprop:Generator_ColumnPropNameInTable="modeloColumn" msprop:Generator_UserColumnName="modelo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="presentacion" msprop:Generator_ColumnVarNameInTable="columnpresentacion" msprop:Generator_ColumnPropNameInRow="presentacion" msprop:Generator_ColumnPropNameInTable="presentacionColumn" msprop:Generator_UserColumnName="presentacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="precioventa" msprop:Generator_ColumnVarNameInTable="columnprecioventa" msprop:Generator_ColumnPropNameInRow="precioventa" msprop:Generator_ColumnPropNameInTable="precioventaColumn" msprop:Generator_UserColumnName="precioventa" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -9655,6 +9833,14 @@ WHERE (CONVERT (date, fechaalta) &gt;= @desde) AND (CONVERT (date, fechaalta) &l
     <xs:unique name="librocompras_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:librocompras" />
       <xs:field xpath="mstns:idpedido" />
+    </xs:unique>
+    <xs:unique name="listaprodexport_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:listaprodexport" />
+      <xs:field xpath="mstns:idproducto" />
+    </xs:unique>
+    <xs:unique name="listaproductosproveedores_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:listaproductosproveedores" />
+      <xs:field xpath="mstns:idproducto" />
     </xs:unique>
   </xs:element>
 </xs:schema>

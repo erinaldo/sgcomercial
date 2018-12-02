@@ -24,9 +24,9 @@ Partial Class ExportarProductos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.productosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.comercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.productosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
@@ -53,17 +53,30 @@ Partial Class ExportarProductos
         Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.listaprodexportBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.listaprodexportTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaprodexportTableAdapter()
         CType(Me.productosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.listaprodexportBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'productosBindingSource
+        '
+        Me.productosBindingSource.DataMember = "productos"
+        Me.productosBindingSource.DataSource = Me.comercialDataSet
+        '
+        'comercialDataSet
+        '
+        Me.comercialDataSet.DataSetName = "comercialDataSet"
+        Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
         Me.ReportViewer1.DocumentMapWidth = 37
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.productosBindingSource
+        ReportDataSource2.Name = "listaprodexport"
+        ReportDataSource2.Value = Me.listaprodexportBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepExportarProd.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(230, 12)
@@ -83,16 +96,6 @@ Partial Class ExportarProductos
         Me.ReportViewer1.ShowZoomControl = False
         Me.ReportViewer1.Size = New System.Drawing.Size(275, 25)
         Me.ReportViewer1.TabIndex = 0
-        '
-        'comercialDataSet
-        '
-        Me.comercialDataSet.DataSetName = "comercialDataSet"
-        Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'productosBindingSource
-        '
-        Me.productosBindingSource.DataMember = "productos"
-        Me.productosBindingSource.DataSource = Me.comercialDataSet
         '
         'productosTableAdapter
         '
@@ -344,11 +347,20 @@ Partial Class ExportarProductos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Exportar a Excel"
         '
+        'listaprodexportBindingSource
+        '
+        Me.listaprodexportBindingSource.DataMember = "listaprodexport"
+        Me.listaprodexportBindingSource.DataSource = Me.comercialDataSet
+        '
+        'listaprodexportTableAdapter
+        '
+        Me.listaprodexportTableAdapter.ClearBeforeFill = True
+        '
         'ExportarProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(227, 124)
+        Me.ClientSize = New System.Drawing.Size(228, 124)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ProductosDataGridView)
         Me.Controls.Add(Me.Button1)
@@ -357,12 +369,14 @@ Partial Class ExportarProductos
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ExportarProductos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ExportarProductos"
         Me.Text = "Exportar Productos"
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.productosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.listaprodexportBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -396,4 +410,6 @@ Partial Class ExportarProductos
     Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
     Friend WithEvents Button2 As Button
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents listaprodexportBindingSource As BindingSource
+    Friend WithEvents listaprodexportTableAdapter As comercialDataSetTableAdapters.listaprodexportTableAdapter
 End Class

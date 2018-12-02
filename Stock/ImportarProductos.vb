@@ -13,7 +13,7 @@ Public Class ImportarProductos
             Else
                 HDR = "NO"
             End If
-            HDR = "SI"
+
             Dim ds As System.Data.DataSet
             Dim myadapter As System.Data.OleDb.OleDbDataAdapter
             If radioxls.Checked = True Then ' connn for XLS file
@@ -55,6 +55,7 @@ Public Class ImportarProductos
                 '**********************
                 '-------------------------- FIN LEER HOJAS
                 '**********************
+                HDR = "SI"
                 myconnection = New System.Data.OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source='" + OpenFileDialog1.FileName + "';Extended Properties='Excel 8.0;HDR=" + HDR + ";IMEX=1'")
             ElseIf radioxlsx.Checked = True Then ' connn for XLSX file
                 '*****************
@@ -96,6 +97,7 @@ Public Class ImportarProductos
                 '**********************
                 '-------------------------- FIN LEER HOJAS
                 '**********************
+                HDR = "SI"
                 myconnection = New System.Data.OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + OpenFileDialog1.FileName + "';Extended Properties='Excel 12.0 Xml;HDR=" + HDR + ";IMEX=1'")
             End If
             myadapter = New System.Data.OleDb.OleDbDataAdapter("select * from [" + gstrSheetSelected + "$]", myconnection)
@@ -104,7 +106,7 @@ Public Class ImportarProductos
             Me.DataGridView1.DataSource = ds.Tables(0)
             myconnection.Dispose()
         Catch ex As Exception
-            MsgBox("No se pudo procesar el archivo", MsgBoxStyle.Exclamation)
+            MsgBox("No se pudo procesar el archivo: " + ex.Message, MsgBoxStyle.Exclamation)
             'MsgBox("No se pudo procesar el archivo" + ex.Message)
         End Try
     End Sub
