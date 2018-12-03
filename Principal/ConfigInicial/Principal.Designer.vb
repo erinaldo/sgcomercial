@@ -84,6 +84,10 @@ Partial Class Principal
         Me.AsignaciónDeIVAMasivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroIVAVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroIVAComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EstadisticasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirPlantillasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -115,10 +119,6 @@ Partial Class Principal
         Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EstadisticasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MisVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MisClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MisProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -661,6 +661,35 @@ Partial Class Principal
         Me.LibroIVAComprasToolStripMenuItem.Tag = "LibroIVACompras"
         Me.LibroIVAComprasToolStripMenuItem.Text = "Libro IVA Compras"
         '
+        'EstadisticasToolStripMenuItem
+        '
+        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MisVentasToolStripMenuItem, Me.MisClientesToolStripMenuItem, Me.MisProveedoresToolStripMenuItem})
+        Me.EstadisticasToolStripMenuItem.Name = "EstadisticasToolStripMenuItem"
+        Me.EstadisticasToolStripMenuItem.Size = New System.Drawing.Size(108, 27)
+        Me.EstadisticasToolStripMenuItem.Tag = "ModuloEstadisticas"
+        Me.EstadisticasToolStripMenuItem.Text = "Estadisticas"
+        '
+        'MisVentasToolStripMenuItem
+        '
+        Me.MisVentasToolStripMenuItem.Name = "MisVentasToolStripMenuItem"
+        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisVentasToolStripMenuItem.Tag = "EstadisticasVentas"
+        Me.MisVentasToolStripMenuItem.Text = "Ventas"
+        '
+        'MisClientesToolStripMenuItem
+        '
+        Me.MisClientesToolStripMenuItem.Name = "MisClientesToolStripMenuItem"
+        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisClientesToolStripMenuItem.Tag = "EstadisticasClientes"
+        Me.MisClientesToolStripMenuItem.Text = "Clientes"
+        '
+        'MisProveedoresToolStripMenuItem
+        '
+        Me.MisProveedoresToolStripMenuItem.Name = "MisProveedoresToolStripMenuItem"
+        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisProveedoresToolStripMenuItem.Tag = "EstadisticasProveedores"
+        Me.MisProveedoresToolStripMenuItem.Text = "Proveedores"
+        '
         'UtilidadesToolStripMenuItem
         '
         Me.UtilidadesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImprimirPlantillasToolStripMenuItem})
@@ -894,35 +923,6 @@ Partial Class Principal
         Me.Alerta2ToolStripMenuItem.Tag = "Alerta2"
         Me.Alerta2ToolStripMenuItem.Text = "Alerta2"
         Me.Alerta2ToolStripMenuItem.Visible = False
-        '
-        'EstadisticasToolStripMenuItem
-        '
-        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MisVentasToolStripMenuItem, Me.MisClientesToolStripMenuItem, Me.MisProveedoresToolStripMenuItem})
-        Me.EstadisticasToolStripMenuItem.Name = "EstadisticasToolStripMenuItem"
-        Me.EstadisticasToolStripMenuItem.Size = New System.Drawing.Size(108, 27)
-        Me.EstadisticasToolStripMenuItem.Tag = "ModuloEstadisticas"
-        Me.EstadisticasToolStripMenuItem.Text = "Estadisticas"
-        '
-        'MisVentasToolStripMenuItem
-        '
-        Me.MisVentasToolStripMenuItem.Name = "MisVentasToolStripMenuItem"
-        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
-        Me.MisVentasToolStripMenuItem.Tag = "EstadisticaVentas"
-        Me.MisVentasToolStripMenuItem.Text = "Ventas"
-        '
-        'MisClientesToolStripMenuItem
-        '
-        Me.MisClientesToolStripMenuItem.Name = "MisClientesToolStripMenuItem"
-        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
-        Me.MisClientesToolStripMenuItem.Tag = "EstadisticaClientes"
-        Me.MisClientesToolStripMenuItem.Text = "Clientes"
-        '
-        'MisProveedoresToolStripMenuItem
-        '
-        Me.MisProveedoresToolStripMenuItem.Name = "MisProveedoresToolStripMenuItem"
-        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
-        Me.MisProveedoresToolStripMenuItem.Tag = "EstadisticaProveedores"
-        Me.MisProveedoresToolStripMenuItem.Text = "Proveedores"
         '
         'ParametrosgeneralesDataGridView
         '

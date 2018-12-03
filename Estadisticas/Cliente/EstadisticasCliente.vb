@@ -5,7 +5,7 @@
     End Sub
 
     Private Sub EstadisticasCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.estcantconsumocliente' Puede moverla o quitarla según sea necesario.
+
 
     End Sub
 
@@ -38,7 +38,10 @@
         Try
             Select Case ComboBoxEstadistica.Text
                 Case "Analisis de Consumo"
-                    Me.estcantconsumoclienteTableAdapter.FillByidcliente(Me.ComercialDataSet.estcantconsumocliente, IdclienteTextBox.Text)
+                    Dim fechadesde As Date
+                    fechadesde = DateAdd("m", -6, Today)
+                    Me.estcantconsumoclienteTableAdapter.FillByidcliente(Me.ComercialDataSet.estcantconsumocliente, IdclienteTextBox.Text, fechadesde)
+                    Me.estClientefpagopreferidaTableAdapter.FillByidcliente(Me.ComercialDataSet.estClientefpagopreferida, IdclienteTextBox.Text)
                     Me.ReportViewer1.RefreshReport()
 
             End Select

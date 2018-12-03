@@ -25,6 +25,7 @@ Partial Class EstadisticasCliente
         Me.components = New System.ComponentModel.Container()
         Dim IdclienteLabel As System.Windows.Forms.Label
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.estcantconsumoclienteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -47,6 +48,8 @@ Partial Class EstadisticasCliente
         Me.ClientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.estcantconsumoclienteTableAdapter = New sgcomercial.comercialDataSetTableAdapters.estcantconsumoclienteTableAdapter()
+        Me.estClientefpagopreferidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.estClientefpagopreferidaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.estClientefpagopreferidaTableAdapter()
         IdclienteLabel = New System.Windows.Forms.Label()
         CType(Me.estcantconsumoclienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,6 +58,7 @@ Partial Class EstadisticasCliente
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.estClientefpagopreferidaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -227,7 +231,10 @@ Partial Class EstadisticasCliente
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         ReportDataSource1.Name = "estcantconsumocliente"
         ReportDataSource1.Value = Me.estcantconsumoclienteBindingSource
+        ReportDataSource2.Name = "estClientefpagopreferida"
+        ReportDataSource2.Value = Me.estClientefpagopreferidaBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphCantConsumoCliente.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -303,6 +310,15 @@ Partial Class EstadisticasCliente
         '
         Me.estcantconsumoclienteTableAdapter.ClearBeforeFill = True
         '
+        'estClientefpagopreferidaBindingSource
+        '
+        Me.estClientefpagopreferidaBindingSource.DataMember = "estClientefpagopreferida"
+        Me.estClientefpagopreferidaBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'estClientefpagopreferidaTableAdapter
+        '
+        Me.estClientefpagopreferidaTableAdapter.ClearBeforeFill = True
+        '
         'EstadisticasCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -324,6 +340,7 @@ Partial Class EstadisticasCliente
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.estClientefpagopreferidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -351,4 +368,6 @@ Partial Class EstadisticasCliente
     Friend WithEvents ReportViewer1 As ReportViewer
     Friend WithEvents estcantconsumoclienteBindingSource As BindingSource
     Friend WithEvents estcantconsumoclienteTableAdapter As comercialDataSetTableAdapters.estcantconsumoclienteTableAdapter
+    Friend WithEvents estClientefpagopreferidaBindingSource As BindingSource
+    Friend WithEvents estClientefpagopreferidaTableAdapter As comercialDataSetTableAdapters.estClientefpagopreferidaTableAdapter
 End Class
