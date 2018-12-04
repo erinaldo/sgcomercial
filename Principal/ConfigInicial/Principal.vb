@@ -857,4 +857,9 @@ Public Class Principal
         EstadisticasProveedor.MdiParent = Me
         EstadisticasProveedor.Visible = True
     End Sub
+
+    Private Sub MisVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisVentasToolStripMenuItem.Click
+        EstadisticasVentas.MdiParent = Me
+        EstadisticasVentas.Visible = True
+    End Sub
 End Class

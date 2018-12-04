@@ -324,6 +324,12 @@
     <Compile Include="Estadisticas\Proveedor\EstadisticasProveedor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estadisticas\Ventas\EstadisticasVentas.Designer.vb">
+      <DependentUpon>EstadisticasVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Ventas\EstadisticasVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -977,6 +983,10 @@
       <DependentUpon>EstadisticasProveedor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas\Proveedor\GraphCantConsumoProveedor.rdlc" />
+    <EmbeddedResource Include="Estadisticas\Ventas\EstadisticasVentas.resx">
+      <DependentUpon>EstadisticasVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Ventas\GraphPareto.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

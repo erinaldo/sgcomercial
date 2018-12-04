@@ -7355,6 +7355,103 @@ where idcliente = @idcliente</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EstHistoricoCantVtasValorTableAdapter" GeneratorDataComponentClassName="EstHistoricoCantVtasValorTableAdapter" Name="EstHistoricoCantVtasValor" UserDataComponentName="EstHistoricoCantVtasValorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.EstHistoricoCantVtasValor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idproducto, cantidad, valorvendido FROM dbo.EstHistoricoCantVtasValor</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
+              <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
+              <Mapping SourceColumn="valorvendido" DataSetColumn="valorvendido" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EstParetoParticipacionTableAdapter" GeneratorDataComponentClassName="EstParetoParticipacionTableAdapter" Name="EstParetoParticipacion" UserDataComponentName="EstParetoParticipacionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.EstParetoParticipacion" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idproducto, cantidad, valorvendido, participacion FROM dbo.EstParetoParticipacion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
+              <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
+              <Mapping SourceColumn="valorvendido" DataSetColumn="valorvendido" />
+              <Mapping SourceColumn="participacion" DataSetColumn="participacion" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EstABCResumenTableAdapter" GeneratorDataComponentClassName="EstABCResumenTableAdapter" Name="EstABCResumen" UserDataComponentName="EstABCResumenTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.EstABCResumen" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT clasificacion, cantidad, cantpartpc, valorvendido, valpartpc FROM dbo.EstABCResumen</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="clasificacion" DataSetColumn="clasificacion" />
+              <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
+              <Mapping SourceColumn="cantpartpc" DataSetColumn="cantpartpc" />
+              <Mapping SourceColumn="valorvendido" DataSetColumn="valorvendido" />
+              <Mapping SourceColumn="valpartpc" DataSetColumn="valpartpc" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EstClasificacionParetoTableAdapter" GeneratorDataComponentClassName="EstClasificacionParetoTableAdapter" Name="EstClasificacionPareto" UserDataComponentName="EstClasificacionParetoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.EstClasificacionPareto" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idproducto, valorvendido, participacion, participacionacumulada, clasificacion, producto FROM EstClasificacionPareto</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
+              <Mapping SourceColumn="valorvendido" DataSetColumn="valorvendido" />
+              <Mapping SourceColumn="participacion" DataSetColumn="participacion" />
+              <Mapping SourceColumn="participacionacumulada" DataSetColumn="participacionacumulada" />
+              <Mapping SourceColumn="clasificacion" DataSetColumn="clasificacion" />
+              <Mapping SourceColumn="producto" DataSetColumn="producto" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EstParetoParticipacionAcumuladaTableAdapter" GeneratorDataComponentClassName="EstParetoParticipacionAcumuladaTableAdapter" Name="EstParetoParticipacionAcumulada" UserDataComponentName="EstParetoParticipacionAcumuladaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.EstParetoParticipacionAcumulada" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idproducto, valorvendido, participacion, participacionacumulada FROM dbo.EstParetoParticipacionAcumulada</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
+              <Mapping SourceColumn="valorvendido" DataSetColumn="valorvendido" />
+              <Mapping SourceColumn="participacion" DataSetColumn="participacion" />
+              <Mapping SourceColumn="participacionacumulada" DataSetColumn="participacionacumulada" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -9842,6 +9939,76 @@ where idcliente = @idcliente</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EstHistoricoCantVtasValor" msprop:Generator_TableClassName="EstHistoricoCantVtasValorDataTable" msprop:Generator_TableVarName="tableEstHistoricoCantVtasValor" msprop:Generator_RowChangedName="EstHistoricoCantVtasValorRowChanged" msprop:Generator_TablePropName="EstHistoricoCantVtasValor" msprop:Generator_RowDeletingName="EstHistoricoCantVtasValorRowDeleting" msprop:Generator_RowChangingName="EstHistoricoCantVtasValorRowChanging" msprop:Generator_RowEvHandlerName="EstHistoricoCantVtasValorRowChangeEventHandler" msprop:Generator_RowDeletedName="EstHistoricoCantVtasValorRowDeleted" msprop:Generator_RowClassName="EstHistoricoCantVtasValorRow" msprop:Generator_UserTableName="EstHistoricoCantVtasValor" msprop:Generator_RowEvArgName="EstHistoricoCantVtasValorRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" msprop:Generator_UserColumnName="idproducto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="valorvendido" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnvalorvendido" msprop:Generator_ColumnPropNameInRow="valorvendido" msprop:Generator_ColumnPropNameInTable="valorvendidoColumn" msprop:Generator_UserColumnName="valorvendido" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstParetoParticipacion" msprop:Generator_TableClassName="EstParetoParticipacionDataTable" msprop:Generator_TableVarName="tableEstParetoParticipacion" msprop:Generator_RowChangedName="EstParetoParticipacionRowChanged" msprop:Generator_TablePropName="EstParetoParticipacion" msprop:Generator_RowDeletingName="EstParetoParticipacionRowDeleting" msprop:Generator_RowChangingName="EstParetoParticipacionRowChanging" msprop:Generator_RowEvHandlerName="EstParetoParticipacionRowChangeEventHandler" msprop:Generator_RowDeletedName="EstParetoParticipacionRowDeleted" msprop:Generator_RowClassName="EstParetoParticipacionRow" msprop:Generator_UserTableName="EstParetoParticipacion" msprop:Generator_RowEvArgName="EstParetoParticipacionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" msprop:Generator_UserColumnName="idproducto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cantidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="valorvendido" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnvalorvendido" msprop:Generator_ColumnPropNameInRow="valorvendido" msprop:Generator_ColumnPropNameInTable="valorvendidoColumn" msprop:Generator_UserColumnName="valorvendido" type="xs:decimal" minOccurs="0" />
+              <xs:element name="participacion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnparticipacion" msprop:Generator_ColumnPropNameInRow="participacion" msprop:Generator_ColumnPropNameInTable="participacionColumn" msprop:Generator_UserColumnName="participacion" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstABCResumen" msprop:Generator_TableClassName="EstABCResumenDataTable" msprop:Generator_TableVarName="tableEstABCResumen" msprop:Generator_TablePropName="EstABCResumen" msprop:Generator_RowDeletingName="EstABCResumenRowDeleting" msprop:Generator_RowChangingName="EstABCResumenRowChanging" msprop:Generator_RowEvHandlerName="EstABCResumenRowChangeEventHandler" msprop:Generator_RowDeletedName="EstABCResumenRowDeleted" msprop:Generator_UserTableName="EstABCResumen" msprop:Generator_RowChangedName="EstABCResumenRowChanged" msprop:Generator_RowEvArgName="EstABCResumenRowChangeEvent" msprop:Generator_RowClassName="EstABCResumenRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="clasificacion" msprop:Generator_ColumnVarNameInTable="columnclasificacion" msprop:Generator_ColumnPropNameInRow="clasificacion" msprop:Generator_ColumnPropNameInTable="clasificacionColumn" msprop:Generator_UserColumnName="clasificacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:int" minOccurs="0" />
+              <xs:element name="cantpartpc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncantpartpc" msprop:Generator_ColumnPropNameInRow="cantpartpc" msprop:Generator_ColumnPropNameInTable="cantpartpcColumn" msprop:Generator_UserColumnName="cantpartpc" type="xs:decimal" minOccurs="0" />
+              <xs:element name="valorvendido" msprop:Generator_ColumnVarNameInTable="columnvalorvendido" msprop:Generator_ColumnPropNameInRow="valorvendido" msprop:Generator_ColumnPropNameInTable="valorvendidoColumn" msprop:Generator_UserColumnName="valorvendido" type="xs:decimal" minOccurs="0" />
+              <xs:element name="valpartpc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnvalpartpc" msprop:Generator_ColumnPropNameInRow="valpartpc" msprop:Generator_ColumnPropNameInTable="valpartpcColumn" msprop:Generator_UserColumnName="valpartpc" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstClasificacionPareto" msprop:Generator_TableClassName="EstClasificacionParetoDataTable" msprop:Generator_TableVarName="tableEstClasificacionPareto" msprop:Generator_TablePropName="EstClasificacionPareto" msprop:Generator_RowDeletingName="EstClasificacionParetoRowDeleting" msprop:Generator_RowChangingName="EstClasificacionParetoRowChanging" msprop:Generator_RowEvHandlerName="EstClasificacionParetoRowChangeEventHandler" msprop:Generator_RowDeletedName="EstClasificacionParetoRowDeleted" msprop:Generator_UserTableName="EstClasificacionPareto" msprop:Generator_RowChangedName="EstClasificacionParetoRowChanged" msprop:Generator_RowEvArgName="EstClasificacionParetoRowChangeEvent" msprop:Generator_RowClassName="EstClasificacionParetoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" msprop:Generator_UserColumnName="idproducto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="valorvendido" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnvalorvendido" msprop:Generator_ColumnPropNameInRow="valorvendido" msprop:Generator_ColumnPropNameInTable="valorvendidoColumn" msprop:Generator_UserColumnName="valorvendido" type="xs:decimal" minOccurs="0" />
+              <xs:element name="participacion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnparticipacion" msprop:Generator_ColumnPropNameInRow="participacion" msprop:Generator_ColumnPropNameInTable="participacionColumn" msprop:Generator_UserColumnName="participacion" type="xs:decimal" minOccurs="0" />
+              <xs:element name="participacionacumulada" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnparticipacionacumulada" msprop:Generator_ColumnPropNameInRow="participacionacumulada" msprop:Generator_ColumnPropNameInTable="participacionacumuladaColumn" msprop:Generator_UserColumnName="participacionacumulada" type="xs:decimal" minOccurs="0" />
+              <xs:element name="clasificacion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnclasificacion" msprop:Generator_ColumnPropNameInRow="clasificacion" msprop:Generator_ColumnPropNameInTable="clasificacionColumn" msprop:Generator_UserColumnName="clasificacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="producto" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnproducto" msprop:Generator_ColumnPropNameInRow="producto" msprop:Generator_ColumnPropNameInTable="productoColumn" msprop:Generator_UserColumnName="producto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="302" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstParetoParticipacionAcumulada" msprop:Generator_TableClassName="EstParetoParticipacionAcumuladaDataTable" msprop:Generator_TableVarName="tableEstParetoParticipacionAcumulada" msprop:Generator_TablePropName="EstParetoParticipacionAcumulada" msprop:Generator_RowDeletingName="EstParetoParticipacionAcumuladaRowDeleting" msprop:Generator_RowChangingName="EstParetoParticipacionAcumuladaRowChanging" msprop:Generator_RowEvHandlerName="EstParetoParticipacionAcumuladaRowChangeEventHandler" msprop:Generator_RowDeletedName="EstParetoParticipacionAcumuladaRowDeleted" msprop:Generator_UserTableName="EstParetoParticipacionAcumulada" msprop:Generator_RowChangedName="EstParetoParticipacionAcumuladaRowChanged" msprop:Generator_RowEvArgName="EstParetoParticipacionAcumuladaRowChangeEvent" msprop:Generator_RowClassName="EstParetoParticipacionAcumuladaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" msprop:Generator_UserColumnName="idproducto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="valorvendido" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnvalorvendido" msprop:Generator_ColumnPropNameInRow="valorvendido" msprop:Generator_ColumnPropNameInTable="valorvendidoColumn" msprop:Generator_UserColumnName="valorvendido" type="xs:decimal" minOccurs="0" />
+              <xs:element name="participacion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnparticipacion" msprop:Generator_ColumnPropNameInRow="participacion" msprop:Generator_ColumnPropNameInTable="participacionColumn" msprop:Generator_UserColumnName="participacion" type="xs:decimal" minOccurs="0" />
+              <xs:element name="participacionacumulada" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnparticipacionacumulada" msprop:Generator_ColumnPropNameInRow="participacionacumulada" msprop:Generator_ColumnPropNameInTable="participacionacumuladaColumn" msprop:Generator_UserColumnName="participacionacumulada" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -10118,6 +10285,22 @@ where idcliente = @idcliente</CommandText>
     </xs:unique>
     <xs:unique name="listaproductosproveedores_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:listaproductosproveedores" />
+      <xs:field xpath="mstns:idproducto" />
+    </xs:unique>
+    <xs:unique name="EstHistoricoCantVtasValor_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:EstHistoricoCantVtasValor" />
+      <xs:field xpath="mstns:idproducto" />
+    </xs:unique>
+    <xs:unique name="EstParetoParticipacion_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:EstParetoParticipacion" />
+      <xs:field xpath="mstns:idproducto" />
+    </xs:unique>
+    <xs:unique name="EstClasificacionPareto_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:EstClasificacionPareto" />
+      <xs:field xpath="mstns:idproducto" />
+    </xs:unique>
+    <xs:unique name="EstParetoParticipacionAcumulada_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:EstParetoParticipacionAcumulada" />
       <xs:field xpath="mstns:idproducto" />
     </xs:unique>
   </xs:element>
