@@ -1100,19 +1100,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.62089cm</Width>
+              <Width>3.70556cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.62089cm</Width>
+              <Width>3.70556cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.83772cm</Width>
+              <Width>2.92239cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.00453cm</Width>
+              <Width>2.0892cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.55334cm</Width>
+              <Width>5.63801cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1775,6 +1775,7 @@
                         <BackgroundGradientType>None</BackgroundGradientType>
                       </Style>
                     </Chart>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1866,7 +1867,6 @@
                                   <BackgroundHatchType>None</BackgroundHatchType>
                                 </Style>
                                 <ChartMarker>
-                                  <Type>Star10</Type>
                                   <Size>3pt</Size>
                                   <Style>
                                     <Border>
@@ -2147,8 +2147,8 @@
         </TablixRowHierarchy>
         <DataSetName>EstABCResumen</DataSetName>
         <Top>5.7277cm</Top>
-        <Height>2.5335cm</Height>
-        <Width>17.63737cm</Width>
+        <Height>2.53351cm</Height>
+        <Width>18.0607cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>

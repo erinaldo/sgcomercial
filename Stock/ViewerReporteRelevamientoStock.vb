@@ -27,6 +27,7 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.stockgeneralTableAdapter.Fill(Me.comercialDataSet.stockgeneral)
         stockgeneralBindingSource.Filter = ""
         Me.ReportViewer1.RefreshReport()
         ComboBox1.SelectedIndex = -1
