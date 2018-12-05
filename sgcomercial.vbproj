@@ -497,6 +497,12 @@
     <Compile Include="Stock\ViewerReporteControlStockGeneral.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Stock\ViewerReporteRelevamientoStock.Designer.vb">
+      <DependentUpon>ViewerReporteRelevamientoStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\ViewerReporteRelevamientoStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TransferenciaStock\ABMSucursales.Designer.vb">
       <DependentUpon>ABMSucursales.vb</DependentUpon>
     </Compile>
@@ -1058,11 +1064,15 @@
     <EmbeddedResource Include="Stock\AyudaImportarProductos.resx">
       <DependentUpon>AyudaImportarProductos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stock\RptRelevamientoStock.rdlc" />
     <EmbeddedResource Include="Stock\StkMovimientos.resx">
       <DependentUpon>StkMovimientos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock\ViewerReporteControlStockGeneral.resx">
       <DependentUpon>ViewerReporteControlStockGeneral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\ViewerReporteRelevamientoStock.resx">
+      <DependentUpon>ViewerReporteRelevamientoStock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransferenciaStock\ABMSucursales.resx">
       <DependentUpon>ABMSucursales.vb</DependentUpon>

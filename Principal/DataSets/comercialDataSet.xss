@@ -20,7 +20,7 @@
     <Shape ID="DesignTable:tipomovimientostock" ZOrder="67" X="376" Y="129" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="84" OldDataTableHeight="76" SplitterPosition="28" />
     <Shape ID="DesignTable:rubros" ZOrder="33" X="1042" Y="611" Height="62" Width="255" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="374" OldDataTableHeight="64" SplitterPosition="28" />
     <Shape ID="DesignTable:stock" ZOrder="79" X="9" Y="818" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="145" OldDataTableHeight="283" SplitterPosition="28" />
-    <Shape ID="DesignTable:stockgeneral" ZOrder="78" X="12" Y="964" Height="62" Width="258" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="140" SplitterPosition="28" />
+    <Shape ID="DesignTable:stockgeneral" ZOrder="78" X="12" Y="964" Height="319" Width="258" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="140" SplitterPosition="260" />
     <Shape ID="DesignTable:cajas" ZOrder="77" X="12" Y="1036" Height="62" Width="202" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="64" OldDataTableHeight="83" SplitterPosition="28" />
     <Shape ID="DesignTable:tipocomprobantes" ZOrder="76" X="14" Y="1105" Height="62" Width="299" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="64" SplitterPosition="28" />
     <Shape ID="DesignTable:pagos" ZOrder="28" X="15" Y="1386" Height="63" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="212" OldDataTableHeight="260" SplitterPosition="29" />

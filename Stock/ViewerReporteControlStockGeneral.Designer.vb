@@ -25,16 +25,31 @@ Partial Class ViewerReporteControlStockGeneral
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.stockgeneralBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.stockgeneralTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockgeneralTableAdapter()
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.stockgeneralBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'MiComercioBindingSource
+        '
+        Me.MiComercioBindingSource.DataMember = "MiComercio"
+        Me.MiComercioBindingSource.DataSource = Me.comercialDataSet
+        '
+        'comercialDataSet
+        '
+        Me.comercialDataSet.DataSetName = "comercialDataSet"
+        Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'stockgeneralBindingSource
+        '
+        Me.stockgeneralBindingSource.DataMember = "stockgeneral"
+        Me.stockgeneralBindingSource.DataSource = Me.comercialDataSet
         '
         'ReportViewer1
         '
@@ -51,24 +66,9 @@ Partial Class ViewerReporteControlStockGeneral
         Me.ReportViewer1.Size = New System.Drawing.Size(1055, 606)
         Me.ReportViewer1.TabIndex = 0
         '
-        'comercialDataSet
-        '
-        Me.comercialDataSet.DataSetName = "comercialDataSet"
-        Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'MiComercioBindingSource
-        '
-        Me.MiComercioBindingSource.DataMember = "MiComercio"
-        Me.MiComercioBindingSource.DataSource = Me.comercialDataSet
-        '
         'MiComercioTableAdapter
         '
         Me.MiComercioTableAdapter.ClearBeforeFill = True
-        '
-        'stockgeneralBindingSource
-        '
-        Me.stockgeneralBindingSource.DataMember = "stockgeneral"
-        Me.stockgeneralBindingSource.DataSource = Me.comercialDataSet
         '
         'stockgeneralTableAdapter
         '
@@ -81,9 +81,11 @@ Partial Class ViewerReporteControlStockGeneral
         Me.ClientSize = New System.Drawing.Size(1055, 606)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "ViewerReporteControlStockGeneral"
-        Me.Text = "ViewerReporteControlStockGeneral"
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Tag = "ViewerReporteControlStockGeneral"
+        Me.Text = "Viewer Reporte Control StockGeneral"
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.stockgeneralBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

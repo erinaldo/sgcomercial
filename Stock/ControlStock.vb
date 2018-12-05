@@ -34,6 +34,7 @@
         Dim p As ViewerReporteControlStockGeneral
         p = New ViewerReporteControlStockGeneral
         p.ShowDialog()
+        p.Close()
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
@@ -53,5 +54,12 @@
 
         End Try
 
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim p As ViewerReporteRelevamientoStock
+        p = New ViewerReporteRelevamientoStock
+        p.ShowDialog()
+        p.Close()
     End Sub
 End Class
