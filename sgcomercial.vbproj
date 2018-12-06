@@ -467,16 +467,16 @@
     <Compile Include="Stock\CodificarProductos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\ExportarProductos.Designer.vb">
+    <Compile Include="ImportarExportarProductos\ExportarProductos.Designer.vb">
       <DependentUpon>ExportarProductos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Stock\ExportarProductos.vb">
+    <Compile Include="ImportarExportarProductos\ExportarProductos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\ImportarProductos.Designer.vb">
+    <Compile Include="ImportarExportarProductos\ImportarProductos.Designer.vb">
       <DependentUpon>ImportarProductos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Stock\ImportarProductos.vb">
+    <Compile Include="ImportarExportarProductos\ImportarProductos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Stock\AyudaImportarProductos.Designer.vb">
@@ -1053,13 +1053,13 @@
     <EmbeddedResource Include="Stock\CodificarProductos.resx">
       <DependentUpon>CodificarProductos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\ExportarProductos.resx">
+    <EmbeddedResource Include="ImportarExportarProductos\ExportarProductos.resx">
       <DependentUpon>ExportarProductos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\ImportarProductos.resx">
+    <EmbeddedResource Include="ImportarExportarProductos\ImportarProductos.resx">
       <DependentUpon>ImportarProductos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\RepExportarProd.rdlc" />
+    <EmbeddedResource Include="ImportarExportarProductos\RepExportarProd.rdlc" />
     <EmbeddedResource Include="Stock\RptControlStockGeneral.rdlc" />
     <EmbeddedResource Include="Stock\AyudaImportarProductos.resx">
       <DependentUpon>AyudaImportarProductos.vb</DependentUpon>
