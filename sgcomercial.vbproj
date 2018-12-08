@@ -992,6 +992,7 @@
     <EmbeddedResource Include="Estadisticas\Ventas\EstadisticasVentas.resx">
       <DependentUpon>EstadisticasVentas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Ventas\GraphHistoricoVentas.rdlc" />
     <EmbeddedResource Include="Estadisticas\Ventas\GraphPareto.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

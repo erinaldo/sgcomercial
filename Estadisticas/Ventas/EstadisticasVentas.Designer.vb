@@ -24,26 +24,29 @@ Partial Class EstadisticasVentas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim IdclienteLabel As System.Windows.Forms.Label
-        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.EstParetoParticipacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.EstHistoricoVentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
+        Me.EstABCResumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EstClasificacionParetoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EstParetoParticipacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboBoxEstadistica = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.EstParetoParticipacionTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstParetoParticipacionTableAdapter()
-        Me.EstABCResumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EstABCResumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstABCResumenTableAdapter()
-        Me.EstClasificacionParetoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EstClasificacionParetoTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstClasificacionParetoTableAdapter()
+        Me.EstHistoricoVentasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstHistoricoVentasTableAdapter()
         IdclienteLabel = New System.Windows.Forms.Label()
-        CType(Me.EstParetoParticipacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EstHistoricoVentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         CType(Me.EstABCResumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstClasificacionParetoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EstParetoParticipacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -56,15 +59,30 @@ Partial Class EstadisticasVentas
         IdclienteLabel.TabIndex = 16
         IdclienteLabel.Text = "Seleccione Informe:"
         '
-        'EstParetoParticipacionBindingSource
+        'EstHistoricoVentasBindingSource
         '
-        Me.EstParetoParticipacionBindingSource.DataMember = "EstParetoParticipacion"
-        Me.EstParetoParticipacionBindingSource.DataSource = Me.comercialDataSet
+        Me.EstHistoricoVentasBindingSource.DataMember = "EstHistoricoVentas"
+        Me.EstHistoricoVentasBindingSource.DataSource = Me.comercialDataSet
         '
         'comercialDataSet
         '
         Me.comercialDataSet.DataSetName = "comercialDataSet"
         Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EstABCResumenBindingSource
+        '
+        Me.EstABCResumenBindingSource.DataMember = "EstABCResumen"
+        Me.EstABCResumenBindingSource.DataSource = Me.comercialDataSet
+        '
+        'EstClasificacionParetoBindingSource
+        '
+        Me.EstClasificacionParetoBindingSource.DataMember = "EstClasificacionPareto"
+        Me.EstClasificacionParetoBindingSource.DataSource = Me.comercialDataSet
+        '
+        'EstParetoParticipacionBindingSource
+        '
+        Me.EstParetoParticipacionBindingSource.DataMember = "EstParetoParticipacion"
+        Me.EstParetoParticipacionBindingSource.DataSource = Me.comercialDataSet
         '
         'GroupBox1
         '
@@ -81,7 +99,7 @@ Partial Class EstadisticasVentas
         '
         Me.ComboBoxEstadistica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxEstadistica.FormattingEnabled = True
-        Me.ComboBoxEstadistica.Items.AddRange(New Object() {"Principio de Pareto"})
+        Me.ComboBoxEstadistica.Items.AddRange(New Object() {"Historico Ventas", "Principio de Pareto"})
         Me.ComboBoxEstadistica.Location = New System.Drawing.Point(155, 22)
         Me.ComboBoxEstadistica.Name = "ComboBoxEstadistica"
         Me.ComboBoxEstadistica.Size = New System.Drawing.Size(155, 24)
@@ -99,12 +117,13 @@ Partial Class EstadisticasVentas
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource5.Name = "EstABCResumen"
-        ReportDataSource5.Value = Me.EstABCResumenBindingSource
-        ReportDataSource6.Name = "EstClasificacionPareto"
-        ReportDataSource6.Value = Me.EstClasificacionParetoBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
+        ReportDataSource3.Name = "EstABCResumen"
+        ReportDataSource3.Value = Me.EstABCResumenBindingSource
+        ReportDataSource4.Name = "EstClasificacionPareto"
+        ReportDataSource4.Value = Me.EstClasificacionParetoBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.MapTileServerConfiguration.MaxConnections = 5
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphPareto.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -115,23 +134,17 @@ Partial Class EstadisticasVentas
         '
         Me.EstParetoParticipacionTableAdapter.ClearBeforeFill = True
         '
-        'EstABCResumenBindingSource
-        '
-        Me.EstABCResumenBindingSource.DataMember = "EstABCResumen"
-        Me.EstABCResumenBindingSource.DataSource = Me.comercialDataSet
-        '
         'EstABCResumenTableAdapter
         '
         Me.EstABCResumenTableAdapter.ClearBeforeFill = True
         '
-        'EstClasificacionParetoBindingSource
-        '
-        Me.EstClasificacionParetoBindingSource.DataMember = "EstClasificacionPareto"
-        Me.EstClasificacionParetoBindingSource.DataSource = Me.comercialDataSet
-        '
         'EstClasificacionParetoTableAdapter
         '
         Me.EstClasificacionParetoTableAdapter.ClearBeforeFill = True
+        '
+        'EstHistoricoVentasTableAdapter
+        '
+        Me.EstHistoricoVentasTableAdapter.ClearBeforeFill = True
         '
         'EstadisticasVentas
         '
@@ -145,13 +158,14 @@ Partial Class EstadisticasVentas
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "EstadisticasVentas"
         Me.Text = "Estadisticas Ventas"
-        CType(Me.EstParetoParticipacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstHistoricoVentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstABCResumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstClasificacionParetoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstParetoParticipacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
-        CType(Me.EstABCResumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EstClasificacionParetoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -167,4 +181,6 @@ Partial Class EstadisticasVentas
     Friend WithEvents EstClasificacionParetoBindingSource As BindingSource
     Friend WithEvents EstABCResumenTableAdapter As comercialDataSetTableAdapters.EstABCResumenTableAdapter
     Friend WithEvents EstClasificacionParetoTableAdapter As comercialDataSetTableAdapters.EstClasificacionParetoTableAdapter
+    Friend WithEvents EstHistoricoVentasBindingSource As BindingSource
+    Friend WithEvents EstHistoricoVentasTableAdapter As comercialDataSetTableAdapters.EstHistoricoVentasTableAdapter
 End Class
