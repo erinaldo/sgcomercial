@@ -5,27 +5,31 @@ Public Class ActualizacionPrecios
     Private Sub ActualizacionPrecios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.rubros' Puede moverla o quitarla según sea necesario.
         Me.RubrosTableAdapter.Fill(Me.ComercialDataSet.rubros)
-
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
         Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
-        ListamarcasDataGridView.AutoGenerateColumns = True
-        'this.dataGridView1.Columns.Clear();
-        Me.ListarubrosTableAdapter.Fill(Me.ComercialDataSet.listarubros)
-        Me.ListamarcasTableAdapter.Fill(Me.ComercialDataSet.listamarcas)
-        '***************************
-        ComboBox1.SelectedIndex = 0
-        ComboBox2.SelectedIndex = 0
-        ListamarcasDataGridView.Rows(0).Selected = False
-        '***************************
+
+        ''***************************
+        ComboBox1.SelectedIndex = -1
+
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
-        Select Case ComboBox2.Text
-            Case "Marca"
-                ListamarcasDataGridView.DataSource = ListamarcasBindingSource
-            Case "Rubro"
-                ListamarcasDataGridView.DataSource = ListarubrosBindingSource
-                ListamarcasDataGridView.Refresh()
-        End Select
+        Try
+            Me.ListacriteriosactualizacionTableAdapter.Fill(Me.ComercialDataSet.listacriteriosactualizacion)
+            Select Case ComboBox2.Text
+                Case "Fabricante"
+                    ListacriteriosactualizacionBindingSource.Filter = "criterio like'fabricante'"
+                Case "Marca"
+                    ListacriteriosactualizacionBindingSource.Filter = "criterio like'marca'"
+                Case "Rubro"
+                    ListacriteriosactualizacionBindingSource.Filter = "criterio like'rubro'"
+                Case Else
+
+            End Select
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
@@ -51,18 +55,18 @@ Public Class ActualizacionPrecios
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        '************* validar seleccion de marca o rubro
+        ''************* validar seleccion de marca o rubro
         If Len(Trim(marcaseleccionada)) = 0 Then
-            MsgBox("Debe seleccionar una marca o rubro", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgBox("Debe seleccionar una fabricante, marca o rubro", MsgBoxStyle.Exclamation, "Advertencia")
             Return
         End If
-        '************* validar carga monto valor
+        ''************* validar carga monto valor
         If Len(Trim(TextBox1.Text)) = 0 Then
             MsgBox("Debe ingresar un valor", MsgBoxStyle.Exclamation, "Advertencia")
             TextBox1.Select()
             Return
         End If
-        '*************** verifico operacion SUMA o RESTA
+        ''*************** verifico operacion SUMA o RESTA
         Dim valor As Decimal
         Dim porcentaje As Decimal
         Dim operacion As String
@@ -76,98 +80,118 @@ Public Class ActualizacionPrecios
             operacion = "aumento"
             porcentaje = porcentaje / 100 + 1
         End If
-        '************* confirmar accion
+        ''************* confirmar accion
         If MsgBox("Seguro desea aplicar a " + ComboBox2.Text + ": " + marcaseleccionada + " un " + operacion + " de precio en " + TextBox1.Text + " (" + ComboBox1.Text + ")" + "?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.No Then
             Return
         End If
-        '************* ejecutar acción
-        Select Case ComboBox2.Text
-            Case "Marca"
-                Select Case ComboBox1.Text
-                    Case "Monto fijo"
-                        If Convert.ToDecimal(TextBox1.Text) > 0 Then
-                            ProductosTableAdapter.productos_act_precioventa_marca_montofijo(valor, marcaseleccionada)
-                        Else
-                            MsgBox("valor incorrecto")
-                        End If
-                    Case "Porcentaje"
-                        If Convert.ToDecimal(TextBox1.Text) > 0 Then
-                            ProductosTableAdapter.productos_act_precioventa_marca_porcentaje(porcentaje, marcaseleccionada)
-                        Else
-                            MsgBox("valor incorrecto")
-                        End If
-                End Select
-            Case "Rubro"
-                Select Case ComboBox1.Text
-                    Case "Monto fijo"
-                        If Convert.ToDecimal(TextBox1.Text) > 0 Then
-                            ProductosTableAdapter.productos_act_precioventa_rubro_montofijo(valor, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada))
-                        Else
-                            MsgBox("valor incorrecto")
-                        End If
-                    Case "Porcentaje"
-                        If Convert.ToDecimal(TextBox1.Text) > 0 Then
-                            ProductosTableAdapter.productos_act_precioventa_rubro_porcentaje(porcentaje, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada))
-                        Else
-                            MsgBox("valor incorrecto")
-                        End If
-                End Select
-        End Select
-
-        Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
-
-    End Sub
-
-    Private Sub ListamarcasDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListamarcasDataGridView.CellContentClick
-
-    End Sub
-
-    Private Sub ListamarcasDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListamarcasDataGridView.CellClick
+        ''************* ejecutar acción
         Try
-            If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
-                marcaseleccionada = Trim(ListamarcasDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Value())
+            Select Case ComboBox2.Text
+                Case "Marca"
+                    Select Case ComboBox1.Text
+                        Case "Monto fijo"
+                            If Convert.ToDecimal(TextBox1.Text) > 0 Then
+                                ProductosTableAdapter.productos_act_precioventa_marca_montofijo(valor, marcaseleccionada)
+                            Else
+                                MsgBox("valor incorrecto")
+                            End If
+                        Case "Porcentaje"
+                            If Convert.ToDecimal(TextBox1.Text) > 0 Then
+                                ProductosTableAdapter.productos_act_precioventa_marca_porcentaje(porcentaje, marcaseleccionada)
+                            Else
+                                MsgBox("valor incorrecto")
+                            End If
+                    End Select
+                Case "Rubro"
+                    Select Case ComboBox1.Text
+                        Case "Monto fijo"
+                            If Convert.ToDecimal(TextBox1.Text) > 0 Then
+                                ProductosTableAdapter.productos_act_precioventa_rubro_montofijo(valor, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada))
+                            Else
+                                MsgBox("valor incorrecto")
+                            End If
+                        Case "Porcentaje"
+                            If Convert.ToDecimal(TextBox1.Text) > 0 Then
+                                ProductosTableAdapter.productos_act_precioventa_rubro_porcentaje(porcentaje, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada))
+                            Else
+                                MsgBox("valor incorrecto")
+                            End If
+                    End Select
+                Case "Fabricante"
+                    Select Case ComboBox1.Text
+                        Case "Monto fijo"
+                            If Convert.ToDecimal(TextBox1.Text) > 0 Then
+                                ProductosTableAdapter.productos_act_precioventa_rubro_montofijo(valor, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada))
+                            Else
+                                MsgBox("valor incorrecto")
+                            End If
+                        Case "Porcentaje"
+                            If Convert.ToDecimal(TextBox1.Text) > 0 Then
+                                ProductosTableAdapter.productos_act_precioventa_rubro_porcentaje(porcentaje, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada))
+                            Else
+                                MsgBox("valor incorrecto")
+                            End If
+                    End Select
+            End Select
 
-            Else
-                ProductosBindingSource.Filter = ""
-                Return
-            End If
+            'Me.ListacriteriosactualizacionTableAdapter.Fill(Me.ComercialDataSet.listacriteriosactualizacion)
+            Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
+            '/********************************** VOLVER A FILTRAR LA OPCION QUE ESTABA ********************/
+            'Select Case ComboBox2.Text
+            '    Case "Fabricante"
+            '        ListaproductosBindingSource.Filter = "fabricante like '%" + marcaseleccionada + "%'"
+            '    Case "Marca"
+            '        ListaproductosBindingSource.Filter = "marca like '%" + marcaseleccionada + "%'"
+            '    Case "Rubro"
+            '        ListaproductosBindingSource.Filter = "rubro like '%" + marcaseleccionada + "%'"
+            'End Select
         Catch ex As Exception
-            MsgBox("Revise la lista de productos y complete el campo MARCA", MsgBoxStyle.Exclamation, "Advertencia")
-            Return
+            MsgBox("No se pudo completar la actualización: " + ex.Message)
         End Try
 
 
-        Select Case ComboBox2.Text
-            Case "Marca"
-                Try
-                    ProductosBindingSource.Filter = "trim(marca) like '%" + Trim(marcaseleccionada) + "%'"
-                    'MsgBox("marca like '%" + marcaseleccionada + "%'")
-                Catch ex As Exception
-                    ProductosBindingSource.Filter = ""
-                End Try
-            Case "Rubro"
-                RubrosTableAdapter.rubros_getidrubro(marcaseleccionada)
-                'MsgBox(marcaseleccionada)
-                Try
-                    ProductosBindingSource.Filter = "idrubro = " + RubrosTableAdapter.rubros_getidrubro(marcaseleccionada).ToString
-                Catch ex As Exception
-                    ProductosBindingSource.Filter = ""
-                End Try
-        End Select
+    End Sub
+
+    Private Sub ListamarcasDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
+
+
 
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
         Try
             Select Case ComboBox2.Text
+                Case "Fabricante"
+                    ListacriteriosactualizacionBindingSource.Filter = "criterio = 'fabricante' " + " and valor Like '%" + TextBox2.Text + "%'"
                 Case "Marca"
-                    ListamarcasBindingSource.Filter = "marca like '%" + TextBox2.Text + "%'"
+                    ListacriteriosactualizacionBindingSource.Filter = "criterio = 'marca' " + " and valor Like '%" + TextBox2.Text + "%'"
                 Case "Rubro"
-                    ListarubrosBindingSource.Filter = "Descripción like '%" + TextBox2.Text + "%'"
+                    ListacriteriosactualizacionBindingSource.Filter = "criterio = 'rubro' " + " and valor like '%" + TextBox2.Text + "%'"
             End Select
-
         Catch ex As Exception
 
+        End Try
+    End Sub
+
+    Private Sub ListacriteriosactualizacionDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListacriteriosactualizacionDataGridView.CellContentClick
+
+    End Sub
+
+    Private Sub ListacriteriosactualizacionDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListacriteriosactualizacionDataGridView.CellClick
+        Try
+            Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
+            Select Case ComboBox2.Text
+                Case "Fabricante"
+                    ListaproductosBindingSource.Filter = "fabricante like '%" + ListacriteriosactualizacionDataGridView.Rows(e.RowIndex).Cells("valor").Value + "%'"
+                Case "Marca"
+                    ListaproductosBindingSource.Filter = "marca like '%" + ListacriteriosactualizacionDataGridView.Rows(e.RowIndex).Cells("valor").Value + "%'"
+                Case "Rubro"
+                    ListaproductosBindingSource.Filter = "rubro like '%" + ListacriteriosactualizacionDataGridView.Rows(e.RowIndex).Cells("valor").Value + "%'"
+            End Select
+            marcaseleccionada = ListacriteriosactualizacionDataGridView.Rows(e.RowIndex).Cells("valor").Value
+        Catch ex As Exception
+            'MsgBox(ex.Message)
+            ListaproductosBindingSource.Filter = ""
         End Try
     End Sub
 End Class

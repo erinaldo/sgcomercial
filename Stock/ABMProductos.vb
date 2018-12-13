@@ -212,6 +212,7 @@ Public Class ABMProductos
         BPC3.Enabled = status
         BPC4.Enabled = status
         IvaComboBox.Enabled = status
+        FabricanteTextBox.Enabled = status
 
     End Sub
     Public Sub enablefilter(ByVal status As Boolean)

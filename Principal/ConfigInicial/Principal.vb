@@ -404,9 +404,11 @@ Public Class Principal
 
 
     Private Sub ActualizacionDePreciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizacionDePreciosToolStripMenuItem.Click
+        ActualizacionPrecios.MdiParent = Me
+        ActualizacionPrecios.Visible = True
         'Dim p As ActualizacionPrecios
         'p = New ActualizacionPrecios
-        ActualizacionPrecios.ShowDialog()
+        'p.ShowDialog()
     End Sub
 
     Private Sub ProductoEstandarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProductoEstandarToolStripMenuItem.Click
