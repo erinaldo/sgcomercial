@@ -343,7 +343,7 @@ Public Class AltaPedidoDelivery
                 Dim cantidad As Long = VentasdetalleDataGridView.Rows(i).Cells(3).Value
                 Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells(7).Value
                 Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells(8).Value
-                VentasdetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, codigo, cantidad, precioventa, idlistaprecio, Nothing)
+                VentasdetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, codigo, cantidad, precioventa, idlistaprecio, Nothing, Nothing) ' descuento
                 PedidosdeliveryTableAdapter.pedidosdelivery_updateidventa(nvavta, nvopedido)
             Next
         Catch ex As Exception

@@ -253,7 +253,7 @@ Module MySQLModule
                         Dim precioventa As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.precioventaColumn)
                         Dim recargo As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.recargoColumn)
                         Dim idlistaprecio As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idlistaprecioColumn)
-                        VentasDetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, idproducto, cantidad, precioventa, idlistaprecio, Nothing)
+                        VentasDetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, idproducto, cantidad, precioventa, idlistaprecio, Nothing, Nothing)
                         PedidosDeliveryTableAdapter.pedidosdelivery_updateidventa(nvavta, NvoPedido)
                     Next
                 Next

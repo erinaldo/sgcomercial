@@ -173,7 +173,7 @@ Public Class RegistrarVentaCC
                 End If
                 'insertar ventas detalle
                 Try
-                    idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(2).Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(4).Value), VentasdetalleDataGridView.Rows(i).Cells(6).Value, grecargoCC)
+                    idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(2).Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(4).Value), VentasdetalleDataGridView.Rows(i).Cells(6).Value, grecargoCC, Nothing) 'descuento
                 Catch ex As Exception
                     MsgBox("error al grabar el detalle: " + ex.Message)
                 End Try
