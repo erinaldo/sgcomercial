@@ -29,9 +29,9 @@ Partial Class ABMListasprecios
         Me.ListaspreciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaspreciosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.ListaspreciosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.ListaspreciosBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.ListaspreciosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,10 +67,12 @@ Partial Class ABMListasprecios
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -93,6 +95,7 @@ Partial Class ABMListasprecios
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -104,6 +107,8 @@ Partial Class ABMListasprecios
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -133,11 +138,6 @@ Partial Class ABMListasprecios
         Me.ListaspreciosBindingNavigator.TabIndex = 0
         Me.ListaspreciosBindingNavigator.Text = "BindingNavigator1"
         '
-        'BindingNavigatorSeparator
-        '
-        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 27)
-        '
         'BindingNavigatorAddNewItem
         '
         Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -158,6 +158,11 @@ Partial Class ABMListasprecios
         Me.BindingNavigatorDeleteItem.Text = "Eliminar"
         Me.BindingNavigatorDeleteItem.Visible = False
         '
+        'BindingNavigatorSeparator
+        '
+        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 27)
+        '
         'ListaspreciosBindingNavigatorSaveItem
         '
         Me.ListaspreciosBindingNavigatorSaveItem.Image = CType(resources.GetObject("ListaspreciosBindingNavigatorSaveItem.Image"), System.Drawing.Image)
@@ -169,7 +174,10 @@ Partial Class ABMListasprecios
         '
         Me.ListaspreciosDataGridView.AllowUserToAddRows = False
         Me.ListaspreciosDataGridView.AllowUserToDeleteRows = False
+        Me.ListaspreciosDataGridView.AllowUserToResizeColumns = False
+        Me.ListaspreciosDataGridView.AllowUserToResizeRows = False
         Me.ListaspreciosDataGridView.AutoGenerateColumns = False
+        Me.ListaspreciosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.ListaspreciosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ListaspreciosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
         Me.ListaspreciosDataGridView.DataSource = Me.ListaspreciosBindingSource
@@ -192,7 +200,7 @@ Partial Class ABMListasprecios
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "descripcion"
         Me.DataGridViewTextBoxColumn2.HeaderText = "Descripción"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.Width = 190
+        Me.DataGridViewTextBoxColumn2.Width = 111
         '
         'DataGridViewTextBoxColumn3
         '
@@ -203,7 +211,7 @@ Partial Class ABMListasprecios
         Me.DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.DataGridViewTextBoxColumn3.TrueValue = "1"
-        Me.DataGridViewTextBoxColumn3.Width = 150
+        Me.DataGridViewTextBoxColumn3.Width = 116
         '
         'ABMListasprecios
         '

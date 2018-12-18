@@ -9,7 +9,7 @@ Public Class IngresaCantidad
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
         Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
-        Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
+        Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         Dim total As Decimal
         cantidadtextbox.Text = "1"

@@ -3,11 +3,10 @@ Public Class ActualizacionPrecios
     Dim marcaseleccionada As String
     Dim rubroseleccionado As String
     Private Sub ActualizacionPrecios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
+        Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.rubros' Puede moverla o quitarla según sea necesario.
         Me.RubrosTableAdapter.Fill(Me.ComercialDataSet.rubros)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
-
         ''***************************
         ComboBox1.SelectedIndex = -1
 
@@ -60,6 +59,10 @@ Public Class ActualizacionPrecios
             MsgBox("Debe seleccionar una fabricante, marca o rubro", MsgBoxStyle.Exclamation, "Advertencia")
             Return
         End If
+        If ComboBox1.Text = "" Then
+            MsgBox("Debe seleccionar un criterio de calculo", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         ''************* validar carga monto valor
         If Len(Trim(TextBox1.Text)) = 0 Then
             MsgBox("Debe ingresar un valor", MsgBoxStyle.Exclamation, "Advertencia")
@@ -84,20 +87,22 @@ Public Class ActualizacionPrecios
         If MsgBox("Seguro desea aplicar a " + ComboBox2.Text + ": " + marcaseleccionada + " un " + operacion + " de precio en " + TextBox1.Text + " (" + ComboBox1.Text + ")" + "?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.No Then
             Return
         End If
+        'MsgBox(ComboListaPrecios.SelectedValue.ToString)
         ''************* ejecutar acción
         Try
+            Dim idlistaprecio = Val(ComboListaPrecios.SelectedValue)
             Select Case ComboBox2.Text
                 Case "Marca"
                     Select Case ComboBox1.Text
                         Case "Monto fijo"
                             If Convert.ToDecimal(TextBox1.Text) > 0 Then
-                                ProductosTableAdapter.productos_act_precioventa_marca_montofijo(valor, marcaseleccionada)
+                                ProductosTableAdapter.productos_act_precios_marca_montofijo(valor, marcaseleccionada, idlistaprecio)
                             Else
                                 MsgBox("valor incorrecto")
                             End If
                         Case "Porcentaje"
                             If Convert.ToDecimal(TextBox1.Text) > 0 Then
-                                ProductosTableAdapter.productos_act_precioventa_marca_porcentaje(porcentaje, marcaseleccionada)
+                                ProductosTableAdapter.productos_act_precios_marca_porcentaje(porcentaje, marcaseleccionada, idlistaprecio)
                             Else
                                 MsgBox("valor incorrecto")
                             End If
@@ -106,13 +111,13 @@ Public Class ActualizacionPrecios
                     Select Case ComboBox1.Text
                         Case "Monto fijo"
                             If Convert.ToDecimal(TextBox1.Text) > 0 Then
-                                ProductosTableAdapter.productos_act_precioventa_rubro_montofijo(valor, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada))
+                                ProductosTableAdapter.productos_act_precios_rubro_montofijo(valor, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada), idlistaprecio)
                             Else
                                 MsgBox("valor incorrecto")
                             End If
                         Case "Porcentaje"
                             If Convert.ToDecimal(TextBox1.Text) > 0 Then
-                                ProductosTableAdapter.productos_act_precioventa_rubro_porcentaje(porcentaje, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada))
+                                ProductosTableAdapter.productos_act_precios_rubro_porcentaje(porcentaje, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada), idlistaprecio)
                             Else
                                 MsgBox("valor incorrecto")
                             End If
@@ -121,13 +126,13 @@ Public Class ActualizacionPrecios
                     Select Case ComboBox1.Text
                         Case "Monto fijo"
                             If Convert.ToDecimal(TextBox1.Text) > 0 Then
-                                ProductosTableAdapter.productos_act_precioventa_rubro_montofijo(valor, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada))
+                                ProductosTableAdapter.productos_act_precios_fabricante_montofijo(valor, marcaseleccionada, idlistaprecio)
                             Else
                                 MsgBox("valor incorrecto")
                             End If
                         Case "Porcentaje"
                             If Convert.ToDecimal(TextBox1.Text) > 0 Then
-                                ProductosTableAdapter.productos_act_precioventa_rubro_porcentaje(porcentaje, RubrosTableAdapter.rubros_getidrubro(marcaseleccionada))
+                                ProductosTableAdapter.productos_act_precios_fabricante_porcentaje(porcentaje, marcaseleccionada, idlistaprecio)
                             Else
                                 MsgBox("valor incorrecto")
                             End If
