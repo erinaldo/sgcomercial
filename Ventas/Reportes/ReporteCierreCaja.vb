@@ -1,5 +1,11 @@
 ﻿Public Class ReporteCierreCaja
     Private Sub ReporteCierreCaja_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.cajaresumen' Puede moverla o quitarla según sea necesario.
+        Me.cajaresumenTableAdapter.Fill(Me.comercialDataSet.cajaresumen)
+        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.librodiario' Puede moverla o quitarla según sea necesario.
+        Me.librodiarioTableAdapter.Fill(Me.comercialDataSet.librodiario)
+        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.cajaresumen' Puede moverla o quitarla según sea necesario.
+        'Me.cajaresumenTableAdapter.FillByidevento(Me.comercialDataSet.cajaresumen, gidevento)
         'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
         Me.CajaseventosTableAdapter.Fill(Me.comercialDataSet.cajaseventos)
         Me.librodiarioTableAdapter.FillByActivos(Me.comercialDataSet.librodiario)

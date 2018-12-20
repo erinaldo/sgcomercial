@@ -131,18 +131,18 @@ Public Class Cajasmovimientos
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
 
-        gideventoseleccionado = CajaseventosTableAdapter.cajaseventos_isopen(CajaseventosDataGridView.Rows(CajaseventosDataGridView.CurrentRow.Index).Cells("idcaja").Value)
+        gideventoseleccionado = CajaseventosDataGridView.Rows(CajaseventosDataGridView.CurrentRow.Index).Cells("idcaja").Value
 
         If gideventoseleccionado > 0 Then
             '************ abro pantalla arqueo FINAL para ver estado ******************
             Dim p As VerEstadoCaja
             p = New VerEstadoCaja
-            p.Button1.Enabled = False
+            'p.Button1.Enabled = False
             p.Text = "Estado de Caja"
             p.ShowDialog()
             gideventoseleccionado = Nothing
         Else
-            MsgBox("Caja cerrada!", MsgBoxStyle.Information)
+            MsgBox("No se puede cargar el resumen de caja", MsgBoxStyle.Information)
         End If
 
 

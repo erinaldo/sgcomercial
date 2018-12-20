@@ -577,7 +577,7 @@ Public Class CambioMercaderiaVendida
             End If
             '*********************  ingreso o egreso de dinero segun corresponda **************************
             Dim MONTO As Decimal = MontoDiferencia.Text
-            CajasoperacionesTableAdapter.cajasoperaciones_insertarcambiodevolucion(gidevento, IDCAMBIODEVOLUCION, MONTO, gusername)
+            CajasoperacionesTableAdapter.cajasoperaciones_insertarcambiodevolucion(gidevento, IDCAMBIODEVOLUCION, 1, MONTO, gusername)
             '********************** todo OK cierro la pantalla! **************************************
             Me.Close()
         Else

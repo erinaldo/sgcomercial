@@ -366,7 +366,7 @@
             '**************************************************************
             '***** insertar movimiento de caja
             '**************************************************************
-            CajasoperacionesTableAdapter.cajasoperaciones_insertarcambiodevolucion(gidevento, IDCAMBIODEVOLUCION, MONTO, gusername)
+            CajasoperacionesTableAdapter.cajasoperaciones_insertarcambiodevolucion(gidevento, IDCAMBIODEVOLUCION, idformapagocombo.SelectedValue, MONTO, gusername)
             '********************** todo OK cierro la pantalla! **************************************
             Me.Close()
         Else

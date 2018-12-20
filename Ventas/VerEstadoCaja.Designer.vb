@@ -23,13 +23,8 @@ Partial Class VerEstadoCaja
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VerEstadoCaja))
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.numEgresos = New System.Windows.Forms.NumericUpDown()
-        Me.numIngresos = New System.Windows.Forms.NumericUpDown()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.IdoperacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdeventoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,10 +39,6 @@ Partial Class VerEstadoCaja
         Me.CajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Enteros = New System.Windows.Forms.NumericUpDown()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.CajaseventosDataGridView = New System.Windows.Forms.DataGridView()
         Me.IdeventoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdcajaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,94 +51,17 @@ Partial Class VerEstadoCaja
         Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numEgresos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numIngresos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cajaresumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.Enteros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'NumericUpDown1
-        '
-        Me.NumericUpDown1.DecimalPlaces = 2
-        Me.NumericUpDown1.Enabled = False
-        Me.NumericUpDown1.Location = New System.Drawing.Point(198, 80)
-        Me.NumericUpDown1.Margin = New System.Windows.Forms.Padding(4)
-        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {999999, 0, 0, -2147483648})
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.ReadOnly = True
-        Me.NumericUpDown1.Size = New System.Drawing.Size(160, 30)
-        Me.NumericUpDown1.TabIndex = 25
-        Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(54, 80)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(127, 25)
-        Me.Label4.TabIndex = 22
-        Me.Label4.Text = "Monto Inicial:"
-        '
-        'numEgresos
-        '
-        Me.numEgresos.DecimalPlaces = 2
-        Me.numEgresos.Enabled = False
-        Me.numEgresos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.numEgresos.Location = New System.Drawing.Point(198, 156)
-        Me.numEgresos.Margin = New System.Windows.Forms.Padding(4)
-        Me.numEgresos.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.numEgresos.Minimum = New Decimal(New Integer() {999999, 0, 0, -2147483648})
-        Me.numEgresos.Name = "numEgresos"
-        Me.numEgresos.ReadOnly = True
-        Me.numEgresos.Size = New System.Drawing.Size(160, 30)
-        Me.numEgresos.TabIndex = 27
-        Me.numEgresos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'numIngresos
-        '
-        Me.numIngresos.DecimalPlaces = 2
-        Me.numIngresos.Enabled = False
-        Me.numIngresos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.numIngresos.Location = New System.Drawing.Point(198, 118)
-        Me.numIngresos.Margin = New System.Windows.Forms.Padding(4)
-        Me.numIngresos.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.numIngresos.Minimum = New Decimal(New Integer() {999999, 0, 0, -2147483648})
-        Me.numIngresos.Name = "numIngresos"
-        Me.numIngresos.ReadOnly = True
-        Me.numIngresos.Size = New System.Drawing.Size(160, 30)
-        Me.numIngresos.TabIndex = 26
-        Me.numIngresos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(91, 158)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(80, 25)
-        Me.Label3.TabIndex = 23
-        Me.Label3.Text = "Gastos:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(88, 118)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(93, 25)
-        Me.Label2.TabIndex = 24
-        Me.Label2.Text = "Ingresos:"
         '
         'CajasoperacionesDataGridView
         '
@@ -155,7 +69,7 @@ Partial Class VerEstadoCaja
         Me.CajasoperacionesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.CajasoperacionesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdoperacionDataGridViewTextBoxColumn, Me.IdeventoDataGridViewTextBoxColumn, Me.IdpagosDataGridViewTextBoxColumn, Me.IdgastosDataGridViewTextBoxColumn, Me.IdformapagoDataGridViewTextBoxColumn, Me.MontoDataGridViewTextBoxColumn, Me.FechabajaDataGridViewTextBoxColumn, Me.UsuarioaltaDataGridViewTextBoxColumn, Me.FechaaltaDataGridViewTextBoxColumn, Me.UsuariobajaDataGridViewTextBoxColumn})
         Me.CajasoperacionesDataGridView.DataSource = Me.CajasoperacionesBindingSource
-        Me.CajasoperacionesDataGridView.Location = New System.Drawing.Point(8, 264)
+        Me.CajasoperacionesDataGridView.Location = New System.Drawing.Point(182, 396)
         Me.CajasoperacionesDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.CajasoperacionesDataGridView.Name = "CajasoperacionesDataGridView"
         Me.CajasoperacionesDataGridView.Size = New System.Drawing.Size(44, 28)
@@ -235,78 +149,18 @@ Partial Class VerEstadoCaja
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ReportViewer1)
         Me.GroupBox1.Controls.Add(Me.CajasoperacionesDataGridView)
-        Me.GroupBox1.Controls.Add(Me.NumericUpDown1)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.Enteros)
-        Me.GroupBox1.Controls.Add(Me.numEgresos)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.numIngresos)
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.CajaseventosDataGridView)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(412, 320)
+        Me.GroupBox1.Size = New System.Drawing.Size(1304, 455)
         Me.GroupBox1.TabIndex = 21
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Resumen de Caja"
-        '
-        'Enteros
-        '
-        Me.Enteros.DecimalPlaces = 2
-        Me.Enteros.Enabled = False
-        Me.Enteros.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Enteros.Location = New System.Drawing.Point(198, 211)
-        Me.Enteros.Margin = New System.Windows.Forms.Padding(4)
-        Me.Enteros.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.Enteros.Minimum = New Decimal(New Integer() {999999, 0, 0, -2147483648})
-        Me.Enteros.Name = "Enteros"
-        Me.Enteros.ReadOnly = True
-        Me.Enteros.Size = New System.Drawing.Size(160, 30)
-        Me.Enteros.TabIndex = 17
-        Me.Enteros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.Enteros.ThousandsSeparator = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(61, 211)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(120, 25)
-        Me.Label1.TabIndex = 16
-        Me.Label1.Text = "Monto Final:"
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Button2.Location = New System.Drawing.Point(210, 264)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(129, 36)
-        Me.Button2.TabIndex = 15
-        Me.Button2.Text = "Cancelar"
-        Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Button1.Location = New System.Drawing.Point(72, 264)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(129, 36)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Aceptar"
-        Me.Button1.UseVisualStyleBackColor = True
-        Me.Button1.Visible = False
         '
         'CajaseventosDataGridView
         '
@@ -314,7 +168,7 @@ Partial Class VerEstadoCaja
         Me.CajaseventosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.CajaseventosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdeventoDataGridViewTextBoxColumn1, Me.IdcajaDataGridViewTextBoxColumn, Me.FechaaperturaDataGridViewTextBoxColumn, Me.FechacierreDataGridViewTextBoxColumn, Me.SaldoinicialDataGridViewTextBoxColumn, Me.SaldofinalDataGridViewTextBoxColumn, Me.UsuarioaperturaDataGridViewTextBoxColumn, Me.UsuariocierreDataGridViewTextBoxColumn})
         Me.CajaseventosDataGridView.DataSource = Me.CajaseventosBindingSource
-        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(203, -14)
+        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(8, 396)
         Me.CajaseventosDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.CajaseventosDataGridView.Name = "CajaseventosDataGridView"
         Me.CajaseventosDataGridView.Size = New System.Drawing.Size(152, 32)
@@ -383,45 +237,52 @@ Partial Class VerEstadoCaja
         '
         Me.CajaseventosTableAdapter.ClearBeforeFill = True
         '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        ReportDataSource1.Name = "cajaresumen"
+        ReportDataSource1.Value = Me.cajaresumenBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCajaResumen.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(4, 27)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(1296, 424)
+        Me.ReportViewer1.TabIndex = 21
+        '
+        'cajaresumenBindingSource
+        '
+        Me.cajaresumenBindingSource.DataMember = "cajaresumen"
+        Me.cajaresumenBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'cajaresumenTableAdapter
+        '
+        Me.cajaresumenTableAdapter.ClearBeforeFill = True
+        '
         'VerEstadoCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(443, 351)
+        Me.ClientSize = New System.Drawing.Size(1330, 481)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "VerEstadoCaja"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Estado Actual de Caja"
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numEgresos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numIngresos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.Enteros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents NumericUpDown1 As NumericUpDown
-    Friend WithEvents Label4 As Label
-    Friend WithEvents numEgresos As NumericUpDown
-    Friend WithEvents numIngresos As NumericUpDown
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents CajasoperacionesDataGridView As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Enteros As NumericUpDown
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
     Friend WithEvents CajaseventosDataGridView As DataGridView
     Friend WithEvents ComercialDataSet As comercialDataSet
     Friend WithEvents CajasoperacionesBindingSource As BindingSource
@@ -446,4 +307,7 @@ Partial Class VerEstadoCaja
     Friend WithEvents SaldofinalDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents UsuarioaperturaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents UsuariocierreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ReportViewer1 As ReportViewer
+    Friend WithEvents cajaresumenBindingSource As BindingSource
+    Friend WithEvents cajaresumenTableAdapter As comercialDataSetTableAdapters.cajaresumenTableAdapter
 End Class

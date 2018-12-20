@@ -1177,6 +1177,7 @@
       <DependentUpon>ImprimirPlantillas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilidades\ReportesPlantilla\PlantillaPedido.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepCajaResumen.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepEstadoResultados.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFactura.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFacturaIVA.rdlc" />
