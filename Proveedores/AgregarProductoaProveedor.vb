@@ -2,6 +2,7 @@
 Public Class AgregarProductoaProveedor
     Private Sub PictureSeleccionarCliente_Click(sender As Object, e As EventArgs) Handles PictureSeleccionarCliente.Click
         Try
+
             gcodigoproducto = Nothing
             Dim p As BuscaProductoVincProveedor
             p = New BuscaProductoVincProveedor

@@ -32,11 +32,13 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonAgregar.Click
+        gidproveedor = Val(IdproveedorTextBox.Text)
         Dim p As AgregarProductoaProveedor
         p = New AgregarProductoaProveedor
         p.ShowDialog()
 
         Me.ListaproductosproveedoresTableAdapter.FillByidproveedor(Me.ComercialDataSet.listaproductosproveedores, Val(IdproveedorTextBox.Text))
+        gidproveedor = Nothing
     End Sub
 
     Private Sub ListaproductosproveedoresDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListaproductosproveedoresDataGridView.CellContentClick

@@ -1,7 +1,9 @@
 ﻿Public Class BuscaProductoVincProveedor
     Private Sub BuscaProductoVincProveedor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listaproductos' Puede moverla o quitarla según sea necesario.
-        Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
+        Me.ListaproductosTableAdapter.FillByidproveedorvinculado(Me.ComercialDataSet.listaproductos, gidproveedor)
+        'Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
+
         ComboBox1.SelectedIndex = 1
     End Sub
 

@@ -106,12 +106,12 @@ Public Class ABMProductos
             Return
         End If
         If Len(Trim(PrecioventadistribuidorTextBox.Text)) = 0 Then
-            MsgBox("Ingrese un Precio Venta mayorista Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgBox("Ingrese un Precio Venta distribuidor Válido!", MsgBoxStyle.Exclamation, "Advertencia")
             PrecioventamayoristaTextBox.Select()
             Return
         End If
         If CDec(PrecioventadistribuidorTextBox.Text) <= 0 Then
-            MsgBox("Ingrese un Precio de Venta mayorista Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgBox("Ingrese un Precio de Venta distribuidor Válido!", MsgBoxStyle.Exclamation, "Advertencia")
             PrecioventamayoristaTextBox.Select()
             Return
         End If
