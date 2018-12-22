@@ -336,6 +336,12 @@ Public Class ImportarProductos
                     If existe > 0 Then
                         Dim codigoproducto As String
                         codigoproducto = DataGridView1.Rows(i).Cells("codigoproducto").Value
+                        Dim fabricante As String
+                        Try
+                            fabricante = DataGridView1.Rows(i).Cells("fabricante").Value
+                        Catch ex As Exception
+                            fabricante = Nothing
+                        End Try
                         Dim marca As String
                         marca = DataGridView1.Rows(i).Cells("marca").Value
                         Dim modelo As String
@@ -408,13 +414,13 @@ Public Class ImportarProductos
                             End If
                         End If
                         '*************************************************************************************
-                        ProductosTableAdapter.productos_upd_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, iva, existe)
+                        ProductosTableAdapter.productos_upd_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, iva, fabricante, existe)
                         If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe, idproveedor) > 0 Then
                             ProductosproveedoresTableAdapter.productosproveedores_insertar(existe, idproveedor, preciocosto, Nothing, Nothing, Nothing, Nothing)
                         Else
                             ProductosproveedoresTableAdapter.productosproveedores_update(precioventa, Nothing, Nothing, Nothing, Nothing, existe, idproveedor)
                         End If
-                        '************* update productos web
+                        '************* UPDATE PRODUCTOS WEB
                         'ProductosWebTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, codigoproducto)
                         '*************************************************************************************
                         '====== actualizar stock actual ====
@@ -447,6 +453,12 @@ Public Class ImportarProductos
                         '************************************************************************************************
                         Dim codigoproducto As String
                         codigoproducto = DataGridView1.Rows(i).Cells("codigoproducto").Value
+                        Dim fabricante As String
+                        Try
+                            fabricante = DataGridView1.Rows(i).Cells("fabricante").Value
+                        Catch ex As Exception
+                            fabricante = Nothing
+                        End Try
                         Dim marca As String
                         marca = DataGridView1.Rows(i).Cells("marca").Value
                         Dim modelo As String
@@ -511,8 +523,8 @@ Public Class ImportarProductos
                         'ProductosTableAdapter.productos_upd_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, iva, existe)
                         '*************************************************************************************
                         '******************7**************** INSERTAR EL PRODUCTO EN BASE LOCAL***************************************************
-                        ProductosTableAdapter.productos_ins_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, "A", iva)
-                        '************* INSERT productos web
+                        ProductosTableAdapter.productos_ins_prodimport(codigoproducto, fabricante, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, "A", iva)
+                        '************* INSERT PRODUCTOS WEB
                         'ProductosWebTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro)
 
                         '=========== tomo el nuevo id de producto para insertar stock
