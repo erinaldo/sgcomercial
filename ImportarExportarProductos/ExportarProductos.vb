@@ -5,9 +5,11 @@ Imports System.IO
 Imports System.Data
 Public Class ExportarProductos
     Private Sub ExportarProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.listaprodexport' Puede moverla o quitarla según sea necesario.
-        Me.listaprodexportTableAdapter.Fill(Me.comercialDataSet.listaprodexport)
-
+        Try
+            Me.listaprodexportTableAdapter.Fill(Me.comercialDataSet.listaprodexport)
+        Catch ex As Exception
+            MsgBox("No se pudo completar la acción: " + ex.Message)
+        End Try
 
         Me.ReportViewer1.RefreshReport()
     End Sub

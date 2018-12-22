@@ -5,6 +5,7 @@
         'Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
 
         ComboBox1.SelectedIndex = 1
+        TextBox1.Select()
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged

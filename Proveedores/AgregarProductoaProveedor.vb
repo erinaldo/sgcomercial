@@ -62,13 +62,12 @@ Public Class AgregarProductoaProveedor
     End Sub
 
     Private Sub ButtonConfirmar_Click(sender As Object, e As EventArgs) Handles ButtonConfirmar.Click
-
         Dim existe As Long
-        existe = ProductosproveedoresTableAdapter.productosproveedores_existe(IdproductoTextBox.Text, gidproveedor)
+        existe = ProductosproveedoresTableAdapter.productosproveedores_existe(IdproductoTextBox.Text)
         If Not existe = 0 Then
             If MsgBox("Seguro desea actualizar este producto?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
                 Try
-                    If ProductosproveedoresTableAdapter.productosproveedores_update(PreciocostoTextBox.Text, Nothing, Nothing, Nothing, Nothing, IdproductoTextBox.Text, gidproveedor) Then
+                    If ProductosproveedoresTableAdapter.productosproveedores_update(gidproveedor, PreciocostoTextBox.Text, Nothing, Nothing, Nothing, Nothing, IdproductoTextBox.Text) Then
                         MsgBox("Operación exitosa", MsgBoxStyle.Information, "Aviso")
                         Me.Close()
                     End If

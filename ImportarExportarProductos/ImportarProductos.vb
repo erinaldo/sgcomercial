@@ -415,10 +415,10 @@ Public Class ImportarProductos
                         End If
                         '*************************************************************************************
                         ProductosTableAdapter.productos_upd_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, iva, fabricante, existe)
-                        If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe, idproveedor) > 0 Then
+                        If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe) > 0 Then
                             ProductosproveedoresTableAdapter.productosproveedores_insertar(existe, idproveedor, preciocosto, Nothing, Nothing, Nothing, Nothing)
                         Else
-                            ProductosproveedoresTableAdapter.productosproveedores_update(precioventa, Nothing, Nothing, Nothing, Nothing, existe, idproveedor)
+                            ProductosproveedoresTableAdapter.productosproveedores_update(idproveedor, precioventa, Nothing, Nothing, Nothing, Nothing, existe)
                         End If
                         '************* UPDATE PRODUCTOS WEB
                         'ProductosWebTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, codigoproducto)
@@ -556,10 +556,10 @@ Public Class ImportarProductos
                                 ProveedoresTableAdapter.Insert(proveedornombre, Nothing, Nothing, Nothing, Nothing, Nothing)
                                 idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
                             End If
-                            If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe, idproveedor) > 0 Then
+                            If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe) > 0 Then
                                 ProductosproveedoresTableAdapter.productosproveedores_insertar(existe, idproveedor, preciocosto, Nothing, Nothing, Nothing, Nothing)
                             Else
-                                ProductosproveedoresTableAdapter.productosproveedores_update(precioventa, Nothing, Nothing, Nothing, Nothing, existe, idproveedor)
+                                ProductosproveedoresTableAdapter.productosproveedores_update(idproveedor, precioventa, Nothing, Nothing, Nothing, Nothing, existe)
                             End If
                         End If
                     End If
