@@ -4,11 +4,15 @@
     End Sub
 
     Private Sub DetalleIngresos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.ingresosGraph' Puede moverla o quitarla según sea necesario.
-        Me.ingresosGraphTableAdapter.Fill(Me.ComercialDataSet.ingresosGraph)
+
         CajasmovimientosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajasmovimientos, gideventoseleccionado)
-        Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, gideventoseleccionado)
-        Me.ReportViewer1.RefreshReport()
+        Try
+            Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, gideventoseleccionado)
+            Me.ReportViewer1.RefreshReport()
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub CajasmovimientosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles CajasmovimientosDataGridView.CellContentClick

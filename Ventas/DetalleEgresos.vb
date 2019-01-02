@@ -4,15 +4,14 @@
 
 
     Private Sub DetalleEgresos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.
-        'Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.v_gastos' Puede moverla o quitarla según sea necesario.
-        'Me.V_gastosTableAdapter.Fill(Me.ComercialDataSet.v_gastos)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.v_gastos' Puede moverla o quitarla según sea necesario.
 
-        Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, gideventoseleccionado)
+        Try
+            Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, gideventoseleccionado)
+            Me.ReportViewer1.RefreshReport()
+        Catch ex As Exception
 
-        Me.ReportViewer1.RefreshReport
+        End Try
+
     End Sub
 
     Private Sub V_gastosDataGridView_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles V_gastosDataGridView.CellContentClick

@@ -10,10 +10,15 @@ Public Class Cajasmovimientos
         CajaseventosDataGridView.Sort(CajaseventosDataGridView.Columns(0), ListSortDirection.Descending)
         ''*****************************
 
-        Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
-        Me.ReportViewer2.RefreshReport()
-        Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
-        Me.ReportViewer3.RefreshReport()
+        Try
+            Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
+            Me.ReportViewer2.RefreshReport()
+            Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
+            Me.ReportViewer3.RefreshReport()
+        Catch ex As Exception
+
+        End Try
+
 
     End Sub
 
@@ -37,11 +42,14 @@ Public Class Cajasmovimientos
 
         '***************************** cargar datos
 
-        Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
-        Me.ReportViewer2.RefreshReport()
+        Try
+            Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
+            Me.ReportViewer2.RefreshReport()
+            Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
+            Me.ReportViewer3.RefreshReport()
+        Catch ex As Exception
 
-        Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
-        Me.ReportViewer3.RefreshReport()
+        End Try
 
         Select Case CajaseventosDataGridView.CurrentCell.ColumnIndex
             Case 6
@@ -119,11 +127,16 @@ Public Class Cajasmovimientos
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Dim z As DetalleEgresos
-        z = New DetalleEgresos
-        gideventoseleccionado = CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value
-        'MsgBox(gideventoseleccionado.ToString)
-        z.ShowDialog()
+        Try
+            Dim z As DetalleEgresos
+            z = New DetalleEgresos
+            gideventoseleccionado = CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value
+            'MsgBox(gideventoseleccionado.ToString)
+            z.ShowDialog()
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub ReportViewer2_CausesValidationChanged(sender As Object, e As EventArgs) Handles ReportViewer2.CausesValidationChanged
@@ -143,10 +156,15 @@ Public Class Cajasmovimientos
     End Sub
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim z As DetalleIngresos
-        z = New DetalleIngresos
-        gideventoseleccionado = CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value
-        'MsgBox(gideventoseleccionado.ToString)
-        z.ShowDialog()
+        Try
+            Dim z As DetalleIngresos
+            z = New DetalleIngresos
+            gideventoseleccionado = CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value
+            'MsgBox(gideventoseleccionado.ToString)
+            z.ShowDialog()
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class
