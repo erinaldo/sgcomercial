@@ -132,7 +132,7 @@
                 Me.Close()
             End If
         End If
-        If e.KeyCode = e.KeyCode.Space Then
+        If e.KeyCode.ToString = "Space" Then
             Button1.PerformClick()
         End If
     End Sub
