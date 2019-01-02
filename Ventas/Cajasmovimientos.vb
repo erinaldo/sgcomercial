@@ -4,7 +4,7 @@ Public Class Cajasmovimientos
     Private Sub Cajasmovimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.v_gastos' Puede moverla o quitarla según sea necesario.
 
-        Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
+        'Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
         Me.PerfilesTableAdapter.Fill(Me.ComercialDataSet.perfiles)
         Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
         CajaseventosDataGridView.Sort(CajaseventosDataGridView.Columns(0), ListSortDirection.Descending)

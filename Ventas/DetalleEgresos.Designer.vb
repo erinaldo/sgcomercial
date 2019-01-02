@@ -23,24 +23,52 @@ Partial Class DetalleEgresos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.V_gastosDataGridView = New System.Windows.Forms.DataGridView()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.V_gastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.V_gastosDataGridView = New System.Windows.Forms.DataGridView()
         Me.V_gastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.v_gastosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.CajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idoperacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.anular = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.GroupBox3.SuspendLayout()
-        CType(Me.V_gastosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.V_gastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.V_gastosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'V_gastosBindingSource
+        '
+        Me.V_gastosBindingSource.DataMember = "v_gastos"
+        Me.V_gastosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox3
         '
@@ -52,10 +80,24 @@ Partial Class DetalleEgresos
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(973, 496)
+        Me.GroupBox3.Size = New System.Drawing.Size(981, 504)
         Me.GroupBox3.TabIndex = 6
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Egresos"
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.AutoSize = True
+        Me.ReportViewer1.BackColor = System.Drawing.SystemColors.ButtonFace
+        ReportDataSource3.Name = "v_gastos"
+        ReportDataSource3.Value = Me.V_gastosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphEgresos.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(643, 29)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.ShowToolBar = False
+        Me.ReportViewer1.Size = New System.Drawing.Size(307, 448)
+        Me.ReportViewer1.TabIndex = 4
         '
         'V_gastosDataGridView
         '
@@ -66,24 +108,14 @@ Partial Class DetalleEgresos
         Me.V_gastosDataGridView.AutoGenerateColumns = False
         Me.V_gastosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.V_gastosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.V_gastosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.anular})
+        Me.V_gastosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.idoperacion, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.anular})
         Me.V_gastosDataGridView.DataSource = Me.V_gastosBindingSource
         Me.V_gastosDataGridView.Location = New System.Drawing.Point(12, 29)
         Me.V_gastosDataGridView.Name = "V_gastosDataGridView"
         Me.V_gastosDataGridView.ReadOnly = True
         Me.V_gastosDataGridView.RowTemplate.Height = 24
-        Me.V_gastosDataGridView.Size = New System.Drawing.Size(625, 448)
+        Me.V_gastosDataGridView.Size = New System.Drawing.Size(625, 456)
         Me.V_gastosDataGridView.TabIndex = 3
-        '
-        'V_gastosBindingSource
-        '
-        Me.V_gastosBindingSource.DataMember = "v_gastos"
-        Me.V_gastosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'V_gastosTableAdapter
         '
@@ -151,6 +183,107 @@ Partial Class DetalleEgresos
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
+        'CajasoperacionesBindingSource
+        '
+        Me.CajasoperacionesBindingSource.DataMember = "cajasoperaciones"
+        Me.CajasoperacionesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'CajasoperacionesTableAdapter
+        '
+        Me.CajasoperacionesTableAdapter.ClearBeforeFill = True
+        '
+        'CajasoperacionesDataGridView
+        '
+        Me.CajasoperacionesDataGridView.AutoGenerateColumns = False
+        Me.CajasoperacionesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.CajasoperacionesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17})
+        Me.CajasoperacionesDataGridView.DataSource = Me.CajasoperacionesBindingSource
+        Me.CajasoperacionesDataGridView.Location = New System.Drawing.Point(14, 4)
+        Me.CajasoperacionesDataGridView.Name = "CajasoperacionesDataGridView"
+        Me.CajasoperacionesDataGridView.RowTemplate.Height = 24
+        Me.CajasoperacionesDataGridView.Size = New System.Drawing.Size(56, 48)
+        Me.CajasoperacionesDataGridView.TabIndex = 6
+        Me.CajasoperacionesDataGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "idoperacion"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "idoperacion"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "idevento"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "idevento"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "idpagos"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "idpagos"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "idgastos"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "idgastos"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "idformapago"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "idformapago"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "monto"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "monto"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "fechabaja"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "fechabaja"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "usuarioalta"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "usuarioalta"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "fechaalta"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "fechaalta"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "usuariobaja"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "usuariobaja"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "idextracciones"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "idextracciones"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "idvale"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "idvale"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "idcambiodevolucion"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "idcambiodevolucion"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "idevento"
@@ -159,13 +292,13 @@ Partial Class DetalleEgresos
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Visible = False
         '
-        'DataGridViewTextBoxColumn4
+        'idoperacion
         '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "idoperacion"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Operación N°"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.ToolTipText = "Operación N°"
+        Me.idoperacion.DataPropertyName = "idoperacion"
+        Me.idoperacion.HeaderText = "Operación N°"
+        Me.idoperacion.Name = "idoperacion"
+        Me.idoperacion.ReadOnly = True
+        Me.idoperacion.ToolTipText = "Operación N°"
         '
         'DataGridViewTextBoxColumn2
         '
@@ -194,34 +327,23 @@ Partial Class DetalleEgresos
         Me.anular.ToolTipText = "Anular"
         Me.anular.UseColumnTextForButtonValue = True
         '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.AutoSize = True
-        Me.ReportViewer1.BackColor = System.Drawing.SystemColors.ButtonFace
-        ReportDataSource1.Name = "v_gastos"
-        ReportDataSource1.Value = Me.V_gastosBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphEgresos.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(643, 29)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ShowToolBar = False
-        Me.ReportViewer1.Size = New System.Drawing.Size(307, 448)
-        Me.ReportViewer1.TabIndex = 4
-        '
         'DetalleEgresos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(997, 520)
+        Me.ClientSize = New System.Drawing.Size(1005, 528)
+        Me.Controls.Add(Me.CajasoperacionesDataGridView)
         Me.Controls.Add(Me.GroupBox3)
         Me.Name = "DetalleEgresos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DetalleEgresos"
+        Me.Text = "Detalle Egresos"
+        CType(Me.V_gastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.V_gastosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.V_gastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -232,10 +354,26 @@ Partial Class DetalleEgresos
     Friend WithEvents V_gastosTableAdapter As comercialDataSetTableAdapters.v_gastosTableAdapter
     Friend WithEvents TableAdapterManager As comercialDataSetTableAdapters.TableAdapterManager
     Friend WithEvents V_gastosDataGridView As DataGridView
+    Friend WithEvents ReportViewer1 As ReportViewer
+    Friend WithEvents CajasoperacionesBindingSource As BindingSource
+    Friend WithEvents CajasoperacionesTableAdapter As comercialDataSetTableAdapters.cajasoperacionesTableAdapter
+    Friend WithEvents CajasoperacionesDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents idoperacion As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents anular As DataGridViewButtonColumn
-    Friend WithEvents ReportViewer1 As ReportViewer
 End Class

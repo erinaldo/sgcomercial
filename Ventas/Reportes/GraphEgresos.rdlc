@@ -8,9 +8,9 @@
             <PivotX>75</PivotX>
             <GaugeScales>
               <RadialScale Name="RadialScale1">
-                <Radius>54</Radius>
+                <Radius>49</Radius>
                 <StartAngle>0</StartAngle>
-                <SweepAngle>180</SweepAngle>
+                <SweepAngle>179</SweepAngle>
                 <GaugePointers>
                   <RadialPointer Name="RadialPointer1">
                     <PointerCap>
@@ -71,11 +71,11 @@
                     </Style>
                     <DistanceFromScale>30</DistanceFromScale>
                     <StartValue>
-                      <Value>60</Value>
+                      <Value>=Sum(Fields!monto.Value, "v_gastos")</Value>
                       <Multiplier>1</Multiplier>
                     </StartValue>
                     <EndValue>
-                      <Value />
+                      <Value>=Sum(Fields!monto.Value, "v_gastos") * 10</Value>
                       <Multiplier>1</Multiplier>
                     </EndValue>
                     <StartWidth>15</StartWidth>
@@ -87,7 +87,7 @@
                   <Border>
                     <Style>None</Style>
                   </Border>
-                  <BackgroundColor>CornflowerBlue</BackgroundColor>
+                  <BackgroundColor>Tomato</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <BackgroundGradientEndColor>White</BackgroundGradientEndColor>
                   <BackgroundHatchType>None</BackgroundHatchType>
@@ -96,9 +96,8 @@
                 <Interval>NaN</Interval>
                 <IntervalOffset>NaN</IntervalOffset>
                 <Logarithmic>true</Logarithmic>
-                <LogarithmicBase>5</LogarithmicBase>
                 <MaximumValue>
-                  <Value>100</Value>
+                  <Value>=IIf(Sum(Fields!monto.Value, "v_gastos") = 0 ,100 , Sum(Fields!monto.Value, "v_gastos")* 5)</Value>
                   <Multiplier>1</Multiplier>
                 </MaximumValue>
                 <MinimumValue>
@@ -194,12 +193,13 @@
                   </Style>
                   <Interval>NaN</Interval>
                   <IntervalOffset>NaN</IntervalOffset>
-                  <DistanceFromScale>0</DistanceFromScale>
+                  <DistanceFromScale>6</DistanceFromScale>
+                  <Placement>Outside</Placement>
                   <RotateLabels>true</RotateLabels>
                   <ShowEndLabels>true</ShowEndLabels>
                   <UseFontPercent>true</UseFontPercent>
                 </ScaleLabels>
-                <Width>0</Width>
+                <Width>1</Width>
               </RadialScale>
             </GaugeScales>
             <BackFrame>
