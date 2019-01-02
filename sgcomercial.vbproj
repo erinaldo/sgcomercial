@@ -31,7 +31,7 @@
     <ProductName>SGComercial</ProductName>
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>4.0.7.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -696,6 +696,18 @@
     <Compile Include="Ventas\ConsultarPrecios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\DetalleEgresos.Designer.vb">
+      <DependentUpon>DetalleEgresos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\DetalleEgresos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\DetalleIngresos.Designer.vb">
+      <DependentUpon>DetalleIngresos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\DetalleIngresos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\EditarCliente.Designer.vb">
       <DependentUpon>EditarCliente.vb</DependentUpon>
     </Compile>
@@ -1164,6 +1176,12 @@
     <EmbeddedResource Include="Ventas\ConsultarPrecios.resx">
       <DependentUpon>ConsultarPrecios.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\DetalleEgresos.resx">
+      <DependentUpon>DetalleEgresos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\DetalleIngresos.resx">
+      <DependentUpon>DetalleIngresos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\EditarCliente.resx">
       <DependentUpon>EditarCliente.vb</DependentUpon>
     </EmbeddedResource>
@@ -1177,6 +1195,7 @@
       <DependentUpon>ImprimirPlantillas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilidades\ReportesPlantilla\PlantillaPedido.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\GraphEgresos.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepCajaResumen.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepEstadoResultados.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFactura.rdlc" />
@@ -1188,6 +1207,7 @@
     <EmbeddedResource Include="Ventas\Reportes\ReporteCierreCaja.resx">
       <DependentUpon>ReporteCierreCaja.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Reportes\GraphIngresos.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\ViewerFactura.resx">
       <DependentUpon>ViewerFactura.vb</DependentUpon>
     </EmbeddedResource>

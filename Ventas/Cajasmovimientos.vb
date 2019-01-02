@@ -2,23 +2,18 @@
 
 Public Class Cajasmovimientos
     Private Sub Cajasmovimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.v_gastos' Puede moverla o quitarla según sea necesario.
+
         Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
         Me.PerfilesTableAdapter.Fill(Me.ComercialDataSet.perfiles)
         Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
         CajaseventosDataGridView.Sort(CajaseventosDataGridView.Columns(0), ListSortDirection.Descending)
         ''*****************************
-        Me.CajasmovimientosTableAdapter.Fill(Me.ComercialDataSet.cajasmovimientos)
-        Me.V_gastosTableAdapter.Fill(Me.ComercialDataSet.v_gastos)
-        ''*****************************
-        If CajaseventosDataGridView.RowCount > 0 Then
-            CajasmovimientosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
-        End If
-        If CajaseventosDataGridView.RowCount > 0 Then
-            VgastosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
-            ''******** calcular totales
-            calculartotales(CajaseventosDataGridView.CurrentRow.Cells(0).Value())
-        End If
 
+        Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
+        Me.ReportViewer2.RefreshReport()
+        Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
+        Me.ReportViewer3.RefreshReport()
 
     End Sub
 
@@ -39,17 +34,14 @@ Public Class Cajasmovimientos
     End Sub
 
     Private Sub CajaseventosDataGridView_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles CajaseventosDataGridView.CellClick
-       
+
         '***************************** cargar datos
-        Me.CajasmovimientosTableAdapter.Fill(Me.ComercialDataSet.cajasmovimientos)
-        Me.V_gastosTableAdapter.Fill(Me.ComercialDataSet.v_gastos)
-        '***************************** filtrar ingresos y gastos
-        CajasmovimientosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
-        VgastosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
-        calculartotales(CajaseventosDataGridView.CurrentRow.Cells(0).Value())
 
+        Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
+        Me.ReportViewer2.RefreshReport()
 
-        'MsgBox(CajaseventosDataGridView.CurrentCell.ColumnIndex)
+        Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
+        Me.ReportViewer3.RefreshReport()
 
         Select Case CajaseventosDataGridView.CurrentCell.ColumnIndex
             Case 6
@@ -65,18 +57,7 @@ Public Class Cajasmovimientos
         End Select
 
     End Sub
-    Public Sub calculartotales(ByVal idevento As Long)
-        Dim monto As Decimal = 0
-        Dim total As Decimal = 0
-        '***************************** calcular total ingresos
-        total = CajasoperacionesTableAdapter.cajasoperaciones_totalpagos(CajaseventosDataGridView.CurrentRow.Cells(0).Value())
-        lbltotal.Text = "$ " + total.ToString
-        '***************************** calcular total gastos
-        total = 0
-        total = CajasoperacionesTableAdapter.cajasoperaciones_totalgastos(CajaseventosDataGridView.CurrentRow.Cells(0).Value())
-        lblgastos.Text = "$ " + total.ToString
-        '*******************************************************************************
-    End Sub
+
 
     Private Sub CajaseventosDataGridView_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles CajaseventosDataGridView.CellContentClick
 
@@ -89,49 +70,15 @@ Public Class Cajasmovimientos
         CajaseventosDataGridView.Rows(CajaseventosDataGridView.CurrentRow.Index).Selected = False
     End Sub
 
-    Private Sub MovimientoscajasDataGridView_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles MovimientoscajasDataGridView.CellClick
-        If MovimientoscajasDataGridView.CurrentRow.Cells("nombre").Value = "Cambio Dif. (+)" Then Return
-        Dim i As Integer = 0
-        If MovimientoscajasDataGridView.CurrentCell.ColumnIndex >= 0 Then
-            Select Case MovimientoscajasDataGridView.Columns(e.ColumnIndex).Name
-                Case "idventa"
-                    Dim p As ConsultarVenta
-                    p = New ConsultarVenta
-                    gidoperacion = MovimientoscajasDataGridView.CurrentRow.Cells("idoperacion").Value
-                    gidventa = CajasoperacionesTableAdapter.cajasoperaciones_consultaridventa(gidoperacion)
-                    p.ShowDialog()
-                Case "nombre"
-                    Dim p As ConsultarVenta
-                    p = New ConsultarVenta
-                    gidoperacion = MovimientoscajasDataGridView.CurrentRow.Cells("idoperacion").Value
-                    gidventa = CajasoperacionesTableAdapter.cajasoperaciones_consultaridventa(gidoperacion)
-                    p.ShowDialog()
-                Case "anular"
-                    If MsgBox("Seguro desea anular la operación?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                        If MsgBox("Esta operacion anulará la venta y todos sus comprobantes de pago asociados. Desea continuar?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                            CajasoperacionesTableAdapter.cajasoperaciones_bajaoperacionventa(MovimientoscajasDataGridView.CurrentRow.Cells("idoperacion").Value, gusername)
-                            '***************************** cargar datos
-                            Me.CajasmovimientosTableAdapter.Fill(Me.ComercialDataSet.cajasmovimientos)
-                            Me.V_gastosTableAdapter.Fill(Me.ComercialDataSet.v_gastos)
-                            '***************************** filtrar ingresos y gastos
-                            CajasmovimientosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value().ToString
-                            VgastosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value().ToString
-                            calculartotales(CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value())
-                        Else
-                            MsgBox("Operacion cancelada")
-                        End If
-                    End If
-            End Select
-        End If
-    End Sub
 
-    Private Sub MovimientoscajasDataGridView_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles MovimientoscajasDataGridView.CellContentClick
+
+    Private Sub MovimientoscajasDataGridView_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
 
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
 
-        gideventoseleccionado = CajaseventosDataGridView.Rows(CajaseventosDataGridView.CurrentRow.Index).Cells("idcaja").Value
+        gideventoseleccionado = CajaseventosDataGridView.Rows(CajaseventosDataGridView.CurrentRow.Index).Cells("IdeventoDataGridViewTextBoxColumn").Value
 
         If gideventoseleccionado > 0 Then
             '************ abro pantalla arqueo FINAL para ver estado ******************
@@ -148,30 +95,58 @@ Public Class Cajasmovimientos
 
     End Sub
 
-    Private Sub V_gastosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles V_gastosDataGridView.CellContentClick
+    Private Sub V_gastosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 
-    Private Sub V_gastosDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles V_gastosDataGridView.CellClick
-        Dim i As Integer = 0
-        If V_gastosDataGridView.CurrentCell.ColumnIndex >= 0 Then
-            Select Case V_gastosDataGridView.CurrentCell.ColumnIndex
-                Case 4 '*****************ANULAR GASTO*****************************
-                    If MsgBox("Seguro desea anular la operación (Anular gasto)?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                        CajasoperacionesTableAdapter.cajasoperaciones_bajaopgasto(V_gastosDataGridView.CurrentRow.Cells(1).Value, gusername)
-                        ''***************************** cargar datos
-                        Me.CajasmovimientosTableAdapter.Fill(Me.ComercialDataSet.cajasmovimientos)
-                        Me.V_gastosTableAdapter.Fill(Me.ComercialDataSet.v_gastos)
-                        ''***************************** filtrar ingresos y gastos
-                        CajasmovimientosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
-                        VgastosBindingSource.Filter = " idevento = " + CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString
-                        calculartotales(CajaseventosDataGridView.CurrentRow.Cells(0).Value())
-                    End If
-            End Select
-        End If
-    End Sub
+
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
+
+
+    End Sub
+
+    Private Sub ReportViewer2_Load(sender As Object, e As EventArgs) Handles ReportViewer2.Load
+
+    End Sub
+
+    Private Sub ReportViewer2_Click(sender As Object, e As EventArgs) Handles ReportViewer2.Click
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim z As DetalleEgresos
+        z = New DetalleEgresos
+        gideventoseleccionado = CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value
+        'MsgBox(gideventoseleccionado.ToString)
+        z.ShowDialog()
+    End Sub
+
+    Private Sub ReportViewer2_CausesValidationChanged(sender As Object, e As EventArgs) Handles ReportViewer2.CausesValidationChanged
+
+    End Sub
+
+    Private Sub ReportViewer2_DoubleClick(sender As Object, e As EventArgs) Handles ReportViewer2.DoubleClick
+
+    End Sub
+
+    Private Sub ReportViewer2_MouseClick(sender As Object, e As MouseEventArgs) Handles ReportViewer2.MouseClick
+
+    End Sub
+
+    Private Sub ReportViewer2_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ReportViewer2.MouseDoubleClick
+
+    End Sub
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim z As DetalleIngresos
+        z = New DetalleIngresos
+        gideventoseleccionado = CajaseventosDataGridView.CurrentRow.Cells("IdeventoDataGridViewTextBoxColumn").Value
+        'MsgBox(gideventoseleccionado.ToString)
+        z.ShowDialog()
     End Sub
 End Class

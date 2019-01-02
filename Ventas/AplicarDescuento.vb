@@ -6,7 +6,12 @@ Public Class AplicarDescuento
             gdescuentopc = TextBox1.Text
             gdescuentoef = 0
             gdescuentopc = Decimal.Round(gdescuentopc, 2)
-            Me.Close()
+            If gdescuentopc > 100 Then
+                MsgBox("No puede ser mayor al 100%")
+                Return
+            Else
+                Me.Close()
+            End If
         End If
     End Sub
 

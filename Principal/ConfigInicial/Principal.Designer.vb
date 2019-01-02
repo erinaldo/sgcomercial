@@ -208,7 +208,7 @@ Partial Class Principal
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1696, 58)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 58)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -672,21 +672,21 @@ Partial Class Principal
         'MisVentasToolStripMenuItem
         '
         Me.MisVentasToolStripMenuItem.Name = "MisVentasToolStripMenuItem"
-        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
         Me.MisVentasToolStripMenuItem.Tag = "EstadisticasVentas"
         Me.MisVentasToolStripMenuItem.Text = "Ventas"
         '
         'MisClientesToolStripMenuItem
         '
         Me.MisClientesToolStripMenuItem.Name = "MisClientesToolStripMenuItem"
-        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
         Me.MisClientesToolStripMenuItem.Tag = "EstadisticasClientes"
         Me.MisClientesToolStripMenuItem.Text = "Clientes"
         '
         'MisProveedoresToolStripMenuItem
         '
         Me.MisProveedoresToolStripMenuItem.Name = "MisProveedoresToolStripMenuItem"
-        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
         Me.MisProveedoresToolStripMenuItem.Tag = "EstadisticasProveedores"
         Me.MisProveedoresToolStripMenuItem.Text = "Proveedores"
         '
@@ -1412,7 +1412,7 @@ Partial Class Principal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1696, 873)
+        Me.ClientSize = New System.Drawing.Size(1082, 603)
         Me.Controls.Add(Me.AlertacuentascorrientesDataGridView)
         Me.Controls.Add(Me.ModulosDataGridView)
         Me.Controls.Add(Me.GBBienvenido)
@@ -1422,6 +1422,7 @@ Partial Class Principal
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.ImeMode = System.Windows.Forms.ImeMode.Close
         Me.IsMdiContainer = True

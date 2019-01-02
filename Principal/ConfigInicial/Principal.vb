@@ -104,20 +104,25 @@ Public Class Principal
         Next
     End Sub
     Private Sub cargapermisos()
-        Dim rtn As Integer
-        For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
-            rtn = ModulosTableAdapter.modulos_habilitar(miitem.Tag)
-            If rtn > 0 Then
-                If Not miitem.Name = "NotificacionesToolStripMenuItem" Then
-                    recorrer(miitem)
+        Try
+            Dim rtn As Integer
+            For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
+                rtn = ModulosTableAdapter.modulos_habilitar(miitem.Tag)
+                If rtn > 0 Then
+                    If Not miitem.Name = "NotificacionesToolStripMenuItem" Then
+                        recorrer(miitem)
+                    End If
+                Else
+                    miitem.Visible = False
+                    miitem.Enabled = False
                 End If
-            Else
-                miitem.Visible = False
-                miitem.Enabled = False
-            End If
-        Next
-        ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
-        PermisoVtaCC = PermisosTableAdapter.permisos_consultabyidfuncion(guserprofile, 44)
+            Next
+            ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
+            PermisoVtaCC = PermisosTableAdapter.permisos_consultabyidfuncion(guserprofile, 44)
+        Catch ex As Exception
+            MsgBox("Ocurrio un excepción mientras se realizaba la acción:" + ex.Message)
+        End Try
+
 
     End Sub
     Private Sub InsertarFunciones(ByVal Oneitem As ToolStripMenuItem, ByVal modulonombre As String)
@@ -451,7 +456,7 @@ Public Class Principal
         CuadroBienvenida()
         ''''''''''''''  CARGA DE PERMISOS DE USUARIO '''''''''''''''''''''
         If Not gusername = "lucasmartinbs" Then
-            cargapermisos()
+            'cargapermisos()
         End If
         EjecutarAlertas()
     End Sub

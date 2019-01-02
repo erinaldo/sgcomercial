@@ -35,6 +35,7 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub RegistrarVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.WindowState = FormWindowState.Maximized
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
         Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
@@ -68,7 +69,7 @@ Public Class RegistrarVenta
         Labelproducto.Text = ""
         stockdisp.Visible = False
         NrocomprobanteTextBox.Text = ""
-        fechavencimientoDateTimePicker.Enabled = False
+        FechavencimientoDateTimePicker.Enabled = False
 
         '******************* 
         '****** BCScanerCR
@@ -102,7 +103,7 @@ Public Class RegistrarVenta
         VentasdetalleDataGridView.Enabled = status
         pagotextbox.Enabled = status
         PictureBox1.Enabled = status
-        BtnDescuento.Enabled = status
+        'BtnDescuento.Enabled = status
         CheckBoxFP2.Enabled = status
         LabelMontoFP2.Enabled = status
 
@@ -243,11 +244,16 @@ Public Class RegistrarVenta
                 Else
                     idproducto = 0
                 End If
-                'insertar ventas detalle
+                '***************************************************
+                'INSERTAR EN VENTASDETALLE
+                '***************************************************
                 Try
-                    idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(2).Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(4).Value), VentasdetalleDataGridView.Rows(i).Cells(6).Value, recalocal, 0) '// descuento
+                    Dim recargo As Decimal
+                    recargo = VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value * recalocal / 100
+                    idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(2).Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value), VentasdetalleDataGridView.Rows(i).Cells("listasprecios").Value, recargo, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("descuento").Value)) '// descuento
                 Catch ex As Exception
-                    MsgBox("error al grabar el detalle: " + ex.Message)
+                    MsgBox("Error al grabar el detalle: " + ex.Message)
+                    VentasTableAdapter.ventas_bajaventa(idventas, gusername)
                 End Try
 
                 If idventasdetalle > 0 Then
@@ -466,7 +472,7 @@ Public Class RegistrarVenta
                     VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
                 End If
                 VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = v_precioventa
-                VentasdetalleDataGridView.Rows(newrow).Cells(4).Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
+                VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
                 codigotextbox.SelectAll()
                 codigotextbox.Select()
                 recuento()
@@ -487,7 +493,7 @@ Public Class RegistrarVenta
                             'p.ShowDialog()
                             VentasdetalleDataGridView.Rows(i).Cells(2).Value = VentasdetalleDataGridView.Rows(i).Cells(2).Value + gcantidad '*******  cantidad
                         End If
-                        VentasdetalleDataGridView.Rows(i).Cells(4).Value = v_precioventa * VentasdetalleDataGridView.Rows(i).Cells(2).Value
+                        VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(i).Cells(2).Value
                         codigotextbox.SelectAll()
                         codigotextbox.Select()
                         recuento()
@@ -513,7 +519,7 @@ Public Class RegistrarVenta
                         VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
                     End If
                     VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = v_precioventa
-                    VentasdetalleDataGridView.Rows(newrow).Cells(4).Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
+                    VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
                     codigotextbox.SelectAll()
                     codigotextbox.Select()
                     recuento()
@@ -559,7 +565,7 @@ Public Class RegistrarVenta
                     End If
                     VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = 1 '*******  cantidad
                     gprecioventa = v_precioventa
-                    VentasdetalleDataGridView.Rows(newrow).Cells(6).Value = glistaprecio
+                    VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio
                 Else    '****************** la unidad de medida es kilo litro o metros
                     Dim p As IngresaCantidad
                     p = New IngresaCantidad
@@ -599,8 +605,8 @@ Public Class RegistrarVenta
                     VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
                 End If
                 VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = gprecioventa
-                VentasdetalleDataGridView.Rows(newrow).Cells(4).Value = gprecioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
-                VentasdetalleDataGridView.Rows(newrow).Cells(6).Value = glistaprecio
+                VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = gprecioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
+                VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio
                 codigotextbox.SelectAll()
                 codigotextbox.Select()
                 recuento()
@@ -661,8 +667,8 @@ Public Class RegistrarVenta
                             '************************************************ comprobacion stock disponible
                         End If
                         VentasdetalleDataGridView.Rows(i).Cells(3).Value = gprecioventa
-                        VentasdetalleDataGridView.Rows(i).Cells(4).Value = gprecioventa * VentasdetalleDataGridView.Rows(i).Cells(2).Value 'subtotal
-                        VentasdetalleDataGridView.Rows(i).Cells(6).Value = glistaprecio
+                        VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value = gprecioventa * VentasdetalleDataGridView.Rows(i).Cells(2).Value 'subtotal
+                        VentasdetalleDataGridView.Rows(i).Cells("listasprecios").Value = glistaprecio
                         codigotextbox.SelectAll()
                         codigotextbox.Select()
                         recuento()
@@ -716,8 +722,8 @@ Public Class RegistrarVenta
                         '************************************************ comprobacion stock disponible
                     End If
                     VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = gprecioventa
-                    VentasdetalleDataGridView.Rows(newrow).Cells(4).Value = gprecioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
-                    VentasdetalleDataGridView.Rows(newrow).Cells(6).Value = glistaprecio
+                    VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = gprecioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
+                    VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio
                     codigotextbox.SelectAll()
                     codigotextbox.Select()
                     recuento()
@@ -756,8 +762,8 @@ Public Class RegistrarVenta
                 VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
             End If
             VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = v_precioventa
-            VentasdetalleDataGridView.Rows(newrow).Cells(4).Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
-            VentasdetalleDataGridView.Rows(newrow).Cells(6).Value = glistaprecio
+            VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
+            VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio
             codigotextbox.SelectAll()
             codigotextbox.Select()
             recuento()
@@ -773,8 +779,8 @@ Public Class RegistrarVenta
                         VentasdetalleDataGridView.Rows(i).Selected = True
                     End If
                     VentasdetalleDataGridView.Rows(i).Cells(3).Value = v_precioventa
-                    VentasdetalleDataGridView.Rows(i).Cells(4).Value = v_precioventa * VentasdetalleDataGridView.Rows(i).Cells(2).Value
-                    VentasdetalleDataGridView.Rows(i).Cells(6).Value = glistaprecio
+                    VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(i).Cells(2).Value
+                    VentasdetalleDataGridView.Rows(i).Cells("listasprecios").Value = glistaprecio
                     codigotextbox.SelectAll()
                     codigotextbox.Select()
                     recuento()
@@ -794,8 +800,8 @@ Public Class RegistrarVenta
                     VentasdetalleDataGridView.Rows(newrow).Selected = True
                 End If
                 VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = v_precioventa
-                VentasdetalleDataGridView.Rows(newrow).Cells(4).Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
-                VentasdetalleDataGridView.Rows(newrow).Cells(6).Value = glistaprecio
+                VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
+                VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio
                 codigotextbox.SelectAll()
                 codigotextbox.Select()
                 recuento()
@@ -826,21 +832,56 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub VentasdetalleDataGridView_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VentasdetalleDataGridView.CellClick
-        Dim i As Integer = 0
-        If VentasdetalleDataGridView.CurrentCell.ColumnIndex >= 0 Then
-            Select Case VentasdetalleDataGridView.CurrentCell.ColumnIndex
-                Case 5
-                    If VentasdetalleDataGridView.CurrentRow.Cells(2).Value > 1 Then
-                        VentasdetalleDataGridView.CurrentRow.Cells(2).Value = VentasdetalleDataGridView.CurrentRow.Cells(2).Value - 1
-                        VentasdetalleDataGridView.CurrentRow.Cells(4).Value = VentasdetalleDataGridView.CurrentRow.Cells(2).Value * VentasdetalleDataGridView.CurrentRow.Cells(3).Value
+        Try
+            Dim i As Integer = 0
+            If VentasdetalleDataGridView.CurrentCell.ColumnIndex >= 0 Then
+                Select Case VentasdetalleDataGridView.Columns(e.ColumnIndex).Name
+                    Case "descuento"
+                        Dim monto As Decimal
+                        monto = VentasdetalleDataGridView.Rows(e.RowIndex).Cells("cantidad").Value * VentasdetalleDataGridView.Rows(e.RowIndex).Cells("precioventa").Value
+                        Dim p As AplicarDescuento
+                        p = New AplicarDescuento
+                        gdescuentopc = 0
+                        gdescuentoef = 0
+                        p.ShowDialog()
+                        If gdescuentopc = 0 And gdescuentoef = 0 Then
+                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("subtotal").Value = monto
+                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("descuento").Value = Nothing
+                            recuento()
+                            Return
+                        End If
+                        If gdescuentopc > 0 Then
+                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("descuento").Value = Math.Round(monto * gdescuentopc / 100, 2)
+                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("subtotal").Value = monto - Math.Round(monto * gdescuentopc / 100, 2)
+                            codigotextbox.SelectAll()
+                            codigotextbox.Select()
+                            gdescuentopc = 0
+                            recuento()
+                        End If
+                        If gdescuentoef > 0 Then
+                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("descuento").Value = Math.Round(gdescuentoef, 2)
+                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("subtotal").Value = monto - Math.Round(gdescuentoef, 2)
+                            codigotextbox.SelectAll()
+                            codigotextbox.Select()
+                            gdescuentoef = 0
+                            recuento()
+                        End If
 
-                    Else
-                        VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+                    Case "eliminar"
+                        If VentasdetalleDataGridView.CurrentRow.Cells(2).Value > 1 Then
+                            VentasdetalleDataGridView.CurrentRow.Cells(2).Value = VentasdetalleDataGridView.CurrentRow.Cells(2).Value - 1
+                            VentasdetalleDataGridView.CurrentRow.Cells("subtotal").Value = VentasdetalleDataGridView.CurrentRow.Cells(2).Value * VentasdetalleDataGridView.CurrentRow.Cells(3).Value
 
-                    End If
-            End Select
-        End If
-        recuento()
+                        Else
+                            VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+
+                        End If
+                End Select
+            End If
+            recuento()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
 
@@ -863,17 +904,13 @@ Public Class RegistrarVenta
             total = 0
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 cantidad = cantidad + VentasdetalleDataGridView.Rows(i).Cells(2).Value
-                precio = VentasdetalleDataGridView.Rows(i).Cells(4).Value
+                precio = VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value
                 total = total + precio
             Next
             total = Decimal.Round(total, 2)
             '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
             If grecargoTC > 0 Then
                 If idformapagocombo.Text = "Tarjeta de Crédito" Or idformapagocombo2.Text = "Tarjeta de Crédito" Then ' aplicar recargo en todos los items
-                    'For i = 0 To VentasdetalleDataGridView.RowCount - 1
-                    'precio = VentasdetalleDataGridView.Rows(i).Cells(4).Value + (VentasdetalleDataGridView.Rows(i).Cells(4).Value * grecargoTC) / 100
-                    'VentasdetalleDataGridView.Rows(i).Cells(4).Value = precio
-                    'Next
                     total = total + (total * grecargoTC) / 100
                     total = Math.Round(total, 2)
                 End If
@@ -1057,39 +1094,38 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDescuento.Click
-        Dim p As AplicarDescuento
-        p = New AplicarDescuento
-        gdescuentopc = 0
-        p.ShowDialog()
-        If gdescuentopc > 0 Then
-            recuento()
-            'MsgBox(gdescuentopc.ToString, MsgBoxStyle.Information, "hola")
-            newrow = VentasdetalleDataGridView.Rows.Add()
-            VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = 0   'codigoproducto
-            VentasdetalleDataGridView.Rows(newrow).Cells(1).Value = "Descuento" 'descripcion
-            VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = 1   'cantidad
-            VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = -1 * (total * gdescuentopc / 100) 'precioventa
-            VentasdetalleDataGridView.Rows(newrow).Cells(4).Value = -1 * (total * gdescuentopc / 100) 'subtotal
-            codigotextbox.SelectAll()
-            codigotextbox.Select()
-            gdescuentopc = 0
-            recuento()
-        End If
-        If gdescuentoef > 0 Then
-            recuento()
-            'MsgBox(gdescuentopc.ToString, MsgBoxStyle.Information, "hola")
-            newrow = VentasdetalleDataGridView.Rows.Add()
-            VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = 0   'codigoproducto
-            VentasdetalleDataGridView.Rows(newrow).Cells(1).Value = "Descuento" 'descripcion
-            VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = 1   'cantidad
-            VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = -1 * gdescuentoef 'precioventa
-            VentasdetalleDataGridView.Rows(newrow).Cells(4).Value = -1 * gdescuentoef 'subtotal
-            codigotextbox.SelectAll()
-            codigotextbox.Select()
-            gdescuentoef = 0
-            recuento()
-        End If
-
+        'Dim p As AplicarDescuento
+        'p = New AplicarDescuento
+        'gdescuentopc = 0
+        'p.ShowDialog()
+        'If gdescuentopc > 0 Then
+        '    recuento()
+        '    'MsgBox(gdescuentopc.ToString, MsgBoxStyle.Information, "hola")
+        '    newrow = VentasdetalleDataGridView.Rows.Add()
+        '    VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = 0   'codigoproducto
+        '    VentasdetalleDataGridView.Rows(newrow).Cells(1).Value = "Descuento" 'descripcion
+        '    VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = 1   'cantidad
+        '    VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = -1 * (total * gdescuentopc / 100) 'precioventa
+        '    VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = -1 * (total * gdescuentopc / 100) 'subtotal
+        '    codigotextbox.SelectAll()
+        '    codigotextbox.Select()
+        '    gdescuentopc = 0
+        '    recuento()
+        'End If
+        'If gdescuentoef > 0 Then
+        '    recuento()
+        '    'MsgBox(gdescuentopc.ToString, MsgBoxStyle.Information, "hola")
+        '    newrow = VentasdetalleDataGridView.Rows.Add()
+        '    VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = 0   'codigoproducto
+        '    VentasdetalleDataGridView.Rows(newrow).Cells(1).Value = "Descuento" 'descripcion
+        '    VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = 1   'cantidad
+        '    VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = -1 * gdescuentoef 'precioventa
+        '    VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = -1 * gdescuentoef 'subtotal
+        '    codigotextbox.SelectAll()
+        '    codigotextbox.Select()
+        '    gdescuentoef = 0
+        '    recuento()
+        'End If
     End Sub
 
     Private Sub codigotextbox_KeyDown(sender As Object, e As KeyEventArgs) Handles codigotextbox.KeyDown
@@ -1255,7 +1291,7 @@ Public Class RegistrarVenta
             If idformapagocombo.Text = "Tarjeta de Crédito" Or idformapagocombo2.Text = "Tarjeta de Crédito" Then ' aplicar recargo en todos los items
                 total = 0
                 For i = 0 To VentasdetalleDataGridView.RowCount - 1
-                    precio = VentasdetalleDataGridView.Rows(i).Cells(4).Value
+                    precio = VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value
                     total = total + precio
                 Next
                 total = total + (total * grecargoTC) / 100
@@ -1280,6 +1316,10 @@ Public Class RegistrarVenta
         Catch ex As Exception
 
         End Try
+
+    End Sub
+
+    Private Sub VentasdetalleDataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles VentasdetalleDataGridView.CellDoubleClick
 
     End Sub
 End Class
