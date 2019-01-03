@@ -10,7 +10,7 @@
 
 
     Private Sub ProductosProveedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        ButtonAgregar.Visible = False
 
     End Sub
 
@@ -20,9 +20,11 @@
             Me.ListaproductosproveedoresTableAdapter.FillByidproveedor(Me.ComercialDataSet.listaproductosproveedores, Val(IdproveedorTextBox.Text))
             ButtonAgregar.Enabled = True
             If ProveedoresDataGridView.RowCount = 1 Then
-                ButtonAgregar.Enabled = True
+                'ButtonAgregar.Enabled = True
+                Button1.Enabled = True
             Else
-                ButtonAgregar.Enabled = False
+                'ButtonAgregar.Enabled = False
+                Button1.Enabled = False
             End If
         Catch ex As Exception
             Me.ProveedoresTableAdapter.FillByIdproveedor(Me.ComercialDataSet.proveedores, 0)
@@ -58,6 +60,20 @@
             End Select
         Catch ex As Exception
             MsgBox("No se pudo completar la acción: " + ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            gidproveedor = Val(IdproveedorTextBox.Text)
+            Dim p As AgregarProductoaProveedorMasivo
+            p = New AgregarProductoaProveedorMasivo
+            p.ShowDialog()
+
+            Me.ListaproductosproveedoresTableAdapter.FillByidproveedor(Me.ComercialDataSet.listaproductosproveedores, Val(IdproveedorTextBox.Text))
+            gidproveedor = Nothing
+        Catch ex As Exception
+
         End Try
     End Sub
 End Class

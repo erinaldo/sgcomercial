@@ -437,6 +437,12 @@
     <Compile Include="Proveedores\AgregarProductoaProveedor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Proveedores\AgregarProductoaProveedorMasivo.Designer.vb">
+      <DependentUpon>AgregarProductoaProveedorMasivo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\AgregarProductoaProveedorMasivo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Proveedores\BuscaProductoVincProveedor.Designer.vb">
       <DependentUpon>BuscaProductoVincProveedor.vb</DependentUpon>
     </Compile>
@@ -1050,6 +1056,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedores\AgregarProductoaProveedor.resx">
       <DependentUpon>AgregarProductoaProveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\AgregarProductoaProveedorMasivo.resx">
+      <DependentUpon>AgregarProductoaProveedorMasivo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedores\BuscaProductoVincProveedor.resx">
       <DependentUpon>BuscaProductoVincProveedor.vb</DependentUpon>

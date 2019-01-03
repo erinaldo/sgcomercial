@@ -38,12 +38,9 @@ Partial Class ProductosProveedores
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ButtonAgregar = New System.Windows.Forms.Button()
         Me.ListaproductosproveedoresDataGridView = New System.Windows.Forms.DataGridView()
-        Me.ListaproductosproveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ProveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.proveedoresTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.ListaproductosproveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaproductosproveedoresTableAdapter()
         Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idproductoproveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idproveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -52,6 +49,10 @@ Partial Class ProductosProveedores
         Me.presentacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.desvincular = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.ListaproductosproveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ProveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.proveedoresTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.ListaproductosproveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaproductosproveedoresTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -182,6 +183,7 @@ Partial Class ProductosProveedores
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Controls.Add(Me.ButtonAgregar)
         Me.GroupBox2.Controls.Add(Me.ListaproductosproveedoresDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 84)
@@ -191,14 +193,24 @@ Partial Class ProductosProveedores
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lista de productos"
         '
+        'Button1
+        '
+        Me.Button1.Enabled = False
+        Me.Button1.Location = New System.Drawing.Point(676, 21)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(154, 28)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Selección Masiva"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'ButtonAgregar
         '
         Me.ButtonAgregar.Enabled = False
-        Me.ButtonAgregar.Location = New System.Drawing.Point(676, 22)
+        Me.ButtonAgregar.Location = New System.Drawing.Point(510, 21)
         Me.ButtonAgregar.Name = "ButtonAgregar"
         Me.ButtonAgregar.Size = New System.Drawing.Size(154, 28)
         Me.ButtonAgregar.TabIndex = 1
-        Me.ButtonAgregar.Text = "Agregar"
+        Me.ButtonAgregar.Text = "Selección Individual"
         Me.ButtonAgregar.UseVisualStyleBackColor = True
         '
         'ListaproductosproveedoresDataGridView
@@ -208,7 +220,7 @@ Partial Class ProductosProveedores
         Me.ListaproductosproveedoresDataGridView.AllowUserToResizeColumns = False
         Me.ListaproductosproveedoresDataGridView.AllowUserToResizeRows = False
         Me.ListaproductosproveedoresDataGridView.AutoGenerateColumns = False
-        Me.ListaproductosproveedoresDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.ListaproductosproveedoresDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ListaproductosproveedoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ListaproductosproveedoresDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.idproductoproveedor, Me.idproveedor, Me.marca, Me.modelo, Me.presentacion, Me.precioventa, Me.desvincular})
         Me.ListaproductosproveedoresDataGridView.DataSource = Me.ListaproductosproveedoresBindingSource
@@ -219,6 +231,72 @@ Partial Class ProductosProveedores
         Me.ListaproductosproveedoresDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ListaproductosproveedoresDataGridView.Size = New System.Drawing.Size(815, 455)
         Me.ListaproductosproveedoresDataGridView.TabIndex = 0
+        '
+        'idproducto
+        '
+        Me.idproducto.DataPropertyName = "idproducto"
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        '
+        'idproductoproveedor
+        '
+        Me.idproductoproveedor.DataPropertyName = "idproductoproveedor"
+        Me.idproductoproveedor.HeaderText = "idproductoproveedor"
+        Me.idproductoproveedor.Name = "idproductoproveedor"
+        Me.idproductoproveedor.ReadOnly = True
+        Me.idproductoproveedor.Visible = False
+        '
+        'idproveedor
+        '
+        Me.idproveedor.DataPropertyName = "idproveedor"
+        Me.idproveedor.HeaderText = "idproveedor"
+        Me.idproveedor.Name = "idproveedor"
+        Me.idproveedor.ReadOnly = True
+        Me.idproveedor.Visible = False
+        '
+        'marca
+        '
+        Me.marca.DataPropertyName = "marca"
+        Me.marca.HeaderText = "Marca"
+        Me.marca.Name = "marca"
+        Me.marca.ReadOnly = True
+        Me.marca.ToolTipText = "Marca"
+        '
+        'modelo
+        '
+        Me.modelo.DataPropertyName = "modelo"
+        Me.modelo.HeaderText = "Modelo"
+        Me.modelo.Name = "modelo"
+        Me.modelo.ReadOnly = True
+        Me.modelo.ToolTipText = "Modelo"
+        '
+        'presentacion
+        '
+        Me.presentacion.DataPropertyName = "presentacion"
+        Me.presentacion.HeaderText = "Presentación"
+        Me.presentacion.Name = "presentacion"
+        Me.presentacion.ReadOnly = True
+        Me.presentacion.ToolTipText = "Presentación"
+        '
+        'precioventa
+        '
+        Me.precioventa.DataPropertyName = "precioventa"
+        Me.precioventa.HeaderText = "Precio Venta"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.ToolTipText = "Precio Venta"
+        Me.precioventa.Visible = False
+        '
+        'desvincular
+        '
+        Me.desvincular.HeaderText = "Desvincular"
+        Me.desvincular.Name = "desvincular"
+        Me.desvincular.ReadOnly = True
+        Me.desvincular.Text = "Desvincular"
+        Me.desvincular.ToolTipText = "Desvincular"
+        Me.desvincular.UseColumnTextForButtonValue = True
         '
         'ListaproductosproveedoresBindingSource
         '
@@ -294,79 +372,6 @@ Partial Class ProductosProveedores
         '
         Me.ListaproductosproveedoresTableAdapter.ClearBeforeFill = True
         '
-        'idproducto
-        '
-        Me.idproducto.DataPropertyName = "idproducto"
-        Me.idproducto.HeaderText = "idproducto"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.ReadOnly = True
-        Me.idproducto.Visible = False
-        Me.idproducto.Width = 104
-        '
-        'idproductoproveedor
-        '
-        Me.idproductoproveedor.DataPropertyName = "idproductoproveedor"
-        Me.idproductoproveedor.HeaderText = "idproductoproveedor"
-        Me.idproductoproveedor.Name = "idproductoproveedor"
-        Me.idproductoproveedor.ReadOnly = True
-        Me.idproductoproveedor.Visible = False
-        Me.idproductoproveedor.Width = 169
-        '
-        'idproveedor
-        '
-        Me.idproveedor.DataPropertyName = "idproveedor"
-        Me.idproveedor.HeaderText = "idproveedor"
-        Me.idproveedor.Name = "idproveedor"
-        Me.idproveedor.ReadOnly = True
-        Me.idproveedor.Visible = False
-        Me.idproveedor.Width = 113
-        '
-        'marca
-        '
-        Me.marca.DataPropertyName = "marca"
-        Me.marca.HeaderText = "Marca"
-        Me.marca.Name = "marca"
-        Me.marca.ReadOnly = True
-        Me.marca.ToolTipText = "Marca"
-        Me.marca.Width = 76
-        '
-        'modelo
-        '
-        Me.modelo.DataPropertyName = "modelo"
-        Me.modelo.HeaderText = "Modelo"
-        Me.modelo.Name = "modelo"
-        Me.modelo.ReadOnly = True
-        Me.modelo.ToolTipText = "Modelo"
-        Me.modelo.Width = 83
-        '
-        'presentacion
-        '
-        Me.presentacion.DataPropertyName = "presentacion"
-        Me.presentacion.HeaderText = "Presentación"
-        Me.presentacion.Name = "presentacion"
-        Me.presentacion.ReadOnly = True
-        Me.presentacion.ToolTipText = "Presentación"
-        Me.presentacion.Width = 120
-        '
-        'precioventa
-        '
-        Me.precioventa.DataPropertyName = "precioventa"
-        Me.precioventa.HeaderText = "Precio Venta"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        Me.precioventa.ToolTipText = "Precio Venta"
-        Me.precioventa.Width = 118
-        '
-        'desvincular
-        '
-        Me.desvincular.HeaderText = "Desvincular"
-        Me.desvincular.Name = "desvincular"
-        Me.desvincular.ReadOnly = True
-        Me.desvincular.Text = "Desvincular"
-        Me.desvincular.ToolTipText = "Desvincular"
-        Me.desvincular.UseColumnTextForButtonValue = True
-        Me.desvincular.Width = 88
-        '
         'ProductosProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -414,6 +419,7 @@ Partial Class ProductosProveedores
     Friend WithEvents ListaproductosproveedoresTableAdapter As comercialDataSetTableAdapters.listaproductosproveedoresTableAdapter
     Friend WithEvents ListaproductosproveedoresDataGridView As DataGridView
     Friend WithEvents ButtonAgregar As Button
+    Friend WithEvents Button1 As Button
     Friend WithEvents idproducto As DataGridViewTextBoxColumn
     Friend WithEvents idproductoproveedor As DataGridViewTextBoxColumn
     Friend WithEvents idproveedor As DataGridViewTextBoxColumn
