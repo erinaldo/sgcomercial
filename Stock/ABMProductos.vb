@@ -545,21 +545,35 @@ Public Class ABMProductos
     End Sub
 
     Private Sub BPC2_Click(sender As Object, e As EventArgs) Handles BPC2.Click
-        Dim preciocalculado As String = PrecioventagranelTextBox.Text
-        calcularPrecioPC(preciocalculado)
-        PrecioventagranelTextBox.Text = Convert.ToDecimal(preciocalculado)
+        Try
+            Dim preciocalculado As String = PrecioventagranelTextBox.Text
+            calcularPrecioPC(preciocalculado)
+            PrecioventagranelTextBox.Text = Convert.ToDecimal(preciocalculado)
+        Catch ex As Exception
+            MsgBox("Debe ingresar un monto válido")
+        End Try
+
     End Sub
 
     Private Sub BPC3_Click(sender As Object, e As EventArgs) Handles BPC3.Click
-        Dim preciocalculado As String = PrecioventamayoristaTextBox.Text
-        calcularPrecioPC(preciocalculado)
-        PrecioventamayoristaTextBox.Text = Convert.ToDecimal(preciocalculado)
+        Try
+            Dim preciocalculado As String = PrecioventamayoristaTextBox.Text
+            calcularPrecioPC(preciocalculado)
+            PrecioventamayoristaTextBox.Text = Convert.ToDecimal(preciocalculado)
+        Catch ex As Exception
+            MsgBox("Debe ingresar un monto válido")
+        End Try
+
     End Sub
 
     Private Sub BPC4_Click(sender As Object, e As EventArgs) Handles BPC4.Click
-        Dim preciocalculado As String = PrecioventadistribuidorTextBox.Text
-        calcularPrecioPC(preciocalculado)
-        PrecioventadistribuidorTextBox.Text = Convert.ToDecimal(preciocalculado)
+        Try
+            Dim preciocalculado As String = PrecioventadistribuidorTextBox.Text
+            calcularPrecioPC(preciocalculado)
+            PrecioventadistribuidorTextBox.Text = Convert.ToDecimal(preciocalculado)
+        Catch ex As Exception
+            MsgBox("Debe ingresar un monto válido")
+        End Try
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged

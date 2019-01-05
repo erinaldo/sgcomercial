@@ -35,7 +35,9 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub RegistrarVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.WindowState = FormWindowState.Maximized
+        Me.KeyPreview = True
+
+        'Me.WindowState = FormWindowState.Maximized
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
         Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
@@ -250,7 +252,7 @@ Public Class RegistrarVenta
                 Try
                     Dim recargo As Decimal
                     recargo = VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value * recalocal / 100
-                    idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells(2).Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value), VentasdetalleDataGridView.Rows(i).Cells("listasprecios").Value, recargo, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("descuento").Value)) '// descuento
+                    idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value), VentasdetalleDataGridView.Rows(i).Cells("listasprecios").Value, recargo, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("descuento").Value)) '// descuento
                 Catch ex As Exception
                     MsgBox("Error al grabar el detalle: " + ex.Message)
                     VentasTableAdapter.ventas_bajaventa(idventas, gusername)
@@ -1129,9 +1131,9 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub codigotextbox_KeyDown(sender As Object, e As KeyEventArgs) Handles codigotextbox.KeyDown
-        If e.KeyCode.ToString = "F4" Then
-            buscaproductomanual()
-        End If
+        'If e.KeyCode.ToString = "F4" Then
+        '    buscaproductomanual()
+        'End If
         If e.KeyCode = Keys.Space Then
             codigotextbox.Text = LimpiarCodigo(codigotextbox.Text)
             pagotextbox.Select()
@@ -1154,23 +1156,45 @@ Public Class RegistrarVenta
             End If
         End If
 
-        If e.KeyCode.ToString = "Escape" Then
-            If MsgBox("Seguro desea salir de Registrar Venta?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                Me.Close()
-            End If
-        End If
+        'If e.KeyCode.ToString = "Escape" Then
+        '    If MsgBox("Seguro desea salir de Registrar Venta?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+        '        Me.Close()
+        '    End If
+        'End If
     End Sub
 
     Private Sub RegistrarVenta_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
+        If e.KeyCode = Keys.F12 Then
+            If Me.WindowState = FormWindowState.Normal Then
+                Me.WindowState = FormWindowState.Maximized
+            Else
+                Me.WindowState = FormWindowState.Normal
+            End If
+        End If
+        ''''''''''''''''''''*******************************************'''''''''''''''''''''
+        If e.KeyCode = Keys.F1 Then
+            BtnNueva.PerformClick()
+        End If
+        If e.KeyCode = Keys.F2 Then
+            BtnCancelar.PerformClick()
+        End If
+        If e.KeyCode = Keys.F3 Then
+            BtnConfirmar.PerformClick()
+        End If
+        If e.KeyCode = Keys.F4 Then
+            buscaproductomanual()
+        End If
 
     End Sub
 
     Private Sub BtnNueva_KeyDown(sender As Object, e As KeyEventArgs) Handles BtnNueva.KeyDown
-        If e.KeyCode.ToString = "Escape" Then
-            If MsgBox("Seguro desea salir de Registrar Venta?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                Me.Close()
-            End If
-        End If
+
     End Sub
 
 
@@ -1320,6 +1344,10 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub VentasdetalleDataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles VentasdetalleDataGridView.CellDoubleClick
+
+    End Sub
+
+    Private Sub RegistrarVenta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
 
     End Sub
 End Class
