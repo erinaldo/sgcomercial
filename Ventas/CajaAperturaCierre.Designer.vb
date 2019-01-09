@@ -23,6 +23,10 @@ Partial Class CajaAperturaCierre
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CajaAperturaCierre))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblCaja = New System.Windows.Forms.Label()
@@ -49,6 +53,13 @@ Partial Class CajaAperturaCierre
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.librodiarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.librodiarioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librodiarioTableAdapter()
+        Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cajaresumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,10 +67,14 @@ Partial Class CajaAperturaCierre
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.librodiarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ReportViewer1)
         Me.GroupBox1.Controls.Add(Me.lblCaja)
         Me.GroupBox1.Controls.Add(Me.LblEstadocaja)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -77,7 +92,7 @@ Partial Class CajaAperturaCierre
         'lblCaja
         '
         Me.lblCaja.AutoSize = True
-        Me.lblCaja.Location = New System.Drawing.Point(220, 36)
+        Me.lblCaja.Location = New System.Drawing.Point(220, 22)
         Me.lblCaja.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCaja.Name = "lblCaja"
         Me.lblCaja.Size = New System.Drawing.Size(51, 17)
@@ -88,7 +103,7 @@ Partial Class CajaAperturaCierre
         '
         Me.LblEstadocaja.AutoSize = True
         Me.LblEstadocaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.LblEstadocaja.Location = New System.Drawing.Point(275, 74)
+        Me.LblEstadocaja.Location = New System.Drawing.Point(275, 60)
         Me.LblEstadocaja.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.LblEstadocaja.Name = "LblEstadocaja"
         Me.LblEstadocaja.Size = New System.Drawing.Size(64, 20)
@@ -99,7 +114,7 @@ Partial Class CajaAperturaCierre
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label1.Location = New System.Drawing.Point(144, 74)
+        Me.Label1.Location = New System.Drawing.Point(144, 60)
         Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(116, 20)
@@ -108,7 +123,7 @@ Partial Class CajaAperturaCierre
         '
         'BtnCerrar
         '
-        Me.BtnCerrar.Location = New System.Drawing.Point(105, 192)
+        Me.BtnCerrar.Location = New System.Drawing.Point(105, 152)
         Me.BtnCerrar.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.BtnCerrar.Name = "BtnCerrar"
         Me.BtnCerrar.Size = New System.Drawing.Size(309, 43)
@@ -118,7 +133,7 @@ Partial Class CajaAperturaCierre
         '
         'BtnAbrir
         '
-        Me.BtnAbrir.Location = New System.Drawing.Point(105, 134)
+        Me.BtnAbrir.Location = New System.Drawing.Point(105, 94)
         Me.BtnAbrir.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.BtnAbrir.Name = "BtnAbrir"
         Me.BtnAbrir.Size = New System.Drawing.Size(309, 43)
@@ -255,16 +270,33 @@ Partial Class CajaAperturaCierre
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Me.CajaseventosTableAdapter
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Me.CajasTableAdapter
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Nothing
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
@@ -272,22 +304,82 @@ Partial Class CajaAperturaCierre
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
         'ParametrosgeneralesTableAdapter
         '
         Me.ParametrosgeneralesTableAdapter.ClearBeforeFill = True
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.DocumentMapWidth = 44
+        ReportDataSource1.Name = "librodiario"
+        ReportDataSource1.Value = Me.librodiarioBindingSource
+        ReportDataSource2.Name = "MiComercio"
+        ReportDataSource2.Value = Me.MiComercioBindingSource
+        ReportDataSource3.Name = "cajaseventos"
+        ReportDataSource3.Value = Me.CajaseventosBindingSource
+        ReportDataSource4.Name = "cajaresumen"
+        ReportDataSource4.Value = Me.cajaresumenBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(7, 243)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(507, 59)
+        Me.ReportViewer1.TabIndex = 12
+        Me.ReportViewer1.Visible = False
+        '
+        'librodiarioBindingSource
+        '
+        Me.librodiarioBindingSource.DataMember = "librodiario"
+        Me.librodiarioBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'librodiarioTableAdapter
+        '
+        Me.librodiarioTableAdapter.ClearBeforeFill = True
+        '
+        'MiComercioBindingSource
+        '
+        Me.MiComercioBindingSource.DataMember = "MiComercio"
+        Me.MiComercioBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'MiComercioTableAdapter
+        '
+        Me.MiComercioTableAdapter.ClearBeforeFill = True
+        '
+        'cajaresumenBindingSource
+        '
+        Me.cajaresumenBindingSource.DataMember = "cajaresumen"
+        Me.cajaresumenBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'cajaresumenTableAdapter
+        '
+        Me.cajaresumenTableAdapter.ClearBeforeFill = True
         '
         'CajaAperturaCierre
         '
@@ -312,6 +404,9 @@ Partial Class CajaAperturaCierre
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.librodiarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -340,4 +435,11 @@ Partial Class CajaAperturaCierre
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ParametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
+    Friend WithEvents ReportViewer1 As ReportViewer
+    Friend WithEvents librodiarioBindingSource As BindingSource
+    Friend WithEvents MiComercioBindingSource As BindingSource
+    Friend WithEvents cajaresumenBindingSource As BindingSource
+    Friend WithEvents librodiarioTableAdapter As comercialDataSetTableAdapters.librodiarioTableAdapter
+    Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
+    Friend WithEvents cajaresumenTableAdapter As comercialDataSetTableAdapters.cajaresumenTableAdapter
 End Class

@@ -10,35 +10,39 @@ Public Class BuscaProductoManualPedidos
     End Sub
 
     Private Sub BuscaProductoManual_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.parametrosgenerales' Puede moverla o quitarla según sea necesario.
-        Me.ParametrosgeneralesTableAdapter.Fill(Me.ComercialDataSet.parametrosgenerales)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
-        'Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
-        Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listaproductos' Puede moverla o quitarla según sea necesario.
-        Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
-        ProductosDataGridView.Rows(0).Selected = False
+        Try
+            'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.parametrosgenerales' Puede moverla o quitarla según sea necesario.
+            Me.ParametrosgeneralesTableAdapter.Fill(Me.ComercialDataSet.parametrosgenerales)
+            'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
+            'Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
+            Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
+            'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listaproductos' Puede moverla o quitarla según sea necesario.
+            Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
+            'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
+            Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+            ProductosDataGridView.Rows(0).Selected = False
 
-        ComboBox1.SelectedIndex = 1
-        TextBox1.Select()
-        glistaprecio = 1
+            ComboBox1.SelectedIndex = 1
+            TextBox1.Select()
+            glistaprecio = 1
 
-        '********** ValidarSTK
-        ValidarSTK = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ValidarSTK")
-        If gValidarSTK = "Disable" Then
-            ValidarSTK = gValidarSTK
-            gValidarSTK = Nothing
-        Else
+            '********** ValidarSTK
             ValidarSTK = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ValidarSTK")
-        End If
-        '********************************************************************************************************
-        If glistapreferida > 0 Then
-            ComboListaPrecios.SelectedValue = glistapreferida
-        End If
+            If gValidarSTK = "Disable" Then
+                ValidarSTK = gValidarSTK
+                gValidarSTK = Nothing
+            Else
+                ValidarSTK = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ValidarSTK")
+            End If
+            '********************************************************************************************************
+            If glistapreferida > 0 Then
+                ComboListaPrecios.SelectedValue = glistapreferida
+            End If
 
-
+        Catch ex As Exception
+            MsgBox("NO hay productos en la lista!")
+            Me.Close()
+        End Try
     End Sub
 
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged

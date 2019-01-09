@@ -1,4 +1,8 @@
-﻿Public Class CajaAperturaCierre
+﻿Imports System.IO
+Imports System.Net
+Imports System.Text
+Imports System.Net.Mail
+Public Class CajaAperturaCierre
     Private Sub CajaAperturaCierre_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
         Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
@@ -33,6 +37,7 @@
         End If
         Me.Select()
 
+        Me.ReportViewer1.RefreshReport()
     End Sub
 
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles CajasDataGridView.CellClick
@@ -94,6 +99,7 @@
                 MsgBox("Operacion Cancelada", MsgBoxStyle.Information, "Aviso")
                 Return
             End If
+
             '******************************
             Dim rtn As Integer
             Try
@@ -104,6 +110,7 @@
 
             If rtn = 1 Then
                 MsgBox("Caja Cerrada Exitosamente!", MsgBoxStyle.Information, "Mensaje")
+                mail_cierrecaja()
                 isopen(idcaja)
                 '*********************************************************************
                 '************ Imprimir cierre de caja ******************
@@ -163,7 +170,69 @@
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) 
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Close()
+    End Sub
+    Private Sub mail_cierrecaja()
+        Me.Cursor = Cursors.WaitCursor
+        Try
+            '*******************************
+            Me.cajaresumenTableAdapter.Fill(Me.ComercialDataSet.cajaresumen)
+            Me.librodiarioTableAdapter.Fill(Me.ComercialDataSet.librodiario)
+            Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
+            Me.librodiarioTableAdapter.FillByActivos(Me.ComercialDataSet.librodiario)
+            Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
+            CajaseventosBindingSource.Filter = "idevento = " + gidevento.ToString
+            librodiarioBindingSource.Filter = "idevento = " + gidevento.ToString
+            Me.ReportViewer1.RefreshReport()
+            '*******************************
+            Dim byteViewer As Byte() = ReportViewer1.LocalReport.Render("PDF")
+            Dim saveFileDialog1 As New SaveFileDialog()
+            saveFileDialog1.Filter = "*PDF files (*.pdf)|*.pdf"
+            saveFileDialog1.FilterIndex = 2
+            saveFileDialog1.RestoreDirectory = True
+            Dim newFile As New FileStream("CierreCaja.pdf", FileMode.Create)
+            newFile.Write(byteViewer, 0, byteViewer.Length)
+            newFile.Close()
+        Catch ex As Exception
+            Me.Cursor = Cursors.Default
+            MsgBox(ex.Message)
+        End Try
+        '**********************************************************
+        Dim emailmessage As New MailMessage()
+        Try
+            emailmessage.From = New MailAddress("sgcomercial@sistemascomerciales.net")
+            emailmessage.To.Add("lucasmartinbs@gmail.com")
+            emailmessage.Subject = "Cierre de caja " + Today.ToShortDateString
+            emailmessage.Body = "Email de prueba - Cuerpo del mensaje segunda prueba"
+            '*************************  ADJUNTO **********************************************
+            Dim fileTXT As String = "CierreCaja.pdf"
+            Dim data As Net.Mail.Attachment = New Net.Mail.Attachment(fileTXT)
+            data.Name = "CierreCaja.pdf"
+            emailmessage.Attachments.Add(data)
+            '*********************************************************************************
+            Dim smtp As New SmtpClient("mail.sistemascomerciales.net")
+            smtp.Port = 26
+            smtp.EnableSsl = True
+            smtp.Credentials = New System.Net.NetworkCredential("sgcomercial@sistemascomerciales.net", "sgcomercial*?")
+            smtp.Send(emailmessage)
+            MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
+            Me.Cursor = Cursors.Default
+        Catch ex As Exception
+            Me.Cursor = Cursors.Default
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
     End Sub
 End Class

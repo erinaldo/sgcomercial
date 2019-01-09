@@ -42,8 +42,8 @@ Public Class POSTForm
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim emailmessage As New MailMessage()
         Try
-            emailmessage.From = New MailAddress("lacosecha@sistemascomerciales.net")
-            emailmessage.To.Add("hoteldayton@gmail.com")
+            emailmessage.From = New MailAddress("sgcomercial@sistemascomerciales.net")
+            emailmessage.To.Add("lucasmartinbs@gmail.com")
             emailmessage.Subject = "Email_de_prueba_asunto"
             emailmessage.Body = "Email de prueba - Cuerpo del mensaje segunda prueba"
             'Dim smtp As New SmtpClient("smtp.gmail.com")
