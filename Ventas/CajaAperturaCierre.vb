@@ -5,7 +5,7 @@ Imports System.Net.Mail
 Public Class CajaAperturaCierre
     Private Sub CajaAperturaCierre_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
-        Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
+        'Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajas' Puede moverla o quitarla según sea necesario.
         Me.CajasTableAdapter.Fill(Me.ComercialDataSet.cajas)
         Try
@@ -177,13 +177,11 @@ Public Class CajaAperturaCierre
         Me.Cursor = Cursors.WaitCursor
         Try
             '*******************************
-            Me.cajaresumenTableAdapter.Fill(Me.ComercialDataSet.cajaresumen)
-            Me.librodiarioTableAdapter.Fill(Me.ComercialDataSet.librodiario)
-            Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
-            Me.librodiarioTableAdapter.FillByActivos(Me.ComercialDataSet.librodiario)
+            Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)
+            Me.librodiarioTableAdapter.FillByIdevento(Me.ComercialDataSet.librodiario, gidevento)
+            Me.cajaresumenTableAdapter.FillByidevento(Me.ComercialDataSet.cajaresumen, gidevento)
             Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
-            CajaseventosBindingSource.Filter = "idevento = " + gidevento.ToString
-            librodiarioBindingSource.Filter = "idevento = " + gidevento.ToString
+
             Me.ReportViewer1.RefreshReport()
             '*******************************
             Dim byteViewer As Byte() = ReportViewer1.LocalReport.Render("PDF")
@@ -200,21 +198,39 @@ Public Class CajaAperturaCierre
         End Try
         '**********************************************************
         Dim emailmessage As New MailMessage()
+        Dim EmailFrom As String
+        Dim EmailFromPwd As String
+        Dim EmailPort As Long
+        Dim EmailCierreCajaTo As String
+        Dim SmtpClient As String
+
         Try
-            emailmessage.From = New MailAddress("sgcomercial@sistemascomerciales.net")
-            emailmessage.To.Add("lucasmartinbs@gmail.com")
+            '***************************************************************
+            EmailCierreCajaTo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailCierreCajaTo")
+            If EmailCierreCajaTo.Length = 0 Then
+                MsgBox("Dirección Inválida", MsgBoxStyle.Exclamation, "Envío email")
+                Me.Cursor = Cursors.Default
+                Return
+            End If
+            SmtpClient = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("SmtpClient")
+            EmailFrom = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFrom")
+            EmailFromPwd = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFromPwd")
+            EmailPort = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("EmailPort")
+            '***************************************************************
+            emailmessage.From = New MailAddress(EmailFrom)
+            emailmessage.To.Add(EmailCierreCajaTo)
             emailmessage.Subject = "Cierre de caja " + Today.ToShortDateString
-            emailmessage.Body = "Email de prueba - Cuerpo del mensaje segunda prueba"
+            emailmessage.Body = "Sistema de Gestión Comercial te envió el resumen de tu último Cierre de caja"
             '*************************  ADJUNTO **********************************************
             Dim fileTXT As String = "CierreCaja.pdf"
             Dim data As Net.Mail.Attachment = New Net.Mail.Attachment(fileTXT)
             data.Name = "CierreCaja.pdf"
             emailmessage.Attachments.Add(data)
             '*********************************************************************************
-            Dim smtp As New SmtpClient("mail.sistemascomerciales.net")
-            smtp.Port = 26
+            Dim smtp As New SmtpClient(SmtpClient)
+            smtp.Port = EmailPort
             smtp.EnableSsl = True
-            smtp.Credentials = New System.Net.NetworkCredential("sgcomercial@sistemascomerciales.net", "sgcomercial*?")
+            smtp.Credentials = New System.Net.NetworkCredential(EmailFrom, EmailFromPwd)
             smtp.Send(emailmessage)
             MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
             Me.Cursor = Cursors.Default
