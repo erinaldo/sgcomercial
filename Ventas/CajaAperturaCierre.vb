@@ -208,7 +208,7 @@ Public Class CajaAperturaCierre
             '***************************************************************
             EmailCierreCajaTo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailCierreCajaTo")
             If EmailCierreCajaTo.Length = 0 Then
-                MsgBox("Dirección Inválida", MsgBoxStyle.Exclamation, "Envío email")
+                'MsgBox("Dirección Inválida", MsgBoxStyle.Exclamation, "Envío email")
                 Me.Cursor = Cursors.Default
                 Return
             End If
