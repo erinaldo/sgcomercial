@@ -1,4 +1,5 @@
 ﻿Imports System.Text.RegularExpressions
+
 Public Class IngresaCantidad
     Public codigoproducto As String
     Public precioventa As Decimal
@@ -39,7 +40,7 @@ Public Class IngresaCantidad
         Dim total As Decimal
         '        cantidadtextbox.Text = "1"
         'preciotextbox.Text = precioventa.ToString
-        'precioventa = preciotextbox.Text
+        precioventa = preciotextbox.Text
         total = precioventa * cantidadtextbox.Text
         totaltextbox.Text = total.ToString
     End Sub
@@ -160,6 +161,8 @@ Public Class IngresaCantidad
                 Dim medida As Decimal
                 medida = ProductosTableAdapter.productos_consultarmedida(codigoproducto)
                 preciotextbox.Text = String.Format(precioventagranel / medida)
+                'preciotextbox.Text = Math.Round(Convert.ToDecimal(preciotextbox.Text), 2)
+                'preciotextbox.Text = Format(preciotextbox.Text, "000000000000000.00")
                 gprecioventa = preciotextbox.Text
                 glistaprecio = 2
                 'MsgBox("hola" + precioventagranel.ToString)

@@ -840,7 +840,7 @@ Partial Class ABMProductos
         Me.ComboBox1.Location = New System.Drawing.Point(141, 143)
         Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(133, 24)
+        Me.ComboBox1.Size = New System.Drawing.Size(174, 24)
         Me.ComboBox1.TabIndex = 4
         Me.ComboBox1.ValueMember = "idunidadmedida"
         '
@@ -935,10 +935,10 @@ Partial Class ABMProductos
         '
         Me.IdproductoTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.IdproductoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "idproducto", True))
-        Me.IdproductoTextBox.Location = New System.Drawing.Point(285, 145)
+        Me.IdproductoTextBox.Location = New System.Drawing.Point(323, 145)
         Me.IdproductoTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.IdproductoTextBox.Name = "IdproductoTextBox"
-        Me.IdproductoTextBox.Size = New System.Drawing.Size(108, 22)
+        Me.IdproductoTextBox.Size = New System.Drawing.Size(70, 22)
         Me.IdproductoTextBox.TabIndex = 111
         '
         'DescripcionTextBox
