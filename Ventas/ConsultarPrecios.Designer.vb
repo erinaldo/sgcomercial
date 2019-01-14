@@ -126,6 +126,9 @@ Partial Class ConsultarPrecios
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.ListaprecioscajaDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 71)
         Me.GroupBox1.Name = "GroupBox1"
@@ -140,6 +143,9 @@ Partial Class ConsultarPrecios
         Me.ListaprecioscajaDataGridView.AllowUserToAddRows = False
         Me.ListaprecioscajaDataGridView.AllowUserToDeleteRows = False
         Me.ListaprecioscajaDataGridView.AllowUserToResizeRows = False
+        Me.ListaprecioscajaDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListaprecioscajaDataGridView.AutoGenerateColumns = False
         Me.ListaprecioscajaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.ListaprecioscajaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -185,7 +191,7 @@ Partial Class ConsultarPrecios
         Me.DataGridViewTextBoxColumn4.HeaderText = "Precio Vta. Publico"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 156
+        Me.DataGridViewTextBoxColumn4.Width = 143
         '
         'DataGridViewTextBoxColumn5
         '
@@ -193,7 +199,7 @@ Partial Class ConsultarPrecios
         Me.DataGridViewTextBoxColumn5.HeaderText = "Precio x Unidad"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 136
+        Me.DataGridViewTextBoxColumn5.Width = 125
         '
         'disponible
         '
@@ -213,6 +219,8 @@ Partial Class ConsultarPrecios
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.TextBox1)
@@ -244,6 +252,8 @@ Partial Class ConsultarPrecios
         '
         'TextBox1
         '
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox1.Location = New System.Drawing.Point(613, 15)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(186, 22)
