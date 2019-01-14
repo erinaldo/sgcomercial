@@ -32,9 +32,9 @@ Partial Class ConsultarPrecios
         Me.ListaprecioscajaDataGridView = New System.Windows.Forms.DataGridView()
         Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.disponible = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.unidades = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -141,8 +141,9 @@ Partial Class ConsultarPrecios
         Me.ListaprecioscajaDataGridView.AllowUserToDeleteRows = False
         Me.ListaprecioscajaDataGridView.AllowUserToResizeRows = False
         Me.ListaprecioscajaDataGridView.AutoGenerateColumns = False
+        Me.ListaprecioscajaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.ListaprecioscajaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListaprecioscajaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.descripcion, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.medida, Me.disponible, Me.unidades})
+        Me.ListaprecioscajaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.descripcion, Me.medida, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.disponible, Me.unidades})
         Me.ListaprecioscajaDataGridView.DataSource = Me.ListaprecioscajaBindingSource
         Me.ListaprecioscajaDataGridView.Location = New System.Drawing.Point(14, 25)
         Me.ListaprecioscajaDataGridView.MultiSelect = False
@@ -160,7 +161,7 @@ Partial Class ConsultarPrecios
         Me.codigoproducto.Name = "codigoproducto"
         Me.codigoproducto.ReadOnly = True
         Me.codigoproducto.ToolTipText = "Código"
-        Me.codigoproducto.Width = 150
+        Me.codigoproducto.Width = 81
         '
         'descripcion
         '
@@ -168,22 +169,7 @@ Partial Class ConsultarPrecios
         Me.descripcion.HeaderText = "Descripción"
         Me.descripcion.Name = "descripcion"
         Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 350
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "precioventa"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Precio Vta. Publico"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 150
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "preciokilo"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Precio x Kilo"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.descripcion.Width = 111
         '
         'medida
         '
@@ -191,6 +177,23 @@ Partial Class ConsultarPrecios
         Me.medida.HeaderText = "Medida"
         Me.medida.Name = "medida"
         Me.medida.ReadOnly = True
+        Me.medida.Width = 83
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "precioventa"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Precio Vta. Publico"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 156
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "preciokilo"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Precio x Unidad"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 136
         '
         'disponible
         '
@@ -198,6 +201,7 @@ Partial Class ConsultarPrecios
         Me.disponible.HeaderText = "Disponible"
         Me.disponible.Name = "disponible"
         Me.disponible.ReadOnly = True
+        Me.disponible.Width = 103
         '
         'unidades
         '
@@ -282,12 +286,12 @@ Partial Class ConsultarPrecios
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
     Friend WithEvents descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents medida As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents medida As DataGridViewTextBoxColumn
     Friend WithEvents disponible As DataGridViewTextBoxColumn
     Friend WithEvents unidades As DataGridViewTextBoxColumn
-    Friend WithEvents ComboBox1 As ComboBox
 End Class

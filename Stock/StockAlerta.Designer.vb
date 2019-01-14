@@ -30,6 +30,7 @@ Partial Class StockAlerta
         Me.StockalertaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockalertaTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboBoxFiltro = New System.Windows.Forms.ComboBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,15 +57,14 @@ Partial Class StockAlerta
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.StockalertaDataGridView = New System.Windows.Forms.DataGridView()
-        Me.ProductoscomponentesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productoscomponentesTableAdapter()
-        Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
-        Me.ComboBoxFiltro = New System.Windows.Forms.ComboBox()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.codigoproducto = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductoscomponentesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productoscomponentesTableAdapter()
+        Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockalertaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -165,6 +165,16 @@ Partial Class StockAlerta
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Opciones"
+        '
+        'ComboBoxFiltro
+        '
+        Me.ComboBoxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxFiltro.FormattingEnabled = True
+        Me.ComboBoxFiltro.Items.AddRange(New Object() {"Código", "Producto"})
+        Me.ComboBoxFiltro.Location = New System.Drawing.Point(299, 37)
+        Me.ComboBoxFiltro.Name = "ComboBoxFiltro"
+        Me.ComboBoxFiltro.Size = New System.Drawing.Size(139, 24)
+        Me.ComboBoxFiltro.TabIndex = 4
         '
         'ProductosDataGridView
         '
@@ -358,24 +368,6 @@ Partial Class StockAlerta
         Me.StockalertaDataGridView.Size = New System.Drawing.Size(834, 288)
         Me.StockalertaDataGridView.TabIndex = 2
         '
-        'ProductoscomponentesTableAdapter
-        '
-        Me.ProductoscomponentesTableAdapter.ClearBeforeFill = True
-        '
-        'ProductosTableAdapter
-        '
-        Me.ProductosTableAdapter.ClearBeforeFill = True
-        '
-        'ComboBoxFiltro
-        '
-        Me.ComboBoxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxFiltro.FormattingEnabled = True
-        Me.ComboBoxFiltro.Items.AddRange(New Object() {"Código", "Producto"})
-        Me.ComboBoxFiltro.Location = New System.Drawing.Point(299, 37)
-        Me.ComboBoxFiltro.Name = "ComboBoxFiltro"
-        Me.ComboBoxFiltro.Size = New System.Drawing.Size(139, 24)
-        Me.ComboBoxFiltro.TabIndex = 4
-        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "idproducto"
@@ -434,6 +426,14 @@ Partial Class StockAlerta
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
         Me.DataGridViewTextBoxColumn6.Width = 81
         '
+        'ProductoscomponentesTableAdapter
+        '
+        Me.ProductoscomponentesTableAdapter.ClearBeforeFill = True
+        '
+        'ProductosTableAdapter
+        '
+        Me.ProductosTableAdapter.ClearBeforeFill = True
+        '
         'StockAlerta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -442,6 +442,7 @@ Partial Class StockAlerta
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "StockAlerta"

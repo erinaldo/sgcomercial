@@ -164,6 +164,7 @@ Partial Class BuscaCodigoProductoManual
         Me.ClientSize = New System.Drawing.Size(889, 351)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "BuscaCodigoProductoManual"

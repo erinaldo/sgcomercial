@@ -80,6 +80,7 @@ Partial Class ViewerReporteControlStockGeneral
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1055, 606)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.KeyPreview = True
         Me.Name = "ViewerReporteControlStockGeneral"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ViewerReporteControlStockGeneral"

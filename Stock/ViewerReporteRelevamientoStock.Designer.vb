@@ -23,27 +23,27 @@ Partial Class ViewerReporteRelevamientoStock
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource9 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource10 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.stockgeneralBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.stockgeneralTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockgeneralTableAdapter()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.proveedoresTableAdapter()
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.stockgeneralBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'MiComercioBindingSource
@@ -72,37 +72,23 @@ Partial Class ViewerReporteRelevamientoStock
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
-        'GroupBox2
+        'Button1
         '
-        Me.GroupBox2.Controls.Add(Me.ReportViewer1)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 94)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(900, 509)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
+        Me.Button1.Location = New System.Drawing.Point(670, 29)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(97, 25)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Traer todos"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'ReportViewer1
+        'Label1
         '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource9.Name = "MiComercio"
-        ReportDataSource9.Value = Me.MiComercioBindingSource
-        ReportDataSource10.Name = "stockgeneral"
-        ReportDataSource10.Value = Me.stockgeneralBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource9)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource10)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RptRelevamientoStock.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(894, 488)
-        Me.ReportViewer1.TabIndex = 0
-        '
-        'MiComercioTableAdapter
-        '
-        Me.MiComercioTableAdapter.ClearBeforeFill = True
-        '
-        'stockgeneralTableAdapter
-        '
-        Me.stockgeneralTableAdapter.ClearBeforeFill = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(133, 32)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(146, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Seleccione proveedor"
         '
         'ComboBox1
         '
@@ -117,32 +103,46 @@ Partial Class ViewerReporteRelevamientoStock
         Me.ComboBox1.TabIndex = 0
         Me.ComboBox1.ValueMember = "idproveedor"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(133, 32)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(146, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Seleccione proveedor"
-        '
         'ProveedoresBindingSource
         '
         Me.ProveedoresBindingSource.DataMember = "proveedores"
         Me.ProveedoresBindingSource.DataSource = Me.comercialDataSet
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.ReportViewer1)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 94)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(900, 509)
+        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabStop = False
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "stockgeneral"
+        ReportDataSource2.Value = Me.stockgeneralBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RptRelevamientoStock.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(894, 488)
+        Me.ReportViewer1.TabIndex = 0
+        '
+        'MiComercioTableAdapter
+        '
+        Me.MiComercioTableAdapter.ClearBeforeFill = True
+        '
+        'stockgeneralTableAdapter
+        '
+        Me.stockgeneralTableAdapter.ClearBeforeFill = True
+        '
         'ProveedoresTableAdapter
         '
         Me.ProveedoresTableAdapter.ClearBeforeFill = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(670, 29)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(97, 25)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Traer todos"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'ViewerReporteRelevamientoStock
         '
@@ -151,6 +151,7 @@ Partial Class ViewerReporteRelevamientoStock
         Me.ClientSize = New System.Drawing.Size(924, 615)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.KeyPreview = True
         Me.Name = "ViewerReporteRelevamientoStock"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ViewerReporteRelevamientoStock"
@@ -160,8 +161,8 @@ Partial Class ViewerReporteRelevamientoStock
         CType(Me.stockgeneralBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

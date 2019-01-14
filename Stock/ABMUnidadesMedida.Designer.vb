@@ -91,16 +91,33 @@ Partial Class ABMUnidadesMedida
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Nothing
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
@@ -108,16 +125,27 @@ Partial Class ABMUnidadesMedida
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Me.UnidadesmedidaTableAdapter
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
@@ -202,7 +230,7 @@ Partial Class ABMUnidadesMedida
         '
         Me.IdunidadmedidaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UnidadesmedidaBindingSource, "idunidadmedida", True))
         Me.IdunidadmedidaTextBox.Location = New System.Drawing.Point(199, 20)
-        Me.IdunidadmedidaTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.IdunidadmedidaTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.IdunidadmedidaTextBox.Name = "IdunidadmedidaTextBox"
         Me.IdunidadmedidaTextBox.Size = New System.Drawing.Size(132, 22)
         Me.IdunidadmedidaTextBox.TabIndex = 2
@@ -212,7 +240,7 @@ Partial Class ABMUnidadesMedida
         '
         Me.DescripcionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UnidadesmedidaBindingSource, "descripcion", True))
         Me.DescripcionTextBox.Location = New System.Drawing.Point(188, 66)
-        Me.DescripcionTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DescripcionTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
         Me.DescripcionTextBox.Size = New System.Drawing.Size(132, 22)
         Me.DescripcionTextBox.TabIndex = 4
@@ -227,7 +255,7 @@ Partial Class ABMUnidadesMedida
         Me.UnidadesmedidaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
         Me.UnidadesmedidaDataGridView.DataSource = Me.UnidadesmedidaBindingSource
         Me.UnidadesmedidaDataGridView.Location = New System.Drawing.Point(35, 118)
-        Me.UnidadesmedidaDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.UnidadesmedidaDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.UnidadesmedidaDataGridView.MultiSelect = False
         Me.UnidadesmedidaDataGridView.Name = "UnidadesmedidaDataGridView"
         Me.UnidadesmedidaDataGridView.ReadOnly = True
@@ -263,7 +291,8 @@ Partial Class ABMUnidadesMedida
         Me.Controls.Add(IdunidadmedidaLabel)
         Me.Controls.Add(Me.IdunidadmedidaTextBox)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ABMUnidadesMedida"

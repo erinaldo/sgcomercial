@@ -25,11 +25,13 @@ Partial Class ActualizacionPrecios
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ActualizacionPrecios))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboListaPrecios = New System.Windows.Forms.ComboBox()
+        Me.ListaspreciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ListacriteriosactualizacionDataGridView = New System.Windows.Forms.DataGridView()
         Me.valor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListacriteriosactualizacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -37,6 +39,8 @@ Partial Class ActualizacionPrecios
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -84,15 +88,12 @@ Partial Class ActualizacionPrecios
         Me.ListaproductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaproductosTableAdapter()
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         Me.RubrosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.rubrosTableAdapter()
-        Me.ComboListaPrecios = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.ListaspreciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaspreciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaspreciosTableAdapter()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListacriteriosactualizacionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListacriteriosactualizacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.ListaproductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaproductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,7 +101,6 @@ Partial Class ActualizacionPrecios
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RubrosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RubrosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -123,6 +123,28 @@ Partial Class ActualizacionPrecios
         Me.GroupBox1.Size = New System.Drawing.Size(486, 436)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'ComboListaPrecios
+        '
+        Me.ComboListaPrecios.DataSource = Me.ListaspreciosBindingSource
+        Me.ComboListaPrecios.DisplayMember = "descripcion"
+        Me.ComboListaPrecios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboListaPrecios.FormattingEnabled = True
+        Me.ComboListaPrecios.Location = New System.Drawing.Point(15, 349)
+        Me.ComboListaPrecios.Name = "ComboListaPrecios"
+        Me.ComboListaPrecios.Size = New System.Drawing.Size(145, 24)
+        Me.ComboListaPrecios.TabIndex = 14
+        Me.ComboListaPrecios.ValueMember = "idlistaprecio"
+        '
+        'ListaspreciosBindingSource
+        '
+        Me.ListaspreciosBindingSource.DataMember = "listasprecios"
+        Me.ListaspreciosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ListacriteriosactualizacionDataGridView
         '
@@ -163,11 +185,6 @@ Partial Class ActualizacionPrecios
         '
         Me.ListacriteriosactualizacionBindingSource.DataMember = "listacriteriosactualizacion"
         Me.ListacriteriosactualizacionBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'TextBox2
         '
@@ -231,6 +248,24 @@ Partial Class ActualizacionPrecios
         Me.Label2.Size = New System.Drawing.Size(97, 17)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Productos por"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(261, 328)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(41, 17)
+        Me.Label5.TabIndex = 1
+        Me.Label5.Text = "Valor"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(166, 328)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(53, 17)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "Criterio"
         '
         'Label1
         '
@@ -627,41 +662,6 @@ Partial Class ActualizacionPrecios
         '
         Me.RubrosTableAdapter.ClearBeforeFill = True
         '
-        'ComboListaPrecios
-        '
-        Me.ComboListaPrecios.DataSource = Me.ListaspreciosBindingSource
-        Me.ComboListaPrecios.DisplayMember = "descripcion"
-        Me.ComboListaPrecios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboListaPrecios.FormattingEnabled = True
-        Me.ComboListaPrecios.Location = New System.Drawing.Point(15, 349)
-        Me.ComboListaPrecios.Name = "ComboListaPrecios"
-        Me.ComboListaPrecios.Size = New System.Drawing.Size(145, 24)
-        Me.ComboListaPrecios.TabIndex = 14
-        Me.ComboListaPrecios.ValueMember = "idlistaprecio"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(166, 328)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(53, 17)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "Criterio"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(261, 328)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(41, 17)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "Valor"
-        '
-        'ListaspreciosBindingSource
-        '
-        Me.ListaspreciosBindingSource.DataMember = "listasprecios"
-        Me.ListaspreciosBindingSource.DataSource = Me.ComercialDataSet
-        '
         'ListaspreciosTableAdapter
         '
         Me.ListaspreciosTableAdapter.ClearBeforeFill = True
@@ -677,6 +677,7 @@ Partial Class ActualizacionPrecios
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ActualizacionPrecios"
@@ -684,9 +685,10 @@ Partial Class ActualizacionPrecios
         Me.Text = "Actualización de precios masiva"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListacriteriosactualizacionDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListacriteriosactualizacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.ListaproductosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaproductosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -694,7 +696,6 @@ Partial Class ActualizacionPrecios
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RubrosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RubrosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

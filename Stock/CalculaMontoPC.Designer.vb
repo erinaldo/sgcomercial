@@ -161,6 +161,7 @@ Partial Class CalculaMontoPC
         Me.ClientSize = New System.Drawing.Size(534, 180)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "CalculaMontoPC"
