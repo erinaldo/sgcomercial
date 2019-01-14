@@ -29,8 +29,8 @@ Partial Class ABMClientes
         Dim TelefonoLabel As System.Windows.Forms.Label
         Dim EmailLabel As System.Windows.Forms.Label
         Dim Label2 As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMClientes))
         Dim Label3 As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMClientes))
         Me.ClientesBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -55,6 +55,8 @@ Partial Class ABMClientes
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.DiasvencimientoTextBox = New System.Windows.Forms.TextBox()
         Me.ComboCondicionIVA = New System.Windows.Forms.ComboBox()
         Me.TipocondicionivaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -64,8 +66,6 @@ Partial Class ABMClientes
         Me.ClientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
-        Me.DiasvencimientoTextBox = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         RazonsocialLabel = New System.Windows.Forms.Label()
@@ -142,6 +142,16 @@ Partial Class ABMClientes
         Label2.Size = New System.Drawing.Size(99, 17)
         Label2.TabIndex = 12
         Label2.Text = "Condición IVA:"
+        '
+        'Label3
+        '
+        Label3.AutoSize = True
+        Label3.Location = New System.Drawing.Point(94, 212)
+        Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label3.Name = "Label3"
+        Label3.Size = New System.Drawing.Size(143, 17)
+        Label3.TabIndex = 13
+        Label3.Text = "Dias de vencimiento :"
         '
         'ClientesBindingNavigator
         '
@@ -249,7 +259,7 @@ Partial Class ABMClientes
         '
         Me.IdclienteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "idcliente", True))
         Me.IdclienteTextBox.Location = New System.Drawing.Point(336, 18)
-        Me.IdclienteTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.IdclienteTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.IdclienteTextBox.Name = "IdclienteTextBox"
         Me.IdclienteTextBox.ReadOnly = True
         Me.IdclienteTextBox.Size = New System.Drawing.Size(132, 22)
@@ -260,7 +270,7 @@ Partial Class ABMClientes
         Me.NombreTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "nombre", True))
         Me.NombreTextBox.Location = New System.Drawing.Point(249, 50)
-        Me.NombreTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.NombreTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.NombreTextBox.Name = "NombreTextBox"
         Me.NombreTextBox.Size = New System.Drawing.Size(283, 22)
         Me.NombreTextBox.TabIndex = 4
@@ -270,7 +280,7 @@ Partial Class ABMClientes
         Me.RazonsocialTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.RazonsocialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "cuit", True))
         Me.RazonsocialTextBox.Location = New System.Drawing.Point(249, 82)
-        Me.RazonsocialTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RazonsocialTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.RazonsocialTextBox.Name = "RazonsocialTextBox"
         Me.RazonsocialTextBox.Size = New System.Drawing.Size(283, 22)
         Me.RazonsocialTextBox.TabIndex = 6
@@ -279,7 +289,7 @@ Partial Class ABMClientes
         '
         Me.TelefonoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "telefono", True))
         Me.TelefonoTextBox.Location = New System.Drawing.Point(249, 114)
-        Me.TelefonoTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TelefonoTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.TelefonoTextBox.Name = "TelefonoTextBox"
         Me.TelefonoTextBox.Size = New System.Drawing.Size(283, 22)
         Me.TelefonoTextBox.TabIndex = 8
@@ -289,7 +299,7 @@ Partial Class ABMClientes
         Me.EmailTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "email", True))
         Me.EmailTextBox.Location = New System.Drawing.Point(249, 146)
-        Me.EmailTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.EmailTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.EmailTextBox.Name = "EmailTextBox"
         Me.EmailTextBox.Size = New System.Drawing.Size(283, 22)
         Me.EmailTextBox.TabIndex = 10
@@ -304,7 +314,7 @@ Partial Class ABMClientes
         Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
         Me.ClientesDataGridView.DataSource = Me.ClientesBindingSource
         Me.ClientesDataGridView.Location = New System.Drawing.Point(12, 73)
-        Me.ClientesDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ClientesDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.ClientesDataGridView.Name = "ClientesDataGridView"
         Me.ClientesDataGridView.ReadOnly = True
         Me.ClientesDataGridView.Size = New System.Drawing.Size(683, 199)
@@ -366,13 +376,30 @@ Partial Class ABMClientes
         Me.GroupBox1.Controls.Add(Me.RazonsocialTextBox)
         Me.GroupBox1.Controls.Add(TelefonoLabel)
         Me.GroupBox1.Location = New System.Drawing.Point(21, 52)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(707, 267)
         Me.GroupBox1.TabIndex = 14
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del cliente"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(355, 212)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(252, 17)
+        Me.Label4.TabIndex = 15
+        Me.Label4.Text = "(por defecto para vtas a cta. corriente)"
+        '
+        'DiasvencimientoTextBox
+        '
+        Me.DiasvencimientoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "diasvencimiento", True))
+        Me.DiasvencimientoTextBox.Location = New System.Drawing.Point(249, 209)
+        Me.DiasvencimientoTextBox.Name = "DiasvencimientoTextBox"
+        Me.DiasvencimientoTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.DiasvencimientoTextBox.TabIndex = 14
         '
         'ComboCondicionIVA
         '
@@ -382,7 +409,7 @@ Partial Class ABMClientes
         Me.ComboCondicionIVA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboCondicionIVA.FormattingEnabled = True
         Me.ComboCondicionIVA.Location = New System.Drawing.Point(249, 178)
-        Me.ComboCondicionIVA.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboCondicionIVA.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboCondicionIVA.Name = "ComboCondicionIVA"
         Me.ComboCondicionIVA.Size = New System.Drawing.Size(283, 24)
         Me.ComboCondicionIVA.TabIndex = 11
@@ -400,9 +427,9 @@ Partial Class ABMClientes
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.ClientesDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(21, 310)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(707, 288)
         Me.GroupBox2.TabIndex = 15
         Me.GroupBox2.TabStop = False
@@ -411,7 +438,7 @@ Partial Class ABMClientes
         'filtrotextbox
         '
         Me.filtrotextbox.Location = New System.Drawing.Point(367, 33)
-        Me.filtrotextbox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.filtrotextbox.Margin = New System.Windows.Forms.Padding(4)
         Me.filtrotextbox.Name = "filtrotextbox"
         Me.filtrotextbox.Size = New System.Drawing.Size(132, 22)
         Me.filtrotextbox.TabIndex = 16
@@ -432,7 +459,7 @@ Partial Class ABMClientes
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Nombre", "Cuit"})
         Me.ComboBox1.Location = New System.Drawing.Point(197, 32)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(160, 24)
         Me.ComboBox1.TabIndex = 14
@@ -490,6 +517,8 @@ Partial Class ABMClientes
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -504,33 +533,6 @@ Partial Class ABMClientes
         '
         Me.TipocondicionivaTableAdapter.ClearBeforeFill = True
         '
-        'Label3
-        '
-        Label3.AutoSize = True
-        Label3.Location = New System.Drawing.Point(94, 212)
-        Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label3.Name = "Label3"
-        Label3.Size = New System.Drawing.Size(143, 17)
-        Label3.TabIndex = 13
-        Label3.Text = "Dias de vencimiento :"
-        '
-        'DiasvencimientoTextBox
-        '
-        Me.DiasvencimientoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "diasvencimiento", True))
-        Me.DiasvencimientoTextBox.Location = New System.Drawing.Point(249, 209)
-        Me.DiasvencimientoTextBox.Name = "DiasvencimientoTextBox"
-        Me.DiasvencimientoTextBox.Size = New System.Drawing.Size(100, 22)
-        Me.DiasvencimientoTextBox.TabIndex = 14
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(355, 212)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(252, 17)
-        Me.Label4.TabIndex = 15
-        Me.Label4.Text = "(por defecto para vtas a cta. corriente)"
-        '
         'ABMClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -540,7 +542,8 @@ Partial Class ABMClientes
         Me.Controls.Add(Me.ClientesBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ABMClientes"

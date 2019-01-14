@@ -40,8 +40,8 @@ Partial Class ABMProductos
         Dim Label4 As System.Windows.Forms.Label
         Dim Label5 As System.Windows.Forms.Label
         Dim Label6 As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMProductos))
         Dim FabricanteLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMProductos))
         Me.ProductosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -53,6 +53,10 @@ Partial Class ABMProductos
         Me.GuardarNuevo = New System.Windows.Forms.ToolStripButton()
         Me.ImagenPictureBox = New System.Windows.Forms.PictureBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RubrosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UnidadesmedidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet1 = New sgcomercial.comercialDataSet()
@@ -62,6 +66,7 @@ Partial Class ABMProductos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.UnidadesmedidaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.unidadesmedidaTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.FabricanteTextBox = New System.Windows.Forms.TextBox()
         Me.IvaComboBox = New System.Windows.Forms.ComboBox()
         Me.TipoivaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.StockDataGridView = New System.Windows.Forms.DataGridView()
@@ -106,11 +111,6 @@ Partial Class ABMProductos
         Me.StockTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.stockTableAdapter()
         Me.StockTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.TipoivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipoivaTableAdapter()
-        Me.FabricanteTextBox = New System.Windows.Forms.TextBox()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdproductoLabel = New System.Windows.Forms.Label()
         MarcaLabel = New System.Windows.Forms.Label()
         ModeloLabel = New System.Windows.Forms.Label()
@@ -317,6 +317,15 @@ Partial Class ABMProductos
         Label6.Tag = "Precio Vta. Distribuidores y comercios"
         Label6.Text = "Alícuota IVA (%):"
         '
+        'FabricanteLabel
+        '
+        FabricanteLabel.AutoSize = True
+        FabricanteLabel.Location = New System.Drawing.Point(406, 22)
+        FabricanteLabel.Name = "FabricanteLabel"
+        FabricanteLabel.Size = New System.Drawing.Size(79, 17)
+        FabricanteLabel.TabIndex = 124
+        FabricanteLabel.Text = "Fabricante:"
+        '
         'ProductosBindingNavigator
         '
         Me.ProductosBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
@@ -433,6 +442,38 @@ Partial Class ABMProductos
         Me.ProductosDataGridView.Size = New System.Drawing.Size(1106, 234)
         Me.ProductosDataGridView.TabIndex = 19
         '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "codigoproducto"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Cod. Producto"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 127
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "marca"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Marca"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 76
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "modelo"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Producto"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 94
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "presentacion"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Presentación"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 120
+        '
         'RubrosBindingSource
         '
         Me.RubrosBindingSource.DataMember = "rubros"
@@ -454,7 +495,7 @@ Partial Class ABMProductos
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(100, 28)
-        Me.Button1.TabIndex = 10
+        Me.Button1.TabIndex = 11
         Me.Button1.Text = "Cargar Imagen"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -579,6 +620,15 @@ Partial Class ABMProductos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Producto"
         '
+        'FabricanteTextBox
+        '
+        Me.FabricanteTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FabricanteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "fabricante", True))
+        Me.FabricanteTextBox.Location = New System.Drawing.Point(491, 19)
+        Me.FabricanteTextBox.Name = "FabricanteTextBox"
+        Me.FabricanteTextBox.Size = New System.Drawing.Size(367, 22)
+        Me.FabricanteTextBox.TabIndex = 12
+        '
         'IvaComboBox
         '
         Me.IvaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "iva", True))
@@ -688,7 +738,7 @@ Partial Class ABMProductos
         Me.stockinicialtextbox.Location = New System.Drawing.Point(687, 80)
         Me.stockinicialtextbox.Name = "stockinicialtextbox"
         Me.stockinicialtextbox.Size = New System.Drawing.Size(91, 22)
-        Me.stockinicialtextbox.TabIndex = 13
+        Me.stockinicialtextbox.TabIndex = 16
         '
         'BPC4
         '
@@ -854,7 +904,7 @@ Partial Class ABMProductos
         Me.stockminimotextbox.Margin = New System.Windows.Forms.Padding(4)
         Me.stockminimotextbox.Name = "stockminimotextbox"
         Me.stockminimotextbox.Size = New System.Drawing.Size(91, 22)
-        Me.stockminimotextbox.TabIndex = 12
+        Me.stockminimotextbox.TabIndex = 14
         Me.stockminimotextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'codigoproductoTextBox
@@ -878,7 +928,7 @@ Partial Class ABMProductos
         Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(238, 24)
-        Me.ComboBox3.TabIndex = 11
+        Me.ComboBox3.TabIndex = 13
         Me.ComboBox3.ValueMember = "idrubro"
         '
         'IdproductoTextBox
@@ -899,7 +949,7 @@ Partial Class ABMProductos
         Me.DescripcionTextBox.Multiline = True
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
         Me.DescripcionTextBox.Size = New System.Drawing.Size(449, 53)
-        Me.DescripcionTextBox.TabIndex = 14
+        Me.DescripcionTextBox.TabIndex = 15
         '
         'GroupBox2
         '
@@ -959,56 +1009,6 @@ Partial Class ABMProductos
         'TipoivaTableAdapter
         '
         Me.TipoivaTableAdapter.ClearBeforeFill = True
-        '
-        'FabricanteLabel
-        '
-        FabricanteLabel.AutoSize = True
-        FabricanteLabel.Location = New System.Drawing.Point(406, 22)
-        FabricanteLabel.Name = "FabricanteLabel"
-        FabricanteLabel.Size = New System.Drawing.Size(79, 17)
-        FabricanteLabel.TabIndex = 124
-        FabricanteLabel.Text = "Fabricante:"
-        '
-        'FabricanteTextBox
-        '
-        Me.FabricanteTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FabricanteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "fabricante", True))
-        Me.FabricanteTextBox.Location = New System.Drawing.Point(491, 19)
-        Me.FabricanteTextBox.Name = "FabricanteTextBox"
-        Me.FabricanteTextBox.Size = New System.Drawing.Size(367, 22)
-        Me.FabricanteTextBox.TabIndex = 125
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "codigoproducto"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Cod. Producto"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 127
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "marca"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Marca"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 76
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "modelo"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Producto"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 94
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "presentacion"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Presentación"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 120
         '
         'ABMProductos
         '

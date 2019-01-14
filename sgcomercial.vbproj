@@ -714,22 +714,10 @@
     <Compile Include="Ventas\DetalleIngresos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventas\EditarCliente.Designer.vb">
-      <DependentUpon>EditarCliente.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Ventas\EditarCliente.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Ventas\LibroVentasDetalladas.Designer.vb">
       <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
     </Compile>
     <Compile Include="Ventas\LibroVentasDetalladas.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventas\PagoCombinado.Designer.vb">
-      <DependentUpon>PagoCombinado.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Ventas\PagoCombinado.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Utilidades\ReportesPlantilla\ImprimirPlantillas.Designer.vb">
@@ -1191,14 +1179,8 @@
     <EmbeddedResource Include="Ventas\DetalleIngresos.resx">
       <DependentUpon>DetalleIngresos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventas\EditarCliente.resx">
-      <DependentUpon>EditarCliente.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\LibroVentasDetalladas.resx">
       <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ventas\PagoCombinado.resx">
-      <DependentUpon>PagoCombinado.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilidades\ReportesPlantilla\ImprimirPlantillas.resx">
       <DependentUpon>ImprimirPlantillas.vb</DependentUpon>

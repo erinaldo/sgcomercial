@@ -237,7 +237,7 @@ Partial Class Cajasmovimientos
         Me.IdeventoDataGridViewTextBoxColumn.HeaderText = "N° Evento"
         Me.IdeventoDataGridViewTextBoxColumn.Name = "IdeventoDataGridViewTextBoxColumn"
         Me.IdeventoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdeventoDataGridViewTextBoxColumn.Width = 96
+        Me.IdeventoDataGridViewTextBoxColumn.Width = 104
         '
         'idcaja
         '
@@ -269,7 +269,7 @@ Partial Class Cajasmovimientos
         Me.SaldoinicialDataGridViewTextBoxColumn.HeaderText = "Saldo Inicial"
         Me.SaldoinicialDataGridViewTextBoxColumn.Name = "SaldoinicialDataGridViewTextBoxColumn"
         Me.SaldoinicialDataGridViewTextBoxColumn.ReadOnly = True
-        Me.SaldoinicialDataGridViewTextBoxColumn.Width = 106
+        Me.SaldoinicialDataGridViewTextBoxColumn.Width = 115
         '
         'SaldofinalDataGridViewTextBoxColumn
         '
@@ -277,7 +277,7 @@ Partial Class Cajasmovimientos
         Me.SaldofinalDataGridViewTextBoxColumn.HeaderText = "Saldo Final"
         Me.SaldofinalDataGridViewTextBoxColumn.Name = "SaldofinalDataGridViewTextBoxColumn"
         Me.SaldofinalDataGridViewTextBoxColumn.ReadOnly = True
-        Me.SaldofinalDataGridViewTextBoxColumn.Width = 101
+        Me.SaldofinalDataGridViewTextBoxColumn.Width = 110
         '
         'imprimircierre
         '
@@ -466,6 +466,7 @@ Partial Class Cajasmovimientos
         Me.Controls.Add(Me.ReportViewer3)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "Cajasmovimientos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

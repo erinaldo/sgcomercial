@@ -377,6 +377,7 @@ Partial Class DetalleIngresos
         Me.Controls.Add(Me.CajasoperacionesDataGridView)
         Me.Controls.Add(Me.GroupBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.Name = "DetalleIngresos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Detalle de Ingresos"

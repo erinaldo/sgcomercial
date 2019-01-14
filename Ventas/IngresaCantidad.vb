@@ -172,4 +172,20 @@ Public Class IngresaCantidad
         End Select
         calcular()
     End Sub
+
+    Private Sub IngresaCantidad_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
+        If e.KeyCode = Keys.F12 And Me.MaximizeBox = True Then
+            If Me.WindowState = FormWindowState.Normal Then
+                Me.WindowState = FormWindowState.Maximized
+            Else
+                Me.WindowState = FormWindowState.Normal
+            End If
+        End If
+        ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
 End Class

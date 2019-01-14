@@ -65,6 +65,8 @@ Partial Class CambioMultipleMV
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.NrocomprobanteTextBox = New System.Windows.Forms.TextBox()
         Me.idformapagocombo = New System.Windows.Forms.ComboBox()
         Me.FormaspagoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.btnConfirmar = New System.Windows.Forms.Button()
@@ -142,8 +144,6 @@ Partial Class CambioMultipleMV
         Me.DataGridViewTextBoxColumn69 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn70 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn71 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NrocomprobanteTextBox = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -480,6 +480,22 @@ Partial Class CambioMultipleMV
         Me.GroupBox5.TabIndex = 8
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Forma de pago"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(228, 35)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(80, 17)
+        Me.Label3.TabIndex = 10
+        Me.Label3.Text = "N° Compte."
+        '
+        'NrocomprobanteTextBox
+        '
+        Me.NrocomprobanteTextBox.Location = New System.Drawing.Point(311, 32)
+        Me.NrocomprobanteTextBox.Name = "NrocomprobanteTextBox"
+        Me.NrocomprobanteTextBox.Size = New System.Drawing.Size(99, 22)
+        Me.NrocomprobanteTextBox.TabIndex = 9
         '
         'idformapagocombo
         '
@@ -894,6 +910,7 @@ Partial Class CambioMultipleMV
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -916,6 +933,7 @@ Partial Class CambioMultipleMV
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Me.ProductosTableAdapter
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -927,6 +945,8 @@ Partial Class CambioMultipleMV
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -1034,22 +1054,6 @@ Partial Class CambioMultipleMV
         Me.DataGridViewTextBoxColumn71.HeaderText = "fechabaja"
         Me.DataGridViewTextBoxColumn71.Name = "DataGridViewTextBoxColumn71"
         '
-        'NrocomprobanteTextBox
-        '
-        Me.NrocomprobanteTextBox.Location = New System.Drawing.Point(311, 32)
-        Me.NrocomprobanteTextBox.Name = "NrocomprobanteTextBox"
-        Me.NrocomprobanteTextBox.Size = New System.Drawing.Size(99, 22)
-        Me.NrocomprobanteTextBox.TabIndex = 9
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(228, 35)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(80, 17)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "N° Compte."
-        '
         'CambioMultipleMV
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1064,6 +1068,7 @@ Partial Class CambioMultipleMV
         Me.Controls.Add(Me.ProductosDataGridView)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.KeyPreview = True
         Me.Name = "CambioMultipleMV"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "CambioMultipleMV"

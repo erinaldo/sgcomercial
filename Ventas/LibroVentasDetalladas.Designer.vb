@@ -39,10 +39,6 @@ Partial Class LibroVentasDetalladas
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LibroventasdetalleDataGridView = New System.Windows.Forms.DataGridView()
-        Me.LibroventasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.LibroventasdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasdetalleTableAdapter()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -51,6 +47,10 @@ Partial Class LibroVentasDetalladas
         Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.recargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LibroventasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.LibroventasdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasdetalleTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,7 +156,7 @@ Partial Class LibroVentasDetalladas
         Me.formapago.ReadOnly = True
         Me.formapago.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.formapago.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.formapago.Width = 104
+        Me.formapago.Width = 113
         '
         'DataGridViewTextBoxColumn8
         '
@@ -212,6 +212,73 @@ Partial Class LibroVentasDetalladas
         Me.LibroventasdetalleDataGridView.RowTemplate.Height = 24
         Me.LibroventasdetalleDataGridView.Size = New System.Drawing.Size(490, 479)
         Me.LibroventasdetalleDataGridView.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "idventa"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "idventa"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Visible = False
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "idproducto"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "idproducto"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Visible = False
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "Producto"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.Width = 94
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "cantidad"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "Cantidad"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        Me.DataGridViewTextBoxColumn12.Width = 93
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "precioventa"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "Precio"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Width = 77
+        '
+        'descuento
+        '
+        Me.descuento.DataPropertyName = "descuento"
+        Me.descuento.HeaderText = "Descuento"
+        Me.descuento.Name = "descuento"
+        Me.descuento.ReadOnly = True
+        Me.descuento.ToolTipText = "Descuento"
+        Me.descuento.Width = 105
+        '
+        'recargo
+        '
+        Me.recargo.DataPropertyName = "recargo"
+        Me.recargo.HeaderText = "Recargo"
+        Me.recargo.Name = "recargo"
+        Me.recargo.ReadOnly = True
+        Me.recargo.ToolTipText = "Recargo"
+        Me.recargo.Width = 91
+        '
+        'subtotal
+        '
+        Me.subtotal.DataPropertyName = "subtotal"
+        Me.subtotal.HeaderText = "SubTotal"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
+        Me.subtotal.ToolTipText = "SubTotal"
+        Me.subtotal.Width = 94
         '
         'LibroventasdetalleBindingSource
         '
@@ -288,73 +355,6 @@ Partial Class LibroVentasDetalladas
         '
         Me.LibroventasdetalleTableAdapter.ClearBeforeFill = True
         '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "idventa"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "idventa"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Visible = False
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "idproducto"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "idproducto"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        Me.DataGridViewTextBoxColumn10.Visible = False
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "descripcion"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Producto"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        Me.DataGridViewTextBoxColumn11.Width = 94
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "cantidad"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "Cantidad"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        Me.DataGridViewTextBoxColumn12.Width = 93
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "precioventa"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "Precio"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        Me.DataGridViewTextBoxColumn13.Width = 77
-        '
-        'descuento
-        '
-        Me.descuento.DataPropertyName = "descuento"
-        Me.descuento.HeaderText = "Descuento"
-        Me.descuento.Name = "descuento"
-        Me.descuento.ReadOnly = True
-        Me.descuento.ToolTipText = "Descuento"
-        Me.descuento.Width = 105
-        '
-        'recargo
-        '
-        Me.recargo.DataPropertyName = "recargo"
-        Me.recargo.HeaderText = "Recargo"
-        Me.recargo.Name = "recargo"
-        Me.recargo.ReadOnly = True
-        Me.recargo.ToolTipText = "Recargo"
-        Me.recargo.Width = 91
-        '
-        'subtotal
-        '
-        Me.subtotal.DataPropertyName = "subtotal"
-        Me.subtotal.HeaderText = "SubTotal"
-        Me.subtotal.Name = "subtotal"
-        Me.subtotal.ReadOnly = True
-        Me.subtotal.ToolTipText = "SubTotal"
-        Me.subtotal.Width = 94
-        '
         'LibroVentasDetalladas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -363,6 +363,7 @@ Partial Class LibroVentasDetalladas
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "LibroVentasDetalladas"
