@@ -71,6 +71,9 @@ Partial Class MiComercio
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.balprefix = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.EmailCierreCajaTo = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,6 +88,7 @@ Partial Class MiComercio
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -302,10 +306,12 @@ Partial Class MiComercio
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -328,6 +334,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -339,6 +346,8 @@ Partial Class MiComercio
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -442,7 +451,7 @@ Partial Class MiComercio
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.ComboBoxSaltoCarro)
-        Me.GroupBox4.Location = New System.Drawing.Point(672, 49)
+        Me.GroupBox4.Location = New System.Drawing.Point(672, 44)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(457, 68)
         Me.GroupBox4.TabIndex = 4
@@ -462,7 +471,7 @@ Partial Class MiComercio
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.ComboBoxvalidarstock)
-        Me.GroupBox5.Location = New System.Drawing.Point(674, 120)
+        Me.GroupBox5.Location = New System.Drawing.Point(674, 115)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(455, 68)
         Me.GroupBox5.TabIndex = 5
@@ -483,7 +492,7 @@ Partial Class MiComercio
         '
         Me.GroupBox6.Controls.Add(Me.TextBoxRecargoTC)
         Me.GroupBox6.Controls.Add(Me.Label5)
-        Me.GroupBox6.Location = New System.Drawing.Point(674, 194)
+        Me.GroupBox6.Location = New System.Drawing.Point(674, 189)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(455, 68)
         Me.GroupBox6.TabIndex = 6
@@ -510,7 +519,7 @@ Partial Class MiComercio
         '
         Me.GroupBox7.Controls.Add(Me.TextBoxRecargoCC)
         Me.GroupBox7.Controls.Add(Me.Label6)
-        Me.GroupBox7.Location = New System.Drawing.Point(674, 268)
+        Me.GroupBox7.Location = New System.Drawing.Point(674, 263)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(455, 68)
         Me.GroupBox7.TabIndex = 7
@@ -537,7 +546,7 @@ Partial Class MiComercio
         '
         Me.GroupBox8.Controls.Add(Me.balprefix)
         Me.GroupBox8.Controls.Add(Me.Label7)
-        Me.GroupBox8.Location = New System.Drawing.Point(674, 342)
+        Me.GroupBox8.Location = New System.Drawing.Point(674, 337)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(455, 68)
         Me.GroupBox8.TabIndex = 8
@@ -560,11 +569,39 @@ Partial Class MiComercio
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "Indicar un (1) caracter:"
         '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.EmailCierreCajaTo)
+        Me.GroupBox9.Controls.Add(Me.Label8)
+        Me.GroupBox9.Location = New System.Drawing.Point(9, 461)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(657, 65)
+        Me.GroupBox9.TabIndex = 9
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "E-Mail Automatico al cerrar la Caja"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(97, 31)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(134, 17)
+        Me.Label8.TabIndex = 0
+        Me.Label8.Text = "Dirección de E-Mail:"
+        '
+        'EmailCierreCajaTo
+        '
+        Me.EmailCierreCajaTo.Location = New System.Drawing.Point(237, 28)
+        Me.EmailCierreCajaTo.Name = "EmailCierreCajaTo"
+        Me.EmailCierreCajaTo.Size = New System.Drawing.Size(339, 22)
+        Me.EmailCierreCajaTo.TabIndex = 1
+        '
         'MiComercio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1141, 474)
+        Me.ClientSize = New System.Drawing.Size(1141, 540)
+        Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.GroupBox8)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)
@@ -601,6 +638,8 @@ Partial Class MiComercio
         Me.GroupBox7.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -653,4 +692,7 @@ Partial Class MiComercio
     Friend WithEvents GroupBox8 As GroupBox
     Friend WithEvents balprefix As TextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents GroupBox9 As GroupBox
+    Friend WithEvents EmailCierreCajaTo As TextBox
+    Friend WithEvents Label8 As Label
 End Class

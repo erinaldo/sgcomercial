@@ -79,6 +79,9 @@ Public Class MiComercio
         '***************    BalPrefix   ******************************************
         ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("BalPrefix", Nothing, balprefix.Text, Nothing)
         '***************    -----------     FIN     ------------  ******************************************
+        '***************    EmailCierreCajaTo   ******************************************
+        ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("EmailCierreCajaTo", Nothing, EmailCierreCajaTo.Text, Nothing)
+        '***************    -----------     FIN     ------------  ******************************************
 
 
     End Sub
@@ -154,6 +157,12 @@ Public Class MiComercio
         VBalPrefix = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("BalPrefix")
         balprefix.Text = VBalPrefix
         '**********
+        '********** EmailCierreCajaTo
+        Dim V_EmailCierreCajaTo As String
+        V_EmailCierreCajaTo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailCierreCajaTo")
+        EmailCierreCajaTo.Text = V_EmailCierreCajaTo
+        '**********
+        textnombrecomercio.Select()
     End Sub
     Private Sub enablebuttons(ByVal status As Boolean)
         textnombrecomercio.Enabled = status
