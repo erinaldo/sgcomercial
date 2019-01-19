@@ -389,4 +389,26 @@
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
     End Sub
+
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        Try
+            Select Case DataGridView1.Columns(e.ColumnIndex).Name
+                Case "quitar"
+                    DataGridView1.Rows.Remove(DataGridView1.CurrentRow)
+            End Select
+        Catch ex As Exception
+            MsgBox("No se pudo eliminar la fila")
+        End Try
+    End Sub
+
+    Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
+        Try
+            Select Case DataGridView2.Columns(e.ColumnIndex).Name
+                Case "quitar2"
+                    DataGridView2.Rows.Remove(DataGridView2.CurrentRow)
+            End Select
+        Catch ex As Exception
+            MsgBox("No se pudo eliminar la fila")
+        End Try
+    End Sub
 End Class

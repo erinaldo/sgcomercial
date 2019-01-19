@@ -250,8 +250,10 @@ Public Class RegistrarVenta
                 'INSERTAR EN VENTASDETALLE
                 '***************************************************
                 Try
-                    Dim recargo As Decimal
-                    recargo = VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value * recalocal / 100
+                    Dim recargo As Decimal = 0
+                    If IsDBNull(VentasdetalleDataGridView.Rows(i).Cells("recargo").Value) = False Then
+                        recargo = VentasdetalleDataGridView.Rows(i).Cells("recargo").Value
+                    End If
                     idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value), VentasdetalleDataGridView.Rows(i).Cells("listasprecios").Value, recargo, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("descuento").Value)) '// descuento
                 Catch ex As Exception
                     MsgBox("Error al grabar el detalle: " + ex.Message)
@@ -861,8 +863,8 @@ Public Class RegistrarVenta
                             recuento()
                         End If
                         If gdescuentoef > 0 Then
-                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("descuento").Value = Math.Round(gdescuentoef, 2)
-                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("subtotal").Value = monto - Math.Round(gdescuentoef, 2)
+                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("descuento").Value = String.Format("{0:n}", gdescuentoef)
+                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("subtotal").Value = monto - gdescuentoef
                             codigotextbox.SelectAll()
                             codigotextbox.Select()
                             gdescuentoef = 0
@@ -872,6 +874,7 @@ Public Class RegistrarVenta
                     Case "eliminar"
                         If VentasdetalleDataGridView.CurrentRow.Cells(2).Value > 1 Then
                             VentasdetalleDataGridView.CurrentRow.Cells(2).Value = VentasdetalleDataGridView.CurrentRow.Cells(2).Value - 1
+                            VentasdetalleDataGridView.Rows(e.RowIndex).Cells("descuento").Value = 0
                             VentasdetalleDataGridView.CurrentRow.Cells("subtotal").Value = VentasdetalleDataGridView.CurrentRow.Cells(2).Value * VentasdetalleDataGridView.CurrentRow.Cells(3).Value
 
                         Else
@@ -894,9 +897,15 @@ Public Class RegistrarVenta
 
         '********** RecargoTC
         grecargoTC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoTC")
+        grecargoCC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoCC")
+
         '**********
 
-        Dim cantidad As Integer = 0
+        Dim cantidad As Decimal = 0
+        Dim descuentolocal As Decimal
+        Dim recargolocal As Decimal
+        Dim subtotallocal As Decimal
+
         Dim i As Integer
         total = 0
 
@@ -905,21 +914,38 @@ Public Class RegistrarVenta
             precio = 0
             total = 0
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
-                cantidad = cantidad + VentasdetalleDataGridView.Rows(i).Cells(2).Value
-                precio = VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value
-                total = total + precio
-            Next
-            total = Decimal.Round(total, 2)
-            '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
-            If grecargoTC > 0 Then
-                If idformapagocombo.Text = "Tarjeta de Crédito" Or idformapagocombo2.Text = "Tarjeta de Crédito" Then ' aplicar recargo en todos los items
-                    total = total + (total * grecargoTC) / 100
-                    total = Math.Round(total, 2)
+                descuentolocal = 0
+                recargolocal = 0
+                cantidad = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value
+                precio = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
+                If VentasdetalleDataGridView.Rows(i).Cells("descuento").Value > 0 Then
+                    descuentolocal = VentasdetalleDataGridView.Rows(i).Cells("descuento").Value
                 End If
-            End If
-            '*********  FIN calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
-            '*****************************************************
-            'labelcantidad.Text = cantidad.ToString
+                VentasdetalleDataGridView.Rows(i).Cells("recargo").Value = String.Format("{0:n}", 0)
+                subtotallocal = (cantidad * precio) - descuentolocal
+                '*****************************************************
+                '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
+                If grecargoTC > 0 Then
+                    If idformapagocombo.Text = "Tarjeta de Crédito" Or idformapagocombo2.Text = "Tarjeta de Crédito" Then ' aplicar recargo en todos los items
+                        VentasdetalleDataGridView.Rows(i).Cells("recargo").Value = String.Format("{0:n}", (subtotallocal * grecargoTC) / 100)
+                        subtotallocal = subtotallocal + (subtotallocal * grecargoTC) / 100
+                        subtotallocal = Math.Round(subtotallocal, 2)
+                    End If
+                End If
+                If grecargoCC > 0 Then
+                    If idformapagocombo.Text = "Cuenta Corriente" Or idformapagocombo2.Text = "Cuenta Corriente" Then ' aplicar recargo en todos los items
+                        VentasdetalleDataGridView.Rows(i).Cells("recargo").Value = String.Format("{0:n}", (subtotallocal * grecargoCC) / 100)
+                        subtotallocal = subtotallocal + (subtotallocal * grecargoCC) / 100
+                        subtotallocal = Math.Round(subtotallocal, 2)
+                    End If
+                End If
+                '*********  FIN calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
+                '*****************************************************                
+                VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value = subtotallocal
+                total = total + subtotallocal
+                total = Decimal.Round(total, 2)
+            Next
+
             labeltotal.Text = total.ToString
             LabelTotalVisible.Text = "$ " + total.ToString
             '************ monto automatico DEBITO/CREDITO   *************
@@ -928,8 +954,10 @@ Public Class RegistrarVenta
                     pagotextbox.Text = total
                 Case "Tarjeta de Crédito"
                     pagotextbox.Text = total
-                    'Case Else
-                    '    pagotextbox.Text = Nothing
+                Case "Cuenta Corriente"
+                    pagotextbox.Text = total
+                Case Else
+                    pagotextbox.Text = total
             End Select
             Try
                 If CheckBoxFP2.Checked = True Then
@@ -1187,7 +1215,7 @@ Public Class RegistrarVenta
         If e.KeyCode = Keys.F3 Then
             BtnConfirmar.PerformClick()
         End If
-        If e.KeyCode = Keys.F4 Then
+        If e.KeyCode = Keys.F4 And codigotextbox.Enabled = True Then
             buscaproductomanual()
         End If
 

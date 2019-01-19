@@ -25,20 +25,10 @@ Partial Class CambioMultipleMV
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.codigoproducto2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.monto2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
@@ -144,6 +134,18 @@ Partial Class CambioMultipleMV
         Me.DataGridViewTextBoxColumn69 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn70 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn71 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.quitar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.codigoproducto2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.monto2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.quitar2 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -186,7 +188,7 @@ Partial Class CambioMultipleMV
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.descripcion, Me.cantidad, Me.monto, Me.subtotal})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.descripcion, Me.cantidad, Me.monto, Me.subtotal, Me.quitar})
         Me.DataGridView1.Location = New System.Drawing.Point(6, 79)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
@@ -194,34 +196,6 @@ Partial Class CambioMultipleMV
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(614, 249)
         Me.DataGridView1.TabIndex = 2
-        '
-        'codigoproducto
-        '
-        Me.codigoproducto.HeaderText = "Código"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        '
-        'monto
-        '
-        Me.monto.HeaderText = "Monto"
-        Me.monto.Name = "monto"
-        '
-        'subtotal
-        '
-        Me.subtotal.HeaderText = "Sub-total"
-        Me.subtotal.Name = "subtotal"
-        Me.subtotal.ReadOnly = True
         '
         'Label1
         '
@@ -260,7 +234,7 @@ Partial Class CambioMultipleMV
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto2, Me.descripcion2, Me.cantidad2, Me.monto2, Me.subtotal2})
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto2, Me.descripcion2, Me.cantidad2, Me.monto2, Me.subtotal2, Me.quitar2})
         Me.DataGridView2.Location = New System.Drawing.Point(12, 79)
         Me.DataGridView2.MultiSelect = False
         Me.DataGridView2.Name = "DataGridView2"
@@ -268,34 +242,6 @@ Partial Class CambioMultipleMV
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView2.Size = New System.Drawing.Size(614, 249)
         Me.DataGridView2.TabIndex = 3
-        '
-        'codigoproducto2
-        '
-        Me.codigoproducto2.HeaderText = "Código"
-        Me.codigoproducto2.Name = "codigoproducto2"
-        Me.codigoproducto2.ReadOnly = True
-        '
-        'descripcion2
-        '
-        Me.descripcion2.HeaderText = "Descripción"
-        Me.descripcion2.Name = "descripcion2"
-        Me.descripcion2.ReadOnly = True
-        '
-        'cantidad2
-        '
-        Me.cantidad2.HeaderText = "Cantidad"
-        Me.cantidad2.Name = "cantidad2"
-        '
-        'monto2
-        '
-        Me.monto2.HeaderText = "Monto"
-        Me.monto2.Name = "monto2"
-        '
-        'subtotal2
-        '
-        Me.subtotal2.HeaderText = "Sub-total"
-        Me.subtotal2.Name = "subtotal2"
-        Me.subtotal2.ReadOnly = True
         '
         'Label2
         '
@@ -1054,6 +1000,82 @@ Partial Class CambioMultipleMV
         Me.DataGridViewTextBoxColumn71.HeaderText = "fechabaja"
         Me.DataGridViewTextBoxColumn71.Name = "DataGridViewTextBoxColumn71"
         '
+        'codigoproducto
+        '
+        Me.codigoproducto.HeaderText = "Código"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        '
+        'monto
+        '
+        Me.monto.HeaderText = "Monto"
+        Me.monto.Name = "monto"
+        '
+        'subtotal
+        '
+        Me.subtotal.HeaderText = "Sub-total"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
+        '
+        'quitar
+        '
+        Me.quitar.HeaderText = "Quitar"
+        Me.quitar.Name = "quitar"
+        Me.quitar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.quitar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.quitar.Text = "Quitar"
+        Me.quitar.ToolTipText = "Quitar"
+        Me.quitar.UseColumnTextForButtonValue = True
+        '
+        'codigoproducto2
+        '
+        Me.codigoproducto2.HeaderText = "Código"
+        Me.codigoproducto2.Name = "codigoproducto2"
+        Me.codigoproducto2.ReadOnly = True
+        '
+        'descripcion2
+        '
+        Me.descripcion2.HeaderText = "Descripción"
+        Me.descripcion2.Name = "descripcion2"
+        Me.descripcion2.ReadOnly = True
+        '
+        'cantidad2
+        '
+        Me.cantidad2.HeaderText = "Cantidad"
+        Me.cantidad2.Name = "cantidad2"
+        '
+        'monto2
+        '
+        Me.monto2.HeaderText = "Monto"
+        Me.monto2.Name = "monto2"
+        '
+        'subtotal2
+        '
+        Me.subtotal2.HeaderText = "Sub-total"
+        Me.subtotal2.Name = "subtotal2"
+        Me.subtotal2.ReadOnly = True
+        '
+        'quitar2
+        '
+        Me.quitar2.HeaderText = "Quitar"
+        Me.quitar2.Name = "quitar2"
+        Me.quitar2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.quitar2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.quitar2.Text = "Quitar"
+        Me.quitar2.ToolTipText = "Quitar"
+        Me.quitar2.UseColumnTextForButtonValue = True
+        '
         'CambioMultipleMV
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1110,11 +1132,6 @@ Partial Class CambioMultipleMV
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
-    Friend WithEvents descripcion As DataGridViewTextBoxColumn
-    Friend WithEvents cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents monto As DataGridViewTextBoxColumn
-    Friend WithEvents subtotal As DataGridViewTextBoxColumn
     Friend WithEvents ComercialDataSet As comercialDataSet
     Friend WithEvents ProductosBindingSource As BindingSource
     Friend WithEvents ProductosTableAdapter As comercialDataSetTableAdapters.productosTableAdapter
@@ -1140,11 +1157,6 @@ Partial Class CambioMultipleMV
     Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents codigoproducto2 As DataGridViewTextBoxColumn
-    Friend WithEvents descripcion2 As DataGridViewTextBoxColumn
-    Friend WithEvents cantidad2 As DataGridViewTextBoxColumn
-    Friend WithEvents monto2 As DataGridViewTextBoxColumn
-    Friend WithEvents subtotal2 As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Button1 As Button
     Friend WithEvents GroupBox4 As GroupBox
@@ -1224,4 +1236,16 @@ Partial Class CambioMultipleMV
     Friend WithEvents DataGridViewTextBoxColumn71 As DataGridViewTextBoxColumn
     Friend WithEvents Label3 As Label
     Friend WithEvents NrocomprobanteTextBox As TextBox
+    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
+    Friend WithEvents descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents monto As DataGridViewTextBoxColumn
+    Friend WithEvents subtotal As DataGridViewTextBoxColumn
+    Friend WithEvents quitar As DataGridViewButtonColumn
+    Friend WithEvents codigoproducto2 As DataGridViewTextBoxColumn
+    Friend WithEvents descripcion2 As DataGridViewTextBoxColumn
+    Friend WithEvents cantidad2 As DataGridViewTextBoxColumn
+    Friend WithEvents monto2 As DataGridViewTextBoxColumn
+    Friend WithEvents subtotal2 As DataGridViewTextBoxColumn
+    Friend WithEvents quitar2 As DataGridViewButtonColumn
 End Class

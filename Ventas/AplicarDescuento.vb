@@ -34,6 +34,7 @@ Public Class AplicarDescuento
         Else
             TextBox2.Text = Nothing
             TextBox2.Enabled = True
+            TextBox2.Select()
         End If
     End Sub
 
@@ -49,7 +50,7 @@ Public Class AplicarDescuento
         If e.KeyCode = Keys.Enter Then
             gdescuentopc = 0
             gdescuentoef = TextBox2.Text
-            gdescuentoef = Decimal.Round(gdescuentoef, 2)
+            gdescuentoef = Convert.ToDecimal(gdescuentoef)
             Me.Close()
         End If
     End Sub
@@ -61,6 +62,7 @@ Public Class AplicarDescuento
         Else
             TextBox1.Text = Nothing
             TextBox1.Enabled = True
+            TextBox1.Select()
         End If
     End Sub
 

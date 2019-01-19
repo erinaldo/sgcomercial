@@ -32,14 +32,24 @@ Partial Class RegistrarVenta
         Dim Label7 As System.Windows.Forms.Label
         Dim Label5 As System.Windows.Forms.Label
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RegistrarVenta))
         Me.BtnNueva = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.PagosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PagosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.StockDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -49,7 +59,6 @@ Partial Class RegistrarVenta
         Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StockBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -88,14 +97,6 @@ Partial Class RegistrarVenta
         Me.codigotextbox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.VentasdetalleDataGridView = New System.Windows.Forms.DataGridView()
-        Me.codproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.listasprecios = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VentasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.FechavencimientoDateTimePicker = New System.Windows.Forms.DateTimePicker()
@@ -128,14 +129,7 @@ Partial Class RegistrarVenta
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ClientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesTableAdapter()
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
-        Me.PagosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PagosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pagosTableAdapter()
-        Me.PagosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
@@ -150,7 +144,15 @@ Partial Class RegistrarVenta
         Me.pagotextbox2 = New System.Windows.Forms.TextBox()
         Me.idformapagocombo2 = New System.Windows.Forms.ComboBox()
         Me.FormaspagoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.codproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.recargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.listasprecios = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdclienteLabel = New System.Windows.Forms.Label()
         FechaventaLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
@@ -160,9 +162,11 @@ Partial Class RegistrarVenta
         Label7 = New System.Windows.Forms.Label()
         Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -180,8 +184,6 @@ Partial Class RegistrarVenta
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FormaspagoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
-        CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GFP2.SuspendLayout()
         CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -201,7 +203,7 @@ Partial Class RegistrarVenta
         '
         FechaventaLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         FechaventaLabel.AutoSize = True
-        FechaventaLabel.Location = New System.Drawing.Point(556, 82)
+        FechaventaLabel.Location = New System.Drawing.Point(589, 82)
         FechaventaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         FechaventaLabel.Name = "FechaventaLabel"
         FechaventaLabel.Size = New System.Drawing.Size(92, 17)
@@ -232,7 +234,7 @@ Partial Class RegistrarVenta
         '
         NrocomprobanteLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         NrocomprobanteLabel.AutoSize = True
-        NrocomprobanteLabel.Location = New System.Drawing.Point(312, 121)
+        NrocomprobanteLabel.Location = New System.Drawing.Point(345, 121)
         NrocomprobanteLabel.Name = "NrocomprobanteLabel"
         NrocomprobanteLabel.Size = New System.Drawing.Size(117, 17)
         NrocomprobanteLabel.TabIndex = 17
@@ -261,7 +263,7 @@ Partial Class RegistrarVenta
         '
         Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Label5.AutoSize = True
-        Label5.Location = New System.Drawing.Point(567, 121)
+        Label5.Location = New System.Drawing.Point(600, 121)
         Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label5.Name = "Label5"
         Label5.Size = New System.Drawing.Size(76, 17)
@@ -281,6 +283,8 @@ Partial Class RegistrarVenta
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.PagosDataGridView)
         Me.GroupBox1.Controls.Add(Me.StockDataGridView)
         Me.GroupBox1.Controls.Add(Me.CajasoperacionesDataGridView)
         Me.GroupBox1.Controls.Add(Me.CajaseventosDataGridView)
@@ -292,10 +296,76 @@ Partial Class RegistrarVenta
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(200, 155)
+        Me.GroupBox1.Size = New System.Drawing.Size(200, 163)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Opciones"
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label6.Location = New System.Drawing.Point(16, 138)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(169, 18)
+        Me.Label6.TabIndex = 7
+        Me.Label6.Text = "Buscar producto (F4)"
+        '
+        'PagosDataGridView
+        '
+        Me.PagosDataGridView.AutoGenerateColumns = False
+        Me.PagosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.PagosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22})
+        Me.PagosDataGridView.DataSource = Me.PagosBindingSource
+        Me.PagosDataGridView.Location = New System.Drawing.Point(88, 135)
+        Me.PagosDataGridView.Margin = New System.Windows.Forms.Padding(4)
+        Me.PagosDataGridView.Name = "PagosDataGridView"
+        Me.PagosDataGridView.Size = New System.Drawing.Size(24, 15)
+        Me.PagosDataGridView.TabIndex = 4
+        Me.PagosDataGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.DataPropertyName = "idpagos"
+        Me.DataGridViewTextBoxColumn18.HeaderText = "idpagos"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        Me.DataGridViewTextBoxColumn18.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.DataPropertyName = "idventa"
+        Me.DataGridViewTextBoxColumn19.HeaderText = "idventa"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        '
+        'DataGridViewTextBoxColumn20
+        '
+        Me.DataGridViewTextBoxColumn20.DataPropertyName = "idcliente"
+        Me.DataGridViewTextBoxColumn20.HeaderText = "idcliente"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        '
+        'DataGridViewTextBoxColumn21
+        '
+        Me.DataGridViewTextBoxColumn21.DataPropertyName = "importe"
+        Me.DataGridViewTextBoxColumn21.HeaderText = "importe"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        '
+        'DataGridViewTextBoxColumn22
+        '
+        Me.DataGridViewTextBoxColumn22.DataPropertyName = "fechapago"
+        Me.DataGridViewTextBoxColumn22.HeaderText = "fechapago"
+        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
+        '
+        'PagosBindingSource
+        '
+        Me.PagosBindingSource.DataMember = "pagos"
+        Me.PagosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'StockDataGridView
         '
@@ -357,11 +427,6 @@ Partial Class RegistrarVenta
         '
         Me.StockBindingSource.DataMember = "stock"
         Me.StockBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CajasoperacionesDataGridView
         '
@@ -585,18 +650,17 @@ Partial Class RegistrarVenta
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.PictureBox1)
         Me.GroupBox2.Controls.Add(Me.stockdisp)
         Me.GroupBox2.Controls.Add(Me.Labelproducto)
         Me.GroupBox2.Controls.Add(Me.codigotextbox)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.VentasdetalleDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(16, 163)
+        Me.GroupBox2.Location = New System.Drawing.Point(16, 167)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1028, 355)
+        Me.GroupBox2.Size = New System.Drawing.Size(1061, 355)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -670,86 +734,19 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.VentasdetalleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.VentasdetalleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.VentasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codproducto, Me.descripcion, Me.cantidad, Me.precioventa, Me.descuento, Me.subtotal, Me.eliminar, Me.listasprecios})
+        Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codproducto, Me.descripcion, Me.cantidad, Me.precioventa, Me.descuento, Me.recargo, Me.subtotal, Me.eliminar, Me.listasprecios})
         Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(16, 58)
         Me.VentasdetalleDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.VentasdetalleDataGridView.MultiSelect = False
         Me.VentasdetalleDataGridView.Name = "VentasdetalleDataGridView"
         Me.VentasdetalleDataGridView.ReadOnly = True
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VentasdetalleDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VentasdetalleDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle7
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(991, 278)
+        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1024, 278)
         Me.VentasdetalleDataGridView.TabIndex = 0
-        '
-        'codproducto
-        '
-        Me.codproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.codproducto.HeaderText = "Cod. Producto"
-        Me.codproducto.Name = "codproducto"
-        Me.codproducto.ReadOnly = True
-        Me.codproducto.Width = 70
-        '
-        'descripcion
-        '
-        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 350
-        '
-        'cantidad
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle2
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        '
-        'precioventa
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "C2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle3
-        Me.precioventa.HeaderText = "Precio Venta"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        '
-        'descuento
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.descuento.DefaultCellStyle = DataGridViewCellStyle4
-        Me.descuento.HeaderText = "Descuento"
-        Me.descuento.Name = "descuento"
-        Me.descuento.ReadOnly = True
-        '
-        'subtotal
-        '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Format = "C2"
-        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle5
-        Me.subtotal.HeaderText = "Sub Total"
-        Me.subtotal.Name = "subtotal"
-        Me.subtotal.ReadOnly = True
-        '
-        'eliminar
-        '
-        Me.eliminar.HeaderText = ""
-        Me.eliminar.Name = "eliminar"
-        Me.eliminar.ReadOnly = True
-        Me.eliminar.Text = "Quitar"
-        Me.eliminar.UseColumnTextForButtonValue = True
-        '
-        'listasprecios
-        '
-        Me.listasprecios.HeaderText = "Lista de Precios"
-        Me.listasprecios.Name = "listasprecios"
-        Me.listasprecios.ReadOnly = True
-        Me.listasprecios.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.listasprecios.Visible = False
         '
         'VentasdetalleBindingSource
         '
@@ -778,7 +775,7 @@ Partial Class RegistrarVenta
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox3.Size = New System.Drawing.Size(820, 163)
+        Me.GroupBox3.Size = New System.Drawing.Size(853, 163)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Venta"
@@ -788,7 +785,7 @@ Partial Class RegistrarVenta
         Me.FechavencimientoDateTimePicker.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FechavencimientoDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.VentasBindingSource, "fechavencimiento", True))
         Me.FechavencimientoDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FechavencimientoDateTimePicker.Location = New System.Drawing.Point(653, 118)
+        Me.FechavencimientoDateTimePicker.Location = New System.Drawing.Point(686, 118)
         Me.FechavencimientoDateTimePicker.Margin = New System.Windows.Forms.Padding(4)
         Me.FechavencimientoDateTimePicker.Name = "FechavencimientoDateTimePicker"
         Me.FechavencimientoDateTimePicker.Size = New System.Drawing.Size(112, 23)
@@ -803,7 +800,7 @@ Partial Class RegistrarVenta
         '
         Me.NrocomprobanteTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.NrocomprobanteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VentasBindingSource, "nrocomprobante", True))
-        Me.NrocomprobanteTextBox.Location = New System.Drawing.Point(435, 118)
+        Me.NrocomprobanteTextBox.Location = New System.Drawing.Point(468, 118)
         Me.NrocomprobanteTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.NrocomprobanteTextBox.Name = "NrocomprobanteTextBox"
         Me.NrocomprobanteTextBox.Size = New System.Drawing.Size(123, 23)
@@ -837,7 +834,7 @@ Partial Class RegistrarVenta
         Me.Idtipocomprobantecombo.Location = New System.Drawing.Point(140, 78)
         Me.Idtipocomprobantecombo.Margin = New System.Windows.Forms.Padding(4)
         Me.Idtipocomprobantecombo.Name = "Idtipocomprobantecombo"
-        Me.Idtipocomprobantecombo.Size = New System.Drawing.Size(215, 25)
+        Me.Idtipocomprobantecombo.Size = New System.Drawing.Size(248, 25)
         Me.Idtipocomprobantecombo.TabIndex = 5
         Me.Idtipocomprobantecombo.ValueMember = "idtipocomprobante"
         '
@@ -871,7 +868,7 @@ Partial Class RegistrarVenta
         Me.idformapagocombo.Location = New System.Drawing.Point(100, 117)
         Me.idformapagocombo.Margin = New System.Windows.Forms.Padding(4)
         Me.idformapagocombo.Name = "idformapagocombo"
-        Me.idformapagocombo.Size = New System.Drawing.Size(201, 25)
+        Me.idformapagocombo.Size = New System.Drawing.Size(234, 25)
         Me.idformapagocombo.TabIndex = 7
         Me.idformapagocombo.ValueMember = "idformapago"
         '
@@ -894,7 +891,7 @@ Partial Class RegistrarVenta
         Me.FechaventaDateTimePicker.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FechaventaDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.VentasBindingSource, "fechaventa", True))
         Me.FechaventaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FechaventaDateTimePicker.Location = New System.Drawing.Point(653, 79)
+        Me.FechaventaDateTimePicker.Location = New System.Drawing.Point(686, 79)
         Me.FechaventaDateTimePicker.Margin = New System.Windows.Forms.Padding(4)
         Me.FechaventaDateTimePicker.Name = "FechaventaDateTimePicker"
         Me.FechaventaDateTimePicker.Size = New System.Drawing.Size(112, 23)
@@ -998,7 +995,7 @@ Partial Class RegistrarVenta
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox4.Size = New System.Drawing.Size(1028, 62)
+        Me.GroupBox4.Size = New System.Drawing.Size(1061, 62)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Resumen"
@@ -1113,58 +1110,9 @@ Partial Class RegistrarVenta
         '
         Me.CajaseventosTableAdapter.ClearBeforeFill = True
         '
-        'PagosBindingSource
-        '
-        Me.PagosBindingSource.DataMember = "pagos"
-        Me.PagosBindingSource.DataSource = Me.ComercialDataSet
-        '
         'PagosTableAdapter
         '
         Me.PagosTableAdapter.ClearBeforeFill = True
-        '
-        'PagosDataGridView
-        '
-        Me.PagosDataGridView.AutoGenerateColumns = False
-        Me.PagosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.PagosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22})
-        Me.PagosDataGridView.DataSource = Me.PagosBindingSource
-        Me.PagosDataGridView.Location = New System.Drawing.Point(104, 138)
-        Me.PagosDataGridView.Margin = New System.Windows.Forms.Padding(4)
-        Me.PagosDataGridView.Name = "PagosDataGridView"
-        Me.PagosDataGridView.Size = New System.Drawing.Size(24, 15)
-        Me.PagosDataGridView.TabIndex = 4
-        Me.PagosDataGridView.Visible = False
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.DataPropertyName = "idpagos"
-        Me.DataGridViewTextBoxColumn18.HeaderText = "idpagos"
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        Me.DataGridViewTextBoxColumn18.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn19
-        '
-        Me.DataGridViewTextBoxColumn19.DataPropertyName = "idventa"
-        Me.DataGridViewTextBoxColumn19.HeaderText = "idventa"
-        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
-        '
-        'DataGridViewTextBoxColumn20
-        '
-        Me.DataGridViewTextBoxColumn20.DataPropertyName = "idcliente"
-        Me.DataGridViewTextBoxColumn20.HeaderText = "idcliente"
-        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "importe"
-        Me.DataGridViewTextBoxColumn21.HeaderText = "importe"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.DataPropertyName = "fechapago"
-        Me.DataGridViewTextBoxColumn22.HeaderText = "fechapago"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
         '
         'CajasoperacionesTableAdapter
         '
@@ -1210,7 +1158,7 @@ Partial Class RegistrarVenta
         Me.GFP2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GFP2.Name = "GFP2"
         Me.GFP2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GFP2.Size = New System.Drawing.Size(1028, 62)
+        Me.GFP2.Size = New System.Drawing.Size(1061, 62)
         Me.GFP2.TabIndex = 5
         Me.GFP2.TabStop = False
         Me.GFP2.Text = "Segundo medio de pago"
@@ -1279,23 +1227,93 @@ Partial Class RegistrarVenta
         Me.FormaspagoBindingSource1.DataMember = "formaspago"
         Me.FormaspagoBindingSource1.DataSource = Me.ComercialDataSet
         '
-        'Label6
+        'codproducto
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label6.Location = New System.Drawing.Point(822, 34)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(189, 20)
-        Me.Label6.TabIndex = 6
-        Me.Label6.Text = "Buscar producto (F4)"
+        Me.codproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.codproducto.HeaderText = "Cod. Producto"
+        Me.codproducto.Name = "codproducto"
+        Me.codproducto.ReadOnly = True
+        Me.codproducto.Width = 70
+        '
+        'descripcion
+        '
+        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 350
+        '
+        'cantidad
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.Width = 93
+        '
+        'precioventa
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle3
+        Me.precioventa.HeaderText = "Precio Venta"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.Width = 109
+        '
+        'descuento
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.descuento.DefaultCellStyle = DataGridViewCellStyle4
+        Me.descuento.HeaderText = "Descuento"
+        Me.descuento.Name = "descuento"
+        Me.descuento.ReadOnly = True
+        Me.descuento.Width = 105
+        '
+        'recargo
+        '
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.recargo.DefaultCellStyle = DataGridViewCellStyle5
+        Me.recargo.HeaderText = "Recargo"
+        Me.recargo.Name = "recargo"
+        Me.recargo.ReadOnly = True
+        Me.recargo.Width = 91
+        '
+        'subtotal
+        '
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "C2"
+        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle6
+        Me.subtotal.HeaderText = "Sub Total"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
+        Me.subtotal.Width = 91
+        '
+        'eliminar
+        '
+        Me.eliminar.HeaderText = ""
+        Me.eliminar.Name = "eliminar"
+        Me.eliminar.ReadOnly = True
+        Me.eliminar.Text = "Quitar"
+        Me.eliminar.UseColumnTextForButtonValue = True
+        Me.eliminar.Width = 5
+        '
+        'listasprecios
+        '
+        Me.listasprecios.HeaderText = "Lista de Precios"
+        Me.listasprecios.Name = "listasprecios"
+        Me.listasprecios.ReadOnly = True
+        Me.listasprecios.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.listasprecios.Visible = False
         '
         'RegistrarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1059, 651)
+        Me.ClientSize = New System.Drawing.Size(1092, 651)
         Me.Controls.Add(Me.GFP2)
-        Me.Controls.Add(Me.PagosDataGridView)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -1309,9 +1327,12 @@ Partial Class RegistrarVenta
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registrar Venta"
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1332,8 +1353,6 @@ Partial Class RegistrarVenta
         CType(Me.FormaspagoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GFP2.ResumeLayout(False)
         Me.GFP2.PerformLayout()
@@ -1446,13 +1465,14 @@ Partial Class RegistrarVenta
     Friend WithEvents CheckBoxFP2 As CheckBox
     Friend WithEvents FormaspagoBindingSource1 As BindingSource
     Friend WithEvents FechavencimientoDateTimePicker As DateTimePicker
+    Friend WithEvents Label6 As Label
     Friend WithEvents codproducto As DataGridViewTextBoxColumn
     Friend WithEvents descripcion As DataGridViewTextBoxColumn
     Friend WithEvents cantidad As DataGridViewTextBoxColumn
     Friend WithEvents precioventa As DataGridViewTextBoxColumn
     Friend WithEvents descuento As DataGridViewTextBoxColumn
+    Friend WithEvents recargo As DataGridViewTextBoxColumn
     Friend WithEvents subtotal As DataGridViewTextBoxColumn
     Friend WithEvents eliminar As DataGridViewButtonColumn
     Friend WithEvents listasprecios As DataGridViewTextBoxColumn
-    Friend WithEvents Label6 As Label
 End Class
