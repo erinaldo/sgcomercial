@@ -35,7 +35,6 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub RegistrarVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.KeyPreview = True
 
         'Me.WindowState = FormWindowState.Maximized
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
@@ -92,6 +91,11 @@ Public Class RegistrarVenta
         '********************************************************************************************************
         '********** GBalPrefix
         gbalprefix = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("BalPrefix")
+        '********************************************************************************************************
+        'idformapagocombo2.Items.Remove(idformapagocombo2.FindString("Cuenta Corriente"))
+        'idformapagocombo2.Items.RemoveAt(idformapagocombo2.FindString("Cuenta Corriente"))
+        'idformapagocombo2.Items.RemoveAt(idformapagocombo2.FindString("Otros"))
+        'idformapagocombo2.Items.RemoveAt(idformapagocombo2.FindString("Cheque"))
     End Sub
     Private Sub enablefields(ByRef status As Boolean)
         'IdventaTextBox.Enabled = status
@@ -1286,6 +1290,11 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxFP2.CheckedChanged
+        If idformapagocombo.Text = "Cuenta Corriente" Then
+            MsgBox("No se permite segunda forma de pago cuando la principal es Cuenta Corriente", MsgBoxStyle.Exclamation, "Advertencia")
+            CheckBoxFP2.Checked = False
+            Return
+        End If
         '********************************************
         If CheckBoxFP2.Checked = True Then
             idformapagocombo2.Enabled = CheckBoxFP2.Checked
@@ -1337,6 +1346,11 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub idformapagocombo2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles idformapagocombo2.SelectedIndexChanged
+        If idformapagocombo2.Text = "Cuenta Corriente" Or idformapagocombo2.Text = "Otros" Or idformapagocombo2.Text = "Cheque" Then
+            MsgBox("Forma de pago no permitida en esta instancia", MsgBoxStyle.Exclamation, "Advertencia")
+            idformapagocombo2.SelectedIndex = -1
+            Return
+        End If
         recuento()
         '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
         If grecargoTC > 0 Then
@@ -1376,6 +1390,15 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub RegistrarVenta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
+
+    End Sub
+
+    Private Sub FillBySegundaFPToolStripButton_Click(sender As Object, e As EventArgs) Handles FillBySegundaFPToolStripButton.Click
+        Try
+            Me.FormaspagoTableAdapter.FillBySegundaFP(Me.ComercialDataSet.formaspago)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 End Class

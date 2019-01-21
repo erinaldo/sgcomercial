@@ -118,7 +118,7 @@ Public Class Principal
                 End If
             Next
             ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
-            PermisoVtaCC = PermisosTableAdapter.permisos_consultabyidfuncion(guserprofile, 44)
+            PermisoVtaCC = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "RegistrarVentaCuentaCorriente")
         Catch ex As Exception
             MsgBox("Ocurrio un excepción mientras se realizaba la acción:" + ex.Message)
         End Try
@@ -151,6 +151,10 @@ Public Class Principal
                 otroItem.Visible = True
                 otroItem.Enabled = True
             Else
+                otroItem.Visible = False
+                otroItem.Enabled = False
+            End If
+            If otroItem.Name = "RegistrarVentaACuentaCorrienteToolStripMenuItem" Then
                 otroItem.Visible = False
                 otroItem.Enabled = False
             End If
@@ -704,8 +708,27 @@ Public Class Principal
     End Sub
 
     Private Sub RegistrarVentaACuentaCorrienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarVentaACuentaCorrienteToolStripMenuItem.Click
-        RegistrarVentaCC.MdiParent = Me
-        RegistrarVentaCC.Visible = True
+        'RegistrarVentaCC.MdiParent = Me
+        'RegistrarVentaCC.Visible = True
+        '***************    consultar el estado de caja *************
+        gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
+        If gidcaja = 0 Then
+            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
+
+        Dim idevento As Integer
+        'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
+        'lblCaja.Text = "Caja Nº: " + idcaja.ToString
+        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
+
+        If idevento = 0 Then
+            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+        Else
+            RegistrarVenta.MdiParent = Me
+            RegistrarVenta.Visible = True
+        End If
+        '***************    FIN consultar el estado de caja *************
     End Sub
 
     Private Sub MovimientosDeStockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MovimientosDeStockToolStripMenuItem.Click

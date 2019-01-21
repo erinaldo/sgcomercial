@@ -97,6 +97,15 @@ Partial Class RegistrarVenta
         Me.codigotextbox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.VentasdetalleDataGridView = New System.Windows.Forms.DataGridView()
+        Me.codproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.recargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.listasprecios = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VentasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.FechavencimientoDateTimePicker = New System.Windows.Forms.DateTimePicker()
@@ -144,15 +153,8 @@ Partial Class RegistrarVenta
         Me.pagotextbox2 = New System.Windows.Forms.TextBox()
         Me.idformapagocombo2 = New System.Windows.Forms.ComboBox()
         Me.FormaspagoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.codproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.recargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.listasprecios = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FillBySegundaFPToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.FillBySegundaFPToolStripButton = New System.Windows.Forms.ToolStripButton()
         IdclienteLabel = New System.Windows.Forms.Label()
         FechaventaLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
@@ -187,6 +189,7 @@ Partial Class RegistrarVenta
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GFP2.SuspendLayout()
         CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FillBySegundaFPToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -660,7 +663,7 @@ Partial Class RegistrarVenta
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1061, 355)
+        Me.GroupBox2.Size = New System.Drawing.Size(1061, 366)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -745,8 +748,89 @@ Partial Class RegistrarVenta
         DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VentasdetalleDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle7
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1024, 278)
+        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1024, 289)
         Me.VentasdetalleDataGridView.TabIndex = 0
+        '
+        'codproducto
+        '
+        Me.codproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.codproducto.HeaderText = "Cod. Producto"
+        Me.codproducto.Name = "codproducto"
+        Me.codproducto.ReadOnly = True
+        Me.codproducto.Width = 70
+        '
+        'descripcion
+        '
+        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 350
+        '
+        'cantidad
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.Width = 93
+        '
+        'precioventa
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle3
+        Me.precioventa.HeaderText = "Precio Venta"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.Width = 118
+        '
+        'descuento
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.descuento.DefaultCellStyle = DataGridViewCellStyle4
+        Me.descuento.HeaderText = "Descuento"
+        Me.descuento.Name = "descuento"
+        Me.descuento.ReadOnly = True
+        Me.descuento.Width = 105
+        '
+        'recargo
+        '
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.recargo.DefaultCellStyle = DataGridViewCellStyle5
+        Me.recargo.HeaderText = "Recargo"
+        Me.recargo.Name = "recargo"
+        Me.recargo.ReadOnly = True
+        Me.recargo.Width = 91
+        '
+        'subtotal
+        '
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "C2"
+        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle6
+        Me.subtotal.HeaderText = "Sub Total"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
+        Me.subtotal.Width = 98
+        '
+        'eliminar
+        '
+        Me.eliminar.HeaderText = ""
+        Me.eliminar.Name = "eliminar"
+        Me.eliminar.ReadOnly = True
+        Me.eliminar.Text = "Quitar"
+        Me.eliminar.UseColumnTextForButtonValue = True
+        Me.eliminar.Width = 5
+        '
+        'listasprecios
+        '
+        Me.listasprecios.HeaderText = "Lista de Precios"
+        Me.listasprecios.Name = "listasprecios"
+        Me.listasprecios.ReadOnly = True
+        Me.listasprecios.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.listasprecios.Visible = False
         '
         'VentasdetalleBindingSource
         '
@@ -991,7 +1075,7 @@ Partial Class RegistrarVenta
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.labeltotal)
         Me.GroupBox4.Controls.Add(Me.Label3)
-        Me.GroupBox4.Location = New System.Drawing.Point(16, 520)
+        Me.GroupBox4.Location = New System.Drawing.Point(16, 531)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
@@ -1158,7 +1242,7 @@ Partial Class RegistrarVenta
         Me.GFP2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GFP2.Name = "GFP2"
         Me.GFP2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GFP2.Size = New System.Drawing.Size(1061, 62)
+        Me.GFP2.Size = New System.Drawing.Size(1061, 73)
         Me.GFP2.TabIndex = 5
         Me.GFP2.TabStop = False
         Me.GFP2.Text = "Segundo medio de pago"
@@ -1227,92 +1311,29 @@ Partial Class RegistrarVenta
         Me.FormaspagoBindingSource1.DataMember = "formaspago"
         Me.FormaspagoBindingSource1.DataSource = Me.ComercialDataSet
         '
-        'codproducto
+        'FillBySegundaFPToolStrip
         '
-        Me.codproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.codproducto.HeaderText = "Cod. Producto"
-        Me.codproducto.Name = "codproducto"
-        Me.codproducto.ReadOnly = True
-        Me.codproducto.Width = 70
+        Me.FillBySegundaFPToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.FillBySegundaFPToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillBySegundaFPToolStripButton})
+        Me.FillBySegundaFPToolStrip.Location = New System.Drawing.Point(0, 0)
+        Me.FillBySegundaFPToolStrip.Name = "FillBySegundaFPToolStrip"
+        Me.FillBySegundaFPToolStrip.Size = New System.Drawing.Size(1092, 27)
+        Me.FillBySegundaFPToolStrip.TabIndex = 6
+        Me.FillBySegundaFPToolStrip.Text = "FillBySegundaFPToolStrip"
         '
-        'descripcion
+        'FillBySegundaFPToolStripButton
         '
-        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 350
-        '
-        'cantidad
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle2
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        Me.cantidad.Width = 93
-        '
-        'precioventa
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "C2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle3
-        Me.precioventa.HeaderText = "Precio Venta"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        Me.precioventa.Width = 109
-        '
-        'descuento
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.descuento.DefaultCellStyle = DataGridViewCellStyle4
-        Me.descuento.HeaderText = "Descuento"
-        Me.descuento.Name = "descuento"
-        Me.descuento.ReadOnly = True
-        Me.descuento.Width = 105
-        '
-        'recargo
-        '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.recargo.DefaultCellStyle = DataGridViewCellStyle5
-        Me.recargo.HeaderText = "Recargo"
-        Me.recargo.Name = "recargo"
-        Me.recargo.ReadOnly = True
-        Me.recargo.Width = 91
-        '
-        'subtotal
-        '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Format = "C2"
-        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle6
-        Me.subtotal.HeaderText = "Sub Total"
-        Me.subtotal.Name = "subtotal"
-        Me.subtotal.ReadOnly = True
-        Me.subtotal.Width = 91
-        '
-        'eliminar
-        '
-        Me.eliminar.HeaderText = ""
-        Me.eliminar.Name = "eliminar"
-        Me.eliminar.ReadOnly = True
-        Me.eliminar.Text = "Quitar"
-        Me.eliminar.UseColumnTextForButtonValue = True
-        Me.eliminar.Width = 5
-        '
-        'listasprecios
-        '
-        Me.listasprecios.HeaderText = "Lista de Precios"
-        Me.listasprecios.Name = "listasprecios"
-        Me.listasprecios.ReadOnly = True
-        Me.listasprecios.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.listasprecios.Visible = False
+        Me.FillBySegundaFPToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillBySegundaFPToolStripButton.Name = "FillBySegundaFPToolStripButton"
+        Me.FillBySegundaFPToolStripButton.Size = New System.Drawing.Size(121, 24)
+        Me.FillBySegundaFPToolStripButton.Text = "FillBySegundaFP"
         '
         'RegistrarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1092, 651)
+        Me.ClientSize = New System.Drawing.Size(1092, 662)
+        Me.Controls.Add(Me.FillBySegundaFPToolStrip)
         Me.Controls.Add(Me.GFP2)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -1357,7 +1378,10 @@ Partial Class RegistrarVenta
         Me.GFP2.ResumeLayout(False)
         Me.GFP2.PerformLayout()
         CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FillBySegundaFPToolStrip.ResumeLayout(False)
+        Me.FillBySegundaFPToolStrip.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents BtnNueva As System.Windows.Forms.Button
@@ -1475,4 +1499,6 @@ Partial Class RegistrarVenta
     Friend WithEvents subtotal As DataGridViewTextBoxColumn
     Friend WithEvents eliminar As DataGridViewButtonColumn
     Friend WithEvents listasprecios As DataGridViewTextBoxColumn
+    Friend WithEvents FillBySegundaFPToolStrip As ToolStrip
+    Friend WithEvents FillBySegundaFPToolStripButton As ToolStripButton
 End Class
