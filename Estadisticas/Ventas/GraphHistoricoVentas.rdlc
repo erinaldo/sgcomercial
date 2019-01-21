@@ -13,6 +13,9 @@
               </Group>
               <SortExpressions>
                 <SortExpression>
+                  <Value>=Fields!fecha.Value</Value>
+                </SortExpression>
+                <SortExpression>
                   <Value>=Fields!mes.Value</Value>
                 </SortExpression>
               </SortExpressions>
@@ -36,7 +39,10 @@
                     <Y>=Sum(Fields!importe.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
-                    <Style />
+                    <Style>
+                      <Format>'$'#,0.00;('$'#,0.00)</Format>
+                      <rd:FormatSymbolCulture>es-AR</rd:FormatSymbolCulture>
+                    </Style>
                     <UseValueAsLabel>true</UseValueAsLabel>
                     <Visible>true</Visible>
                   </ChartDataLabel>
@@ -163,6 +169,8 @@
               <ChartAxis Name="Primary">
                 <Style>
                   <FontSize>8pt</FontSize>
+                  <Format>'$'#,0.00;('$'#,0.00)</Format>
+                  <rd:FormatSymbolCulture>es-AR</rd:FormatSymbolCulture>
                 </Style>
                 <ChartAxisTitle>
                   <Caption>Monto en ventas</Caption>
