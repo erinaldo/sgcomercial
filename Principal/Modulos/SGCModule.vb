@@ -12,6 +12,7 @@
     Public glocalidadseleccionada As Int64
     Public gprovinciaseleccionada As Int64
     Public gpagocombinadoconfirmado As Boolean
+    Public gModuloClowd As Long
 
     '************************************************
     Public FormPrincipal As Principal

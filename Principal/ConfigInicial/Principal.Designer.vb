@@ -119,6 +119,7 @@ Partial Class Principal
         Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NubeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -180,6 +181,8 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubirProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -202,13 +205,13 @@ Partial Class Principal
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SincronizarToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SincronizarToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 58)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 85)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -924,6 +927,14 @@ Partial Class Principal
         Me.Alerta2ToolStripMenuItem.Text = "Alerta2"
         Me.Alerta2ToolStripMenuItem.Visible = False
         '
+        'NubeToolStripMenuItem
+        '
+        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.DescargarProductosToolStripMenuItem})
+        Me.NubeToolStripMenuItem.Name = "NubeToolStripMenuItem"
+        Me.NubeToolStripMenuItem.Size = New System.Drawing.Size(141, 27)
+        Me.NubeToolStripMenuItem.Tag = "ModuloClowd"
+        Me.NubeToolStripMenuItem.Text = "Recursos Clowd"
+        '
         'ParametrosgeneralesDataGridView
         '
         Me.ParametrosgeneralesDataGridView.AutoGenerateColumns = False
@@ -1407,6 +1418,20 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
         Me.DataGridViewTextBoxColumn22.ReadOnly = True
         '
+        'SubirProductosToolStripMenuItem
+        '
+        Me.SubirProductosToolStripMenuItem.Name = "SubirProductosToolStripMenuItem"
+        Me.SubirProductosToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.SubirProductosToolStripMenuItem.Tag = "SubirProductosClowd"
+        Me.SubirProductosToolStripMenuItem.Text = "Subir Productos"
+        '
+        'DescargarProductosToolStripMenuItem
+        '
+        Me.DescargarProductosToolStripMenuItem.Name = "DescargarProductosToolStripMenuItem"
+        Me.DescargarProductosToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.DescargarProductosToolStripMenuItem.Tag = "DescargarProductosClowd"
+        Me.DescargarProductosToolStripMenuItem.Text = "Descargar Productos"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1610,4 +1635,7 @@ Partial Class Principal
     Friend WithEvents MisVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MisClientesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MisProveedoresToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NubeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SubirProductosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DescargarProductosToolStripMenuItem As ToolStripMenuItem
 End Class

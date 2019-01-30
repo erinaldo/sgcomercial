@@ -24,7 +24,7 @@ Module MySQLModule
             status = False
         End Try
     End Sub
-
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SynClientes()
         '***************************************
         '********************** verificar conexion al servidor ************************
@@ -121,9 +121,7 @@ Module MySQLModule
             MsgBox("Advertencia! " + ex.Message, MsgBoxStyle.Exclamation)
         End Try
     End Sub
-    '***************************************************************
-    '********************** syncro Pedidos  ************************
-    '***************************************************************
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SynPedidos()
         '***************************************
         '********************** verificar conexion al servidor ************************
@@ -263,6 +261,7 @@ Module MySQLModule
             MsgBox("Advertencia! " + ex.Message, MsgBoxStyle.Exclamation)
         End Try
     End Sub
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub UpdEstadoPedidoWeb(estado As String, idpedidoweb As Long)
         '***************************************
         '********************** verificar conexion al servidor ************************
@@ -287,6 +286,280 @@ Module MySQLModule
             ErrorLogTableAdapter.errorlog_insertar("UpdEstadoPedidoWeb", "APLICACION", "UpdEstadoPedidoWeb", ex.Message)
             MsgBox("No se pudo actualizar el estado WEB del pedido: " + ex.Message)
         End Try
+    End Sub
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Public Sub PushProducto(ByVal codigoproducto As Long, ByRef coderror As String, ByRef msgerror As String)
+        Cursor.Current = Cursors.WaitCursor
+        '***************************************
+        '********************** verificar conexion al servidor ************************
+        '***************************************
+        Dim status As Boolean
+        conectarMySQL(status)
+        If status = False Then
+            coderror = 1
+            msgerror = "Not se pudo conectar al servidor remoto"
+            Return
+        End If
+        Try
+            Dim ProductosWEBTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
+            ProductosWEBTableAdapter = New MySQLDataSetTableAdapters.productosTableAdapter()
+            Dim ProductosTableAdapter As comercialDataSetTableAdapters.productosTableAdapter
+            ProductosTableAdapter = New comercialDataSetTableAdapters.productosTableAdapter()
+            '-----------------------------------------------------------------------------------
+            Dim ProductosTable As comercialDataSet.productosDataTable
+            Dim idproductoweb As Long
+            Dim idproductolocal As Long
+            '-----------------------------------------------------------------------------------
+            idproductoweb = ProductosWEBTableAdapter.productos_existeproducto(codigoproducto)
+            idproductolocal = ProductosTableAdapter.productos_existeproducto(codigoproducto)
+            ProductosTable = ProductosTableAdapter.GetDataByidproducto(idproductolocal)
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            'Dim codigoproducto As String
+            'codigoproducto = ProductosTable.Rows(0).Item(ProductosTable.Columns("codigoproducto"))
+            Dim marca As String
+            marca = ProductosTable.Rows(0).Item(ProductosTable.Columns("marca"))
+            '-----------------------------------------------------------------------------------
+            Dim modelo As String
+            modelo = ProductosTable.Rows(0).Item(ProductosTable.Columns("modelo"))
+            '-----------------------------------------------------------------------------------
+            Dim presentacion As String
+            presentacion = ProductosTable.Rows(0).Item(ProductosTable.Columns("presentacion"))
+            '-----------------------------------------------------------------------------------
+            Dim unidadmedida As Int16
+            unidadmedida = ProductosTable.Rows(0).Item(ProductosTable.Columns("unidadmedida"))
+            '-----------------------------------------------------------------------------------
+            Dim medida As Decimal
+            medida = ProductosTable.Rows(0).Item(ProductosTable.Columns("medida"))
+            '-----------------------------------------------------------------------------------
+            Dim descripcion As String
+            If IsDBNull(ProductosTable.Rows(0).Item(ProductosTable.Columns("descripcion"))) Then
+                descripcion = Nothing
+            Else
+                descripcion = ProductosTable.Rows(0).Item(ProductosTable.Columns("descripcion"))
+            End If
+            '-----------------------------------------------------------------------------------
+            Dim preciocosto As Decimal
+            preciocosto = ProductosTable.Rows(0).Item(ProductosTable.Columns("preciocosto"))
+            '-----------------------------------------------------------------------------------
+            Dim precioventa As Decimal
+            precioventa = ProductosTable.Rows(0).Item(ProductosTable.Columns("precioventa"))
+            '-----------------------------------------------------------------------------------
+            Dim stockminimo As Decimal
+            stockminimo = ProductosTable.Rows(0).Item(ProductosTable.Columns("stockminimo"))
+            '-----------------------------------------------------------------------------------
+            Dim precioventamayorista As Decimal
+            precioventamayorista = ProductosTable.Rows(0).Item(ProductosTable.Columns("precioventamayorista"))
+            '-----------------------------------------------------------------------------------
+            Dim precioventagranel As Decimal
+            precioventagranel = ProductosTable.Rows(0).Item(ProductosTable.Columns("precioventagranel"))
+            '-----------------------------------------------------------------------------------
+            Dim precioventadistribuidor As Decimal
+            precioventadistribuidor = ProductosTable.Rows(0).Item(ProductosTable.Columns("precioventadistribuidor"))
+            '-----------------------------------------------------------------------------------
+            Dim idrubro As Integer
+            idrubro = ProductosTable.Rows(0).Item(ProductosTable.Columns("idrubro"))
+            '-----------------------------------------------------------------------------------
+            Dim iva As Decimal
+            If IsDBNull(ProductosTable.Rows(0).Item(ProductosTable.Columns("iva"))) Then
+                iva = Nothing
+            Else
+                iva = ProductosTable.Rows(0).Item(ProductosTable.Columns("iva"))
+            End If
+            '-----------------------------------------------------------------------------------
+            Dim fabricante As String
+            If IsDBNull(ProductosTable.Rows(0).Item(ProductosTable.Columns("fabricante"))) Then
+                fabricante = Nothing
+            Else
+                fabricante = ProductosTable.Rows(0).Item(ProductosTable.Columns("fabricante"))
+            End If
+            '-----------------------------------------------------------------------------------
+            ' SI EXISTE UPDATE
+            If idproductoweb > 0 Then
+                ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
+            Else ' NO EXISTE INSERT
+                ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, iva, fabricante, idrubro)
+            End If
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            Cursor.Current = Cursors.Default
+            coderror = 0
+            msgerror = ""
+        Catch ex As Exception
+            Cursor.Current = Cursors.Default
+            coderror = 1
+            msgerror = ex.Message
+        End Try
+    End Sub
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Public Sub PullProducto(ByVal codigoproducto As Long, ByRef coderror As String, ByRef msgerror As String)
+        Cursor.Current = Cursors.WaitCursor
+        '***************************************
+        '********************** verificar conexion al servidor ************************
+        '***************************************
+        Dim status As Boolean
+        conectarMySQL(status)
+        If status = False Then
+            coderror = 1
+            msgerror = "Not se pudo conectar al servidor remoto"
+            Return
+        End If
+        Try
+            Dim ProductosWEBTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
+            ProductosWEBTableAdapter = New MySQLDataSetTableAdapters.productosTableAdapter()
+            Dim ProductosTableAdapter As comercialDataSetTableAdapters.productosTableAdapter
+            ProductosTableAdapter = New comercialDataSetTableAdapters.productosTableAdapter()
+            '-----------------------------------------------------------------------------------
+            'Dim ProductosTable As comercialDataSet.productosDataTable
+            Dim ProductosWEBTable As MySQLDataSet.productosDataTable
+            Dim idproductoweb As Long
+            Dim idproductolocal As Long
+            '-----------------------------------------------------------------------------------
+            idproductoweb = ProductosWEBTableAdapter.productos_existeproducto(codigoproducto)
+            idproductolocal = ProductosTableAdapter.productos_existeproducto(codigoproducto)
+            'ProductosTable = ProductosTableAdapter.GetDataByidproducto(idproductolocal)
+            ProductosWEBTable = ProductosWEBTableAdapter.GetDataByIdproducto(idproductoweb)
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            'Dim codigoproducto As String
+            'codigoproducto = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("codigoproducto"))
+            Dim marca As String
+            marca = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("marca"))
+            '-----------------------------------------------------------------------------------
+            Dim modelo As String
+            modelo = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("modelo"))
+            '-----------------------------------------------------------------------------------
+            Dim presentacion As String
+            presentacion = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("presentacion"))
+            '-----------------------------------------------------------------------------------
+            Dim unidadmedida As Int16
+            unidadmedida = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("unidadmedida"))
+            '-----------------------------------------------------------------------------------
+            Dim medida As Decimal
+            medida = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("medida"))
+            '-----------------------------------------------------------------------------------
+            Dim descripcion As String
+            If IsDBNull(ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("descripcion"))) Then
+                descripcion = Nothing
+            Else
+                descripcion = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("descripcion"))
+            End If
+            '-----------------------------------------------------------------------------------
+            Dim preciocosto As Decimal
+            preciocosto = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("preciocosto"))
+            '-----------------------------------------------------------------------------------
+            Dim precioventa As Decimal
+            precioventa = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("precioventa"))
+            '-----------------------------------------------------------------------------------
+            Dim stockminimo As Decimal
+            stockminimo = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("stockminimo"))
+            '-----------------------------------------------------------------------------------
+            Dim precioventamayorista As Decimal
+            precioventamayorista = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("precioventamayorista"))
+            '-----------------------------------------------------------------------------------
+            Dim precioventagranel As Decimal
+            precioventagranel = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("precioventagranel"))
+            '-----------------------------------------------------------------------------------
+            Dim precioventadistribuidor As Decimal
+            precioventadistribuidor = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("precioventadistribuidor"))
+            '-----------------------------------------------------------------------------------
+            Dim idrubro As Integer
+            idrubro = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("idrubro"))
+            '-----------------------------------------------------------------------------------
+            Dim iva As Decimal
+            If IsDBNull(ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("iva"))) Then
+                iva = Nothing
+            Else
+                iva = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("iva"))
+            End If
+            '-----------------------------------------------------------------------------------
+            Dim fabricante As String
+            If IsDBNull(ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("fabricante"))) Then
+                fabricante = Nothing
+            Else
+                fabricante = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("fabricante"))
+            End If
+            '-----------------------------------------------------------------------------------
+            ' SI EXISTE UPDATE
+            If idproductolocal > 0 Then
+                ProductosTableAdapter.productos_pullupdate(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto, idproductolocal)
+            Else ' NO EXISTE INSERT
+                ProductosTableAdapter.productos_pullinsert(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
+            End If
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            Cursor.Current = Cursors.Default
+            coderror = 0
+            msgerror = ""
+        Catch ex As Exception
+            Cursor.Current = Cursors.Default
+            coderror = 1
+            msgerror = ex.Message
+        End Try
+    End Sub
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Public Sub DescargarProductosClowd(ByRef coderror As String, ByRef msgerror As String)
+        Cursor.Current = Cursors.WaitCursor
+        '***************************************
+        '********************** verificar conexion al servidor ************************
+        '***************************************
+        Dim status As Boolean
+        conectarMySQL(status)
+        If status = False Then
+            coderror = 1
+            msgerror = "Not se pudo conectar al servidor remoto"
+            Return
+        End If
+        Try
+            Dim ProductosWEBTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
+            ProductosWEBTableAdapter = New MySQLDataSetTableAdapters.productosTableAdapter()
+            Dim ProductosWEBTable As MySQLDataSet.productosDataTable
+            ProductosWEBTable = ProductosWEBTableAdapter.GetData
+            '-----------------------------------------------------------------------------------
+            For i = 0 To ProductosWEBTable.Rows.Count
+                PullProducto(ProductosWEBTable.Rows(i).Item(1), coderror, msgerror)
+            Next
+            '-----------------------------------------------------------------------------------
+            Cursor.Current = Cursors.Default
+            coderror = 0
+            msgerror = ""
+        Catch ex As Exception
+            Cursor.Current = Cursors.Default
+            coderror = 1
+            msgerror = ex.Message
+        End Try
 
     End Sub
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Public Sub SubirProductosClowd(ByRef coderror As String, ByRef msgerror As String)
+        Cursor.Current = Cursors.WaitCursor
+        '***************************************
+        '********************** verificar conexion al servidor ************************
+        '***************************************
+        Dim status As Boolean
+        conectarMySQL(status)
+        If status = False Then
+            coderror = 1
+            msgerror = "No se pudo conectar al servidor remoto"
+            Return
+        End If
+        Try
+            Dim ProductosTableAdapter As comercialDataSetTableAdapters.productosTableAdapter
+            ProductosTableAdapter = New comercialDataSetTableAdapters.productosTableAdapter()
+            '-----------------------------------------------------------------------------------
+            Dim ProductosTable As comercialDataSet.productosDataTable
+            '-----------------------------------------------------------------------------------
+            ProductosTable = ProductosTableAdapter.GetData
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            For i = 0 To ProductosTable.Rows.Count
+                PushProducto(ProductosTable.Rows(i).Item(1), coderror, msgerror)
+            Next
+            '-----------------------------------------------------------------------------------
+            Cursor.Current = Cursors.Default
+            coderror = 0
+            msgerror = ""
+        Catch ex As Exception
+            Cursor.Current = Cursors.Default
+            coderror = 1
+            msgerror = ex.Message
+        End Try
+
+    End Sub
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 End Module

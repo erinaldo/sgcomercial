@@ -20,7 +20,11 @@ Public Class ABMProductos
         Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet1.unidadesmedida)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
         Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
-
+        ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
+        Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
+        ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
+        gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         enableedit(False)
         enablefilter(True)
         stockinicialtextbox.Enabled = False
@@ -121,9 +125,23 @@ Public Class ABMProductos
             Return
         End If
 
+        Try
+            Me.ProductosBindingSource.EndEdit()
+            If Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) Then
+                If gModuloClowd = 1 Then
+                    Dim CODERROR As Long
+                    Dim MSGERROR As String
+                    PushProducto(codigoproductoTextBox.Text, CODERROR, MSGERROR)
+                    If CODERROR > 0 Then
+                        Throw New Exception("No se pudo actualizar el producto en la nube -" + MSGERROR + "-")
+                    End If
+                End If
+                MsgBox("Actualización correcta!", MsgBoxStyle.Information)
+            End If
+        Catch ex As Exception
+            MsgBox("Not se pudo completar la operación: " + ex.Message, vbExclamation)
+        End Try
 
-        Me.ProductosBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
 
         enableedit(False)
         stockinicialtextbox.Enabled = False
@@ -704,9 +722,23 @@ Public Class ABMProductos
             Return
         End If
 
+        Try
+            Me.ProductosBindingSource.EndEdit()
+            If Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) Then
+                If gModuloClowd = 1 Then
+                    Dim CODERROR As Long
+                    Dim MSGERROR As String
+                    PushProducto(codigoproductoTextBox.Text, CODERROR, MSGERROR)
+                    If CODERROR > 0 Then
+                        Throw New Exception("No se pudo actualizar el producto en la nube -" + MSGERROR + "-")
+                    End If
+                End If
+                MsgBox("Actualización correcta!", MsgBoxStyle.Information)
+            End If
+        Catch ex As Exception
+            MsgBox("Not se pudo completar la operación: " + ex.Message, vbExclamation)
+        End Try
 
-        Me.ProductosBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
         '/*******************************************************************/
         Try
             If Val(stockinicialtextbox.Text) > 0 Then

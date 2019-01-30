@@ -28,6 +28,7 @@ Public Class Principal
 
         EjecutarAlertas()
         CuadroBienvenida()
+
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================
@@ -891,5 +892,27 @@ Public Class Principal
     Private Sub MisVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisVentasToolStripMenuItem.Click
         EstadisticasVentas.MdiParent = Me
         EstadisticasVentas.Visible = True
+    End Sub
+
+    Private Sub DescargarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DescargarProductosToolStripMenuItem.Click
+        Dim CODERROR As Long
+        Dim MSGERROR As String
+        DescargarProductosClowd(CODERROR, MSGERROR)
+        If CODERROR = 0 Then
+            MsgBox("Sincronización de productos completa!", MsgBoxStyle.Information)
+        Else
+            MsgBox(MSGERROR, MsgBoxStyle.Exclamation)
+        End If
+    End Sub
+
+    Private Sub SubirProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SubirProductosToolStripMenuItem.Click
+        Dim CODERROR As Long
+        Dim MSGERROR As String
+        SubirProductosClowd(CODERROR, MSGERROR)
+        If CODERROR = 0 Then
+            MsgBox("Sincronización de productos completa!", MsgBoxStyle.Information)
+        Else
+            MsgBox(MSGERROR, MsgBoxStyle.Exclamation)
+        End If
     End Sub
 End Class

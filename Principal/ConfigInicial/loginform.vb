@@ -59,6 +59,7 @@ Public Class loginform
 
     Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Cursor.Current = Cursors.WaitCursor
+        Dim status As Boolean
         '********************************
         gmacadress = getMacAddress()
         MachineKey = "LLAuth" + gmacadress
@@ -67,12 +68,15 @@ Public Class loginform
             comercialStrConn = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'DESA-local'
         End If
         '********************************
-        My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn)
-        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
-        My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
-        'My.Settings.SetUserOverride("sgcaguadagrandeEntities", EntitiesStrConn)
-        '********************************
 
+
+        My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn)
+        My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
+        ArmaSTRConnWEB(status)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
+
+        'My.Settings.SetUserOverride("sgcaguadagrandeEntities", EntitiesStrConn)
+        '********************************      
         '********************************
         Try
             sqlserverconnection = New SqlConnection(sgcomercial.My.MySettings.Default.comercialConnectionString)
@@ -179,4 +183,16 @@ Public Class loginform
         ' MsgBox(mac)
         ''''''''''''''''''''''''''''''
     End Function
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button3_Click_2(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
