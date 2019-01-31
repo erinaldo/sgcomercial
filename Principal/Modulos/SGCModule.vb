@@ -13,6 +13,7 @@
     Public gprovinciaseleccionada As Int64
     Public gpagocombinadoconfirmado As Boolean
     Public gModuloClowd As Long
+    Public gProgressBarCounter As Long
 
     '************************************************
     Public FormPrincipal As Principal

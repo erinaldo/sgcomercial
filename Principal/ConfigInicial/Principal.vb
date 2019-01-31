@@ -895,24 +895,28 @@ Public Class Principal
     End Sub
 
     Private Sub DescargarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DescargarProductosToolStripMenuItem.Click
-        Dim CODERROR As Long
-        Dim MSGERROR As String
-        DescargarProductosClowd(CODERROR, MSGERROR)
-        If CODERROR = 0 Then
-            MsgBox("Sincronización de productos completa!", MsgBoxStyle.Information)
-        Else
-            MsgBox(MSGERROR, MsgBoxStyle.Exclamation)
+        If MsgBox("Este procedimiento tardará varios minutos, seguro desea continuar?", MsgBoxStyle.YesNo, "ADVERTENCIA! - Descargar productos de la Nube") = MsgBoxResult.Yes Then
+            Dim CODERROR As Long
+            Dim MSGERROR As String = ""
+            DescargarProductosClowd(CODERROR, MSGERROR)
+            If CODERROR = 0 Then
+                MsgBox("Sincronización de productos completa!", MsgBoxStyle.Information)
+            Else
+                MsgBox(MSGERROR, MsgBoxStyle.Exclamation)
+            End If
         End If
     End Sub
 
     Private Sub SubirProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SubirProductosToolStripMenuItem.Click
-        Dim CODERROR As Long
-        Dim MSGERROR As String
-        SubirProductosClowd(CODERROR, MSGERROR)
-        If CODERROR = 0 Then
-            MsgBox("Sincronización de productos completa!", MsgBoxStyle.Information)
-        Else
-            MsgBox(MSGERROR, MsgBoxStyle.Exclamation)
+        If MsgBox("Este procedimiento tardará varios minutos, seguro desea continuar?", MsgBoxStyle.YesNo, "ADVERTENCIA! - Subir productos a la Nube") = MsgBoxResult.Yes Then
+            Dim CODERROR As Long
+            Dim MSGERROR As String = ""
+            MySQLModule.SubirProductosClowd(CODERROR, MSGERROR)
+            If CODERROR = 0 Then
+                MsgBox("Sincronización de productos completa!", MsgBoxStyle.Information)
+            Else
+                MsgBox(MSGERROR, MsgBoxStyle.Exclamation)
+            End If
         End If
     End Sub
 End Class

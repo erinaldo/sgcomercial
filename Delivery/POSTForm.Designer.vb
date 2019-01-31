@@ -28,11 +28,14 @@ Partial Class POSTForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Button3 = New System.Windows.Forms.Button()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(355, 38)
+        Me.Button1.Location = New System.Drawing.Point(348, 62)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(211, 23)
         Me.Button1.TabIndex = 0
@@ -44,7 +47,7 @@ Partial Class POSTForm
         Me.WebBrowser1.Location = New System.Drawing.Point(455, 114)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(453, 504)
+        Me.WebBrowser1.Size = New System.Drawing.Size(453, 166)
         Me.WebBrowser1.TabIndex = 1
         '
         'RichTextBox1
@@ -52,7 +55,7 @@ Partial Class POSTForm
         Me.RichTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
         Me.RichTextBox1.Location = New System.Drawing.Point(12, 114)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(436, 501)
+        Me.RichTextBox1.Size = New System.Drawing.Size(437, 166)
         Me.RichTextBox1.TabIndex = 2
         Me.RichTextBox1.Text = ""
         '
@@ -76,18 +79,38 @@ Partial Class POSTForm
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(610, 38)
+        Me.Button2.Location = New System.Drawing.Point(348, 33)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(164, 23)
+        Me.Button2.Size = New System.Drawing.Size(211, 23)
         Me.Button2.TabIndex = 5
         Me.Button2.Text = "Enviar Mail"
         Me.Button2.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 372)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.Size = New System.Drawing.Size(896, 243)
+        Me.DataGridView1.TabIndex = 6
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(385, 339)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(151, 25)
+        Me.Button3.TabIndex = 7
+        Me.Button3.Text = "Cargar"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'POSTForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(920, 627)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -96,6 +119,7 @@ Partial Class POSTForm
         Me.Controls.Add(Me.Button1)
         Me.Name = "POSTForm"
         Me.Text = "POSTForm"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -107,4 +131,6 @@ Partial Class POSTForm
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Button2 As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Button3 As Button
 End Class

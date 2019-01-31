@@ -153,8 +153,7 @@ Partial Class RegistrarVenta
         Me.pagotextbox2 = New System.Windows.Forms.TextBox()
         Me.idformapagocombo2 = New System.Windows.Forms.ComboBox()
         Me.FormaspagoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FillBySegundaFPToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.FillBySegundaFPToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.PictureClowd = New System.Windows.Forms.PictureBox()
         IdclienteLabel = New System.Windows.Forms.Label()
         FechaventaLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
@@ -189,7 +188,7 @@ Partial Class RegistrarVenta
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GFP2.SuspendLayout()
         CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FillBySegundaFPToolStrip.SuspendLayout()
+        CType(Me.PictureClowd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -841,6 +840,7 @@ Partial Class RegistrarVenta
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.PictureClowd)
         Me.GroupBox3.Controls.Add(Me.FechavencimientoDateTimePicker)
         Me.GroupBox3.Controls.Add(Label5)
         Me.GroupBox3.Controls.Add(NrocomprobanteLabel)
@@ -930,10 +930,9 @@ Partial Class RegistrarVenta
         'PictureSeleccionarCliente
         '
         Me.PictureSeleccionarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureSeleccionarCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureSeleccionarCliente.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSeleccionarCliente.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(181, 23)
+        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(181, 20)
         Me.PictureSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureSeleccionarCliente.Name = "PictureSeleccionarCliente"
         Me.PictureSeleccionarCliente.Size = New System.Drawing.Size(29, 30)
@@ -1311,29 +1310,24 @@ Partial Class RegistrarVenta
         Me.FormaspagoBindingSource1.DataMember = "formaspago"
         Me.FormaspagoBindingSource1.DataSource = Me.ComercialDataSet
         '
-        'FillBySegundaFPToolStrip
+        'PictureClowd
         '
-        Me.FillBySegundaFPToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.FillBySegundaFPToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillBySegundaFPToolStripButton})
-        Me.FillBySegundaFPToolStrip.Location = New System.Drawing.Point(0, 0)
-        Me.FillBySegundaFPToolStrip.Name = "FillBySegundaFPToolStrip"
-        Me.FillBySegundaFPToolStrip.Size = New System.Drawing.Size(1092, 27)
-        Me.FillBySegundaFPToolStrip.TabIndex = 6
-        Me.FillBySegundaFPToolStrip.Text = "FillBySegundaFPToolStrip"
-        '
-        'FillBySegundaFPToolStripButton
-        '
-        Me.FillBySegundaFPToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.FillBySegundaFPToolStripButton.Name = "FillBySegundaFPToolStripButton"
-        Me.FillBySegundaFPToolStripButton.Size = New System.Drawing.Size(121, 24)
-        Me.FillBySegundaFPToolStripButton.Text = "FillBySegundaFP"
+        Me.PictureClowd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureClowd.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
+        Me.PictureClowd.InitialImage = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
+        Me.PictureClowd.Location = New System.Drawing.Point(816, 126)
+        Me.PictureClowd.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureClowd.Name = "PictureClowd"
+        Me.PictureClowd.Size = New System.Drawing.Size(29, 30)
+        Me.PictureClowd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureClowd.TabIndex = 21
+        Me.PictureClowd.TabStop = False
         '
         'RegistrarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1092, 662)
-        Me.Controls.Add(Me.FillBySegundaFPToolStrip)
         Me.Controls.Add(Me.GFP2)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -1378,10 +1372,8 @@ Partial Class RegistrarVenta
         Me.GFP2.ResumeLayout(False)
         Me.GFP2.PerformLayout()
         CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FillBySegundaFPToolStrip.ResumeLayout(False)
-        Me.FillBySegundaFPToolStrip.PerformLayout()
+        CType(Me.PictureClowd, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents BtnNueva As System.Windows.Forms.Button
@@ -1499,6 +1491,5 @@ Partial Class RegistrarVenta
     Friend WithEvents subtotal As DataGridViewTextBoxColumn
     Friend WithEvents eliminar As DataGridViewButtonColumn
     Friend WithEvents listasprecios As DataGridViewTextBoxColumn
-    Friend WithEvents FillBySegundaFPToolStrip As ToolStrip
-    Friend WithEvents FillBySegundaFPToolStripButton As ToolStripButton
+    Friend WithEvents PictureClowd As PictureBox
 End Class

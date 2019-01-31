@@ -3,10 +3,21 @@ Imports System.Net
 Imports System.Text
 Imports System.Net.Mail
 
+
+
 Public Class POSTForm
+
     Private Sub POSTForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        Dim ProductosWebTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
+        ProductosWebTableAdapter = New MySQLDataSetTableAdapters.productosTableAdapter()
+        Dim ProductosWebDataTable As MySQLDataSet.productosDataTable
+        ProductosWebDataTable = ProductosWebTableAdapter.GetData
+        DataGridView1.DataSource = ProductosWebDataTable
+        DataGridView1.Refresh()
     End Sub
+
+
     Public Function PostData(ByRef URL As String, ByRef POST As String, ByRef CookieContainer As CookieContainer)
         Dim request As HttpWebRequest
         Dim response As HttpWebResponse
@@ -58,5 +69,10 @@ Public Class POSTForm
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+
     End Sub
 End Class

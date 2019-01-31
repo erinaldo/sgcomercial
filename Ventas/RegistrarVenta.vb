@@ -35,7 +35,7 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub RegistrarVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        Cursor.Current = Cursors.WaitCursor
         'Me.WindowState = FormWindowState.Maximized
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
         Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
@@ -92,10 +92,22 @@ Public Class RegistrarVenta
         '********** GBalPrefix
         gbalprefix = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("BalPrefix")
         '********************************************************************************************************
+        ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
+        Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
+        ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
+        gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+        If gModuloClowd = 1 Then
+            PictureClowd.Visible = True
+            NeedSyncProductos()
+        Else
+            PictureClowd.Visible = False
+        End If
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         'idformapagocombo2.Items.Remove(idformapagocombo2.FindString("Cuenta Corriente"))
         'idformapagocombo2.Items.RemoveAt(idformapagocombo2.FindString("Cuenta Corriente"))
         'idformapagocombo2.Items.RemoveAt(idformapagocombo2.FindString("Otros"))
         'idformapagocombo2.Items.RemoveAt(idformapagocombo2.FindString("Cheque"))
+        Cursor.Current = Cursors.Default
     End Sub
     Private Sub enablefields(ByRef status As Boolean)
         'IdventaTextBox.Enabled = status
@@ -1393,7 +1405,7 @@ Public Class RegistrarVenta
 
     End Sub
 
-    Private Sub FillBySegundaFPToolStripButton_Click(sender As Object, e As EventArgs) Handles FillBySegundaFPToolStripButton.Click
+    Private Sub FillBySegundaFPToolStripButton_Click(sender As Object, e As EventArgs)
         Try
             Me.FormaspagoTableAdapter.FillBySegundaFP(Me.ComercialDataSet.formaspago)
         Catch ex As System.Exception
