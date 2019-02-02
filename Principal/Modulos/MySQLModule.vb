@@ -424,12 +424,19 @@ Module MySQLModule
                 Else
                     fabricante = ProductosTable.Rows(i).Item(ProductosTable.Columns("fabricante"))
                 End If
+                '-----------------------------------------------------------------------------------
+                Dim productocompuesto As String
+                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("productocompuesto"))) Then
+                    productocompuesto = "N"
+                Else
+                    productocompuesto = ProductosTable.Rows(i).Item(ProductosTable.Columns("productocompuesto"))
+                End If
                 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 ' SI EXISTE UPDATE
                 If idproductoweb > 0 Then
-                    ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
+                    ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
                 Else ' NO EXISTE INSERT
-                    ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, iva, fabricante, idrubro)
+                    ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, iva, fabricante, idrubro)
                 End If
                 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 SyncLogWEBTableAdapter.synclog_update(1, Now, gmacadress, gusername, "productos")
@@ -532,11 +539,18 @@ Module MySQLModule
                 fabricante = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("fabricante"))
             End If
             '-----------------------------------------------------------------------------------
+            Dim productocompuesto As String
+            If IsDBNull(ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("productocompuesto"))) Then
+                productocompuesto = "N"
+            Else
+                productocompuesto = ProductosWEBTable.Rows(0).Item(ProductosWEBTable.Columns("productocompuesto"))
+            End If
+            '-----------------------------------------------------------------------------------
             ' SI EXISTE UPDATE
             If idproductolocal > 0 Then
-                ProductosTableAdapter.productos_pullupdate(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto, idproductolocal)
+                ProductosTableAdapter.productos_pullupdate(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto, idproductolocal)
             Else ' NO EXISTE INSERT
-                ProductosTableAdapter.productos_pullinsert(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
+                ProductosTableAdapter.productos_pullinsert(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
             End If
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             Cursor.Current = Cursors.Default
@@ -700,11 +714,18 @@ Module MySQLModule
                     fabricante = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("fabricante"))
                 End If
                 '-----------------------------------------------------------------------------------
+                Dim productocompuesto As String
+                If IsDBNull(ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("productocompuesto"))) Then
+                    productocompuesto = "N"
+                Else
+                    productocompuesto = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("productocompuesto"))
+                End If
+                '-----------------------------------------------------------------------------------
                 ' SI EXISTE UPDATE
                 If idproductolocal > 0 Then
-                    ProductosTableAdapter.productos_pullupdate(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto, idproductolocal)
+                    ProductosTableAdapter.productos_pullupdate(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto, idproductolocal)
                 Else ' NO EXISTE INSERT
-                    ProductosTableAdapter.productos_pullinsert(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
+                    ProductosTableAdapter.productos_pullinsert(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
                 End If
                 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 SyncLogTableAdapter.synclog_update(1, Now, gmacadress, gusername, "productos")
@@ -883,11 +904,18 @@ Module MySQLModule
                     fabricante = ProductosTable.Rows(i).Item(ProductosTable.Columns("fabricante"))
                 End If
                 '-----------------------------------------------------------------------------------
+                Dim productocompuesto As String
+                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("productocompuesto"))) Then
+                    productocompuesto = "N"
+                Else
+                    productocompuesto = ProductosTable.Rows(i).Item(ProductosTable.Columns("productocompuesto"))
+                End If
+                '-----------------------------------------------------------------------------------
                 ' SI EXISTE UPDATE
                 If idproductoweb > 0 Then
-                    ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
+                    ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
                 Else ' NO EXISTE INSERT
-                    ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
+                    ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
                 End If
                 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 SyncLogWEBTableAdapter.synclog_update(1, Now, gmacadress, gusername, "productos")

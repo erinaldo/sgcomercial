@@ -64,9 +64,9 @@ Public Class loginform
         gmacadress = getMacAddress()
         MachineKey = "LLAuth" + gmacadress
         'MsgBox(gmacadress)
-        If My.Computer.Name = "LUCASMARTINBS-N" Then
-            comercialStrConn = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'DESA-local'
-        End If
+        'If My.Computer.Name = "LUCASMARTINBS-N" Then
+        '    comercialStrConn = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'DESA-local'
+        'End If
         '********************************
 
 
