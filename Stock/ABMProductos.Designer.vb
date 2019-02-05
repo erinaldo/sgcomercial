@@ -252,7 +252,7 @@ Partial Class ABMProductos
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(405, 51)
+        Label2.Location = New System.Drawing.Point(405, 20)
         Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label2.Name = "Label2"
         Label2.Size = New System.Drawing.Size(51, 17)
@@ -271,31 +271,49 @@ Partial Class ABMProductos
         '
         'PrecioventagranelLabel
         '
-        PrecioventagranelLabel.AutoSize = True
-        PrecioventagranelLabel.Location = New System.Drawing.Point(305, 219)
+        PrecioventagranelLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        PrecioventagranelLabel.Cursor = System.Windows.Forms.Cursors.Hand
+        PrecioventagranelLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        PrecioventagranelLabel.ForeColor = System.Drawing.SystemColors.Highlight
+        PrecioventagranelLabel.Location = New System.Drawing.Point(304, 216)
         PrecioventagranelLabel.Name = "PrecioventagranelLabel"
-        PrecioventagranelLabel.Size = New System.Drawing.Size(137, 17)
+        PrecioventagranelLabel.Size = New System.Drawing.Size(140, 17)
         PrecioventagranelLabel.TabIndex = 112
-        PrecioventagranelLabel.Text = "Precio Vta. a granel:"
+        PrecioventagranelLabel.Text = "Precio Vta. a Granel:"
+        PrecioventagranelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        AddHandler PrecioventagranelLabel.Click, AddressOf Me.PrecioventagranelLabel_Click
         '
         'PrecioventamayoristaLabel
         '
-        PrecioventamayoristaLabel.AutoSize = True
-        PrecioventamayoristaLabel.Location = New System.Drawing.Point(293, 252)
+        PrecioventamayoristaLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        PrecioventamayoristaLabel.Cursor = System.Windows.Forms.Cursors.Hand
+        PrecioventamayoristaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        PrecioventamayoristaLabel.ForeColor = System.Drawing.SystemColors.Highlight
+        PrecioventamayoristaLabel.Location = New System.Drawing.Point(290, 252)
         PrecioventamayoristaLabel.Name = "PrecioventamayoristaLabel"
         PrecioventamayoristaLabel.Size = New System.Drawing.Size(155, 17)
         PrecioventamayoristaLabel.TabIndex = 113
         PrecioventamayoristaLabel.Text = "P. Vta. Com./Mayorista:"
+        PrecioventamayoristaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        AddHandler PrecioventamayoristaLabel.Click, AddressOf Me.PrecioventamayoristaLabel_Click
         '
         'Label4
         '
-        Label4.AutoSize = True
-        Label4.Location = New System.Drawing.Point(594, 218)
+        Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Label4.Cursor = System.Windows.Forms.Cursors.Hand
+        Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        Label4.ForeColor = System.Drawing.SystemColors.Highlight
+        Label4.Location = New System.Drawing.Point(592, 216)
         Label4.Name = "Label4"
         Label4.Size = New System.Drawing.Size(130, 17)
         Label4.TabIndex = 115
         Label4.Tag = "Precio Vta. Distribuidores y comercios"
         Label4.Text = "P. Vta. Distribuidor:"
+        Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        AddHandler Label4.Click, AddressOf Me.Label4_Click
         '
         'Label5
         '
@@ -320,7 +338,7 @@ Partial Class ABMProductos
         'FabricanteLabel
         '
         FabricanteLabel.AutoSize = True
-        FabricanteLabel.Location = New System.Drawing.Point(406, 22)
+        FabricanteLabel.Location = New System.Drawing.Point(405, 51)
         FabricanteLabel.Name = "FabricanteLabel"
         FabricanteLabel.Size = New System.Drawing.Size(79, 17)
         FabricanteLabel.TabIndex = 124
@@ -494,9 +512,10 @@ Partial Class ABMProductos
         Me.Button1.Location = New System.Drawing.Point(881, 247)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 28)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = "Cargar Imagen"
+        Me.Button1.Size = New System.Drawing.Size(197, 28)
+        Me.Button1.TabIndex = 17
+        Me.Button1.Tag = "Cargar Foto"
+        Me.Button1.Text = "Cargar Foto"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'OpenFileDialog1
@@ -554,6 +573,7 @@ Partial Class ABMProductos
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -624,10 +644,10 @@ Partial Class ABMProductos
         '
         Me.FabricanteTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FabricanteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "fabricante", True))
-        Me.FabricanteTextBox.Location = New System.Drawing.Point(491, 19)
+        Me.FabricanteTextBox.Location = New System.Drawing.Point(490, 48)
         Me.FabricanteTextBox.Name = "FabricanteTextBox"
-        Me.FabricanteTextBox.Size = New System.Drawing.Size(367, 22)
-        Me.FabricanteTextBox.TabIndex = 12
+        Me.FabricanteTextBox.Size = New System.Drawing.Size(288, 22)
+        Me.FabricanteTextBox.TabIndex = 13
         '
         'IvaComboBox
         '
@@ -640,7 +660,7 @@ Partial Class ABMProductos
         Me.IvaComboBox.Location = New System.Drawing.Point(723, 249)
         Me.IvaComboBox.Name = "IvaComboBox"
         Me.IvaComboBox.Size = New System.Drawing.Size(108, 24)
-        Me.IvaComboBox.TabIndex = 124
+        Me.IvaComboBox.TabIndex = 11
         Me.IvaComboBox.ValueMember = "alicuota"
         '
         'TipoivaBindingSource
@@ -738,12 +758,12 @@ Partial Class ABMProductos
         Me.stockinicialtextbox.Location = New System.Drawing.Point(687, 80)
         Me.stockinicialtextbox.Name = "stockinicialtextbox"
         Me.stockinicialtextbox.Size = New System.Drawing.Size(91, 22)
-        Me.stockinicialtextbox.TabIndex = 16
+        Me.stockinicialtextbox.TabIndex = 15
         '
         'BPC4
         '
         Me.BPC4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BPC4.Location = New System.Drawing.Point(832, 215)
+        Me.BPC4.Location = New System.Drawing.Point(832, 212)
         Me.BPC4.Name = "BPC4"
         Me.BPC4.Size = New System.Drawing.Size(26, 24)
         Me.BPC4.TabIndex = 120
@@ -783,7 +803,7 @@ Partial Class ABMProductos
         'PrecioventadistribuidorTextBox
         '
         Me.PrecioventadistribuidorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventadistribuidor", True))
-        Me.PrecioventadistribuidorTextBox.Location = New System.Drawing.Point(723, 216)
+        Me.PrecioventadistribuidorTextBox.Location = New System.Drawing.Point(723, 213)
         Me.PrecioventadistribuidorTextBox.Name = "PrecioventadistribuidorTextBox"
         Me.PrecioventadistribuidorTextBox.Size = New System.Drawing.Size(108, 22)
         Me.PrecioventadistribuidorTextBox.TabIndex = 10
@@ -924,11 +944,11 @@ Partial Class ABMProductos
         Me.ComboBox3.DisplayMember = "descripcion"
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(458, 47)
+        Me.ComboBox3.Location = New System.Drawing.Point(458, 16)
         Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(238, 24)
-        Me.ComboBox3.TabIndex = 13
+        Me.ComboBox3.TabIndex = 12
         Me.ComboBox3.ValueMember = "idrubro"
         '
         'IdproductoTextBox
@@ -949,7 +969,7 @@ Partial Class ABMProductos
         Me.DescripcionTextBox.Multiline = True
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
         Me.DescripcionTextBox.Size = New System.Drawing.Size(449, 53)
-        Me.DescripcionTextBox.TabIndex = 15
+        Me.DescripcionTextBox.TabIndex = 16
         '
         'GroupBox2
         '

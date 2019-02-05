@@ -372,6 +372,7 @@ Public Class RegistrarVenta
             FormPrincipal.reloadstock()
             labeltotal.Text = ""
             LabelTotalVisible.Text = "$"
+            idformapagocombo.Enabled = False
             '**********
         Else
             Return
@@ -914,7 +915,6 @@ Public Class RegistrarVenta
         '********** RecargoTC
         grecargoTC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoTC")
         grecargoCC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoCC")
-
         '**********
 
         Dim cantidad As Decimal = 0
@@ -1302,14 +1302,15 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxFP2.CheckedChanged
-        If idformapagocombo.Text = "Cuenta Corriente" Then
-            MsgBox("No se permite segunda forma de pago cuando la principal es Cuenta Corriente", MsgBoxStyle.Exclamation, "Advertencia")
-            CheckBoxFP2.Checked = False
-            Return
-        End If
         '********************************************
         If CheckBoxFP2.Checked = True Then
+            If Not idformapagocombo.Text = "Efectivo" And Not idformapagocombo.Text = "Débito" Then
+                MsgBox("Primera forma de pago tiene que ser Efectivo o Débito para recibir una segunda forma de pago", MsgBoxStyle.Exclamation, "Advertencia")
+                CheckBoxFP2.Checked = False
+                Return
+            End If
             idformapagocombo2.Enabled = CheckBoxFP2.Checked
+            idformapagocombo.Enabled = False
             pagotextbox2.Enabled = CheckBoxFP2.Checked
             NrocomprobanteTextBox2.Enabled = CheckBoxFP2.Checked
             LabelVuelto.Visible = False
@@ -1325,6 +1326,7 @@ Public Class RegistrarVenta
             End Try
         Else
             idformapagocombo2.Enabled = CheckBoxFP2.Checked
+            idformapagocombo.Enabled = True
             pagotextbox2.Enabled = CheckBoxFP2.Checked
             NrocomprobanteTextBox2.Enabled = CheckBoxFP2.Checked
             LabelVuelto.Visible = True
@@ -1382,14 +1384,62 @@ Public Class RegistrarVenta
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles LabelMontoFP2.Click
         Try
+            Dim recargolocal As Decimal
             If CheckBoxFP2.Checked = True Then
-                Select Case idformapagocombo2.Text
-                    'Case "Débito"
-                    '    pagotextbox2.Text = total - pagotextbox.Text
-                    'Case "Tarjeta de Crédito"
-                    Case Else
-                        pagotextbox2.Text = total - pagotextbox.Text
-                End Select
+                total = labeltotal.Text
+                If CheckBoxFP2.Checked = True Then
+                    Select Case idformapagocombo2.Text
+                        'Case "Débito"
+                        '    pagotextbox2.Text = total - pagotextbox.Text
+                        Case "Tarjeta de Crédito"
+                            total = 0
+                            If idformapagocombo.Text = "Efectivo" Or idformapagocombo.Text = "Débito" Then
+                                Dim efectivo As Decimal
+                                Dim descuento As Decimal
+                                Dim items As Int16 = 0
+                                efectivo = pagotextbox.Text
+                                For i = 0 To VentasdetalleDataGridView.RowCount - 1
+                                    precio = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value * VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
+                                    descuento = VentasdetalleDataGridView.Rows(i).Cells("descuento").Value
+                                    precio = precio - descuento
+                                    total = total + precio
+                                    items = items + 1
+                                Next
+                                total = total - efectivo
+                                recargolocal = (total * grecargoTC) / 100
+                                '*****************************************************
+                                '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
+                                recargolocal = recargolocal / items
+                                If grecargoTC > 0 Then
+                                    For i = 0 To VentasdetalleDataGridView.RowCount - 1
+                                        VentasdetalleDataGridView.Rows(i).Cells("recargo").Value = String.Format("{0:n}", recargolocal)
+                                        VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value = Math.Round(precio + recargolocal, 2)
+                                    Next
+                                End If
+                                '*********  FIN calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
+                                '***************************************************** 
+                                '*********** recalcular total general****************
+                                total = 0
+                                For i = 0 To VentasdetalleDataGridView.RowCount - 1
+                                    precio = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value * VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
+                                    descuento = VentasdetalleDataGridView.Rows(i).Cells("descuento").Value
+                                    precio = precio - descuento + VentasdetalleDataGridView.Rows(i).Cells("recargo").Value
+                                    total = total + precio
+                                Next
+                                labeltotal.Text = total
+                                LabelTotalVisible.Text = "$ " + labeltotal.Text
+                                '***************************************************** 
+                                '***************************************************** 
+                                pagotextbox2.Text = total - efectivo
+                            Else
+                                MsgBox("Forma de pago no permitida", MsgBoxStyle.Exclamation, "Advertencia")
+                                idformapagocombo2.SelectedIndex = -1
+                                Return
+                            End If
+                        Case Else
+                            pagotextbox2.Text = total - pagotextbox.Text
+                    End Select
+                End If
             End If
         Catch ex As Exception
 

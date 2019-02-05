@@ -75,6 +75,10 @@ Public Class MiComercio
         Dim recargo As Decimal = TextBoxRecargoTC.Text
         ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("RecargoTC", Nothing, "Enable", recargo)
         '***************    -----------     FIN     ------------  ******************************************
+        '***************    RecargoCC   ******************************************
+        Dim recargoCC As Decimal = TextBoxRecargoCC.Text
+        ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("RecargoCC", Nothing, "Enable", recargoCC)
+        '***************    -----------     FIN     ------------  ******************************************
         '*****************************************************************************************************
         '***************    BalPrefix   ******************************************
         ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("BalPrefix", Nothing, balprefix.Text, Nothing)

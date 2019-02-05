@@ -436,7 +436,7 @@ Module MySQLModule
                 If idproductoweb > 0 Then
                     ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
                 Else ' NO EXISTE INSERT
-                    ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, iva, fabricante, idrubro)
+                    ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
                 End If
                 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 SyncLogWEBTableAdapter.synclog_update(1, Now, gmacadress, gusername, "productos")

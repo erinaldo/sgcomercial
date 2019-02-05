@@ -7,9 +7,9 @@ Public Class CajaAperturaCierre
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
         'Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajas' Puede moverla o quitarla según sea necesario.
-        Me.CajasTableAdapter.Fill(Me.ComercialDataSet.cajas)
+
         Try
-            Me.CajasTableAdapter.FillByACTIVA(Me.ComercialDataSet.cajas)
+        Me.CajasTableAdapter.FillByACTIVA(Me.ComercialDataSet.cajas)
         Catch ex As System.Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
@@ -35,9 +35,8 @@ Public Class CajaAperturaCierre
             End If
             '***************    FIN consultar el estado de caja *************
         End If
-        Me.Select()
-
-        Me.ReportViewer1.RefreshReport()
+        'Me.Select()
+        'Me.ReportViewer1.RefreshReport()
     End Sub
 
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles CajasDataGridView.CellClick

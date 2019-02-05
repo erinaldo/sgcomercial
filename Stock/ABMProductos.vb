@@ -232,6 +232,7 @@ Public Class ABMProductos
         IvaComboBox.Enabled = status
         FabricanteTextBox.Enabled = status
 
+
     End Sub
     Public Sub enablefilter(ByVal status As Boolean)
 
@@ -279,24 +280,24 @@ Public Class ABMProductos
         enablefilter(False)
         ProductosBindingNavigatorSaveItem.Visible = False
         GuardarNuevo.Visible = True
-        codigoproductoTextBox.Select()
         stockinicialtextbox.Enabled = True
         codigoproductoTextBox.Select()
         '******************************************
         BindingNavigatorAddNewItem.Visible = False
         editbtn.Visible = False
+        Return
     End Sub
 
     Private Sub codigoproductoTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
+        Return
     End Sub
 
     Private Sub stockminimotextbox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
+        Return
     End Sub
 
     Private Sub PreciounitarioTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PreciocostoTextBox.TextChanged
-
+        Return
     End Sub
 
     Private Sub PrecioventaTextBox_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles PrecioventaTextBox.LostFocus
@@ -306,7 +307,7 @@ Public Class ABMProductos
     End Sub
 
     Private Sub PrecioventaTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrecioventaTextBox.TextChanged
-
+        Return
     End Sub
 
     Private Sub stockminimotextbox_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles stockminimotextbox.LostFocus
@@ -316,7 +317,7 @@ Public Class ABMProductos
     End Sub
 
     Private Sub stockminimotextbox_TextChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles stockminimotextbox.TextChanged
-
+        Return
     End Sub
 
     Private Sub PreciounitarioTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles PreciocostoTextBox.KeyPress
@@ -374,11 +375,11 @@ Public Class ABMProductos
     End Sub
 
     Private Sub codigoproductoTextBox_TextChanged_1(sender As Object, e As EventArgs) Handles codigoproductoTextBox.TextChanged
-
+        Return
     End Sub
 
     Private Sub codigoproductoTextBox_LostFocus(sender As Object, e As EventArgs) Handles codigoproductoTextBox.LostFocus
-
+        Return
     End Sub
 
     Private Sub codigoproductoTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles codigoproductoTextBox.KeyDown
@@ -392,7 +393,7 @@ Public Class ABMProductos
     End Sub
 
     Private Sub codigoproductoTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles codigoproductoTextBox.KeyPress
-
+        Return
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBoxCalidacodigo.Click
@@ -442,10 +443,17 @@ Public Class ABMProductos
             End If
         End If
         '**********************************************
+        If Not IvaComboBox.SelectedIndex >= 0 Then
+            MsgBox("Ingrese un valor de IVA", MsgBoxStyle.Exclamation, "Advertencia")
+            IvaComboBox.Select()
+            res = False
+            Return
+        End If
+        '**********************************************
     End Sub
 
     Private Sub PrecioventagranelTextBox_TextChanged(sender As Object, e As EventArgs) Handles PrecioventagranelTextBox.TextChanged
-
+        Return
     End Sub
 
     Private Sub PrecioventagranelTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles PrecioventagranelTextBox.KeyPress
@@ -467,7 +475,7 @@ Public Class ABMProductos
     End Sub
 
     Private Sub PrecioventamayoristaTextBox_TextChanged(sender As Object, e As EventArgs) Handles PrecioventamayoristaTextBox.TextChanged
-
+        Return
     End Sub
 
     Private Sub PrecioventamayoristaTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles PrecioventamayoristaTextBox.KeyPress
@@ -541,7 +549,7 @@ Public Class ABMProductos
     End Sub
 
     Private Sub PrecioventadistribuidorTextBox_TextChanged(sender As Object, e As EventArgs) Handles PrecioventadistribuidorTextBox.TextChanged
-
+        Return
     End Sub
 
     Private Sub PrecioventadistribuidorTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles PrecioventadistribuidorTextBox.KeyPress
@@ -806,5 +814,26 @@ Public Class ABMProductos
             End If
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub PrecioventagranelLabel_Click(sender As Object, e As EventArgs)
+        If PrecioventagranelTextBox.Enabled = True Then
+            PrecioventagranelTextBox.Text = PrecioventaTextBox.Text
+            PrecioventagranelTextBox.Select()
+        End If
+    End Sub
+
+    Private Sub PrecioventamayoristaLabel_Click(sender As Object, e As EventArgs)
+        If PrecioventamayoristaTextBox.Enabled = True Then
+            PrecioventamayoristaTextBox.Text = PrecioventaTextBox.Text
+            PrecioventamayoristaTextBox.Select()
+        End If
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs)
+        If PrecioventadistribuidorTextBox.Enabled = True Then
+            PrecioventadistribuidorTextBox.Text = PrecioventaTextBox.Text
+            PrecioventadistribuidorTextBox.Select()
+        End If
     End Sub
 End Class
