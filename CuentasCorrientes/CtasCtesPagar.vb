@@ -4,7 +4,7 @@ Public Class CtasCtesPagar
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.
         Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.formaspago' Puede moverla o quitarla según sea necesario.
-        Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
+        Me.FormaspagoTableAdapter.FillByPagosaCC(Me.ComercialDataSet.formaspago)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocomprobantes' Puede moverla o quitarla según sea necesario.
         Me.TipocomprobantesTableAdapter.Fill(Me.ComercialDataSet.tipocomprobantes)
 
@@ -98,5 +98,14 @@ Public Class CtasCtesPagar
             'MessageBox.Show("Solo se permiten numeros")
             e.KeyChar = ""
         End If
+    End Sub
+
+    Private Sub FillByPagosaCCToolStripButton_Click(sender As Object, e As EventArgs) Handles FillByPagosaCCToolStripButton.Click
+        Try
+            Me.FormaspagoTableAdapter.FillByPagosaCC(Me.ComercialDataSet.formaspago)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
     End Sub
 End Class

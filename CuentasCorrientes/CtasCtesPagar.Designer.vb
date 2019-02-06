@@ -46,8 +46,8 @@ Partial Class CtasCtesPagar
         Me.CajasmovimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CajasmovimientosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasmovimientosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.CajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.CajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -62,12 +62,15 @@ Partial Class CtasCtesPagar
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FillByPagosaCCToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.FillByPagosaCCToolStripButton = New System.Windows.Forms.ToolStripButton()
         CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FormaspagoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasmovimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FillByPagosaCCToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'nrocomprobante
@@ -226,10 +229,12 @@ Partial Class CtasCtesPagar
         Me.TableAdapterManager.cajaseventosTableAdapter = Me.CajaseventosTableAdapter
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Me.CajasoperacionesTableAdapter
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -252,6 +257,7 @@ Partial Class CtasCtesPagar
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -261,8 +267,11 @@ Partial Class CtasCtesPagar
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Me.TipocomprobantesTableAdapter
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -273,14 +282,14 @@ Partial Class CtasCtesPagar
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
+        'CajasoperacionesTableAdapter
+        '
+        Me.CajasoperacionesTableAdapter.ClearBeforeFill = True
+        '
         'CajasoperacionesBindingSource
         '
         Me.CajasoperacionesBindingSource.DataMember = "cajasoperaciones"
         Me.CajasoperacionesBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'CajasoperacionesTableAdapter
-        '
-        Me.CajasoperacionesTableAdapter.ClearBeforeFill = True
         '
         'CajasoperacionesDataGridView
         '
@@ -374,11 +383,30 @@ Partial Class CtasCtesPagar
         Me.DataGridViewTextBoxColumn13.HeaderText = "idcambiodevolucion"
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         '
+        'FillByPagosaCCToolStrip
+        '
+        Me.FillByPagosaCCToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.FillByPagosaCCToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillByPagosaCCToolStripButton})
+        Me.FillByPagosaCCToolStrip.Location = New System.Drawing.Point(0, 0)
+        Me.FillByPagosaCCToolStrip.Name = "FillByPagosaCCToolStrip"
+        Me.FillByPagosaCCToolStrip.Size = New System.Drawing.Size(552, 27)
+        Me.FillByPagosaCCToolStrip.TabIndex = 16
+        Me.FillByPagosaCCToolStrip.Text = "FillByPagosaCCToolStrip"
+        Me.FillByPagosaCCToolStrip.Visible = False
+        '
+        'FillByPagosaCCToolStripButton
+        '
+        Me.FillByPagosaCCToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillByPagosaCCToolStripButton.Name = "FillByPagosaCCToolStripButton"
+        Me.FillByPagosaCCToolStripButton.Size = New System.Drawing.Size(113, 24)
+        Me.FillByPagosaCCToolStripButton.Text = "FillByPagosaCC"
+        '
         'CtasCtesPagar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(552, 284)
+        Me.Controls.Add(Me.FillByPagosaCCToolStrip)
         Me.Controls.Add(Me.CajasoperacionesDataGridView)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.nrocomprobante)
@@ -405,6 +433,8 @@ Partial Class CtasCtesPagar
         CType(Me.CajasmovimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FillByPagosaCCToolStrip.ResumeLayout(False)
+        Me.FillByPagosaCCToolStrip.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -448,4 +478,6 @@ Partial Class CtasCtesPagar
     Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents FillByPagosaCCToolStrip As ToolStrip
+    Friend WithEvents FillByPagosaCCToolStripButton As ToolStripButton
 End Class

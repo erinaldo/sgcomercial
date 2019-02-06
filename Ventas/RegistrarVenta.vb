@@ -97,10 +97,7 @@ Public Class RegistrarVenta
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
         gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
         If gModuloClowd = 1 Then
-            PictureClowd.Visible = True
             NeedSyncProductos()
-        Else
-            PictureClowd.Visible = False
         End If
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         'idformapagocombo2.Items.Remove(idformapagocombo2.FindString("Cuenta Corriente"))

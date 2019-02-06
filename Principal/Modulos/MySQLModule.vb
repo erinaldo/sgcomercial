@@ -289,6 +289,10 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub PushProducto(ByVal codigoproducto As String, ByRef coderror As String, ByRef msgerror As String)
+        If Not My.Computer.Network.IsAvailable Then
+            MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         Cursor.Current = Cursors.WaitCursor
         '***************************************
         '********************** verificar conexion al servidor ************************
@@ -453,6 +457,10 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub PullProducto(ByVal codigoproducto As Long, ByRef coderror As String, ByRef msgerror As String)
+        If Not My.Computer.Network.IsAvailable Then
+            MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         Cursor.Current = Cursors.WaitCursor
         '***************************************
         '********************** verificar conexion al servidor ************************
@@ -564,6 +572,10 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub DescargarProductosClowd(ByRef coderror As String, ByRef msgerror As String)
+        If Not My.Computer.Network.IsAvailable Then
+            MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         Cursor.Current = Cursors.WaitCursor
         '***************************************
         '********************** verificar conexion al servidor ************************
@@ -754,6 +766,10 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SubirProductosClowd(ByRef coderror As String, ByRef msgerror As String)
+        If Not My.Computer.Network.IsAvailable Then
+            MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         Cursor.Current = Cursors.WaitCursor
         '***************************************
         '********************** verificar conexion al servidor ************************
@@ -943,6 +959,10 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub NeedSyncProductos()
+        If Not My.Computer.Network.IsAvailable Then
+            MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         Cursor.Current = Cursors.WaitCursor
         Dim SyncLogTableAdapter As comercialDataSetTableAdapters.synclogTableAdapter
         SyncLogTableAdapter = New comercialDataSetTableAdapters.synclogTableAdapter()

@@ -88,6 +88,7 @@ Partial Class EstadoCuentaCorriente
         Me.Labeltotaldebe = New System.Windows.Forms.Label()
         Me.VentasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ventasTableAdapter()
         Me.PagosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pagosTableAdapter()
+        Me.PermisosTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.permisosTableAdapter()
         NombreLabel = New System.Windows.Forms.Label()
         CuitLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -386,8 +387,11 @@ Partial Class EstadoCuentaCorriente
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -669,6 +673,10 @@ Partial Class EstadoCuentaCorriente
         '
         Me.PagosTableAdapter.ClearBeforeFill = True
         '
+        'PermisosTableAdapter1
+        '
+        Me.PermisosTableAdapter1.ClearBeforeFill = True
+        '
         'EstadoCuentaCorriente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -759,4 +767,5 @@ Partial Class EstadoCuentaCorriente
     Friend WithEvents idpagos As DataGridViewTextBoxColumn
     Friend WithEvents Anular As DataGridViewButtonColumn
     Friend WithEvents fechavencimiento As DataGridViewTextBoxColumn
+    Friend WithEvents PermisosTableAdapter1 As comercialDataSetTableAdapters.permisosTableAdapter
 End Class

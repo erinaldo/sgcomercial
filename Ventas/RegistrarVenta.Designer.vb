@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class RegistrarVenta
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class RegistrarVenta
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim IdclienteLabel As System.Windows.Forms.Label
@@ -153,7 +153,6 @@ Partial Class RegistrarVenta
         Me.pagotextbox2 = New System.Windows.Forms.TextBox()
         Me.idformapagocombo2 = New System.Windows.Forms.ComboBox()
         Me.FormaspagoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PictureClowd = New System.Windows.Forms.PictureBox()
         IdclienteLabel = New System.Windows.Forms.Label()
         FechaventaLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
@@ -188,7 +187,6 @@ Partial Class RegistrarVenta
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GFP2.SuspendLayout()
         CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureClowd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -840,7 +838,6 @@ Partial Class RegistrarVenta
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox3.Controls.Add(Me.PictureClowd)
         Me.GroupBox3.Controls.Add(Me.FechavencimientoDateTimePicker)
         Me.GroupBox3.Controls.Add(Label5)
         Me.GroupBox3.Controls.Add(NrocomprobanteLabel)
@@ -1031,6 +1028,7 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -1310,19 +1308,6 @@ Partial Class RegistrarVenta
         Me.FormaspagoBindingSource1.DataMember = "formaspago"
         Me.FormaspagoBindingSource1.DataSource = Me.ComercialDataSet
         '
-        'PictureClowd
-        '
-        Me.PictureClowd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureClowd.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
-        Me.PictureClowd.InitialImage = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
-        Me.PictureClowd.Location = New System.Drawing.Point(816, 126)
-        Me.PictureClowd.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureClowd.Name = "PictureClowd"
-        Me.PictureClowd.Size = New System.Drawing.Size(29, 30)
-        Me.PictureClowd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureClowd.TabIndex = 21
-        Me.PictureClowd.TabStop = False
-        '
         'RegistrarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
@@ -1372,7 +1357,6 @@ Partial Class RegistrarVenta
         Me.GFP2.ResumeLayout(False)
         Me.GFP2.PerformLayout()
         CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureClowd, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1491,5 +1475,4 @@ Partial Class RegistrarVenta
     Friend WithEvents subtotal As DataGridViewTextBoxColumn
     Friend WithEvents eliminar As DataGridViewButtonColumn
     Friend WithEvents listasprecios As DataGridViewTextBoxColumn
-    Friend WithEvents PictureClowd As PictureBox
 End Class

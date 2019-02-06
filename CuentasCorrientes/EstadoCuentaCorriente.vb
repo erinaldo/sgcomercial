@@ -8,7 +8,13 @@
         If gclienteseleccionado > 0 Then
             filtrarcliente()
         End If
-
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Dim autorizado As Int16
+        autorizado = PermisosTableAdapter1.permisos_consultabymenuname(guserprofile, "EstadoCuentaCorriente")
+        If Not autorizado = 1 Then
+            ListacuentascorrientesDataGridView.Columns("Anular").Visible = False
+        End If
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     End Sub
     Private Sub colorear()
         'Dim fechavencimiento
