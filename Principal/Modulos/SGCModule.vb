@@ -14,7 +14,7 @@
     Public gpagocombinadoconfirmado As Boolean
     Public gModuloClowd As Long
     Public gProgressBarCounter As Long
-
+    Public gUserToken As String
     '************************************************
     Public FormPrincipal As Principal
     '************************************************

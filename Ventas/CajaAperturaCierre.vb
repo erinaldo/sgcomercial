@@ -109,7 +109,11 @@ Public Class CajaAperturaCierre
 
             If rtn = 1 Then
                 MsgBox("Caja Cerrada Exitosamente!", MsgBoxStyle.Information, "Mensaje")
-                mail_cierrecaja()
+                If My.Computer.Network.IsAvailable Then
+                    mail_cierrecaja()
+                Else
+                    MsgBox("No hay conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+                End If
                 isopen(idcaja)
                 '*********************************************************************
                 '************ Imprimir cierre de caja ******************
@@ -234,9 +238,11 @@ Public Class CajaAperturaCierre
             smtp.Port = EmailPort
             smtp.EnableSsl = True
             smtp.Credentials = New System.Net.NetworkCredential(EmailFrom, EmailFromPwd)
-            smtp.Send(emailmessage)
-            MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
+            smtp.Timeout = 10
+            'smtp.Send(emailmessage)
+            smtp.SendAsync(emailmessage, gUserToken)
             Me.Cursor = Cursors.Default
+            MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
         Catch ex As Exception
             Me.Cursor = Cursors.Default
             MsgBox(ex.Message)

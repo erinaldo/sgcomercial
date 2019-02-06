@@ -285,6 +285,7 @@ Public Class ABMProductos
         '******************************************
         BindingNavigatorAddNewItem.Visible = False
         editbtn.Visible = False
+
         Return
     End Sub
 
@@ -636,7 +637,7 @@ Public Class ABMProductos
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         Select Case ComboBox1.Text
-            Case "Otras Unidades"
+            Case "Unidad Cerrada"
                 MedidaTextBox.Text = "1"
                 MedidaTextBox.Enabled = False
             Case Else
@@ -835,5 +836,9 @@ Public Class ABMProductos
             PrecioventadistribuidorTextBox.Text = PrecioventaTextBox.Text
             PrecioventadistribuidorTextBox.Select()
         End If
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        ComboBox1.SelectedValue = 6
     End Sub
 End Class
