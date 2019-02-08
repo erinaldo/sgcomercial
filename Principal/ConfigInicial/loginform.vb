@@ -82,9 +82,9 @@ Public Class loginform
             sqlserverconnection = New SqlConnection(sgcomercial.My.MySettings.Default.comercialConnectionString)
             sqlserverconnection.Open()
             '=======================================
-            StrSysCurrentVersion = ParametrosgeneralesTableAdapter1.parametrosgenerales_GetPrgstring1("SysCurrentVersion")
+            'StrSysCurrentVersion = ParametrosgeneralesTableAdapter1.parametrosgenerales_GetPrgstring1("SysCurrentVersion")
             SysCurrentVersion = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byclave("SysCurrentVersion")
-            StrSysCurrentVersion = "Versión " + StrSysCurrentVersion
+            StrSysCurrentVersion = "Versión " + SysCurrentVersion.ToString
             Dim softwareversion As String
             version.Text = "Versión "
             version.Text += My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString

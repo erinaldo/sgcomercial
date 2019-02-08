@@ -497,13 +497,20 @@ Module SGCModule
         'End While
         'streamReader.Close()
         Try
-            IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
+            '**********************************************
+            Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
+                IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
+            Catch ex As Exception
+
+            End Try
+            '**********************************************
+            ' SI NO EXISTE LA CREA
             If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
                 System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
             End If
         Catch ex As Exception
             Cursor.Current = Cursors.Default
-            MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
+            MsgBox("Borrando archivos " + ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
             Return
         End Try
         '***************************    descargando la nueva version *************************
@@ -541,16 +548,19 @@ Module SGCModule
             '   *********************   CREANDO OBJETOS DE CONEXION SISCOMBD
             Dim TerminalesSCTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
             TerminalesSCTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+            Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
+            parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
             '   *********************   ACTUALIZAR NRO DE VERSION REMOTA Y COMENZAR LA EJECUCION
             Try
                 TerminalesSCTableAdapter.terminales_updatesgcversion(newversion.ToString, gTerminal)
+                parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("SysCurrentVersion", newversion, newversion.ToString, Nothing)
             Catch ex As Exception
                 MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Exclamation)
                 Return
             End Try
-
+            Return
             Process.Start("C:\SGComercial\UpdatePack\Ejecutable\setup.exe")
             End
         End Using
