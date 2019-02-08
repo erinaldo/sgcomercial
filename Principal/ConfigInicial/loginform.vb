@@ -195,4 +195,19 @@ Public Class loginform
     Private Sub Button3_Click_2(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub Button3_Click_3(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim status As Boolean
+        Dim currentversion As Long
+        Dim newversion As Long
+        UpdateCheck(status, currentversion, newversion)
+        If status = True Then
+            If MsgBox("Existe una nueva versión del sistema (" + newversion.ToString + "), desea realizar la actualización ahora?", MsgBoxStyle.YesNo, "Control de Versión") = MsgBoxResult.Yes Then
+                UpdateSGC(newversion)
+            End If
+            'Else
+            '    MsgBox("Tu versión de sistema se encuentra actualizada", MsgBoxStyle.Information)
+            '    'status = False
+        End If
+    End Sub
 End Class

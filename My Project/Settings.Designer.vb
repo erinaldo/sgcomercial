@@ -68,7 +68,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server=;user id=;password=;database=")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=sistemascomerciales.net;user id=sistema1_siscom;password=Sistemascomercial"& _ 
+            "es*?;database=sistema1_siscom;persistsecurityinfo=True")>  _
         Public ReadOnly Property SCConnectionString() As String
             Get
                 Return CType(Me("SCConnectionString"),String)
@@ -78,8 +79,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User I"& _ 
-            "D=sgcomercial;Password=sgcomercial*?")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=comercial;Integrated Security=True")>  _
         Public ReadOnly Property comercialConnectionString() As String
             Get
                 Return CType(Me("comercialConnectionString"),String)
@@ -96,9 +96,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.sgcomercial.My.MySettings
+        Friend ReadOnly Property Settings() As Global.SGComercial.My.MySettings
             Get
-                Return Global.sgcomercial.My.MySettings.Default
+                Return Global.SGComercial.My.MySettings.Default
             End Get
         End Property
     End Module

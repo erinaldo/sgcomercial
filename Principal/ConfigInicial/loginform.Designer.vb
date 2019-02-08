@@ -49,6 +49,7 @@ Partial Class loginform
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ParametrosgeneralesTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.version = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,6 +137,7 @@ Partial Class loginform
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -295,6 +297,16 @@ Partial Class loginform
         Me.version.TabIndex = 10
         Me.version.Text = "version"
         '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        Me.Button3.Location = New System.Drawing.Point(223, 15)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(198, 23)
+        Me.Button3.TabIndex = 11
+        Me.Button3.Text = "Buscar Actualizaciones"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'loginform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -302,6 +314,7 @@ Partial Class loginform
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(433, 294)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.version)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.PictureBox1)
@@ -352,4 +365,5 @@ Partial Class loginform
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents ParametrosgeneralesTableAdapter1 As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
     Friend WithEvents version As Label
+    Friend WithEvents Button3 As Button
 End Class

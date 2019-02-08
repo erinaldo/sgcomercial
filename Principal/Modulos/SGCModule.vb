@@ -1,4 +1,11 @@
-﻿Module SGCModule
+﻿Imports System.IO
+Imports System.Net
+Imports System.Net.WebRequest
+Imports System.Threading
+'Imports System.IO.Compression
+
+
+Module SGCModule
     '************************************************
     Public gstrSheetName As New List(Of String)
     Public gstrSheetSelected As String
@@ -15,10 +22,12 @@
     Public gModuloClowd As Long
     Public gProgressBarCounter As Long
     Public gUserToken As String
+
     '************************************************
     Public FormPrincipal As Principal
     '************************************************
     Public gmacadress As String
+    Public gTerminal As Long
     Public guserid As Integer
     Public guserprofile As String
     Public gusername As String
@@ -366,7 +375,7 @@
         Dim columnas(100) As String
         Dim camposrequeridos(13) As String
         Dim camposfaltantes As List(Of String) = New List(Of String)
-        Dim strfaltantes As String
+        Dim strfaltantes As String = ""
         '***************************************
         camposrequeridos(0) = "codigoproducto"
         camposrequeridos(1) = "marca"
@@ -411,6 +420,118 @@
             rtn = True
             Return
         End If
+    End Sub
+    Public Sub UpdateCheck(ByRef status As Boolean, ByRef currentversion As Long, ByRef newversion As Long)
+        If Not My.Computer.Network.IsAvailable Then
+            MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            status = False
+            Return
+        End If
+        Dim TerminalesSCTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+        TerminalesSCTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Dim ProductosSCTableAdapter As siscomDataSetTableAdapters.productosTableAdapter
+        ProductosSCTableAdapter = New siscomDataSetTableAdapters.productosTableAdapter()
+        ''''''''''''''
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Try
+            gTerminal = TerminalesSCTableAdapter.terminales_existe(gmacadress)
+            If Not gTerminal > 0 Then
+                MsgBox("Dispositivo no autorizado", MsgBoxStyle.Exclamation, "Advertencia")
+                status = False
+                Return
+            End If
+        Catch ex As Exception
+            MsgBox("Ocurrio un error: " + ex.Message)
+        End Try
+
+
+        Try
+            newversion = Val(ProductosSCTableAdapter.productos_consultarversionvigente("SGComercia"))
+            currentversion = Val(TerminalesSCTableAdapter.terminales_consultarsgcversion(gTerminal))
+            If newversion > currentversion Then
+                status = True
+            Else
+                MsgBox("Tu versión de sistema se encuentra actualizada", MsgBoxStyle.Information)
+                status = False
+            End If
+        Catch ex As Exception
+            status = False
+        End Try
+    End Sub
+    Public Sub UpdateSGC(ByRef newversion As Long)
+        Cursor.Current = Cursors.WaitCursor
+        Dim ftpRequest As FtpWebRequest = DirectCast(WebRequest.Create("ftp://sistemascomerciales.net/"), FtpWebRequest)
+        ftpRequest.Credentials = New NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
+        ftpRequest.Method = WebRequestMethods.Ftp.ListDirectory
+        Dim response As FtpWebResponse = DirectCast(ftpRequest.GetResponse(), FtpWebResponse)
+        Dim streamReader As New StreamReader(response.GetResponseStream())
+        Dim directories As New List(Of String)()
+
+        'Dim line As String = streamReader.ReadLine()
+        'While Not String.IsNullOrEmpty(line)
+        '    directories.Add(line)
+        '    line = streamReader.ReadLine()
+        'End While
+        'streamReader.Close()
+        Try
+            IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
+            If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
+                System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
+            End If
+        Catch ex As Exception
+            Cursor.Current = Cursors.Default
+            MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
+            Return
+        End Try
+        '***************************    descargando la nueva version *************************
+        Using ftpClient As New WebClient()
+            ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
+
+            'For i As Integer = 0 To directories.Count - 1
+            '    'If  directories(i).Contains(".") Then
+            '    If directories(i) <> "." And directories(i) <> ".." Then
+            Try
+                'FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.*")
+                Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar" '+ directories(i).ToString()
+                Dim trnsfrpth As String = "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar" '+ directories(i).ToString()
+                ftpClient.DownloadFile(path, trnsfrpth)
+            Catch ex As Exception
+                Cursor.Current = Cursors.Default
+                MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
+                Return
+            End Try
+            '    End If
+            'Next
+            '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
+            '   *********************   DESCOMPRIMIR LA NUEVA VERSION
+            Try
+                Module_unrar.UnRar("C:\SGComercial\UpdatePack\Ejecutable\", "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
+                Threading.Thread.Sleep(6000)
+            Catch ex As Exception
+                MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Exclamation)
+                Return
+            End Try
+            '''''''''''''''''''''''''''''''''''''''''''''''
+            Cursor.Current = Cursors.Default
+            MsgBox("La aplicación se cerrará para comenzar el proceso de instalación", MsgBoxStyle.Information, "Advertencia")
+            '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
+            '   *********************   CREANDO OBJETOS DE CONEXION SISCOMBD
+            Dim TerminalesSCTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+            TerminalesSCTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
+            '   *********************   ACTUALIZAR NRO DE VERSION REMOTA Y COMENZAR LA EJECUCION
+            Try
+                TerminalesSCTableAdapter.terminales_updatesgcversion(newversion.ToString, gTerminal)
+            Catch ex As Exception
+                MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Exclamation)
+                Return
+            End Try
+
+            Process.Start("C:\SGComercial\UpdatePack\Ejecutable\setup.exe")
+            End
+        End Using
     End Sub
 End Module
 

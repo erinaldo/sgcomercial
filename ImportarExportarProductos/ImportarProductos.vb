@@ -6,7 +6,7 @@ Public Class ImportarProductos
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         BtnConfirmar.Enabled = False
         Try
-            Dim myconnection As OleDb.OleDbConnection
+            Dim myconnection As OleDb.OleDbConnection = Nothing
             Dim HDR As String
             If CbxCabeceras.Checked Then
                 HDR = "SI"
@@ -140,7 +140,7 @@ Public Class ImportarProductos
         Next
         '*******************
         Dim rtn As Boolean
-        Dim msg As String
+        Dim msg As String = ""
         validarcolumnasProdImportados(DataGridView1, rtn, msg)
         If rtn = False Then
             MsgBox(msg, MsgBoxStyle.Exclamation, "Advertencia")

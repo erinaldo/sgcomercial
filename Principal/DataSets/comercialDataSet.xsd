@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="comercialConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="comercialConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.sgcomercial.My.MySettings.GlobalReference.Default.comercialConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="comercialConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="comercialConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGComercial.My.MySettings.GlobalReference.Default.comercialConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cajaseventosTableAdapter" GeneratorDataComponentClassName="cajaseventosTableAdapter" Name="cajaseventos" UserDataComponentName="cajaseventosTableAdapter">
@@ -636,7 +636,7 @@ SELECT idformapago, descripcion FROM formaspago WHERE (idformapago = @idformapag
               <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.formaspago" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByPagosaCC" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPagosaCC" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByPagosaCC">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.formaspago" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByPagosaCC" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPagosaCC" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByPagosaCC">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT idformapago, descripcion FROM dbo.formaspago
@@ -645,7 +645,7 @@ where descripcion in ('Efectivo','Débito','Tarjeta de Crédito','Transferencia'
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.formaspago" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBySegundaFP" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBySegundaFP" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBySegundaFP">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.formaspago" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBySegundaFP" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBySegundaFP" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBySegundaFP">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT idformapago, descripcion FROM dbo.formaspago

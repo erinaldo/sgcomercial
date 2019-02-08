@@ -124,13 +124,21 @@ Public Class ABMProductos
             ComboBox3.Select()
             Return
         End If
+        '**********************************************
+        If Not IvaComboBox.SelectedIndex >= 0 Then
+            MsgBox("Ingrese un valor de IVA", MsgBoxStyle.Exclamation, "Advertencia")
+            IvaComboBox.Select()
+            res = False
+            Return
+        End If
+        '**********************************************
 
         Try
             Me.ProductosBindingSource.EndEdit()
             If Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) Then
                 If gModuloClowd = 1 Then
                     Dim CODERROR As Long
-                    Dim MSGERROR As String
+                    Dim MSGERROR As String = ""
                     PushProducto(codigoproductoTextBox.Text, CODERROR, MSGERROR)
                     If CODERROR > 0 Then
                         Throw New Exception("No se pudo actualizar el producto en la nube -" + MSGERROR + "-")
@@ -443,14 +451,7 @@ Public Class ABMProductos
                 codigoproductoTextBox.Enabled = False
             End If
         End If
-        '**********************************************
-        If Not IvaComboBox.SelectedIndex >= 0 Then
-            MsgBox("Ingrese un valor de IVA", MsgBoxStyle.Exclamation, "Advertencia")
-            IvaComboBox.Select()
-            res = False
-            Return
-        End If
-        '**********************************************
+
     End Sub
 
     Private Sub PrecioventagranelTextBox_TextChanged(sender As Object, e As EventArgs) Handles PrecioventagranelTextBox.TextChanged
@@ -736,7 +737,7 @@ Public Class ABMProductos
             If Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) Then
                 If gModuloClowd = 1 Then
                     Dim CODERROR As Long
-                    Dim MSGERROR As String
+                    Dim MSGERROR As String = ""
                     PushProducto(codigoproductoTextBox.Text, CODERROR, MSGERROR)
                     If CODERROR > 0 Then
                         Throw New Exception("No se pudo actualizar el producto en la nube -" + MSGERROR + "-")
@@ -838,7 +839,7 @@ Public Class ABMProductos
         End If
     End Sub
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) 
         ComboBox1.SelectedValue = 6
     End Sub
 End Class

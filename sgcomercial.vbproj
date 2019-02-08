@@ -8,8 +8,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CEA80A31-DACD-4591-9014-634F561A7688}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>sgcomercial.My.MyApplication</StartupObject>
-    <RootNamespace>sgcomercial</RootNamespace>
+    <StartupObject>SGComercial.My.MyApplication</StartupObject>
+    <RootNamespace>SGComercial</RootNamespace>
     <AssemblyName>SGComercial</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
@@ -31,8 +31,9 @@
     <ProductName>SGComercial</ProductName>
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
-    <ApplicationRevision>10</ApplicationRevision>
-    <ApplicationVersion>4.0.7.%2a</ApplicationVersion>
+    <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
+    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationVersion>4.0.7.9</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -47,6 +48,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>SGComercial.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -74,7 +76,7 @@
     <ApplicationIcon>Recursos\monedas.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>3E61AAC516B7863B952DC80F97027D4EA4FF5E7C</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>16CB78E2918809F06046B90D45D22124D7954F2F</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
@@ -84,23 +86,22 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>sgcomercial_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>Custom</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <DelaySign>true</DelaySign>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -345,12 +346,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Principal\ConfigInicial\UpdaterForm.Designer.vb">
+      <DependentUpon>UpdaterForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ConfigInicial\UpdaterForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Principal\DataSets\MySQLDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MySQLDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Principal\Modulos\DBCModule.vb" />
+    <Compile Include="Principal\Modulos\Module_unrar.vb" />
     <Compile Include="Principal\Modulos\MySQLModule.vb" />
     <Compile Include="Principal\ParametrosGenerales\ABMListasprecios.Designer.vb">
       <DependentUpon>ABMListasprecios.vb</DependentUpon>
@@ -1018,6 +1026,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Principal\ConfigInicial\UpdaterForm.resx">
+      <DependentUpon>UpdaterForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\ParametrosGenerales\ABMListasprecios.resx">
       <DependentUpon>ABMListasprecios.vb</DependentUpon>
     </EmbeddedResource>
@@ -1336,7 +1347,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="AppConfig\sgcomercial_TemporaryKey.pfx" />
     <None Include="Principal\DataSets\comercialDataSet.xsc">
       <DependentUpon>comercialDataSet.xsd</DependentUpon>
     </None>
@@ -1359,6 +1369,8 @@
     <None Include="Principal\DataSets\siscomDataSet.xss">
       <DependentUpon>siscomDataSet.xsd</DependentUpon>
     </None>
+    <None Include="sgcomercial.snk" />
+    <None Include="sgcomercial_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -1450,29 +1462,12 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="AxSTROKESCRIBELib">
-      <Guid>{ED7AED90-6B75-406A-A856-CEFDC6E021BB}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>25</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="STROKESCRIBELib">
-      <Guid>{ED7AED90-6B75-406A-A856-CEFDC6E021BB}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>25</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>

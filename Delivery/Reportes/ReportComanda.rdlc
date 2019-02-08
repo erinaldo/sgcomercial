@@ -873,7 +873,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ListaPedidosDeliveryDetalle</DataSetName>
-        <Top>4.14867cm</Top>
+        <Top>4.46617cm</Top>
         <Left>0.7365cm</Left>
         <Height>1.8cm</Height>
         <Width>8.53959cm</Width>
@@ -885,7 +885,7 @@
         </Style>
       </Tablix>
       <Line Name="Line3">
-        <Top>3.99532cm</Top>
+        <Top>4.31282cm</Top>
         <Left>0.59069cm</Left>
         <Height>0cm</Height>
         <Width>8.8947cm</Width>
@@ -916,9 +916,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>3.39372cm</Top>
+        <Top>3.55005cm</Top>
         <Left>2.06823cm</Left>
-        <Height>0.48684cm</Height>
+        <Height>0.44527cm</Height>
         <Width>5.87613cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
@@ -1803,7 +1803,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ListaPedidosDeliveryDetalle</DataSetName>
-        <Top>4.14867cm</Top>
+        <Top>4.46617cm</Top>
         <Left>11.86907cm</Left>
         <Height>1.8cm</Height>
         <Width>8.53959cm</Width>
@@ -1815,7 +1815,7 @@
         </Style>
       </Tablix>
       <Line Name="Line4">
-        <Top>3.99532cm</Top>
+        <Top>4.31282cm</Top>
         <Left>11.72326cm</Left>
         <Height>0cm</Height>
         <Width>8.8947cm</Width>
@@ -1846,9 +1846,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>3.39372cm</Top>
+        <Top>3.58533cm</Top>
         <Left>13.2008cm</Left>
-        <Height>0.48684cm</Height>
+        <Height>0.44527cm</Height>
         <Width>5.87613cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
@@ -2010,7 +2010,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>6.09425cm</Height>
+    <Height>6.499cm</Height>
     <Style />
   </Body>
   <Width>20.87109cm</Width>
