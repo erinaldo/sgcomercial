@@ -96,9 +96,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.SGComercial.My.MySettings
+        Friend ReadOnly Property Settings() As Global.sgcomercial.My.MySettings
             Get
-                Return Global.SGComercial.My.MySettings.Default
+                Return Global.sgcomercial.My.MySettings.Default
             End Get
         End Property
     End Module

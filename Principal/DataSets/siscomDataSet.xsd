@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="SCConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SCConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGComercial.My.MySettings.GlobalReference.Default.SCConnectionString" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="SCConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SCConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.sgcomercial.My.MySettings.GlobalReference.Default.SCConnectionString" Provider="MySql.Data.MySqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="clientesTableAdapter" GeneratorDataComponentClassName="clientesTableAdapter" Name="clientes" UserDataComponentName="clientesTableAdapter">
@@ -237,7 +237,7 @@ values(@idcliente, @mac, @nombre, @tvid, @fechaalta , @validez)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectName="sistema1_siscom.terminales" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="terminales_autoupdater" Modifier="Public" Name="terminales_autoupdater" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="terminales_autoupdater">
+              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectName="sistema1_siscom.terminales" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="terminales_autoupdater" Modifier="Public" Name="terminales_autoupdater" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="terminales_autoupdater">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select autoupdater from terminales where idterminales = @idterminales</CommandText>
@@ -247,7 +247,7 @@ values(@idcliente, @mac, @nombre, @tvid, @fechaalta , @validez)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectName="sistema1_siscom.terminales" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="terminales_consultarsgcversion" Modifier="Public" Name="terminales_consultarsgcversion" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="terminales_consultarsgcversion">
+              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectName="sistema1_siscom.terminales" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="terminales_consultarsgcversion" Modifier="Public" Name="terminales_consultarsgcversion" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="terminales_consultarsgcversion">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT sgcversion, autoupdater FROM terminales WHERE (idterminales = @idterminales)</CommandText>
@@ -257,7 +257,7 @@ values(@idcliente, @mac, @nombre, @tvid, @fechaalta , @validez)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="terminales_existe" Modifier="Public" Name="terminales_existe" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="terminales_existe">
+              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="terminales_existe" Modifier="Public" Name="terminales_existe" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="terminales_existe">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(1) FROM terminales 
@@ -268,7 +268,7 @@ values(@idcliente, @mac, @nombre, @tvid, @fechaalta , @validez)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="terminales_GetID" Modifier="Public" Name="terminales_GetID" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="terminales_GetID">
+              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="terminales_GetID" Modifier="Public" Name="terminales_GetID" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="terminales_GetID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT IFNULL(idterminales,0) FROM terminales 
@@ -279,7 +279,7 @@ values(@idcliente, @mac, @nombre, @tvid, @fechaalta , @validez)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="terminales_updatesgcversion" Modifier="Public" Name="terminales_updatesgcversion" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="terminales_updatesgcversion">
+              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="terminales_updatesgcversion" Modifier="Public" Name="terminales_updatesgcversion" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="terminales_updatesgcversion">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>update terminales
@@ -292,7 +292,7 @@ where idterminales = @ideterminales</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectName="sistema1_siscom.terminales" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="terminales_validarlicencia" Modifier="Public" Name="terminales_validarlicencia" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="terminales_validarlicencia">
+              <DbSource ConnectionRef="SCConnectionString (MySettings)" DbObjectName="sistema1_siscom.terminales" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="terminales_validarlicencia" Modifier="Public" Name="terminales_validarlicencia" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="terminales_validarlicencia">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT fechabaja, sgcversion, autoupdater FROM terminales WHERE (mac = @mac) AND (fechabaja &gt; sysdate())</CommandText>
@@ -447,7 +447,7 @@ where idproductos = @idproductos</CommandText>
   <xs:element name="siscomDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="siscomDataSet" msprop:Generator_UserDSName="siscomDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="clientes" msprop:Generator_TableClassName="clientesDataTable" msprop:Generator_TableVarName="tableclientes" msprop:Generator_RowChangedName="clientesRowChanged" msprop:Generator_TablePropName="clientes" msprop:Generator_RowDeletingName="clientesRowDeleting" msprop:Generator_RowChangingName="clientesRowChanging" msprop:Generator_RowEvHandlerName="clientesRowChangeEventHandler" msprop:Generator_RowDeletedName="clientesRowDeleted" msprop:Generator_RowClassName="clientesRow" msprop:Generator_UserTableName="clientes" msprop:Generator_RowEvArgName="clientesRowChangeEvent">
+        <xs:element name="clientes" msprop:Generator_TableClassName="clientesDataTable" msprop:Generator_TableVarName="tableclientes" msprop:Generator_TablePropName="clientes" msprop:Generator_RowDeletingName="clientesRowDeleting" msprop:Generator_RowChangingName="clientesRowChanging" msprop:Generator_RowEvHandlerName="clientesRowChangeEventHandler" msprop:Generator_RowDeletedName="clientesRowDeleted" msprop:Generator_UserTableName="clientes" msprop:Generator_RowChangedName="clientesRowChanged" msprop:Generator_RowEvArgName="clientesRowChangeEvent" msprop:Generator_RowClassName="clientesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idclientes" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidclientes" msprop:Generator_ColumnPropNameInRow="idclientes" msprop:Generator_ColumnPropNameInTable="idclientesColumn" msprop:Generator_UserColumnName="idclientes" type="xs:int" />
@@ -482,7 +482,7 @@ where idproductos = @idproductos</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="modulos" msprop:Generator_TableClassName="modulosDataTable" msprop:Generator_TableVarName="tablemodulos" msprop:Generator_RowChangedName="modulosRowChanged" msprop:Generator_TablePropName="modulos" msprop:Generator_RowDeletingName="modulosRowDeleting" msprop:Generator_RowChangingName="modulosRowChanging" msprop:Generator_RowEvHandlerName="modulosRowChangeEventHandler" msprop:Generator_RowDeletedName="modulosRowDeleted" msprop:Generator_RowClassName="modulosRow" msprop:Generator_UserTableName="modulos" msprop:Generator_RowEvArgName="modulosRowChangeEvent">
+        <xs:element name="modulos" msprop:Generator_TableClassName="modulosDataTable" msprop:Generator_TableVarName="tablemodulos" msprop:Generator_TablePropName="modulos" msprop:Generator_RowDeletingName="modulosRowDeleting" msprop:Generator_RowChangingName="modulosRowChanging" msprop:Generator_RowEvHandlerName="modulosRowChangeEventHandler" msprop:Generator_RowDeletedName="modulosRowDeleted" msprop:Generator_UserTableName="modulos" msprop:Generator_RowChangedName="modulosRowChanged" msprop:Generator_RowEvArgName="modulosRowChangeEvent" msprop:Generator_RowClassName="modulosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idmodulo" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidmodulo" msprop:Generator_ColumnPropNameInRow="idmodulo" msprop:Generator_ColumnPropNameInTable="idmoduloColumn" msprop:Generator_UserColumnName="idmodulo" type="xs:long" />
@@ -503,7 +503,7 @@ where idproductos = @idproductos</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="terminales" msprop:Generator_TableClassName="terminalesDataTable" msprop:Generator_TableVarName="tableterminales" msprop:Generator_RowChangedName="terminalesRowChanged" msprop:Generator_TablePropName="terminales" msprop:Generator_RowDeletingName="terminalesRowDeleting" msprop:Generator_RowChangingName="terminalesRowChanging" msprop:Generator_RowEvHandlerName="terminalesRowChangeEventHandler" msprop:Generator_RowDeletedName="terminalesRowDeleted" msprop:Generator_RowClassName="terminalesRow" msprop:Generator_UserTableName="terminales" msprop:Generator_RowEvArgName="terminalesRowChangeEvent">
+        <xs:element name="terminales" msprop:Generator_TableClassName="terminalesDataTable" msprop:Generator_TableVarName="tableterminales" msprop:Generator_TablePropName="terminales" msprop:Generator_RowDeletingName="terminalesRowDeleting" msprop:Generator_RowChangingName="terminalesRowChanging" msprop:Generator_RowEvHandlerName="terminalesRowChangeEventHandler" msprop:Generator_RowDeletedName="terminalesRowDeleted" msprop:Generator_UserTableName="terminales" msprop:Generator_RowChangedName="terminalesRowChanged" msprop:Generator_RowEvArgName="terminalesRowChangeEvent" msprop:Generator_RowClassName="terminalesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idterminales" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidterminales" msprop:Generator_ColumnPropNameInRow="idterminales" msprop:Generator_ColumnPropNameInTable="idterminalesColumn" msprop:Generator_UserColumnName="idterminales" type="xs:int" />
@@ -542,7 +542,7 @@ where idproductos = @idproductos</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="terminalesmodulos" msprop:Generator_TableClassName="terminalesmodulosDataTable" msprop:Generator_TableVarName="tableterminalesmodulos" msprop:Generator_RowChangedName="terminalesmodulosRowChanged" msprop:Generator_TablePropName="terminalesmodulos" msprop:Generator_RowDeletingName="terminalesmodulosRowDeleting" msprop:Generator_RowChangingName="terminalesmodulosRowChanging" msprop:Generator_RowEvHandlerName="terminalesmodulosRowChangeEventHandler" msprop:Generator_RowDeletedName="terminalesmodulosRowDeleted" msprop:Generator_RowClassName="terminalesmodulosRow" msprop:Generator_UserTableName="terminalesmodulos" msprop:Generator_RowEvArgName="terminalesmodulosRowChangeEvent">
+        <xs:element name="terminalesmodulos" msprop:Generator_TableClassName="terminalesmodulosDataTable" msprop:Generator_TableVarName="tableterminalesmodulos" msprop:Generator_TablePropName="terminalesmodulos" msprop:Generator_RowDeletingName="terminalesmodulosRowDeleting" msprop:Generator_RowChangingName="terminalesmodulosRowChanging" msprop:Generator_RowEvHandlerName="terminalesmodulosRowChangeEventHandler" msprop:Generator_RowDeletedName="terminalesmodulosRowDeleted" msprop:Generator_UserTableName="terminalesmodulos" msprop:Generator_RowChangedName="terminalesmodulosRowChanged" msprop:Generator_RowEvArgName="terminalesmodulosRowChangeEvent" msprop:Generator_RowClassName="terminalesmodulosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idterminalesmodulos" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidterminalesmodulos" msprop:Generator_ColumnPropNameInRow="idterminalesmodulos" msprop:Generator_ColumnPropNameInTable="idterminalesmodulosColumn" msprop:Generator_UserColumnName="idterminalesmodulos" type="xs:int" />
@@ -553,7 +553,7 @@ where idproductos = @idproductos</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="productos" msprop:Generator_TableClassName="productosDataTable" msprop:Generator_TableVarName="tableproductos" msprop:Generator_TablePropName="productos" msprop:Generator_RowDeletingName="productosRowDeleting" msprop:Generator_RowChangingName="productosRowChanging" msprop:Generator_RowEvHandlerName="productosRowChangeEventHandler" msprop:Generator_RowDeletedName="productosRowDeleted" msprop:Generator_UserTableName="productos" msprop:Generator_RowChangedName="productosRowChanged" msprop:Generator_RowEvArgName="productosRowChangeEvent" msprop:Generator_RowClassName="productosRow">
+        <xs:element name="productos" msprop:Generator_TableClassName="productosDataTable" msprop:Generator_TableVarName="tableproductos" msprop:Generator_RowChangedName="productosRowChanged" msprop:Generator_TablePropName="productos" msprop:Generator_RowDeletingName="productosRowDeleting" msprop:Generator_RowChangingName="productosRowChanging" msprop:Generator_RowEvHandlerName="productosRowChangeEventHandler" msprop:Generator_RowDeletedName="productosRowDeleted" msprop:Generator_RowClassName="productosRow" msprop:Generator_UserTableName="productos" msprop:Generator_RowEvArgName="productosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">

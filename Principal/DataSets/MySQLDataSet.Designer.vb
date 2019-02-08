@@ -11467,7 +11467,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12332,7 +12332,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12957,7 +12957,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13630,7 +13630,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14551,7 +14551,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15533,7 +15533,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16067,7 +16067,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16484,7 +16484,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16874,7 +16874,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17240,7 +17240,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17862,7 +17862,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -18605,7 +18605,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -19092,7 +19092,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -19458,7 +19458,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -20028,7 +20028,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -20585,7 +20585,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -21024,7 +21024,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -21419,7 +21419,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -22392,7 +22392,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -24026,7 +24026,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.MySQLConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.MySQLConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

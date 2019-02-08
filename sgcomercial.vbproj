@@ -8,8 +8,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CEA80A31-DACD-4591-9014-634F561A7688}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SGComercial.My.MyApplication</StartupObject>
-    <RootNamespace>SGComercial</RootNamespace>
+    <StartupObject>sgcomercial.My.MyApplication</StartupObject>
+    <RootNamespace>sgcomercial</RootNamespace>
     <AssemblyName>SGComercial</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>

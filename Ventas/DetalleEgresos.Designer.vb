@@ -25,7 +25,7 @@ Partial Class DetalleEgresos
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.V_gastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New SGComercial.comercialDataSet()
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.V_gastosDataGridView = New System.Windows.Forms.DataGridView()
@@ -34,10 +34,10 @@ Partial Class DetalleEgresos
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.anular = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.V_gastosTableAdapter = New SGComercial.comercialDataSetTableAdapters.v_gastosTableAdapter()
-        Me.TableAdapterManager = New SGComercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.V_gastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.v_gastosTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.CajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CajasoperacionesTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -95,7 +95,7 @@ Partial Class DetalleEgresos
         ReportDataSource1.Name = "v_gastos"
         ReportDataSource1.Value = Me.V_gastosBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "SGComercial.GraphEgresos.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphEgresos.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(643, 29)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ShowToolBar = False
@@ -225,7 +225,7 @@ Partial Class DetalleEgresos
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = SGComercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
         Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing

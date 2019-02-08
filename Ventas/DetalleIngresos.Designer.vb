@@ -25,7 +25,7 @@ Partial Class DetalleIngresos
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ingresosGraphBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New SGComercial.comercialDataSet()
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.CajasmovimientosDataGridView = New System.Windows.Forms.DataGridView()
@@ -53,10 +53,10 @@ Partial Class DetalleIngresos
         Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CajasmovimientosTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajasmovimientosTableAdapter()
-        Me.TableAdapterManager = New SGComercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.CajasoperacionesTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
-        Me.ingresosGraphTableAdapter = New SGComercial.comercialDataSetTableAdapters.ingresosGraphTableAdapter()
+        Me.CajasmovimientosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasmovimientosTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.ingresosGraphTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ingresosGraphTableAdapter()
         CType(Me.ingresosGraphBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -100,7 +100,7 @@ Partial Class DetalleIngresos
         ReportDataSource1.Name = "ingresosgraph"
         ReportDataSource1.Value = Me.ingresosGraphBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "SGComercial.GraphIngresos.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphIngresos.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(650, 28)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ShowToolBar = False
@@ -357,7 +357,7 @@ Partial Class DetalleIngresos
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = SGComercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
         Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing

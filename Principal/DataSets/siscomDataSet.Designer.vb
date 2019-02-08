@@ -3230,7 +3230,7 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.SCConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.SCConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3719,7 +3719,7 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.SCConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.SCConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4466,7 +4466,7 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.SCConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.SCConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4480,8 +4480,8 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "insert into terminales (idcliente,mac,nombre,tvid,fechaalta,fechabaja)"&Global.Microsoft.VisualBasic.ChrW(10)&"values(@id"& _ 
-                "cliente, @mac, @nombre, @tvid, @fechaalta , @validez)"
+            Me._commandCollection(1).CommandText = "insert into terminales (idcliente,mac,nombre,tvid,fechaalta,fechabaja)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"values(@i"& _ 
+                "dcliente, @mac, @nombre, @tvid, @fechaalta , @validez)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@idcliente"
@@ -4553,7 +4553,7 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(3).Parameters.Add(param)
             Me._commandCollection(4) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT COUNT(1) FROM terminales "&Global.Microsoft.VisualBasic.ChrW(10)&" where mac = @mac"
+            Me._commandCollection(4).CommandText = "SELECT COUNT(1) FROM terminales "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" where mac = @mac"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@mac"
@@ -4565,7 +4565,7 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(param)
             Me._commandCollection(5) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT IFNULL(idterminales,0) FROM terminales "&Global.Microsoft.VisualBasic.ChrW(10)&" where mac = @mac"
+            Me._commandCollection(5).CommandText = "SELECT IFNULL(idterminales,0) FROM terminales "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" where mac = @mac"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@mac"
@@ -5530,7 +5530,7 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.SCConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.SCConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6036,7 +6036,7 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
-            Me._connection.ConnectionString = Global.SGComercial.My.MySettings.Default.SCConnectionString
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.SCConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
