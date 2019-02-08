@@ -26,7 +26,7 @@ Partial Class VerEstadoCaja
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VerEstadoCaja))
         Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ComercialDataSet = New SGComercial.comercialDataSet()
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.IdoperacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdeventoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -51,9 +51,9 @@ Partial Class VerEstadoCaja
         Me.UsuarioaperturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UsuariocierreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
-        Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
-        Me.cajaresumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
+        Me.CajasoperacionesTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.CajaseventosTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
+        Me.cajaresumenTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
         CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -173,7 +173,7 @@ Partial Class VerEstadoCaja
         ReportDataSource1.Name = "cajaresumen"
         ReportDataSource1.Value = Me.cajaresumenBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCajaResumen.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "SGComercial.RepCajaResumen.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(4, 27)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(1296, 424)

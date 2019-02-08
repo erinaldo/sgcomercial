@@ -27,7 +27,7 @@ Partial Class Cajasmovimientos
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Cajasmovimientos))
         Me.ingresosGraphBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ComercialDataSet = New SGComercial.comercialDataSet()
         Me.v_gastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
@@ -54,16 +54,16 @@ Partial Class Cajasmovimientos
         Me.CajasmovimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VgastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
+        Me.CajaseventosTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
         Me.PerfilesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PerfilesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.perfilesTableAdapter()
-        Me.GastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gastosTableAdapter()
-        Me.CajasmovimientosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasmovimientosTableAdapter()
-        Me.V_gastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.v_gastosTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.PerfilesTableAdapter = New SGComercial.comercialDataSetTableAdapters.perfilesTableAdapter()
+        Me.GastosTableAdapter = New SGComercial.comercialDataSetTableAdapters.gastosTableAdapter()
+        Me.CajasmovimientosTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajasmovimientosTableAdapter()
+        Me.V_gastosTableAdapter = New SGComercial.comercialDataSetTableAdapters.v_gastosTableAdapter()
+        Me.TableAdapterManager = New SGComercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.CajasoperacionesTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
         Me.ReportViewer2 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.ingresosGraphTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ingresosGraphTableAdapter()
+        Me.ingresosGraphTableAdapter = New SGComercial.comercialDataSetTableAdapters.ingresosGraphTableAdapter()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.ReportViewer3 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -109,7 +109,7 @@ Partial Class Cajasmovimientos
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 9)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(820, 413)
+        Me.GroupBox1.Size = New System.Drawing.Size(820, 458)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Eventos de Caja"
@@ -228,7 +228,7 @@ Partial Class Cajasmovimientos
         Me.CajaseventosDataGridView.Name = "CajaseventosDataGridView"
         Me.CajaseventosDataGridView.ReadOnly = True
         Me.CajaseventosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(808, 338)
+        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(808, 383)
         Me.CajaseventosDataGridView.TabIndex = 1
         '
         'IdeventoDataGridViewTextBoxColumn
@@ -382,6 +382,7 @@ Partial Class Cajasmovimientos
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -390,7 +391,7 @@ Partial Class Cajasmovimientos
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = SGComercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
         Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
@@ -408,8 +409,8 @@ Partial Class Cajasmovimientos
         ReportDataSource1.Name = "ingresosgraph"
         ReportDataSource1.Value = Me.ingresosGraphBindingSource
         Me.ReportViewer2.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphIngresos.rdlc"
-        Me.ReportViewer2.Location = New System.Drawing.Point(836, 23)
+        Me.ReportViewer2.LocalReport.ReportEmbeddedResource = "SGComercial.GraphIngresos.rdlc"
+        Me.ReportViewer2.Location = New System.Drawing.Point(854, 23)
         Me.ReportViewer2.Name = "ReportViewer2"
         Me.ReportViewer2.ShowToolBar = False
         Me.ReportViewer2.Size = New System.Drawing.Size(305, 403)
@@ -422,7 +423,7 @@ Partial Class Cajasmovimientos
         'Button4
         '
         Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Location = New System.Drawing.Point(1154, 391)
+        Me.Button4.Location = New System.Drawing.Point(1172, 431)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(186, 35)
         Me.Button4.TabIndex = 7
@@ -437,8 +438,8 @@ Partial Class Cajasmovimientos
         ReportDataSource2.Name = "v_gastos"
         ReportDataSource2.Value = Me.v_gastosBindingSource
         Me.ReportViewer3.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer3.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphEgresos.rdlc"
-        Me.ReportViewer3.Location = New System.Drawing.Point(1154, 23)
+        Me.ReportViewer3.LocalReport.ReportEmbeddedResource = "SGComercial.GraphEgresos.rdlc"
+        Me.ReportViewer3.Location = New System.Drawing.Point(1172, 23)
         Me.ReportViewer3.Name = "ReportViewer3"
         Me.ReportViewer3.ShowToolBar = False
         Me.ReportViewer3.Size = New System.Drawing.Size(305, 403)
@@ -447,7 +448,7 @@ Partial Class Cajasmovimientos
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Location = New System.Drawing.Point(836, 391)
+        Me.Button3.Location = New System.Drawing.Point(854, 431)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(186, 35)
         Me.Button3.TabIndex = 9
@@ -458,16 +459,18 @@ Partial Class Cajasmovimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1484, 434)
+        Me.ClientSize = New System.Drawing.Size(1502, 479)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.ReportViewer2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ReportViewer3)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Cajasmovimientos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Movimientos de Caja"

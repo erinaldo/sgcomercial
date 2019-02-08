@@ -190,6 +190,8 @@ Public Class CajaAperturaCierre
             Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
 
             Me.ReportViewer1.RefreshReport()
+            'Return
+            'Threading.Thread.Sleep(7000)
             '*******************************
             Dim byteViewer As Byte() = ReportViewer1.LocalReport.Render("PDF")
             Dim saveFileDialog1 As New SaveFileDialog()
@@ -203,6 +205,7 @@ Public Class CajaAperturaCierre
             Me.Cursor = Cursors.Default
             MsgBox(ex.Message)
         End Try
+        'Return
         '**********************************************************
         Dim emailmessage As New MailMessage()
         Dim EmailFrom As String

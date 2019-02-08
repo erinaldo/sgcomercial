@@ -201,13 +201,11 @@ Public Class loginform
         Dim currentversion As Long
         Dim newversion As Long
         UpdateCheck(status, currentversion, newversion)
-        If status = True Then
-            If MsgBox("Existe una nueva versión del sistema (" + newversion.ToString + "), desea realizar la actualización ahora?", MsgBoxStyle.YesNo, "Control de Versión") = MsgBoxResult.Yes Then
-                UpdateSGC(newversion)
-            End If
-            'Else
-            '    MsgBox("Tu versión de sistema se encuentra actualizada", MsgBoxStyle.Information)
-            '    'status = False
+    End Sub
+
+    Private Sub textusuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles textusuario.KeyPress
+        If e.KeyChar = Convert.ToChar(Keys.Enter) Then
+            textpassword.Select()
         End If
     End Sub
 End Class

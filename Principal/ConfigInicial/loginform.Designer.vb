@@ -26,10 +26,10 @@ Partial Class loginform
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(loginform))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ComercialDataSet = New SGComercial.comercialDataSet()
         Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.UsuariosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.usuariosTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.UsuariosTableAdapter = New SGComercial.comercialDataSetTableAdapters.usuariosTableAdapter()
+        Me.TableAdapterManager = New SGComercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.UsuariosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,7 +47,7 @@ Partial Class loginform
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ParametrosgeneralesTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Me.ParametrosgeneralesTableAdapter1 = New SGComercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.version = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +58,7 @@ Partial Class loginform
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(114, 244)
+        Me.Button1.Location = New System.Drawing.Point(112, 244)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(100, 28)
@@ -68,7 +68,7 @@ Partial Class loginform
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(223, 244)
+        Me.Button2.Location = New System.Drawing.Point(221, 244)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(100, 28)
@@ -146,7 +146,7 @@ Partial Class loginform
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = SGComercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Me.UsuariosTableAdapter
         Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
@@ -228,7 +228,7 @@ Partial Class loginform
         '
         'textusuario
         '
-        Me.textusuario.Location = New System.Drawing.Point(186, 163)
+        Me.textusuario.Location = New System.Drawing.Point(187, 163)
         Me.textusuario.Margin = New System.Windows.Forms.Padding(4)
         Me.textusuario.Name = "textusuario"
         Me.textusuario.Size = New System.Drawing.Size(132, 26)
@@ -236,7 +236,7 @@ Partial Class loginform
         '
         'textpassword
         '
-        Me.textpassword.Location = New System.Drawing.Point(186, 195)
+        Me.textpassword.Location = New System.Drawing.Point(187, 195)
         Me.textpassword.Margin = New System.Windows.Forms.Padding(4)
         Me.textpassword.Name = "textpassword"
         Me.textpassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -246,7 +246,7 @@ Partial Class loginform
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(112, 167)
+        Me.Label1.Location = New System.Drawing.Point(113, 167)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(72, 20)
@@ -256,7 +256,7 @@ Partial Class loginform
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(124, 200)
+        Me.Label2.Location = New System.Drawing.Point(125, 200)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 20)
@@ -265,7 +265,7 @@ Partial Class loginform
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.appicon
+        Me.PictureBox1.Image = Global.SGComercial.My.Resources.Resources.appicon
         Me.PictureBox1.Location = New System.Drawing.Point(23, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(139, 144)
@@ -299,20 +299,22 @@ Partial Class loginform
         '
         'Button3
         '
+        Me.Button3.BackColor = System.Drawing.Color.White
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        Me.Button3.Location = New System.Drawing.Point(223, 15)
+        Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Button3.Location = New System.Drawing.Point(112, 283)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(198, 23)
+        Me.Button3.Size = New System.Drawing.Size(209, 30)
         Me.Button3.TabIndex = 11
         Me.Button3.Text = "Buscar Actualizaciones"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'loginform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(433, 294)
+        Me.ClientSize = New System.Drawing.Size(433, 325)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.version)

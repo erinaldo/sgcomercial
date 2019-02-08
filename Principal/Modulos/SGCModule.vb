@@ -28,6 +28,7 @@ Module SGCModule
     '************************************************
     Public gmacadress As String
     Public gTerminal As Long
+    Public gAutoUpdater As Long
     Public guserid As Integer
     Public guserprofile As String
     Public gusername As String
@@ -422,7 +423,9 @@ Module SGCModule
         End If
     End Sub
     Public Sub UpdateCheck(ByRef status As Boolean, ByRef currentversion As Long, ByRef newversion As Long)
+        Cursor.Current = Cursors.WaitCursor
         If Not My.Computer.Network.IsAvailable Then
+            Cursor.Current = Cursors.Default
             MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
             status = False
             Return
@@ -435,14 +438,19 @@ Module SGCModule
         ''''''''''''''
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         Try
-            gTerminal = TerminalesSCTableAdapter.terminales_existe(gmacadress)
-            If Not gTerminal > 0 Then
+            gTerminal = TerminalesSCTableAdapter.terminales_GetID(gmacadress)
+            gAutoUpdater = TerminalesSCTableAdapter.terminales_autoupdater(gTerminal)
+            If Not gTerminal > 0 Or gAutoUpdater = 0 Then
+                Cursor.Current = Cursors.Default
                 MsgBox("Dispositivo no autorizado", MsgBoxStyle.Exclamation, "Advertencia")
                 status = False
                 Return
             End If
         Catch ex As Exception
-            MsgBox("Ocurrio un error: " + ex.Message)
+            Cursor.Current = Cursors.Default
+            MsgBox("Dispositivo no autorizado", MsgBoxStyle.Exclamation, "Advertencia")
+            'MsgBox("Dispositivo no autorizado: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia")
+            Return
         End Try
 
 
@@ -455,9 +463,23 @@ Module SGCModule
                 MsgBox("Tu versión de sistema se encuentra actualizada", MsgBoxStyle.Information)
                 status = False
             End If
+            Cursor.Current = Cursors.Default
         Catch ex As Exception
+            Cursor.Current = Cursors.Default
             status = False
         End Try
+        '''''''*******************
+        If status = True Then
+            Cursor.Current = Cursors.Default
+            If MsgBox("Existe una nueva versión -" + newversion.ToString + "- para tu dispositivo " + gmacadress + " terminal N°: " + gTerminal.ToString + ", desea realizar la actualización ahora?", MsgBoxStyle.YesNo, "Control de Versión: " + currentversion.ToString) = MsgBoxResult.Yes Then
+                UpdateSGC(newversion)
+            End If
+            'Else
+            '    MsgBox("Tu versión de sistema se encuentra actualizada", MsgBoxStyle.Information)
+            '    'status = False
+        End If
+        Cursor.Current = Cursors.Default
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     End Sub
     Public Sub UpdateSGC(ByRef newversion As Long)
         Cursor.Current = Cursors.WaitCursor

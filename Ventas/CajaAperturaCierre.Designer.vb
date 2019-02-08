@@ -29,7 +29,7 @@ Partial Class CajaAperturaCierre
         Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CajaAperturaCierre))
         Me.librodiarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ComercialDataSet = New SGComercial.comercialDataSet()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -53,13 +53,13 @@ Partial Class CajaAperturaCierre
         Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EstadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CajasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CajasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasTableAdapter()
-        Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
-        Me.librodiarioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librodiarioTableAdapter()
-        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
-        Me.cajaresumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
+        Me.CajasTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajasTableAdapter()
+        Me.CajaseventosTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
+        Me.TableAdapterManager = New SGComercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.ParametrosgeneralesTableAdapter = New SGComercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Me.librodiarioTableAdapter = New SGComercial.comercialDataSetTableAdapters.librodiarioTableAdapter()
+        Me.MiComercioTableAdapter = New SGComercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        Me.cajaresumenTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
         CType(Me.librodiarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -129,10 +129,10 @@ Partial Class CajaAperturaCierre
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(7, 243)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "SGComercial.RepCierreCaja.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(7, 204)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(507, 59)
+        Me.ReportViewer1.Size = New System.Drawing.Size(507, 98)
         Me.ReportViewer1.TabIndex = 12
         Me.ReportViewer1.Visible = False
         '
@@ -351,6 +351,7 @@ Partial Class CajaAperturaCierre
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -359,7 +360,7 @@ Partial Class CajaAperturaCierre
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = SGComercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
         Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing

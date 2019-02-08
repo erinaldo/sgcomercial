@@ -23,24 +23,24 @@ Partial Class LibroDiario
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.librodiarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.comercialDataSet = New sgcomercial.comercialDataSet()
+        Me.comercialDataSet = New SGComercial.comercialDataSet()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.ComboBoxReporte = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.cajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.cajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
-        Me.librodiarioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librodiarioTableAdapter()
+        Me.cajasoperacionesTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.librodiarioTableAdapter = New SGComercial.comercialDataSetTableAdapters.librodiarioTableAdapter()
         Me.LibrodiarioBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
-        Me.ComboBoxReporte = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.MiComercioTableAdapter = New SGComercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cajaresumenTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
         CType(Me.librodiarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,6 +48,7 @@ Partial Class LibroDiario
         Me.GroupBox2.SuspendLayout()
         CType(Me.cajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibrodiarioBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'librodiarioBindingSource
@@ -80,6 +81,26 @@ Partial Class LibroDiario
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Opciones"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(256, 25)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(63, 17)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Reporte:"
+        '
+        'ComboBoxReporte
+        '
+        Me.ComboBoxReporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxReporte.FormattingEnabled = True
+        Me.ComboBoxReporte.Items.AddRange(New Object() {"Ventas", "Gastos", "Extracciones"})
+        Me.ComboBoxReporte.Location = New System.Drawing.Point(259, 44)
+        Me.ComboBoxReporte.Name = "ComboBoxReporte"
+        Me.ComboBoxReporte.Size = New System.Drawing.Size(154, 24)
+        Me.ComboBoxReporte.TabIndex = 5
         '
         'Label1
         '
@@ -125,13 +146,7 @@ Partial Class LibroDiario
         '
         'ReportViewer1
         '
-        ReportDataSource1.Name = "librodiario"
-        ReportDataSource1.Value = Me.librodiarioBindingSource
-        ReportDataSource2.Name = "MiComercio"
-        ReportDataSource2.Value = Me.MiComercioBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepLibroDiario.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "SGComercial.RepLibroDiario.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(8, 23)
         Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(4)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -161,25 +176,14 @@ Partial Class LibroDiario
         '
         Me.MiComercioTableAdapter.ClearBeforeFill = True
         '
-        'ComboBoxReporte
+        'cajaresumenBindingSource
         '
-        Me.ComboBoxReporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxReporte.FormattingEnabled = True
-        Me.ComboBoxReporte.Items.AddRange(New Object() {"Ventas", "Gastos", "Extracciones"})
-        Me.ComboBoxReporte.Location = New System.Drawing.Point(259, 44)
-        Me.ComboBoxReporte.Name = "ComboBoxReporte"
-        Me.ComboBoxReporte.Size = New System.Drawing.Size(154, 24)
-        Me.ComboBoxReporte.TabIndex = 5
+        Me.cajaresumenBindingSource.DataMember = "cajaresumen"
+        Me.cajaresumenBindingSource.DataSource = Me.comercialDataSet
         '
-        'Label2
+        'cajaresumenTableAdapter
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(256, 25)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 17)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Reporte:"
+        Me.cajaresumenTableAdapter.ClearBeforeFill = True
         '
         'LibroDiario
         '
@@ -202,6 +206,7 @@ Partial Class LibroDiario
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.cajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LibrodiarioBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -221,4 +226,6 @@ Partial Class LibroDiario
     Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
     Friend WithEvents ComboBoxReporte As ComboBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents cajaresumenBindingSource As BindingSource
+    Friend WithEvents cajaresumenTableAdapter As comercialDataSetTableAdapters.cajaresumenTableAdapter
 End Class
