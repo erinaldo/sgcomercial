@@ -560,7 +560,7 @@ Module SGCModule
                 MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Exclamation)
                 Return
             End Try
-            Return
+
             Process.Start("C:\SGComercial\UpdatePack\Ejecutable\setup.exe")
             End
         End Using
