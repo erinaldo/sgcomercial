@@ -190,6 +190,10 @@ Public Class RegistrarVenta
             Try
                 monto1 = pagotextbox.Text
                 monto2 = pagotextbox2.Text
+                If monto1 < 0 Or monto2 < 0 Then
+                    MsgBox("Monto Incorrecto", MsgBoxStyle.Exclamation, "Advertencia")
+                    Return
+                End If
                 pago = monto1 + monto2
                 If Not pago = tot Then
                     MsgBox("Monto Incorrecto", MsgBoxStyle.Exclamation, "Advertencia")
@@ -976,9 +980,18 @@ Public Class RegistrarVenta
                 If CheckBoxFP2.Checked = True Then
                     Select Case idformapagocombo2.Text
                         Case "Débito"
-                            pagotextbox2.Text = total - pagotextbox.Text
+                            If total - pagotextbox.Text > 0 Then
+                                pagotextbox2.Text = total - pagotextbox.Text
+                            Else
+                                pagotextbox2.Text = Nothing
+                            End If
+
                         Case "Tarjeta de Crédito"
-                            pagotextbox2.Text = total - pagotextbox.Text
+                            If total - pagotextbox.Text > 0 Then
+                                pagotextbox2.Text = total - pagotextbox.Text
+                            Else
+                                pagotextbox2.Text = Nothing
+                            End If
                     End Select
                 End If
             Catch ex As Exception
@@ -1088,6 +1101,7 @@ Public Class RegistrarVenta
             Dim pago As Decimal = Convert.ToDecimal(pagotextbox.Text)
             Dim vuelto As Decimal = pago - total
             vueltotextbox.Text = "$ " + vuelto.ToString
+            recalcularFP2()
         End If
 
     End Sub
@@ -1305,6 +1319,13 @@ Public Class RegistrarVenta
                 MsgBox("Primera forma de pago tiene que ser Efectivo o Débito para recibir una segunda forma de pago", MsgBoxStyle.Exclamation, "Advertencia")
                 CheckBoxFP2.Checked = False
                 Return
+            Else
+                Try
+                    FormaspagoBindingSource1.Filter = "descripcion not in ('Cuenta Corriente','Efectivo','Cheque')"
+                    'Me.FormaspagoTableAdapter.FillBySegundaFP(Me.ComercialDataSet.formaspago)
+                Catch ex As System.Exception
+                    System.Windows.Forms.MessageBox.Show(ex.Message)
+                End Try
             End If
             idformapagocombo2.Enabled = CheckBoxFP2.Checked
             idformapagocombo.Enabled = False
@@ -1317,7 +1338,11 @@ Public Class RegistrarVenta
                 Dim monto1 As Decimal = pagotextbox.Text
                 Dim monto2 As Decimal = labeltotal.Text
                 Dim saldo As Decimal = monto2 - monto1
-                pagotextbox2.Text = saldo
+                If saldo > 0 Then
+                    pagotextbox2.Text = saldo
+                Else
+                    pagotextbox2.Text = Nothing
+                End If
             Catch ex As Exception
 
             End Try
@@ -1330,6 +1355,7 @@ Public Class RegistrarVenta
             vueltotextbox.Visible = True
             idformapagocombo2.SelectedIndex = -1
             LabelMontoFP2.Enabled = False
+            pagotextbox2.Text = Nothing
         End If
         '********************************************
     End Sub
@@ -1380,6 +1406,9 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles LabelMontoFP2.Click
+        recalcularFP2()
+    End Sub
+    Public Sub recalcularFP2()
         Try
             Dim recargolocal As Decimal
             If CheckBoxFP2.Checked = True Then
@@ -1402,8 +1431,15 @@ Public Class RegistrarVenta
                                     total = total + precio
                                     items = items + 1
                                 Next
-                                total = total - efectivo
+                                If total - efectivo < 0 Then
+                                    total = total - efectivo
+                                    Return
+                                Else
+                                    total = total - efectivo
+                                End If
+                                '-------------------------------------
                                 recargolocal = (total * grecargoTC) / 100
+                                If Not recargolocal > 0 Then Return
                                 '*****************************************************
                                 '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
                                 recargolocal = recargolocal / items
@@ -1427,21 +1463,28 @@ Public Class RegistrarVenta
                                 LabelTotalVisible.Text = "$ " + labeltotal.Text
                                 '***************************************************** 
                                 '***************************************************** 
-                                pagotextbox2.Text = total - efectivo
+                                If total - efectivo > 0 Then
+                                    pagotextbox2.Text = total - efectivo
+                                Else
+                                    pagotextbox2.Text = Nothing
+                                End If
                             Else
                                 MsgBox("Forma de pago no permitida", MsgBoxStyle.Exclamation, "Advertencia")
                                 idformapagocombo2.SelectedIndex = -1
                                 Return
                             End If
                         Case Else
-                            pagotextbox2.Text = total - pagotextbox.Text
+                            If total - pagotextbox.Text > 0 Then
+                                pagotextbox2.Text = total - pagotextbox.Text
+                            Else
+                                pagotextbox2.Text = Nothing
+                            End If
                     End Select
                 End If
             End If
         Catch ex As Exception
 
         End Try
-
     End Sub
 
     Private Sub VentasdetalleDataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles VentasdetalleDataGridView.CellDoubleClick
@@ -1453,11 +1496,12 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub FillBySegundaFPToolStripButton_Click(sender As Object, e As EventArgs)
-        Try
-            Me.FormaspagoTableAdapter.FillBySegundaFP(Me.ComercialDataSet.formaspago)
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
-        End Try
+
+
+    End Sub
+
+    Private Sub FillByFormasFP2ToolStripButton_Click(sender As Object, e As EventArgs)
+
 
     End Sub
 End Class
