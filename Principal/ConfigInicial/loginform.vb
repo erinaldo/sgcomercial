@@ -64,18 +64,40 @@ Public Class loginform
         gmacadress = getMacAddress()
         MachineKey = "LLAuth" + gmacadress
 
-        If My.Computer.Name = "LUCASMARTINBS-N" Then
-            comercialStrConn = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'DESA-local'
-        End If
+        'If My.Computer.Name = "LUCASMARTINBS-N" Then
+        '    comercialStrConn = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'DESA-local'
+        'End If
         '********************************
-
-
-        My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn)
-        My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
-        ArmaSTRConnWEB(status)
-        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
-
-        'My.Settings.SetUserOverride("sgcaguadagrandeEntities", EntitiesStrConn)
+        Try 'CONNECT DB LOCAL
+            Dim CheckConnection As SqlConnection
+            CheckConnection = New SqlConnection
+            CheckConnection.ConnectionString = comercialStrConn
+            Try
+                CheckConnection.Open()
+                My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn)
+            Catch ex As Exception
+                Try
+                    CheckConnection.ConnectionString = comercialStrConn2
+                    CheckConnection.Open()
+                    My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn2)
+                Catch ex2 As Exception
+                    MsgBox("Conexión a base de datos fallida!", vbExclamation, "Advertencia!")
+                    End
+                End Try
+            End Try
+            '********************************
+        Catch ex As Exception
+            End
+        End Try
+        '********************************
+        Try 'CONNECT DB REMOTE
+            My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
+            ArmaSTRConnWEB(status)
+            My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
+        Catch ex As Exception
+            End
+        End Try
+        '********************************
         '********************************      
         '********************************
         Try

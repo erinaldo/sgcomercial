@@ -64,8 +64,13 @@ Public Class ABMProductos
             PresentacionTextBox.Select()
             Return
         End If
-        If Len(ComboBox1.Text) = 0 Then
+        If Len(ComboBox1.Text) > 0 Then
             MsgBox("Seleccione unidad de medida!", MsgBoxStyle.Exclamation, "Advertencia")
+            ComboBox1.Select()
+            Return
+        End If
+        If MedidaTextBox.Text = Nothing Or Not Val(MedidaTextBox.Text) > 0 Then
+            MsgBox("Indique valor de medida válido!", MsgBoxStyle.Exclamation, "Advertencia")
             ComboBox1.Select()
             Return
         End If
@@ -673,6 +678,11 @@ Public Class ABMProductos
         End If
         If Len(ComboBox1.Text) = 0 Then
             MsgBox("Seleccione unidad de medida!", MsgBoxStyle.Exclamation, "Advertencia")
+            ComboBox1.Select()
+            Return
+        End If
+        If MedidaTextBox.Text = Nothing Or Not Val(MedidaTextBox.Text) > 0 Then
+            MsgBox("Indique valor de medida válido!", MsgBoxStyle.Exclamation, "Advertencia")
             ComboBox1.Select()
             Return
         End If
