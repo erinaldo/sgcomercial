@@ -25,25 +25,25 @@ Partial Class ADModulos
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ADModulos))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.ModulosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ModulosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.modulosTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.ModulosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
-        Me.ModulosBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.ModulosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.ModulosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ModulosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.modulosTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.ModulosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.ModulosBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ModulosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModulosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModulosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ModulosBindingNavigator.SuspendLayout()
-        CType(Me.ModulosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -55,106 +55,6 @@ Partial Class ADModulos
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Modulos Disponibles"
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ModulosBindingSource
-        '
-        Me.ModulosBindingSource.DataMember = "modulos"
-        Me.ModulosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ModulosTableAdapter
-        '
-        Me.ModulosTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
-        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
-        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
-        Me.TableAdapterManager.cajasTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
-        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager.funcionesTableAdapter = Nothing
-        Me.TableAdapterManager.gastosTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Me.ModulosTableAdapter
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosTableAdapter = Nothing
-        Me.TableAdapterManager.perfilesTableAdapter = Nothing
-        Me.TableAdapterManager.permisosTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
-        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager.stockTableAdapter = Nothing
-        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
-        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.valesTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
-        'ModulosBindingNavigator
-        '
-        Me.ModulosBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
-        Me.ModulosBindingNavigator.BindingSource = Me.ModulosBindingSource
-        Me.ModulosBindingNavigator.CountItem = Nothing
-        Me.ModulosBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.ModulosBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ModulosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorSeparator, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.ModulosBindingNavigatorSaveItem})
-        Me.ModulosBindingNavigator.Location = New System.Drawing.Point(0, 0)
-        Me.ModulosBindingNavigator.MoveFirstItem = Nothing
-        Me.ModulosBindingNavigator.MoveLastItem = Nothing
-        Me.ModulosBindingNavigator.MoveNextItem = Nothing
-        Me.ModulosBindingNavigator.MovePreviousItem = Nothing
-        Me.ModulosBindingNavigator.Name = "ModulosBindingNavigator"
-        Me.ModulosBindingNavigator.PositionItem = Nothing
-        Me.ModulosBindingNavigator.Size = New System.Drawing.Size(687, 27)
-        Me.ModulosBindingNavigator.TabIndex = 3
-        Me.ModulosBindingNavigator.Text = "BindingNavigator1"
-        '
-        'BindingNavigatorSeparator
-        '
-        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(24, 24)
-        Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(24, 24)
-        Me.BindingNavigatorDeleteItem.Text = "Eliminar"
-        '
-        'ModulosBindingNavigatorSaveItem
-        '
-        Me.ModulosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ModulosBindingNavigatorSaveItem.Image = CType(resources.GetObject("ModulosBindingNavigatorSaveItem.Image"), System.Drawing.Image)
-        Me.ModulosBindingNavigatorSaveItem.Name = "ModulosBindingNavigatorSaveItem"
-        Me.ModulosBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
-        Me.ModulosBindingNavigatorSaveItem.Text = "Guardar datos"
         '
         'ModulosDataGridView
         '
@@ -194,6 +94,132 @@ Partial Class ADModulos
         Me.DataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.DataGridViewTextBoxColumn4.TrueValue = "1"
         '
+        'ModulosBindingSource
+        '
+        Me.ModulosBindingSource.DataMember = "modulos"
+        Me.ModulosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ModulosTableAdapter
+        '
+        Me.ModulosTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
+        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
+        Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Me.ModulosTableAdapter
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager.permisosTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'ModulosBindingNavigator
+        '
+        Me.ModulosBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
+        Me.ModulosBindingNavigator.BindingSource = Me.ModulosBindingSource
+        Me.ModulosBindingNavigator.CountItem = Nothing
+        Me.ModulosBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.ModulosBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ModulosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorSeparator, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.ModulosBindingNavigatorSaveItem})
+        Me.ModulosBindingNavigator.Location = New System.Drawing.Point(0, 0)
+        Me.ModulosBindingNavigator.MoveFirstItem = Nothing
+        Me.ModulosBindingNavigator.MoveLastItem = Nothing
+        Me.ModulosBindingNavigator.MoveNextItem = Nothing
+        Me.ModulosBindingNavigator.MovePreviousItem = Nothing
+        Me.ModulosBindingNavigator.Name = "ModulosBindingNavigator"
+        Me.ModulosBindingNavigator.PositionItem = Nothing
+        Me.ModulosBindingNavigator.Size = New System.Drawing.Size(687, 27)
+        Me.ModulosBindingNavigator.TabIndex = 3
+        Me.ModulosBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorDeleteItem.Text = "Eliminar"
+        '
+        'BindingNavigatorSeparator
+        '
+        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 27)
+        '
+        'ModulosBindingNavigatorSaveItem
+        '
+        Me.ModulosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ModulosBindingNavigatorSaveItem.Image = CType(resources.GetObject("ModulosBindingNavigatorSaveItem.Image"), System.Drawing.Image)
+        Me.ModulosBindingNavigatorSaveItem.Name = "ModulosBindingNavigatorSaveItem"
+        Me.ModulosBindingNavigatorSaveItem.Size = New System.Drawing.Size(24, 24)
+        Me.ModulosBindingNavigatorSaveItem.Text = "Guardar datos"
+        '
         'ADModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -203,14 +229,14 @@ Partial Class ADModulos
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "ADModulos"
         Me.Tag = "ADModulos"
-        Me.Text = "ActivarDesactivarModulos"
+        Me.Text = "Activar/Desactivar Modulos"
         Me.GroupBox1.ResumeLayout(False)
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ModulosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ModulosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ModulosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ModulosBindingNavigator.ResumeLayout(False)
         Me.ModulosBindingNavigator.PerformLayout()
-        CType(Me.ModulosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

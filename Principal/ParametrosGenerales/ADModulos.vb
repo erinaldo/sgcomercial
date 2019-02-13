@@ -15,9 +15,15 @@
     End Sub
 
     Private Sub ModulosBindingNavigatorSaveItem_Click_1(sender As Object, e As EventArgs) Handles ModulosBindingNavigatorSaveItem.Click
-        Me.Validate()
-        Me.ModulosBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
+        Try
+            Me.Validate()
+            Me.ModulosBindingSource.EndEdit()
+            Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
+            Me.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
 
     End Sub
 End Class

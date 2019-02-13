@@ -64,7 +64,7 @@ Public Class ABMProductos
             PresentacionTextBox.Select()
             Return
         End If
-        If Len(ComboBox1.Text) > 0 Then
+        If Not Len(ComboBox1.Text) > 0 Then
             MsgBox("Seleccione unidad de medida!", MsgBoxStyle.Exclamation, "Advertencia")
             ComboBox1.Select()
             Return
@@ -298,7 +298,7 @@ Public Class ABMProductos
         '******************************************
         BindingNavigatorAddNewItem.Visible = False
         editbtn.Visible = False
-
+        codigoproductoTextBox.Select()
         Return
     End Sub
 
@@ -676,7 +676,7 @@ Public Class ABMProductos
             PresentacionTextBox.Select()
             Return
         End If
-        If Len(ComboBox1.Text) = 0 Then
+        If Not Len(ComboBox1.Text) > 0 Then
             MsgBox("Seleccione unidad de medida!", MsgBoxStyle.Exclamation, "Advertencia")
             ComboBox1.Select()
             Return

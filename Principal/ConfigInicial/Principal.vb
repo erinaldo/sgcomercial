@@ -461,7 +461,7 @@ Public Class Principal
         CuadroBienvenida()
         ''''''''''''''  CARGA DE PERMISOS DE USUARIO '''''''''''''''''''''
         If Not gusername = "lucasmartinbs" Then
-            'cargapermisos()
+            cargapermisos()
         End If
         EjecutarAlertas()
     End Sub

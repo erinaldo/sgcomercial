@@ -26,10 +26,10 @@ Partial Class loginform
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(loginform))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.ComercialDataSet = New SGComercial.comercialDataSet()
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.UsuariosTableAdapter = New SGComercial.comercialDataSetTableAdapters.usuariosTableAdapter()
-        Me.TableAdapterManager = New SGComercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.UsuariosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.usuariosTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.UsuariosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,7 +47,7 @@ Partial Class loginform
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ParametrosgeneralesTableAdapter1 = New SGComercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Me.ParametrosgeneralesTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.version = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -146,7 +146,7 @@ Partial Class loginform
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = SGComercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Me.UsuariosTableAdapter
         Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
@@ -265,7 +265,7 @@ Partial Class loginform
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.SGComercial.My.Resources.Resources.appicon
+        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.appicon
         Me.PictureBox1.Location = New System.Drawing.Point(23, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(139, 144)
@@ -330,6 +330,7 @@ Partial Class loginform
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "loginform"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

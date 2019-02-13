@@ -18,8 +18,9 @@
         p = New SeleccionarProductoEnvio
         gcodigoproducto = 0
         p.ShowDialog()
-        If gcantidad = 0 Or gcodigoproducto = 0 Then Return
+
         Try
+            If gcantidad = 0 Or Len(gcodigoproducto) = 0 Then Return
             Dim addedrow As Long = DataGridViewProductos.Rows.Add()
             Dim umedida As Integer = ProductosTableAdapter.productos_consultarunidadmedida(gcodigoproducto)
             Dim medida As Decimal = ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)

@@ -4,6 +4,7 @@ Imports System.Data.SqlClient
 
 Public Class loginform
     Dim sqlserverconnection As SqlConnection
+    Dim softwareversion As String
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         '*********************************************************
@@ -107,7 +108,7 @@ Public Class loginform
             'StrSysCurrentVersion = ParametrosgeneralesTableAdapter1.parametrosgenerales_GetPrgstring1("SysCurrentVersion")
             SysCurrentVersion = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byclave("SysCurrentVersion")
             StrSysCurrentVersion = "Versión " + SysCurrentVersion.ToString
-            Dim softwareversion As String
+
             version.Text = "Versión "
             version.Text += My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString
             version.Text += "." + My.Application.Info.Version.Build.ToString
@@ -162,6 +163,18 @@ Public Class loginform
     Private Sub loginform_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode.ToString = "Escape" Then
             Me.Close()
+        End If
+        ''''''''''***************************   POR DEFECTO **************************************
+        If (e.KeyCode = Keys.X AndAlso e.Control AndAlso e.Shift) Then
+            Try
+                Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
+                parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+                parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("SysCurrentVersion", Val(softwareversion), softwareversion, Nothing)
+                MsgBox("Versión de Base Actualizada")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
         End If
     End Sub
 
