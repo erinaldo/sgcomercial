@@ -109,7 +109,7 @@ Partial Class Cajasmovimientos
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 9)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(820, 458)
+        Me.GroupBox1.Size = New System.Drawing.Size(818, 458)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Eventos de Caja"
@@ -171,7 +171,7 @@ Partial Class Cajasmovimientos
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(676, 19)
+        Me.Button2.Location = New System.Drawing.Point(585, 19)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(135, 38)
         Me.Button2.TabIndex = 5
@@ -183,7 +183,7 @@ Partial Class Cajasmovimientos
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(194, 29)
+        Me.Label1.Location = New System.Drawing.Point(103, 29)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(179, 18)
         Me.Label1.TabIndex = 4
@@ -192,7 +192,7 @@ Partial Class Cajasmovimientos
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(529, 20)
+        Me.Button1.Location = New System.Drawing.Point(438, 20)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(135, 37)
         Me.Button1.TabIndex = 3
@@ -204,7 +204,7 @@ Partial Class Cajasmovimientos
         Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy"
         Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(392, 26)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(301, 26)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(125, 24)
         Me.DateTimePicker1.TabIndex = 2
@@ -228,7 +228,7 @@ Partial Class Cajasmovimientos
         Me.CajaseventosDataGridView.Name = "CajaseventosDataGridView"
         Me.CajaseventosDataGridView.ReadOnly = True
         Me.CajaseventosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(808, 383)
+        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(806, 383)
         Me.CajaseventosDataGridView.TabIndex = 1
         '
         'IdeventoDataGridViewTextBoxColumn

@@ -597,7 +597,7 @@ Module MySQLModule
             ProductosTableAdapter = New comercialDataSetTableAdapters.productosTableAdapter()
             '-----------------------------------------------------
             Dim ProductosWEBTable As MySQLDataSet.productosDataTable
-            ProductosWEBTable = ProductosWEBTableAdapter.GetData
+            ProductosWEBTable = ProductosWEBTableAdapter.GetDataByActivos
             '-------------------------------    barra de progreso----------------------------------------------------
             Dim p As SubirProductosClowd
             p = New SubirProductosClowd

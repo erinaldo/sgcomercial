@@ -1,6 +1,8 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class ABMProductos
     Dim codigolimpio As String
+    Dim codigoORIGINAL As String
+    Dim codigoNUEVO As String
     Private Sub ProductosBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Validate()
         Me.ProductosBindingSource.EndEdit()
@@ -41,6 +43,7 @@ Public Class ABMProductos
 
     Private Sub ProductosBindingNavigatorSaveItem_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductosBindingNavigatorSaveItem.Click
         Me.Validate()
+        codigoNUEVO = codigoproductoTextBox.Text
         '*************  VALIDAR DATOS CARGADOS ************
         '****************   primero valido el codigo
         Dim res As Boolean = True
@@ -145,6 +148,9 @@ Public Class ABMProductos
                     Dim CODERROR As Long
                     Dim MSGERROR As String = ""
                     PushProducto(codigoproductoTextBox.Text, CODERROR, MSGERROR)
+                    Dim ProductosWEBTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
+                    ProductosWEBTableAdapter = New MySQLDataSetTableAdapters.productosTableAdapter()
+                    ProductosWEBTableAdapter.productos_updateestado("N", codigoORIGINAL)
                     If CODERROR > 0 Then
                         Throw New Exception("No se pudo actualizar el producto en la nube -" + MSGERROR + "-")
                     End If
@@ -263,6 +269,7 @@ Public Class ABMProductos
         '******************************************
         BindingNavigatorAddNewItem.Visible = False
         editbtn.Visible = False
+        codigoORIGINAL = codigoproductoTextBox.Text
 
     End Sub
 
