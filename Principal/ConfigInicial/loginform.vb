@@ -115,7 +115,7 @@ Public Class loginform
             version.Text += "." + My.Application.Info.Version.MinorRevision.ToString
             softwareversion = My.Application.Info.Version.Major.ToString + My.Application.Info.Version.Minor.ToString + My.Application.Info.Version.Build.ToString + My.Application.Info.Version.MinorRevision.ToString
             textusuario.Select()
-            If SysCurrentVersion < Val(softwareversion) Then
+            If SysCurrentVersion <> Val(softwareversion) Then
                 MsgBox("Tu BASE DE DATOS se encuentra desactualizada!", MsgBoxStyle.Exclamation, "Contacto: sistemascomerciales.net")
                 enablebuttons(False)
             End If

@@ -31,13 +31,13 @@
                     existe = PermisosTableAdapter.permisos_consultabyidfuncion(ComboBox1.Text, FuncionesDataGridView.Rows(e.RowIndex).Cells(0).Value)
                     If existe = 0 Then
                         PermisosTableAdapter.permisos_insert(FuncionesDataGridView.Rows(e.RowIndex).Cells(0).Value, ComboBox1.Text, Today, guserid, FuncionesDataGridView.Rows(e.RowIndex).Cells(2).Value)
-                        Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
+                        Me.PermisosTableAdapter.FillByDescripcion(Me.ComercialDataSet.permisos)
                         PermisosBindingSource.Filter = "idperfil= '" + ComboBox1.Text + "'"
                     Else
                         MsgBox("El perfil ya tiene habilitada la funcion seleccionada!", MsgBoxStyle.Exclamation, "Advertencia")
                     End If
 
-                    'Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
+                    'Me.PermisosTableAdapter.FillByDescripcion(Me.ComercialDataSet.permisos)
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -54,13 +54,13 @@
         Try
             Select Case e.ColumnIndex
                 Case 5
-                    'MsgBox("elimina funcion")
-                    'MsgBox(PermisosDataGridView.Rows(e.RowIndex).Cells("idpermisos").Value.ToString)
                     PermisosTableAdapter.permisos_eliminar(PermisosDataGridView.Rows(e.RowIndex).Cells("DataGridViewTextBoxColumn1").Value)
-                    Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
+                    Me.PermisosTableAdapter.FillByDescripcion(Me.ComercialDataSet.permisos)
+                    PermisosBindingSource.Filter = "idperfil= '" + ComboBox1.Text + "' and " + "descripcion Like '%" + TextBox2.Text + "%'"
             End Select
         Catch ex As Exception
-            MsgBox(ex.Message)
+            Me.PermisosTableAdapter.FillByDescripcion(Me.ComercialDataSet.permisos)
+            PermisosBindingSource.Filter = "idperfil= '" + ComboBox1.Text + "'"
         End Try
     End Sub
 
@@ -77,6 +77,7 @@
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Me.PermisosTableAdapter.FillByDescripcion(Me.ComercialDataSet.permisos)
         PermisosBindingSource.Filter = "idperfil= '" + ComboBox1.Text + "'"
     End Sub
 
@@ -95,7 +96,7 @@
                 'MsgBox("El perfil ya tiene habilitada la funcion seleccionada!", MsgBoxStyle.Exclamation, "Advertencia")
             End If
         Next
-        Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
+        Me.PermisosTableAdapter.FillByDescripcion(Me.ComercialDataSet.permisos)
         '******************************* ASIGNACION MASIVA *******************************
     End Sub
 
@@ -108,7 +109,7 @@
         For i = 0 To PermisosDataGridView.RowCount - 1
             PermisosTableAdapter.permisos_eliminar(PermisosDataGridView.Rows(i).Cells(0).Value)
         Next
-        Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
+        Me.PermisosTableAdapter.FillByDescripcion(Me.ComercialDataSet.permisos)
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
@@ -141,9 +142,10 @@
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
         Try
             'FuncionesBindingSource.Filter = "descripcion like '%" + TextBox1.Text + "%'"
-            PermisosBindingSource.Filter = "descripcion like '%" + TextBox2.Text + "%'"
+            PermisosBindingSource.Filter = "idperfil= '" + ComboBox1.Text + "' and " + "descripcion Like '%" + TextBox2.Text + "%'"
         Catch ex As Exception
-            PermisosBindingSource.Filter = ""
+            Me.PermisosTableAdapter.FillByDescripcion(Me.ComercialDataSet.permisos)
+            PermisosBindingSource.Filter = "idperfil= '" + ComboBox1.Text + "'"
         End Try
     End Sub
 End Class
