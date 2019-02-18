@@ -134,7 +134,7 @@ Public Class ImportarProductos
                 Dim reg As Long
                 reg = i + 1
                 MsgBox("Registro N° " + reg.ToString + " el código del producto es inválido! ", MsgBoxStyle.Exclamation, "Advertencia")
-                ErrorlogTableAdapter.errorlog_insertar(Today, "ImportarProductos", "Exception", "Button2_Click", "Registro N° " + reg.ToString + " el código del producto es inválido! " + ex.Message)
+                ErrorlogTableAdapter.errorlog_insertar(Today, "ImportarProductos", "Exception", "Button2_Click Registro N° " + reg.ToString + " el código del producto es inválido! " + ex.Message)
                 Return
             End Try
         Next
@@ -376,7 +376,7 @@ Public Class ImportarProductos
                             Try
                                 idrubro = RubrosTableAdapter.rubros_insertar_rtn(DataGridView1.Rows(i).Cells("idrubro").Value)
                             Catch ex As Exception
-                                ErrorlogTableAdapter.errorlog_insertar(Today, "ImportarProductos", "Exception", "Button4_Click", ex.Message)
+                                ErrorlogTableAdapter.errorlog_insertar(Today, "ImportarProductos", "Exception", "Button4_Click" + ex.Message)
                                 MsgBox(ex.Message)
                                 idrubro = 1
                             End Try
@@ -495,7 +495,7 @@ Public Class ImportarProductos
                             Try
                                 idrubro = RubrosTableAdapter.rubros_insertar_rtn(idrubrostr)
                             Catch ex As Exception
-                                ErrorlogTableAdapter.errorlog_insertar(Today, "ImportarProductos", "Exception", "Button4_Click", ex.Message)
+                                ErrorlogTableAdapter.errorlog_insertar(Today, "ImportarProductos", "Exception", "Button4_Click" + ex.Message)
                                 MsgBox(ex.Message)
                                 idrubro = 1
                             End Try
@@ -565,7 +565,7 @@ Public Class ImportarProductos
                     End If
                 Catch ex As Exception
                     Cursor.Current = Cursors.Default
-                    ErrorlogTableAdapter.errorlog_insertar(Today, "ImportarProductos", "Exception", "Button4_Click", "Error al importar: " + ex.Message)
+                    ErrorlogTableAdapter.errorlog_insertar(Today, "ImportarProductos", "Exception", "Button4_Click Error al importar: " + ex.Message)
                     MsgBox("Error al importar: " + ex.Message)
                 End Try
             Next

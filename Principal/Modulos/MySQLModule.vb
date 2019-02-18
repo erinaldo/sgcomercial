@@ -8,7 +8,7 @@ Module MySQLModule
     Dim dt As DataTable
     '************************************************************************************************
     '*************  errorlog    **************************************
-    Dim ErrorLogTableAdapter As MySQLDataSetTableAdapters.errorlogTableAdapter
+    Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
     '************************************************************************        
     Public MySQLC As MySqlConnection
     Sub conectarMySQL(ByRef status As Boolean)
@@ -22,6 +22,7 @@ Module MySQLModule
             MsgBox("No se pudo conectar con el servidor remoto: " + ex.Message, MsgBoxStyle.Information)
             MySQLC.Dispose()
             status = False
+            Return
         End Try
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -38,8 +39,8 @@ Module MySQLModule
             '***********************
             ds = New MySQLDataSet
             '*************  errorlog    **************************************
-            Dim ErrorLogTableAdapter As MySQLDataSetTableAdapters.errorlogTableAdapter
-            ErrorLogTableAdapter = New MySQLDataSetTableAdapters.errorlogTableAdapter()
+            Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+            ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
             '*************  --------    **************************************
             '****clientesweb********
             Dim clienteswebtableadapter As MySQLDataSetTableAdapters.clientesTableAdapter
@@ -133,8 +134,8 @@ Module MySQLModule
         End If
         '***************************************
         '*************  errorlog    **************************************
-        Dim ErrorLogTableAdapter As MySQLDataSetTableAdapters.errorlogTableAdapter
-        ErrorLogTableAdapter = New MySQLDataSetTableAdapters.errorlogTableAdapter()
+        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
         '*************  --------    **************************************
         Try ' COMIENZA LA SYNC
             '***********************
@@ -273,7 +274,7 @@ Module MySQLModule
         End If
         '***************************************
         '*************  errorlog    **************************************
-        ErrorLogTableAdapter = New MySQLDataSetTableAdapters.errorlogTableAdapter()
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
         '*************  --------    **************************************
         Dim pedidosdeliverywebTableAdapter As MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter
         pedidosdeliverywebTableAdapter = New MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter()
@@ -301,7 +302,7 @@ Module MySQLModule
         conectarMySQL(status)
         If status = False Then
             coderror = 1
-            msgerror = "Not se pudo conectar al servidor remoto"
+            msgerror = "No se pudo conectar al servidor remoto"
             Return
         End If
         Try
@@ -469,7 +470,7 @@ Module MySQLModule
         conectarMySQL(status)
         If status = False Then
             coderror = 1
-            msgerror = "Not se pudo conectar al servidor remoto"
+            msgerror = "No se pudo conectar al servidor remoto"
             Return
         End If
         Try
@@ -584,7 +585,7 @@ Module MySQLModule
         conectarMySQL(status)
         If status = False Then
             coderror = 1
-            msgerror = "Not se pudo conectar al servidor remoto"
+            msgerror = "No se pudo conectar al servidor remoto"
             Return
         End If
         Try

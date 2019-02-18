@@ -3,6 +3,9 @@ Public Class ABMProductos
     Dim codigolimpio As String
     Dim codigoORIGINAL As String
     Dim codigoNUEVO As String
+    '------------------------------------------------------------------------------------
+    Dim ErrorLog As comercialDataSetTableAdapters.errorlogTableAdapter
+
     Private Sub ProductosBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Validate()
         Me.ProductosBindingSource.EndEdit()
@@ -11,17 +14,13 @@ Public Class ABMProductos
     End Sub
 
     Private Sub ABMProductos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipoiva' Puede moverla o quitarla según sea necesario.
         Me.TipoivaTableAdapter.Fill(Me.ComercialDataSet.tipoiva)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
         Me.StockTableAdapter1.Fill(Me.ComercialDataSet.stock)
         IdproductoTextBox.Visible = False
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.rubros' Puede moverla o quitarla según sea necesario.
         Me.RubrosTableAdapter.Fill(Me.ComercialDataSet.rubros)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet1.unidadesmedida' Puede moverla o quitarla según sea necesario.
         Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet1.unidadesmedida)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
         Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+        ErrorLog = New comercialDataSetTableAdapters.errorlogTableAdapter()
         ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
@@ -140,25 +139,31 @@ Public Class ABMProductos
             Return
         End If
         '**********************************************
-
+        Dim CODERROR As Long = 0
+        Dim MSGERROR As String = ""
         Try
             Me.ProductosBindingSource.EndEdit()
             If Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) Then
                 If gModuloClowd = 1 Then
-                    Dim CODERROR As Long
-                    Dim MSGERROR As String = ""
                     PushProducto(codigoproductoTextBox.Text, CODERROR, MSGERROR)
-                    Dim ProductosWEBTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
-                    ProductosWEBTableAdapter = New MySQLDataSetTableAdapters.productosTableAdapter()
-                    ProductosWEBTableAdapter.productos_updateestado("N", codigoORIGINAL)
-                    If CODERROR > 0 Then
-                        Throw New Exception("No se pudo actualizar el producto en la nube -" + MSGERROR + "-")
+                    If CODERROR = 0 Then
+                        Dim ProductosWEBTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
+                        ProductosWEBTableAdapter = New MySQLDataSetTableAdapters.productosTableAdapter()
+                        If codigoORIGINAL <> codigoNUEVO Then
+                            ProductosWEBTableAdapter.productos_updateestado("N", codigoORIGINAL)
+                        End If
+                        MsgBox("Actualización correcta!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("No se pudo actualizar el producto en la nube -" + MSGERROR + "-", vbExclamation, "Advertencia")
+                        ErrorLog.errorlog_insertar("ABMProductos", "Aplicacion", "PushProducto", MSGERROR)
+                        If codigoORIGINAL <> codigoNUEVO Then
+                            ErrorLog.errorlog_insertar("ABMProductos", "Aplicacion", "PushProducto", codigoORIGINAL + " / " + codigoNUEVO)
+                        End If
                     End If
                 End If
-                MsgBox("Actualización correcta!", MsgBoxStyle.Information)
             End If
         Catch ex As Exception
-            MsgBox("Not se pudo completar la operación: " + ex.Message, vbExclamation)
+            MsgBox("No se pudo actualizar el producto en la nube -" + MSGERROR + "-", vbExclamation, "Advertencia")
         End Try
 
 

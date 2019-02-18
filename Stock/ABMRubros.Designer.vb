@@ -130,6 +130,7 @@ Partial Class ABMRubros
         Me.TableAdapterManager.rubrosTableAdapter = Me.RubrosTableAdapter
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -255,12 +256,14 @@ Partial Class ABMRubros
         Me.Controls.Add(Me.RubrosBindingNavigator)
         Me.Controls.Add(IdrubroLabel)
         Me.Controls.Add(Me.IdrubroTextBox)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ABMRubros"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ABMRubros"
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RubrosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

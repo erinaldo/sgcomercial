@@ -5,7 +5,9 @@ Imports System.Threading
 'Imports System.IO.Compression
 
 
+
 Module SGCModule
+
     '************************************************
     Public gstrSheetName As New List(Of String)
     Public gstrSheetSelected As String
@@ -48,6 +50,7 @@ Module SGCModule
     Public gcantidad As Decimal
     Public glistaprecio As Integer
     Public gcodigoproducto As String
+    Public gidproducto As Long
     Public gproductodescripcion As String
     Public gprecioventa As String
     Public gpreciocalculado As String

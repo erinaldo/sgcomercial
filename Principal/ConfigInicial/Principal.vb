@@ -218,7 +218,11 @@ Public Class Principal
     End Sub
     Public Sub AlertaCuentasCorrientes()
         '==================
-        Me.AlertacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.alertacuentascorrientes)
+        Try
+            Me.AlertacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.alertacuentascorrientes)
+        Catch ex As Exception
+            MsgBox("No se pudo cargar las alertas de Cuentas Corrientes: " + ex.Message)
+        End Try
         '=========== VERIFICO SI HAY ALERTA ACTIVA
         If Alerta1ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Or Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
             If AlertacuentascorrientesDataGridView.RowCount > 0 Then ' SI HAY PRODUCTOS EN ALERTA ENTONCES ESTA TODO OK... SALGO
@@ -559,8 +563,15 @@ Public Class Principal
     End Sub
 
     Private Sub CodificarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CodificarProductosToolStripMenuItem.Click
-        CodificarProductos.MdiParent = Me
-        CodificarProductos.Visible = True
+        permiso = 0
+        permiso = ModulosTableAdapter.modulos_consultarestado("ModuloUtilidades")
+        If permiso = 1 Then
+            CodificarProductos.MdiParent = Me
+            CodificarProductos.Visible = True
+        Else
+            MsgBox("Función No disponible en tu versión", MsgBoxStyle.Information, "Aviso")
+        End If
+
     End Sub
 
     Private Sub CambioMercaderíaVendidaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CambioMercaderíaVendidaToolStripMenuItem.Click
@@ -666,11 +677,8 @@ Public Class Principal
 
 
 
-    Private Sub SincronizarToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles SincronizarToolStripMenuItem.Click
-        Cursor.Current = Cursors.WaitCursor
-        SynClientes()
-        SynPedidos()
-        Cursor.Current = Cursors.Default
+    Private Sub SincronizarToolStripMenuItem_Click_1(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub AltaTerminalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaTerminalToolStripMenuItem.Click
@@ -940,5 +948,12 @@ Public Class Principal
         '    End If
         'End If
         ''''''''''***************************   POR DEFECTO **************************************
+    End Sub
+
+    Private Sub DescargarPedidosWEBToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DescargarPedidosWEBToolStripMenuItem.Click
+        Cursor.Current = Cursors.WaitCursor
+        SynClientes()
+        SynPedidos()
+        Cursor.Current = Cursors.Default
     End Sub
 End Class

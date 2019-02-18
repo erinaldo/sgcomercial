@@ -72,8 +72,8 @@ Partial Class MiComercio
         Me.balprefix = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.EmailCierreCajaTo = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -344,6 +344,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -580,6 +581,13 @@ Partial Class MiComercio
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "E-Mail Automatico al cerrar la Caja"
         '
+        'EmailCierreCajaTo
+        '
+        Me.EmailCierreCajaTo.Location = New System.Drawing.Point(237, 28)
+        Me.EmailCierreCajaTo.Name = "EmailCierreCajaTo"
+        Me.EmailCierreCajaTo.Size = New System.Drawing.Size(339, 22)
+        Me.EmailCierreCajaTo.TabIndex = 1
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -588,13 +596,6 @@ Partial Class MiComercio
         Me.Label8.Size = New System.Drawing.Size(134, 17)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Dirección de E-Mail:"
-        '
-        'EmailCierreCajaTo
-        '
-        Me.EmailCierreCajaTo.Location = New System.Drawing.Point(237, 28)
-        Me.EmailCierreCajaTo.Name = "EmailCierreCajaTo"
-        Me.EmailCierreCajaTo.Size = New System.Drawing.Size(339, 22)
-        Me.EmailCierreCajaTo.TabIndex = 1
         '
         'MiComercio
         '
@@ -612,6 +613,7 @@ Partial Class MiComercio
         Me.Controls.Add(Me.ParametrosgeneralesBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "MiComercio"

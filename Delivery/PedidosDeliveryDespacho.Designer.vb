@@ -177,6 +177,7 @@ Partial Class PedidosDeliveryDespacho
         Me.ListapedidosdeliveryDataGridView.AllowUserToResizeColumns = False
         Me.ListapedidosdeliveryDataGridView.AllowUserToResizeRows = False
         Me.ListapedidosdeliveryDataGridView.AutoGenerateColumns = False
+        Me.ListapedidosdeliveryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.ListapedidosdeliveryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ListapedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.agregar, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.idcliente, Me.importepagado, Me.montototal})
         Me.ListapedidosdeliveryDataGridView.DataSource = Me.ListapedidosdeliveryBindingSource
@@ -196,7 +197,7 @@ Partial Class PedidosDeliveryDespacho
         Me.agregar.Text = "Agregar a lote"
         Me.agregar.ToolTipText = "Agregar a lote"
         Me.agregar.UseColumnTextForButtonValue = True
-        Me.agregar.Width = 120
+        Me.agregar.Width = 73
         '
         'DataGridViewTextBoxColumn1
         '
@@ -204,6 +205,7 @@ Partial Class PedidosDeliveryDespacho
         Me.DataGridViewTextBoxColumn1.HeaderText = "Pedido N°"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 93
         '
         'DataGridViewTextBoxColumn2
         '
@@ -211,6 +213,7 @@ Partial Class PedidosDeliveryDespacho
         Me.DataGridViewTextBoxColumn2.HeaderText = "Fecha alta"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 95
         '
         'DataGridViewTextBoxColumn14
         '
@@ -218,6 +221,7 @@ Partial Class PedidosDeliveryDespacho
         Me.DataGridViewTextBoxColumn14.HeaderText = "Estado"
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
         Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        Me.DataGridViewTextBoxColumn14.Width = 81
         '
         'DataGridViewTextBoxColumn5
         '
@@ -225,6 +229,7 @@ Partial Class PedidosDeliveryDespacho
         Me.DataGridViewTextBoxColumn5.HeaderText = "Cliente"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 80
         '
         'DataGridViewTextBoxColumn9
         '
@@ -232,6 +237,7 @@ Partial Class PedidosDeliveryDespacho
         Me.DataGridViewTextBoxColumn9.HeaderText = "Transporte"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Width = 107
         '
         'DataGridViewTextBoxColumn10
         '
@@ -239,6 +245,7 @@ Partial Class PedidosDeliveryDespacho
         Me.DataGridViewTextBoxColumn10.HeaderText = "Dirección"
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Width = 96
         '
         'DataGridViewTextBoxColumn11
         '
@@ -246,6 +253,7 @@ Partial Class PedidosDeliveryDespacho
         Me.DataGridViewTextBoxColumn11.HeaderText = "Referencias"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.Width = 113
         '
         'DataGridViewTextBoxColumn12
         '
@@ -253,6 +261,7 @@ Partial Class PedidosDeliveryDespacho
         Me.DataGridViewTextBoxColumn12.HeaderText = "Provincia"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        Me.DataGridViewTextBoxColumn12.Width = 95
         '
         'DataGridViewTextBoxColumn13
         '
@@ -260,6 +269,7 @@ Partial Class PedidosDeliveryDespacho
         Me.DataGridViewTextBoxColumn13.HeaderText = "Localidad"
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Width = 98
         '
         'idcliente
         '
@@ -275,6 +285,7 @@ Partial Class PedidosDeliveryDespacho
         Me.importepagado.HeaderText = "Importe pagado"
         Me.importepagado.Name = "importepagado"
         Me.importepagado.ReadOnly = True
+        Me.importepagado.Width = 125
         '
         'montototal
         '
@@ -790,11 +801,13 @@ Partial Class PedidosDeliveryDespacho
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -817,6 +830,7 @@ Partial Class PedidosDeliveryDespacho
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -826,8 +840,11 @@ Partial Class PedidosDeliveryDespacho
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing

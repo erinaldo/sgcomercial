@@ -30,33 +30,33 @@ Partial Class ABMTiposIVA
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMTiposIVA))
         Me.TipoivaBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
-        Me.TipoivaBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.TipoivaDataGridView = New System.Windows.Forms.DataGridView()
-        Me.IdtipoivaTextBox = New System.Windows.Forms.TextBox()
-        Me.AlicuotaTextBox = New System.Windows.Forms.TextBox()
-        Me.DescripcionTextBox = New System.Windows.Forms.TextBox()
-        Me.EstadoComboBox = New System.Windows.Forms.ComboBox()
         Me.TipoivaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
+        Me.TipoivaBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.TipoivaDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdtipoivaTextBox = New System.Windows.Forms.TextBox()
+        Me.AlicuotaTextBox = New System.Windows.Forms.TextBox()
+        Me.DescripcionTextBox = New System.Windows.Forms.TextBox()
+        Me.EstadoComboBox = New System.Windows.Forms.ComboBox()
+        Me.TipoestadosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipoivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipoivaTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.TipoestadosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipoestadosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipoestadosTableAdapter()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         IdtipoivaLabel = New System.Windows.Forms.Label()
         AlicuotaLabel = New System.Windows.Forms.Label()
         DescripcionLabel = New System.Windows.Forms.Label()
         EstadoLabel = New System.Windows.Forms.Label()
         CType(Me.TipoivaBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TipoivaBindingNavigator.SuspendLayout()
-        CType(Me.TipoivaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipoivaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TipoivaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipoestadosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -126,6 +126,16 @@ Partial Class ABMTiposIVA
         Me.BindingNavigatorAddNewItem.Tag = "Agregar nuevo"
         Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
         '
+        'TipoivaBindingSource
+        '
+        Me.TipoivaBindingSource.DataMember = "tipoiva"
+        Me.TipoivaBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'BindingNavigatorDeleteItem
         '
         Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -142,6 +152,14 @@ Partial Class ABMTiposIVA
         Me.TipoivaBindingNavigatorSaveItem.Name = "TipoivaBindingNavigatorSaveItem"
         Me.TipoivaBindingNavigatorSaveItem.Size = New System.Drawing.Size(127, 24)
         Me.TipoivaBindingNavigatorSaveItem.Text = "Guardar datos"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.Image = Global.sgcomercial.My.Resources.Resources.editar
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(72, 24)
+        Me.ToolStripButton1.Text = "Editar"
         '
         'TipoivaDataGridView
         '
@@ -161,6 +179,38 @@ Partial Class ABMTiposIVA
         Me.TipoivaDataGridView.RowTemplate.Height = 24
         Me.TipoivaDataGridView.Size = New System.Drawing.Size(436, 220)
         Me.TipoivaDataGridView.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idtipoiva"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idtipoiva"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "alicuota"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Alícuota"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.ToolTipText = "Alícuota"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Descripción"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.ToolTipText = "Descripción"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "estado"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Estado"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.ToolTipText = "Estado"
         '
         'IdtipoivaTextBox
         '
@@ -201,47 +251,10 @@ Partial Class ABMTiposIVA
         Me.EstadoComboBox.TabIndex = 10
         Me.EstadoComboBox.ValueMember = "descripcion"
         '
-        'TipoivaBindingSource
+        'TipoestadosBindingSource
         '
-        Me.TipoivaBindingSource.DataMember = "tipoiva"
-        Me.TipoivaBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idtipoiva"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idtipoiva"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "alicuota"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Alícuota"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.ToolTipText = "Alícuota"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "descripcion"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Descripción"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.ToolTipText = "Descripción"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "estado"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Estado"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.ToolTipText = "Estado"
+        Me.TipoestadosBindingSource.DataMember = "tipoestados"
+        Me.TipoestadosBindingSource.DataSource = Me.ComercialDataSet
         '
         'TipoivaTableAdapter
         '
@@ -294,6 +307,7 @@ Partial Class ABMTiposIVA
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -308,22 +322,9 @@ Partial Class ABMTiposIVA
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'TipoestadosBindingSource
-        '
-        Me.TipoestadosBindingSource.DataMember = "tipoestados"
-        Me.TipoestadosBindingSource.DataSource = Me.ComercialDataSet
-        '
         'TipoestadosTableAdapter
         '
         Me.TipoestadosTableAdapter.ClearBeforeFill = True
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.Image = Global.sgcomercial.My.Resources.Resources.editar
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(72, 24)
-        Me.ToolStripButton1.Text = "Editar"
         '
         'ABMTiposIVA
         '
@@ -340,6 +341,10 @@ Partial Class ABMTiposIVA
         Me.Controls.Add(EstadoLabel)
         Me.Controls.Add(Me.TipoivaDataGridView)
         Me.Controls.Add(Me.TipoivaBindingNavigator)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ABMTiposIVA"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ABMTiposIVA"
@@ -347,9 +352,9 @@ Partial Class ABMTiposIVA
         CType(Me.TipoivaBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TipoivaBindingNavigator.ResumeLayout(False)
         Me.TipoivaBindingNavigator.PerformLayout()
-        CType(Me.TipoivaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipoivaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TipoivaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipoestadosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

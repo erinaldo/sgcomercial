@@ -6562,8 +6562,6 @@ Partial Public Class MySQLDataSet
         
         Private columnprecioventa As Global.System.Data.DataColumn
         
-        Private columnimagen As Global.System.Data.DataColumn
-        
         Private columnidrubro As Global.System.Data.DataColumn
         
         Private columnstockminimo As Global.System.Data.DataColumn
@@ -6583,6 +6581,8 @@ Partial Public Class MySQLDataSet
         Private columnfabricante As Global.System.Data.DataColumn
         
         Private columniva As Global.System.Data.DataColumn
+        
+        Private columnimagen As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -6701,14 +6701,6 @@ Partial Public Class MySQLDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property imagenColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnimagen
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property idrubroColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnidrubro
@@ -6788,6 +6780,14 @@ Partial Public Class MySQLDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property imagenColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnimagen
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6835,7 +6835,6 @@ Partial Public Class MySQLDataSet
                     ByVal descripcion As String,  _
                     ByVal preciocosto As Double,  _
                     ByVal precioventa As Double,  _
-                    ByVal imagen As String,  _
                     ByVal idrubro As Integer,  _
                     ByVal stockminimo As Double,  _
                     ByVal productocompuesto As String,  _
@@ -6845,9 +6844,10 @@ Partial Public Class MySQLDataSet
                     ByVal precioventadistribuidor As Double,  _
                     ByVal estado As String,  _
                     ByVal fabricante As String,  _
-                    ByVal iva As Double) As productosRow
+                    ByVal iva As Double,  _
+                    ByVal imagen() As Byte) As productosRow
             Dim rowproductosRow As productosRow = CType(Me.NewRow,productosRow)
-            Dim columnValuesArray() As Object = New Object() {idproducto, codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, imagen, idrubro, stockminimo, productocompuesto, fechabaja, precioventagranel, precioventamayorista, precioventadistribuidor, estado, fabricante, iva}
+            Dim columnValuesArray() As Object = New Object() {idproducto, codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, productocompuesto, fechabaja, precioventagranel, precioventamayorista, precioventadistribuidor, estado, fabricante, iva, imagen}
             rowproductosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowproductosRow)
             Return rowproductosRow
@@ -6886,7 +6886,6 @@ Partial Public Class MySQLDataSet
             Me.columndescripcion = MyBase.Columns("descripcion")
             Me.columnpreciocosto = MyBase.Columns("preciocosto")
             Me.columnprecioventa = MyBase.Columns("precioventa")
-            Me.columnimagen = MyBase.Columns("imagen")
             Me.columnidrubro = MyBase.Columns("idrubro")
             Me.columnstockminimo = MyBase.Columns("stockminimo")
             Me.columnproductocompuesto = MyBase.Columns("productocompuesto")
@@ -6897,6 +6896,7 @@ Partial Public Class MySQLDataSet
             Me.columnestado = MyBase.Columns("estado")
             Me.columnfabricante = MyBase.Columns("fabricante")
             Me.columniva = MyBase.Columns("iva")
+            Me.columnimagen = MyBase.Columns("imagen")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6922,8 +6922,6 @@ Partial Public Class MySQLDataSet
             MyBase.Columns.Add(Me.columnpreciocosto)
             Me.columnprecioventa = New Global.System.Data.DataColumn("precioventa", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnprecioventa)
-            Me.columnimagen = New Global.System.Data.DataColumn("imagen", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnimagen)
             Me.columnidrubro = New Global.System.Data.DataColumn("idrubro", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidrubro)
             Me.columnstockminimo = New Global.System.Data.DataColumn("stockminimo", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
@@ -6944,6 +6942,8 @@ Partial Public Class MySQLDataSet
             MyBase.Columns.Add(Me.columnfabricante)
             Me.columniva = New Global.System.Data.DataColumn("iva", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columniva)
+            Me.columnimagen = New Global.System.Data.DataColumn("imagen", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnimagen)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidproducto}, true))
             Me.columnidproducto.AllowDBNull = false
             Me.columnidproducto.Unique = true
@@ -6952,7 +6952,6 @@ Partial Public Class MySQLDataSet
             Me.columnmodelo.MaxLength = 65535
             Me.columnpresentacion.MaxLength = 65535
             Me.columndescripcion.MaxLength = 65535
-            Me.columnimagen.MaxLength = 65535
             Me.columnproductocompuesto.MaxLength = 65535
             Me.columnfechabaja.MaxLength = 65535
             Me.columnestado.MaxLength = 65535
@@ -9759,21 +9758,6 @@ Partial Public Class MySQLDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property imagen() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableproductos.imagenColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'imagen' de la tabla 'productos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableproductos.imagenColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property idrubro() As Integer
             Get
                 Try 
@@ -9925,6 +9909,21 @@ Partial Public Class MySQLDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property imagen() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableproductos.imagenColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'imagen' de la tabla 'productos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableproductos.imagenColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IscodigoproductoNull() As Boolean
             Return Me.IsNull(Me.tableproductos.codigoproductoColumn)
         End Function
@@ -10029,18 +10028,6 @@ Partial Public Class MySQLDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetprecioventaNull()
             Me(Me.tableproductos.precioventaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsimagenNull() As Boolean
-            Return Me.IsNull(Me.tableproductos.imagenColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetimagenNull()
-            Me(Me.tableproductos.imagenColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10161,6 +10148,18 @@ Partial Public Class MySQLDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetivaNull()
             Me(Me.tableproductos.ivaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsimagenNull() As Boolean
+            Return Me.IsNull(Me.tableproductos.imagenColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetimagenNull()
+            Me(Me.tableproductos.imagenColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -21718,7 +21717,6 @@ Namespace MySQLDataSetTableAdapters
             tableMapping.ColumnMappings.Add("descripcion", "descripcion")
             tableMapping.ColumnMappings.Add("preciocosto", "preciocosto")
             tableMapping.ColumnMappings.Add("precioventa", "precioventa")
-            tableMapping.ColumnMappings.Add("imagen", "imagen")
             tableMapping.ColumnMappings.Add("idrubro", "idrubro")
             tableMapping.ColumnMappings.Add("stockminimo", "stockminimo")
             tableMapping.ColumnMappings.Add("productocompuesto", "productocompuesto")
@@ -21729,6 +21727,7 @@ Namespace MySQLDataSetTableAdapters
             tableMapping.ColumnMappings.Add("estado", "estado")
             tableMapping.ColumnMappings.Add("fabricante", "fabricante")
             tableMapping.ColumnMappings.Add("iva", "iva")
+            tableMapping.ColumnMappings.Add("imagen", "imagen")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -21741,7 +21740,8 @@ Namespace MySQLDataSetTableAdapters
                 "IS NULL) OR (`precioventagranel` = @p15)) AND ((@p16 = 1 AND `precioventamayoris"& _ 
                 "ta` IS NULL) OR (`precioventamayorista` = @p17)) AND ((@p18 = 1 AND `precioventa"& _ 
                 "distribuidor` IS NULL) OR (`precioventadistribuidor` = @p19)) AND ((@p20 = 1 AND"& _ 
-                " `iva` IS NULL) OR (`iva` = @p21)))"
+                " `iva` IS NULL) OR (`iva` = @p21)) AND ((@p22 = 1 AND `imagen` IS NULL) OR (`ima"& _ 
+                "gen` = @p23)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -21921,12 +21921,29 @@ Namespace MySQLDataSetTableAdapters
             param.SourceColumn = "iva"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p22"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "imagen"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p23"
+            param.DbType = Global.System.Data.DbType.[Object]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Blob
+            param.IsNullable = true
+            param.SourceColumn = "imagen"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `productos` (`codigoproducto`, `marca`, `modelo`, `presentacion`, `un"& _ 
-                "idadmedida`, `medida`, `descripcion`, `preciocosto`, `precioventa`, `imagen`, `i"& _ 
-                "drubro`, `stockminimo`, `productocompuesto`, `fechabaja`, `precioventagranel`, `"& _ 
-                "precioventamayorista`, `precioventadistribuidor`, `estado`, `fabricante`, `iva`)"& _ 
+                "idadmedida`, `medida`, `descripcion`, `preciocosto`, `precioventa`, `idrubro`, `"& _ 
+                "stockminimo`, `productocompuesto`, `fechabaja`, `precioventagranel`, `preciovent"& _ 
+                "amayorista`, `precioventadistribuidor`, `estado`, `fabricante`, `iva`, `imagen`)"& _ 
                 " VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p"& _ 
                 "14, @p15, @p16, @p17, @p18, @p19, @p20)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
@@ -21990,84 +22007,85 @@ Namespace MySQLDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p10"
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
-            param.IsNullable = true
-            param.SourceColumn = "imagen"
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p11"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "idrubro"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p12"
+            param.ParameterName = "@p11"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "stockminimo"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p13"
+            param.ParameterName = "@p12"
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.IsNullable = true
             param.SourceColumn = "productocompuesto"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p14"
+            param.ParameterName = "@p13"
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.IsNullable = true
             param.SourceColumn = "fechabaja"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p15"
+            param.ParameterName = "@p14"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "precioventagranel"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p16"
+            param.ParameterName = "@p15"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "precioventamayorista"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p17"
+            param.ParameterName = "@p16"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "precioventadistribuidor"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p18"
+            param.ParameterName = "@p17"
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.IsNullable = true
             param.SourceColumn = "estado"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p19"
+            param.ParameterName = "@p18"
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.IsNullable = true
             param.SourceColumn = "fabricante"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p20"
+            param.ParameterName = "@p19"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "iva"
             Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p20"
+            param.DbType = Global.System.Data.DbType.[Object]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Blob
+            param.IsNullable = true
+            param.SourceColumn = "imagen"
+            Me._adapter.InsertCommand.Parameters.Add(param)
             Me._adapter.UpdateCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `productos` SET `codigoproducto` = @p1, `marca` = @p2, `modelo` = @p3, `pr"& _ 
                 "esentacion` = @p4, `unidadmedida` = @p5, `medida` = @p6, `descripcion` = @p7, `p"& _ 
-                "reciocosto` = @p8, `precioventa` = @p9, `imagen` = @p10, `idrubro` = @p11, `stoc"& _ 
-                "kminimo` = @p12, `productocompuesto` = @p13, `fechabaja` = @p14, `precioventagra"& _ 
-                "nel` = @p15, `precioventamayorista` = @p16, `precioventadistribuidor` = @p17, `e"& _ 
-                "stado` = @p18, `fabricante` = @p19, `iva` = @p20 WHERE ((`idproducto` = @p21) AN"& _ 
+                "reciocosto` = @p8, `precioventa` = @p9, `idrubro` = @p10, `stockminimo` = @p11, "& _ 
+                "`productocompuesto` = @p12, `fechabaja` = @p13, `precioventagranel` = @p14, `pre"& _ 
+                "cioventamayorista` = @p15, `precioventadistribuidor` = @p16, `estado` = @p17, `f"& _ 
+                "abricante` = @p18, `iva` = @p19, `imagen` = @p20 WHERE ((`idproducto` = @p21) AN"& _ 
                 "D ((@p22 = 1 AND `unidadmedida` IS NULL) OR (`unidadmedida` = @p23)) AND ((@p24 "& _ 
                 "= 1 AND `medida` IS NULL) OR (`medida` = @p25)) AND ((@p26 = 1 AND `preciocosto`"& _ 
                 " IS NULL) OR (`preciocosto` = @p27)) AND ((@p28 = 1 AND `precioventa` IS NULL) O"& _ 
@@ -22076,7 +22094,8 @@ Namespace MySQLDataSetTableAdapters
                 "((@p34 = 1 AND `precioventagranel` IS NULL) OR (`precioventagranel` = @p35)) AND"& _ 
                 " ((@p36 = 1 AND `precioventamayorista` IS NULL) OR (`precioventamayorista` = @p3"& _ 
                 "7)) AND ((@p38 = 1 AND `precioventadistribuidor` IS NULL) OR (`precioventadistri"& _ 
-                "buidor` = @p39)) AND ((@p40 = 1 AND `iva` IS NULL) OR (`iva` = @p41)))"
+                "buidor` = @p39)) AND ((@p40 = 1 AND `iva` IS NULL) OR (`iva` = @p41)) AND ((@p42"& _ 
+                " = 1 AND `imagen` IS NULL) OR (`imagen` = @p43)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -22138,75 +22157,76 @@ Namespace MySQLDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p10"
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
-            param.IsNullable = true
-            param.SourceColumn = "imagen"
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p11"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "idrubro"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p12"
+            param.ParameterName = "@p11"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "stockminimo"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p13"
+            param.ParameterName = "@p12"
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.IsNullable = true
             param.SourceColumn = "productocompuesto"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p14"
+            param.ParameterName = "@p13"
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.IsNullable = true
             param.SourceColumn = "fechabaja"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p15"
+            param.ParameterName = "@p14"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "precioventagranel"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p16"
+            param.ParameterName = "@p15"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "precioventamayorista"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p17"
+            param.ParameterName = "@p16"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "precioventadistribuidor"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p18"
+            param.ParameterName = "@p17"
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.IsNullable = true
             param.SourceColumn = "estado"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p19"
+            param.ParameterName = "@p18"
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.IsNullable = true
             param.SourceColumn = "fabricante"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p20"
+            param.ParameterName = "@p19"
             param.DbType = Global.System.Data.DbType.[Double]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
             param.IsNullable = true
             param.SourceColumn = "iva"
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p20"
+            param.DbType = Global.System.Data.DbType.[Object]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Blob
+            param.IsNullable = true
+            param.SourceColumn = "imagen"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p21"
@@ -22386,6 +22406,23 @@ Namespace MySQLDataSetTableAdapters
             param.SourceColumn = "iva"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p42"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "imagen"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p43"
+            param.DbType = Global.System.Data.DbType.[Object]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Blob
+            param.IsNullable = true
+            param.SourceColumn = "imagen"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -22402,23 +22439,23 @@ Namespace MySQLDataSetTableAdapters
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT idproducto, codigoproducto, marca, modelo, presentacion, unidadmedida, med"& _ 
-                "ida, descripcion, preciocosto, precioventa, imagen, idrubro, stockminimo, produc"& _ 
-                "tocompuesto, fechabaja, precioventagranel, precioventamayorista, precioventadist"& _ 
-                "ribuidor, estado, fabricante, iva FROM productos"
+                "ida, descripcion, preciocosto, precioventa, idrubro, stockminimo, productocompue"& _ 
+                "sto, fechabaja, precioventagranel, precioventamayorista, precioventadistribuidor"& _ 
+                ", estado, fabricante, iva, imagen FROM productos"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT idproducto, codigoproducto, marca, modelo, presentacion, unidadmedida, med"& _ 
-                "ida, descripcion, preciocosto, precioventa, imagen, idrubro, stockminimo, produc"& _ 
-                "tocompuesto, fechabaja, precioventagranel, precioventamayorista, precioventadist"& _ 
-                "ribuidor, estado, fabricante, iva FROM productos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where estado = 'A'"
+                "ida, descripcion, preciocosto, precioventa, idrubro, stockminimo, productocompue"& _ 
+                "sto, fechabaja, precioventagranel, precioventamayorista, precioventadistribuidor"& _ 
+                ", estado, fabricante, iva, imagen FROM productos WHERE (estado = 'A')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT idproducto, codigoproducto, marca, modelo, presentacion, unidadmedida, med"& _ 
-                "ida, descripcion, preciocosto, precioventa, imagen, idrubro, stockminimo, produc"& _ 
-                "tocompuesto, fechabaja, precioventagranel, precioventamayorista, precioventadist"& _ 
-                "ribuidor, estado, fabricante, iva FROM productos WHERE (idproducto = @idproducto"& _ 
+                "ida, descripcion, preciocosto, precioventa, idrubro, stockminimo, productocompue"& _ 
+                "sto, fechabaja, precioventagranel, precioventamayorista, precioventadistribuidor"& _ 
+                ", estado, fabricante, iva, imagen FROM productos WHERE (idproducto = @idproducto"& _ 
                 ")"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -22895,7 +22932,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal p1 As UInteger, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As Global.System.Nullable(Of Double), ByVal p7 As Global.System.Nullable(Of Double), ByVal p9 As Global.System.Nullable(Of Double), ByVal p11 As Global.System.Nullable(Of Integer), ByVal p13 As Global.System.Nullable(Of Double), ByVal p15 As Global.System.Nullable(Of Double), ByVal p17 As Global.System.Nullable(Of Double), ByVal p19 As Global.System.Nullable(Of Double), ByVal p21 As Global.System.Nullable(Of Double)) As Integer
+        Public Overloads Overridable Function Delete(ByVal p1 As UInteger, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As Global.System.Nullable(Of Double), ByVal p7 As Global.System.Nullable(Of Double), ByVal p9 As Global.System.Nullable(Of Double), ByVal p11 As Global.System.Nullable(Of Integer), ByVal p13 As Global.System.Nullable(Of Double), ByVal p15 As Global.System.Nullable(Of Double), ByVal p17 As Global.System.Nullable(Of Double), ByVal p19 As Global.System.Nullable(Of Double), ByVal p21 As Global.System.Nullable(Of Double), ByVal p23 As Object) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,UInteger)
             If (p3.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -22967,6 +23004,13 @@ Namespace MySQLDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
+            If (p23 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(p23,Object)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -22996,17 +23040,17 @@ Namespace MySQLDataSetTableAdapters
                     ByVal p7 As String,  _
                     ByVal p8 As Global.System.Nullable(Of Double),  _
                     ByVal p9 As Global.System.Nullable(Of Double),  _
-                    ByVal p10 As String,  _
-                    ByVal p11 As Global.System.Nullable(Of Integer),  _
-                    ByVal p12 As Global.System.Nullable(Of Double),  _
+                    ByVal p10 As Global.System.Nullable(Of Integer),  _
+                    ByVal p11 As Global.System.Nullable(Of Double),  _
+                    ByVal p12 As String,  _
                     ByVal p13 As String,  _
-                    ByVal p14 As String,  _
+                    ByVal p14 As Global.System.Nullable(Of Double),  _
                     ByVal p15 As Global.System.Nullable(Of Double),  _
                     ByVal p16 As Global.System.Nullable(Of Double),  _
-                    ByVal p17 As Global.System.Nullable(Of Double),  _
+                    ByVal p17 As String,  _
                     ByVal p18 As String,  _
-                    ByVal p19 As String,  _
-                    ByVal p20 As Global.System.Nullable(Of Double)) As Integer
+                    ByVal p19 As Global.System.Nullable(Of Double),  _
+                    ByVal p20 As Object) As Integer
             If (p1 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -23052,30 +23096,30 @@ Namespace MySQLDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (p10 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            If (p10.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(p10.Value,Integer)
             Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(p10,String)
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
             If (p11.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(p11.Value,Integer)
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(p11.Value,Double)
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (p12.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(p12.Value,Double)
-            Else
+            If (p12 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(p12,String)
             End If
             If (p13 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(12).Value = CType(p13,String)
             End If
-            If (p14 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            If (p14.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(p14.Value,Double)
             Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(p14,String)
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
             If (p15.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(14).Value = CType(p15.Value,Double)
@@ -23087,25 +23131,25 @@ Namespace MySQLDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
-            If (p17.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(p17.Value,Double)
-            Else
+            If (p17 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(p17,String)
             End If
             If (p18 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(17).Value = CType(p18,String)
             End If
-            If (p19 Is Nothing) Then
+            If (p19.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(p19.Value,Double)
+            Else
                 Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(p19,String)
             End If
-            If (p20.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(p20.Value,Double)
-            Else
+            If (p20 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(p20,Object)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -23136,17 +23180,17 @@ Namespace MySQLDataSetTableAdapters
                     ByVal p7 As String,  _
                     ByVal p8 As Global.System.Nullable(Of Double),  _
                     ByVal p9 As Global.System.Nullable(Of Double),  _
-                    ByVal p10 As String,  _
-                    ByVal p11 As Global.System.Nullable(Of Integer),  _
-                    ByVal p12 As Global.System.Nullable(Of Double),  _
+                    ByVal p10 As Global.System.Nullable(Of Integer),  _
+                    ByVal p11 As Global.System.Nullable(Of Double),  _
+                    ByVal p12 As String,  _
                     ByVal p13 As String,  _
-                    ByVal p14 As String,  _
+                    ByVal p14 As Global.System.Nullable(Of Double),  _
                     ByVal p15 As Global.System.Nullable(Of Double),  _
                     ByVal p16 As Global.System.Nullable(Of Double),  _
-                    ByVal p17 As Global.System.Nullable(Of Double),  _
+                    ByVal p17 As String,  _
                     ByVal p18 As String,  _
-                    ByVal p19 As String,  _
-                    ByVal p20 As Global.System.Nullable(Of Double),  _
+                    ByVal p19 As Global.System.Nullable(Of Double),  _
+                    ByVal p20 As Object,  _
                     ByVal p21 As UInteger,  _
                     ByVal p23 As Global.System.Nullable(Of Integer),  _
                     ByVal p25 As Global.System.Nullable(Of Double),  _
@@ -23157,7 +23201,8 @@ Namespace MySQLDataSetTableAdapters
                     ByVal p35 As Global.System.Nullable(Of Double),  _
                     ByVal p37 As Global.System.Nullable(Of Double),  _
                     ByVal p39 As Global.System.Nullable(Of Double),  _
-                    ByVal p41 As Global.System.Nullable(Of Double)) As Integer
+                    ByVal p41 As Global.System.Nullable(Of Double),  _
+                    ByVal p43 As Object) As Integer
             If (p1 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -23203,30 +23248,30 @@ Namespace MySQLDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (p10 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            If (p10.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(p10.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(p10,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
             If (p11.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(p11.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(p11.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (p12.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p12.Value,Double)
-            Else
+            If (p12 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p12,String)
             End If
             If (p13 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(p13,String)
             End If
-            If (p14 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            If (p14.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(p14,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
             If (p15.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(p15.Value,Double)
@@ -23238,25 +23283,25 @@ Namespace MySQLDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
-            If (p17.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(p17.Value,Double)
-            Else
+            If (p17 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(p17,String)
             End If
             If (p18 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p18,String)
             End If
-            If (p19 Is Nothing) Then
+            If (p19.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(p19.Value,Double)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(p19,String)
             End If
-            If (p20.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(p20.Value,Double)
-            Else
+            If (p20 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(p20,Object)
             End If
             Me.Adapter.UpdateCommand.Parameters(20).Value = CType(p21,UInteger)
             If (p23.HasValue = true) Then
@@ -23328,6 +23373,13 @@ Namespace MySQLDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            End If
+            If (p43 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(p43,Object)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _

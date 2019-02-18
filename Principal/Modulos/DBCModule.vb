@@ -5,7 +5,8 @@ Module DBCModule
     Public comercialStrConn As String = "Data Source=SERVIDOR\SERVIDOR;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=1" 'AGUADA-PROD'
     Public comercialStrConn2 As String = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=1" 'AGUADA-PROD'
     '/************  BASE DE DATOS REMOTA    *******************************/
-    Public MySQLStrConn As String = "server=sistemascomerciales.net;user id=sistema1_sgcweb;password=sgcomercial*?;database=sistema1_ulala;persistsecurityinfo=True"
+    Public MySQLStrConn As String = ""
+    ' "server=sistemascomerciales.net;user id=sistema1_sgcweb;password=sgcomercial*?;database=sistema1_;persistsecurityinfo=True;Connect Timeout=3"
     '==== BLANK === Data Source=;Initial Catalog=;Persist Security Info=True;User ID=;Password=
     '/************  MASCARA  *******************************/
     '  Data Source=;Initial Catalog=;Persist Security Info=True;User ID=;Password=
@@ -25,7 +26,7 @@ Module DBCModule
             database = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBWEB")
             userid = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBUSERWEB")
             password = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBPWDWEB")
-            MySQLStrConn = "server=" + server + ";" + "user id=" + userid + ";" + "password=" + password + ";" + "database=" + database + ";persistsecurityinfo=True"
+            MySQLStrConn = "server=" + server + ";" + "user id=" + userid + ";" + "password=" + password + ";" + "database=" + database + ";persistsecurityinfo=True;Connect Timeout=12"
 
         Catch ex As Exception
             MsgBox("No se pudo Construir el string de conexión al servidor remoto: " + ex.Message, MsgBoxStyle.Information, "DBWEB")

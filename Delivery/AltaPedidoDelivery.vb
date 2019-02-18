@@ -325,7 +325,7 @@ Public Class AltaPedidoDelivery
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
                 Dim cantidad As Long = VentasdetalleDataGridView.Rows(i).Cells(3).Value
-                Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells(7).Value
+                Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
                 Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells(8).Value
                 PedidosdeliverydetalleTableAdapter.pedidosdeliverydetalle_insertar(nvopedido, codigo, cantidad, precioventa, Nothing, idlistaprecio)
             Next
@@ -341,7 +341,7 @@ Public Class AltaPedidoDelivery
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
                 Dim cantidad As Long = VentasdetalleDataGridView.Rows(i).Cells(3).Value
-                Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells(7).Value
+                Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
                 Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells(8).Value
                 VentasdetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, codigo, cantidad, precioventa, idlistaprecio, Nothing, Nothing) ' descuento
                 PedidosdeliveryTableAdapter.pedidosdelivery_updateidventa(nvavta, nvopedido)

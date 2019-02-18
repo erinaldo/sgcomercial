@@ -26,9 +26,6 @@ Partial Class ADModulos
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ADModulos))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ModulosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.ModulosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ModulosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.modulosTableAdapter()
@@ -38,6 +35,9 @@ Partial Class ADModulos
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.ModulosBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ModulosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModulosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,32 +67,9 @@ Partial Class ADModulos
         Me.ModulosDataGridView.Location = New System.Drawing.Point(6, 36)
         Me.ModulosDataGridView.Name = "ModulosDataGridView"
         Me.ModulosDataGridView.RowTemplate.Height = 24
+        Me.ModulosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ModulosDataGridView.Size = New System.Drawing.Size(651, 333)
         Me.ModulosDataGridView.TabIndex = 0
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.Width = 200
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "descripcion"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Descripción"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.Width = 280
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "estado"
-        Me.DataGridViewTextBoxColumn4.FalseValue = "0"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Estado"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.DataGridViewTextBoxColumn4.TrueValue = "1"
         '
         'ModulosBindingSource
         '
@@ -220,6 +197,32 @@ Partial Class ADModulos
         Me.ModulosBindingNavigatorSaveItem.Size = New System.Drawing.Size(24, 24)
         Me.ModulosBindingNavigatorSaveItem.Text = "Guardar datos"
         '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 200
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Descripción"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 280
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "estado"
+        Me.DataGridViewTextBoxColumn4.FalseValue = "0"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Estado"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.DataGridViewTextBoxColumn4.TrueValue = "1"
+        '
         'ADModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -227,7 +230,10 @@ Partial Class ADModulos
         Me.ClientSize = New System.Drawing.Size(687, 425)
         Me.Controls.Add(Me.ModulosBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ADModulos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ADModulos"
         Me.Text = "Activar/Desactivar Modulos"
         Me.GroupBox1.ResumeLayout(False)

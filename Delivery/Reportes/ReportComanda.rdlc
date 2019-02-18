@@ -823,7 +823,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!precioventa.Value, "ListaPedidosDeliveryDetalle")</Value>
+                              <Value>=round(Sum(Fields!precioventa.Value * Fields!cantidad.Value, "ListaPedidosDeliveryDetalle"),2)</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -1746,14 +1746,14 @@
                 <TablixCell />
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox5">
+                    <Textbox Name="Textbox8">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!precioventa.Value, "ListaPedidosDeliveryDetalle")</Value>
+                              <Value>=round(Sum(Fields!precioventa.Value * Fields!cantidad.Value, "ListaPedidosDeliveryDetalle"),2)</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -2010,7 +2010,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>6.499cm</Height>
+    <Height>6.86617cm</Height>
     <Style />
   </Body>
   <Width>20.87109cm</Width>

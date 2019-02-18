@@ -1,15 +1,8 @@
 ﻿Public Class PedidosDeliveryModificar
     Private Sub PedidosDeliveryModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapedidosdeliverydetalle' Puede moverla o quitarla según sea necesario.
+
         Me.ListapedidosdeliverydetalleTableAdapter.FillByIdPedidodelivery(Me.ComercialDataSet.listapedidosdeliverydetalle, gidpedidodelivery)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidosdeliverydetalle' Puede moverla o quitarla según sea necesario.
         Me.PedidosdeliverydetalleTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.pedidosdeliverydetalle, gidpedidodelivery)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidosdelivery' Puede moverla o quitarla según sea necesario.
-        'Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapedidosdelivery' Puede moverla o quitarla según sea necesario.
-        'Me.ListapedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.listapedidosdelivery)
         Me.ListapedidosdeliveryTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.listapedidosdelivery, gidpedidodelivery)
 
 
@@ -44,31 +37,67 @@
     Private Sub ListapedidosdeliverydetalleDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliverydetalleDataGridView.CellContentClick
 
     End Sub
+    Public Sub buscaproductomanual()
+        gcantidad = 0
+        glistaprecio = 1
+        gidproducto = 0
+        Dim v_precioventa As Decimal
+        Dim idproducto As Long
+        Dim descripcion As String
+        Dim newrow As Long
+        Dim addnewrow As Boolean = False
+        Dim unidadmedida As Integer
+        Dim medida As Decimal
+        glistaprecio = 0
+        Dim p As BuscaProductoManualPedidos
+        p = New BuscaProductoManualPedidos
+        p.ShowDialog()
+        ''***********************
+        If Val(gcantidad) = 0 Then Return
+        v_precioventa = gprecioventa
+        gidproducto = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
+
+    End Sub
 
     Private Sub ListapedidosdeliverydetalleDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles ListapedidosdeliverydetalleDataGridView.KeyDown
         'MsgBox(e.KeyCode.ToString)
         If e.KeyCode = Keys.Add Then
-            'buscaproductomanual()
-            'recuento()
-            MsgBox("mas")
+            buscaproductomanual()
+
+            Dim idproducto As Long = gidproducto
+            Dim cantidad As Long = gcantidad
+            Dim precioventa As Long = gprecioventa
+            Dim idlistaprecio As Long = glistaprecio
+            Dim idventa As Long = PedidosdeliveryTableAdapter.pedidosdelivery_consultaexisteventa(gidpedidodelivery)
+            If MsgBox("Esta seguro que desea agregar este producto?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                Try
+                    '______________________________________________________________________________
+                    PedidosdeliverydetalleTableAdapter.pedidosdeliverydetalle_insertar(gidpedidodelivery, idproducto, cantidad, precioventa, Nothing, idlistaprecio)
+                    VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventa, idproducto, cantidad, precioventa, idlistaprecio, Nothing, Nothing) ' descuento
+                    Me.ListapedidosdeliverydetalleTableAdapter.FillByIdPedidodelivery(Me.ComercialDataSet.listapedidosdeliverydetalle, gidpedidodelivery)
+                Catch ex As Exception
+                    MsgBox("No se pudo completar la operación: " + ex.Message)
+                End Try
+
+            End If
         End If
-        If e.KeyCode = Keys.Subtract Then
-            MsgBox("menos")
-            'VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
-            'recuento()
-        End If
-        If e.KeyCode = Keys.Multiply Then
-            MsgBox("modify")
-            'Dim p As SeleccionarCantidad
-            'p = New SeleccionarCantidad
-            'gcodigoproducto = 0
-            'p.ShowDialog()
-            ''p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
-            'VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(3).Value = gcantidad
-            'gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(6).Value
-            'VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(7).Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
-            'recuento()
-        End If
+        'If e.KeyCode = Keys.Subtract Then
+        '    MsgBox("menos")
+        '    'VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+        '    'recuento()
+        'End If
+        'If e.KeyCode = Keys.Multiply Then
+        '    MsgBox("modify")
+        '    'Dim p As SeleccionarCantidad
+        '    'p = New SeleccionarCantidad
+        '    'gcodigoproducto = 0
+        '    'p.ShowDialog()
+        '    ''p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
+        '    'VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(3).Value = gcantidad
+        '    'gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(6).Value
+        '    'VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(7).Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+        '    'recuento()
+        'End If
     End Sub
 
     Private Sub ListapedidosdeliverydetalleDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliverydetalleDataGridView.CellClick

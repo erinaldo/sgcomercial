@@ -107,7 +107,6 @@ Partial Class Principal
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeSGComercialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambiarContraseñaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SincronizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SysConfigToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaTerminalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -122,6 +121,7 @@ Partial Class Principal
         Me.NubeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubirProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DescargarPedidosWEBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -205,7 +205,7 @@ Partial Class Principal
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SincronizarToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -833,14 +833,6 @@ Partial Class Principal
         Me.CambiarContraseñaToolStripMenuItem.Tag = "CambiarClaveAcceso"
         Me.CambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña"
         '
-        'SincronizarToolStripMenuItem
-        '
-        Me.SincronizarToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.cloud_sync_icon
-        Me.SincronizarToolStripMenuItem.Name = "SincronizarToolStripMenuItem"
-        Me.SincronizarToolStripMenuItem.Size = New System.Drawing.Size(125, 27)
-        Me.SincronizarToolStripMenuItem.Tag = "ModuloSyncWeb"
-        Me.SincronizarToolStripMenuItem.Text = "Sincronizar"
-        '
         'SysConfigToolStripMenuItem
         '
         Me.SysConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem, Me.POSTFormToolStripMenuItem})
@@ -929,7 +921,7 @@ Partial Class Principal
         '
         'NubeToolStripMenuItem
         '
-        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.DescargarProductosToolStripMenuItem})
+        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.DescargarPedidosWEBToolStripMenuItem})
         Me.NubeToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
         Me.NubeToolStripMenuItem.Name = "NubeToolStripMenuItem"
         Me.NubeToolStripMenuItem.Size = New System.Drawing.Size(83, 27)
@@ -949,6 +941,13 @@ Partial Class Principal
         Me.DescargarProductosToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
         Me.DescargarProductosToolStripMenuItem.Tag = "DescargarProductosClowd"
         Me.DescargarProductosToolStripMenuItem.Text = "Descargar Productos"
+        '
+        'DescargarPedidosWEBToolStripMenuItem
+        '
+        Me.DescargarPedidosWEBToolStripMenuItem.Name = "DescargarPedidosWEBToolStripMenuItem"
+        Me.DescargarPedidosWEBToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.DescargarPedidosWEBToolStripMenuItem.Tag = "DescargarPedidosClowd"
+        Me.DescargarPedidosWEBToolStripMenuItem.Text = "Descargar Pedidos"
         '
         'ParametrosgeneralesDataGridView
         '
@@ -1600,7 +1599,6 @@ Partial Class Principal
     Friend WithEvents CuentasCorrientesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EstadoDeCuentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LotesDeEnvìosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SincronizarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AltaTerminalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMPerfilesToolStripMenuItem As ToolStripMenuItem
@@ -1641,4 +1639,5 @@ Partial Class Principal
     Friend WithEvents NubeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SubirProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DescargarProductosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DescargarPedidosWEBToolStripMenuItem As ToolStripMenuItem
 End Class
