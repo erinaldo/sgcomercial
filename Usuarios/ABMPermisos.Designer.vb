@@ -31,8 +31,14 @@ Partial Class ABMPermisos
         Me.LabelTotalPermisos = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PermisosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.FuncionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.desactivar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.PermisosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FuncionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -49,19 +55,15 @@ Partial Class ABMPermisos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.FuncionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.funcionesTableAdapter()
         Me.PerfilesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.perfilesTableAdapter()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.desactivar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PerfilesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PermisosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FuncionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PermisosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FuncionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.FuncionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -100,6 +102,8 @@ Partial Class ABMPermisos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.TextBox2)
+        Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.LabelTotalPermisos)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.PermisosDataGridView)
@@ -145,15 +149,64 @@ Partial Class ABMPermisos
         Me.PermisosDataGridView.Size = New System.Drawing.Size(496, 328)
         Me.PermisosDataGridView.TabIndex = 1
         '
-        'FuncionesBindingSource
+        'DataGridViewTextBoxColumn1
         '
-        Me.FuncionesBindingSource.DataMember = "funciones"
-        Me.FuncionesBindingSource.DataSource = Me.ComercialDataSet
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idpermisos"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idpermisos"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "idperfil"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "idperfil"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Visible = False
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "fechaalta"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "fechaalta"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "usuarioalta"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "usuarioalta"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Visible = False
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "menuname"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Objeto"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 250
+        '
+        'desactivar
+        '
+        Me.desactivar.HeaderText = "Desactivar"
+        Me.desactivar.Name = "desactivar"
+        Me.desactivar.ReadOnly = True
+        Me.desactivar.Text = "Desactivar"
+        Me.desactivar.ToolTipText = "Desactivar"
+        Me.desactivar.UseColumnTextForButtonValue = True
         '
         'PermisosBindingSource
         '
         Me.PermisosBindingSource.DataMember = "permisos"
         Me.PermisosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'FuncionesBindingSource
+        '
+        Me.FuncionesBindingSource.DataMember = "funciones"
+        Me.FuncionesBindingSource.DataSource = Me.ComercialDataSet
         '
         'GroupBox3
         '
@@ -285,10 +338,12 @@ Partial Class ABMPermisos
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -311,6 +366,7 @@ Partial Class ABMPermisos
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -320,8 +376,11 @@ Partial Class ABMPermisos
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -340,54 +399,21 @@ Partial Class ABMPermisos
         '
         Me.PerfilesTableAdapter.ClearBeforeFill = True
         '
-        'DataGridViewTextBoxColumn1
+        'Label4
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idpermisos"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idpermisos"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(17, 33)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(48, 17)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "Filtrar:"
         '
-        'DataGridViewTextBoxColumn3
+        'TextBox2
         '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "idperfil"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "idperfil"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Visible = False
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "fechaalta"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "fechaalta"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "usuarioalta"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "usuarioalta"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Visible = False
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "menuname"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Objeto"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 250
-        '
-        'desactivar
-        '
-        Me.desactivar.HeaderText = "Desactivar"
-        Me.desactivar.Name = "desactivar"
-        Me.desactivar.ReadOnly = True
-        Me.desactivar.Text = "Desactivar"
-        Me.desactivar.ToolTipText = "Desactivar"
-        Me.desactivar.UseColumnTextForButtonValue = True
+        Me.TextBox2.Location = New System.Drawing.Point(71, 28)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(341, 22)
+        Me.TextBox2.TabIndex = 10
         '
         'ABMPermisos
         '
@@ -397,19 +423,21 @@ Partial Class ABMPermisos
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ABMPermisos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ABMPermisos"
+        Me.Tag = "ABMPermisos"
+        Me.Text = "ABM Permisos"
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.PerfilesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PermisosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FuncionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PermisosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FuncionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.FuncionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -449,4 +477,6 @@ Partial Class ABMPermisos
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents desactivar As DataGridViewButtonColumn
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label4 As Label
 End Class

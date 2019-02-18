@@ -56,6 +56,38 @@
                     'MsgBox(rtn)
                     Me.UsuariosTableAdapter.FillByUsuarios(Me.ComercialDataSet.usuarios)
                 End If
+            Case 11
+                'If MsgBox("Seguro desea reactivar el usuario?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                '    Dim rtn As String
+                '    rtn = UsuariosTableAdapter.usuarios_reactivar(guserid, UsuariosDataGridView.Rows(e.RowIndex).Cells(1).Value)
+                '    'MsgBox(rtn)
+                '    Me.UsuariosTableAdapter.FillByUsuarios(Me.ComercialDataSet.usuarios)
+                'End If
+                Dim p As EditarUsuario
+                p = New EditarUsuario
+                gUsuarioSeleccionado = UsuariosDataGridView.Rows(e.RowIndex).Cells(0).Value
+                p.ShowDialog()
+
+                Me.UsuariosTableAdapter.FillByUsuarios(Me.ComercialDataSet.usuarios)
+                gUsuarioSeleccionado = Nothing
         End Select
+    End Sub
+
+    Private Sub ABMUsuarios_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
+        'If e.KeyCode = Keys.F12 Then
+        '    If Me.WindowState = FormWindowState.Normal Then
+        '        Me.WindowState = FormWindowState.Maximized
+        '    Else
+        '        Me.WindowState = FormWindowState.Normal
+        '    End If
+        'End If
+        ''''''''''''''''''''*******************************************'''''''''''''''''''''
     End Sub
 End Class

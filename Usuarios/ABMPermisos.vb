@@ -12,7 +12,7 @@
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.funciones' Puede moverla o quitarla según sea necesario.
         Me.FuncionesTableAdapter.FillByActivas(Me.ComercialDataSet.funciones)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.permisos' Puede moverla o quitarla según sea necesario.
-        Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
+        Me.PermisosTableAdapter.FillByDescripcion(Me.ComercialDataSet.permisos)
         LabelTotalFunciones.Text = FuncionesDataGridView.RowCount.ToString
 
         PermisosBindingSource.Filter = "idperfil= '" + ComboBox1.Text + "'"
@@ -118,5 +118,32 @@
             FuncionesBindingSource.Filter = ""
         End Try
 
+    End Sub
+
+    Private Sub ABMPermisos_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
+        'If e.KeyCode = Keys.F12 Then
+        '    If Me.WindowState = FormWindowState.Normal Then
+        '        Me.WindowState = FormWindowState.Maximized
+        '    Else
+        '        Me.WindowState = FormWindowState.Normal
+        '    End If
+        'End If
+        ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+        Try
+            'FuncionesBindingSource.Filter = "descripcion like '%" + TextBox1.Text + "%'"
+            PermisosBindingSource.Filter = "descripcion like '%" + TextBox2.Text + "%'"
+        Catch ex As Exception
+            PermisosBindingSource.Filter = ""
+        End Try
     End Sub
 End Class

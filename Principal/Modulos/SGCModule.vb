@@ -32,6 +32,7 @@ Module SGCModule
     Public gTerminal As Long
     Public gAutoUpdater As Long
     Public guserid As Integer
+    Public gUsuarioSeleccionado As Long
     Public guserprofile As String
     Public gusername As String
     Public gnombremodulo As String

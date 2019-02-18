@@ -69,6 +69,7 @@ Partial Class ABMUsuarios
         Me.Eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Reactivar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.usuarioalta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.editar = New System.Windows.Forms.DataGridViewButtonColumn()
         IdusuarioLabel = New System.Windows.Forms.Label()
         FechaaltaLabel = New System.Windows.Forms.Label()
         FechabajaLabel = New System.Windows.Forms.Label()
@@ -162,7 +163,7 @@ Partial Class ABMUsuarios
         'UsernameLabel
         '
         UsernameLabel.AutoSize = True
-        UsernameLabel.Location = New System.Drawing.Point(144, 24)
+        UsernameLabel.Location = New System.Drawing.Point(248, 24)
         UsernameLabel.Name = "UsernameLabel"
         UsernameLabel.Size = New System.Drawing.Size(61, 17)
         UsernameLabel.TabIndex = 23
@@ -171,7 +172,7 @@ Partial Class ABMUsuarios
         'PasswordLabel
         '
         PasswordLabel.AutoSize = True
-        PasswordLabel.Location = New System.Drawing.Point(144, 52)
+        PasswordLabel.Location = New System.Drawing.Point(248, 52)
         PasswordLabel.Name = "PasswordLabel"
         PasswordLabel.Size = New System.Drawing.Size(47, 17)
         PasswordLabel.TabIndex = 25
@@ -180,7 +181,7 @@ Partial Class ABMUsuarios
         'IdperfilLabel
         '
         IdperfilLabel.AutoSize = True
-        IdperfilLabel.Location = New System.Drawing.Point(144, 83)
+        IdperfilLabel.Location = New System.Drawing.Point(248, 83)
         IdperfilLabel.Name = "IdperfilLabel"
         IdperfilLabel.Size = New System.Drawing.Size(44, 17)
         IdperfilLabel.TabIndex = 27
@@ -203,34 +204,62 @@ Partial Class ABMUsuarios
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Nothing
         Me.TableAdapterManager.perfilesTableAdapter = Me.PerfilesTableAdapter
         Me.TableAdapterManager.permisosTableAdapter = Nothing
-
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Me.UsuariosTableAdapter
+        Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
@@ -253,7 +282,7 @@ Partial Class ABMUsuarios
         Me.UsuariosBindingNavigator.MovePreviousItem = Nothing
         Me.UsuariosBindingNavigator.Name = "UsuariosBindingNavigator"
         Me.UsuariosBindingNavigator.PositionItem = Nothing
-        Me.UsuariosBindingNavigator.Size = New System.Drawing.Size(747, 27)
+        Me.UsuariosBindingNavigator.Size = New System.Drawing.Size(833, 27)
         Me.UsuariosBindingNavigator.TabIndex = 0
         Me.UsuariosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -360,6 +389,9 @@ Partial Class ABMUsuarios
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.IdperfilComboBox)
         Me.GroupBox1.Controls.Add(UsernameLabel)
         Me.GroupBox1.Controls.Add(Me.UsernameTextBox)
@@ -368,7 +400,7 @@ Partial Class ABMUsuarios
         Me.GroupBox1.Controls.Add(IdperfilLabel)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 30)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(718, 129)
+        Me.GroupBox1.Size = New System.Drawing.Size(804, 129)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "GroupBox1"
@@ -381,7 +413,7 @@ Partial Class ABMUsuarios
         Me.IdperfilComboBox.DisplayMember = "idperfil"
         Me.IdperfilComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.IdperfilComboBox.FormattingEnabled = True
-        Me.IdperfilComboBox.Location = New System.Drawing.Point(225, 80)
+        Me.IdperfilComboBox.Location = New System.Drawing.Point(329, 80)
         Me.IdperfilComboBox.Name = "IdperfilComboBox"
         Me.IdperfilComboBox.Size = New System.Drawing.Size(227, 24)
         Me.IdperfilComboBox.TabIndex = 2
@@ -390,7 +422,7 @@ Partial Class ABMUsuarios
         'UsernameTextBox
         '
         Me.UsernameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UsuariosBindingSource, "username", True))
-        Me.UsernameTextBox.Location = New System.Drawing.Point(225, 24)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(329, 24)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.Size = New System.Drawing.Size(227, 22)
         Me.UsernameTextBox.TabIndex = 0
@@ -398,17 +430,20 @@ Partial Class ABMUsuarios
         'PasswordTextBox
         '
         Me.PasswordTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UsuariosBindingSource, "password", True))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(225, 52)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(329, 52)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.Size = New System.Drawing.Size(227, 22)
         Me.PasswordTextBox.TabIndex = 1
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.UsuariosDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(14, 165)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(718, 265)
+        Me.GroupBox2.Size = New System.Drawing.Size(804, 265)
         Me.GroupBox2.TabIndex = 24
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "GroupBox2"
@@ -417,9 +452,13 @@ Partial Class ABMUsuarios
         '
         Me.UsuariosDataGridView.AllowUserToAddRows = False
         Me.UsuariosDataGridView.AllowUserToDeleteRows = False
+        Me.UsuariosDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.UsuariosDataGridView.AutoGenerateColumns = False
+        Me.UsuariosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.UsuariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.UsuariosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.Eliminar, Me.Reactivar, Me.usuarioalta})
+        Me.UsuariosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.Eliminar, Me.Reactivar, Me.usuarioalta, Me.editar})
         Me.UsuariosDataGridView.DataSource = Me.UsuariosBindingSource
         Me.UsuariosDataGridView.Location = New System.Drawing.Point(12, 26)
         Me.UsuariosDataGridView.MultiSelect = False
@@ -427,7 +466,7 @@ Partial Class ABMUsuarios
         Me.UsuariosDataGridView.ReadOnly = True
         Me.UsuariosDataGridView.RowTemplate.Height = 24
         Me.UsuariosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.UsuariosDataGridView.Size = New System.Drawing.Size(700, 222)
+        Me.UsuariosDataGridView.Size = New System.Drawing.Size(786, 222)
         Me.UsuariosDataGridView.TabIndex = 2
         '
         'DataGridViewTextBoxColumn1
@@ -444,6 +483,7 @@ Partial Class ABMUsuarios
         Me.DataGridViewTextBoxColumn2.HeaderText = "Usuario"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 86
         '
         'DataGridViewTextBoxColumn3
         '
@@ -451,6 +491,7 @@ Partial Class ABMUsuarios
         Me.DataGridViewTextBoxColumn3.HeaderText = "Clave"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 72
         '
         'DataGridViewTextBoxColumn4
         '
@@ -458,6 +499,7 @@ Partial Class ABMUsuarios
         Me.DataGridViewTextBoxColumn4.HeaderText = "Fecha alta"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 103
         '
         'DataGridViewTextBoxColumn5
         '
@@ -465,6 +507,7 @@ Partial Class ABMUsuarios
         Me.DataGridViewTextBoxColumn5.HeaderText = "Fecha baja"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 107
         '
         'DataGridViewTextBoxColumn6
         '
@@ -488,6 +531,7 @@ Partial Class ABMUsuarios
         Me.DataGridViewTextBoxColumn10.HeaderText = "Perfil"
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Width = 69
         '
         'Eliminar
         '
@@ -496,6 +540,7 @@ Partial Class ABMUsuarios
         Me.Eliminar.ReadOnly = True
         Me.Eliminar.Text = "Eliminar"
         Me.Eliminar.UseColumnTextForButtonValue = True
+        Me.Eliminar.Width = 64
         '
         'Reactivar
         '
@@ -505,6 +550,7 @@ Partial Class ABMUsuarios
         Me.Reactivar.Text = "Reactivar"
         Me.Reactivar.ToolTipText = "Reactivar"
         Me.Reactivar.UseColumnTextForButtonValue = True
+        Me.Reactivar.Width = 74
         '
         'usuarioalta
         '
@@ -514,11 +560,23 @@ Partial Class ABMUsuarios
         Me.usuarioalta.ReadOnly = True
         Me.usuarioalta.Visible = False
         '
+        'editar
+        '
+        Me.editar.HeaderText = "Editar"
+        Me.editar.Name = "editar"
+        Me.editar.ReadOnly = True
+        Me.editar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.editar.Text = "Editar"
+        Me.editar.ToolTipText = "Editar"
+        Me.editar.UseColumnTextForButtonValue = True
+        Me.editar.Width = 74
+        '
         'ABMUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(747, 442)
+        Me.ClientSize = New System.Drawing.Size(833, 442)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(IdusuarioLabel)
@@ -537,11 +595,13 @@ Partial Class ABMUsuarios
         Me.Controls.Add(Me.UsuariomodificacionTextBox)
         Me.Controls.Add(Me.UsuariosBindingNavigator)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ABMUsuarios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ABMUsuarios"
+        Me.Tag = "ABMUsuarios"
+        Me.Text = "ABM Usuarios"
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuariosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
@@ -592,4 +652,5 @@ Partial Class ABMUsuarios
     Friend WithEvents Eliminar As DataGridViewButtonColumn
     Friend WithEvents Reactivar As DataGridViewButtonColumn
     Friend WithEvents usuarioalta As DataGridViewTextBoxColumn
+    Friend WithEvents editar As DataGridViewButtonColumn
 End Class
