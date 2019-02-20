@@ -5,6 +5,9 @@ Imports System.Data.SqlClient
 Public Class loginform
     Dim sqlserverconnection As SqlConnection
     Dim softwareversion As String
+    Dim currentversion As Long
+    Dim newversion As Long
+    Dim UpdateAlertStatus As Boolean
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         '*********************************************************
@@ -59,6 +62,7 @@ Public Class loginform
 
 
     Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         Cursor.Current = Cursors.WaitCursor
         Dim status As Boolean
         '********************************
@@ -99,7 +103,9 @@ Public Class loginform
             End
         End Try
         '********************************
-        '********************************      
+        '********************************  
+        UpdateCheckBG.RunWorkerAsync()
+        '********************************  
         '********************************
         Try
             sqlserverconnection = New SqlConnection(sgcomercial.My.MySettings.Default.comercialConnectionString)
@@ -132,7 +138,6 @@ Public Class loginform
             Button2.PerformClick()
         End Try
         Cursor.Current = Cursors.Default
-
     End Sub
     Private Sub enablebuttons(ByVal status As Boolean)
         textusuario.Enabled = status
@@ -233,8 +238,6 @@ Public Class loginform
 
     Private Sub Button3_Click_3(sender As Object, e As EventArgs) Handles Button3.Click
         Dim status As Boolean
-        Dim currentversion As Long
-        Dim newversion As Long
         UpdateCheck(status, currentversion, newversion)
     End Sub
 
@@ -242,5 +245,36 @@ Public Class loginform
         If e.KeyChar = Convert.ToChar(Keys.Enter) Then
             textpassword.Select()
         End If
+    End Sub
+
+    Private Sub UpdateCheckBG_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles UpdateCheckBG.DoWork
+        UpdateCheckPasivo(UpdateAlertStatus, currentversion, newversion)
+    End Sub
+
+    Private Sub UpdateCheckBG_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles UpdateCheckBG.RunWorkerCompleted
+        ' Called when the BackgroundWorker is completed.
+        If UpdateAlertStatus = True Then
+            UpdateAlert.Visible = True
+            UpdateAlert.Text = "Nueva versión disponible!"
+            UpdateAlert.ForeColor = Color.Orange
+            PictureUpdateAlert.Image = My.Resources.UpdateAlert
+            PictureUpdateAlert.Visible = True
+            Button3.Visible = True
+        Else
+            If newversion = 0 Then Return
+            UpdateAlert.Visible = True
+            UpdateAlert.Text = "Sistema Actualizado!"
+            UpdateAlert.ForeColor = Color.Green
+            PictureUpdateAlert.Image = My.Resources.checked
+            PictureUpdateAlert.Visible = True
+            Button3.Visible = False
+        End If
+    End Sub
+    Private Sub UpdateAlert_Click(sender As Object, e As EventArgs) Handles UpdateAlert.Click
+        Button3.PerformClick()
+    End Sub
+
+    Private Sub PictureUpdateAlert_Click(sender As Object, e As EventArgs) Handles PictureUpdateAlert.Click
+        Button3.PerformClick()
     End Sub
 End Class

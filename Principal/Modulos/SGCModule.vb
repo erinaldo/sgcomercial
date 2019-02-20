@@ -485,6 +485,55 @@ Module SGCModule
         Cursor.Current = Cursors.Default
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     End Sub
+    Public Sub UpdateCheckPasivo(ByRef status As Boolean, ByRef currentversion As Long, ByRef newversion As Long)
+        'Cursor.Current = Cursors.WaitCursor
+        If Not My.Computer.Network.IsAvailable Then
+            'Cursor.Current = Cursors.Default
+            'MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            status = Nothing
+            Return
+        End If
+        Dim TerminalesSCTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+        TerminalesSCTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Dim ProductosSCTableAdapter As siscomDataSetTableAdapters.productosTableAdapter
+        ProductosSCTableAdapter = New siscomDataSetTableAdapters.productosTableAdapter()
+        ''''''''''''''
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Try
+            gTerminal = TerminalesSCTableAdapter.terminales_GetID(gmacadress)
+            gAutoUpdater = TerminalesSCTableAdapter.terminales_autoupdater(gTerminal)
+            If Not gTerminal > 0 Or gAutoUpdater = 0 Then
+                'Cursor.Current = Cursors.Default
+                'MsgBox("Dispositivo no autorizado", MsgBoxStyle.Exclamation, "Advertencia")
+                status = False
+                Return
+            End If
+        Catch ex As Exception
+            'Cursor.Current = Cursors.Default
+            'MsgBox("Dispositivo no autorizado", MsgBoxStyle.Exclamation, "Advertencia")
+            'MsgBox("Dispositivo no autorizado: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End Try
+
+
+        Try
+            newversion = Val(ProductosSCTableAdapter.productos_consultarversionvigente("SGComercia"))
+            currentversion = Val(TerminalesSCTableAdapter.terminales_consultarsgcversion(gTerminal))
+            If newversion > currentversion Then
+                status = True
+            Else
+                'MsgBox("Tu versión de sistema se encuentra actualizada", MsgBoxStyle.Information)
+                status = False
+            End If
+            'Cursor.Current = Cursors.Default
+        Catch ex As Exception
+            'Cursor.Current = Cursors.Default
+            status = False
+        End Try
+        '''''''*******************        
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    End Sub
     Public Sub UpdateSGC(ByRef newversion As Long)
         Cursor.Current = Cursors.WaitCursor
         Dim ftpRequest As FtpWebRequest = DirectCast(WebRequest.Create("ftp://sistemascomerciales.net/"), FtpWebRequest)

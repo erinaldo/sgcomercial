@@ -2,8 +2,8 @@
 Imports System
 Module DBCModule
     '/************  BASE DE DATOS LOCAL  *******************************/
-    Public comercialStrConn As String = "Data Source=SERVIDOR\SERVIDOR;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=1" 'AGUADA-PROD'
-    Public comercialStrConn2 As String = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=1" 'AGUADA-PROD'
+    Public comercialStrConn As String = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=1" 'LOCALHOST'
+    Public comercialStrConn2 As String = "Data Source=SERVIDOR\SERVIDOR;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=10" 'de terminal a SERVIDOR'
     '/************  BASE DE DATOS REMOTA    *******************************/
     Public MySQLStrConn As String = ""
     ' "server=sistemascomerciales.net;user id=sistema1_sgcweb;password=sgcomercial*?;database=sistema1_;persistsecurityinfo=True;Connect Timeout=3"

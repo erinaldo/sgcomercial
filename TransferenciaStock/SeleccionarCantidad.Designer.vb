@@ -30,6 +30,7 @@ Partial Class SeleccionarCantidad
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(331, 94)
@@ -39,10 +40,12 @@ Partial Class SeleccionarCantidad
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(73, 36)
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.TextBox1.Location = New System.Drawing.Point(73, 40)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(185, 22)
+        Me.TextBox1.Size = New System.Drawing.Size(185, 30)
         Me.TextBox1.TabIndex = 0
+        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'SeleccionarCantidad
         '
@@ -50,11 +53,13 @@ Partial Class SeleccionarCantidad
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(355, 118)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "SeleccionarCantidad"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "SeleccionarCantidad"
+        Me.Tag = "SeleccionarCantidad"
+        Me.Text = "Seleccionar Cantidad"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

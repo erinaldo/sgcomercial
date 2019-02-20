@@ -1,5 +1,13 @@
 ﻿Public Class ABMListasprecios
     Private Sub ListaspreciosBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles ListaspreciosBindingNavigatorSaveItem.Click
+        Try
+            Me.Validate()
+            Me.ListaspreciosBindingSource.EndEdit()
+            Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
+            Me.Close()
+        Catch ex As Exception
+            MsgBox("No se pudo completar la operación: " + ex.Message)
+        End Try
         Me.Validate()
         Me.ListaspreciosBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)

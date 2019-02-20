@@ -319,14 +319,15 @@ Public Class AltaPedidoDelivery
             nvocliente = Val(IdclienteTextBox.Text)
             nvodomicilio = ClientesdomiciliosDataGridView.Rows(0).Cells(0).Value
         End If
-        '*****************************************  inserter pedidodelivery ***************************************************************
+        '*****************************************  INSERTAR PEDIDODELIVERY ***************************************************************
         Try
             nvopedido = PedidosdeliveryTableAdapter.pedidosdelivery_insertar(nvocliente, Nothing, ComboBoxTransporte.SelectedValue, nvodomicilio, Convert.ToDecimal(TextBoxPagaCon.Text), Today, gusername, Nothing, Nothing)
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
-                Dim cantidad As Long = VentasdetalleDataGridView.Rows(i).Cells(3).Value
-                Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
+                Dim cantidad As Decimal = VentasdetalleDataGridView.Rows(i).Cells(3).Value
+                Dim precioventa As Decimal = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
                 Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells(8).Value
+                '****** INSERTAR PEDIDODELIVERY    DETALLE **********
                 PedidosdeliverydetalleTableAdapter.pedidosdeliverydetalle_insertar(nvopedido, codigo, cantidad, precioventa, Nothing, idlistaprecio)
             Next
         Catch ex As Exception
@@ -340,9 +341,10 @@ Public Class AltaPedidoDelivery
             nvavta = VentasTableAdapter.ventas_insertarventa(nvocliente, Now(), Nothing, 1, gusername, Nothing, Nothing)
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
-                Dim cantidad As Long = VentasdetalleDataGridView.Rows(i).Cells(3).Value
-                Dim precioventa As Long = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
+                Dim cantidad As Decimal = VentasdetalleDataGridView.Rows(i).Cells(3).Value
+                Dim precioventa As Decimal = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
                 Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells(8).Value
+                '****** REGISTRAR VENTA     DETALLE **********
                 VentasdetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, codigo, cantidad, precioventa, idlistaprecio, Nothing, Nothing) ' descuento
                 PedidosdeliveryTableAdapter.pedidosdelivery_updateidventa(nvavta, nvopedido)
             Next

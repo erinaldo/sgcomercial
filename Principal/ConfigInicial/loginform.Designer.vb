@@ -45,20 +45,24 @@ Partial Class loginform
         Me.textpassword = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ParametrosgeneralesTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.version = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.UpdateAlert = New System.Windows.Forms.Label()
+        Me.UpdateCheckBG = New System.ComponentModel.BackgroundWorker()
+        Me.PictureUpdateAlert = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureUpdateAlert, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(112, 244)
+        Me.Button1.Location = New System.Drawing.Point(140, 244)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(100, 28)
@@ -68,7 +72,7 @@ Partial Class loginform
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(221, 244)
+        Me.Button2.Location = New System.Drawing.Point(249, 244)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(100, 28)
@@ -228,7 +232,7 @@ Partial Class loginform
         '
         'textusuario
         '
-        Me.textusuario.Location = New System.Drawing.Point(187, 163)
+        Me.textusuario.Location = New System.Drawing.Point(215, 163)
         Me.textusuario.Margin = New System.Windows.Forms.Padding(4)
         Me.textusuario.Name = "textusuario"
         Me.textusuario.Size = New System.Drawing.Size(132, 26)
@@ -236,7 +240,7 @@ Partial Class loginform
         '
         'textpassword
         '
-        Me.textpassword.Location = New System.Drawing.Point(187, 195)
+        Me.textpassword.Location = New System.Drawing.Point(215, 195)
         Me.textpassword.Margin = New System.Windows.Forms.Padding(4)
         Me.textpassword.Name = "textpassword"
         Me.textpassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -246,7 +250,7 @@ Partial Class loginform
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(113, 167)
+        Me.Label1.Location = New System.Drawing.Point(141, 167)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(72, 20)
@@ -256,22 +260,12 @@ Partial Class loginform
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(125, 200)
+        Me.Label2.Location = New System.Drawing.Point(153, 200)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 20)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Clave:"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.appicon
-        Me.PictureBox1.Location = New System.Drawing.Point(23, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(139, 144)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 8
-        Me.PictureBox1.TabStop = False
         '
         'Label3
         '
@@ -302,23 +296,63 @@ Partial Class loginform
         Me.Button3.BackColor = System.Drawing.Color.White
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
         Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Button3.Location = New System.Drawing.Point(112, 283)
+        Me.Button3.Location = New System.Drawing.Point(140, 283)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(209, 30)
         Me.Button3.TabIndex = 11
         Me.Button3.Text = "Buscar Actualizaciones"
         Me.Button3.UseVisualStyleBackColor = False
         '
+        'UpdateAlert
+        '
+        Me.UpdateAlert.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.UpdateAlert.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.UpdateAlert.Font = New System.Drawing.Font("Exo 2.0 Medium", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateAlert.Location = New System.Drawing.Point(214, 24)
+        Me.UpdateAlert.Name = "UpdateAlert"
+        Me.UpdateAlert.Size = New System.Drawing.Size(211, 25)
+        Me.UpdateAlert.TabIndex = 13
+        Me.UpdateAlert.Text = "UpdateCheck"
+        Me.UpdateAlert.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.UpdateAlert.Visible = False
+        '
+        'UpdateCheckBG
+        '
+        '
+        'PictureUpdateAlert
+        '
+        Me.PictureUpdateAlert.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureUpdateAlert.Image = CType(resources.GetObject("PictureUpdateAlert.Image"), System.Drawing.Image)
+        Me.PictureUpdateAlert.Location = New System.Drawing.Point(426, 3)
+        Me.PictureUpdateAlert.Name = "PictureUpdateAlert"
+        Me.PictureUpdateAlert.Size = New System.Drawing.Size(60, 60)
+        Me.PictureUpdateAlert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureUpdateAlert.TabIndex = 12
+        Me.PictureUpdateAlert.TabStop = False
+        Me.PictureUpdateAlert.Visible = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.appicon
+        Me.PictureBox1.Location = New System.Drawing.Point(23, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(139, 144)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
+        '
         'loginform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(433, 325)
+        Me.ClientSize = New System.Drawing.Size(488, 325)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.UpdateAlert)
         Me.Controls.Add(Me.version)
         Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.PictureUpdateAlert)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -338,6 +372,7 @@ Partial Class loginform
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuariosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureUpdateAlert, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -369,4 +404,7 @@ Partial Class loginform
     Friend WithEvents ParametrosgeneralesTableAdapter1 As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
     Friend WithEvents version As Label
     Friend WithEvents Button3 As Button
+    Friend WithEvents PictureUpdateAlert As PictureBox
+    Friend WithEvents UpdateAlert As Label
+    Friend WithEvents UpdateCheckBG As System.ComponentModel.BackgroundWorker
 End Class
