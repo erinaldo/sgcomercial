@@ -152,11 +152,13 @@ Public Class ImportarProductos
         If result = False Then
             Return
         End If
-        If MsgBox("Se encontraron " + actualizaciones.ToString + " productos para actualizar y " + altas.ToString + " producto nuevos. Desea confirmar la operación?", vbYesNo, "Pregunta") = vbYes Then
-            BtnConfirmar.Enabled = True
-        Else
-            BtnConfirmar.Enabled = False
-        End If
+        MsgBox("Se encontraron " + actualizaciones.ToString + " productos para actualizar y " + altas.ToString + " producto nuevos. Presione el botón CONFIRMAR para completar la operación", vbInformation, "AVISO")
+        BtnConfirmar.Enabled = True
+        'If MsgBox("Se encontraron " + actualizaciones.ToString + " productos para actualizar y " + altas.ToString + " producto nuevos. Presione el botón CONFIRMAR para completar la operación", vbYes, "Pregunta") Then
+        '    BtnConfirmar.Enabled = True
+        '    'Else
+        '    '    BtnConfirmar.Enabled = False
+        'End If
     End Sub
     Public Sub validarcampos(ByRef status As Boolean)
         status = False
@@ -186,7 +188,14 @@ Public Class ImportarProductos
                     End If
                     '**** obtengo la unidad de medida
                     Dim medida As Decimal
-                    medida = DataGridView1.Rows(i).Cells("medida").Value
+                    If Not IsDBNull(DataGridView1.Rows(i).Cells("medida").Value) Then
+                        medida = DataGridView1.Rows(i).Cells("medida").Value
+                        If medida = 0 Then
+                            Throw New Exception("La medida es incorrecta! - Debe ser al menos 1 (uno) -> " + medida.ToString + "-")
+                        End If
+                    Else
+                        medida = 1
+                    End If
                     Dim descripcion As String
                     If Not IsDBNull(DataGridView1.Rows(i).Cells("descripcion").Value) Then
                         descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
@@ -245,7 +254,14 @@ Public Class ImportarProductos
                     End If
                     '**** obtengo la unidad de medida
                     Dim medida As Decimal
-                    medida = DataGridView1.Rows(i).Cells("medida").Value
+                    If Not IsDBNull(DataGridView1.Rows(i).Cells("medida").Value) Then
+                        medida = DataGridView1.Rows(i).Cells("medida").Value
+                        If medida = 0 Then
+                            Throw New Exception("La medida es incorrecta! - Debe ser al menos 1 (uno) -> " + medida.ToString + "-")
+                        End If
+                    Else
+                        medida = 1
+                    End If
                     Dim descripcion As String
                     If Not IsDBNull(DataGridView1.Rows(i).Cells("descripcion").Value) Then
                         descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
@@ -338,7 +354,11 @@ Public Class ImportarProductos
                         codigoproducto = DataGridView1.Rows(i).Cells("codigoproducto").Value
                         Dim fabricante As String
                         Try
-                            fabricante = DataGridView1.Rows(i).Cells("fabricante").Value
+                            If Not IsDBNull(DataGridView1.Rows(i).Cells("fabricante").Value) Then
+                                fabricante = DataGridView1.Rows(i).Cells("fabricante").Value
+                            Else
+                                fabricante = Nothing
+                            End If
                         Catch ex As Exception
                             fabricante = Nothing
                         End Try
@@ -358,7 +378,14 @@ Public Class ImportarProductos
                         End If
                         '**** obtengo la unidad de medida
                         Dim medida As Decimal
-                        medida = DataGridView1.Rows(i).Cells("medida").Value
+                        If Not IsDBNull(DataGridView1.Rows(i).Cells("medida").Value) Then
+                            medida = DataGridView1.Rows(i).Cells("medida").Value
+                            If medida = 0 Then
+                                Throw New Exception("La medida es incorrecta! - Debe ser al menos 1 (uno) -> " + medida.ToString + "-")
+                            End If
+                        Else
+                            medida = 1
+                        End If
                         Dim descripcion As String
                         If Not IsDBNull(DataGridView1.Rows(i).Cells("descripcion").Value) Then
                             descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
@@ -395,30 +422,49 @@ Public Class ImportarProductos
                         precioventadistribuidor = DataGridView1.Rows(i).Cells("precioventadistribuidor").Value
                         '******************** IMPORTACION IVA
                         Dim iva As Decimal
-                        If Not IsDBNull(DataGridView1.Rows(i).Cells("iva").Value) Then
-                            iva = DataGridView1.Rows(i).Cells("iva").Value
-                        Else
+                        Try
+                            If Not IsDBNull(DataGridView1.Rows(i).Cells("iva").Value) Then
+                                iva = DataGridView1.Rows(i).Cells("iva").Value
+                            Else
+                                iva = Nothing
+                            End If
+                        Catch ex As Exception
                             iva = Nothing
-                        End If
+                        End Try
                         '*********************  IMPORTACION PROVEEDOR
                         Dim proveedornombre As String
                         Dim idproveedor As Long = 0
-                        If Not DataGridView1.Rows(i).Cells("proveedor").Value = "-" Then ' SI NO ESTA VACIO
-                            proveedornombre = DataGridView1.Rows(i).Cells("proveedor").Value
-                            '/***** verifico si existe el proveedor
-                            idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
-                            If Not idproveedor > 0 Then
-                                '************ si no existe lo inserto
-                                ProveedoresTableAdapter.Insert(proveedornombre, Nothing, Nothing, Nothing, Nothing, Nothing)
-                                idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
+                        Try
+                            If Not IsDBNull(DataGridView1.Rows(i).Cells("proveedor").Value) Then
+                                If Not DataGridView1.Rows(i).Cells("proveedor").Value = "-" Then ' SI NO ESTA VACIO
+                                    proveedornombre = DataGridView1.Rows(i).Cells("proveedor").Value
+                                    '/***** verifico si existe el proveedor
+                                    idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
+                                    If Not idproveedor > 0 Then
+                                        '************ si no existe lo inserto
+                                        ProveedoresTableAdapter.Insert(proveedornombre, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                        idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
+                                    End If
+                                    If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe) > 0 Then
+                                        ProductosproveedoresTableAdapter.productosproveedores_insertar(existe, idproveedor, preciocosto, Nothing, Nothing, Nothing, Nothing)
+                                    Else
+                                        ProductosproveedoresTableAdapter.productosproveedores_update(idproveedor, precioventa, Nothing, Nothing, Nothing, Nothing, existe)
+                                    End If
+                                End If
                             End If
-                        End If
+                        Catch ex As Exception
+                            idproveedor = -1
+                        End Try
+                        '*********************  IMPORTACION PRODUCTO
                         '*************************************************************************************
                         ProductosTableAdapter.productos_upd_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, iva, fabricante, existe)
-                        If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe) > 0 Then
-                            ProductosproveedoresTableAdapter.productosproveedores_insertar(existe, idproveedor, preciocosto, Nothing, Nothing, Nothing, Nothing)
-                        Else
-                            ProductosproveedoresTableAdapter.productosproveedores_update(idproveedor, precioventa, Nothing, Nothing, Nothing, Nothing, existe)
+                        '*********************  IMPORTACION PROVEEDOR
+                        If idproveedor > 0 Then
+                            If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe) > 0 Then
+                                ProductosproveedoresTableAdapter.productosproveedores_insertar(existe, idproveedor, preciocosto, Nothing, Nothing, Nothing, Nothing)
+                            Else
+                                ProductosproveedoresTableAdapter.productosproveedores_update(idproveedor, precioventa, Nothing, Nothing, Nothing, Nothing, existe)
+                            End If
                         End If
                         '************* UPDATE PRODUCTOS WEB
                         'ProductosWebTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, codigoproducto)
@@ -455,7 +501,11 @@ Public Class ImportarProductos
                         codigoproducto = DataGridView1.Rows(i).Cells("codigoproducto").Value
                         Dim fabricante As String
                         Try
-                            fabricante = DataGridView1.Rows(i).Cells("fabricante").Value
+                            If Not IsDBNull(DataGridView1.Rows(i).Cells("fabricante").Value) Then
+                                fabricante = DataGridView1.Rows(i).Cells("fabricante").Value
+                            Else
+                                fabricante = Nothing
+                            End If
                         Catch ex As Exception
                             fabricante = Nothing
                         End Try
@@ -475,7 +525,14 @@ Public Class ImportarProductos
                         End If
                         '**** obtengo la unidad de medida
                         Dim medida As Decimal
-                        medida = DataGridView1.Rows(i).Cells("medida").Value
+                        If Not IsDBNull(DataGridView1.Rows(i).Cells("medida").Value) Then
+                            medida = DataGridView1.Rows(i).Cells("medida").Value
+                            If medida = 0 Then
+                                Throw New Exception("La medida es incorrecta! - Debe ser al menos 1 (uno) -> " + medida.ToString + "-")
+                            End If
+                        Else
+                            medida = 1
+                        End If
                         Dim descripcion As String
                         If Not IsDBNull(DataGridView1.Rows(i).Cells("descripcion").Value) Then
                             descripcion = DataGridView1.Rows(i).Cells("descripcion").Value
@@ -514,15 +571,19 @@ Public Class ImportarProductos
                         precioventadistribuidor = DataGridView1.Rows(i).Cells("precioventadistribuidor").Value
                         '******************** IMPORTACION IVA
                         Dim iva As Decimal
-                        If Not IsDBNull(DataGridView1.Rows(i).Cells("iva").Value) Then
-                            iva = DataGridView1.Rows(i).Cells("iva").Value
-                        Else
+                        Try
+                            If Not IsDBNull(DataGridView1.Rows(i).Cells("iva").Value) Then
+                                iva = DataGridView1.Rows(i).Cells("iva").Value
+                            Else
+                                iva = Nothing
+                            End If
+                        Catch ex As Exception
                             iva = Nothing
-                        End If
-                        '******************7**************** ACTUALIZO EL PRODUCTO EN BASE LOCAL***************************************************
+                        End Try
+                        '********************************** ACTUALIZO EL PRODUCTO EN BASE LOCAL***************************************************
                         'ProductosTableAdapter.productos_upd_prodimport(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, iva, existe)
                         '*************************************************************************************
-                        '******************7**************** INSERTAR EL PRODUCTO EN BASE LOCAL***************************************************
+                        '********************************** INSERTAR EL PRODUCTO EN BASE LOCAL***************************************************
                         ProductosTableAdapter.productos_ins_prodimport(codigoproducto, fabricante, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, idrubro, stockminimo, precioventagranel, precioventamayorista, precioventadistribuidor, "A", iva)
                         '************* INSERT PRODUCTOS WEB
                         'ProductosWebTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, 0, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro)
@@ -547,21 +608,28 @@ Public Class ImportarProductos
                         '*********************  IMPORTACION PROVEEDOR
                         Dim proveedornombre As String
                         Dim idproveedor As Long = 0
-                        If Not DataGridView1.Rows(i).Cells("proveedor").Value = "-" Then ' SI NO ESTA VACIO
-                            proveedornombre = DataGridView1.Rows(i).Cells("proveedor").Value
-                            '/***** verifico si existe el proveedor
-                            idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
-                            If Not idproveedor > 0 Then
-                                '************ si no existe lo inserto
-                                ProveedoresTableAdapter.Insert(proveedornombre, Nothing, Nothing, Nothing, Nothing, Nothing)
-                                idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
+                        Try
+                            If Not IsDBNull(DataGridView1.Rows(i).Cells("proveedor").Value) Then
+                                If Not DataGridView1.Rows(i).Cells("proveedor").Value = "-" Then ' SI NO ESTA VACIO
+                                    proveedornombre = DataGridView1.Rows(i).Cells("proveedor").Value
+                                    '/***** verifico si existe el proveedor
+                                    idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
+                                    If Not idproveedor > 0 Then
+                                        '************ si no existe lo inserto
+                                        ProveedoresTableAdapter.Insert(proveedornombre, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                        idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
+                                    End If
+                                    If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe) > 0 Then
+                                        ProductosproveedoresTableAdapter.productosproveedores_insertar(existe, idproveedor, preciocosto, Nothing, Nothing, Nothing, Nothing)
+                                    Else
+                                        ProductosproveedoresTableAdapter.productosproveedores_update(idproveedor, precioventa, Nothing, Nothing, Nothing, Nothing, existe)
+                                    End If
+                                End If
                             End If
-                            If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe) > 0 Then
-                                ProductosproveedoresTableAdapter.productosproveedores_insertar(existe, idproveedor, preciocosto, Nothing, Nothing, Nothing, Nothing)
-                            Else
-                                ProductosproveedoresTableAdapter.productosproveedores_update(idproveedor, precioventa, Nothing, Nothing, Nothing, Nothing, existe)
-                            End If
-                        End If
+                        Catch ex As Exception
+                            idproveedor = Nothing
+                        End Try
+                        '*********************  IMPORTACION PROVEEDOR
                     End If
                 Catch ex As Exception
                     Cursor.Current = Cursors.Default

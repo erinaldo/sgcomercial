@@ -659,7 +659,9 @@ Public Class ABMProductos
                 MedidaTextBox.Text = "1"
                 MedidaTextBox.Enabled = False
             Case Else
-                MedidaTextBox.Enabled = True
+                If MarcaTextBox.Enabled = True Then
+                    MedidaTextBox.Enabled = True
+                End If
         End Select
     End Sub
 

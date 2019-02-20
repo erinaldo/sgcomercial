@@ -396,6 +396,10 @@ Module SGCModule
         camposrequeridos(11) = "idrubro"
         camposrequeridos(12) = "stockminimo"
         camposrequeridos(13) = "descripcion"
+        'camposrequeridos(14) = "stock"
+        'camposrequeridos(15) = "proveedor"
+        'camposrequeridos(16) = "iva"
+        'camposrequeridos(17) = "fabricante"
         '***************************************
         For i = 0 To dgv1.Columns.Count - 1
             columnas(i) = dgv1.Columns(i).Name
