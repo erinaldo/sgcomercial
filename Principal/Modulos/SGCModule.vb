@@ -28,6 +28,7 @@ Module SGCModule
     '************************************************
     Public FormPrincipal As Principal
     '************************************************
+    Public gMiSucursal As Integer
     Public gmacadress As String
     Public gTerminal As Long
     Public gAutoUpdater As Long

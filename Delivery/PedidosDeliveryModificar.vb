@@ -113,7 +113,7 @@
     Public Sub agregaprod()
         buscaproductomanual()
         If Not gidproducto > 0 Or gcantidad <= 0 Then Return
-        Dim unidadmedida As Long
+
         Dim idproducto As Long = gidproducto
         Dim cantidad As Decimal = gcantidad
         Dim precioventa As Decimal = gprecioventa

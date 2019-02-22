@@ -965,25 +965,163 @@ Module MySQLModule
             Return
         End If
         Cursor.Current = Cursors.WaitCursor
-        Dim SyncLogTableAdapter As comercialDataSetTableAdapters.synclogTableAdapter
-        SyncLogTableAdapter = New comercialDataSetTableAdapters.synclogTableAdapter()
-        Dim SyncLogWEBTableAdapter As MySQLDataSetTableAdapters.synclogTableAdapter
-        SyncLogWEBTableAdapter = New MySQLDataSetTableAdapters.synclogTableAdapter()
-        '--------------------------------------------------------------------------
-        Dim LastSyncLocal As DateTime
-        Dim LastSyncRemote As DateTime
-        LastSyncLocal = SyncLogTableAdapter.synclog_lastsync("productos")
-        LastSyncRemote = SyncLogWEBTableAdapter.synclog_lastsync("productos")
-        '--------------------------------------------------------------------------
-        If LastSyncLocal < LastSyncRemote Then
-            Dim coderror As Int16
-            Dim msgerror As String = ""
-            MySQLModule.DescargarProductosClowd(coderror, msgerror)
-            If coderror > 0 Then
-                MsgBox("No se pudo descargar el listado de productos de la nube: " + msgerror)
+        Try
+            Dim SyncLogTableAdapter As comercialDataSetTableAdapters.synclogTableAdapter
+            SyncLogTableAdapter = New comercialDataSetTableAdapters.synclogTableAdapter()
+            Dim SyncLogWEBTableAdapter As MySQLDataSetTableAdapters.synclogTableAdapter
+            SyncLogWEBTableAdapter = New MySQLDataSetTableAdapters.synclogTableAdapter()
+            '--------------------------------------------------------------------------
+            Dim LastSyncLocal As DateTime
+            Dim LastSyncRemote As DateTime
+            LastSyncLocal = SyncLogTableAdapter.synclog_lastsync("productos")
+            LastSyncRemote = SyncLogWEBTableAdapter.synclog_lastsync("productos")
+            '--------------------------------------------------------------------------
+            If LastSyncLocal < LastSyncRemote Then
+                Dim coderror As Int16
+                Dim msgerror As String = ""
+                MySQLModule.DescargarProductosClowd(coderror, msgerror)
+                If coderror > 0 Then
+                    MsgBox("No se pudo descargar el listado de productos de la nube: " + msgerror)
+                End If
             End If
-        End If
+        Catch ex As Exception
+            MsgBox("Ocurrió un problema al consultar SyncLog: " + ex.Message)
+        End Try
         Cursor.Current = Cursors.Default
+    End Sub
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Public Sub SynLibroVentas(ByRef coderror As String, ByRef msgerror As String)
+        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
+        If Not My.Computer.Network.IsAvailable Then
+            coderror = 0
+            ErrorLogTableAdapter.errorlog_insertar("SynLibroVentas", "Al verificar conexion al servidor", "SynLibroVentas", "Mensaje: No hay conexión a internet")
+            'MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
+        'Cursor.Current = Cursors.WaitCursor
+        '***************************************
+        '********************** verificar conexion al servidor ************************
+        Try
+            Dim CheckConnection As MySqlConnection
+            CheckConnection = New MySqlConnection
+            CheckConnection.ConnectionString = SCStrConn
+            CheckConnection.Open()
+            My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
+            Dim TerminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+            TerminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+            gMiSucursal = TerminalesTableAdapter.terminales_consultarsucursal(gmacadress)
+        Catch ex As Exception
+            ErrorLogTableAdapter.errorlog_insertar("SynLibroVentas", "Al verificar conexion al servidor siscom para obtener idsucursal", "SynLibroVentas", "Mensaje: " + ex.Message)
+            Return
+        End Try
+        '***************************************
+        Dim status As Boolean
+        conectarMySQL(status)
+        If status = False Then
+            'coderror = 1
+            'msgerror = "No se pudo conectar al servidor remoto"
+            ErrorLogTableAdapter.errorlog_insertar("SynLibroVentas", "Al verificar conexion al servidor", "SynLibroVentas", "Mensaje: no se pudo conectar a la nube")
+            Return
+        End If
+        Dim maxidventas As Long
+        Try
+            '-----------------------------------------------------
+            Dim LibroventasWEBTableAdapter As MySQLDataSetTableAdapters.libroventasTableAdapter
+            LibroventasWEBTableAdapter = New MySQLDataSetTableAdapters.libroventasTableAdapter()
+            maxidventas = LibroventasWEBTableAdapter.libroventas_maxidventa(gMiSucursal)
+            Dim libroventasTableAdapter As comercialDataSetTableAdapters.libroventasTableAdapter
+            libroventasTableAdapter = New comercialDataSetTableAdapters.libroventasTableAdapter()
+            '-----------------------------------------------------
+            Dim LibroventasTable As comercialDataSet.libroventasDataTable
+            LibroventasTable = libroventasTableAdapter.GetDataByMayoresAidventas(maxidventas)
+            '-------------------------------    barra de progreso----------------------------------------------------
+            'Dim p As SubirProductosClowd
+            'p = New SubirProductosClowd
+            'p.Show()
+            'p.ProgressBar1.Maximum = ProductosWEBTable.Rows.Count
+            'p.GroupBox1.Text = "Descargando Productos de la Nube"
+            'p.LabelProgress.Text = "Progreso: " + "0/" + p.ProgressBar1.Maximum.ToString
+            ''-----------------------------------------------------------------------------------
+            'Cursor.Current = Cursors.WaitCursor
+            ''-----------------------------------------------------------------------------------
+            For i = 0 To LibroventasTable.Rows.Count - 1
+                Dim idventa As Long '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(LibroventasTable.Rows(i).Item(LibroventasTable.Columns("idventa"))) Then
+                    idventa = LibroventasTable.Rows(i).Item(LibroventasTable.Columns("idventa"))
+                Else
+                    Continue For
+                End If
+                Dim fechaventa As DateTime '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(LibroventasTable.Rows(i).Item(LibroventasTable.Columns("fechaventa"))) Then
+                    fechaventa = LibroventasTable.Rows(i).Item(LibroventasTable.Columns("fechaventa"))
+                Else
+                    Continue For
+                End If
+                Dim nombre As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(LibroventasTable.Rows(i).Item(LibroventasTable.Columns("nombre"))) Then
+                    nombre = LibroventasTable.Rows(i).Item(LibroventasTable.Columns("nombre"))
+                Else
+                    Continue For
+                End If
+                Dim cuit As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(LibroventasTable.Rows(i).Item(LibroventasTable.Columns("cuit"))) Then
+                    cuit = LibroventasTable.Rows(i).Item(LibroventasTable.Columns("cuit"))
+                Else
+                    cuit = Nothing
+                    'Continue For
+                End If
+                Dim tipocomprobante As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(LibroventasTable.Rows(i).Item(LibroventasTable.Columns("tipocomprobante"))) Then
+                    tipocomprobante = LibroventasTable.Rows(i).Item(LibroventasTable.Columns("tipocomprobante"))
+                Else
+                    tipocomprobante = Nothing
+                    'Continue For
+                End If
+                Dim importe As Decimal '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(LibroventasTable.Rows(i).Item(LibroventasTable.Columns("importe"))) Then
+                    importe = LibroventasTable.Rows(i).Item(LibroventasTable.Columns("importe"))
+                Else
+                    Continue For
+                End If
+                Dim formapago As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(LibroventasTable.Rows(i).Item(LibroventasTable.Columns("formapago"))) Then
+                    formapago = LibroventasTable.Rows(i).Item(LibroventasTable.Columns("formapago"))
+                Else
+                    formapago = Nothing
+                    'Continue For
+                End If
+                Dim ivaventas As Decimal '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(LibroventasTable.Rows(i).Item(LibroventasTable.Columns("ivaventas"))) Then
+                    ivaventas = LibroventasTable.Rows(i).Item(LibroventasTable.Columns("ivaventas"))
+                Else
+                    ivaventas = Nothing
+                    'Continue For
+                End If
+                Dim condicioniva As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(LibroventasTable.Rows(i).Item(LibroventasTable.Columns("condicioniva"))) Then
+                    condicioniva = LibroventasTable.Rows(i).Item(LibroventasTable.Columns("condicioniva"))
+                Else
+                    condicioniva = Nothing
+                    'Continue For
+                End If
+                Dim condicionivadescripcion As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(LibroventasTable.Rows(i).Item(LibroventasTable.Columns("condicionivadescripcion"))) Then
+                    condicionivadescripcion = LibroventasTable.Rows(i).Item(LibroventasTable.Columns("condicionivadescripcion"))
+                Else
+                    condicionivadescripcion = Nothing
+                    'Continue For
+                End If
+                '=======================    INSERTAR REGISTRO =================
+                LibroventasWEBTableAdapter.libroventas_insertar(gMiSucursal, idventa, fechaventa, nombre, cuit, condicionivadescripcion, tipocomprobante, importe, ivaventas, condicioniva, formapago)
+            Next
+        Catch ex As Exception
+            'Cursor.Current = Cursors.Default
+            coderror = 1
+            msgerror = ex.Message
+            ErrorLogTableAdapter.errorlog_insertar("SynLibroVentas", "Al verificar conexion al servidor", "SynLibroVentas", "Mensaje: " + ex.Message)
+        End Try
+
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 End Module

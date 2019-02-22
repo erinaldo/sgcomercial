@@ -28,7 +28,8 @@ Public Class Principal
 
         EjecutarAlertas()
         CuadroBienvenida()
-
+        '================= BACKGROUND WORKERS   ==========================
+        BackgroundSyncLibroventasClowd.RunWorkerAsync()
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================
@@ -56,6 +57,7 @@ Public Class Principal
         '====================================================================
         ''''''''''''''''''''''''''''''''''''''  FIN '''''''''''''''''''''''''''''''''''''
         '====================================================================
+
     End Sub
 
     Public Shared LastSysTime As DateTime
@@ -169,7 +171,12 @@ Public Class Principal
         FormPrincipal.BackgroundImage = PictureBox1.Image
     End Sub
     Public Sub reloadstock()
-        Me.StockalertaTableAdapter.Fill(Me.ComercialDataSet.stockalerta)
+        Try
+            Me.StockalertaTableAdapter.Fill(Me.ComercialDataSet.stockalerta)
+        Catch ex As Exception
+            MsgBox("Ocurrio un problema al cargar las alertas de stock: " + ex.Message)
+        End Try
+
         '=========== VERIFICO SI HAY ALERTA ACTIVA
         If Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!" Or Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
             If DataGridViewStockAlerta.RowCount > 0 Then ' SI HAY PRODUCTOS EN ALERTA ENTONCES ESTA TODO OK... SALGO
@@ -955,5 +962,16 @@ Public Class Principal
         SynClientes()
         SynPedidos()
         Cursor.Current = Cursors.Default
+    End Sub
+    Private Sub BACKGROUNDSYNCLIBROVENTASCLOWD_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundSyncLibroventasClowd.DoWork
+        'Dim SynLibroVentasStatus As Boolean
+        Dim coderror As Integer
+        Dim msgerror As String = ""
+        gMiSucursal = 1
+        SynLibroVentas(coderror, msgerror)
+    End Sub
+
+    Private Sub BackgroundWorker1_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+
     End Sub
 End Class

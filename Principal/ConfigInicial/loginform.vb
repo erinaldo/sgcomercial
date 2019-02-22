@@ -1,5 +1,6 @@
 ﻿Imports System.Net.NetworkInformation
 Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 
 
 Public Class loginform
@@ -96,9 +97,28 @@ Public Class loginform
         End Try
         '********************************
         Try 'CONNECT DB REMOTE
-            My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
+            Try
+                'Dim CheckConnection As MySqlConnection
+                'CheckConnection = New MySqlConnection
+                'CheckConnection.ConnectionString = SCStrConn
+                'CheckConnection.Open()
+                My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
+                'Dim TerminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+                'TerminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+                'gMiSucursal = TerminalesTableAdapter.terminales_consultarsucursal(gmacadress)
+            Catch ex As Exception
+
+            End Try
             ArmaSTRConnWEB(status)
-            My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
+            Try
+                'Dim CheckConnection As MySqlConnection
+                'CheckConnection = New MySqlConnection
+                'CheckConnection.ConnectionString = SCStrConn
+                'CheckConnection.Open()
+                My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
+            Catch ex As Exception
+
+            End Try
         Catch ex As Exception
             End
         End Try

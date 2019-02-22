@@ -10,6 +10,11 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If Not Val(TextBoxNumeroSucursal.Text) > 0 Then
+            MsgBox("Debe ingresar un numero de sucursal a este dispositivo")
+            Return
+        End If
+
         MachineKey = "LLAuth" + gmacadress
         '****Licencia local********
         Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
@@ -21,7 +26,7 @@
             If TerminalesTableAdapter.terminales_existe(gmacadress) = 0 Then
                 Dim cliente As Int64 = ComboCliente.SelectedValue
                 ' values                                (@idcliente, @mac, @nombre, @tvid,sysdate(),DATE_ADD(sysdate(), INTERVAL 10 DAY))   
-                TerminalesTableAdapter.terminales_alta(cliente, gmacadress, MachineName, TextBoxTvID.Text, Now, NextTime)
+                TerminalesTableAdapter.terminales_alta(cliente, gmacadress, MachineName, TextBoxTvID.Text, Now, NextTime, Val(TextBoxNumeroSucursal.Text))
                 Try
                     If parametrosgeneralesTableAdapter.parametrosgenerales_existeclave(MachineKey) = 0 Then
                         parametrosgeneralesTableAdapter.parametrosgenerales_insertar(MachineKey, Nothing, NextTime, Nothing, Nothing)

@@ -514,10 +514,10 @@
     <Compile Include="Stock\ViewerReporteRelevamientoStock.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransferenciaStock\ABMSucursales.Designer.vb">
+    <Compile Include="Principal\ParametrosGenerales\ABMSucursales.Designer.vb">
       <DependentUpon>ABMSucursales.vb</DependentUpon>
     </Compile>
-    <Compile Include="TransferenciaStock\ABMSucursales.vb">
+    <Compile Include="Principal\ParametrosGenerales\ABMSucursales.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TransferenciaStock\EnviarStock.Designer.vb">
@@ -1107,7 +1107,7 @@
     <EmbeddedResource Include="Stock\ViewerReporteRelevamientoStock.resx">
       <DependentUpon>ViewerReporteRelevamientoStock.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransferenciaStock\ABMSucursales.resx">
+    <EmbeddedResource Include="Principal\ParametrosGenerales\ABMSucursales.resx">
       <DependentUpon>ABMSucursales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransferenciaStock\EnviarStock.resx">
@@ -1353,7 +1353,6 @@
     <None Include="Principal\DataSets\comercialDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>comercialDataSet3.Designer.vb</LastGenOutput>
     </None>
     <None Include="Principal\DataSets\comercialDataSet.xss">
       <DependentUpon>comercialDataSet.xsd</DependentUpon>

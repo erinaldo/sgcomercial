@@ -349,6 +349,7 @@ Public Class RegistrarVenta
             '********************************************************************************************
             '=================== RESETAR CONTROLES  ================================
             resetearcontroles()
+            BackgroundSyncLibroventasClowd.RunWorkerAsync()
             '******************************************************************************************** 
             '****** impresion ticket
             '*****************************************************************************
@@ -1503,5 +1504,12 @@ Public Class RegistrarVenta
     Private Sub FillByFormasFP2ToolStripButton_Click(sender As Object, e As EventArgs)
 
 
+    End Sub
+    Private Sub BACKGROUNDSYNCLIBROVENTASCLOWD_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundSyncLibroventasClowd.DoWork
+        'Dim SynLibroVentasStatus As Boolean
+        Dim coderror As Integer
+        Dim msgerror As String = ""
+        gMiSucursal = 1
+        SynLibroVentas(coderror, msgerror)
     End Sub
 End Class

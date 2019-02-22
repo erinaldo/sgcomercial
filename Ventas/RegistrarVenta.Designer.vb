@@ -153,6 +153,7 @@ Partial Class RegistrarVenta
         Me.pagotextbox2 = New System.Windows.Forms.TextBox()
         Me.idformapagocombo2 = New System.Windows.Forms.ComboBox()
         Me.FormaspagoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         IdclienteLabel = New System.Windows.Forms.Label()
         FechaventaLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
@@ -1475,4 +1476,5 @@ Partial Class RegistrarVenta
     Friend WithEvents subtotal As DataGridViewTextBoxColumn
     Friend WithEvents eliminar As DataGridViewButtonColumn
     Friend WithEvents listasprecios As DataGridViewTextBoxColumn
+    Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
 End Class

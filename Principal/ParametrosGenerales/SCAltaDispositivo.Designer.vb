@@ -36,6 +36,8 @@ Partial Class SCAltaDispositivo
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxTvID = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBoxNumeroSucursal = New System.Windows.Forms.TextBox()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SiscomDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TerminalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -107,13 +109,14 @@ Partial Class SCAltaDispositivo
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.clientesTableAdapter = Me.ClientesTableAdapter
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.terminalesmodulosTableAdapter = Nothing
         Me.TableAdapterManager.terminalesTableAdapter = Me.TerminalesTableAdapter
         Me.TableAdapterManager.UpdateOrder = sgcomercial.siscomDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(162, 211)
+        Me.Button1.Location = New System.Drawing.Point(160, 259)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(158, 37)
         Me.Button1.TabIndex = 5
@@ -136,11 +139,29 @@ Partial Class SCAltaDispositivo
         Me.TextBoxTvID.Size = New System.Drawing.Size(325, 22)
         Me.TextBoxTvID.TabIndex = 7
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(116, 218)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(141, 17)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Número de Sucursal:"
+        '
+        'TextBoxNumeroSucursal
+        '
+        Me.TextBoxNumeroSucursal.Location = New System.Drawing.Point(263, 218)
+        Me.TextBoxNumeroSucursal.Name = "TextBoxNumeroSucursal"
+        Me.TextBoxNumeroSucursal.Size = New System.Drawing.Size(100, 22)
+        Me.TextBoxNumeroSucursal.TabIndex = 9
+        '
         'SCAltaDispositivo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(479, 268)
+        Me.ClientSize = New System.Drawing.Size(479, 322)
+        Me.Controls.Add(Me.TextBoxNumeroSucursal)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TextBoxTvID)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button1)
@@ -175,4 +196,6 @@ Partial Class SCAltaDispositivo
     Friend WithEvents Button1 As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents TextBoxTvID As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents TextBoxNumeroSucursal As TextBox
 End Class

@@ -183,6 +183,7 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -211,7 +212,7 @@ Partial Class Principal
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 85)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 58)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -1201,6 +1202,9 @@ Partial Class Principal
         Me.LabelUsuario.TabIndex = 0
         Me.LabelUsuario.Text = "Label1"
         '
+        'BackgroundWorker1
+        '
+        '
         'ModulosDataGridView
         '
         Me.ModulosDataGridView.AutoGenerateColumns = False
@@ -1433,6 +1437,9 @@ Partial Class Principal
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
         '
+        'BackgroundSyncLibroventasClowd
+        '
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1640,4 +1647,5 @@ Partial Class Principal
     Friend WithEvents SubirProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DescargarProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DescargarPedidosWEBToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
 End Class
