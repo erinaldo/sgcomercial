@@ -33,8 +33,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>10</ApplicationRevision>
-    <ApplicationVersion>4.0.8.10</ApplicationVersion>
+    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationVersion>4.0.8.11</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -176,6 +176,18 @@
       <DependentUpon>BuscarCodigoInterno.vb</DependentUpon>
     </Compile>
     <Compile Include="BarCodePrint\BuscarCodigoInterno.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clowd\CldLibroVentas.Designer.vb">
+      <DependentUpon>CldLibroVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clowd\CldLibroVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clowd\MisSucursales.Designer.vb">
+      <DependentUpon>MisSucursales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clowd\MisSucursales.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Contabilidad\AsignacionIVAMasivo.Designer.vb">
@@ -346,6 +358,9 @@
     <Compile Include="Principal\DataSets\MySQLDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>MySQLDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\DataSets\MySQLDataSet.vb">
       <DependentUpon>MySQLDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Principal\Modulos\DBCModule.vb" />
@@ -938,6 +953,12 @@
       <DependentUpon>BuscarCodigoInterno.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BarCodePrint\RepPlantillaBarCode.rdlc" />
+    <EmbeddedResource Include="Clowd\CldLibroVentas.resx">
+      <DependentUpon>CldLibroVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clowd\MisSucursales.resx">
+      <DependentUpon>MisSucursales.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\AsignacionIVAMasivo.resx">
       <DependentUpon>AsignacionIVAMasivo.vb</DependentUpon>
     </EmbeddedResource>

@@ -974,4 +974,18 @@ Public Class Principal
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
     End Sub
+
+    Private Sub MisSucursalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisSucursalesToolStripMenuItem.Click
+        If Not My.Computer.Network.IsAvailable Then
+            MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
+        Cursor.Current = Cursors.WaitCursor
+        Dim status As Boolean
+        conectarSisCom(status)
+        If status = True Then
+            MisSucursales.MdiParent = Me
+            MisSucursales.Visible = True
+        End If
+    End Sub
 End Class

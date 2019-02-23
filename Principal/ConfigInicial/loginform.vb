@@ -95,29 +95,33 @@ Public Class loginform
         Catch ex As Exception
             End
         End Try
+        '*************  errorlog    **************************************
+        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
         '********************************
         Try 'CONNECT DB REMOTE
             Try
-                'Dim CheckConnection As MySqlConnection
-                'CheckConnection = New MySqlConnection
-                'CheckConnection.ConnectionString = SCStrConn
-                'CheckConnection.Open()
+                Dim CheckConnection As MySqlConnection
+                CheckConnection = New MySqlConnection
+                CheckConnection.ConnectionString = SCStrConn
+                CheckConnection.Open()
                 My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
-                'Dim TerminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
-                'TerminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
-                'gMiSucursal = TerminalesTableAdapter.terminales_consultarsucursal(gmacadress)
+                Dim TerminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+                TerminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+                gMiSucursal = TerminalesTableAdapter.terminales_consultarsucursal(gmacadress)
+                gMiIDCliente = TerminalesTableAdapter.terminales_consultarIDCliente(gmacadress)
             Catch ex As Exception
-
+                ErrorLogTableAdapter.errorlog_insertar("Login", "CONEXIÓN", "Load", "No se pudo Conectar al servidor SC " + ex.Message)
             End Try
             ArmaSTRConnWEB(status)
             Try
-                'Dim CheckConnection As MySqlConnection
-                'CheckConnection = New MySqlConnection
-                'CheckConnection.ConnectionString = SCStrConn
-                'CheckConnection.Open()
+                Dim CheckConnection As MySqlConnection
+                CheckConnection = New MySqlConnection
+                CheckConnection.ConnectionString = SCStrConn
+                CheckConnection.Open()
                 My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
             Catch ex As Exception
-
+                ErrorLogTableAdapter.errorlog_insertar("Login", "CONEXIÓN", "Load", "No se pudo Conectar al servidor Clowd " + ex.Message)
             End Try
         Catch ex As Exception
             End

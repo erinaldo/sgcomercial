@@ -19,7 +19,21 @@ Module MySQLModule
             'MsgBox("Conexión exitosa!", MsgBoxStyle.Information)
             status = True
         Catch ex As Exception
-            MsgBox("No se pudo conectar con el servidor remoto: " + ex.Message, MsgBoxStyle.Information)
+            MsgBox("No se pudo conectar con el servidor remoto -Clowd-: " + ex.Message, MsgBoxStyle.Information)
+            MySQLC.Dispose()
+            status = False
+            Return
+        End Try
+    End Sub
+    Sub conectarSisCom(ByRef status As Boolean)
+        Try
+            'MySQLConn = New MySqlConnection("Data Source=sistemascomerciales.net; Database=sistema1_sgcaguadagrande; User ID=sistema1_sgcweb; Password=sgcomercial*?; Allow Zero Datetime= true; CHARSET= latin1")
+            MySQLC = New MySqlConnection(sgcomercial.My.MySettings.Default.SCConnectionString)
+            MySQLC.Open()
+            'MsgBox("Conexión exitosa!", MsgBoxStyle.Information)
+            status = True
+        Catch ex As Exception
+            MsgBox("No se pudo conectar con el servidor remoto -SC-: " + ex.Message, MsgBoxStyle.Information)
             MySQLC.Dispose()
             status = False
             Return

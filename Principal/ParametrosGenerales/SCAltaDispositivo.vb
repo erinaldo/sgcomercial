@@ -1,5 +1,7 @@
 ﻿Public Class SCAltaDispositivo
     Private Sub SCAltaDispositivo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'SiscomDataSet.clientessucursales' Puede moverla o quitarla según sea necesario.
+
         Try
             Me.ClientesTableAdapter.Fill(Me.SiscomDataSet.clientes)
             LabelMachineName.Text = MachineName
@@ -10,7 +12,7 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If Not Val(TextBoxNumeroSucursal.Text) > 0 Then
+        If Not Val(ComboSucursal.SelectedValue) > 0 Then
             MsgBox("Debe ingresar un numero de sucursal a este dispositivo")
             Return
         End If
@@ -26,7 +28,7 @@
             If TerminalesTableAdapter.terminales_existe(gmacadress) = 0 Then
                 Dim cliente As Int64 = ComboCliente.SelectedValue
                 ' values                                (@idcliente, @mac, @nombre, @tvid,sysdate(),DATE_ADD(sysdate(), INTERVAL 10 DAY))   
-                TerminalesTableAdapter.terminales_alta(cliente, gmacadress, MachineName, TextBoxTvID.Text, Now, NextTime, Val(TextBoxNumeroSucursal.Text))
+                TerminalesTableAdapter.terminales_alta(cliente, gmacadress, MachineName, TextBoxTvID.Text, Now, NextTime, Val(ComboSucursal.SelectedValue))
                 Try
                     If parametrosgeneralesTableAdapter.parametrosgenerales_existeclave(MachineKey) = 0 Then
                         parametrosgeneralesTableAdapter.parametrosgenerales_insertar(MachineKey, Nothing, NextTime, Nothing, Nothing)
@@ -58,5 +60,9 @@
             MsgBox("Ocurrió un problema al tratar de dar de alta el equipo: " + ex.Message)
         End Try
 
+    End Sub
+
+    Private Sub ComboCliente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboCliente.SelectedIndexChanged
+        Me.ClientessucursalesTableAdapter.FillByIDcliente(Me.SiscomDataSet.clientessucursales, ComboCliente.SelectedValue)
     End Sub
 End Class

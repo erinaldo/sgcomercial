@@ -37,10 +37,13 @@ Partial Class SCAltaDispositivo
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxTvID = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBoxNumeroSucursal = New System.Windows.Forms.TextBox()
+        Me.ComboSucursal = New System.Windows.Forms.ComboBox()
+        Me.ClientessucursalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ClientessucursalesTableAdapter = New sgcomercial.siscomDataSetTableAdapters.clientessucursalesTableAdapter()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SiscomDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TerminalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientessucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ComboCliente
@@ -81,7 +84,7 @@ Partial Class SCAltaDispositivo
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(77, 97)
+        Me.Label2.Location = New System.Drawing.Point(77, 96)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(52, 17)
         Me.Label2.TabIndex = 2
@@ -89,7 +92,7 @@ Partial Class SCAltaDispositivo
         '
         'LabelMachineName
         '
-        Me.LabelMachineName.Location = New System.Drawing.Point(78, 119)
+        Me.LabelMachineName.Location = New System.Drawing.Point(78, 113)
         Me.LabelMachineName.Name = "LabelMachineName"
         Me.LabelMachineName.Size = New System.Drawing.Size(324, 23)
         Me.LabelMachineName.TabIndex = 3
@@ -107,6 +110,7 @@ Partial Class SCAltaDispositivo
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.clientessucursalesTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Me.ClientesTableAdapter
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
@@ -116,7 +120,7 @@ Partial Class SCAltaDispositivo
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(160, 259)
+        Me.Button1.Location = New System.Drawing.Point(160, 273)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(158, 37)
         Me.Button1.TabIndex = 5
@@ -126,7 +130,7 @@ Partial Class SCAltaDispositivo
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(78, 147)
+        Me.Label3.Location = New System.Drawing.Point(78, 140)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(107, 17)
         Me.Label3.TabIndex = 6
@@ -134,7 +138,7 @@ Partial Class SCAltaDispositivo
         '
         'TextBoxTvID
         '
-        Me.TextBoxTvID.Location = New System.Drawing.Point(77, 169)
+        Me.TextBoxTvID.Location = New System.Drawing.Point(77, 162)
         Me.TextBoxTvID.Name = "TextBoxTvID"
         Me.TextBoxTvID.Size = New System.Drawing.Size(325, 22)
         Me.TextBoxTvID.TabIndex = 7
@@ -142,25 +146,40 @@ Partial Class SCAltaDispositivo
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(116, 218)
+        Me.Label4.Location = New System.Drawing.Point(80, 193)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(141, 17)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Número de Sucursal:"
         '
-        'TextBoxNumeroSucursal
+        'ComboSucursal
         '
-        Me.TextBoxNumeroSucursal.Location = New System.Drawing.Point(263, 218)
-        Me.TextBoxNumeroSucursal.Name = "TextBoxNumeroSucursal"
-        Me.TextBoxNumeroSucursal.Size = New System.Drawing.Size(100, 22)
-        Me.TextBoxNumeroSucursal.TabIndex = 9
+        Me.ComboSucursal.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ClientessucursalesBindingSource, "idsucursal", True))
+        Me.ComboSucursal.DataSource = Me.ClientessucursalesBindingSource
+        Me.ComboSucursal.DisplayMember = "nombre"
+        Me.ComboSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboSucursal.FormattingEnabled = True
+        Me.ComboSucursal.Location = New System.Drawing.Point(77, 222)
+        Me.ComboSucursal.Name = "ComboSucursal"
+        Me.ComboSucursal.Size = New System.Drawing.Size(325, 24)
+        Me.ComboSucursal.TabIndex = 9
+        Me.ComboSucursal.ValueMember = "idsucursal"
+        '
+        'ClientessucursalesBindingSource
+        '
+        Me.ClientessucursalesBindingSource.DataMember = "clientessucursales"
+        Me.ClientessucursalesBindingSource.DataSource = Me.SiscomDataSet
+        '
+        'ClientessucursalesTableAdapter
+        '
+        Me.ClientessucursalesTableAdapter.ClearBeforeFill = True
         '
         'SCAltaDispositivo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(479, 322)
-        Me.Controls.Add(Me.TextBoxNumeroSucursal)
+        Me.Controls.Add(Me.ComboSucursal)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TextBoxTvID)
         Me.Controls.Add(Me.Label3)
@@ -178,6 +197,7 @@ Partial Class SCAltaDispositivo
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SiscomDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TerminalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientessucursalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -197,5 +217,7 @@ Partial Class SCAltaDispositivo
     Friend WithEvents Label3 As Label
     Friend WithEvents TextBoxTvID As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBoxNumeroSucursal As TextBox
+    Friend WithEvents ComboSucursal As ComboBox
+    Friend WithEvents ClientessucursalesBindingSource As BindingSource
+    Friend WithEvents ClientessucursalesTableAdapter As siscomDataSetTableAdapters.clientessucursalesTableAdapter
 End Class

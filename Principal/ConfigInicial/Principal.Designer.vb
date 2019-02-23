@@ -184,6 +184,7 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
+        Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -212,7 +213,7 @@ Partial Class Principal
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 58)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 85)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -922,7 +923,7 @@ Partial Class Principal
         '
         'NubeToolStripMenuItem
         '
-        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.DescargarPedidosWEBToolStripMenuItem})
+        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.DescargarPedidosWEBToolStripMenuItem, Me.MisSucursalesToolStripMenuItem})
         Me.NubeToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
         Me.NubeToolStripMenuItem.Name = "NubeToolStripMenuItem"
         Me.NubeToolStripMenuItem.Size = New System.Drawing.Size(83, 27)
@@ -1440,6 +1441,13 @@ Partial Class Principal
         'BackgroundSyncLibroventasClowd
         '
         '
+        'MisSucursalesToolStripMenuItem
+        '
+        Me.MisSucursalesToolStripMenuItem.Name = "MisSucursalesToolStripMenuItem"
+        Me.MisSucursalesToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.MisSucursalesToolStripMenuItem.Tag = "MisSucursales"
+        Me.MisSucursalesToolStripMenuItem.Text = "Mis Sucursales"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1648,4 +1656,5 @@ Partial Class Principal
     Friend WithEvents DescargarProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DescargarPedidosWEBToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
+    Friend WithEvents MisSucursalesToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -28,7 +28,9 @@ Module SGCModule
     '************************************************
     Public FormPrincipal As Principal
     '************************************************
-    Public gMiSucursal As Integer
+    Public gMiSucursal As Integer = 0
+    Public gSucursalSeleccionada As Integer = 0
+    Public gMiIDCliente As Integer = 0
     Public gmacadress As String
     Public gTerminal As Long
     Public gAutoUpdater As Long
