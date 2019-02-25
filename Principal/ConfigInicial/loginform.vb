@@ -31,26 +31,26 @@ Public Class loginform
             MsgBox("Los datos ingresados son incorrectos", MsgBoxStyle.Information, "Advertencia")
         Else    '''''''' ACCESO CORRECTO   ´'''''''''''''
             '************  VALIDAR LICENCIA    **************************
-            ValidarLicencia(gmacadress, LicenceValidDate)
-            If LicenceValidDate = Nothing Or LicenceValidDate < Now Then
-                Cursor.Current = Cursors.Default
-                If LicenceValidDate = Nothing Then
-                    MsgBox("No posee suscripción activa, periodo de prueba finalizado.", MsgBoxStyle.Exclamation, "Licencia Inválida")
-                End If
-                'If LicenceValidDate < Now Then
-                '    MsgBox("Usted no posee una suscripción activa, su periodo de prueba ha finalizado.", MsgBoxStyle.Exclamation, "Licencia Inválida")
-                'End If
+            'ValidarLicencia(gmacadress, LicenceValidDate)
+            'If LicenceValidDate = Nothing Or LicenceValidDate < Now Then
+            '    Cursor.Current = Cursors.Default
+            '    If LicenceValidDate = Nothing Then
+            '        MsgBox("No posee suscripción activa, periodo de prueba finalizado.", MsgBoxStyle.Exclamation, "Licencia Inválida")
+            '    End If
+            '    'If LicenceValidDate < Now Then
+            '    '    MsgBox("Usted no posee una suscripción activa, su periodo de prueba ha finalizado.", MsgBoxStyle.Exclamation, "Licencia Inválida")
+            '    'End If
 
-                'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
-                closeaplication(False)
-            Else
-                gusername = textusuario.Text
-                guserid = rtn
-                guserprofile = UsuariosTableAdapter.usuarios_getperfil(gusername)
-                FormPrincipal = New Principal
-                Me.Hide()
-                FormPrincipal.Show()
-            End If
+            '    'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+            '    closeaplication(False)
+            'Else
+            gusername = textusuario.Text
+            guserid = rtn
+            guserprofile = UsuariosTableAdapter.usuarios_getperfil(gusername)
+            FormPrincipal = New Principal
+            Me.Hide()
+            FormPrincipal.Show()
+            'End If
         End If
     End Sub
 

@@ -88,6 +88,7 @@ Module SCModule
                     parametrosgeneralesTableAdapter.parametrosgenerales_updateprgstring1(MachineKey, LicenceValidDate.ToString) ' UPDATEA LOCAL
                 End If
             Catch ex As Exception
+                Dim msg As String = ex.Message
                 LicenceValidDate = Nothing
             End Try
         Catch ex As Exception

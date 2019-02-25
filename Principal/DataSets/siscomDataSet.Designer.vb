@@ -5214,7 +5214,7 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(9) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(9).Connection = Me.Connection
             Me._commandCollection(9).CommandText = "SELECT fechabaja, sgcversion, autoupdater, idsucursal FROM terminales WHERE (mac "& _ 
-                "= @mac) AND (fechabaja > sysdate())"
+                "= @mac) "
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@mac"
@@ -5841,7 +5841,7 @@ Namespace siscomDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function terminales_validarlicencia(ByVal mac As String) As Global.System.Nullable(Of Date)
+        Public Overloads Overridable Function terminales_validarlicencia(ByVal mac As String) As Object
             Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(9)
             If (mac Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
@@ -5863,9 +5863,9 @@ Namespace siscomDataSetTableAdapters
             End Try
             If ((returnValue Is Nothing)  _
                         OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return New Global.System.Nullable(Of Date)()
+                Return Nothing
             Else
-                Return New Global.System.Nullable(Of Date)(CType(returnValue,Date))
+                Return CType(returnValue,Object)
             End If
         End Function
     End Class
