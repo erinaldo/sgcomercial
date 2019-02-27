@@ -178,4 +178,19 @@
     Private Sub ListapedidosdeliveryDataGridView_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles ListapedidosdeliveryDataGridView.RowsAdded
 
     End Sub
+
+    Private Sub PedidosDeliveryRecibidos_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
+        If e.KeyCode = Keys.F5 Then
+            Me.Cursor = Cursors.WaitCursor
+            reloadpedidos()
+            Me.Cursor = Cursors.Default
+        End If
+        ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
 End Class

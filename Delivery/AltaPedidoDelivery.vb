@@ -132,7 +132,6 @@ Public Class AltaPedidoDelivery
     End Sub
     Public Sub buscaproductomanual()
         gcantidad = 0
-        glistaprecio = 1
         Dim idproducto As Long
         Dim descripcion As String
         Dim newrow As Long
@@ -140,6 +139,7 @@ Public Class AltaPedidoDelivery
         Dim unidadmedida As Integer
         Dim medida As Decimal
         glistaprecio = 0
+        glistapreferida = ComboBox1.SelectedValue
         Dim p As BuscaProductoManualPedidos
         p = New BuscaProductoManualPedidos
         p.ShowDialog()

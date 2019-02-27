@@ -401,6 +401,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.TableAdapterManager1.errorlogTableAdapter = Nothing
         Me.TableAdapterManager1.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager1.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager1.libroventasTableAdapter = Nothing
         Me.TableAdapterManager1.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager1.localidadesTableAdapter = Nothing
         Me.TableAdapterManager1.pagosTableAdapter = Nothing
@@ -499,6 +500,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1340, 596)
         Me.Controls.Add(Me.GroupBox1)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "PedidosDeliveryRecibidos"

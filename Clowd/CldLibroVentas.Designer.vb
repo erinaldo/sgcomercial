@@ -64,7 +64,7 @@ Partial Class CldLibroVentas
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(931, 94)
+        Me.GroupBox1.Size = New System.Drawing.Size(947, 94)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -117,7 +117,7 @@ Partial Class CldLibroVentas
         Me.GroupBox2.Controls.Add(Me.LibroventasDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 112)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(931, 559)
+        Me.GroupBox2.Size = New System.Drawing.Size(947, 559)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         '
@@ -125,16 +125,19 @@ Partial Class CldLibroVentas
         '
         Me.LibroventasDataGridView.AllowUserToAddRows = False
         Me.LibroventasDataGridView.AllowUserToDeleteRows = False
+        Me.LibroventasDataGridView.AllowUserToResizeColumns = False
+        Me.LibroventasDataGridView.AllowUserToResizeRows = False
         Me.LibroventasDataGridView.AutoGenerateColumns = False
         Me.LibroventasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.LibroventasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.importe, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12})
         Me.LibroventasDataGridView.DataSource = Me.LibroventasBindingSource
-        Me.LibroventasDataGridView.Location = New System.Drawing.Point(6, 21)
+        Me.LibroventasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LibroventasDataGridView.Location = New System.Drawing.Point(3, 18)
         Me.LibroventasDataGridView.Name = "LibroventasDataGridView"
         Me.LibroventasDataGridView.ReadOnly = True
         Me.LibroventasDataGridView.RowTemplate.Height = 24
-        Me.LibroventasDataGridView.Size = New System.Drawing.Size(1021, 518)
+        Me.LibroventasDataGridView.Size = New System.Drawing.Size(941, 538)
         Me.LibroventasDataGridView.TabIndex = 0
         '
         'DataGridViewTextBoxColumn1
@@ -281,7 +284,7 @@ Partial Class CldLibroVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(955, 683)
+        Me.ClientSize = New System.Drawing.Size(971, 683)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
