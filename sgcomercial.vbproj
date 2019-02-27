@@ -746,10 +746,10 @@
     <Compile Include="Ventas\EditarCliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventas\LibroVentasDetalladas.Designer.vb">
+    <Compile Include="Ventas\Reportes\LibroVentasDetalladas.Designer.vb">
       <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Ventas\LibroVentasDetalladas.vb">
+    <Compile Include="Ventas\Reportes\LibroVentasDetalladas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Utilidades\ReportesPlantilla\ImprimirPlantillas.Designer.vb">
@@ -942,6 +942,12 @@
       <DependentUpon>VerEstadoCaja.vb</DependentUpon>
     </Compile>
     <Compile Include="Ventas\VerEstadoCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Reportes\ViewerLibroVentasDetalladas.Designer.vb">
+      <DependentUpon>ViewerLibroVentasDetalladas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Reportes\ViewerLibroVentasDetalladas.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -1229,7 +1235,7 @@
     <EmbeddedResource Include="Ventas\EditarCliente.resx">
       <DependentUpon>EditarCliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventas\LibroVentasDetalladas.resx">
+    <EmbeddedResource Include="Ventas\Reportes\LibroVentasDetalladas.resx">
       <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilidades\ReportesPlantilla\ImprimirPlantillas.resx">
@@ -1340,6 +1346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\VerEstadoCaja.resx">
       <DependentUpon>VerEstadoCaja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Reportes\ViewerLibroVentasDetalladas.resx">
+      <DependentUpon>ViewerLibroVentasDetalladas.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

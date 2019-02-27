@@ -301,4 +301,8 @@ Public Class loginform
     Private Sub PictureUpdateAlert_Click(sender As Object, e As EventArgs) Handles PictureUpdateAlert.Click
         Button3.PerformClick()
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) 
+
+    End Sub
 End Class

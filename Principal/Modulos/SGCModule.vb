@@ -20,6 +20,7 @@ Module SGCModule
     Public glistapreferida As Int16
     Public glocalidadseleccionada As Int64
     Public gprovinciaseleccionada As Int64
+    Public gFechaSeleccionada As DateTime
     Public gpagocombinadoconfirmado As Boolean
     Public gModuloClowd As Long
     Public gProgressBarCounter As Long
