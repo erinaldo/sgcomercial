@@ -33,8 +33,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>16</ApplicationRevision>
-    <ApplicationVersion>4.0.8.16</ApplicationVersion>
+    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationVersion>4.0.8.19</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -236,6 +236,12 @@
       <DependentUpon>RegistrarVentaCC.vb</DependentUpon>
     </Compile>
     <Compile Include="CuentasCorrientes\RegistrarVentaCC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasCorrientes\Reportes\ViewerCtaCte.Designer.vb">
+      <DependentUpon>ViewerCtaCte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\Reportes\ViewerCtaCte.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Delivery\ABMTransportes.Designer.vb">
@@ -522,16 +528,16 @@
     <Compile Include="Stock\StkMovimientos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\ViewerReporteControlStockGeneral.Designer.vb">
+    <Compile Include="Stock\Reportes\ViewerReporteControlStockGeneral.Designer.vb">
       <DependentUpon>ViewerReporteControlStockGeneral.vb</DependentUpon>
     </Compile>
-    <Compile Include="Stock\ViewerReporteControlStockGeneral.vb">
+    <Compile Include="Stock\Reportes\ViewerReporteControlStockGeneral.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\ViewerReporteRelevamientoStock.Designer.vb">
+    <Compile Include="Stock\Reportes\ViewerReporteRelevamientoStock.Designer.vb">
       <DependentUpon>ViewerReporteRelevamientoStock.vb</DependentUpon>
     </Compile>
-    <Compile Include="Stock\ViewerReporteRelevamientoStock.vb">
+    <Compile Include="Stock\Reportes\ViewerReporteRelevamientoStock.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal\ParametrosGenerales\ABMSucursales.Designer.vb">
@@ -989,6 +995,10 @@
     <EmbeddedResource Include="CuentasCorrientes\RegistrarVentaCC.resx">
       <DependentUpon>RegistrarVentaCC.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CuentasCorrientes\Reportes\RepResumenCtaCte.rdlc" />
+    <EmbeddedResource Include="CuentasCorrientes\Reportes\ViewerCtaCte.resx">
+      <DependentUpon>ViewerCtaCte.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delivery\ABMTransportes.resx">
       <DependentUpon>ABMTransportes.vb</DependentUpon>
     </EmbeddedResource>
@@ -1120,18 +1130,18 @@
       <DependentUpon>ImportarProductos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImportarExportarProductos\RepExportarProd.rdlc" />
-    <EmbeddedResource Include="Stock\RptControlStockGeneral.rdlc" />
+    <EmbeddedResource Include="Stock\Reportes\RptControlStockGeneral.rdlc" />
     <EmbeddedResource Include="Stock\AyudaImportarProductos.resx">
       <DependentUpon>AyudaImportarProductos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\RptRelevamientoStock.rdlc" />
+    <EmbeddedResource Include="Stock\Reportes\RptRelevamientoStock.rdlc" />
     <EmbeddedResource Include="Stock\StkMovimientos.resx">
       <DependentUpon>StkMovimientos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\ViewerReporteControlStockGeneral.resx">
+    <EmbeddedResource Include="Stock\Reportes\ViewerReporteControlStockGeneral.resx">
       <DependentUpon>ViewerReporteControlStockGeneral.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\ViewerReporteRelevamientoStock.resx">
+    <EmbeddedResource Include="Stock\Reportes\ViewerReporteRelevamientoStock.resx">
       <DependentUpon>ViewerReporteRelevamientoStock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\ParametrosGenerales\ABMSucursales.resx">

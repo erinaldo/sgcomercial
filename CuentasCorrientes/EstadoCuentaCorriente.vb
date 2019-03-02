@@ -243,4 +243,17 @@
     Private Sub ListacuentascorrientesDataGridView_Sorted(sender As Object, e As EventArgs) Handles ListacuentascorrientesDataGridView.Sorted
         colorear()
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim j As ViewerCtaCte
+        j = New ViewerCtaCte
+        gidcliente = Val(IdclienteTextBox.Text)
+        If gidcliente > 0 Then
+            j.ShowDialog()
+        Else
+            MsgBox("Seleccione un cliente válido", MsgBoxStyle.Exclamation, "Advertencia")
+        End If
+
+        gidcliente = Nothing
+    End Sub
 End Class

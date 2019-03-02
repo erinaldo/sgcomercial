@@ -16,11 +16,11 @@ Public Class ABMProductosCompuestos
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         buscaproductomanual()
-        If gcodigoproducto = 0 Then Return
+        If gcodigoproducto = Nothing Then Return
         codigoproductoTextBox.Text = gcodigoproducto
     End Sub
     Private Sub buscaproductomanual()
-        gcodigoproducto = 0
+        gcodigoproducto = Nothing
         Dim p As BuscaCodigoProductoManual
         p = New BuscaCodigoProductoManual
         p.ShowDialog()
@@ -52,7 +52,7 @@ Public Class ABMProductosCompuestos
         gcodigoproducto = Nothing
         gproductodescripcion = Nothing
         buscaproductomanual()
-        If gcodigoproducto = 0 Then Return
+        If gcodigoproducto = Nothing Then Return
         CodigocomponenteTextBox.Text = gcodigoproducto
         LabelDescripcion.Text = "Descripcion: " + gproductodescripcion
     End Sub

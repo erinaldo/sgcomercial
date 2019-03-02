@@ -59,9 +59,8 @@
 
     End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
-        RadioButton2.Checked = True
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub StkmovimientosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles StkmovimientosDataGridView.CellContentClick
@@ -93,5 +92,43 @@
             End If
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub ActualizarToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ActualizarToolStripMenuItem_Click_1(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ContextMenuStripGrilla_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStripGrilla.Opening
+
+    End Sub
+
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
+        TextBox1.Text = Nothing
+        StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
+        RadioButton2.Checked = True
+
+        MsgBox("Grilla Actualizada!", MsgBoxStyle.Information, "Aviso")
+    End Sub
+
+    Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs)
+
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage_1(sender As Object, e As Printing.PrintPageEventArgs)
+
+
+    End Sub
+
+    Private Sub Imprimir_Click(sender As Object, e As EventArgs)
+
+
     End Sub
 End Class

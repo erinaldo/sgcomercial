@@ -63,7 +63,7 @@ Public Class loginform
 
 
     Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Control Panel\International", "sShortDate", "dd/MM/yyyy")
         Cursor.Current = Cursors.WaitCursor
         Dim status As Boolean
         '********************************

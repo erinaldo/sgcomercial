@@ -5,8 +5,6 @@
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.libroventas' Puede moverla o quitarla según sea necesario.
         'Me.LibroventasTableAdapter.Fill(Me.ComercialDataSet.libroventas)
         Me.LibroventasTableAdapter.FillByFecha(Me.ComercialDataSet.libroventas, Today)
-
-
     End Sub
 
     Private Sub LibroventasDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles LibroventasDataGridView.CellContentClick

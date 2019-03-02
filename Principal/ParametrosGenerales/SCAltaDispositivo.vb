@@ -12,7 +12,7 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If Not Val(ComboSucursal.SelectedValue) > 0 Then
+        If Not ComboSucursal.SelectedValue > 0 Then
             MsgBox("Debe ingresar un numero de sucursal a este dispositivo")
             Return
         End If
@@ -64,5 +64,9 @@
 
     Private Sub ComboCliente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboCliente.SelectedIndexChanged
         Me.ClientessucursalesTableAdapter.FillByIDcliente(Me.SiscomDataSet.clientessucursales, ComboCliente.SelectedValue)
+    End Sub
+
+    Private Sub ComboSucursal_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboSucursal.SelectedIndexChanged
+
     End Sub
 End Class

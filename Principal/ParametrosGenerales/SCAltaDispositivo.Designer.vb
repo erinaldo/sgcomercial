@@ -154,7 +154,6 @@ Partial Class SCAltaDispositivo
         '
         'ComboSucursal
         '
-        Me.ComboSucursal.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ClientessucursalesBindingSource, "idsucursal", True))
         Me.ComboSucursal.DataSource = Me.ClientessucursalesBindingSource
         Me.ComboSucursal.DisplayMember = "nombre"
         Me.ComboSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList

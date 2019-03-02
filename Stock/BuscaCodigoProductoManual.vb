@@ -36,9 +36,14 @@
     End Sub
 
     Private Sub ProductosDataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.CellDoubleClick
-        gcodigoproducto = ProductosDataGridView.Rows(e.RowIndex).Cells(0).Value
-        gproductodescripcion = ProductosDataGridView.Rows(e.RowIndex).Cells(1).Value
-        Me.Close()
+        Try
+            gcodigoproducto = ProductosDataGridView.Rows(e.RowIndex).Cells(0).Value
+            gproductodescripcion = ProductosDataGridView.Rows(e.RowIndex).Cells(1).Value
+            Me.Close()
+        Catch ex As Exception
+            MsgBox("Error: " + ex.Message)
+        End Try
+
     End Sub
 
     Private Sub TextBoxfiltro_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxfiltro.KeyPress
