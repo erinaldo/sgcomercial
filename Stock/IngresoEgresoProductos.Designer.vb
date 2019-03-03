@@ -310,6 +310,7 @@ Partial Class ingresoegresoproductos
         '
         'TextBoxEnvasado
         '
+        Me.TextBoxEnvasado.Enabled = False
         Me.TextBoxEnvasado.Location = New System.Drawing.Point(513, 34)
         Me.TextBoxEnvasado.Name = "TextBoxEnvasado"
         Me.TextBoxEnvasado.ReadOnly = True
@@ -330,6 +331,7 @@ Partial Class ingresoegresoproductos
         '
         'textstockminimo
         '
+        Me.textstockminimo.Enabled = False
         Me.textstockminimo.Location = New System.Drawing.Point(271, 72)
         Me.textstockminimo.Margin = New System.Windows.Forms.Padding(4)
         Me.textstockminimo.Name = "textstockminimo"
@@ -340,6 +342,7 @@ Partial Class ingresoegresoproductos
         '
         'textdisponible
         '
+        Me.textdisponible.Enabled = False
         Me.textdisponible.Location = New System.Drawing.Point(142, 34)
         Me.textdisponible.Margin = New System.Windows.Forms.Padding(4)
         Me.textdisponible.Name = "textdisponible"
@@ -636,6 +639,7 @@ Partial Class ingresoegresoproductos
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing

@@ -3,6 +3,7 @@ Imports System.IO
 Imports System.Net
 Imports System.Net.Sockets
 Imports System.Runtime.InteropServices
+Imports System.Data.SqlClient
 Public Class Principal
     Dim permiso As Integer = 0
     Private Sub Principal_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
@@ -992,5 +993,17 @@ Public Class Principal
     Private Sub LibroDePedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroDePedidosToolStripMenuItem.Click
         PedidosDeliveryLibro.MdiParent = Me
         PedidosDeliveryLibro.Visible = True
+    End Sub
+
+    Private Sub RepararMedidasToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+        Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
+        Dim mycommand As New SqlCommand
+        Dim qry As String = "update productos set medida = 2"
+        Try
+            myConn2.Open()
+            mycommand = New SqlCommand(qry, myConn2)
+        Catch ex As Exception
+            MsgBox("Ocurrio un problema: " + ex.Message)
+        End Try
     End Sub
 End Class

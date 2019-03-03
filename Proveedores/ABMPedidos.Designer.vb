@@ -33,6 +33,7 @@ Partial Class ABMPedidos
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.listapedidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.LabelProveedor = New System.Windows.Forms.Label()
         Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
@@ -43,11 +44,6 @@ Partial Class ABMPedidos
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PedidoDetalleDataGridView = New System.Windows.Forms.DataGridView()
-        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripción = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.preciocosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Labelproducto = New System.Windows.Forms.Label()
         Me.codigotextbox = New System.Windows.Forms.TextBox()
@@ -56,7 +52,6 @@ Partial Class ABMPedidos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.labeltotalvisible = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.PedidosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.PedidosdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -66,6 +61,12 @@ Partial Class ABMPedidos
         Me.listapedidosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosTableAdapter()
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.listapedidosreporteTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosreporteTableAdapter()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripción = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.preciocosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdproveedorLabel = New System.Windows.Forms.Label()
         FechaaltaLabel = New System.Windows.Forms.Label()
         CType(Me.listapedidosreporteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,6 +124,10 @@ Partial Class ABMPedidos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.ReportViewer1)
         Me.GroupBox1.Controls.Add(Me.LabelProveedor)
         Me.GroupBox1.Controls.Add(Me.PictureSeleccionarCliente)
@@ -133,10 +138,26 @@ Partial Class ABMPedidos
         Me.GroupBox1.Controls.Add(Me.FechaaltaDateTimePicker)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(761, 84)
+        Me.GroupBox1.Size = New System.Drawing.Size(825, 91)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pedido"
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.DocumentMapWidth = 26
+        ReportDataSource1.Name = "listapedidosreporte"
+        ReportDataSource1.Value = Me.listapedidosreporteBindingSource
+        ReportDataSource2.Name = "MiComercio"
+        ReportDataSource2.Value = Me.MiComercioBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.ReportPedido.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(787, 11)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(32, 15)
+        Me.ReportViewer1.TabIndex = 19
+        Me.ReportViewer1.Visible = False
         '
         'LabelProveedor
         '
@@ -200,14 +221,17 @@ Partial Class ABMPedidos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.PedidoDetalleDataGridView)
         Me.GroupBox2.Controls.Add(Me.PictureBox1)
         Me.GroupBox2.Controls.Add(Me.Labelproducto)
         Me.GroupBox2.Controls.Add(Me.codigotextbox)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 102)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 109)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(761, 378)
+        Me.GroupBox2.Size = New System.Drawing.Size(825, 413)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -218,47 +242,19 @@ Partial Class ABMPedidos
         Me.PedidoDetalleDataGridView.AllowUserToDeleteRows = False
         Me.PedidoDetalleDataGridView.AllowUserToResizeColumns = False
         Me.PedidoDetalleDataGridView.AllowUserToResizeRows = False
+        Me.PedidoDetalleDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PedidoDetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.PedidoDetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.descripción, Me.cantidad, Me.preciocosto, Me.subtotal})
+        Me.PedidoDetalleDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.PedidoDetalleDataGridView.Location = New System.Drawing.Point(16, 61)
+        Me.PedidoDetalleDataGridView.MultiSelect = False
         Me.PedidoDetalleDataGridView.Name = "PedidoDetalleDataGridView"
-        Me.PedidoDetalleDataGridView.ReadOnly = True
         Me.PedidoDetalleDataGridView.RowTemplate.Height = 24
         Me.PedidoDetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.PedidoDetalleDataGridView.Size = New System.Drawing.Size(732, 303)
+        Me.PedidoDetalleDataGridView.Size = New System.Drawing.Size(796, 338)
         Me.PedidoDetalleDataGridView.TabIndex = 8
-        '
-        'idproducto
-        '
-        Me.idproducto.HeaderText = "idproducto"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.ReadOnly = True
-        Me.idproducto.Visible = False
-        '
-        'descripción
-        '
-        Me.descripción.HeaderText = "Descripción"
-        Me.descripción.Name = "descripción"
-        Me.descripción.ReadOnly = True
-        Me.descripción.Width = 275
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        '
-        'preciocosto
-        '
-        Me.preciocosto.HeaderText = "Precio costo"
-        Me.preciocosto.Name = "preciocosto"
-        Me.preciocosto.ReadOnly = True
-        '
-        'subtotal
-        '
-        Me.subtotal.HeaderText = "Sub Total"
-        Me.subtotal.Name = "subtotal"
-        Me.subtotal.ReadOnly = True
         '
         'PictureBox1
         '
@@ -308,12 +304,14 @@ Partial Class ABMPedidos
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.Label2)
         Me.GroupBox3.Controls.Add(Me.labeltotalvisible)
         Me.GroupBox3.Controls.Add(Me.Button1)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 486)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 521)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(761, 69)
+        Me.GroupBox3.Size = New System.Drawing.Size(825, 69)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Opciones"
@@ -347,22 +345,6 @@ Partial Class ABMPedidos
         Me.Button1.Text = "Confirmar"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.DocumentMapWidth = 39
-        ReportDataSource1.Name = "listapedidosreporte"
-        ReportDataSource1.Value = Me.listapedidosreporteBindingSource
-        ReportDataSource2.Name = "MiComercio"
-        ReportDataSource2.Value = Me.MiComercioBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.ReportPedido.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(412, 8)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(45, 76)
-        Me.ReportViewer1.TabIndex = 19
-        Me.ReportViewer1.Visible = False
-        '
         'PedidosTableAdapter
         '
         Me.PedidosTableAdapter.ClearBeforeFill = True
@@ -370,34 +352,62 @@ Partial Class ABMPedidos
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Me.PedidosTableAdapter
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
         Me.TableAdapterManager.permisosTableAdapter = Nothing
-
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
@@ -430,11 +440,52 @@ Partial Class ABMPedidos
         '
         Me.listapedidosreporteTableAdapter.ClearBeforeFill = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(273, 71)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(279, 17)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "- CARGAR DESDE STOCK CRÍTICO - "
+        '
+        'idproducto
+        '
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.Visible = False
+        '
+        'descripción
+        '
+        Me.descripción.HeaderText = "Descripción"
+        Me.descripción.Name = "descripción"
+        Me.descripción.ReadOnly = True
+        Me.descripción.Width = 275
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        '
+        'preciocosto
+        '
+        Me.preciocosto.HeaderText = "Precio costo"
+        Me.preciocosto.Name = "preciocosto"
+        '
+        'subtotal
+        '
+        Me.subtotal.HeaderText = "Sub Total"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
+        '
         'ABMPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(790, 563)
+        Me.ClientSize = New System.Drawing.Size(854, 598)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -496,11 +547,12 @@ Partial Class ABMPedidos
     Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
     Friend WithEvents listapedidosreporteBindingSource As BindingSource
     Friend WithEvents listapedidosreporteTableAdapter As comercialDataSetTableAdapters.listapedidosreporteTableAdapter
+    Friend WithEvents Label2 As Label
+    Friend WithEvents labeltotalvisible As Label
+    Friend WithEvents Label3 As Label
     Friend WithEvents idproducto As DataGridViewTextBoxColumn
     Friend WithEvents descripción As DataGridViewTextBoxColumn
     Friend WithEvents cantidad As DataGridViewTextBoxColumn
     Friend WithEvents preciocosto As DataGridViewTextBoxColumn
     Friend WithEvents subtotal As DataGridViewTextBoxColumn
-    Friend WithEvents Label2 As Label
-    Friend WithEvents labeltotalvisible As Label
 End Class

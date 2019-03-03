@@ -145,7 +145,7 @@ Public Class ingresoegresoproductos
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         If e.KeyCode = Keys.Enter Then
             If ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text) > 0 Then
-                If ProductoscomponentesTableAdapter.productoscomponentes_esproductocompuesto(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)) > 0 Then
+                If ProductosTableAdapter.productos_consultarproductocompuesto(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)) = "S" Then
                     MsgBox("No se puede cargar stock de productos compuestos! debe cargar stock de sus componentes", MsgBoxStyle.Exclamation, "Advertencia")
                     CantidadTextBox.Select()
                     textdisponible.Text = ""
@@ -186,7 +186,7 @@ Public Class ingresoegresoproductos
     End Sub
     Private Sub enterkeydown()
         If ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text) > 0 Then
-            If ProductoscomponentesTableAdapter.productoscomponentes_esproductocompuesto(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)) > 0 Then
+            If ProductosTableAdapter.productos_consultarproductocompuesto(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)) = "S" Then
                 MsgBox("No se puede cargar stock de productos compuestos! debe cargar stock de sus componentes", MsgBoxStyle.Exclamation, "Advertencia")
                 CantidadTextBox.Select()
                 textdisponible.Text = ""

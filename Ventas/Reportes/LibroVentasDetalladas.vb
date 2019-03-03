@@ -65,4 +65,26 @@
         gFechaSeleccionada = DateTimePicker1.Value
         g.ShowDialog()
     End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        If Len(Trim(ComboBox1.Text)) > 0 Then
+            Try
+                Select Case ComboBox1.Text
+                    Case "Nombre"
+                        LibroventasBindingSource.Filter = "nombre like '%" + TextBox1.Text.ToUpper + "%'"
+                    Case "Usuario Carga"
+                        LibroventasBindingSource.Filter = "usuariocarga like '%" + TextBox1.Text.ToUpper + "%'"
+                End Select
+            Catch ex As Exception
+                LibroventasBindingSource.Filter = ""
+            End Try
+        Else
+            LibroventasBindingSource.Filter = ""
+        End If
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        TextBox1.Select()
+    End Sub
 End Class

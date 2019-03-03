@@ -24,7 +24,7 @@ Public Class StockAlerta
         Select Case StockalertaDataGridView.Columns(StockalertaDataGridView.CurrentCell.ColumnIndex).DataPropertyName
             Case "codigoproducto"
                 Try
-                    If ProductoscomponentesTableAdapter.productoscomponentes_esproductocompuesto(ProductosTableAdapter.productos_existeproducto(StockalertaDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Value())) > 0 Then
+                    If ProductosTableAdapter.productos_consultarproductocompuesto(ProductosTableAdapter.productos_existeproducto(StockalertaDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Value())) = "S" Then
                         MsgBox("No se puede cargar stock de productos compuestos! debe cargar stock de sus componentes", MsgBoxStyle.Exclamation, "Advertencia")
                         Return
                     End If

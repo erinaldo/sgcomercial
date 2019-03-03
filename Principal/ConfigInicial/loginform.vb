@@ -81,11 +81,13 @@ Public Class loginform
             Try
                 CheckConnection.Open()
                 My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn)
+                gActiveSQLConnectionString = comercialStrConn
             Catch ex As Exception
                 Try
                     CheckConnection.ConnectionString = comercialStrConn2
                     CheckConnection.Open()
                     My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn2)
+                    gActiveSQLConnectionString = comercialStrConn2
                 Catch ex2 As Exception
                     MsgBox("Conexión a base de datos fallida!", vbExclamation, "Advertencia!")
                     End
@@ -203,7 +205,19 @@ Public Class loginform
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
-
+        End If
+        If (e.KeyCode = Keys.M AndAlso e.Control AndAlso e.Shift) Then
+            Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
+            Dim mycommand As New SqlCommand
+            Dim qry As String = "update productos set medida = 1 where medida = 0 or medida is null"
+            Try
+                myConn2.Open()
+                mycommand = New SqlCommand(qry, myConn2)
+                mycommand.ExecuteNonQuery()
+                MsgBox("Medidas reparadas", MsgBoxStyle.Information, "Auto Fix measurements:")
+            Catch ex As Exception
+                MsgBox("Ocurrio un problema: " + ex.Message)
+            End Try
         End If
     End Sub
 

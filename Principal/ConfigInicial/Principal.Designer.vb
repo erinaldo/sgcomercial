@@ -41,6 +41,7 @@ Partial Class Principal
         Me.DespachoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotesDeEnvìosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntregasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductoEstandarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -185,7 +186,6 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
-        Me.LibroDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -343,6 +343,13 @@ Partial Class Principal
         Me.EntregasToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
         Me.EntregasToolStripMenuItem.Tag = "RendirLotePedidosDelivery"
         Me.EntregasToolStripMenuItem.Text = "Entregas"
+        '
+        'LibroDePedidosToolStripMenuItem
+        '
+        Me.LibroDePedidosToolStripMenuItem.Name = "LibroDePedidosToolStripMenuItem"
+        Me.LibroDePedidosToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
+        Me.LibroDePedidosToolStripMenuItem.Tag = "LibroPedidos"
+        Me.LibroDePedidosToolStripMenuItem.Text = "Libro de Pedidos"
         '
         'VentasToolStripMenuItem
         '
@@ -1448,13 +1455,6 @@ Partial Class Principal
         '
         'BackgroundSyncLibroventasClowd
         '
-        '
-        'LibroDePedidosToolStripMenuItem
-        '
-        Me.LibroDePedidosToolStripMenuItem.Name = "LibroDePedidosToolStripMenuItem"
-        Me.LibroDePedidosToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
-        Me.LibroDePedidosToolStripMenuItem.Tag = "LibroPedidos"
-        Me.LibroDePedidosToolStripMenuItem.Text = "Libro de Pedidos"
         '
         'Principal
         '

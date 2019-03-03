@@ -18,16 +18,21 @@
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        Try
-            Select Case ComboBox1.Text
-                Case "Cliente"
-                    ListapedidosdeliveryBindingSource.Filter = "nombre like '%" + TextBox1.Text.ToUpper + "%'"
-                Case "Pedido"
-                    ListapedidosdeliveryBindingSource.Filter = "idpedidodelivery =" + TextBox1.Text
-            End Select
-        Catch ex As Exception
+        If Len(Trim(ComboBox1.Text)) > 0 Then
+            Try
+                Select Case ComboBox1.Text
+                    Case "Cliente"
+                        ListapedidosdeliveryBindingSource.Filter = "nombre like '%" + TextBox1.Text.ToUpper + "%'"
+                    Case "Pedido"
+                        ListapedidosdeliveryBindingSource.Filter = "idpedidodelivery =" + TextBox1.Text
+                End Select
+            Catch ex As Exception
+                ListapedidosdeliveryBindingSource.Filter = ""
+            End Try
+        Else
             ListapedidosdeliveryBindingSource.Filter = ""
-        End Try
+        End If
+
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged

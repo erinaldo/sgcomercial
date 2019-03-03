@@ -320,8 +320,75 @@
         End If
     End Sub
 
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        If Val(IdproveedorTextBox.Text) > 0 Then
+            PedidoDetalleDataGridView.Rows.Clear()
+            Try
+                Dim StockalertaTableAdapter As comercialDataSetTableAdapters.stockalertaTableAdapter
+                StockalertaTableAdapter = New comercialDataSetTableAdapters.stockalertaTableAdapter()
+                Dim StockalertaTable As comercialDataSet.stockalertaDataTable 'MySQLDataSet.productosDataTable
+                StockalertaTable = StockalertaTableAdapter.GetDataByIDproveedor(Val(IdproveedorTextBox.Text))
+                'MsgBox(StockalertaTable.Rows.Count.ToString)
+                If StockalertaTable.Rows.Count = 0 Then
+                    MsgBox("No hay productos del proveedor seleccionado que se encuentren en stock crítico", MsgBoxStyle.Information, "Aviso")
+                    Return
+                End If
+                For i = 0 To StockalertaTable.Rows.Count - 1
+                    Dim idproducto As String
+                    idproducto = StockalertaTable.Rows(i).Item(StockalertaTable.Columns("idproducto"))
+                    Dim codigoproducto As String
+                    codigoproducto = StockalertaTable.Rows(i).Item(StockalertaTable.Columns("codigoproducto"))
+                    Dim cantidad As String
+                    cantidad = StockalertaTable.Rows(i).Item(StockalertaTable.Columns("stockminimo"))
+                    Dim descripcion As String
+                    descripcion = StockalertaTable.Rows(i).Item(StockalertaTable.Columns("producto"))
+                    v_preciocosto = ProductosTableAdapter.productos_consultarpreciocosto(codigoproducto)
+                    '=============================================
+                    Dim newrow As Long = PedidoDetalleDataGridView.Rows.Add()
+                    PedidoDetalleDataGridView.Rows(newrow).Cells(0).Value = idproducto
+                    PedidoDetalleDataGridView.Rows(newrow).Cells(1).Value = descripcion
+                    PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = cantidad
+                    PedidoDetalleDataGridView.Rows(newrow).Cells(3).Value = v_preciocosto
+                    PedidoDetalleDataGridView.Rows(newrow).Cells(4).Value = cantidad * v_preciocosto
+                Next
+            Catch ex As Exception
 
+            End Try
+        Else
+            MsgBox("Seleccione un proveedor!", MsgBoxStyle.Exclamation, "Advertencia")
+        End If
+    End Sub
 
+    Private Sub PedidoDetalleDataGridView_CurrentCellChanged(sender As Object, e As EventArgs) Handles PedidoDetalleDataGridView.CurrentCellChanged
+
+    End Sub
+
+    Private Sub PedidoDetalleDataGridView_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs) Handles PedidoDetalleDataGridView.CurrentCellDirtyStateChanged
+
+    End Sub
+
+    Private Sub PedidoDetalleDataGridView_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles PedidoDetalleDataGridView.CellValueChanged
+
+    End Sub
+
+    Private Sub PedidoDetalleDataGridView_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles PedidoDetalleDataGridView.CellEndEdit
+        recalcular()
+    End Sub
+    Private Sub recalcular()
+        Try
+            For i = 0 To PedidoDetalleDataGridView.RowCount - 1
+                'PedidoDetalleDataGridView.Rows(newrow).Cells(0).Value = idproducto
+                'PedidoDetalleDataGridView.Rows(newrow).Cells(1).Value = descripcion
+                'PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = cantidad
+                'PedidoDetalleDataGridView.Rows(newrow).Cells(3).Value = v_preciocosto
+                PedidoDetalleDataGridView.Rows(i).Cells(4).Value = PedidoDetalleDataGridView.Rows(i).Cells(2).Value * PedidoDetalleDataGridView.Rows(i).Cells(3).Value
+            Next
+            montopedido()
+        Catch ex As Exception
+            MsgBox("No se pudo completar el cálculo de subtotales: " + ex.Message)
+        End Try
+
+    End Sub
 
 End Class
 

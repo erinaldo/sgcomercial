@@ -9,6 +9,7 @@ Imports System.Threading
 Module SGCModule
 
     '************************************************
+    Public gActiveSQLConnectionString As String
     Public gstrSheetName As New List(Of String)
     Public gstrSheetSelected As String
     '************************************************

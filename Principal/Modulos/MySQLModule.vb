@@ -668,7 +668,12 @@ Module MySQLModule
                 If IsDBNull(ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("medida"))) Then
                     medida = Nothing
                 Else
-                    medida = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("medida"))
+                    If ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("medida")) = 0 Then
+                        medida = 1
+                    Else
+                        medida = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("medida"))
+                    End If
+
                 End If
                 '-----------------------------------------------------------------------------------
                 Dim descripcion As String
