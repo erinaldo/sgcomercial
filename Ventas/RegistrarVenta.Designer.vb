@@ -154,6 +154,7 @@ Partial Class RegistrarVenta
         Me.idformapagocombo2 = New System.Windows.Forms.ComboBox()
         Me.FormaspagoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
+        Me.ButtonDescuentoDefecto = New System.Windows.Forms.Button()
         IdclienteLabel = New System.Windows.Forms.Label()
         FechaventaLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
@@ -839,6 +840,7 @@ Partial Class RegistrarVenta
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.ButtonDescuentoDefecto)
         Me.GroupBox3.Controls.Add(Me.FechavencimientoDateTimePicker)
         Me.GroupBox3.Controls.Add(Label5)
         Me.GroupBox3.Controls.Add(NrocomprobanteLabel)
@@ -1309,6 +1311,19 @@ Partial Class RegistrarVenta
         Me.FormaspagoBindingSource1.DataMember = "formaspago"
         Me.FormaspagoBindingSource1.DataSource = Me.ComercialDataSet
         '
+        'BackgroundSyncLibroventasClowd
+        '
+        '
+        'ButtonDescuentoDefecto
+        '
+        Me.ButtonDescuentoDefecto.Location = New System.Drawing.Point(745, 10)
+        Me.ButtonDescuentoDefecto.Name = "ButtonDescuentoDefecto"
+        Me.ButtonDescuentoDefecto.Size = New System.Drawing.Size(101, 51)
+        Me.ButtonDescuentoDefecto.TabIndex = 21
+        Me.ButtonDescuentoDefecto.Text = "Descuento Autom."
+        Me.ButtonDescuentoDefecto.UseVisualStyleBackColor = True
+        Me.ButtonDescuentoDefecto.Visible = False
+        '
         'RegistrarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
@@ -1477,4 +1492,5 @@ Partial Class RegistrarVenta
     Friend WithEvents eliminar As DataGridViewButtonColumn
     Friend WithEvents listasprecios As DataGridViewTextBoxColumn
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
+    Friend WithEvents ButtonDescuentoDefecto As Button
 End Class

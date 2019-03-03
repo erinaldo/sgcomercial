@@ -30,6 +30,7 @@ Partial Class ABMClientes
         Dim EmailLabel As System.Windows.Forms.Label
         Dim Label2 As System.Windows.Forms.Label
         Dim Label3 As System.Windows.Forms.Label
+        Dim Label5 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMClientes))
         Me.ClientesBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
@@ -55,6 +56,8 @@ Partial Class ABMClientes
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.porcentajedescuentoTextbox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DiasvencimientoTextBox = New System.Windows.Forms.TextBox()
         Me.ComboCondicionIVA = New System.Windows.Forms.ComboBox()
@@ -73,6 +76,7 @@ Partial Class ABMClientes
         EmailLabel = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
+        Label5 = New System.Windows.Forms.Label()
         CType(Me.ClientesBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ClientesBindingNavigator.SuspendLayout()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,7 +110,7 @@ Partial Class ABMClientes
         'RazonsocialLabel
         '
         RazonsocialLabel.AutoSize = True
-        RazonsocialLabel.Location = New System.Drawing.Point(196, 86)
+        RazonsocialLabel.Location = New System.Drawing.Point(206, 86)
         RazonsocialLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RazonsocialLabel.Name = "RazonsocialLabel"
         RazonsocialLabel.Size = New System.Drawing.Size(36, 17)
@@ -116,7 +120,7 @@ Partial Class ABMClientes
         'TelefonoLabel
         '
         TelefonoLabel.AutoSize = True
-        TelefonoLabel.Location = New System.Drawing.Point(173, 118)
+        TelefonoLabel.Location = New System.Drawing.Point(174, 118)
         TelefonoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         TelefonoLabel.Name = "TelefonoLabel"
         TelefonoLabel.Size = New System.Drawing.Size(68, 17)
@@ -136,7 +140,7 @@ Partial Class ABMClientes
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(140, 183)
+        Label2.Location = New System.Drawing.Point(143, 183)
         Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label2.Name = "Label2"
         Label2.Size = New System.Drawing.Size(99, 17)
@@ -146,12 +150,22 @@ Partial Class ABMClientes
         'Label3
         '
         Label3.AutoSize = True
-        Label3.Location = New System.Drawing.Point(94, 212)
+        Label3.Location = New System.Drawing.Point(99, 212)
         Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label3.Name = "Label3"
         Label3.Size = New System.Drawing.Size(143, 17)
         Label3.TabIndex = 13
         Label3.Text = "Dias de vencimiento :"
+        '
+        'Label5
+        '
+        Label5.AutoSize = True
+        Label5.Location = New System.Drawing.Point(90, 244)
+        Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label5.Name = "Label5"
+        Label5.Size = New System.Drawing.Size(152, 17)
+        Label5.TabIndex = 16
+        Label5.Text = "Porcentaje Descuento:"
         '
         'ClientesBindingNavigator
         '
@@ -309,6 +323,9 @@ Partial Class ABMClientes
         Me.ClientesDataGridView.AllowUserToAddRows = False
         Me.ClientesDataGridView.AllowUserToDeleteRows = False
         Me.ClientesDataGridView.AllowUserToResizeRows = False
+        Me.ClientesDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ClientesDataGridView.AutoGenerateColumns = False
         Me.ClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
@@ -360,6 +377,11 @@ Partial Class ABMClientes
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.porcentajedescuentoTextbox)
+        Me.GroupBox1.Controls.Add(Label5)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.DiasvencimientoTextBox)
         Me.GroupBox1.Controls.Add(Label3)
@@ -379,10 +401,27 @@ Partial Class ABMClientes
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(707, 267)
+        Me.GroupBox1.Size = New System.Drawing.Size(707, 285)
         Me.GroupBox1.TabIndex = 14
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del cliente"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(355, 247)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(290, 17)
+        Me.Label6.TabIndex = 18
+        Me.Label6.Text = "(por defecto aplicable al total de cada venta)"
+        '
+        'porcentajedescuentoTextbox
+        '
+        Me.porcentajedescuentoTextbox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "porcentajedescuento", True))
+        Me.porcentajedescuentoTextbox.Location = New System.Drawing.Point(249, 244)
+        Me.porcentajedescuentoTextbox.Name = "porcentajedescuentoTextbox"
+        Me.porcentajedescuentoTextbox.Size = New System.Drawing.Size(100, 22)
+        Me.porcentajedescuentoTextbox.TabIndex = 17
         '
         'Label4
         '
@@ -422,11 +461,13 @@ Partial Class ABMClientes
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.filtrotextbox)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.ClientesDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(21, 310)
+        Me.GroupBox2.Location = New System.Drawing.Point(21, 345)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
@@ -515,6 +556,7 @@ Partial Class ABMClientes
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -537,7 +579,7 @@ Partial Class ABMClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(744, 608)
+        Me.ClientSize = New System.Drawing.Size(744, 639)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.ClientesBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
@@ -600,4 +642,6 @@ Partial Class ABMClientes
     Friend WithEvents TipocondicionivaTableAdapter As comercialDataSetTableAdapters.tipocondicionivaTableAdapter
     Friend WithEvents Label4 As Label
     Friend WithEvents DiasvencimientoTextBox As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents porcentajedescuentoTextbox As TextBox
 End Class

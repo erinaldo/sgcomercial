@@ -26,7 +26,7 @@ Partial Class VerEstadoCaja
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VerEstadoCaja))
         Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New SGComercial.comercialDataSet()
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.IdoperacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdeventoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -51,9 +51,9 @@ Partial Class VerEstadoCaja
         Me.UsuarioaperturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UsuariocierreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CajasoperacionesTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
-        Me.CajaseventosTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
-        Me.cajaresumenTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
+        Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
+        Me.cajaresumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
         CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -154,6 +154,9 @@ Partial Class VerEstadoCaja
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.ReportViewer1)
         Me.GroupBox1.Controls.Add(Me.CajasoperacionesDataGridView)
         Me.GroupBox1.Controls.Add(Me.CajaseventosDataGridView)
@@ -162,21 +165,23 @@ Partial Class VerEstadoCaja
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(1304, 455)
+        Me.GroupBox1.Size = New System.Drawing.Size(1143, 455)
         Me.GroupBox1.TabIndex = 21
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Resumen de Caja"
         '
         'ReportViewer1
         '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         ReportDataSource1.Name = "cajaresumen"
         ReportDataSource1.Value = Me.cajaresumenBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "SGComercial.RepCajaResumen.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCajaResumen.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(4, 27)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1296, 424)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1135, 424)
         Me.ReportViewer1.TabIndex = 21
         '
         'CajaseventosDataGridView
@@ -262,7 +267,7 @@ Partial Class VerEstadoCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1330, 481)
+        Me.ClientSize = New System.Drawing.Size(1169, 481)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

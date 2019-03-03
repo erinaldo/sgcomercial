@@ -340,6 +340,7 @@ Public Class BuscaProductoManualPedidos
                     MsgBox("Opcion no configurada", MsgBoxStyle.Exclamation)
             End Select
             calcular()
+            cantidadtextbox.Select()
         Catch ex As Exception
             MsgBox("No se pudo completar la operación: " + ex.Message)
         End Try

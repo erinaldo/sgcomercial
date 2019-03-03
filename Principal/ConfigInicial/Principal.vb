@@ -988,4 +988,9 @@ Public Class Principal
             MisSucursales.Visible = True
         End If
     End Sub
+
+    Private Sub LibroDePedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroDePedidosToolStripMenuItem.Click
+        PedidosDeliveryLibro.MdiParent = Me
+        PedidosDeliveryLibro.Visible = True
+    End Sub
 End Class

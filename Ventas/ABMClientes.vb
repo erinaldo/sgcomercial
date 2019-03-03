@@ -1,4 +1,5 @@
-﻿Public Class ABMClientes
+﻿Imports System.Text.RegularExpressions
+Public Class ABMClientes
 
     Public Sub enablefields(ByVal status As Boolean)
         NombreTextBox.Enabled = status
@@ -7,6 +8,7 @@
         EmailTextBox.Enabled = status
         ComboCondicionIVA.Enabled = status
         DiasvencimientoTextBox.Enabled = status
+        porcentajedescuentoTextbox.Enabled = status
         'DireccionTextBox.Enabled = status
     End Sub
 
@@ -23,7 +25,7 @@
             filtrotextbox.Enabled = True
         End If
 
-        
+
     End Sub
 
     Private Sub ABMClientes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -57,6 +59,7 @@
         'ToolStripButton1.Visible = status
         ToolStripButton2.Visible = status
         DiasvencimientoTextBox.Enabled = status
+        porcentajedescuentoTextbox.Enabled = status
         If status = False Then
             ToolStripButton1.Visible = True
             BindingNavigatorAddNewItem.Enabled = True
@@ -98,5 +101,36 @@
             End If
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub DiasvencimientoTextBox_TextChanged(sender As Object, e As EventArgs) Handles DiasvencimientoTextBox.TextChanged
+
+    End Sub
+
+    Private Sub porcentajedescuentoTextbox_TextChanged(sender As Object, e As EventArgs) Handles porcentajedescuentoTextbox.TextChanged
+
+    End Sub
+
+    Private Sub porcentajedescuentoTextbox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles porcentajedescuentoTextbox.KeyPress
+        ' Check for the flag being set in the KeyDown event.
+        'If nonNumberEntered = True Then
+        '    ' Stop the character from being entered into the control since it is non-numerical.
+        '    e.Handled = True
+        'End If
+        If Char.IsControl(e.KeyChar) Then
+            Return
+        End If
+
+        If e.KeyChar = "." Then
+            e.KeyChar = ","
+            Return
+        End If
+        If e.KeyChar = "," Then
+            Return
+        End If
+        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
+            'MessageBox.Show("Solo se permiten numeros")
+            e.KeyChar = ""
+        End If
     End Sub
 End Class

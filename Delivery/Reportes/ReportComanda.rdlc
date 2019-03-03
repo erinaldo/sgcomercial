@@ -574,7 +574,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Pedido Nº:" + Fields!idpedidodelivery.Value.ToString()</Value>
+                              <Value>="Pedido Nº:" + Fields!idpedidodelivery.Value.ToString() + "  Venta Nº:" + Fields!idventa.Value.ToString()</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -1662,7 +1662,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Pedido Nº:" + Fields!idpedidodelivery.Value.ToString()</Value>
+                              <Value>="Pedido Nº:" + Fields!idpedidodelivery.Value.ToString() + "  Venta Nº:" + Fields!idventa.Value.ToString()</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -2593,6 +2593,14 @@
           <DataField>fechaalta</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="fechabaja">
+          <DataField>fechabaja</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="estado">
+          <DataField>estado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="pagoesperado">
           <DataField>pagoesperado</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -2600,6 +2608,10 @@
         <Field Name="usuarioalta">
           <DataField>usuarioalta</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="idcliente">
+          <DataField>idcliente</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="nombre">
           <DataField>nombre</DataField>
@@ -2637,10 +2649,26 @@
           <DataField>nombrelocalidad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="montototal">
+          <DataField>montototal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="importepagado">
+          <DataField>importepagado</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="saldo">
+          <DataField>saldo</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="idventa">
+          <DataField>idventa</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>comercialDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\SGComercial\sgcomercial\Principal\comercialDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\SGComercial\sgcomercial\Principal\DataSets\comercialDataSet.xsd</rd:SchemaPath>
         <rd:TableName>listapedidosdelivery</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

@@ -121,7 +121,7 @@ Public Class RegistrarVenta
         'BtnDescuento.Enabled = status
         CheckBoxFP2.Enabled = status
         LabelMontoFP2.Enabled = status
-
+        ButtonDescuentoDefecto.Visible = False
         '''''''''''''''''''''''''''' permiso GenVale
         If permisoGenVale = 0 Then
             CheckBoxVale.Enabled = False
@@ -204,17 +204,11 @@ Public Class RegistrarVenta
                 MsgBox("Montos Incorrectos! " + ex2.Message, MsgBoxStyle.Exclamation, "Aviso!")
             End Try
         Else
-            If Val(pagotextbox.Text) = 0 Then
-                MsgBox("Monto insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
-                pagotextbox.Select()
-                Return
-            End If
-
-            If tot = 0 Then
+            If VentasdetalleDataGridView.RowCount = 0 Then
                 MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
                 Return
             End If
-            If pago < tot Then
+            If pago <> tot Then
                 MsgBox("Monto insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
                 pagotextbox.Select()
                 Return
@@ -432,7 +426,7 @@ Public Class RegistrarVenta
             Return
         End If
 
-        If Val(pagotextbox.Text) = 0 Then
+        If Val(pagotextbox.Text) < 0 Then
             If idformapagocombo.Text = "Cuenta Corriente" Then
                 pagotextbox.Text = total.ToString
                 CheckBoxFP2.Checked = False
@@ -450,7 +444,7 @@ Public Class RegistrarVenta
                 valida = False
                 Return
             End If
-            If Val(pagotextbox2.Text) = 0 Then
+            If Val(pagotextbox2.Text) <= 0 Then
                 MsgBox("Monto 2 insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
                 pagotextbox.Select()
                 Return
@@ -1024,7 +1018,12 @@ Public Class RegistrarVenta
         If gclienteseleccionado > 0 Then
             Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
             ClientesBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
-            calculafechavencimiento()
+            If gclienteseleccionado > 1 Then
+                calculafechavencimiento()
+                ButtonDescuentoDefecto.Visible = True
+            Else
+                ButtonDescuentoDefecto.Visible = False
+            End If
         End If
         gclienteseleccionado = Nothing
     End Sub
@@ -1512,5 +1511,36 @@ Public Class RegistrarVenta
         Dim msgerror As String = ""
         gMiSucursal = 1
         SynLibroVentas(coderror, msgerror)
+    End Sub
+
+    Private Sub ButtonDescuentoDefecto_Click(sender As Object, e As EventArgs) Handles ButtonDescuentoDefecto.Click
+        Dim porcentaje As Decimal
+        Try
+            gclienteseleccionado = Val(IdclienteTextBox.Text)
+
+            If gclienteseleccionado > 0 Then
+                porcentaje = ClientesTableAdapter.clientes_consultardescuento(gclienteseleccionado)
+                descuentogeneral(porcentaje)
+            End If
+        Catch ex As Exception
+            MsgBox("Ocurrio una excepción: " + ex.Message)
+        End Try
+
+
+    End Sub
+    Private Sub descuentogeneral(ByRef porcentaje As Decimal)
+        For i = 0 To VentasdetalleDataGridView.RowCount - 1
+            Dim precioventa As Decimal
+            Dim montodescuento As Decimal
+            Dim cantidad As Decimal
+            precioventa = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
+            cantidad = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value
+            precioventa = precioventa * cantidad
+            montodescuento = precioventa * porcentaje / 100
+            montodescuento = String.Format("{0:n}", montodescuento)
+            VentasdetalleDataGridView.Rows(i).Cells("descuento").Value = montodescuento
+        Next
+        recuento()
+
     End Sub
 End Class

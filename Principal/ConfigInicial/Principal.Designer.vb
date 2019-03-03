@@ -122,6 +122,7 @@ Partial Class Principal
         Me.SubirProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescargarPedidosWEBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -184,7 +185,7 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
-        Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -297,7 +298,7 @@ Partial Class Principal
         '
         'DeliveryToolStripMenuItem
         '
-        Me.DeliveryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaPedidoToolStripMenuItem, Me.RecibidosToolStripMenuItem, Me.DespachoToolStripMenuItem, Me.LotesDeEnvìosToolStripMenuItem, Me.EntregasToolStripMenuItem})
+        Me.DeliveryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaPedidoToolStripMenuItem, Me.RecibidosToolStripMenuItem, Me.DespachoToolStripMenuItem, Me.LotesDeEnvìosToolStripMenuItem, Me.EntregasToolStripMenuItem, Me.LibroDePedidosToolStripMenuItem})
         Me.DeliveryToolStripMenuItem.Name = "DeliveryToolStripMenuItem"
         Me.DeliveryToolStripMenuItem.Size = New System.Drawing.Size(82, 27)
         Me.DeliveryToolStripMenuItem.Tag = "ModuloDelivery"
@@ -951,6 +952,13 @@ Partial Class Principal
         Me.DescargarPedidosWEBToolStripMenuItem.Tag = "DescargarPedidosClowd"
         Me.DescargarPedidosWEBToolStripMenuItem.Text = "Descargar Pedidos"
         '
+        'MisSucursalesToolStripMenuItem
+        '
+        Me.MisSucursalesToolStripMenuItem.Name = "MisSucursalesToolStripMenuItem"
+        Me.MisSucursalesToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.MisSucursalesToolStripMenuItem.Tag = "MisSucursales"
+        Me.MisSucursalesToolStripMenuItem.Text = "Mis Sucursales"
+        '
         'ParametrosgeneralesDataGridView
         '
         Me.ParametrosgeneralesDataGridView.AutoGenerateColumns = False
@@ -1441,12 +1449,12 @@ Partial Class Principal
         'BackgroundSyncLibroventasClowd
         '
         '
-        'MisSucursalesToolStripMenuItem
+        'LibroDePedidosToolStripMenuItem
         '
-        Me.MisSucursalesToolStripMenuItem.Name = "MisSucursalesToolStripMenuItem"
-        Me.MisSucursalesToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.MisSucursalesToolStripMenuItem.Tag = "MisSucursales"
-        Me.MisSucursalesToolStripMenuItem.Text = "Mis Sucursales"
+        Me.LibroDePedidosToolStripMenuItem.Name = "LibroDePedidosToolStripMenuItem"
+        Me.LibroDePedidosToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
+        Me.LibroDePedidosToolStripMenuItem.Tag = "LibroPedidos"
+        Me.LibroDePedidosToolStripMenuItem.Text = "Libro de Pedidos"
         '
         'Principal
         '
@@ -1657,4 +1665,5 @@ Partial Class Principal
     Friend WithEvents DescargarPedidosWEBToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents MisSucursalesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LibroDePedidosToolStripMenuItem As ToolStripMenuItem
 End Class
