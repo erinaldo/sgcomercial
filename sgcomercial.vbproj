@@ -304,10 +304,10 @@
     <Compile Include="Delivery\LotePedidosDeliveryRendir.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Delivery\POSTForm.Designer.vb">
+    <Compile Include="Testing\POSTForm.Designer.vb">
       <DependentUpon>POSTForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Delivery\POSTForm.vb">
+    <Compile Include="Testing\POSTForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Delivery\Reportes\ViewerComanda.Designer.vb">
@@ -486,10 +486,10 @@
     <Compile Include="Proveedores\ProductosProveedores.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Proveedores\ViewerPedido.Designer.vb">
+    <Compile Include="Proveedores\Reportes\ViewerPedido.Designer.vb">
       <DependentUpon>ViewerPedido.vb</DependentUpon>
     </Compile>
-    <Compile Include="Proveedores\ViewerPedido.vb">
+    <Compile Include="Proveedores\Reportes\ViewerPedido.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clowd\SubirProductosClowd.Designer.vb">
@@ -1035,7 +1035,7 @@
     <EmbeddedResource Include="Delivery\LotePedidosDeliveryRendir.resx">
       <DependentUpon>LotePedidosDeliveryRendir.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Delivery\POSTForm.resx">
+    <EmbeddedResource Include="Testing\POSTForm.resx">
       <DependentUpon>POSTForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\Reportes\ReportComanda.rdlc" />
@@ -1120,7 +1120,7 @@
     <EmbeddedResource Include="Proveedores\ProductosProveedores.resx">
       <DependentUpon>ProductosProveedores.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Proveedores\ViewerPedido.resx">
+    <EmbeddedResource Include="Proveedores\Reportes\ViewerPedido.resx">
       <DependentUpon>ViewerPedido.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clowd\SubirProductosClowd.resx">
@@ -1156,6 +1156,7 @@
     <EmbeddedResource Include="Principal\ParametrosGenerales\ABMSucursales.resx">
       <DependentUpon>ABMSucursales.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Reportes\RepComandera80.rdlc" />
     <EmbeddedResource Include="TransferenciaStock\EnviarStock.resx">
       <DependentUpon>EnviarStock.vb</DependentUpon>
     </EmbeddedResource>
@@ -1217,7 +1218,7 @@
     <EmbeddedResource Include="Proveedores\RecepcionSinPedido.resx">
       <DependentUpon>RecepcionSinPedido.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Proveedores\ReportPedido.rdlc" />
+    <EmbeddedResource Include="Proveedores\Reportes\ReportPedido.rdlc" />
     <EmbeddedResource Include="Usuarios\EditarUsuario.resx">
       <DependentUpon>EditarUsuario.vb</DependentUpon>
     </EmbeddedResource>
@@ -1263,6 +1264,7 @@
     <EmbeddedResource Include="Utilidades\ReportesPlantilla\PlantillaPedido.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\GraphEgresos.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepCajaResumen.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepComandera58.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepEstadoResultados.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFactura.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFacturaIVA.rdlc" />
@@ -1472,42 +1474,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

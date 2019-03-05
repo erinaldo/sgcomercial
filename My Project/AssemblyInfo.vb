@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Revisar los valores de los atributos del ensamblado
 
 <Assembly: AssemblyTitle("SGComercial")>
-<Assembly: AssemblyDescription("Fecha de compilación: 02/03/2019")>
+<Assembly: AssemblyDescription("Fecha de compilación: 04/03/2019")>
 <Assembly: AssemblyCompany("sistemascomerciales.net")>
 <Assembly: AssemblyProduct("Sistema de Gestión Comercial")>
 <Assembly: AssemblyCopyright("sistemascomerciales.net")>

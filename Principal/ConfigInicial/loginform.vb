@@ -219,6 +219,12 @@ Public Class loginform
                 MsgBox("Ocurrio un problema: " + ex.Message)
             End Try
         End If
+        ''''''''''***************************   POR DEFECTO **************************************
+        If (e.KeyCode = Keys.T AndAlso e.Control AndAlso e.Shift) Then
+            Dim testwindows As POSTForm
+            testwindows = New POSTForm
+            testwindows.ShowDialog()
+        End If
     End Sub
 
     Private Sub textpassword_GotFocus(sender As Object, e As EventArgs) Handles textpassword.GotFocus

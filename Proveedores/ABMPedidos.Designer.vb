@@ -33,6 +33,7 @@ Partial Class ABMPedidos
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.listapedidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.LabelProveedor = New System.Windows.Forms.Label()
         Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -61,9 +62,10 @@ Partial Class ABMPedidos
         Me.listapedidosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosTableAdapter()
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.listapedidosreporteTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosreporteTableAdapter()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripción = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.actual = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.preciocosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -142,6 +144,18 @@ Partial Class ABMPedidos
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pedido"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(273, 71)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(279, 17)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "- CARGAR DESDE STOCK CRÍTICO - "
         '
         'ReportViewer1
         '
@@ -246,7 +260,7 @@ Partial Class ABMPedidos
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PedidoDetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.PedidoDetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.descripción, Me.cantidad, Me.preciocosto, Me.subtotal})
+        Me.PedidoDetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.descripcion, Me.actual, Me.cantidad, Me.preciocosto, Me.subtotal})
         Me.PedidoDetalleDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.PedidoDetalleDataGridView.Location = New System.Drawing.Point(16, 61)
         Me.PedidoDetalleDataGridView.MultiSelect = False
@@ -440,17 +454,9 @@ Partial Class ABMPedidos
         '
         Me.listapedidosreporteTableAdapter.ClearBeforeFill = True
         '
-        'Label3
+        'StockTableAdapter
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(273, 71)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(279, 17)
-        Me.Label3.TabIndex = 20
-        Me.Label3.Text = "- CARGAR DESDE STOCK CRÍTICO - "
+        Me.StockTableAdapter.ClearBeforeFill = True
         '
         'idproducto
         '
@@ -458,17 +464,24 @@ Partial Class ABMPedidos
         Me.idproducto.Name = "idproducto"
         Me.idproducto.Visible = False
         '
-        'descripción
+        'descripcion
         '
-        Me.descripción.HeaderText = "Descripción"
-        Me.descripción.Name = "descripción"
-        Me.descripción.ReadOnly = True
-        Me.descripción.Width = 275
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 275
+        '
+        'actual
+        '
+        Me.actual.HeaderText = "Cant. en Stock"
+        Me.actual.Name = "actual"
+        Me.actual.ReadOnly = True
         '
         'cantidad
         '
-        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.HeaderText = "Cantidad Pedida"
         Me.cantidad.Name = "cantidad"
+        Me.cantidad.ToolTipText = "Cantidad Pedida"
         '
         'preciocosto
         '
@@ -550,8 +563,10 @@ Partial Class ABMPedidos
     Friend WithEvents Label2 As Label
     Friend WithEvents labeltotalvisible As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
     Friend WithEvents idproducto As DataGridViewTextBoxColumn
-    Friend WithEvents descripción As DataGridViewTextBoxColumn
+    Friend WithEvents descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents actual As DataGridViewTextBoxColumn
     Friend WithEvents cantidad As DataGridViewTextBoxColumn
     Friend WithEvents preciocosto As DataGridViewTextBoxColumn
     Friend WithEvents subtotal As DataGridViewTextBoxColumn

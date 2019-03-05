@@ -40,10 +40,10 @@
             v_preciocosto = ProductosTableAdapter.productos_consultarpreciocosto(codigotextbox.Text)
             If PedidoDetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
                 newrow = PedidoDetalleDataGridView.Rows.Add()
-                PedidoDetalleDataGridView.Rows(newrow).Cells(0).Value = existeproducto
-                PedidoDetalleDataGridView.Rows(newrow).Cells(1).Value = Labelproducto.Text
+                PedidoDetalleDataGridView.Rows(newrow).Cells("idproducto").Value = existeproducto
+                PedidoDetalleDataGridView.Rows(newrow).Cells("descripcion").Value = Labelproducto.Text
                 If unidadmedida = 6 Then '** LA UNIDAD DE MEDIDA ES ENTERA
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = 1 '*******  cantidad
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value = 1 '*******  cantidad
                 Else
                     Dim p As IngresaCantidad
                     p = New IngresaCantidad
@@ -57,10 +57,10 @@
                         PedidoDetalleDataGridView.Rows.Remove(PedidoDetalleDataGridView.CurrentRow)
                         Return
                     End If
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value = gcantidad '*******  cantidad
                 End If
-                PedidoDetalleDataGridView.Rows(newrow).Cells(3).Value = v_preciocosto
-                PedidoDetalleDataGridView.Rows(newrow).Cells(4).Value = v_preciocosto * PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value
+                PedidoDetalleDataGridView.Rows(newrow).Cells("preciocosto").Value = v_preciocosto
+                PedidoDetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_preciocosto * PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value
                 codigotextbox.SelectAll()
                 codigotextbox.Select()
                 montopedido() '
@@ -68,9 +68,9 @@
             Else '**  NO ES EL PRIMER ARTICULO DE LA LISTA -- DEBO RECORRERLA PARA SABER SI YA ESTA CARGADO
                 Dim i As Integer
                 For i = 0 To PedidoDetalleDataGridView.RowCount - 1
-                    If existeproducto = PedidoDetalleDataGridView.Rows(i).Cells(0).Value Then '** ARTICULO ENCONTRADO
+                    If existeproducto = PedidoDetalleDataGridView.Rows(i).Cells("idproducto").Value Then '** ARTICULO ENCONTRADO
                         If unidadmedida = 6 Then '** LA UNIDAD DE MEDIDA ES ENTERA
-                            PedidoDetalleDataGridView.Rows(i).Cells(2).Value = PedidoDetalleDataGridView.Rows(i).Cells(2).Value + 1 '*******  cantidad
+                            PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value = PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value + 1 '*******  cantidad
                         Else
                             Dim p As IngresaCantidad
                             p = New IngresaCantidad
@@ -79,9 +79,9 @@
                             p.unidadmedida = unidadmedida
                             p.precioventa = v_preciocosto
                             p.ShowDialog()
-                            PedidoDetalleDataGridView.Rows(i).Cells(2).Value = gcantidad '*******  cantidad
+                            PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value = gcantidad '*******  cantidad
                         End If
-                        PedidoDetalleDataGridView.Rows(i).Cells(4).Value = v_preciocosto * PedidoDetalleDataGridView.Rows(i).Cells(2).Value
+                        PedidoDetalleDataGridView.Rows(i).Cells("subtotal").Value = v_preciocosto * PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value
                         codigotextbox.SelectAll()
                         codigotextbox.Select()
                         montopedido()
@@ -92,10 +92,10 @@
                 Next
                 If addnewrow = True Then
                     newrow = PedidoDetalleDataGridView.Rows.Add()
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(0).Value = existeproducto
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(1).Value = Labelproducto.Text
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("idproducto").Value = existeproducto
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("descripcion").Value = Labelproducto.Text
                     If unidadmedida = 6 Then '** LA UNIDAD DE MEDIDA ES ENTERA
-                        PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = 1 '*******  cantidad
+                        PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value = 1 '*******  cantidad
                     Else
                         Dim p As IngresaCantidad
                         p = New IngresaCantidad
@@ -104,10 +104,10 @@
                         p.unidadmedida = unidadmedida
                         p.precioventa = v_preciocosto
                         p.ShowDialog()
-                        PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
+                        PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value = gcantidad '*******  cantidad
                     End If
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(3).Value = v_preciocosto
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(4).Value = v_preciocosto * PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("preciocosto").Value = v_preciocosto
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_preciocosto * PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value
                     codigotextbox.SelectAll()
                     codigotextbox.Select()
                     montopedido()
@@ -148,18 +148,21 @@
         Labelproducto.Text = gproductodescripcion
         v_preciocosto = ProductosTableAdapter.productos_consultarpreciocosto(gcodigoproducto)
         existeproducto = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
+        Dim actual As Decimal
+        actual = StockTableAdapter.stock_consultardisponibleenvasado(existeproducto)
         'codigotextbox.Text = gcodigoproducto
         If PedidoDetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
             newrow = PedidoDetalleDataGridView.Rows.Add()
-            PedidoDetalleDataGridView.Rows(newrow).Cells(0).Value = existeproducto
-            PedidoDetalleDataGridView.Rows(newrow).Cells(1).Value = Labelproducto.Text
+            PedidoDetalleDataGridView.Rows(newrow).Cells("idproducto").Value = existeproducto
+            PedidoDetalleDataGridView.Rows(newrow).Cells("descripcion").Value = Labelproducto.Text
             If unidadmedida = 6 Then '** LA UNIDAD DE MEDIDA ES ENTERA
-                PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = 1 '*******  cantidad
+                PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value = 1 '*******  cantidad
             Else
-                PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
+                PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value = gcantidad '*******  cantidad
             End If
-            PedidoDetalleDataGridView.Rows(newrow).Cells(3).Value = v_preciocosto
-            PedidoDetalleDataGridView.Rows(newrow).Cells(4).Value = v_preciocosto * PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value
+            PedidoDetalleDataGridView.Rows(newrow).Cells("preciocosto").Value = v_preciocosto
+            PedidoDetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_preciocosto * PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value
+            PedidoDetalleDataGridView.Rows(newrow).Cells("actual").Value = actual
             codigotextbox.SelectAll()
             codigotextbox.Select()
             montopedido()
@@ -167,13 +170,14 @@
         Else '**  NO ES EL PRIMER ARTICULO DE LA LISTA -- DEBO RECORRERLA PARA SABER SI YA ESTA CARGADO
             Dim i As Integer
             For i = 0 To PedidoDetalleDataGridView.RowCount - 1
-                If existeproducto = PedidoDetalleDataGridView.Rows(i).Cells(0).Value Then '** ARTICULO ENCONTRADO
+                If existeproducto = PedidoDetalleDataGridView.Rows(i).Cells("idproducto").Value Then '** ARTICULO ENCONTRADO
                     If unidadmedida = 6 Then '** LA UNIDAD DE MEDIDA ES ENTERA
-                        PedidoDetalleDataGridView.Rows(i).Cells(2).Value = PedidoDetalleDataGridView.Rows(i).Cells(2).Value + 1 '*******  cantidad
+                        PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value = PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value + 1 '*******  cantidad
                     Else
-                        PedidoDetalleDataGridView.Rows(i).Cells(2).Value = gcantidad '*******  cantidad
+                        PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value = gcantidad '*******  cantidad
                     End If
-                    PedidoDetalleDataGridView.Rows(i).Cells(4).Value = v_preciocosto * PedidoDetalleDataGridView.Rows(i).Cells(2).Value
+                    PedidoDetalleDataGridView.Rows(i).Cells("subtotal").Value = v_preciocosto * PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value
+                    PedidoDetalleDataGridView.Rows(i).Cells("actual").Value = actual
                     codigotextbox.SelectAll()
                     codigotextbox.Select()
                     montopedido()
@@ -184,15 +188,16 @@
             Next
             If addnewrow = True Then
                 newrow = PedidoDetalleDataGridView.Rows.Add()
-                PedidoDetalleDataGridView.Rows(newrow).Cells(0).Value = existeproducto
-                PedidoDetalleDataGridView.Rows(newrow).Cells(1).Value = Labelproducto.Text
+                PedidoDetalleDataGridView.Rows(newrow).Cells("idproducto").Value = existeproducto
+                PedidoDetalleDataGridView.Rows(newrow).Cells("descripcion").Value = Labelproducto.Text
                 If unidadmedida = 6 Then '** LA UNIDAD DE MEDIDA ES ENTERA
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = 1 '*******  cantidad
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value = 1 '*******  cantidad
                 Else
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value = gcantidad '*******  cantidad
                 End If
-                PedidoDetalleDataGridView.Rows(newrow).Cells(3).Value = v_preciocosto
-                PedidoDetalleDataGridView.Rows(newrow).Cells(4).Value = v_preciocosto * PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value
+                PedidoDetalleDataGridView.Rows(newrow).Cells("preciocosto").Value = v_preciocosto
+                PedidoDetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_preciocosto * PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value
+                PedidoDetalleDataGridView.Rows(newrow).Cells("actual").Value = actual
                 codigotextbox.SelectAll()
                 codigotextbox.Select()
                 montopedido()
@@ -258,9 +263,9 @@
             End If
 
             For i = 0 To PedidoDetalleDataGridView.RowCount - 1
-                cantidad = PedidoDetalleDataGridView.Rows(i).Cells(2).Value
-                precio = PedidoDetalleDataGridView.Rows(i).Cells(4).Value
-                codigoproducto = PedidoDetalleDataGridView.Rows(i).Cells(0).Value
+                cantidad = PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value
+                precio = PedidoDetalleDataGridView.Rows(i).Cells("preciocosto").Value
+                codigoproducto = PedidoDetalleDataGridView.Rows(i).Cells("idproducto").Value
                 rtn2 = PedidosdetalleTableAdapter.pedidosdetalle_insertar(rtn, codigoproducto, cantidad, precio)
                 If rtn2 = 0 Then
                     MsgBox("Ocurrio un error al intentar grabar detalle del pedido", MsgBoxStyle.Exclamation, "Advertencia")
@@ -302,7 +307,7 @@
         total = 0
 
         For i = 0 To PedidoDetalleDataGridView.RowCount - 1
-            precio = PedidoDetalleDataGridView.Rows(i).Cells(4).Value
+            precio = PedidoDetalleDataGridView.Rows(i).Cells("preciocosto").Value
             total += precio
         Next
         total = Decimal.Round(total, 2)
@@ -345,11 +350,12 @@
                     v_preciocosto = ProductosTableAdapter.productos_consultarpreciocosto(codigoproducto)
                     '=============================================
                     Dim newrow As Long = PedidoDetalleDataGridView.Rows.Add()
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(0).Value = idproducto
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(1).Value = descripcion
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = cantidad
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(3).Value = v_preciocosto
-                    PedidoDetalleDataGridView.Rows(newrow).Cells(4).Value = cantidad * v_preciocosto
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("idproducto").Value = idproducto
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("descripcion").Value = descripcion
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("cantidad").Value = cantidad
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("preciocosto").Value = v_preciocosto
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("subtotal").Value = cantidad * v_preciocosto
+                    PedidoDetalleDataGridView.Rows(newrow).Cells("actual").Value = StockalertaTable.Rows(i).Item(StockalertaTable.Columns("disponible"))
                 Next
             Catch ex As Exception
 
@@ -381,7 +387,7 @@
                 'PedidoDetalleDataGridView.Rows(newrow).Cells(1).Value = descripcion
                 'PedidoDetalleDataGridView.Rows(newrow).Cells(2).Value = cantidad
                 'PedidoDetalleDataGridView.Rows(newrow).Cells(3).Value = v_preciocosto
-                PedidoDetalleDataGridView.Rows(i).Cells(4).Value = PedidoDetalleDataGridView.Rows(i).Cells(2).Value * PedidoDetalleDataGridView.Rows(i).Cells(3).Value
+                PedidoDetalleDataGridView.Rows(i).Cells("subtotal").Value = PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value * PedidoDetalleDataGridView.Rows(i).Cells("preciocosto").Value
             Next
             montopedido()
         Catch ex As Exception

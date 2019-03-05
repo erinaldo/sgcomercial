@@ -1,10 +1,17 @@
 ﻿Public Class ViewerFactura
     Private Sub ViewerFactura_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.libroventas' Puede moverla o quitarla según sea necesario.
-        'Me.libroventasTableAdapter.Fill(Me.comercialDataSet.libroventas)
-        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.libroventasdetalle' Puede moverla o quitarla según sea necesario.
-        'Me.libroventasdetalleTableAdapter.Fill(Me.comercialDataSet.libroventasdetalle)
+        Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
+        Me.libroventasTableAdapter.FillByIdventa(Me.comercialDataSet.libroventas, gidventa)
+        Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
 
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComandera80.rdlc"
+        Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
+        Me.ReportViewer1.RefreshReport()
+
+
+    End Sub
+
+    Private Sub HojaA4ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HojaA4ToolStripMenuItem.Click
         Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
         Me.libroventasTableAdapter.FillByIdventa(Me.comercialDataSet.libroventas, gidventa)
         Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
@@ -17,5 +24,28 @@
         End If
 
         Me.ReportViewer1.RefreshReport()
+    End Sub
+
+    Private Sub Comanda80mmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Comanda80mmToolStripMenuItem.Click
+        Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
+        Me.libroventasTableAdapter.FillByIdventa(Me.comercialDataSet.libroventas, gidventa)
+        Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
+
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComandera80.rdlc"
+        Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
+        Me.ReportViewer1.RefreshReport()
+
+    End Sub
+
+    Private Sub Comanda58mmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Comanda58mmToolStripMenuItem.Click
+        Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
+        Me.libroventasTableAdapter.FillByIdventa(Me.comercialDataSet.libroventas, gidventa)
+        Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
+
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComandera58.rdlc"
+        Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
+        Me.ReportViewer1.RefreshReport()
+
+
     End Sub
 End Class

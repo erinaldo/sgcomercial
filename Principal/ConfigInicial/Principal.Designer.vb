@@ -845,7 +845,7 @@ Partial Class Principal
         '
         'SysConfigToolStripMenuItem
         '
-        Me.SysConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem, Me.POSTFormToolStripMenuItem})
+        Me.SysConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.POSTFormToolStripMenuItem})
         Me.SysConfigToolStripMenuItem.Name = "SysConfigToolStripMenuItem"
         Me.SysConfigToolStripMenuItem.Size = New System.Drawing.Size(96, 27)
         Me.SysConfigToolStripMenuItem.Tag = "SysConfig"
