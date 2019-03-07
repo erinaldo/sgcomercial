@@ -104,11 +104,11 @@ Partial Class EnviarStock
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(259, 48)
+        Me.Label1.Location = New System.Drawing.Point(181, 48)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(67, 17)
+        Me.Label1.Size = New System.Drawing.Size(137, 17)
         Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Sucursal:"
+        Me.Label1.Text = "Sucursal de destino:"
         '
         'ComboBox1
         '
@@ -398,20 +398,33 @@ Partial Class EnviarStock
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.pedidosTableAdapter = Nothing
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
@@ -419,17 +432,24 @@ Partial Class EnviarStock
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Me.ProductosTableAdapter
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
         Me.TableAdapterManager.remitosdetalleTableAdapter = Me.RemitosdetalleTableAdapter
         Me.TableAdapterManager.remitosTableAdapter = Me.RemitosTableAdapter
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Me.StockTableAdapter
         Me.TableAdapterManager.sucursalesTableAdapter = Me.SucursalesTableAdapter
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Me.UnidadesmedidaTableAdapter
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing

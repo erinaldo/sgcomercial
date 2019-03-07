@@ -25,9 +25,15 @@ Partial Class Cajasmovimientos
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Cajasmovimientos))
-        Me.ingresosGraphBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.librodiarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ingresosGraphBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.v_gastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
@@ -50,7 +56,7 @@ Partial Class Cajasmovimientos
         Me.SaldoinicialDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SaldofinalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.imprimircierre = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.enviar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.CajasmovimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VgastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -62,34 +68,60 @@ Partial Class Cajasmovimientos
         Me.V_gastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.v_gastosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
-        Me.ReportViewer2 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.ingresosGraphTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ingresosGraphTableAdapter()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.ReportViewer3 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Button3 = New System.Windows.Forms.Button()
-        CType(Me.ingresosGraphBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.librodiarioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librodiarioTableAdapter()
+        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        Me.cajaresumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
+        CType(Me.librodiarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ingresosGraphBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.v_gastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasmovimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VgastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PerfilesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ingresosGraphBindingSource
+        'librodiarioBindingSource
         '
-        Me.ingresosGraphBindingSource.DataMember = "ingresosGraph"
-        Me.ingresosGraphBindingSource.DataSource = Me.ComercialDataSet
+        Me.librodiarioBindingSource.DataMember = "librodiario"
+        Me.librodiarioBindingSource.DataSource = Me.ComercialDataSet
         '
         'ComercialDataSet
         '
         Me.ComercialDataSet.DataSetName = "comercialDataSet"
         Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'MiComercioBindingSource
+        '
+        Me.MiComercioBindingSource.DataMember = "MiComercio"
+        Me.MiComercioBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'CajaseventosBindingSource
+        '
+        Me.CajaseventosBindingSource.DataMember = "cajaseventos"
+        Me.CajaseventosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'cajaresumenBindingSource
+        '
+        Me.cajaresumenBindingSource.DataMember = "cajaresumen"
+        Me.cajaresumenBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ingresosGraphBindingSource
+        '
+        Me.ingresosGraphBindingSource.DataMember = "ingresosGraph"
+        Me.ingresosGraphBindingSource.DataSource = Me.ComercialDataSet
         '
         'v_gastosBindingSource
         '
@@ -98,8 +130,6 @@ Partial Class Cajasmovimientos
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.CajasoperacionesDataGridView)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -109,7 +139,7 @@ Partial Class Cajasmovimientos
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 9)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(818, 458)
+        Me.GroupBox1.Size = New System.Drawing.Size(1056, 408)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Eventos de Caja"
@@ -221,14 +251,14 @@ Partial Class Cajasmovimientos
         Me.CajaseventosDataGridView.AutoGenerateColumns = False
         Me.CajaseventosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.CajaseventosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CajaseventosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdeventoDataGridViewTextBoxColumn, Me.idcaja, Me.FechaaperturaDataGridViewTextBoxColumn, Me.FechacierreDataGridViewTextBoxColumn, Me.SaldoinicialDataGridViewTextBoxColumn, Me.SaldofinalDataGridViewTextBoxColumn, Me.imprimircierre})
+        Me.CajaseventosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdeventoDataGridViewTextBoxColumn, Me.idcaja, Me.FechaaperturaDataGridViewTextBoxColumn, Me.FechacierreDataGridViewTextBoxColumn, Me.SaldoinicialDataGridViewTextBoxColumn, Me.SaldofinalDataGridViewTextBoxColumn, Me.imprimircierre, Me.enviar})
         Me.CajaseventosDataGridView.DataSource = Me.CajaseventosBindingSource
         Me.CajaseventosDataGridView.Location = New System.Drawing.Point(6, 69)
         Me.CajaseventosDataGridView.MultiSelect = False
         Me.CajaseventosDataGridView.Name = "CajaseventosDataGridView"
         Me.CajaseventosDataGridView.ReadOnly = True
         Me.CajaseventosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(806, 383)
+        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(1044, 333)
         Me.CajaseventosDataGridView.TabIndex = 1
         '
         'IdeventoDataGridViewTextBoxColumn
@@ -290,10 +320,16 @@ Partial Class Cajasmovimientos
         Me.imprimircierre.UseColumnTextForButtonValue = True
         Me.imprimircierre.Width = 67
         '
-        'CajaseventosBindingSource
+        'enviar
         '
-        Me.CajaseventosBindingSource.DataMember = "cajaseventos"
-        Me.CajaseventosBindingSource.DataSource = Me.ComercialDataSet
+        Me.enviar.HeaderText = "Enviar Email"
+        Me.enviar.Name = "enviar"
+        Me.enviar.ReadOnly = True
+        Me.enviar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.enviar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.enviar.Text = "Enviar Email"
+        Me.enviar.UseColumnTextForButtonValue = True
+        Me.enviar.Width = 119
         '
         'CajasmovimientosBindingSource
         '
@@ -401,70 +437,76 @@ Partial Class Cajasmovimientos
         '
         Me.CajasoperacionesTableAdapter.ClearBeforeFill = True
         '
-        'ReportViewer2
-        '
-        Me.ReportViewer2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ReportViewer2.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ReportViewer2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        ReportDataSource1.Name = "ingresosgraph"
-        ReportDataSource1.Value = Me.ingresosGraphBindingSource
-        Me.ReportViewer2.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphIngresos.rdlc"
-        Me.ReportViewer2.Location = New System.Drawing.Point(854, 23)
-        Me.ReportViewer2.Name = "ReportViewer2"
-        Me.ReportViewer2.ShowToolBar = False
-        Me.ReportViewer2.Size = New System.Drawing.Size(305, 403)
-        Me.ReportViewer2.TabIndex = 6
-        '
         'ingresosGraphTableAdapter
         '
         Me.ingresosGraphTableAdapter.ClearBeforeFill = True
         '
         'Button4
         '
-        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Location = New System.Drawing.Point(1172, 431)
+        Me.Button4.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button4.Location = New System.Drawing.Point(537, 423)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(186, 35)
+        Me.Button4.Size = New System.Drawing.Size(525, 35)
         Me.Button4.TabIndex = 7
         Me.Button4.Text = "Detalle Egresos"
         Me.Button4.UseVisualStyleBackColor = True
         '
-        'ReportViewer3
-        '
-        Me.ReportViewer3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ReportViewer3.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ReportViewer3.BorderStyle = System.Windows.Forms.BorderStyle.None
-        ReportDataSource2.Name = "v_gastos"
-        ReportDataSource2.Value = Me.v_gastosBindingSource
-        Me.ReportViewer3.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer3.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphEgresos.rdlc"
-        Me.ReportViewer3.Location = New System.Drawing.Point(1172, 23)
-        Me.ReportViewer3.Name = "ReportViewer3"
-        Me.ReportViewer3.ShowToolBar = False
-        Me.ReportViewer3.Size = New System.Drawing.Size(305, 403)
-        Me.ReportViewer3.TabIndex = 8
-        '
         'Button3
         '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Location = New System.Drawing.Point(854, 431)
+        Me.Button3.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button3.Location = New System.Drawing.Point(12, 423)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(186, 35)
+        Me.Button3.Size = New System.Drawing.Size(525, 35)
         Me.Button3.TabIndex = 9
         Me.Button3.Text = "Detalle Ingresos"
         Me.Button3.UseVisualStyleBackColor = True
+        '
+        'ParametrosgeneralesTableAdapter
+        '
+        Me.ParametrosgeneralesTableAdapter.ClearBeforeFill = True
+        '
+        'ReportViewer1
+        '
+        ReportDataSource1.Name = "librodiario"
+        ReportDataSource1.Value = Me.librodiarioBindingSource
+        ReportDataSource2.Name = "MiComercio"
+        ReportDataSource2.Value = Me.MiComercioBindingSource
+        ReportDataSource3.Name = "cajaseventos"
+        ReportDataSource3.Value = Me.CajaseventosBindingSource
+        ReportDataSource4.Name = "cajaresumen"
+        ReportDataSource4.Value = Me.cajaresumenBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(1074, 12)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(416, 444)
+        Me.ReportViewer1.TabIndex = 10
+        Me.ReportViewer1.Visible = False
+        '
+        'librodiarioTableAdapter
+        '
+        Me.librodiarioTableAdapter.ClearBeforeFill = True
+        '
+        'MiComercioTableAdapter
+        '
+        Me.MiComercioTableAdapter.ClearBeforeFill = True
+        '
+        'cajaresumenTableAdapter
+        '
+        Me.cajaresumenTableAdapter.ClearBeforeFill = True
         '
         'Cajasmovimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1502, 479)
+        Me.ClientSize = New System.Drawing.Size(1089, 468)
+        Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.ReportViewer2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.ReportViewer3)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -474,15 +516,18 @@ Partial Class Cajasmovimientos
         Me.Name = "Cajasmovimientos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Movimientos de Caja"
-        CType(Me.ingresosGraphBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.librodiarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ingresosGraphBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.v_gastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasmovimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VgastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -517,6 +562,11 @@ Partial Class Cajasmovimientos
     Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ingresosGraphBindingSource As BindingSource
+    Friend WithEvents ingresosGraphTableAdapter As comercialDataSetTableAdapters.ingresosGraphTableAdapter
+    Friend WithEvents Button4 As Button
+    Friend WithEvents v_gastosBindingSource As BindingSource
+    Friend WithEvents Button3 As Button
     Friend WithEvents IdeventoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents idcaja As DataGridViewTextBoxColumn
     Friend WithEvents FechaaperturaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -524,11 +574,13 @@ Partial Class Cajasmovimientos
     Friend WithEvents SaldoinicialDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents SaldofinalDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents imprimircierre As DataGridViewButtonColumn
-    Friend WithEvents ReportViewer2 As ReportViewer
-    Friend WithEvents ingresosGraphBindingSource As BindingSource
-    Friend WithEvents ingresosGraphTableAdapter As comercialDataSetTableAdapters.ingresosGraphTableAdapter
-    Friend WithEvents Button4 As Button
-    Friend WithEvents ReportViewer3 As ReportViewer
-    Friend WithEvents v_gastosBindingSource As BindingSource
-    Friend WithEvents Button3 As Button
+    Friend WithEvents enviar As DataGridViewButtonColumn
+    Friend WithEvents ParametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
+    Friend WithEvents ReportViewer1 As ReportViewer
+    Friend WithEvents librodiarioBindingSource As BindingSource
+    Friend WithEvents MiComercioBindingSource As BindingSource
+    Friend WithEvents cajaresumenBindingSource As BindingSource
+    Friend WithEvents librodiarioTableAdapter As comercialDataSetTableAdapters.librodiarioTableAdapter
+    Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
+    Friend WithEvents cajaresumenTableAdapter As comercialDataSetTableAdapters.cajaresumenTableAdapter
 End Class

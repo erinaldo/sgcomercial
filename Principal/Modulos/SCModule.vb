@@ -18,7 +18,8 @@ Module SCModule
     Sub conectarSCConn(ByRef status As Boolean)
         Try
             'MySQLConn = New MySqlConnection("Data Source=sistemascomerciales.net; Database=sistema1_sgcaguadagrande; User ID=sistema1_sgcweb; Password=sgcomercial*?; Allow Zero Datetime= true; CHARSET= latin1")
-            SCConn = New MySqlConnection(sgcomercial.My.MySettings.Default.SCConnectionString)
+            'SCConn = New MySqlConnection(sgcomercial.My.MySettings.Default.SCConnectionString)
+            SCConn = New MySqlConnection(SCStrConn)
             SCConn.Open()
             'MsgBox("Conexión exitosa!", MsgBoxStyle.Information, "SisCom")
             status = True

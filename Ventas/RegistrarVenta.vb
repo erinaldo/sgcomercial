@@ -208,7 +208,7 @@ Public Class RegistrarVenta
                 MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
                 Return
             End If
-            If pago <> tot Then
+            If pago < tot Then
                 MsgBox("Monto insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
                 pagotextbox.Select()
                 Return
@@ -266,6 +266,7 @@ Public Class RegistrarVenta
                     If IsDBNull(VentasdetalleDataGridView.Rows(i).Cells("recargo").Value) = False Then
                         recargo = VentasdetalleDataGridView.Rows(i).Cells("recargo").Value
                     End If
+
                     idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value), VentasdetalleDataGridView.Rows(i).Cells("listasprecios").Value, recargo, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("descuento").Value)) '// descuento
                 Catch ex As Exception
                     MsgBox("Error al grabar el detalle: " + ex.Message)
@@ -344,7 +345,10 @@ Public Class RegistrarVenta
             '********************************************************************************************
             '=================== RESETAR CONTROLES  ================================
             resetearcontroles()
-            BackgroundSyncLibroventasClowd.RunWorkerAsync()
+            If Not (BackgroundSyncLibroventasClowd.IsBusy) Then
+                BackgroundSyncLibroventasClowd.RunWorkerAsync()
+            End If
+
             '******************************************************************************************** 
             '****** impresion ticket
             '*****************************************************************************

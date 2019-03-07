@@ -29,7 +29,7 @@
         Version.Text = My.Application.Info.Title + " " + System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
         Version.Text += "." + My.Application.Info.Version.MinorRevision.ToString
         'Información de Copyright
-        Copyright.Text = My.Application.Info.Copyright
+        mensaje.Text = My.Application.Info.Copyright
 
 
 
@@ -45,9 +45,9 @@
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         ProgressBar1.Increment(10)
-        If ProgressBar1.Value = 100 Then
-            loginform.Show()
-            Me.Visible = False
-        End If
+        'If ProgressBar1.Value = 100 Then
+        '    loginform.Show()
+        '    'Me.Visible = False
+        'End If
     End Sub
 End Class

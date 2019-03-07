@@ -2390,8 +2390,8 @@
               <Value>=First(Fields!Logo.Value, "MiComercio")</Value>
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>0.508cm</Top>
-              <Left>1.12646cm</Left>
+              <Top>0.49388cm</Top>
+              <Left>2.07507cm</Left>
               <Height>2.28246cm</Height>
               <Width>2.28246cm</Width>
               <Style>
@@ -2418,8 +2418,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>NombreComercio</rd:DefaultName>
-              <Top>0.508cm</Top>
-              <Left>3.63589cm</Left>
+              <Top>0.49388cm</Top>
+              <Left>4.5845cm</Left>
               <Height>0.50347cm</Height>
               <Width>5.38663cm</Width>
               <ZIndex>1</ZIndex>
@@ -2458,8 +2458,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>CuitCuil</rd:DefaultName>
-              <Top>1.10872cm</Top>
-              <Left>3.63589cm</Left>
+              <Top>1.0946cm</Top>
+              <Left>4.5845cm</Left>
               <Height>0.50347cm</Height>
               <Width>5.38663cm</Width>
               <ZIndex>2</ZIndex>
@@ -2491,8 +2491,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Dirección</rd:DefaultName>
-              <Top>1.70491cm</Top>
-              <Left>3.63589cm</Left>
+              <Top>1.69079cm</Top>
+              <Left>4.5845cm</Left>
               <Height>0.50347cm</Height>
               <Width>5.38663cm</Width>
               <ZIndex>3</ZIndex>
@@ -2531,8 +2531,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Teléfono</rd:DefaultName>
-              <Top>2.30111cm</Top>
-              <Left>3.63589cm</Left>
+              <Top>2.28699cm</Top>
+              <Left>4.5845cm</Left>
               <Height>0.50347cm</Height>
               <Width>5.38663cm</Width>
               <ZIndex>4</ZIndex>
@@ -2564,8 +2564,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>NombreComercio</rd:DefaultName>
-              <Top>0.508cm</Top>
-              <Left>13.97111cm</Left>
+              <Top>0.49388cm</Top>
+              <Left>14.88207cm</Left>
               <Height>0.50347cm</Height>
               <Width>5.38663cm</Width>
               <ZIndex>5</ZIndex>
@@ -2604,8 +2604,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>CuitCuil</rd:DefaultName>
-              <Top>1.10872cm</Top>
-              <Left>13.97111cm</Left>
+              <Top>1.0946cm</Top>
+              <Left>14.88207cm</Left>
               <Height>0.50347cm</Height>
               <Width>5.38663cm</Width>
               <ZIndex>6</ZIndex>
@@ -2637,8 +2637,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Dirección</rd:DefaultName>
-              <Top>1.70491cm</Top>
-              <Left>13.97111cm</Left>
+              <Top>1.69079cm</Top>
+              <Left>14.88207cm</Left>
               <Height>0.50347cm</Height>
               <Width>5.38663cm</Width>
               <ZIndex>7</ZIndex>
@@ -2677,8 +2677,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Teléfono</rd:DefaultName>
-              <Top>2.30111cm</Top>
-              <Left>13.97111cm</Left>
+              <Top>2.28699cm</Top>
+              <Left>14.88207cm</Left>
               <Height>0.50347cm</Height>
               <Width>5.38663cm</Width>
               <ZIndex>8</ZIndex>
@@ -2690,43 +2690,6 @@
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
                 <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox7">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>sistemascomerciales.net</Value>
-                      <Style>
-                        <FontStyle>Italic</FontStyle>
-                        <FontSize>7pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.15875cm</Top>
-              <Left>0.3175cm</Left>
-              <Height>3.0343cm</Height>
-              <Width>0.49146cm</Width>
-              <ZIndex>9</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Direction>RTL</Direction>
-                <WritingMode>Rotate270</WritingMode>
               </Style>
             </Textbox>
             <Textbox Name="Textbox10">
@@ -2750,10 +2713,10 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>0.15875cm</Top>
-              <Left>10.61509cm</Left>
-              <Height>3.0343cm</Height>
+              <Left>11.10341cm</Left>
+              <Height>3.21422cm</Height>
               <Width>0.49146cm</Width>
-              <ZIndex>10</ZIndex>
+              <ZIndex>9</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2771,17 +2734,128 @@
               <Value>=First(Fields!Logo.Value, "MiComercio")</Value>
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>0.508cm</Top>
-              <Left>11.45376cm</Left>
+              <Top>0.49388cm</Top>
+              <Left>12.36472cm</Left>
               <Height>2.28246cm</Height>
               <Width>2.28246cm</Width>
-              <ZIndex>11</ZIndex>
+              <ZIndex>10</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
               </Style>
             </Image>
+            <Textbox Name="Textbox13">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>evolucioná tu negocio</Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0.15875cm</Top>
+              <Left>10.61508cm</Left>
+              <Height>3.21422cm</Height>
+              <Width>0.49146cm</Width>
+              <ZIndex>11</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Direction>RTL</Direction>
+                <WritingMode>Rotate270</WritingMode>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox14">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>sistemascomerciales.net</Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0.15875cm</Top>
+              <Left>0.84592cm</Left>
+              <Height>3.21422cm</Height>
+              <Width>0.49146cm</Width>
+              <ZIndex>12</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Direction>RTL</Direction>
+                <WritingMode>Rotate270</WritingMode>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox15">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>evolucioná tu negocio</Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0.15875cm</Top>
+              <Left>0.3576cm</Left>
+              <Height>3.21422cm</Height>
+              <Width>0.49146cm</Width>
+              <ZIndex>13</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Direction>RTL</Direction>
+                <WritingMode>Rotate270</WritingMode>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>

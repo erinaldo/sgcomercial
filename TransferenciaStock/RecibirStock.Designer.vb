@@ -27,25 +27,6 @@ Partial Class RecibirStock
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.RemitosdetalleDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewProductos = New System.Windows.Forms.DataGridView()
-        Me.RemitosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.SucursalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SucursalesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.sucursalesTableAdapter()
-        Me.RemitosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.RemitosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.remitosTableAdapter()
-        Me.IdremitoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TiporemitoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdsucursalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaaltaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechabajaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsuariocargaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RemitosdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.RemitosdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.remitosdetalleTableAdapter()
         Me.IdremitodetalleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdremitoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdproductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -58,31 +39,50 @@ Partial Class RecibirStock
         Me.PrecioventaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PrecioventamayoristaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PrecioventagranelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
-        Me.UnidadesmedidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.UnidadesmedidaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.unidadesmedidaTableAdapter()
+        Me.RemitosdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.DataGridViewProductos = New System.Windows.Forms.DataGridView()
         Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.unidadmedida = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.UnidadesmedidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.preciocosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RemitosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.IdremitoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TiporemitoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdsucursalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaaltaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechabajaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuariocargaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RemitosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.SucursalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SucursalesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.sucursalesTableAdapter()
+        Me.RemitosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.remitosTableAdapter()
+        Me.RemitosdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.remitosdetalleTableAdapter()
+        Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
+        Me.UnidadesmedidaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.unidadesmedidaTableAdapter()
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.RemitosdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridViewProductos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RemitosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RemitosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RemitosdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RemitosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RemitosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox3
@@ -132,150 +132,6 @@ Partial Class RecibirStock
         Me.RemitosdetalleDataGridView.Size = New System.Drawing.Size(32, 23)
         Me.RemitosdetalleDataGridView.TabIndex = 4
         Me.RemitosdetalleDataGridView.Visible = False
-        '
-        'DataGridViewProductos
-        '
-        Me.DataGridViewProductos.AllowUserToAddRows = False
-        Me.DataGridViewProductos.AllowUserToDeleteRows = False
-        Me.DataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewProductos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.cantidad, Me.unidadmedida, Me.medida, Me.preciocosto, Me.precioventa, Me.precioventamayorista, Me.precioventagranel})
-        Me.DataGridViewProductos.Location = New System.Drawing.Point(6, 63)
-        Me.DataGridViewProductos.Name = "DataGridViewProductos"
-        Me.DataGridViewProductos.RowTemplate.Height = 24
-        Me.DataGridViewProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewProductos.Size = New System.Drawing.Size(805, 367)
-        Me.DataGridViewProductos.TabIndex = 1
-        '
-        'RemitosDataGridView
-        '
-        Me.RemitosDataGridView.AllowUserToAddRows = False
-        Me.RemitosDataGridView.AllowUserToDeleteRows = False
-        Me.RemitosDataGridView.AutoGenerateColumns = False
-        Me.RemitosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.RemitosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdremitoDataGridViewTextBoxColumn, Me.TiporemitoDataGridViewTextBoxColumn, Me.IdsucursalDataGridViewTextBoxColumn, Me.FechaaltaDataGridViewTextBoxColumn, Me.FechabajaDataGridViewTextBoxColumn, Me.UsuariocargaDataGridViewTextBoxColumn})
-        Me.RemitosDataGridView.DataSource = Me.RemitosBindingSource
-        Me.RemitosDataGridView.Location = New System.Drawing.Point(526, 22)
-        Me.RemitosDataGridView.Name = "RemitosDataGridView"
-        Me.RemitosDataGridView.ReadOnly = True
-        Me.RemitosDataGridView.RowTemplate.Height = 24
-        Me.RemitosDataGridView.Size = New System.Drawing.Size(32, 23)
-        Me.RemitosDataGridView.TabIndex = 3
-        Me.RemitosDataGridView.Visible = False
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(316, 22)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(185, 30)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Agregar"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 16)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(817, 100)
-        Me.GroupBox1.TabIndex = 3
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Sucursal"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(231, 48)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 17)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Sucursal Origen:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DataSource = Me.SucursalesBindingSource
-        Me.ComboBox1.DisplayMember = "nombre"
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(355, 44)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(230, 24)
-        Me.ComboBox1.TabIndex = 2
-        Me.ComboBox1.ValueMember = "idsucursal"
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'SucursalesBindingSource
-        '
-        Me.SucursalesBindingSource.DataMember = "sucursales"
-        Me.SucursalesBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'SucursalesTableAdapter
-        '
-        Me.SucursalesTableAdapter.ClearBeforeFill = True
-        '
-        'RemitosBindingSource
-        '
-        Me.RemitosBindingSource.DataMember = "remitos"
-        Me.RemitosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'RemitosTableAdapter
-        '
-        Me.RemitosTableAdapter.ClearBeforeFill = True
-        '
-        'IdremitoDataGridViewTextBoxColumn
-        '
-        Me.IdremitoDataGridViewTextBoxColumn.DataPropertyName = "idremito"
-        Me.IdremitoDataGridViewTextBoxColumn.HeaderText = "idremito"
-        Me.IdremitoDataGridViewTextBoxColumn.Name = "IdremitoDataGridViewTextBoxColumn"
-        Me.IdremitoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TiporemitoDataGridViewTextBoxColumn
-        '
-        Me.TiporemitoDataGridViewTextBoxColumn.DataPropertyName = "tiporemito"
-        Me.TiporemitoDataGridViewTextBoxColumn.HeaderText = "tiporemito"
-        Me.TiporemitoDataGridViewTextBoxColumn.Name = "TiporemitoDataGridViewTextBoxColumn"
-        Me.TiporemitoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'IdsucursalDataGridViewTextBoxColumn
-        '
-        Me.IdsucursalDataGridViewTextBoxColumn.DataPropertyName = "idsucursal"
-        Me.IdsucursalDataGridViewTextBoxColumn.HeaderText = "idsucursal"
-        Me.IdsucursalDataGridViewTextBoxColumn.Name = "IdsucursalDataGridViewTextBoxColumn"
-        Me.IdsucursalDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'FechaaltaDataGridViewTextBoxColumn
-        '
-        Me.FechaaltaDataGridViewTextBoxColumn.DataPropertyName = "fechaalta"
-        Me.FechaaltaDataGridViewTextBoxColumn.HeaderText = "fechaalta"
-        Me.FechaaltaDataGridViewTextBoxColumn.Name = "FechaaltaDataGridViewTextBoxColumn"
-        Me.FechaaltaDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'FechabajaDataGridViewTextBoxColumn
-        '
-        Me.FechabajaDataGridViewTextBoxColumn.DataPropertyName = "fechabaja"
-        Me.FechabajaDataGridViewTextBoxColumn.HeaderText = "fechabaja"
-        Me.FechabajaDataGridViewTextBoxColumn.Name = "FechabajaDataGridViewTextBoxColumn"
-        Me.FechabajaDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'UsuariocargaDataGridViewTextBoxColumn
-        '
-        Me.UsuariocargaDataGridViewTextBoxColumn.DataPropertyName = "usuariocarga"
-        Me.UsuariocargaDataGridViewTextBoxColumn.HeaderText = "usuariocarga"
-        Me.UsuariocargaDataGridViewTextBoxColumn.Name = "UsuariocargaDataGridViewTextBoxColumn"
-        Me.UsuariocargaDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'RemitosdetalleBindingSource
-        '
-        Me.RemitosdetalleBindingSource.DataMember = "remitosdetalle"
-        Me.RemitosdetalleBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'RemitosdetalleTableAdapter
-        '
-        Me.RemitosdetalleTableAdapter.ClearBeforeFill = True
         '
         'IdremitodetalleDataGridViewTextBoxColumn
         '
@@ -361,18 +217,28 @@ Partial Class RecibirStock
         Me.PrecioventagranelDataGridViewTextBoxColumn.Name = "PrecioventagranelDataGridViewTextBoxColumn"
         Me.PrecioventagranelDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'ProductosTableAdapter
+        'RemitosdetalleBindingSource
         '
-        Me.ProductosTableAdapter.ClearBeforeFill = True
+        Me.RemitosdetalleBindingSource.DataMember = "remitosdetalle"
+        Me.RemitosdetalleBindingSource.DataSource = Me.ComercialDataSet
         '
-        'UnidadesmedidaBindingSource
+        'ComercialDataSet
         '
-        Me.UnidadesmedidaBindingSource.DataMember = "unidadesmedida"
-        Me.UnidadesmedidaBindingSource.DataSource = Me.ComercialDataSet
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'UnidadesmedidaTableAdapter
+        'DataGridViewProductos
         '
-        Me.UnidadesmedidaTableAdapter.ClearBeforeFill = True
+        Me.DataGridViewProductos.AllowUserToAddRows = False
+        Me.DataGridViewProductos.AllowUserToDeleteRows = False
+        Me.DataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewProductos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.cantidad, Me.unidadmedida, Me.medida, Me.preciocosto, Me.precioventa, Me.precioventamayorista, Me.precioventagranel})
+        Me.DataGridViewProductos.Location = New System.Drawing.Point(6, 63)
+        Me.DataGridViewProductos.Name = "DataGridViewProductos"
+        Me.DataGridViewProductos.RowTemplate.Height = 24
+        Me.DataGridViewProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridViewProductos.Size = New System.Drawing.Size(805, 367)
+        Me.DataGridViewProductos.TabIndex = 1
         '
         'idproducto
         '
@@ -412,6 +278,11 @@ Partial Class RecibirStock
         Me.unidadmedida.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.unidadmedida.ValueMember = "idunidadmedida"
         '
+        'UnidadesmedidaBindingSource
+        '
+        Me.UnidadesmedidaBindingSource.DataMember = "unidadesmedida"
+        Me.UnidadesmedidaBindingSource.DataSource = Me.ComercialDataSet
+        '
         'medida
         '
         Me.medida.HeaderText = "Medida"
@@ -442,6 +313,135 @@ Partial Class RecibirStock
         Me.precioventagranel.Name = "precioventagranel"
         Me.precioventagranel.ReadOnly = True
         '
+        'RemitosDataGridView
+        '
+        Me.RemitosDataGridView.AllowUserToAddRows = False
+        Me.RemitosDataGridView.AllowUserToDeleteRows = False
+        Me.RemitosDataGridView.AutoGenerateColumns = False
+        Me.RemitosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.RemitosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdremitoDataGridViewTextBoxColumn, Me.TiporemitoDataGridViewTextBoxColumn, Me.IdsucursalDataGridViewTextBoxColumn, Me.FechaaltaDataGridViewTextBoxColumn, Me.FechabajaDataGridViewTextBoxColumn, Me.UsuariocargaDataGridViewTextBoxColumn})
+        Me.RemitosDataGridView.DataSource = Me.RemitosBindingSource
+        Me.RemitosDataGridView.Location = New System.Drawing.Point(526, 22)
+        Me.RemitosDataGridView.Name = "RemitosDataGridView"
+        Me.RemitosDataGridView.ReadOnly = True
+        Me.RemitosDataGridView.RowTemplate.Height = 24
+        Me.RemitosDataGridView.Size = New System.Drawing.Size(32, 23)
+        Me.RemitosDataGridView.TabIndex = 3
+        Me.RemitosDataGridView.Visible = False
+        '
+        'IdremitoDataGridViewTextBoxColumn
+        '
+        Me.IdremitoDataGridViewTextBoxColumn.DataPropertyName = "idremito"
+        Me.IdremitoDataGridViewTextBoxColumn.HeaderText = "idremito"
+        Me.IdremitoDataGridViewTextBoxColumn.Name = "IdremitoDataGridViewTextBoxColumn"
+        Me.IdremitoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TiporemitoDataGridViewTextBoxColumn
+        '
+        Me.TiporemitoDataGridViewTextBoxColumn.DataPropertyName = "tiporemito"
+        Me.TiporemitoDataGridViewTextBoxColumn.HeaderText = "tiporemito"
+        Me.TiporemitoDataGridViewTextBoxColumn.Name = "TiporemitoDataGridViewTextBoxColumn"
+        Me.TiporemitoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'IdsucursalDataGridViewTextBoxColumn
+        '
+        Me.IdsucursalDataGridViewTextBoxColumn.DataPropertyName = "idsucursal"
+        Me.IdsucursalDataGridViewTextBoxColumn.HeaderText = "idsucursal"
+        Me.IdsucursalDataGridViewTextBoxColumn.Name = "IdsucursalDataGridViewTextBoxColumn"
+        Me.IdsucursalDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'FechaaltaDataGridViewTextBoxColumn
+        '
+        Me.FechaaltaDataGridViewTextBoxColumn.DataPropertyName = "fechaalta"
+        Me.FechaaltaDataGridViewTextBoxColumn.HeaderText = "fechaalta"
+        Me.FechaaltaDataGridViewTextBoxColumn.Name = "FechaaltaDataGridViewTextBoxColumn"
+        Me.FechaaltaDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'FechabajaDataGridViewTextBoxColumn
+        '
+        Me.FechabajaDataGridViewTextBoxColumn.DataPropertyName = "fechabaja"
+        Me.FechabajaDataGridViewTextBoxColumn.HeaderText = "fechabaja"
+        Me.FechabajaDataGridViewTextBoxColumn.Name = "FechabajaDataGridViewTextBoxColumn"
+        Me.FechabajaDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'UsuariocargaDataGridViewTextBoxColumn
+        '
+        Me.UsuariocargaDataGridViewTextBoxColumn.DataPropertyName = "usuariocarga"
+        Me.UsuariocargaDataGridViewTextBoxColumn.HeaderText = "usuariocarga"
+        Me.UsuariocargaDataGridViewTextBoxColumn.Name = "UsuariocargaDataGridViewTextBoxColumn"
+        Me.UsuariocargaDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'RemitosBindingSource
+        '
+        Me.RemitosBindingSource.DataMember = "remitos"
+        Me.RemitosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(316, 22)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(185, 30)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Agregar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 16)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(817, 100)
+        Me.GroupBox1.TabIndex = 3
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Sucursal"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(231, 48)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(114, 17)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Sucursal Origen:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataSource = Me.SucursalesBindingSource
+        Me.ComboBox1.DisplayMember = "nombre"
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(355, 44)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(230, 24)
+        Me.ComboBox1.TabIndex = 2
+        Me.ComboBox1.ValueMember = "idsucursal"
+        '
+        'SucursalesBindingSource
+        '
+        Me.SucursalesBindingSource.DataMember = "sucursales"
+        Me.SucursalesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'SucursalesTableAdapter
+        '
+        Me.SucursalesTableAdapter.ClearBeforeFill = True
+        '
+        'RemitosTableAdapter
+        '
+        Me.RemitosTableAdapter.ClearBeforeFill = True
+        '
+        'RemitosdetalleTableAdapter
+        '
+        Me.RemitosdetalleTableAdapter.ClearBeforeFill = True
+        '
+        'ProductosTableAdapter
+        '
+        Me.ProductosTableAdapter.ClearBeforeFill = True
+        '
+        'UnidadesmedidaTableAdapter
+        '
+        Me.UnidadesmedidaTableAdapter.ClearBeforeFill = True
+        '
         'StockTableAdapter
         '
         Me.StockTableAdapter.ClearBeforeFill = True
@@ -462,15 +462,15 @@ Partial Class RecibirStock
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.RemitosdetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RemitosdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewProductos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RemitosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RemitosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RemitosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RemitosdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

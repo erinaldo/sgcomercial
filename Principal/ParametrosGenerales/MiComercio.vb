@@ -86,6 +86,9 @@ Public Class MiComercio
         '***************    EmailCierreCajaTo   ******************************************
         ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("EmailCierreCajaTo", Nothing, EmailCierreCajaTo.Text, Nothing)
         '***************    -----------     FIN     ------------  ******************************************
+        '***************    ComandaDefault   ******************************************
+        ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("ComandaDefault", Nothing, ComboBoxComandaDefault.Text, Nothing)
+        '***************    -----------     FIN     ------------  ******************************************
 
 
     End Sub
@@ -165,6 +168,11 @@ Public Class MiComercio
         Dim V_EmailCierreCajaTo As String
         V_EmailCierreCajaTo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailCierreCajaTo")
         EmailCierreCajaTo.Text = V_EmailCierreCajaTo
+        '**********
+        '********** ComandaDefault
+        Dim V_ComandaDefault As String
+        V_ComandaDefault = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ComandaDefault")
+        ComboBoxComandaDefault.Text = V_ComandaDefault
         '**********
         textnombrecomercio.Select()
     End Sub

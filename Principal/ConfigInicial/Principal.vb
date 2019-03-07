@@ -80,7 +80,7 @@ Public Class Principal
             End If
             LabelFecha.Text = Today
             'GBBienvenido.Left = (Me.Width / 2) - (GBBienvenido.Width / 2)
-            Me.Text = " Sistema de Gestion Comercial " + " - [" + ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio") + "]" + " - Caja N°: " + LabelCaja.Text + " - Usuario: " + gusername
+            Me.Text = " Sistema de Gestion Comercial " + " - [" + ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio") + "]" + " - Caja N°: " + LabelCaja.Text + " - Usuario: " + gusername + " - Sucursal N°: " + gMiSucursal
             'Try
             '    conectarMySQL()
             '    Me.Text = Me.Text + " - Servidor ONLINE"

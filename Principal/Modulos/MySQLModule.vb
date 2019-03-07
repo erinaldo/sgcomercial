@@ -750,7 +750,8 @@ Module MySQLModule
                 If IsDBNull(ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("productocompuesto"))) Then
                     productocompuesto = "N"
                 Else
-                    productocompuesto = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("productocompuesto"))
+                    'productocompuesto = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("productocompuesto"))
+                    productocompuesto = "N"
                 End If
                 '-----------------------------------------------------------------------------------
                 ' SI EXISTE UPDATE

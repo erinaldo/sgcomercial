@@ -61,19 +61,23 @@ Public Class loginform
 
     End Sub
 
+    Private Sub borrartemporales()
+        '==== limpio todos los pdf existentes
+        Try
+            FileSystem.Kill("*.pdf")
+        Catch ex As Exception
 
-    Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        End Try
+        '?========********************
+    End Sub
+    Private Sub formatos()
         Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Control Panel\International", "sShortDate", "dd/MM/yyyy")
-        Cursor.Current = Cursors.WaitCursor
-        Dim status As Boolean
-        '********************************
+    End Sub
+    Private Sub identificarterminal()
         gmacadress = getMacAddress()
         MachineKey = "LLAuth" + gmacadress
-
-        'If My.Computer.Name = "LUCASMARTINBS-N" Then
-        '    comercialStrConn = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?" 'DESA-local'
-        'End If
-        '********************************
+    End Sub
+    Private Sub connectdblocal()
         Try 'CONNECT DB LOCAL
             Dim CheckConnection As SqlConnection
             CheckConnection = New SqlConnection
@@ -97,10 +101,12 @@ Public Class loginform
         Catch ex As Exception
             End
         End Try
+    End Sub
+    Private Sub connectdbremote()
+        Dim status As Boolean
         '*************  errorlog    **************************************
         Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
         ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
-        '********************************
         Try 'CONNECT DB REMOTE
             Try
                 Dim CheckConnection As MySqlConnection
@@ -128,8 +134,31 @@ Public Class loginform
         Catch ex As Exception
             End
         End Try
+    End Sub
+    Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Dim hi As LoadingForm
+        hi = New LoadingForm
+        hi.Show()
+        Cursor.Current = Cursors.WaitCursor
+        ''''''''''''''''''''''''''''''''''''''
+        hi.mensaje.Text = "Borrando archivos temporales"
+        borrartemporales()
+        '''''''''''''''''''''''''''''''''''''''''
+        hi.mensaje.Text = "Estableciendo formatos de fecha"
+        formatos()
+        '''''''''''''''''''''''''''''''''''''''''
+        hi.mensaje.Text = "Identificando terminal"
+        identificarterminal()
+        '''''''''''''''''''''''''''''''''''''''''
+        hi.mensaje.Text = "Conectando a tu base de datos local.."
+        connectdblocal()
+        '''''''''''''''''''''''''''''''''''''''''
+        hi.mensaje.Text = "Conectando a la Nube"
+        connectdbremote()
         '********************************
         '********************************  
+        hi.mensaje.Text = "Ya casi estamos!"
         UpdateCheckBG.RunWorkerAsync()
         '********************************  
         '********************************
@@ -164,6 +193,7 @@ Public Class loginform
             Button2.PerformClick()
         End Try
         Cursor.Current = Cursors.Default
+        hi.Dispose()
     End Sub
     Private Sub enablebuttons(ByVal status As Boolean)
         textusuario.Enabled = status
@@ -220,11 +250,11 @@ Public Class loginform
             End Try
         End If
         ''''''''''***************************   POR DEFECTO **************************************
-        If (e.KeyCode = Keys.T AndAlso e.Control AndAlso e.Shift) Then
-            Dim testwindows As POSTForm
-            testwindows = New POSTForm
-            testwindows.ShowDialog()
-        End If
+        'If (e.KeyCode = Keys.T AndAlso e.Control AndAlso e.Shift) Then
+        '    Dim testwindows As POSTForm
+        '    testwindows = New POSTForm
+        '    testwindows.ShowDialog()
+        'End If
     End Sub
 
     Private Sub textpassword_GotFocus(sender As Object, e As EventArgs) Handles textpassword.GotFocus

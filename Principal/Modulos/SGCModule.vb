@@ -451,18 +451,25 @@ Module SGCModule
         ''''''''''''''
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         Try
-            gTerminal = TerminalesSCTableAdapter.terminales_GetID(gmacadress)
-            gAutoUpdater = TerminalesSCTableAdapter.terminales_autoupdater(gTerminal)
-            If Not gTerminal > 0 Or gAutoUpdater = 0 Then
-                Cursor.Current = Cursors.Default
-                MsgBox("Dispositivo no autorizado", MsgBoxStyle.Exclamation, "Advertencia")
-                status = False
+            Dim scstatus As Boolean
+            conectarSCConn(scstatus)
+            If scstatus = True Then
+                gTerminal = TerminalesSCTableAdapter.terminales_GetID(gmacadress)
+                gAutoUpdater = TerminalesSCTableAdapter.terminales_autoupdater(gTerminal)
+                If Not gTerminal > 0 Or gAutoUpdater = 0 Then
+                    Cursor.Current = Cursors.Default
+                    MsgBox("Dispositivo (" + gTerminal.ToString + ") no autorizado: Err" + gAutoUpdater.ToString, MsgBoxStyle.Exclamation, "Advertencia")
+                    status = False
+                    Return
+                End If
+            Else
+                MsgBox("Verifique su conexión a internet: ", MsgBoxStyle.Exclamation, "Advertencia")
                 Return
             End If
+
         Catch ex As Exception
             Cursor.Current = Cursors.Default
-            MsgBox("Dispositivo no autorizado", MsgBoxStyle.Exclamation, "Advertencia")
-            'MsgBox("Dispositivo no autorizado: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia")
+            MsgBox("No se pudo validar su licencia (verifique su conexion a internet): " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia")
             Return
         End Try
 

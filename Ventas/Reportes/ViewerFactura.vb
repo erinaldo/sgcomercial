@@ -1,12 +1,24 @@
 ﻿Public Class ViewerFactura
     Private Sub ViewerFactura_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
-        Me.libroventasTableAdapter.FillByIdventa(Me.comercialDataSet.libroventas, gidventa)
-        Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
+        Dim V_ComandaDefault As String
+        V_ComandaDefault = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ComandaDefault")
+        '**********
+        Select Case V_ComandaDefault
+            Case "80MM"
+                Comanda80mmToolStripMenuItem.PerformClick()
+            Case "58MM"
+                Comanda58mmToolStripMenuItem.PerformClick()
+            Case "A4"
+                HojaA4ToolStripMenuItem.PerformClick()
+        End Select
+        Me.Select()
+        'Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
+        'Me.libroventasTableAdapter.FillByIdventa(Me.comercialDataSet.libroventas, gidventa)
+        'Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
 
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComandera80.rdlc"
-        Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
-        Me.ReportViewer1.RefreshReport()
+        'Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComandera80.rdlc"
+        'Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
+        'Me.ReportViewer1.RefreshReport()
 
 
     End Sub
@@ -46,6 +58,33 @@
         Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
         Me.ReportViewer1.RefreshReport()
 
+
+    End Sub
+
+    Private Sub ViewerFactura_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
+        If e.KeyCode = Keys.Enter Then
+            ReportViewer1.PrintDialog()
+        End If
+        ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub ReportViewer1_Load(sender As Object, e As EventArgs) Handles ReportViewer1.Load
+
+    End Sub
+
+    Private Sub ReportViewer1_KeyDown(sender As Object, e As KeyEventArgs) Handles ReportViewer1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ReportViewer1.PrintDialog()
+        End If
+    End Sub
+
+    Private Sub PrintDocument_PrintPage(sender As Object, e As Printing.PrintPageEventArgs)
 
     End Sub
 End Class

@@ -74,6 +74,8 @@ Partial Class MiComercio
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.EmailCierreCajaTo = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.ComboBoxComandaDefault = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -89,6 +91,7 @@ Partial Class MiComercio
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -597,11 +600,32 @@ Partial Class MiComercio
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Dirección de E-Mail:"
         '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.ComboBoxComandaDefault)
+        Me.GroupBox10.Location = New System.Drawing.Point(674, 411)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(455, 68)
+        Me.GroupBox10.TabIndex = 10
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Formato de Comanda (por defecto)"
+        '
+        'ComboBoxComandaDefault
+        '
+        Me.ComboBoxComandaDefault.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxComandaDefault.FormattingEnabled = True
+        Me.ComboBoxComandaDefault.Items.AddRange(New Object() {"58MM", "80MM", "A4"})
+        Me.ComboBoxComandaDefault.Location = New System.Drawing.Point(113, 27)
+        Me.ComboBoxComandaDefault.Name = "ComboBoxComandaDefault"
+        Me.ComboBoxComandaDefault.Size = New System.Drawing.Size(228, 24)
+        Me.ComboBoxComandaDefault.TabIndex = 0
+        '
         'MiComercio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1141, 540)
+        Me.Controls.Add(Me.GroupBox10)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.GroupBox8)
         Me.Controls.Add(Me.GroupBox7)
@@ -642,6 +666,7 @@ Partial Class MiComercio
         Me.GroupBox8.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox9.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -697,4 +722,6 @@ Partial Class MiComercio
     Friend WithEvents GroupBox9 As GroupBox
     Friend WithEvents EmailCierreCajaTo As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents ComboBoxComandaDefault As ComboBox
 End Class

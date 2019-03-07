@@ -1,4 +1,8 @@
 ﻿Imports System.ComponentModel
+Imports System.IO
+Imports System.Net
+Imports System.Text
+Imports System.Net.Mail
 
 Public Class Cajasmovimientos
     Private Sub Cajasmovimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -9,17 +13,6 @@ Public Class Cajasmovimientos
         Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
         CajaseventosDataGridView.Sort(CajaseventosDataGridView.Columns(0), ListSortDirection.Descending)
         ''*****************************
-
-        Try
-            Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
-            Me.ReportViewer2.RefreshReport()
-            Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
-            Me.ReportViewer3.RefreshReport()
-        Catch ex As Exception
-
-        End Try
-
-
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateTimePicker1.ValueChanged
@@ -41,16 +34,6 @@ Public Class Cajasmovimientos
     Private Sub CajaseventosDataGridView_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles CajaseventosDataGridView.CellClick
 
         '***************************** cargar datos
-
-        Try
-            Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
-            Me.ReportViewer2.RefreshReport()
-            Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, CajaseventosDataGridView.CurrentRow.Cells(0).Value().ToString)
-            Me.ReportViewer3.RefreshReport()
-        Catch ex As Exception
-
-        End Try
-
         Select Case CajaseventosDataGridView.CurrentCell.ColumnIndex
             Case 6
                 If IsDBNull(CajaseventosDataGridView.CurrentRow.Cells(5).Value()) Then
@@ -62,6 +45,19 @@ Public Class Cajasmovimientos
                 C = New ReporteCierreCaja
                 C.ShowDialog()
                 gidevento = 0
+            Case 7
+                If IsDBNull(CajaseventosDataGridView.CurrentRow.Cells(5).Value()) Then
+                    MsgBox("El reporte todavia no esta finalizado, antes debe cerrar la caja!")
+                    Return
+                End If
+                gidevento = CajaseventosDataGridView.CurrentRow.Cells(0).Value()
+                Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)
+                Me.librodiarioTableAdapter.FillByIdevento(Me.ComercialDataSet.librodiario, gidevento)
+                Me.cajaresumenTableAdapter.FillByidevento(Me.ComercialDataSet.cajaresumen, gidevento)
+                Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
+
+                Me.ReportViewer1.RefreshReport()
+                mail_cierrecaja()
         End Select
 
     End Sub
@@ -118,11 +114,11 @@ Public Class Cajasmovimientos
 
     End Sub
 
-    Private Sub ReportViewer2_Load(sender As Object, e As EventArgs) Handles ReportViewer2.Load
+    Private Sub ReportViewer2_Load(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub ReportViewer2_Click(sender As Object, e As EventArgs) Handles ReportViewer2.Click
+    Private Sub ReportViewer2_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -139,19 +135,19 @@ Public Class Cajasmovimientos
 
     End Sub
 
-    Private Sub ReportViewer2_CausesValidationChanged(sender As Object, e As EventArgs) Handles ReportViewer2.CausesValidationChanged
+    Private Sub ReportViewer2_CausesValidationChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub ReportViewer2_DoubleClick(sender As Object, e As EventArgs) Handles ReportViewer2.DoubleClick
+    Private Sub ReportViewer2_DoubleClick(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub ReportViewer2_MouseClick(sender As Object, e As MouseEventArgs) Handles ReportViewer2.MouseClick
+    Private Sub ReportViewer2_MouseClick(sender As Object, e As MouseEventArgs)
 
     End Sub
 
-    Private Sub ReportViewer2_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ReportViewer2.MouseDoubleClick
+    Private Sub ReportViewer2_MouseDoubleClick(sender As Object, e As MouseEventArgs)
 
     End Sub
 
@@ -182,5 +178,92 @@ Public Class Cajasmovimientos
             End If
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+    Private Sub mail_cierrecaja()
+        Me.Cursor = Cursors.WaitCursor
+        Dim ArchivoAdjunto As String
+        Dim rnd As New Random
+        Dim chrInt As Integer = 0
+        chrInt = rnd.Next(1130, 9022)
+        ArchivoAdjunto = "CierreCaja" + chrInt.ToString + ".pdf"
+        Try
+            '*******************************
+            'Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)
+            'Me.librodiarioTableAdapter.FillByIdevento(Me.ComercialDataSet.librodiario, gidevento)
+            'Me.cajaresumenTableAdapter.FillByidevento(Me.ComercialDataSet.cajaresumen, gidevento)
+            'Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
+
+            'Me.ReportViewer1.RefreshReport()
+            'Return
+            Me.Cursor = Cursors.Default
+            If MsgBox("Esta seguro que desea enviar el informe por Email? el proceso tomará unos segundos...", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.No Then
+                MsgBox("Envío cancelado!", MsgBoxStyle.Exclamation, "Advertencia")
+                Return
+            End If
+            Me.Cursor = Cursors.WaitCursor
+            'Threading.Thread.Sleep(5000)
+            '*******************************
+            Dim byteViewer As Byte() = ReportViewer1.LocalReport.Render("PDF")
+            Dim saveFileDialog1 As New SaveFileDialog()
+            saveFileDialog1.Filter = "*PDF files (*.pdf)|*.pdf"
+            saveFileDialog1.FilterIndex = 2
+            saveFileDialog1.RestoreDirectory = True
+            Dim newFile As New FileStream(ArchivoAdjunto, FileMode.Create)
+            newFile.Write(byteViewer, 0, byteViewer.Length)
+            newFile.Close()
+        Catch ex As Exception
+            Me.Cursor = Cursors.Default
+            MsgBox("No se pudo Crear el documento: " + ex.Message)
+        End Try
+        'Return
+        '**********************************************************
+        Dim emailmessage As New MailMessage()
+        Dim EmailFrom As String
+        Dim EmailFromPwd As String
+        Dim EmailPort As Long
+        Dim EmailCierreCajaTo As String
+        Dim SmtpClient As String
+
+        Try
+            '***************************************************************
+            EmailCierreCajaTo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailCierreCajaTo")
+            If EmailCierreCajaTo.Length = 0 Then
+                'MsgBox("Dirección Inválida", MsgBoxStyle.Exclamation, "Envío email")
+                Me.Cursor = Cursors.Default
+                Return
+            End If
+            SmtpClient = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("SmtpClient")
+            EmailFrom = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFrom")
+            EmailFromPwd = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFromPwd")
+            EmailPort = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("EmailPort")
+            '***************************************************************
+            emailmessage.From = New MailAddress(EmailFrom)
+            emailmessage.To.Add(EmailCierreCajaTo)
+            emailmessage.Subject = "Cierre de caja " + Today.ToShortDateString
+            emailmessage.Body = "Sistema de Gestión Comercial te envió el resumen de tu último Cierre de caja"
+            '*************************  ADJUNTO **********************************************
+            Dim fileTXT As String = ArchivoAdjunto.ToString
+            Dim data As Net.Mail.Attachment = New Net.Mail.Attachment(fileTXT)
+            data.Name = ArchivoAdjunto.ToString '"CierreCaja.pdf"
+            emailmessage.Attachments.Add(data)
+            '*********************************************************************************
+            Dim smtp As New SmtpClient(SmtpClient)
+            smtp.Port = EmailPort
+            smtp.EnableSsl = True
+            smtp.Credentials = New System.Net.NetworkCredential(EmailFrom, EmailFromPwd)
+            smtp.Timeout = 10
+            'smtp.Send(emailmessage)
+            smtp.SendAsync(emailmessage, gUserToken)
+            Me.Cursor = Cursors.Default
+            MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
+
+        Catch ex As Exception
+            Me.Cursor = Cursors.Default
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class

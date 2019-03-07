@@ -115,4 +115,12 @@
         End If
         '*******************************************************
     End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        If gMiSucursal = ComboBox1.SelectedValue Then
+            MsgBox("No puede seleccionar sucursal de origen igual a la de destino!", MsgBoxStyle.Exclamation, "Advertencia")
+            ComboBox1.SelectedIndex = -1
+            Return
+        End If
+    End Sub
 End Class

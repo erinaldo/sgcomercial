@@ -26,9 +26,9 @@ Partial Class SplashSC
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SplashSC))
         Me.MainLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Version = New System.Windows.Forms.Label()
-        Me.Copyright = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.mensaje = New System.Windows.Forms.Label()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.MainLayoutPanel.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,7 +39,7 @@ Partial Class SplashSC
         Me.MainLayoutPanel.ColumnCount = 1
         Me.MainLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 243.0!))
         Me.MainLayoutPanel.Controls.Add(Me.Version, 0, 3)
-        Me.MainLayoutPanel.Controls.Add(Me.Copyright, 0, 1)
+        Me.MainLayoutPanel.Controls.Add(Me.mensaje, 0, 1)
         Me.MainLayoutPanel.Controls.Add(Me.ProgressBar1, 0, 0)
         Me.MainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MainLayoutPanel.Location = New System.Drawing.Point(0, 0)
@@ -65,23 +65,18 @@ Partial Class SplashSC
         Me.Version.Text = "Versión {0}.{1:00}"
         Me.Version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Copyright
+        'mensaje
         '
-        Me.Copyright.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Copyright.BackColor = System.Drawing.Color.Transparent
-        Me.Copyright.Font = New System.Drawing.Font("Montserrat", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Copyright.ForeColor = System.Drawing.Color.White
-        Me.Copyright.Location = New System.Drawing.Point(44, 218)
-        Me.Copyright.Name = "Copyright"
-        Me.Copyright.Size = New System.Drawing.Size(407, 20)
-        Me.Copyright.TabIndex = 2
-        Me.Copyright.Text = "Copyright"
-        Me.Copyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 50
+        Me.mensaje.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.mensaje.BackColor = System.Drawing.Color.Transparent
+        Me.mensaje.Font = New System.Drawing.Font("Montserrat", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mensaje.ForeColor = System.Drawing.Color.White
+        Me.mensaje.Location = New System.Drawing.Point(44, 218)
+        Me.mensaje.Name = "mensaje"
+        Me.mensaje.Size = New System.Drawing.Size(407, 20)
+        Me.mensaje.TabIndex = 2
+        Me.mensaje.Text = "conectando a la base de datos"
+        Me.mensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ProgressBar1
         '
@@ -89,6 +84,11 @@ Partial Class SplashSC
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(490, 23)
         Me.ProgressBar1.TabIndex = 3
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 50
         '
         'SplashSC
         '
@@ -109,7 +109,7 @@ Partial Class SplashSC
     End Sub
     Friend WithEvents MainLayoutPanel As TableLayoutPanel
     Friend WithEvents Version As Label
-    Friend WithEvents Copyright As Label
+    Friend WithEvents mensaje As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents ProgressBar1 As ProgressBar
 End Class
