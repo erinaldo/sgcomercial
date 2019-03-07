@@ -123,4 +123,28 @@
             Return
         End If
     End Sub
+
+    Private Sub DataGridViewProductos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewProductos.CellContentClick
+
+    End Sub
+
+    Private Sub DataGridViewProductos_KeyDown(sender As Object, e As KeyEventArgs) Handles DataGridViewProductos.KeyDown
+        If e.KeyCode = Keys.Delete Then
+            DataGridViewProductos.Rows.Remove(DataGridViewProductos.CurrentRow)
+        End If
+        If e.KeyCode = Keys.Subtract Then
+            DataGridViewProductos.Rows.Remove(DataGridViewProductos.CurrentRow)
+        End If
+    End Sub
+
+    Private Sub RecibirStock_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Add Then
+            Button1.PerformClick()
+        End If
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
+    End Sub
 End Class

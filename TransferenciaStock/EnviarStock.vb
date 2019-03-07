@@ -20,7 +20,7 @@
         p.ShowDialog()
 
         Try
-            If gcantidad = 0 Or Len(gcodigoproducto) = 0 Then Return
+            If gcantidad = 0 Or Len(gcodigoproducto) = 0 Or gcodigoproducto = "0" Then Return
             Dim addedrow As Long = DataGridViewProductos.Rows.Add()
             Dim umedida As Integer = ProductosTableAdapter.productos_consultarunidadmedida(gcodigoproducto)
             Dim medida As Decimal = ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
@@ -62,6 +62,9 @@
 
     Private Sub DataGridViewProductos_KeyDown(sender As Object, e As KeyEventArgs) Handles DataGridViewProductos.KeyDown
         If e.KeyCode = Keys.Delete Then
+            DataGridViewProductos.Rows.Remove(DataGridViewProductos.CurrentRow)
+        End If
+        If e.KeyCode = Keys.Subtract Then
             DataGridViewProductos.Rows.Remove(DataGridViewProductos.CurrentRow)
         End If
     End Sub
@@ -149,6 +152,17 @@
             MsgBox("No puede seleccionar sucursal de destino igual a la de origen!", MsgBoxStyle.Exclamation, "Advertencia")
             ComboBox1.SelectedIndex = -1
             Return
+        End If
+    End Sub
+
+    Private Sub EnviarStock_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Add Then
+            Button1.PerformClick()
+        End If
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
         End If
     End Sub
 End Class

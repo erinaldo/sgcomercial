@@ -443,4 +443,8 @@ Public Class BuscaProductoManualPedidos
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         TextBox1.Select()
     End Sub
+
+    Private Sub ProductosDataGridView_Layout(sender As Object, e As LayoutEventArgs) Handles ProductosDataGridView.Layout
+
+    End Sub
 End Class

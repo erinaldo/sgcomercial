@@ -72,8 +72,46 @@ Public Class SeleccionarProductoEnvio
     End Sub
 
     Private Sub ListaproductosDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles ListaproductosDataGridView.KeyDown
-        If e.KeyCode = Keys.Tab Then
-            TextBox1.Select()
+        If e.KeyCode = Keys.Enter Then
+            CallClick()
+            TextBox2.Select()
+            e.SuppressKeyPress = True
+        End If
+    End Sub
+
+    Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ListaproductosDataGridView.Select()
+        End If
+    End Sub
+    Sub CallClick()
+        Try
+            gcodigoproducto = ListaproductosDataGridView.CurrentRow.Cells(0).Value
+            TextBox2.Select()
+            'gprecioventa = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
+            'precioventatextbox.Text = gprecioventa
+            'gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
+            'ComboBox1.SelectedIndex = 1
+            'cantidadtextbox.Text = Nothing
+            'montotextbox.Text = Nothing
+            'Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
+            'textboxEnvasado.Text = StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
+            'textboxUnidades.Text = StockTableAdapter.stock_consultardisponible(idproducto)
+            'calculapreciolista()
+        Catch ex As Exception
+            ' MsgBox("LISTA VACIA" + ex.Message, MsgBoxStyle.Exclamation, "Advertencia")
+        End Try
+    End Sub
+
+    Private Sub ListaproductosDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListaproductosDataGridView.CellClick
+
+    End Sub
+
+    Private Sub SeleccionarProductoEnvio_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
         End If
     End Sub
 End Class
