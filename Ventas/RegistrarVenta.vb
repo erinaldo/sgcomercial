@@ -105,6 +105,7 @@ Public Class RegistrarVenta
         'idformapagocombo2.Items.RemoveAt(idformapagocombo2.FindString("Otros"))
         'idformapagocombo2.Items.RemoveAt(idformapagocombo2.FindString("Cheque"))
         Cursor.Current = Cursors.Default
+        BtnNueva.PerformClick()
     End Sub
     Private Sub enablefields(ByRef status As Boolean)
         'IdventaTextBox.Enabled = status

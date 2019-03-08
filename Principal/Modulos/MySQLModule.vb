@@ -19,7 +19,7 @@ Module MySQLModule
             'MsgBox("Conexión exitosa!", MsgBoxStyle.Information)
             status = True
         Catch ex As Exception
-            MsgBox("No se pudo conectar con el servidor remoto -Clowd-: " + ex.Message, MsgBoxStyle.Information)
+            MsgBox("No se pudo conectar con la Nube: " + ex.Message, MsgBoxStyle.Information, "Información importante")
             MySQLC.Dispose()
             status = False
             Return
@@ -984,6 +984,12 @@ Module MySQLModule
             MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
             Return
         End If
+        Dim status As Boolean
+        conectarMySQL(status)
+        If status = False Then
+            MsgBox("No se pudo conectar a la Nube para obtener las actualizaciónes de productos!", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         Cursor.Current = Cursors.WaitCursor
         Try
             Dim SyncLogTableAdapter As comercialDataSetTableAdapters.synclogTableAdapter
@@ -1005,7 +1011,7 @@ Module MySQLModule
                 End If
             End If
         Catch ex As Exception
-            MsgBox("Ocurrió un problema al consultar SyncLog: " + ex.Message)
+            MsgBox("Ocurrió un problema al consultar SyncLog productos: " + ex.Message)
         End Try
         Cursor.Current = Cursors.Default
     End Sub

@@ -221,7 +221,7 @@
                             <TextRun>
                               <Value>=Fields!descripcion.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -252,7 +252,7 @@
                             <TextRun>
                               <Value>=Fields!cantidad.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -285,7 +285,7 @@
                             <TextRun>
                               <Value>=Fields!precioventa.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -318,7 +318,7 @@
                             <TextRun>
                               <Value>=Fields!subtotal.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -846,12 +846,12 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2.71765in</Height>
+    <Height>2.85098in</Height>
     <Style />
   </Body>
   <Width>2.29373in</Width>
   <Page>
-    <PageHeight>10cm</PageHeight>
+    <PageHeight>21cm</PageHeight>
     <PageWidth>8cm</PageWidth>
     <LeftMargin>0cm</LeftMargin>
     <RightMargin>0cm</RightMargin>
