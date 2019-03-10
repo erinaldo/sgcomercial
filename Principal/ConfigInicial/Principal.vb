@@ -19,18 +19,25 @@ Public Class Principal
         '''''''''''''''''''''''''''''''''''
         ParametrosgeneralesTableAdapter.FillByPrgclave(Me.ComercialDataSet.parametrosgenerales, "FondoAplicacion")
         FormPrincipal.BackgroundImage = PictureBox1.Image
-        Me.Text = Me.Text + " -  [ " + ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio") + " ] "
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Try
+            Me.Text = " Sistema de Gestión Comercial " + " - [" + ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio") + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]"
+        Catch ex As Exception
+
+        End Try
         '''''''''''''''' carga  modulos y funciones a BD '''''''''''''''''''''''
         InsertarModulos()
         ''''''''''''''  CARGA DE PERMISOS DE USUARIO '''''''''''''''''''''
         If Not gusername = "lucasmartinbs" Then
             cargapermisos()
         End If
-
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''
         EjecutarAlertas()
-        CuadroBienvenida()
         '================= BACKGROUND WORKERS   ==========================
-        BackgroundSyncLibroventasClowd.RunWorkerAsync()
+        If gModuloClowd = 1 Then
+            BackgroundSyncLibroventasClowd.RunWorkerAsync()
+        End If
+
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================
@@ -67,31 +74,7 @@ Public Class Principal
 
     End Sub
 
-    Private Sub CuadroBienvenida()
-        GBBienvenido.Visible = False
-        Try
-            LabelUsuario.Text = gusername
-            gidcaja = 0
-            gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
-            If gidcaja = 0 Then
-                LabelCaja.Text = "-No Configurada-"
-            Else
-                LabelCaja.Text = gidcaja.ToString
-            End If
-            LabelFecha.Text = Today
-            'GBBienvenido.Left = (Me.Width / 2) - (GBBienvenido.Width / 2)
-            Me.Text = " Sistema de Gestion Comercial " + " - [" + ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio") + "]" + " - Caja N°: " + LabelCaja.Text + " - Usuario: " + gusername + " - Sucursal N°: " + gMiSucursal
-            'Try
-            '    conectarMySQL()
-            '    Me.Text = Me.Text + " - Servidor ONLINE"
-            'Catch ex As Exception
-            '    Me.Text = Me.Text + " - Servidor OFFLINE"
-            'End Try
-        Catch ex As Exception
 
-        End Try
-
-    End Sub
 
     Private Sub InsertarModulos()
         For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
@@ -469,8 +452,6 @@ Public Class Principal
     End Sub
 
     Private Sub Principal_GotFocus(sender As Object, e As EventArgs) Handles Me.GotFocus
-        ''''''''''''''  CARGA INFORMACION DE CAJA HABILITADA '''''''''''''''''''''
-        CuadroBienvenida()
         ''''''''''''''  CARGA DE PERMISOS DE USUARIO '''''''''''''''''''''
         If Not gusername = "lucasmartinbs" Then
             cargapermisos()
@@ -1002,6 +983,8 @@ Public Class Principal
         Try
             myConn2.Open()
             mycommand = New SqlCommand(qry, myConn2)
+            myConn2.Close()
+            myConn2.Dispose()
         Catch ex As Exception
             MsgBox("Ocurrio un problema: " + ex.Message)
         End Try

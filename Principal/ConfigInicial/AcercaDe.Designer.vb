@@ -14,155 +14,185 @@ Partial Class AcercaDe
         End Try
     End Sub
 
-    Friend WithEvents TableLayoutPanel As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents LogoPictureBox As System.Windows.Forms.PictureBox
-    Friend WithEvents LabelProductName As System.Windows.Forms.Label
-    Friend WithEvents LabelVersion As System.Windows.Forms.Label
-    Friend WithEvents LabelCompanyName As System.Windows.Forms.Label
-    Friend WithEvents TextBoxDescription As System.Windows.Forms.TextBox
-    Friend WithEvents OKButton As System.Windows.Forms.Button
-    Friend WithEvents LabelCopyright As System.Windows.Forms.Label
-
     'Requerido por el Diseñador de Windows Forms
     Private components As System.ComponentModel.IContainer
 
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AcercaDe))
-        Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
-        Me.LabelProductName = New System.Windows.Forms.Label()
-        Me.LabelVersion = New System.Windows.Forms.Label()
-        Me.LabelCopyright = New System.Windows.Forms.Label()
-        Me.LabelCompanyName = New System.Windows.Forms.Label()
-        Me.TextBoxDescription = New System.Windows.Forms.TextBox()
         Me.OKButton = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel.SuspendLayout()
+        Me.LabelCompanyName = New System.Windows.Forms.Label()
+        Me.LabelCopyright = New System.Windows.Forms.Label()
+        Me.LabelVersion = New System.Windows.Forms.Label()
+        Me.LabelProductName = New System.Windows.Forms.Label()
+        Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
+        Me.IDTerminal = New System.Windows.Forms.Label()
+        Me.Terminal = New System.Windows.Forms.Label()
+        Me.IDCliente = New System.Windows.Forms.Label()
+        Me.NombreCliente = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'TableLayoutPanel
-        '
-        Me.TableLayoutPanel.ColumnCount = 2
-        Me.TableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.0!))
-        Me.TableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.0!))
-        Me.TableLayoutPanel.Controls.Add(Me.LogoPictureBox, 0, 0)
-        Me.TableLayoutPanel.Controls.Add(Me.LabelProductName, 1, 0)
-        Me.TableLayoutPanel.Controls.Add(Me.LabelVersion, 1, 1)
-        Me.TableLayoutPanel.Controls.Add(Me.LabelCopyright, 1, 2)
-        Me.TableLayoutPanel.Controls.Add(Me.LabelCompanyName, 1, 3)
-        Me.TableLayoutPanel.Controls.Add(Me.TextBoxDescription, 1, 4)
-        Me.TableLayoutPanel.Controls.Add(Me.OKButton, 1, 5)
-        Me.TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel.Location = New System.Drawing.Point(12, 11)
-        Me.TableLayoutPanel.Margin = New System.Windows.Forms.Padding(4)
-        Me.TableLayoutPanel.Name = "TableLayoutPanel"
-        Me.TableLayoutPanel.RowCount = 6
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.Size = New System.Drawing.Size(981, 318)
-        Me.TableLayoutPanel.TabIndex = 0
-        '
-        'LogoPictureBox
-        '
-        Me.LogoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LogoPictureBox.Image = Global.sgcomercial.My.Resources.Resources.appicon
-        Me.LogoPictureBox.Location = New System.Drawing.Point(4, 4)
-        Me.LogoPictureBox.Margin = New System.Windows.Forms.Padding(4)
-        Me.LogoPictureBox.Name = "LogoPictureBox"
-        Me.TableLayoutPanel.SetRowSpan(Me.LogoPictureBox, 6)
-        Me.LogoPictureBox.Size = New System.Drawing.Size(315, 310)
-        Me.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.LogoPictureBox.TabIndex = 0
-        Me.LogoPictureBox.TabStop = False
-        '
-        'LabelProductName
-        '
-        Me.LabelProductName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelProductName.Location = New System.Drawing.Point(331, 0)
-        Me.LabelProductName.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
-        Me.LabelProductName.MaximumSize = New System.Drawing.Size(0, 21)
-        Me.LabelProductName.Name = "LabelProductName"
-        Me.LabelProductName.Size = New System.Drawing.Size(646, 21)
-        Me.LabelProductName.TabIndex = 0
-        Me.LabelProductName.Text = "Nombre de producto"
-        Me.LabelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'LabelVersion
-        '
-        Me.LabelVersion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelVersion.Location = New System.Drawing.Point(331, 31)
-        Me.LabelVersion.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
-        Me.LabelVersion.MaximumSize = New System.Drawing.Size(0, 21)
-        Me.LabelVersion.Name = "LabelVersion"
-        Me.LabelVersion.Size = New System.Drawing.Size(646, 21)
-        Me.LabelVersion.TabIndex = 0
-        Me.LabelVersion.Text = "Versión"
-        Me.LabelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'LabelCopyright
-        '
-        Me.LabelCopyright.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCopyright.Location = New System.Drawing.Point(331, 62)
-        Me.LabelCopyright.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
-        Me.LabelCopyright.MaximumSize = New System.Drawing.Size(0, 21)
-        Me.LabelCopyright.Name = "LabelCopyright"
-        Me.LabelCopyright.Size = New System.Drawing.Size(646, 21)
-        Me.LabelCopyright.TabIndex = 0
-        Me.LabelCopyright.Text = "Copyright"
-        Me.LabelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'LabelCompanyName
-        '
-        Me.LabelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCompanyName.Location = New System.Drawing.Point(331, 93)
-        Me.LabelCompanyName.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
-        Me.LabelCompanyName.MaximumSize = New System.Drawing.Size(0, 21)
-        Me.LabelCompanyName.Name = "LabelCompanyName"
-        Me.LabelCompanyName.Size = New System.Drawing.Size(646, 21)
-        Me.LabelCompanyName.TabIndex = 0
-        Me.LabelCompanyName.Text = "Nombre de la compañía"
-        Me.LabelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TextBoxDescription
-        '
-        Me.TextBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxDescription.Location = New System.Drawing.Point(331, 128)
-        Me.TextBoxDescription.Margin = New System.Windows.Forms.Padding(8, 4, 4, 4)
-        Me.TextBoxDescription.Multiline = True
-        Me.TextBoxDescription.Name = "TextBoxDescription"
-        Me.TextBoxDescription.ReadOnly = True
-        Me.TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxDescription.Size = New System.Drawing.Size(646, 151)
-        Me.TextBoxDescription.TabIndex = 0
-        Me.TextBoxDescription.TabStop = False
-        Me.TextBoxDescription.Text = resources.GetString("TextBoxDescription.Text")
         '
         'OKButton
         '
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OKButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.OKButton.Location = New System.Drawing.Point(877, 287)
+        Me.OKButton.Location = New System.Drawing.Point(285, 14)
         Me.OKButton.Margin = New System.Windows.Forms.Padding(4)
         Me.OKButton.Name = "OKButton"
-        Me.OKButton.Size = New System.Drawing.Size(100, 27)
+        Me.OKButton.Size = New System.Drawing.Size(87, 37)
         Me.OKButton.TabIndex = 0
         Me.OKButton.Text = "&Aceptar"
+        '
+        'LabelCompanyName
+        '
+        Me.LabelCompanyName.AutoSize = True
+        Me.LabelCompanyName.Location = New System.Drawing.Point(11, 91)
+        Me.LabelCompanyName.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.LabelCompanyName.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.LabelCompanyName.Name = "LabelCompanyName"
+        Me.LabelCompanyName.Size = New System.Drawing.Size(158, 17)
+        Me.LabelCompanyName.TabIndex = 0
+        Me.LabelCompanyName.Text = "Nombre de la compañía"
+        Me.LabelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabelCopyright
+        '
+        Me.LabelCopyright.AutoSize = True
+        Me.LabelCopyright.Location = New System.Drawing.Point(11, 70)
+        Me.LabelCopyright.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.LabelCopyright.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.LabelCopyright.Name = "LabelCopyright"
+        Me.LabelCopyright.Size = New System.Drawing.Size(68, 17)
+        Me.LabelCopyright.TabIndex = 0
+        Me.LabelCopyright.Text = "Copyright"
+        Me.LabelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabelVersion
+        '
+        Me.LabelVersion.AutoSize = True
+        Me.LabelVersion.Location = New System.Drawing.Point(11, 49)
+        Me.LabelVersion.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.LabelVersion.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.LabelVersion.Name = "LabelVersion"
+        Me.LabelVersion.Size = New System.Drawing.Size(56, 17)
+        Me.LabelVersion.TabIndex = 0
+        Me.LabelVersion.Text = "Versión"
+        Me.LabelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabelProductName
+        '
+        Me.LabelProductName.AutoSize = True
+        Me.LabelProductName.Location = New System.Drawing.Point(11, 28)
+        Me.LabelProductName.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.LabelProductName.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.LabelProductName.Name = "LabelProductName"
+        Me.LabelProductName.Size = New System.Drawing.Size(138, 17)
+        Me.LabelProductName.TabIndex = 0
+        Me.LabelProductName.Text = "Nombre de producto"
+        Me.LabelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LogoPictureBox
+        '
+        Me.LogoPictureBox.Image = Global.sgcomercial.My.Resources.Resources.appicon
+        Me.LogoPictureBox.Location = New System.Drawing.Point(4, 4)
+        Me.LogoPictureBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.LogoPictureBox.Name = "LogoPictureBox"
+        Me.LogoPictureBox.Size = New System.Drawing.Size(276, 277)
+        Me.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.LogoPictureBox.TabIndex = 0
+        Me.LogoPictureBox.TabStop = False
+        '
+        'IDTerminal
+        '
+        Me.IDTerminal.AutoSize = True
+        Me.IDTerminal.Location = New System.Drawing.Point(11, 103)
+        Me.IDTerminal.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.IDTerminal.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.IDTerminal.Name = "IDTerminal"
+        Me.IDTerminal.Size = New System.Drawing.Size(76, 17)
+        Me.IDTerminal.TabIndex = 11
+        Me.IDTerminal.Text = "IDTerminal"
+        Me.IDTerminal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Terminal
+        '
+        Me.Terminal.AutoSize = True
+        Me.Terminal.Location = New System.Drawing.Point(11, 80)
+        Me.Terminal.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.Terminal.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.Terminal.Name = "Terminal"
+        Me.Terminal.Size = New System.Drawing.Size(63, 17)
+        Me.Terminal.TabIndex = 7
+        Me.Terminal.Text = "Terminal"
+        Me.Terminal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'IDCliente
+        '
+        Me.IDCliente.AutoSize = True
+        Me.IDCliente.Location = New System.Drawing.Point(11, 57)
+        Me.IDCliente.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.IDCliente.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.IDCliente.Name = "IDCliente"
+        Me.IDCliente.Size = New System.Drawing.Size(64, 17)
+        Me.IDCliente.TabIndex = 6
+        Me.IDCliente.Text = "IDCliente"
+        Me.IDCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'NombreCliente
+        '
+        Me.NombreCliente.AutoSize = True
+        Me.NombreCliente.Location = New System.Drawing.Point(11, 34)
+        Me.NombreCliente.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.NombreCliente.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.NombreCliente.Name = "NombreCliente"
+        Me.NombreCliente.Size = New System.Drawing.Size(101, 17)
+        Me.NombreCliente.TabIndex = 2
+        Me.NombreCliente.Text = "NombreCliente"
+        Me.NombreCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.LabelProductName)
+        Me.GroupBox1.Controls.Add(Me.LabelVersion)
+        Me.GroupBox1.Controls.Add(Me.LabelCopyright)
+        Me.GroupBox1.Controls.Add(Me.LabelCompanyName)
+        Me.GroupBox1.Location = New System.Drawing.Point(287, 4)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(379, 130)
+        Me.GroupBox1.TabIndex = 12
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Software"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.NombreCliente)
+        Me.GroupBox2.Controls.Add(Me.OKButton)
+        Me.GroupBox2.Controls.Add(Me.IDCliente)
+        Me.GroupBox2.Controls.Add(Me.Terminal)
+        Me.GroupBox2.Controls.Add(Me.IDTerminal)
+        Me.GroupBox2.Location = New System.Drawing.Point(287, 133)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(379, 148)
+        Me.GroupBox2.TabIndex = 13
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Datos del Cliente"
         '
         'AcercaDe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.OKButton
-        Me.ClientSize = New System.Drawing.Size(1005, 340)
-        Me.Controls.Add(Me.TableLayoutPanel)
+        Me.ClientSize = New System.Drawing.Size(678, 286)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.LogoPictureBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -173,11 +203,31 @@ Partial Class AcercaDe
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "AcercaDe"
-        Me.TableLayoutPanel.ResumeLayout(False)
-        Me.TableLayoutPanel.PerformLayout()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
+    Friend WithEvents OKButton As Button
+    Friend WithEvents LabelCompanyName As Label
+    Friend WithEvents LabelCopyright As Label
+    Friend WithEvents LabelVersion As Label
+    Friend WithEvents LabelProductName As Label
+    Friend WithEvents LogoPictureBox As PictureBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents NombreCliente As Label
+    Friend WithEvents Terminal As Label
+    Friend WithEvents IDCliente As Label
+    Friend WithEvents IDTerminal As Label
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
 End Class

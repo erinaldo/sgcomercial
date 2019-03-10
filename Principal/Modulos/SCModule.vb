@@ -23,6 +23,8 @@ Module SCModule
             SCConn.Open()
             'MsgBox("Conexión exitosa!", MsgBoxStyle.Information, "SisCom")
             status = True
+            SCConn.Close()
+            SCConn.Dispose()
         Catch ex As Exception
             'MsgBox("No se pudo conectar con el servidor remoto: " + ex.Message, MsgBoxStyle.Information,"SisCom")
             SCConn.Dispose()

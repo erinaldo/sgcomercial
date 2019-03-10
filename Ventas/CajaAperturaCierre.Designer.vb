@@ -389,6 +389,7 @@ Partial Class CajaAperturaCierre
         Me.ClientSize = New System.Drawing.Size(1003, 340)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)

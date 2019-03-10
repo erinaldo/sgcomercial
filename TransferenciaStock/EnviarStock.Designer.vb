@@ -74,6 +74,7 @@ Partial Class EnviarStock
         Me.listaremitosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosTableAdapter()
         Me.listaremitosdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.listaremitosdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosdetalleTableAdapter()
+        Me.StockgeneralTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockgeneralTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -488,6 +489,10 @@ Partial Class EnviarStock
         '
         Me.listaremitosdetalleTableAdapter.ClearBeforeFill = True
         '
+        'StockgeneralTableAdapter
+        '
+        Me.StockgeneralTableAdapter.ClearBeforeFill = True
+        '
         'EnviarStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -571,4 +576,5 @@ Partial Class EnviarStock
     Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
     Friend WithEvents listaremitosTableAdapter As comercialDataSetTableAdapters.listaremitosTableAdapter
     Friend WithEvents listaremitosdetalleTableAdapter As comercialDataSetTableAdapters.listaremitosdetalleTableAdapter
+    Friend WithEvents StockgeneralTableAdapter As comercialDataSetTableAdapters.stockgeneralTableAdapter
 End Class

@@ -30,6 +30,8 @@ Module SGCModule
     '************************************************
     Public FormPrincipal As Principal
     '************************************************
+    Public gNombreCliente As String
+    Public gNombreTerminal As String
     Public gMiSucursal As Integer = 0
     Public gSucursalSeleccionada As Integer = 0
     Public gMiIDCliente As Integer = 0

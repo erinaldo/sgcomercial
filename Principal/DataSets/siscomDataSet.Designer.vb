@@ -37,6 +37,8 @@ Partial Public Class siscomDataSet
     
     Private tableclientessucursales As clientessucursalesDataTable
     
+    Private tablemisclientes As misclientesDataTable
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -83,6 +85,9 @@ Partial Public Class siscomDataSet
             End If
             If (Not (ds.Tables("clientessucursales")) Is Nothing) Then
                 MyBase.Tables.Add(New clientessucursalesDataTable(ds.Tables("clientessucursales")))
+            End If
+            If (Not (ds.Tables("misclientes")) Is Nothing) Then
+                MyBase.Tables.Add(New misclientesDataTable(ds.Tables("misclientes")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -158,6 +163,16 @@ Partial Public Class siscomDataSet
     Public ReadOnly Property clientessucursales() As clientessucursalesDataTable
         Get
             Return Me.tableclientessucursales
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property misclientes() As misclientesDataTable
+        Get
+            Return Me.tablemisclientes
         End Get
     End Property
     
@@ -246,6 +261,9 @@ Partial Public Class siscomDataSet
             If (Not (ds.Tables("clientessucursales")) Is Nothing) Then
                 MyBase.Tables.Add(New clientessucursalesDataTable(ds.Tables("clientessucursales")))
             End If
+            If (Not (ds.Tables("misclientes")) Is Nothing) Then
+                MyBase.Tables.Add(New misclientesDataTable(ds.Tables("misclientes")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -314,6 +332,12 @@ Partial Public Class siscomDataSet
                 Me.tableclientessucursales.InitVars
             End If
         End If
+        Me.tablemisclientes = CType(MyBase.Tables("misclientes"),misclientesDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tablemisclientes) Is Nothing) Then
+                Me.tablemisclientes.InitVars
+            End If
+        End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -336,6 +360,8 @@ Partial Public Class siscomDataSet
         MyBase.Tables.Add(Me.tableproductos)
         Me.tableclientessucursales = New clientessucursalesDataTable()
         MyBase.Tables.Add(Me.tableclientessucursales)
+        Me.tablemisclientes = New misclientesDataTable()
+        MyBase.Tables.Add(Me.tablemisclientes)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -371,6 +397,12 @@ Partial Public Class siscomDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializeclientessucursales() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializemisclientes() As Boolean
         Return false
     End Function
     
@@ -450,6 +482,9 @@ Partial Public Class siscomDataSet
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub clientessucursalesRowChangeEventHandler(ByVal sender As Object, ByVal e As clientessucursalesRowChangeEvent)
     
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub misclientesRowChangeEventHandler(ByVal sender As Object, ByVal e As misclientesRowChangeEvent)
+    
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
@@ -467,6 +502,14 @@ Partial Public Class siscomDataSet
         Private columntelefono As Global.System.Data.DataColumn
         
         Private columncuil As Global.System.Data.DataColumn
+        
+        Private columndbserverweb As Global.System.Data.DataColumn
+        
+        Private columndbweb As Global.System.Data.DataColumn
+        
+        Private columndbuserweb As Global.System.Data.DataColumn
+        
+        Private columndbpwdweb As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -544,6 +587,38 @@ Partial Public Class siscomDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property dbserverwebColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndbserverweb
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property dbwebColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndbweb
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property dbuserwebColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndbuserweb
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property dbpwdwebColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndbpwdweb
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -580,9 +655,9 @@ Partial Public Class siscomDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddclientesRow(ByVal nombre As String, ByVal email As String, ByVal telefono As String, ByVal cuil As String) As clientesRow
+        Public Overloads Function AddclientesRow(ByVal nombre As String, ByVal email As String, ByVal telefono As String, ByVal cuil As String, ByVal dbserverweb As String, ByVal dbweb As String, ByVal dbuserweb As String, ByVal dbpwdweb As String) As clientesRow
             Dim rowclientesRow As clientesRow = CType(Me.NewRow,clientesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, nombre, email, telefono, cuil}
+            Dim columnValuesArray() As Object = New Object() {Nothing, nombre, email, telefono, cuil, dbserverweb, dbweb, dbuserweb, dbpwdweb}
             rowclientesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowclientesRow)
             Return rowclientesRow
@@ -616,6 +691,10 @@ Partial Public Class siscomDataSet
             Me.columnemail = MyBase.Columns("email")
             Me.columntelefono = MyBase.Columns("telefono")
             Me.columncuil = MyBase.Columns("cuil")
+            Me.columndbserverweb = MyBase.Columns("dbserverweb")
+            Me.columndbweb = MyBase.Columns("dbweb")
+            Me.columndbuserweb = MyBase.Columns("dbuserweb")
+            Me.columndbpwdweb = MyBase.Columns("dbpwdweb")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -631,6 +710,14 @@ Partial Public Class siscomDataSet
             MyBase.Columns.Add(Me.columntelefono)
             Me.columncuil = New Global.System.Data.DataColumn("cuil", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncuil)
+            Me.columndbserverweb = New Global.System.Data.DataColumn("dbserverweb", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndbserverweb)
+            Me.columndbweb = New Global.System.Data.DataColumn("dbweb", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndbweb)
+            Me.columndbuserweb = New Global.System.Data.DataColumn("dbuserweb", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndbuserweb)
+            Me.columndbpwdweb = New Global.System.Data.DataColumn("dbpwdweb", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndbpwdweb)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidclientes}, true))
             Me.columnidclientes.AutoIncrement = true
             Me.columnidclientes.AutoIncrementSeed = -1
@@ -641,6 +728,10 @@ Partial Public Class siscomDataSet
             Me.columnemail.MaxLength = 75
             Me.columntelefono.MaxLength = 45
             Me.columncuil.MaxLength = 45
+            Me.columndbserverweb.MaxLength = 45
+            Me.columndbweb.MaxLength = 45
+            Me.columndbuserweb.MaxLength = 45
+            Me.columndbpwdweb.MaxLength = 45
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2371,6 +2462,409 @@ Partial Public Class siscomDataSet
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class misclientesDataTable
+        Inherits Global.System.Data.TypedTableBase(Of misclientesRow)
+        
+        Private columnnombre As Global.System.Data.DataColumn
+        
+        Private columnidterminales As Global.System.Data.DataColumn
+        
+        Private columnmac As Global.System.Data.DataColumn
+        
+        Private columnequipo As Global.System.Data.DataColumn
+        
+        Private columntvid As Global.System.Data.DataColumn
+        
+        Private columnfechaalta As Global.System.Data.DataColumn
+        
+        Private columnfechabaja As Global.System.Data.DataColumn
+        
+        Private columnsgcversion As Global.System.Data.DataColumn
+        
+        Private columnautoupdater As Global.System.Data.DataColumn
+        
+        Private columnidclientes As Global.System.Data.DataColumn
+        
+        Private columnidsucursal As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "misclientes"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property nombreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnombre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property idterminalesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnidterminales
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property macColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmac
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property equipoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnequipo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property tvidColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntvid
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property fechaaltaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfechaalta
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property fechabajaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfechabaja
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property sgcversionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsgcversion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property autoupdaterColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnautoupdater
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property idclientesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnidclientes
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property idsucursalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnidsucursal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As misclientesRow
+            Get
+                Return CType(Me.Rows(index),misclientesRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event misclientesRowChanging As misclientesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event misclientesRowChanged As misclientesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event misclientesRowDeleting As misclientesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event misclientesRowDeleted As misclientesRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddmisclientesRow(ByVal row As misclientesRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddmisclientesRow(ByVal nombre As String, ByVal mac As String, ByVal equipo As String, ByVal tvid As String, ByVal fechaalta As Date, ByVal fechabaja As Date, ByVal sgcversion As String, ByVal autoupdater As Integer, ByVal idsucursal As Integer) As misclientesRow
+            Dim rowmisclientesRow As misclientesRow = CType(Me.NewRow,misclientesRow)
+            Dim columnValuesArray() As Object = New Object() {nombre, Nothing, mac, equipo, tvid, fechaalta, fechabaja, sgcversion, autoupdater, Nothing, idsucursal}
+            rowmisclientesRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowmisclientesRow)
+            Return rowmisclientesRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function FindByidterminales(ByVal idterminales As Integer) As misclientesRow
+            Return CType(Me.Rows.Find(New Object() {idterminales}),misclientesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As misclientesDataTable = CType(MyBase.Clone,misclientesDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New misclientesDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnnombre = MyBase.Columns("nombre")
+            Me.columnidterminales = MyBase.Columns("idterminales")
+            Me.columnmac = MyBase.Columns("mac")
+            Me.columnequipo = MyBase.Columns("equipo")
+            Me.columntvid = MyBase.Columns("tvid")
+            Me.columnfechaalta = MyBase.Columns("fechaalta")
+            Me.columnfechabaja = MyBase.Columns("fechabaja")
+            Me.columnsgcversion = MyBase.Columns("sgcversion")
+            Me.columnautoupdater = MyBase.Columns("autoupdater")
+            Me.columnidclientes = MyBase.Columns("idclientes")
+            Me.columnidsucursal = MyBase.Columns("idsucursal")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnnombre = New Global.System.Data.DataColumn("nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre)
+            Me.columnidterminales = New Global.System.Data.DataColumn("idterminales", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidterminales)
+            Me.columnmac = New Global.System.Data.DataColumn("mac", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmac)
+            Me.columnequipo = New Global.System.Data.DataColumn("equipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnequipo)
+            Me.columntvid = New Global.System.Data.DataColumn("tvid", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntvid)
+            Me.columnfechaalta = New Global.System.Data.DataColumn("fechaalta", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfechaalta)
+            Me.columnfechabaja = New Global.System.Data.DataColumn("fechabaja", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfechabaja)
+            Me.columnsgcversion = New Global.System.Data.DataColumn("sgcversion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsgcversion)
+            Me.columnautoupdater = New Global.System.Data.DataColumn("autoupdater", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnautoupdater)
+            Me.columnidclientes = New Global.System.Data.DataColumn("idclientes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidclientes)
+            Me.columnidsucursal = New Global.System.Data.DataColumn("idsucursal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidsucursal)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidterminales}, true))
+            Me.columnnombre.MaxLength = 75
+            Me.columnidterminales.AutoIncrement = true
+            Me.columnidterminales.AutoIncrementSeed = -1
+            Me.columnidterminales.AutoIncrementStep = -1
+            Me.columnidterminales.AllowDBNull = false
+            Me.columnidterminales.Unique = true
+            Me.columnmac.MaxLength = 12
+            Me.columnequipo.MaxLength = 70
+            Me.columntvid.MaxLength = 45
+            Me.columnsgcversion.MaxLength = 45
+            Me.columnidclientes.AutoIncrement = true
+            Me.columnidclientes.AutoIncrementSeed = -1
+            Me.columnidclientes.AutoIncrementStep = -1
+            Me.columnidclientes.AllowDBNull = false
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewmisclientesRow() As misclientesRow
+            Return CType(Me.NewRow,misclientesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New misclientesRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(misclientesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.misclientesRowChangedEvent) Is Nothing) Then
+                RaiseEvent misclientesRowChanged(Me, New misclientesRowChangeEvent(CType(e.Row,misclientesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.misclientesRowChangingEvent) Is Nothing) Then
+                RaiseEvent misclientesRowChanging(Me, New misclientesRowChangeEvent(CType(e.Row,misclientesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.misclientesRowDeletedEvent) Is Nothing) Then
+                RaiseEvent misclientesRowDeleted(Me, New misclientesRowChangeEvent(CType(e.Row,misclientesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.misclientesRowDeletingEvent) Is Nothing) Then
+                RaiseEvent misclientesRowDeleting(Me, New misclientesRowChangeEvent(CType(e.Row,misclientesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemovemisclientesRow(ByVal row As misclientesRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As siscomDataSet = New siscomDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "misclientesDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class clientesRow
@@ -2458,6 +2952,66 @@ Partial Public Class siscomDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property dbserverweb() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableclientes.dbserverwebColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dbserverweb' de la tabla 'clientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableclientes.dbserverwebColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property dbweb() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableclientes.dbwebColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dbweb' de la tabla 'clientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableclientes.dbwebColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property dbuserweb() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableclientes.dbuserwebColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dbuserweb' de la tabla 'clientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableclientes.dbuserwebColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property dbpwdweb() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableclientes.dbpwdwebColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dbpwdweb' de la tabla 'clientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableclientes.dbpwdwebColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsnombreNull() As Boolean
             Return Me.IsNull(Me.tableclientes.nombreColumn)
         End Function
@@ -2502,6 +3056,54 @@ Partial Public Class siscomDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetcuilNull()
             Me(Me.tableclientes.cuilColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdbserverwebNull() As Boolean
+            Return Me.IsNull(Me.tableclientes.dbserverwebColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdbserverwebNull()
+            Me(Me.tableclientes.dbserverwebColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdbwebNull() As Boolean
+            Return Me.IsNull(Me.tableclientes.dbwebColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdbwebNull()
+            Me(Me.tableclientes.dbwebColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdbuserwebNull() As Boolean
+            Return Me.IsNull(Me.tableclientes.dbuserwebColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdbuserwebNull()
+            Me(Me.tableclientes.dbuserwebColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdbpwdwebNull() As Boolean
+            Return Me.IsNull(Me.tableclientes.dbpwdwebColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdbpwdwebNull()
+            Me(Me.tableclientes.dbpwdwebColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3176,6 +3778,287 @@ Partial Public Class siscomDataSet
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class misclientesRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tablemisclientes As misclientesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tablemisclientes = CType(Me.Table,misclientesDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property nombre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemisclientes.nombreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'misclientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemisclientes.nombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property idterminales() As Integer
+            Get
+                Return CType(Me(Me.tablemisclientes.idterminalesColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablemisclientes.idterminalesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property mac() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemisclientes.macColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'mac' de la tabla 'misclientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemisclientes.macColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property equipo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemisclientes.equipoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'equipo' de la tabla 'misclientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemisclientes.equipoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property tvid() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemisclientes.tvidColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tvid' de la tabla 'misclientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemisclientes.tvidColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property fechaalta() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tablemisclientes.fechaaltaColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fechaalta' de la tabla 'misclientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemisclientes.fechaaltaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property fechabaja() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tablemisclientes.fechabajaColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fechabaja' de la tabla 'misclientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemisclientes.fechabajaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property sgcversion() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemisclientes.sgcversionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'sgcversion' de la tabla 'misclientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemisclientes.sgcversionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property autoupdater() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablemisclientes.autoupdaterColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'autoupdater' de la tabla 'misclientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemisclientes.autoupdaterColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property idclientes() As Integer
+            Get
+                Return CType(Me(Me.tablemisclientes.idclientesColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablemisclientes.idclientesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property idsucursal() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablemisclientes.idsucursalColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'idsucursal' de la tabla 'misclientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemisclientes.idsucursalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsnombreNull() As Boolean
+            Return Me.IsNull(Me.tablemisclientes.nombreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetnombreNull()
+            Me(Me.tablemisclientes.nombreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsmacNull() As Boolean
+            Return Me.IsNull(Me.tablemisclientes.macColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetmacNull()
+            Me(Me.tablemisclientes.macColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsequipoNull() As Boolean
+            Return Me.IsNull(Me.tablemisclientes.equipoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetequipoNull()
+            Me(Me.tablemisclientes.equipoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstvidNull() As Boolean
+            Return Me.IsNull(Me.tablemisclientes.tvidColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettvidNull()
+            Me(Me.tablemisclientes.tvidColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsfechaaltaNull() As Boolean
+            Return Me.IsNull(Me.tablemisclientes.fechaaltaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetfechaaltaNull()
+            Me(Me.tablemisclientes.fechaaltaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsfechabajaNull() As Boolean
+            Return Me.IsNull(Me.tablemisclientes.fechabajaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetfechabajaNull()
+            Me(Me.tablemisclientes.fechabajaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IssgcversionNull() As Boolean
+            Return Me.IsNull(Me.tablemisclientes.sgcversionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetsgcversionNull()
+            Me(Me.tablemisclientes.sgcversionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsautoupdaterNull() As Boolean
+            Return Me.IsNull(Me.tablemisclientes.autoupdaterColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetautoupdaterNull()
+            Me(Me.tablemisclientes.autoupdaterColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsidsucursalNull() As Boolean
+            Return Me.IsNull(Me.tablemisclientes.idsucursalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetidsucursalNull()
+            Me(Me.tablemisclientes.idsucursalColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -3390,6 +4273,42 @@ Partial Public Class siscomDataSet
             End Get
         End Property
     End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class misclientesRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As misclientesRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As misclientesRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As misclientesRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
 End Class
 
 Namespace siscomDataSetTableAdapters
@@ -3526,13 +4445,20 @@ Namespace siscomDataSetTableAdapters
             tableMapping.ColumnMappings.Add("email", "email")
             tableMapping.ColumnMappings.Add("telefono", "telefono")
             tableMapping.ColumnMappings.Add("cuil", "cuil")
+            tableMapping.ColumnMappings.Add("dbserverweb", "dbserverweb")
+            tableMapping.ColumnMappings.Add("dbweb", "dbweb")
+            tableMapping.ColumnMappings.Add("dbuserweb", "dbuserweb")
+            tableMapping.ColumnMappings.Add("dbpwdweb", "dbpwdweb")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM `clientes` WHERE ((`idclientes` = @p1) AND ((@p2 = 1 AND `nombre` IS "& _ 
                 "NULL) OR (`nombre` = @p3)) AND ((@p4 = 1 AND `email` IS NULL) OR (`email` = @p5)"& _ 
                 ") AND ((@p6 = 1 AND `telefono` IS NULL) OR (`telefono` = @p7)) AND ((@p8 = 1 AND"& _ 
-                " `cuil` IS NULL) OR (`cuil` = @p9)))"
+                " `cuil` IS NULL) OR (`cuil` = @p9)) AND ((@p10 = 1 AND `dbpwdweb` IS NULL) OR (`"& _ 
+                "dbpwdweb` = @p11)) AND ((@p12 = 1 AND `dbserverweb` IS NULL) OR (`dbserverweb` ="& _ 
+                " @p13)) AND ((@p14 = 1 AND `dbuserweb` IS NULL) OR (`dbuserweb` = @p15)) AND ((@"& _ 
+                "p16 = 1 AND `dbweb` IS NULL) OR (`dbweb` = @p17)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -3610,10 +4536,78 @@ Namespace siscomDataSetTableAdapters
             param.SourceColumn = "cuil"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p10"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "dbpwdweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p11"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbpwdweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p12"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "dbserverweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p13"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbserverweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "dbuserweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p15"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbuserweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p16"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "dbweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p17"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `clientes` (`nombre`, `email`, `telefono`, `cuil`) VALUES (@p1, @p2, "& _ 
-                "@p3, @p4)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `clientes` (`nombre`, `email`, `telefono`, `cuil`, `dbpwdweb`, `dbser"& _ 
+                "verweb`, `dbuserweb`, `dbweb`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -3643,13 +4637,45 @@ Namespace siscomDataSetTableAdapters
             param.IsNullable = true
             param.SourceColumn = "cuil"
             Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p5"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbpwdweb"
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p6"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbserverweb"
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p7"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbuserweb"
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p8"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbweb"
+            Me._adapter.InsertCommand.Parameters.Add(param)
             Me._adapter.UpdateCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `clientes` SET `nombre` = @p1, `email` = @p2, `telefono` = @p3, `cuil` = @"& _ 
-                "p4 WHERE ((`idclientes` = @p5) AND ((@p6 = 1 AND `nombre` IS NULL) OR (`nombre` "& _ 
-                "= @p7)) AND ((@p8 = 1 AND `email` IS NULL) OR (`email` = @p9)) AND ((@p10 = 1 AN"& _ 
-                "D `telefono` IS NULL) OR (`telefono` = @p11)) AND ((@p12 = 1 AND `cuil` IS NULL)"& _ 
-                " OR (`cuil` = @p13)))"
+                "p4, `dbpwdweb` = @p5, `dbserverweb` = @p6, `dbuserweb` = @p7, `dbweb` = @p8 WHER"& _ 
+                "E ((`idclientes` = @p9) AND ((@p10 = 1 AND `nombre` IS NULL) OR (`nombre` = @p11"& _ 
+                ")) AND ((@p12 = 1 AND `email` IS NULL) OR (`email` = @p13)) AND ((@p14 = 1 AND `"& _ 
+                "telefono` IS NULL) OR (`telefono` = @p15)) AND ((@p16 = 1 AND `cuil` IS NULL) OR"& _ 
+                " (`cuil` = @p17)) AND ((@p18 = 1 AND `dbpwdweb` IS NULL) OR (`dbpwdweb` = @p19))"& _ 
+                " AND ((@p20 = 1 AND `dbserverweb` IS NULL) OR (`dbserverweb` = @p21)) AND ((@p22"& _ 
+                " = 1 AND `dbuserweb` IS NULL) OR (`dbuserweb` = @p23)) AND ((@p24 = 1 AND `dbweb"& _ 
+                "` IS NULL) OR (`dbweb` = @p25)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -3681,6 +4707,34 @@ Namespace siscomDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p5"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbpwdweb"
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p6"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbserverweb"
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p7"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbuserweb"
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p8"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbweb"
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p9"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -3688,45 +4742,11 @@ Namespace siscomDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p6"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "nombre"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p7"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
-            param.IsNullable = true
-            param.SourceColumn = "nombre"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p8"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "email"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p9"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
-            param.IsNullable = true
-            param.SourceColumn = "email"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p10"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "telefono"
+            param.SourceColumn = "nombre"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -3735,7 +4755,7 @@ Namespace siscomDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "telefono"
+            param.SourceColumn = "nombre"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
@@ -3743,7 +4763,7 @@ Namespace siscomDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "cuil"
+            param.SourceColumn = "email"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
@@ -3752,7 +4772,109 @@ Namespace siscomDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
+            param.SourceColumn = "email"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p14"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "telefono"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p15"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "telefono"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p16"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
             param.SourceColumn = "cuil"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p17"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "cuil"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p18"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "dbpwdweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p19"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbpwdweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p20"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "dbserverweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p21"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbserverweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p22"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "dbuserweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p23"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbuserweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p24"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "dbweb"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p25"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "dbweb"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
         End Sub
@@ -3770,7 +4892,8 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(0) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT `idclientes`, `nombre`, `email`, `telefono`, `cuil` FROM `clientes`"
+            Me._commandCollection(0).CommandText = "SELECT idclientes, nombre, email, telefono, cuil, dbpwdweb, dbserverweb, dbuserwe"& _ 
+                "b, dbweb FROM clientes"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -3830,7 +4953,7 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As String, ByVal p5 As String, ByVal p7 As String, ByVal p9 As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As String, ByVal p5 As String, ByVal p7 As String, ByVal p9 As String, ByVal p11 As String, ByVal p13 As String, ByVal p15 As String, ByVal p17 As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,Integer)
             If (p3 Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -3860,6 +4983,34 @@ Namespace siscomDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = CType(p9,String)
             End If
+            If (p11 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(p11,String)
+            End If
+            If (p13 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(p13,String)
+            End If
+            If (p15 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(p15,String)
+            End If
+            If (p17 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(p17,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -3879,7 +5030,7 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal p1 As String, ByVal p2 As String, ByVal p3 As String, ByVal p4 As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal p1 As String, ByVal p2 As String, ByVal p3 As String, ByVal p4 As String, ByVal p5 As String, ByVal p6 As String, ByVal p7 As String, ByVal p8 As String) As Integer
             If (p1 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -3900,6 +5051,26 @@ Namespace siscomDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = CType(p4,String)
             End If
+            If (p5 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(p5,String)
+            End If
+            If (p6 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(p6,String)
+            End If
+            If (p7 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(p7,String)
+            End If
+            If (p8 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(p8,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -3919,7 +5090,24 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal p1 As String, ByVal p2 As String, ByVal p3 As String, ByVal p4 As String, ByVal p5 As Integer, ByVal p7 As String, ByVal p9 As String, ByVal p11 As String, ByVal p13 As String) As Integer
+        Public Overloads Overridable Function Update( _
+                    ByVal p1 As String,  _
+                    ByVal p2 As String,  _
+                    ByVal p3 As String,  _
+                    ByVal p4 As String,  _
+                    ByVal p5 As String,  _
+                    ByVal p6 As String,  _
+                    ByVal p7 As String,  _
+                    ByVal p8 As String,  _
+                    ByVal p9 As Integer,  _
+                    ByVal p11 As String,  _
+                    ByVal p13 As String,  _
+                    ByVal p15 As String,  _
+                    ByVal p17 As String,  _
+                    ByVal p19 As String,  _
+                    ByVal p21 As String,  _
+                    ByVal p23 As String,  _
+                    ByVal p25 As String) As Integer
             If (p1 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -3940,21 +5128,27 @@ Namespace siscomDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(p4,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(p5,Integer)
+            If (p5 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(p5,String)
+            End If
+            If (p6 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(p6,String)
+            End If
             If (p7 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(p7,String)
             End If
-            If (p9 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            If (p8 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(p9,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(p8,String)
             End If
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(p9,Integer)
             If (p11 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
@@ -3968,6 +5162,48 @@ Namespace siscomDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(p13,String)
+            End If
+            If (p15 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(p15,String)
+            End If
+            If (p17 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(p17,String)
+            End If
+            If (p19 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(p19,String)
+            End If
+            If (p21 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(p21,String)
+            End If
+            If (p23 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(p23,String)
+            End If
+            If (p25 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(p25,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -7662,6 +8898,237 @@ Namespace siscomDataSetTableAdapters
                 End If
             End Try
             Return returnValue
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class misclientesTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.MySql.Data.MySqlClient.MySqlDataAdapter
+        
+        Private _connection As Global.MySql.Data.MySqlClient.MySqlConnection
+        
+        Private _transaction As Global.MySql.Data.MySqlClient.MySqlTransaction
+        
+        Private _commandCollection() As Global.MySql.Data.MySqlClient.MySqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.MySql.Data.MySqlClient.MySqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Connection() As Global.MySql.Data.MySqlClient.MySqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.MySql.Data.MySqlClient.MySqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Transaction() As Global.MySql.Data.MySqlClient.MySqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.MySql.Data.MySqlClient.MySqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.MySql.Data.MySqlClient.MySqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "misclientes"
+            tableMapping.ColumnMappings.Add("nombre", "nombre")
+            tableMapping.ColumnMappings.Add("idterminales", "idterminales")
+            tableMapping.ColumnMappings.Add("mac", "mac")
+            tableMapping.ColumnMappings.Add("equipo", "equipo")
+            tableMapping.ColumnMappings.Add("tvid", "tvid")
+            tableMapping.ColumnMappings.Add("fechaalta", "fechaalta")
+            tableMapping.ColumnMappings.Add("fechabaja", "fechabaja")
+            tableMapping.ColumnMappings.Add("sgcversion", "sgcversion")
+            tableMapping.ColumnMappings.Add("autoupdater", "autoupdater")
+            tableMapping.ColumnMappings.Add("idclientes", "idclientes")
+            tableMapping.ColumnMappings.Add("idsucursal", "idsucursal")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.MySql.Data.MySqlClient.MySqlConnection()
+            Me._connection.ConnectionString = Global.sgcomercial.My.MySettings.Default.SCConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(1) {}
+            Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT nombre, idterminales, mac, equipo, tvid, fechaalta, fechabaja, sgcversion,"& _ 
+                " autoupdater, idclientes, idsucursal FROM misclientes"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT nombre, idterminales, mac, equipo, tvid, fechaalta, fechabaja, sgcversion,"& _ 
+                " autoupdater, idclientes, idsucursal FROM misclientes WHERE (mac = @mac)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@mac"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 12
+            param.IsNullable = true
+            param.SourceColumn = "mac"
+            Me._commandCollection(1).Parameters.Add(param)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As siscomDataSet.misclientesDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As siscomDataSet.misclientesDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As siscomDataSet.misclientesDataTable = New siscomDataSet.misclientesDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByMac(ByVal dataTable As siscomDataSet.misclientesDataTable, ByVal mac As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (mac Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(mac,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByMac(ByVal mac As String) As siscomDataSet.misclientesDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (mac Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(mac,String)
+            End If
+            Dim dataTable As siscomDataSet.misclientesDataTable = New siscomDataSet.misclientesDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
         End Function
     End Class
     

@@ -32,11 +32,20 @@
         Me.LabelVersion.Text = String.Format("Versión {0}", My.Application.Info.Version.ToString)
         Me.LabelCopyright.Text = My.Application.Info.Copyright
         Me.LabelCompanyName.Text = My.Application.Info.CompanyName
-        Me.TextBoxDescription.Text = My.Application.Info.Description
+        'Me.TextBoxDescription.Text = My.Application.Info.Description
+        'TextBoxDescription.AppendText(Chr(13))
+        NombreCliente.Text = "Nombre: " + gNombreCliente
+        IDCliente.Text = "ID Cliente:" + gMiIDCliente.ToString
+        Terminal.Text = "Terminal: " + gNombreTerminal
+        IDTerminal.Text = "ID Terminal: " + gTerminal.ToString
+
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
         Me.Close()
     End Sub
 
+    Private Sub TableLayoutPanel_Paint(sender As Object, e As PaintEventArgs)
+
+    End Sub
 End Class

@@ -161,6 +161,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property Exo2_0_MediumItalic() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Exo2_0_MediumItalic", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property green_plus_icon_13() As System.Drawing.Bitmap
@@ -187,6 +197,16 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("manual", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property Montserrat_Bold() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Montserrat_Bold", resourceCulture)
+                Return CType(obj,Byte())
             End Get
         End Property
         

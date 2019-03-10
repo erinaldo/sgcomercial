@@ -85,7 +85,7 @@
         For i = 0 To DataGridViewProductos.RowCount - 1
             Dim cantidad As Decimal = DataGridViewProductos.Rows(i).Cells(3).Value
             Dim medida As Decimal = DataGridViewProductos.Rows(i).Cells(5).Value
-            Dim productodisponible As Decimal = StockTableAdapter.stock_consultardisponible(DataGridViewProductos.Rows(i).Cells(0).Value)
+            Dim productodisponible As Decimal = StockgeneralTableAdapter.stockgeneral_consultardisponible(DataGridViewProductos.Rows(i).Cells("idproducto").Value)
             cantidad = cantidad * medida
             If productodisponible < cantidad Then
                 MsgBox("Producto insuficiente!", MsgBoxStyle.Exclamation, DataGridViewProductos.Rows(i).Cells(2).Value.toupper)

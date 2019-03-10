@@ -86,12 +86,16 @@ Public Class loginform
                 CheckConnection.Open()
                 My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn)
                 gActiveSQLConnectionString = comercialStrConn
+                CheckConnection.Close()
+                CheckConnection.Dispose()
             Catch ex As Exception
                 Try
                     CheckConnection.ConnectionString = comercialStrConn2
                     CheckConnection.Open()
                     My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn2)
                     gActiveSQLConnectionString = comercialStrConn2
+                    CheckConnection.Close()
+                    CheckConnection.Dispose()
                 Catch ex2 As Exception
                     MsgBox("Conexión a base de datos fallida!", vbExclamation, "Advertencia!")
                     End
@@ -109,25 +113,40 @@ Public Class loginform
         ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
         Try 'CONNECT DB REMOTE
             Try
-                Dim CheckConnection As MySqlConnection
-                CheckConnection = New MySqlConnection
-                CheckConnection.ConnectionString = SCStrConn
-                CheckConnection.Open()
+                'Dim CheckConnection As MySqlConnection
+                'CheckConnection = New MySqlConnection
+                'CheckConnection.ConnectionString = SCStrConn
+                'CheckConnection.Open()
                 My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
                 Dim TerminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
                 TerminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
-                gMiSucursal = TerminalesTableAdapter.terminales_consultarsucursal(gmacadress)
-                gMiIDCliente = TerminalesTableAdapter.terminales_consultarIDCliente(gmacadress)
+                Dim misclientesTableAdapter As siscomDataSetTableAdapters.misclientesTableAdapter
+                misclientesTableAdapter = New siscomDataSetTableAdapters.misclientesTableAdapter()
+                Dim misclientesdatatable As siscomDataSet.misclientesDataTable
+                misclientesdatatable = misclientesTableAdapter.GetDataByMac(gmacadress)
+                If misclientesdatatable.Rows.Count = 1 Then
+                    gMiSucursal = misclientesdatatable.Rows(0).Item(misclientesdatatable.idsucursalColumn)
+                    gMiIDCliente = misclientesdatatable.Rows(0).Item(misclientesdatatable.idclientesColumn)
+                    gNombreCliente = misclientesdatatable.Rows(0).Item(misclientesdatatable.nombreColumn)
+                    gNombreTerminal = misclientesdatatable.Rows(0).Item(misclientesdatatable.equipoColumn)
+                    LabelDatosCliente.Text = "" + gNombreCliente + " - Terminal: [" + gNombreTerminal + "] - Sucursal N°: " + gMiSucursal.ToString + ""
+                End If
+                'gMiSucursal = TerminalesTableAdapter.terminales_consultarsucursal(gmacadress)
+                'gMiIDCliente = TerminalesTableAdapter.terminales_consultarIDCliente(gmacadress)
+                'CheckConnection.Close()
+                'CheckConnection.Dispose()
             Catch ex As Exception
                 ErrorLogTableAdapter.errorlog_insertar("Login", "CONEXIÓN", "Load", "No se pudo Conectar al servidor SC " + ex.Message)
             End Try
             ArmaSTRConnWEB(status)
             Try
-                Dim CheckConnection As MySqlConnection
-                CheckConnection = New MySqlConnection
-                CheckConnection.ConnectionString = SCStrConn
-                CheckConnection.Open()
+                'Dim CheckConnection As MySqlConnection
+                'CheckConnection = New MySqlConnection
+                'CheckConnection.ConnectionString = SCStrConn
+                'CheckConnection.Open()
                 My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
+                'CheckConnection.Close()
+                'CheckConnection.Dispose()
             Catch ex As Exception
                 ErrorLogTableAdapter.errorlog_insertar("Login", "CONEXIÓN", "Load", "No se pudo Conectar al servidor Clowd " + ex.Message)
             End Try
@@ -142,23 +161,29 @@ Public Class loginform
         hi.Show()
         Cursor.Current = Cursors.WaitCursor
         ''''''''''''''''''''''''''''''''''''''
-        hi.mensaje.Text = "Borrando archivos temporales"
+        hi.mensaje.Text = "Limpiando archivos temporales"
+        hi.Refresh()
         borrartemporales()
         '''''''''''''''''''''''''''''''''''''''''
-        hi.mensaje.Text = "Estableciendo formatos de fecha"
+        hi.mensaje.Text = "Estableciendo formatos predeterminados"
+        hi.Refresh()
         formatos()
         '''''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Identificando terminal"
+        hi.Refresh()
         identificarterminal()
         '''''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Conectando a tu base de datos local.."
+        hi.Refresh()
         connectdblocal()
         '''''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Conectando a la Nube"
+        hi.Refresh()
         connectdbremote()
         '********************************
         '********************************  
         hi.mensaje.Text = "Ya casi estamos!"
+        hi.Refresh()
         UpdateCheckBG.RunWorkerAsync()
         '********************************  
         '********************************
@@ -184,6 +209,8 @@ Public Class loginform
             gidcaja = 0
             gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
             '=======================================
+            sqlserverconnection.Close()
+            sqlserverconnection.Dispose()
         Catch ex As Exception
             MsgBox("No se pudo conectar con el servidor LOCAL", MsgBoxStyle.Exclamation)
             sqlserverconnection.Dispose()
@@ -232,6 +259,7 @@ Public Class loginform
                 parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
                 parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("SysCurrentVersion", Val(softwareversion), softwareversion, Nothing)
                 MsgBox("Versión de Base Actualizada")
+                enablebuttons(True)
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
@@ -245,10 +273,17 @@ Public Class loginform
                 mycommand = New SqlCommand(qry, myConn2)
                 mycommand.ExecuteNonQuery()
                 MsgBox("Medidas reparadas", MsgBoxStyle.Information, "Auto Fix measurements:")
+                myConn2.Close()
+                myConn2.Dispose()
             Catch ex As Exception
                 MsgBox("Ocurrio un problema: " + ex.Message)
             End Try
         End If
+        'If (e.KeyCode = Keys.L AndAlso e.Modifiers = Keys.Control) Then
+        '    Me.Dispose()
+        '    'loginform_Load(e, e)
+
+        'End If
         ''''''''''***************************   POR DEFECTO **************************************
         'If (e.KeyCode = Keys.T AndAlso e.Control AndAlso e.Shift) Then
         '    Dim testwindows As POSTForm

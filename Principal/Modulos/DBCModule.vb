@@ -26,7 +26,7 @@ Module DBCModule
             database = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBWEB")
             userid = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBUSERWEB")
             password = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBPWDWEB")
-            MySQLStrConn = "server=" + server + ";" + "user id=" + userid + ";" + "password=" + password + ";" + "database=" + database + ";persistsecurityinfo=True;Connect Timeout=12"
+            MySQLStrConn = "server=" + server + ";" + "user id=" + userid + ";" + "password=" + password + ";" + "database=" + database + ";persistsecurityinfo=True;Connect Timeout=17"
 
         Catch ex As Exception
             MsgBox("No se pudo Construir el string de conexión al servidor remoto: " + ex.Message, MsgBoxStyle.Information, "DBWEB")

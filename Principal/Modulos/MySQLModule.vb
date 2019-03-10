@@ -18,9 +18,12 @@ Module MySQLModule
             MySQLC.Open()
             'MsgBox("Conexión exitosa!", MsgBoxStyle.Information)
             status = True
-        Catch ex As Exception
-            MsgBox("No se pudo conectar con la Nube: " + ex.Message, MsgBoxStyle.Information, "Información importante")
+            MySQLC.Close()
             MySQLC.Dispose()
+        Catch ex As Exception
+            'MsgBox("No se pudo conectar con la Nube: " + ex.Message, MsgBoxStyle.Information, "Información importante")
+            MySQLC.Dispose()
+            ErrorLogTableAdapter.errorlog_insertar("Aplicación", "Conexión a la nube", "conectarMySQL", ex.Message)
             status = False
             Return
         End Try
@@ -32,9 +35,12 @@ Module MySQLModule
             MySQLC.Open()
             'MsgBox("Conexión exitosa!", MsgBoxStyle.Information)
             status = True
-        Catch ex As Exception
-            MsgBox("No se pudo conectar con el servidor remoto -SC-: " + ex.Message, MsgBoxStyle.Information)
+            MySQLC.Close()
             MySQLC.Dispose()
+        Catch ex As Exception
+            'MsgBox("No se pudo conectar con el servidor remoto -SC-: " + ex.Message, MsgBoxStyle.Information)
+            MySQLC.Dispose()
+            ErrorLogTableAdapter.errorlog_insertar("Aplicación", "Conexión a siscom", "conectarSisCom", ex.Message)
             status = False
             Return
         End Try
@@ -1037,6 +1043,8 @@ Module MySQLModule
             Dim TerminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
             TerminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
             gMiSucursal = TerminalesTableAdapter.terminales_consultarsucursal(gmacadress)
+            CheckConnection.Close()
+            CheckConnection.Dispose()
         Catch ex As Exception
             ErrorLogTableAdapter.errorlog_insertar("SynLibroVentas", "Al verificar conexion al servidor siscom para obtener idsucursal", "SynLibroVentas", "Mensaje: " + ex.Message)
             Return

@@ -129,16 +129,12 @@
     End Sub
 
     Private Sub ListacuentascorrientesDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListacuentascorrientesDataGridView.CellClick
-        'If IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value) = True Then
-        '    Return
-        'End If
         '*************************************************
         Try
             gidcliente = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
         Catch ex As Exception
             Return
         End Try
-
         '*************************************************
         If Not e.ColumnIndex >= 0 Then
             Return
@@ -154,14 +150,11 @@
                     p.ShowDialog()
                     If gidpago > 0 Then
                         Try
-                            Me.ListacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.listacuentascorrientes)
-                            ListacuentascorrientesTableAdapter.FillByidcliente(Me.ComercialDataSet.listacuentascorrientes, gclienteseleccionado)
-                            ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
-                            ClientesBindingSource.Filter = "idcliente = " + gclienteseleccionado.ToString
-                            calculasaldos()
+                            filtrarcliente()
                         Catch ex As Exception
-                            MsgBox("Cliente no encontrado!", MsgBoxStyle.Exclamation, "catch 1")
-                            ClientesBindingSource.Filter = "idcliente = " + "0"
+                            'MsgBox("Cliente no encontrado!", MsgBoxStyle.Exclamation, "catch 1")
+                            'ClientesBindingSource.Filter = ""
+                            'ListacuentascorrientesDataGridView.Rows.Clear()
                         End Try
                     End If
                 End If
@@ -255,5 +248,13 @@
         End If
 
         gidcliente = Nothing
+    End Sub
+
+    Private Sub EstadoCuentaCorriente_GotFocus(sender As Object, e As EventArgs) Handles Me.GotFocus
+
+    End Sub
+
+    Private Sub EstadoCuentaCorriente_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+
     End Sub
 End Class
