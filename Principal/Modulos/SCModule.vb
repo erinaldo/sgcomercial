@@ -17,17 +17,25 @@ Module SCModule
 
     Sub conectarSCConn(ByRef status As Boolean)
         Try
+            If Not My.Computer.Network.IsAvailable Then
+                'Cursor.Current = Cursors.Default
+                'MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+                status = False
+                Return
+            Else
+                status = True
+            End If
             'MySQLConn = New MySqlConnection("Data Source=sistemascomerciales.net; Database=sistema1_sgcaguadagrande; User ID=sistema1_sgcweb; Password=sgcomercial*?; Allow Zero Datetime= true; CHARSET= latin1")
             'SCConn = New MySqlConnection(sgcomercial.My.MySettings.Default.SCConnectionString)
-            SCConn = New MySqlConnection(SCStrConn)
-            SCConn.Open()
-            'MsgBox("Conexión exitosa!", MsgBoxStyle.Information, "SisCom")
-            status = True
-            SCConn.Close()
-            SCConn.Dispose()
+            'SCConn = New MySqlConnection(SCStrConn)
+            'SCConn.Open()
+            ''MsgBox("Conexión exitosa!", MsgBoxStyle.Information, "SisCom")
+            'status = True
+            'SCConn.Close()
+            'SCConn.Dispose()
         Catch ex As Exception
             'MsgBox("No se pudo conectar con el servidor remoto: " + ex.Message, MsgBoxStyle.Information,"SisCom")
-            SCConn.Dispose()
+            'SCConn.Dispose()
             status = False
         End Try
     End Sub

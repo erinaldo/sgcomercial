@@ -1,5 +1,14 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class SeleccionarCantidad
+    Private Sub SeleccionarCantidad_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
+    End Sub
+
     Private Sub SeleccionarCantidad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub

@@ -96,6 +96,7 @@ Partial Class ViewerLoteRendido
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1072, 513)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.KeyPreview = True
         Me.Name = "ViewerLoteRendido"
         Me.Text = "ViewerLoteRendido"
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

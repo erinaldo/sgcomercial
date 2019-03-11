@@ -58,7 +58,22 @@ Partial Class LotePedidosDeliveryRendir
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ListalotesdetalleDataGridView = New System.Windows.Forms.DataGridView()
+        Me.idloteenviodetalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpedidodelivery = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombretransporte = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.montototal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadoentrega = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.EstadosentregadeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.montoapagar = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nroguia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idloteenvio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.importepagado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListalotesdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListalotesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listalotesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
@@ -73,21 +88,6 @@ Partial Class LotePedidosDeliveryRendir
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
         Me.PedidosdeliverydetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliverydetalleTableAdapter()
         Me.VentasdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ventasdetalleTableAdapter()
-        Me.idloteenviodetalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpedidodelivery = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombretransporte = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.montototal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadoentrega = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.montoapagar = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nroguia = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idloteenvio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.importepagado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdloteenvioLabel = New System.Windows.Forms.Label()
         FechaasignacionLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
@@ -393,121 +393,6 @@ Partial Class LotePedidosDeliveryRendir
         Me.ListalotesdetalleDataGridView.Size = New System.Drawing.Size(1092, 395)
         Me.ListalotesdetalleDataGridView.TabIndex = 0
         '
-        'EstadosentregadeliveryBindingSource
-        '
-        Me.EstadosentregadeliveryBindingSource.DataMember = "estadosentregadelivery"
-        Me.EstadosentregadeliveryBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ListalotesdetalleBindingSource
-        '
-        Me.ListalotesdetalleBindingSource.DataMember = "listalotesdetalle"
-        Me.ListalotesdetalleBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ListalotesTableAdapter
-        '
-        Me.ListalotesTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
-        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
-        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
-        Me.TableAdapterManager.cajasTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
-        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
-        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager.funcionesTableAdapter = Nothing
-        Me.TableAdapterManager.gastosTableAdapter = Nothing
-        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosTableAdapter = Nothing
-        Me.TableAdapterManager.perfilesTableAdapter = Nothing
-        Me.TableAdapterManager.permisosTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
-        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.remitosTableAdapter = Nothing
-        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager.stockTableAdapter = Nothing
-        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
-        Me.TableAdapterManager.transportesTableAdapter = Nothing
-        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.valesTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
-        'LotesenviosTableAdapter
-        '
-        Me.LotesenviosTableAdapter.ClearBeforeFill = True
-        '
-        'ListalotesdetalleTableAdapter
-        '
-        Me.ListalotesdetalleTableAdapter.ClearBeforeFill = True
-        '
-        'EstadosentregadeliveryTableAdapter
-        '
-        Me.EstadosentregadeliveryTableAdapter.ClearBeforeFill = True
-        '
-        'VentasTableAdapter
-        '
-        Me.VentasTableAdapter.ClearBeforeFill = True
-        '
-        'PedidosdeliveryTableAdapter
-        '
-        Me.PedidosdeliveryTableAdapter.ClearBeforeFill = True
-        '
-        'PagosTableAdapter
-        '
-        Me.PagosTableAdapter.ClearBeforeFill = True
-        '
-        'LotesenviosdetalleTableAdapter
-        '
-        Me.LotesenviosdetalleTableAdapter.ClearBeforeFill = True
-        '
-        'CajasoperacionesTableAdapter
-        '
-        Me.CajasoperacionesTableAdapter.ClearBeforeFill = True
-        '
-        'CajaseventosTableAdapter
-        '
-        Me.CajaseventosTableAdapter.ClearBeforeFill = True
-        '
-        'PedidosdeliverydetalleTableAdapter
-        '
-        Me.PedidosdeliverydetalleTableAdapter.ClearBeforeFill = True
-        '
-        'VentasdetalleTableAdapter
-        '
-        Me.VentasdetalleTableAdapter.ClearBeforeFill = True
-        '
         'idloteenviodetalle
         '
         Me.idloteenviodetalle.DataPropertyName = "idloteenviodetalle"
@@ -577,6 +462,11 @@ Partial Class LotePedidosDeliveryRendir
         Me.estadoentrega.ValueMember = "idestadoentregadelivery"
         Me.estadoentrega.Width = 230
         '
+        'EstadosentregadeliveryBindingSource
+        '
+        Me.EstadosentregadeliveryBindingSource.DataMember = "estadosentregadelivery"
+        Me.EstadosentregadeliveryBindingSource.DataSource = Me.ComercialDataSet
+        '
         'montoapagar
         '
         Me.montoapagar.HeaderText = "Monto pagado"
@@ -619,6 +509,122 @@ Partial Class LotePedidosDeliveryRendir
         Me.saldo.ReadOnly = True
         Me.saldo.Visible = False
         '
+        'ListalotesdetalleBindingSource
+        '
+        Me.ListalotesdetalleBindingSource.DataMember = "listalotesdetalle"
+        Me.ListalotesdetalleBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ListalotesTableAdapter
+        '
+        Me.ListalotesTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
+        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
+        Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager.permisosTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'LotesenviosTableAdapter
+        '
+        Me.LotesenviosTableAdapter.ClearBeforeFill = True
+        '
+        'ListalotesdetalleTableAdapter
+        '
+        Me.ListalotesdetalleTableAdapter.ClearBeforeFill = True
+        '
+        'EstadosentregadeliveryTableAdapter
+        '
+        Me.EstadosentregadeliveryTableAdapter.ClearBeforeFill = True
+        '
+        'VentasTableAdapter
+        '
+        Me.VentasTableAdapter.ClearBeforeFill = True
+        '
+        'PedidosdeliveryTableAdapter
+        '
+        Me.PedidosdeliveryTableAdapter.ClearBeforeFill = True
+        '
+        'PagosTableAdapter
+        '
+        Me.PagosTableAdapter.ClearBeforeFill = True
+        '
+        'LotesenviosdetalleTableAdapter
+        '
+        Me.LotesenviosdetalleTableAdapter.ClearBeforeFill = True
+        '
+        'CajasoperacionesTableAdapter
+        '
+        Me.CajasoperacionesTableAdapter.ClearBeforeFill = True
+        '
+        'CajaseventosTableAdapter
+        '
+        Me.CajaseventosTableAdapter.ClearBeforeFill = True
+        '
+        'PedidosdeliverydetalleTableAdapter
+        '
+        Me.PedidosdeliverydetalleTableAdapter.ClearBeforeFill = True
+        '
+        'VentasdetalleTableAdapter
+        '
+        Me.VentasdetalleTableAdapter.ClearBeforeFill = True
+        '
         'LotePedidosDeliveryRendir
         '
         Me.AcceptButton = Me.Button1
@@ -628,6 +634,7 @@ Partial Class LotePedidosDeliveryRendir
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "LotePedidosDeliveryRendir"

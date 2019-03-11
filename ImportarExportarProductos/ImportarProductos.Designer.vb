@@ -908,6 +908,7 @@ Partial Class ImportarProductos
         Me.Controls.Add(Me.RubrosDataGridView)
         Me.Controls.Add(Me.ProductosDataGridView)
         Me.Controls.Add(Me.GroupBox1)
+        Me.KeyPreview = True
         Me.Name = "ImportarProductos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ImportarProductos"

@@ -54,6 +54,7 @@ Partial Class SeleccionarCantidad
         Me.ClientSize = New System.Drawing.Size(355, 118)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "SeleccionarCantidad"

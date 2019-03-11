@@ -33,54 +33,14 @@ Partial Class EstadoCuentaCorriente
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.CuitTextBox = New System.Windows.Forms.TextBox()
         Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ListacuentascorrientesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.PagosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.VentasDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.LabelTipoSaldo = New System.Windows.Forms.Label()
-        Me.Labeltotalgeneral = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Labeltotalhaber = New System.Windows.Forms.Label()
-        Me.Labeltotaldebe = New System.Windows.Forms.Label()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PagosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ListacuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ListacuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listacuentascorrientesTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.ClientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesTableAdapter()
-        Me.VentasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ventasTableAdapter()
-        Me.PagosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pagosTableAdapter()
-        Me.PermisosTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.permisosTableAdapter()
         Me.nro = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.idpedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -93,20 +53,60 @@ Partial Class EstadoCuentaCorriente
         Me.idpagos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Anular = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.fechavencimiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListacuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PagosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PagosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VentasDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LabelTipoSaldo = New System.Windows.Forms.Label()
+        Me.Labeltotalgeneral = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Labeltotalhaber = New System.Windows.Forms.Label()
+        Me.Labeltotaldebe = New System.Windows.Forms.Label()
+        Me.ListacuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listacuentascorrientesTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.ClientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesTableAdapter()
+        Me.VentasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ventasTableAdapter()
+        Me.PagosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pagosTableAdapter()
+        Me.PermisosTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.permisosTableAdapter()
         NombreLabel = New System.Windows.Forms.Label()
         CuitLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.ListacuentascorrientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListacuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.VentasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VentasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ListacuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NombreLabel
@@ -151,6 +151,16 @@ Partial Class EstadoCuentaCorriente
         Me.NombreTextBox.Name = "NombreTextBox"
         Me.NombreTextBox.Size = New System.Drawing.Size(357, 22)
         Me.NombreTextBox.TabIndex = 19
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "clientes"
+        Me.ClientesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CuitTextBox
         '
@@ -225,373 +235,6 @@ Partial Class EstadoCuentaCorriente
         Me.ListacuentascorrientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ListacuentascorrientesDataGridView.Size = New System.Drawing.Size(1030, 299)
         Me.ListacuentascorrientesDataGridView.TabIndex = 0
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Button1)
-        Me.GroupBox3.Controls.Add(Me.PagosDataGridView)
-        Me.GroupBox3.Controls.Add(Me.VentasDataGridView)
-        Me.GroupBox3.Controls.Add(Me.Label3)
-        Me.GroupBox3.Controls.Add(Me.Label2)
-        Me.GroupBox3.Controls.Add(Me.LabelTipoSaldo)
-        Me.GroupBox3.Controls.Add(Me.Labeltotalgeneral)
-        Me.GroupBox3.Controls.Add(Me.Label5)
-        Me.GroupBox3.Controls.Add(Me.Label4)
-        Me.GroupBox3.Controls.Add(Me.Labeltotalhaber)
-        Me.GroupBox3.Controls.Add(Me.Labeltotaldebe)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 464)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(1065, 122)
-        Me.GroupBox3.TabIndex = 2
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Resumen"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(825, 46)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(194, 31)
-        Me.Button1.TabIndex = 17
-        Me.Button1.Text = "Imprimir"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'PagosDataGridView
-        '
-        Me.PagosDataGridView.AutoGenerateColumns = False
-        Me.PagosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.PagosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21})
-        Me.PagosDataGridView.DataSource = Me.PagosBindingSource
-        Me.PagosDataGridView.Location = New System.Drawing.Point(66, 27)
-        Me.PagosDataGridView.Name = "PagosDataGridView"
-        Me.PagosDataGridView.RowTemplate.Height = 24
-        Me.PagosDataGridView.Size = New System.Drawing.Size(41, 20)
-        Me.PagosDataGridView.TabIndex = 16
-        Me.PagosDataGridView.Visible = False
-        '
-        'VentasDataGridView
-        '
-        Me.VentasDataGridView.AutoGenerateColumns = False
-        Me.VentasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.VentasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12})
-        Me.VentasDataGridView.DataSource = Me.VentasBindingSource
-        Me.VentasDataGridView.Location = New System.Drawing.Point(19, 27)
-        Me.VentasDataGridView.Name = "VentasDataGridView"
-        Me.VentasDataGridView.RowTemplate.Height = 24
-        Me.VentasDataGridView.Size = New System.Drawing.Size(41, 20)
-        Me.VentasDataGridView.TabIndex = 16
-        Me.VentasDataGridView.Visible = False
-        '
-        'Label3
-        '
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Label3.Location = New System.Drawing.Point(662, 15)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(102, 23)
-        Me.Label3.TabIndex = 16
-        Me.Label3.Text = "Haber"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label2
-        '
-        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(556, 15)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(102, 23)
-        Me.Label2.TabIndex = 15
-        Me.Label2.Text = "Debe"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LabelTipoSaldo
-        '
-        Me.LabelTipoSaldo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LabelTipoSaldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelTipoSaldo.Location = New System.Drawing.Point(662, 75)
-        Me.LabelTipoSaldo.Name = "LabelTipoSaldo"
-        Me.LabelTipoSaldo.Size = New System.Drawing.Size(102, 23)
-        Me.LabelTipoSaldo.TabIndex = 14
-        Me.LabelTipoSaldo.Text = "---------"
-        Me.LabelTipoSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Labeltotalgeneral
-        '
-        Me.Labeltotalgeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Labeltotalgeneral.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Labeltotalgeneral.Location = New System.Drawing.Point(556, 75)
-        Me.Labeltotalgeneral.Name = "Labeltotalgeneral"
-        Me.Labeltotalgeneral.Size = New System.Drawing.Size(102, 23)
-        Me.Labeltotalgeneral.TabIndex = 13
-        Me.Labeltotalgeneral.Text = "00000000"
-        Me.Labeltotalgeneral.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label5
-        '
-        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Label5.Location = New System.Drawing.Point(300, 75)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(252, 23)
-        Me.Label5.TabIndex = 12
-        Me.Label5.Text = "SALDO:"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label4
-        '
-        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Label4.Location = New System.Drawing.Point(300, 43)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(252, 23)
-        Me.Label4.TabIndex = 11
-        Me.Label4.Text = "TOTALES:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Labeltotalhaber
-        '
-        Me.Labeltotalhaber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Labeltotalhaber.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Labeltotalhaber.Location = New System.Drawing.Point(662, 43)
-        Me.Labeltotalhaber.Name = "Labeltotalhaber"
-        Me.Labeltotalhaber.Size = New System.Drawing.Size(102, 23)
-        Me.Labeltotalhaber.TabIndex = 10
-        Me.Labeltotalhaber.Text = "00000000"
-        Me.Labeltotalhaber.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Labeltotaldebe
-        '
-        Me.Labeltotaldebe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Labeltotaldebe.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Labeltotaldebe.Location = New System.Drawing.Point(556, 43)
-        Me.Labeltotaldebe.Name = "Labeltotaldebe"
-        Me.Labeltotaldebe.Size = New System.Drawing.Size(102, 23)
-        Me.Labeltotaldebe.TabIndex = 9
-        Me.Labeltotaldebe.Text = "00000000"
-        Me.Labeltotaldebe.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "idpagos"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "idpagos"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "idventa"
-        Me.DataGridViewTextBoxColumn14.HeaderText = "idventa"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "idcliente"
-        Me.DataGridViewTextBoxColumn15.HeaderText = "idcliente"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "importe"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "importe"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.DataPropertyName = "fechapago"
-        Me.DataGridViewTextBoxColumn17.HeaderText = "fechapago"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.DataPropertyName = "idformapago"
-        Me.DataGridViewTextBoxColumn18.HeaderText = "idformapago"
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        '
-        'DataGridViewTextBoxColumn19
-        '
-        Me.DataGridViewTextBoxColumn19.DataPropertyName = "nrocomprobante"
-        Me.DataGridViewTextBoxColumn19.HeaderText = "nrocomprobante"
-        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
-        '
-        'DataGridViewTextBoxColumn20
-        '
-        Me.DataGridViewTextBoxColumn20.DataPropertyName = "idpagosweb"
-        Me.DataGridViewTextBoxColumn20.HeaderText = "idpagosweb"
-        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "fechabaja"
-        Me.DataGridViewTextBoxColumn21.HeaderText = "fechabaja"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        '
-        'PagosBindingSource
-        '
-        Me.PagosBindingSource.DataMember = "pagos"
-        Me.PagosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idventa"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idventa"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idcliente"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "idcliente"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechaalta"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "fechaalta"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "fechabaja"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "fechabaja"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "fechaventa"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "fechaventa"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "idformapago"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "idformapago"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "idtipocomprobante"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "idtipocomprobante"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "usuariocarga"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "usuariocarga"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "nrocomprobante"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "nrocomprobante"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "idventasweb"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "idventasweb"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        '
-        'VentasBindingSource
-        '
-        Me.VentasBindingSource.DataMember = "ventas"
-        Me.VentasBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ListacuentascorrientesBindingSource
-        '
-        Me.ListacuentascorrientesBindingSource.DataMember = "listacuentascorrientes"
-        Me.ListacuentascorrientesBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "clientes"
-        Me.ClientesBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ListacuentascorrientesTableAdapter
-        '
-        Me.ListacuentascorrientesTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
-        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
-        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
-        Me.TableAdapterManager.cajasTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
-        Me.TableAdapterManager.errorlogTableAdapter = Nothing
-        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
-        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager.funcionesTableAdapter = Nothing
-        Me.TableAdapterManager.gastosTableAdapter = Nothing
-        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosTableAdapter = Nothing
-        Me.TableAdapterManager.perfilesTableAdapter = Nothing
-        Me.TableAdapterManager.permisosTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
-        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
-        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.remitosTableAdapter = Nothing
-        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager.stockTableAdapter = Nothing
-        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
-        Me.TableAdapterManager.synclogTableAdapter = Nothing
-        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
-        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
-        Me.TableAdapterManager.transportesTableAdapter = Nothing
-        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.valesTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
-        'ClientesTableAdapter
-        '
-        Me.ClientesTableAdapter.ClearBeforeFill = True
-        '
-        'VentasTableAdapter
-        '
-        Me.VentasTableAdapter.ClearBeforeFill = True
-        '
-        'PagosTableAdapter
-        '
-        Me.PagosTableAdapter.ClearBeforeFill = True
-        '
-        'PermisosTableAdapter1
-        '
-        Me.PermisosTableAdapter1.ClearBeforeFill = True
         '
         'nro
         '
@@ -714,6 +357,363 @@ Partial Class EstadoCuentaCorriente
         Me.fechavencimiento.ToolTipText = "Fecha Vto."
         Me.fechavencimiento.Width = 105
         '
+        'ListacuentascorrientesBindingSource
+        '
+        Me.ListacuentascorrientesBindingSource.DataMember = "listacuentascorrientes"
+        Me.ListacuentascorrientesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Button1)
+        Me.GroupBox3.Controls.Add(Me.PagosDataGridView)
+        Me.GroupBox3.Controls.Add(Me.VentasDataGridView)
+        Me.GroupBox3.Controls.Add(Me.Label3)
+        Me.GroupBox3.Controls.Add(Me.Label2)
+        Me.GroupBox3.Controls.Add(Me.LabelTipoSaldo)
+        Me.GroupBox3.Controls.Add(Me.Labeltotalgeneral)
+        Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.Labeltotalhaber)
+        Me.GroupBox3.Controls.Add(Me.Labeltotaldebe)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 464)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(1065, 122)
+        Me.GroupBox3.TabIndex = 2
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Resumen"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(825, 46)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(194, 31)
+        Me.Button1.TabIndex = 17
+        Me.Button1.Text = "Imprimir"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'PagosDataGridView
+        '
+        Me.PagosDataGridView.AutoGenerateColumns = False
+        Me.PagosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.PagosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21})
+        Me.PagosDataGridView.DataSource = Me.PagosBindingSource
+        Me.PagosDataGridView.Location = New System.Drawing.Point(66, 27)
+        Me.PagosDataGridView.Name = "PagosDataGridView"
+        Me.PagosDataGridView.RowTemplate.Height = 24
+        Me.PagosDataGridView.Size = New System.Drawing.Size(41, 20)
+        Me.PagosDataGridView.TabIndex = 16
+        Me.PagosDataGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "idpagos"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "idpagos"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "idventa"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "idventa"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "idcliente"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "idcliente"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "importe"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "importe"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "fechapago"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "fechapago"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.DataPropertyName = "idformapago"
+        Me.DataGridViewTextBoxColumn18.HeaderText = "idformapago"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.DataPropertyName = "nrocomprobante"
+        Me.DataGridViewTextBoxColumn19.HeaderText = "nrocomprobante"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        '
+        'DataGridViewTextBoxColumn20
+        '
+        Me.DataGridViewTextBoxColumn20.DataPropertyName = "idpagosweb"
+        Me.DataGridViewTextBoxColumn20.HeaderText = "idpagosweb"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        '
+        'DataGridViewTextBoxColumn21
+        '
+        Me.DataGridViewTextBoxColumn21.DataPropertyName = "fechabaja"
+        Me.DataGridViewTextBoxColumn21.HeaderText = "fechabaja"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        '
+        'PagosBindingSource
+        '
+        Me.PagosBindingSource.DataMember = "pagos"
+        Me.PagosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'VentasDataGridView
+        '
+        Me.VentasDataGridView.AutoGenerateColumns = False
+        Me.VentasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.VentasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12})
+        Me.VentasDataGridView.DataSource = Me.VentasBindingSource
+        Me.VentasDataGridView.Location = New System.Drawing.Point(19, 27)
+        Me.VentasDataGridView.Name = "VentasDataGridView"
+        Me.VentasDataGridView.RowTemplate.Height = 24
+        Me.VentasDataGridView.Size = New System.Drawing.Size(41, 20)
+        Me.VentasDataGridView.TabIndex = 16
+        Me.VentasDataGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idventa"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idventa"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idcliente"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "idcliente"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechaalta"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "fechaalta"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "fechabaja"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "fechabaja"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "fechaventa"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "fechaventa"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "idformapago"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "idformapago"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "idtipocomprobante"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "idtipocomprobante"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "usuariocarga"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "usuariocarga"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "nrocomprobante"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "nrocomprobante"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "idventasweb"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "idventasweb"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        '
+        'VentasBindingSource
+        '
+        Me.VentasBindingSource.DataMember = "ventas"
+        Me.VentasBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'Label3
+        '
+        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.Label3.Location = New System.Drawing.Point(662, 15)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(102, 23)
+        Me.Label3.TabIndex = 16
+        Me.Label3.Text = "Haber"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(556, 15)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(102, 23)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "Debe"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LabelTipoSaldo
+        '
+        Me.LabelTipoSaldo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LabelTipoSaldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelTipoSaldo.Location = New System.Drawing.Point(662, 75)
+        Me.LabelTipoSaldo.Name = "LabelTipoSaldo"
+        Me.LabelTipoSaldo.Size = New System.Drawing.Size(102, 23)
+        Me.LabelTipoSaldo.TabIndex = 14
+        Me.LabelTipoSaldo.Text = "---------"
+        Me.LabelTipoSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Labeltotalgeneral
+        '
+        Me.Labeltotalgeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Labeltotalgeneral.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.Labeltotalgeneral.Location = New System.Drawing.Point(556, 75)
+        Me.Labeltotalgeneral.Name = "Labeltotalgeneral"
+        Me.Labeltotalgeneral.Size = New System.Drawing.Size(102, 23)
+        Me.Labeltotalgeneral.TabIndex = 13
+        Me.Labeltotalgeneral.Text = "00000000"
+        Me.Labeltotalgeneral.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label5
+        '
+        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.Label5.Location = New System.Drawing.Point(300, 75)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(252, 23)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "SALDO:"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.Label4.Location = New System.Drawing.Point(300, 43)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(252, 23)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "TOTALES:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Labeltotalhaber
+        '
+        Me.Labeltotalhaber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Labeltotalhaber.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.Labeltotalhaber.Location = New System.Drawing.Point(662, 43)
+        Me.Labeltotalhaber.Name = "Labeltotalhaber"
+        Me.Labeltotalhaber.Size = New System.Drawing.Size(102, 23)
+        Me.Labeltotalhaber.TabIndex = 10
+        Me.Labeltotalhaber.Text = "00000000"
+        Me.Labeltotalhaber.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Labeltotaldebe
+        '
+        Me.Labeltotaldebe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Labeltotaldebe.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Labeltotaldebe.Location = New System.Drawing.Point(556, 43)
+        Me.Labeltotaldebe.Name = "Labeltotaldebe"
+        Me.Labeltotaldebe.Size = New System.Drawing.Size(102, 23)
+        Me.Labeltotaldebe.TabIndex = 9
+        Me.Labeltotaldebe.Text = "00000000"
+        Me.Labeltotaldebe.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'ListacuentascorrientesTableAdapter
+        '
+        Me.ListacuentascorrientesTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
+        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
+        Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager.permisosTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'ClientesTableAdapter
+        '
+        Me.ClientesTableAdapter.ClearBeforeFill = True
+        '
+        'VentasTableAdapter
+        '
+        Me.VentasTableAdapter.ClearBeforeFill = True
+        '
+        'PagosTableAdapter
+        '
+        Me.PagosTableAdapter.ClearBeforeFill = True
+        '
+        'PermisosTableAdapter1
+        '
+        Me.PermisosTableAdapter1.ClearBeforeFill = True
+        '
         'EstadoCuentaCorriente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -723,6 +723,7 @@ Partial Class EstadoCuentaCorriente
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "EstadoCuentaCorriente"
@@ -730,17 +731,17 @@ Partial Class EstadoCuentaCorriente
         Me.Text = "Estado de Cuenta Corriente"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.ListacuentascorrientesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListacuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.VentasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VentasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ListacuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

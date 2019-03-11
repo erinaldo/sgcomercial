@@ -108,6 +108,11 @@ Public Class loginform
     End Sub
     Private Sub connectdbremote()
         Dim status As Boolean
+        ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
+        Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
+        ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
+        gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         '*************  errorlog    **************************************
         Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
         ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
@@ -139,50 +144,69 @@ Public Class loginform
                 ErrorLogTableAdapter.errorlog_insertar("Login", "CONEXIÓN", "Load", "No se pudo Conectar al servidor SC " + ex.Message)
             End Try
             ArmaSTRConnWEB(status)
-            Try
-                'Dim CheckConnection As MySqlConnection
-                'CheckConnection = New MySqlConnection
-                'CheckConnection.ConnectionString = SCStrConn
-                'CheckConnection.Open()
-                My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
-                'CheckConnection.Close()
-                'CheckConnection.Dispose()
-            Catch ex As Exception
-                ErrorLogTableAdapter.errorlog_insertar("Login", "CONEXIÓN", "Load", "No se pudo Conectar al servidor Clowd " + ex.Message)
-            End Try
+            If gModuloClowd = 1 Then
+                Try
+                    'Dim CheckConnection As MySqlConnection
+                    'CheckConnection = New MySqlConnection
+                    'CheckConnection.ConnectionString = SCStrConn
+                    'CheckConnection.Open()
+                    My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
+                    'CheckConnection.Close()
+                    'CheckConnection.Dispose()
+                Catch ex As Exception
+                    ErrorLogTableAdapter.errorlog_insertar("Login", "CONEXIÓN", "Load", "No se pudo Conectar a la Nube " + ex.Message)
+                End Try
+            End If
         Catch ex As Exception
             End
         End Try
     End Sub
     Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
         Dim hi As LoadingForm
         hi = New LoadingForm
         hi.Show()
+        hi.ProgressBar.Maximum = 6
         Cursor.Current = Cursors.WaitCursor
         ''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Limpiando archivos temporales"
+        'hi.ProgressBar.Value = 1
+        hi.ProgressBar.PerformStep()
         hi.Refresh()
         borrartemporales()
         '''''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Estableciendo formatos predeterminados"
+        'hi.ProgressBar.Value = 2
+        hi.ProgressBar.PerformStep()
         hi.Refresh()
         formatos()
         '''''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Identificando terminal"
+        'hi.ProgressBar.Value = 3
+        hi.ProgressBar.PerformStep()
         hi.Refresh()
         identificarterminal()
         '''''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Conectando a tu base de datos local.."
+        'hi.ProgressBar.Value = 4
+        hi.ProgressBar.PerformStep()
         hi.Refresh()
         connectdblocal()
+        Dim status As Boolean
+        Dim cod As Integer
+        Dim msg As String = Nothing
+        ActualizarBD(status, cod, msg)
+        ReparaProductosMedidas()
         '''''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Conectando a la Nube"
+        'hi.ProgressBar.Value = 5
+        hi.ProgressBar.PerformStep()
         hi.Refresh()
         connectdbremote()
         '********************************
         '********************************  
         hi.mensaje.Text = "Ya casi estamos!"
+        'hi.ProgressBar.Value = 6
+        hi.ProgressBar.PerformStep()
         hi.Refresh()
         UpdateCheckBG.RunWorkerAsync()
         '********************************  
@@ -254,30 +278,24 @@ Public Class loginform
         End If
         ''''''''''***************************   POR DEFECTO **************************************
         If (e.KeyCode = Keys.X AndAlso e.Control AndAlso e.Shift) Then
+            Dim status As Boolean
+            Dim cod As Integer
+            Dim msg As String = Nothing
+
             Try
                 Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
                 parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
                 parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("SysCurrentVersion", Val(softwareversion), softwareversion, Nothing)
+                ActualizarBD(status, cod, msg)
                 MsgBox("Versión de Base Actualizada")
                 enablebuttons(True)
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
         End If
+        '====================   REPARA UNIDADES DE MEDIDA ==================
         If (e.KeyCode = Keys.M AndAlso e.Control AndAlso e.Shift) Then
-            Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
-            Dim mycommand As New SqlCommand
-            Dim qry As String = "update productos set medida = 1 where medida = 0 or medida is null"
-            Try
-                myConn2.Open()
-                mycommand = New SqlCommand(qry, myConn2)
-                mycommand.ExecuteNonQuery()
-                MsgBox("Medidas reparadas", MsgBoxStyle.Information, "Auto Fix measurements:")
-                myConn2.Close()
-                myConn2.Dispose()
-            Catch ex As Exception
-                MsgBox("Ocurrio un problema: " + ex.Message)
-            End Try
+
         End If
         'If (e.KeyCode = Keys.L AndAlso e.Modifiers = Keys.Control) Then
         '    Me.Dispose()
@@ -388,6 +406,10 @@ Public Class loginform
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) 
+
+    End Sub
+
+    Private Sub Button4_Click_1(sender As Object, e As EventArgs)
 
     End Sub
 End Class

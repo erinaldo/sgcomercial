@@ -12,14 +12,26 @@ Module MySQLModule
     '************************************************************************        
     Public MySQLC As MySqlConnection
     Sub conectarMySQL(ByRef status As Boolean)
+        '*************  errorlog    **************************************
+        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter
+        '************************************************************************ 
         Try
+            If Not My.Computer.Network.IsAvailable Then
+                'Cursor.Current = Cursors.Default
+                'MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+                status = False
+                Return
+            Else
+                status = True
+            End If
             'MySQLConn = New MySqlConnection("Data Source=sistemascomerciales.net; Database=sistema1_sgcaguadagrande; User ID=sistema1_sgcweb; Password=sgcomercial*?; Allow Zero Datetime= true; CHARSET= latin1")
-            MySQLC = New MySqlConnection(sgcomercial.My.MySettings.Default.MySQLConnectionString)
-            MySQLC.Open()
+            'MySQLC = New MySqlConnection(sgcomercial.My.MySettings.Default.MySQLConnectionString)
+            'MySQLC.Open()
             'MsgBox("Conexión exitosa!", MsgBoxStyle.Information)
-            status = True
-            MySQLC.Close()
-            MySQLC.Dispose()
+            '            status = True
+            'MySQLC.Close()
+            'MySQLC.Dispose()
         Catch ex As Exception
             'MsgBox("No se pudo conectar con la Nube: " + ex.Message, MsgBoxStyle.Information, "Información importante")
             MySQLC.Dispose()
@@ -30,13 +42,21 @@ Module MySQLModule
     End Sub
     Sub conectarSisCom(ByRef status As Boolean)
         Try
+            If Not My.Computer.Network.IsAvailable Then
+                'Cursor.Current = Cursors.Default
+                'MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+                status = False
+                Return
+            Else
+                status = True
+            End If
             'MySQLConn = New MySqlConnection("Data Source=sistemascomerciales.net; Database=sistema1_sgcaguadagrande; User ID=sistema1_sgcweb; Password=sgcomercial*?; Allow Zero Datetime= true; CHARSET= latin1")
-            MySQLC = New MySqlConnection(sgcomercial.My.MySettings.Default.SCConnectionString)
-            MySQLC.Open()
+            'MySQLC = New MySqlConnection(sgcomercial.My.MySettings.Default.SCConnectionString)
+            'MySQLC.Open()
             'MsgBox("Conexión exitosa!", MsgBoxStyle.Information)
-            status = True
-            MySQLC.Close()
-            MySQLC.Dispose()
+            'status = True
+            'MySQLC.Close()
+            'MySQLC.Dispose()
         Catch ex As Exception
             'MsgBox("No se pudo conectar con el servidor remoto -SC-: " + ex.Message, MsgBoxStyle.Information)
             MySQLC.Dispose()

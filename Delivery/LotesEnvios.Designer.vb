@@ -25,12 +25,6 @@ Partial Class LotesEnvios
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CajaseventosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.LotesenviosdetalleDataGridView = New System.Windows.Forms.DataGridView()
-        Me.LotesenviosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.fechaconfirmacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ver = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.rendicion = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.Confirmar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -41,18 +35,24 @@ Partial Class LotesEnvios
         Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.LotesenviosdetalleDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LotesenviosdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LotesenviosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fechacierre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechaconfirmacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ver = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.rendicion = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Confirmar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.LotesenviosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LotesenviosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.lotesenviosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
@@ -60,11 +60,11 @@ Partial Class LotesEnvios
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LotesenviosdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LotesenviosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LotesenviosdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LotesenviosdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LotesenviosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LotesenviosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -92,79 +92,6 @@ Partial Class LotesEnvios
         Me.CajaseventosDataGridView.Size = New System.Drawing.Size(23, 20)
         Me.CajaseventosDataGridView.TabIndex = 1
         Me.CajaseventosDataGridView.Visible = False
-        '
-        'LotesenviosdetalleDataGridView
-        '
-        Me.LotesenviosdetalleDataGridView.AutoGenerateColumns = False
-        Me.LotesenviosdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LotesenviosdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
-        Me.LotesenviosdetalleDataGridView.DataSource = Me.LotesenviosdetalleBindingSource
-        Me.LotesenviosdetalleDataGridView.Location = New System.Drawing.Point(115, 21)
-        Me.LotesenviosdetalleDataGridView.Name = "LotesenviosdetalleDataGridView"
-        Me.LotesenviosdetalleDataGridView.RowTemplate.Height = 24
-        Me.LotesenviosdetalleDataGridView.Size = New System.Drawing.Size(22, 22)
-        Me.LotesenviosdetalleDataGridView.TabIndex = 1
-        Me.LotesenviosdetalleDataGridView.Visible = False
-        '
-        'LotesenviosDataGridView
-        '
-        Me.LotesenviosDataGridView.AllowUserToAddRows = False
-        Me.LotesenviosDataGridView.AllowUserToDeleteRows = False
-        Me.LotesenviosDataGridView.AllowUserToResizeColumns = False
-        Me.LotesenviosDataGridView.AllowUserToResizeRows = False
-        Me.LotesenviosDataGridView.AutoGenerateColumns = False
-        Me.LotesenviosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LotesenviosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.fechacierre, Me.fechaconfirmacion, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.Ver, Me.rendicion, Me.Confirmar})
-        Me.LotesenviosDataGridView.DataSource = Me.LotesenviosBindingSource
-        Me.LotesenviosDataGridView.Location = New System.Drawing.Point(12, 28)
-        Me.LotesenviosDataGridView.MultiSelect = False
-        Me.LotesenviosDataGridView.Name = "LotesenviosDataGridView"
-        Me.LotesenviosDataGridView.ReadOnly = True
-        Me.LotesenviosDataGridView.RowTemplate.Height = 24
-        Me.LotesenviosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LotesenviosDataGridView.Size = New System.Drawing.Size(1081, 520)
-        Me.LotesenviosDataGridView.TabIndex = 0
-        '
-        'fechaconfirmacion
-        '
-        Me.fechaconfirmacion.DataPropertyName = "fechaconfirmacion"
-        Me.fechaconfirmacion.HeaderText = "Confirmación"
-        Me.fechaconfirmacion.Name = "fechaconfirmacion"
-        Me.fechaconfirmacion.ReadOnly = True
-        Me.fechaconfirmacion.ToolTipText = "Fecha Confirmación"
-        Me.fechaconfirmacion.Width = 150
-        '
-        'Ver
-        '
-        Me.Ver.HeaderText = "Ver lote"
-        Me.Ver.Name = "Ver"
-        Me.Ver.ReadOnly = True
-        Me.Ver.Text = "Ver/Imprimir"
-        Me.Ver.ToolTipText = "Ver/Imprimir"
-        Me.Ver.UseColumnTextForButtonValue = True
-        Me.Ver.Width = 150
-        '
-        'rendicion
-        '
-        Me.rendicion.DataPropertyName = "idloteenvio"
-        Me.rendicion.HeaderText = "Ver rendición"
-        Me.rendicion.Name = "rendicion"
-        Me.rendicion.ReadOnly = True
-        Me.rendicion.Text = "Ver rendición"
-        Me.rendicion.ToolTipText = "Ver rendición"
-        Me.rendicion.UseColumnTextForButtonValue = True
-        Me.rendicion.Width = 150
-        '
-        'Confirmar
-        '
-        Me.Confirmar.DataPropertyName = "idloteenvio"
-        Me.Confirmar.HeaderText = "Confirmar($)"
-        Me.Confirmar.Name = "Confirmar"
-        Me.Confirmar.ReadOnly = True
-        Me.Confirmar.Text = "Confirmar"
-        Me.Confirmar.ToolTipText = "Confirmar"
-        Me.Confirmar.UseColumnTextForButtonValue = True
-        Me.Confirmar.Width = 150
         '
         'DataGridViewTextBoxColumn12
         '
@@ -225,6 +152,19 @@ Partial Class LotesEnvios
         Me.ComercialDataSet.DataSetName = "comercialDataSet"
         Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'LotesenviosdetalleDataGridView
+        '
+        Me.LotesenviosdetalleDataGridView.AutoGenerateColumns = False
+        Me.LotesenviosdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.LotesenviosdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
+        Me.LotesenviosdetalleDataGridView.DataSource = Me.LotesenviosdetalleBindingSource
+        Me.LotesenviosdetalleDataGridView.Location = New System.Drawing.Point(115, 21)
+        Me.LotesenviosdetalleDataGridView.Name = "LotesenviosdetalleDataGridView"
+        Me.LotesenviosdetalleDataGridView.RowTemplate.Height = 24
+        Me.LotesenviosdetalleDataGridView.Size = New System.Drawing.Size(22, 22)
+        Me.LotesenviosdetalleDataGridView.TabIndex = 1
+        Me.LotesenviosdetalleDataGridView.Visible = False
+        '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "idloteenviodetalle"
@@ -261,6 +201,25 @@ Partial Class LotesEnvios
         Me.LotesenviosdetalleBindingSource.DataMember = "lotesenviosdetalle"
         Me.LotesenviosdetalleBindingSource.DataSource = Me.ComercialDataSet
         '
+        'LotesenviosDataGridView
+        '
+        Me.LotesenviosDataGridView.AllowUserToAddRows = False
+        Me.LotesenviosDataGridView.AllowUserToDeleteRows = False
+        Me.LotesenviosDataGridView.AllowUserToResizeColumns = False
+        Me.LotesenviosDataGridView.AllowUserToResizeRows = False
+        Me.LotesenviosDataGridView.AutoGenerateColumns = False
+        Me.LotesenviosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.LotesenviosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.fechacierre, Me.fechaconfirmacion, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.Ver, Me.rendicion, Me.Confirmar})
+        Me.LotesenviosDataGridView.DataSource = Me.LotesenviosBindingSource
+        Me.LotesenviosDataGridView.Location = New System.Drawing.Point(12, 28)
+        Me.LotesenviosDataGridView.MultiSelect = False
+        Me.LotesenviosDataGridView.Name = "LotesenviosDataGridView"
+        Me.LotesenviosDataGridView.ReadOnly = True
+        Me.LotesenviosDataGridView.RowTemplate.Height = 24
+        Me.LotesenviosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.LotesenviosDataGridView.Size = New System.Drawing.Size(1081, 520)
+        Me.LotesenviosDataGridView.TabIndex = 0
+        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "idloteenvio"
@@ -283,6 +242,15 @@ Partial Class LotesEnvios
         Me.fechacierre.Name = "fechacierre"
         Me.fechacierre.ReadOnly = True
         Me.fechacierre.Width = 150
+        '
+        'fechaconfirmacion
+        '
+        Me.fechaconfirmacion.DataPropertyName = "fechaconfirmacion"
+        Me.fechaconfirmacion.HeaderText = "Confirmación"
+        Me.fechaconfirmacion.Name = "fechaconfirmacion"
+        Me.fechaconfirmacion.ReadOnly = True
+        Me.fechaconfirmacion.ToolTipText = "Fecha Confirmación"
+        Me.fechaconfirmacion.Width = 150
         '
         'DataGridViewTextBoxColumn5
         '
@@ -308,6 +276,38 @@ Partial Class LotesEnvios
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
         Me.DataGridViewTextBoxColumn7.Visible = False
         '
+        'Ver
+        '
+        Me.Ver.HeaderText = "Ver lote"
+        Me.Ver.Name = "Ver"
+        Me.Ver.ReadOnly = True
+        Me.Ver.Text = "Ver/Imprimir"
+        Me.Ver.ToolTipText = "Ver/Imprimir"
+        Me.Ver.UseColumnTextForButtonValue = True
+        Me.Ver.Width = 150
+        '
+        'rendicion
+        '
+        Me.rendicion.DataPropertyName = "idloteenvio"
+        Me.rendicion.HeaderText = "Ver rendición"
+        Me.rendicion.Name = "rendicion"
+        Me.rendicion.ReadOnly = True
+        Me.rendicion.Text = "Ver rendición"
+        Me.rendicion.ToolTipText = "Ver rendición"
+        Me.rendicion.UseColumnTextForButtonValue = True
+        Me.rendicion.Width = 150
+        '
+        'Confirmar
+        '
+        Me.Confirmar.DataPropertyName = "idloteenvio"
+        Me.Confirmar.HeaderText = "Confirmar($)"
+        Me.Confirmar.Name = "Confirmar"
+        Me.Confirmar.ReadOnly = True
+        Me.Confirmar.Text = "Confirmar"
+        Me.Confirmar.ToolTipText = "Confirmar"
+        Me.Confirmar.UseColumnTextForButtonValue = True
+        Me.Confirmar.Width = 150
+        '
         'LotesenviosBindingSource
         '
         Me.LotesenviosBindingSource.DataMember = "lotesenvios"
@@ -326,10 +326,12 @@ Partial Class LotesEnvios
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
@@ -352,6 +354,7 @@ Partial Class LotesEnvios
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
@@ -361,8 +364,11 @@ Partial Class LotesEnvios
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -388,6 +394,7 @@ Partial Class LotesEnvios
         Me.ClientSize = New System.Drawing.Size(1136, 590)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "LotesEnvios"
@@ -395,11 +402,11 @@ Partial Class LotesEnvios
         Me.Text = "Lotes de Envíos"
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LotesenviosdetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LotesenviosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LotesenviosdetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LotesenviosdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LotesenviosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LotesenviosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

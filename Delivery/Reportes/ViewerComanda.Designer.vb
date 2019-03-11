@@ -96,6 +96,7 @@ Partial Class ViewerComanda
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1082, 653)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ViewerComanda"

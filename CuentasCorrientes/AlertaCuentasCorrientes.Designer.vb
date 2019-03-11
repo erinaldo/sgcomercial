@@ -105,6 +105,7 @@ Partial Class AlertaCuentasCorrientes
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -221,6 +222,7 @@ Partial Class AlertaCuentasCorrientes
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(873, 502)
         Me.Controls.Add(Me.GroupBox1)
+        Me.KeyPreview = True
         Me.Name = "AlertaCuentasCorrientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "AlertaCuentasCorrientes"

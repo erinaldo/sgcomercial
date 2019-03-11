@@ -2,6 +2,7 @@
 Imports System.Net
 Imports System.Net.WebRequest
 Imports System.Threading
+Imports System.Data.SqlClient
 'Imports System.IO.Compression
 
 
@@ -622,8 +623,19 @@ Module SGCModule
             Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
             parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
-            '   *********************   ACTUALIZAR NRO DE VERSION REMOTA Y COMENZAR LA EJECUCION
+            '================= ACTUALIZAR OBJETOS DE BASE DE DATOS
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            Dim status As Boolean
+            Dim cod As Integer
+            Dim msg As String = Nothing
+            Try
+                ActualizarBD(status, cod, msg)
+            Catch ex As Exception
+
+            End Try
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            '   *********************   ACTUALIZAR NRO DE VERSION REMOTA 
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             Try
                 TerminalesSCTableAdapter.terminales_updatesgcversion(newversion.ToString, gTerminal)
                 parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("SysCurrentVersion", newversion, newversion.ToString, Nothing)
@@ -631,10 +643,72 @@ Module SGCModule
                 MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Exclamation)
                 Return
             End Try
-
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            'COMENZAR LA EJECUCION
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             Process.Start("C:\SGComercial\UpdatePack\Ejecutable\setup.exe")
             End
         End Using
+    End Sub
+    Public Sub ActualizarBD(ByRef status As Boolean, ByRef cod As Integer, ByRef msg As String)
+        ''''''''''''
+        '*************  errorlog    **************************************
+        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter
+        '*******************************************************************************
+        Dim fileReader As String
+        Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
+        Dim mycommand As New SqlCommand
+
+        'fileReader = My.Computer.FileSystem.ReadAllText("C:\SGComercial\UpdatePack\Ejecutable\BD\test.txt")
+        'MsgBox(fileReader)
+        'Dim fileEntries As String() = Directory.GetFiles("C:\SGComercial\UpdatePack\Ejecutable\BD\", "*.txt")
+        '' Process the list of .txt files found in the directory. '
+        'Dim fileName As String
+
+        Dim files() As String = IO.Directory.GetFiles("C:\SGComercial\UpdatePack\Ejecutable\BD\")
+        '==== SI EXISTEN ARCHIVOS ===
+        If files.Count > 0 Then
+            myConn2.Open() '==== ABRO LA CONEXION A BD ===
+            For Each sFile As String In files
+                fileReader = IO.File.ReadAllText(sFile)
+                '            MsgBox(sFile)
+                Try
+                    mycommand = New SqlCommand(fileReader, myConn2)
+                    mycommand.ExecuteNonQuery()
+                    'MsgBox(sFile, MsgBoxStyle.Information, "Upgrade data base")
+                Catch ex As Exception
+                    MsgBox("Ocurrio un problema en: ActualizarBD() -" + ex.Message)
+                    myConn2.Close()
+                    myConn2.Dispose()
+                    ErrorLogTableAdapter.errorlog_insertar("Aplicación", "Actualización de versión", "ActualizarBD", sFile + " - " + ex.Message)
+                    status = False
+                    cod = 1
+                    msg = "Ocurrio un problema en: ActualizarBD() - " + sFile + " - " + ex.Message
+                    Exit For
+                End Try
+                status = True
+                cod = 0
+                msg = Nothing
+            Next
+            myConn2.Close()
+            myConn2.Dispose()
+        End If
+    End Sub
+    Public Sub ReparaProductosMedidas()
+        Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
+        Dim mycommand As New SqlCommand
+        Dim qry As String = "update productos set medida = 1 where medida = 0 or medida is null"
+        Try
+            myConn2.Open()
+            mycommand = New SqlCommand(qry, myConn2)
+            mycommand.ExecuteNonQuery()
+            'MsgBox("Medidas reparadas", MsgBoxStyle.Information, "Auto Fix measurements:")
+            myConn2.Close()
+            myConn2.Dispose()
+        Catch ex As Exception
+            MsgBox("Ocurrio un problema en ReparaProductosMedidas: " + ex.Message)
+        End Try
     End Sub
 End Module
 

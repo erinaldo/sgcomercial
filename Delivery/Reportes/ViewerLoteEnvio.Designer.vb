@@ -96,6 +96,7 @@ Partial Class ViewerLoteEnvio
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1385, 603)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.KeyPreview = True
         Me.Name = "ViewerLoteEnvio"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Vista Previa Lote de Envío"

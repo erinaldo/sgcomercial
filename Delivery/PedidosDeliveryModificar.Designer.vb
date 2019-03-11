@@ -54,6 +54,16 @@ Partial Class PedidosDeliveryModificar
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ListapedidosdeliverydetalleDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpedidodelivery = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.modificar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.idlistaprecio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListapedidosdeliverydetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxEditarDomicilios = New System.Windows.Forms.PictureBox()
@@ -100,16 +110,6 @@ Partial Class PedidosDeliveryModificar
         Me.ListapedidosdeliverydetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliverydetalleTableAdapter()
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         Me.VentasdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ventasdetalleTableAdapter()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpedidodelivery = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.modificar = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.idlistaprecio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         NombreLabel = New System.Windows.Forms.Label()
         TelefonoLabel = New System.Windows.Forms.Label()
         CuitLabel = New System.Windows.Forms.Label()
@@ -430,6 +430,93 @@ Partial Class PedidosDeliveryModificar
         Me.ListapedidosdeliverydetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ListapedidosdeliverydetalleDataGridView.Size = New System.Drawing.Size(1208, 329)
         Me.ListapedidosdeliverydetalleDataGridView.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "idpedidodeliverydetalle"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "idpedidodeliverydetalle"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Visible = False
+        Me.DataGridViewTextBoxColumn13.Width = 182
+        '
+        'idpedidodelivery
+        '
+        Me.idpedidodelivery.DataPropertyName = "idpedidodelivery"
+        Me.idpedidodelivery.HeaderText = "idpedidodelivery"
+        Me.idpedidodelivery.Name = "idpedidodelivery"
+        Me.idpedidodelivery.ReadOnly = True
+        Me.idpedidodelivery.Visible = False
+        Me.idpedidodelivery.Width = 140
+        '
+        'idproducto
+        '
+        Me.idproducto.DataPropertyName = "idproducto"
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        Me.idproducto.Width = 104
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "producto"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "Producto"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        Me.DataGridViewTextBoxColumn16.ToolTipText = "Producto"
+        Me.DataGridViewTextBoxColumn16.Width = 94
+        '
+        'precioventa
+        '
+        Me.precioventa.DataPropertyName = "precioventa"
+        Me.precioventa.HeaderText = "Precio"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.Width = 77
+        '
+        'cantidad
+        '
+        Me.cantidad.DataPropertyName = "cantidad"
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.Width = 93
+        '
+        'subtotal
+        '
+        Me.subtotal.DataPropertyName = "subtotal"
+        Me.subtotal.HeaderText = "Subtotal"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
+        Me.subtotal.Width = 89
+        '
+        'modificar
+        '
+        Me.modificar.HeaderText = ""
+        Me.modificar.Name = "modificar"
+        Me.modificar.ReadOnly = True
+        Me.modificar.Text = "Modificar"
+        Me.modificar.UseColumnTextForButtonValue = True
+        Me.modificar.Width = 5
+        '
+        'eliminar
+        '
+        Me.eliminar.HeaderText = ""
+        Me.eliminar.Name = "eliminar"
+        Me.eliminar.ReadOnly = True
+        Me.eliminar.Text = "Eliminar"
+        Me.eliminar.UseColumnTextForButtonValue = True
+        Me.eliminar.Width = 5
+        '
+        'idlistaprecio
+        '
+        Me.idlistaprecio.DataPropertyName = "idlistaprecio"
+        Me.idlistaprecio.HeaderText = "idlistaprecio"
+        Me.idlistaprecio.Name = "idlistaprecio"
+        Me.idlistaprecio.ReadOnly = True
+        Me.idlistaprecio.Visible = False
+        Me.idlistaprecio.Width = 112
         '
         'ListapedidosdeliverydetalleBindingSource
         '
@@ -788,93 +875,6 @@ Partial Class PedidosDeliveryModificar
         '
         Me.VentasdetalleTableAdapter.ClearBeforeFill = True
         '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "idpedidodeliverydetalle"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "idpedidodeliverydetalle"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        Me.DataGridViewTextBoxColumn13.Visible = False
-        Me.DataGridViewTextBoxColumn13.Width = 182
-        '
-        'idpedidodelivery
-        '
-        Me.idpedidodelivery.DataPropertyName = "idpedidodelivery"
-        Me.idpedidodelivery.HeaderText = "idpedidodelivery"
-        Me.idpedidodelivery.Name = "idpedidodelivery"
-        Me.idpedidodelivery.ReadOnly = True
-        Me.idpedidodelivery.Visible = False
-        Me.idpedidodelivery.Width = 140
-        '
-        'idproducto
-        '
-        Me.idproducto.DataPropertyName = "idproducto"
-        Me.idproducto.HeaderText = "idproducto"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.ReadOnly = True
-        Me.idproducto.Visible = False
-        Me.idproducto.Width = 104
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "producto"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "Producto"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        Me.DataGridViewTextBoxColumn16.ReadOnly = True
-        Me.DataGridViewTextBoxColumn16.ToolTipText = "Producto"
-        Me.DataGridViewTextBoxColumn16.Width = 94
-        '
-        'precioventa
-        '
-        Me.precioventa.DataPropertyName = "precioventa"
-        Me.precioventa.HeaderText = "Precio"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        Me.precioventa.Width = 77
-        '
-        'cantidad
-        '
-        Me.cantidad.DataPropertyName = "cantidad"
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        Me.cantidad.Width = 93
-        '
-        'subtotal
-        '
-        Me.subtotal.DataPropertyName = "subtotal"
-        Me.subtotal.HeaderText = "Subtotal"
-        Me.subtotal.Name = "subtotal"
-        Me.subtotal.ReadOnly = True
-        Me.subtotal.Width = 89
-        '
-        'modificar
-        '
-        Me.modificar.HeaderText = ""
-        Me.modificar.Name = "modificar"
-        Me.modificar.ReadOnly = True
-        Me.modificar.Text = "Modificar"
-        Me.modificar.UseColumnTextForButtonValue = True
-        Me.modificar.Width = 5
-        '
-        'eliminar
-        '
-        Me.eliminar.HeaderText = ""
-        Me.eliminar.Name = "eliminar"
-        Me.eliminar.ReadOnly = True
-        Me.eliminar.Text = "Eliminar"
-        Me.eliminar.UseColumnTextForButtonValue = True
-        Me.eliminar.Width = 5
-        '
-        'idlistaprecio
-        '
-        Me.idlistaprecio.DataPropertyName = "idlistaprecio"
-        Me.idlistaprecio.HeaderText = "idlistaprecio"
-        Me.idlistaprecio.Name = "idlistaprecio"
-        Me.idlistaprecio.ReadOnly = True
-        Me.idlistaprecio.Visible = False
-        Me.idlistaprecio.Width = 112
-        '
         'PedidosDeliveryModificar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -886,6 +886,7 @@ Partial Class PedidosDeliveryModificar
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "PedidosDeliveryModificar"

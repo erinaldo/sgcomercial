@@ -167,9 +167,14 @@ Partial Class ClientesNuevoDomicilio
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Me.ClientesdomiciliosTableAdapter
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
@@ -190,16 +195,21 @@ Partial Class ClientesNuevoDomicilio
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Me.ProvinciasTableAdapter
         Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
         Me.TableAdapterManager.transportesTableAdapter = Nothing
@@ -469,6 +479,9 @@ Partial Class ClientesNuevoDomicilio
         Me.Controls.Add(Me.CpTextBox)
         Me.Controls.Add(Me.ClientesdomiciliosBindingNavigator)
         Me.Controls.Add(Me.IddomicilioTextBox)
+        Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ClientesNuevoDomicilio"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ClientesNuevoDomicilio"

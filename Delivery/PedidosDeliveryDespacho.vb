@@ -271,6 +271,12 @@
             Me.ListapedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.listapedidosdelivery)
             ListapedidosdeliveryBindingSource.Filter = "estado = 'ENPROCESO'"
         End If
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
