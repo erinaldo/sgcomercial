@@ -72,4 +72,8 @@
         enablebuttons(False)
         Me.ProveedoresTableAdapter.Fill(Me.ComercialDataSet.proveedores)
     End Sub
+
+    Private Sub BindingNavigatorDeleteItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorDeleteItem.Click
+
+    End Sub
 End Class

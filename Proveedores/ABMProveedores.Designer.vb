@@ -206,6 +206,7 @@ Partial Class ABMProveedores
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -320,7 +321,7 @@ Partial Class ABMProveedores
         Me.ComboCondicionIVA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboCondicionIVA.FormattingEnabled = True
         Me.ComboCondicionIVA.Location = New System.Drawing.Point(237, 199)
-        Me.ComboCondicionIVA.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboCondicionIVA.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboCondicionIVA.Name = "ComboCondicionIVA"
         Me.ComboCondicionIVA.Size = New System.Drawing.Size(336, 24)
         Me.ComboCondicionIVA.TabIndex = 29

@@ -1,4 +1,5 @@
-﻿Public Class RecepcionSinPedido
+﻿Imports System.Text.RegularExpressions
+Public Class RecepcionSinPedido
     Dim existeproducto As Integer
     Dim unidadmedida As Integer
     Dim v_preciocosto As Decimal
@@ -18,7 +19,7 @@
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidosdetalle' Puede moverla o quitarla según sea necesario.
         Me.PedidosdetalleTableAdapter.Fill(Me.ComercialDataSet.pedidosdetalle)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.proveedores' Puede moverla o quitarla según sea necesario.
-        Me.ProveedoresTableAdapter.Fill(Me.ComercialDataSet.proveedores)
+        'Me.ProveedoresTableAdapter.Fill(Me.ComercialDataSet.proveedores)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.MiComercio' Puede moverla o quitarla según sea necesario.
         Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapedidosreporte' Puede moverla o quitarla según sea necesario.
@@ -26,7 +27,7 @@
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidos' Puede moverla o quitarla según sea necesario.
         Me.PedidosTableAdapter.Fill(Me.ComercialDataSet.pedidos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapedidosreporte' Puede moverla o quitarla según sea necesario.
-        Me.listapedidosreporteTableAdapter.Fill(Me.ComercialDataSet.listapedidosreporte)
+        Me.ListapedidosreporteTableAdapter.Fill(Me.ComercialDataSet.listapedidosreporte)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.MiComercio' Puede moverla o quitarla según sea necesario.
         Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapedidos' Puede moverla o quitarla según sea necesario.
@@ -37,10 +38,10 @@
         Me.PedidosdetalleTableAdapter.Fill(Me.ComercialDataSet.pedidosdetalle)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pedidos' Puede moverla o quitarla según sea necesario.
         Me.PedidosTableAdapter.Fill(Me.ComercialDataSet.pedidos)
-        ProveedoresBindingSource.Filter = "idproveedor = 0"
+
         PedidosBindingSource.Filter = "idpedido = 0"
 
-        Me.ReportViewer1.RefreshReport()
+        'Me.ReportViewer1.RefreshReport()
     End Sub
 
     Private Sub codigotextbox_TextChanged(sender As Object, e As EventArgs) Handles codigotextbox.TextChanged
@@ -181,11 +182,13 @@
         Dim addnewrow As Boolean = False
         Dim unidadmedida As Integer = -1
         gcantidad = 0
+        gcodigoproducto = Nothing
         Dim p As BuscaProductoPedidos
         p = New BuscaProductoPedidos
         p.ShowDialog()
         '***********************
         If Val(gcantidad) = 0 Then Return
+        If gcodigoproducto = Nothing Then Return
         Labelproducto.Text = gproductodescripcion
         v_preciocosto = ProductosTableAdapter.productos_consultarpreciocosto(gcodigoproducto)
         existeproducto = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
@@ -264,7 +267,8 @@
 
     Private Sub IdproveedorTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdproveedorTextBox.TextChanged
         Try
-            ProveedoresBindingSource.Filter = "idproveedor = " + IdproveedorTextBox.Text
+            'ProveedoresBindingSource.Filter = "idproveedor = " + IdproveedorTextBox.Text
+            ProveedoresTableAdapter.FillByIdproveedor(Me.ComercialDataSet.proveedores, Val(IdproveedorTextBox.Text))
         Catch ex As Exception
             Me.ProveedoresTableAdapter.Fill(Me.ComercialDataSet.proveedores)
             LabelProveedor.Text = Nothing
@@ -392,6 +396,9 @@
         If e.KeyCode = Keys.Delete Then
             PedidoDetalleDataGridView.Rows.Remove(PedidoDetalleDataGridView.CurrentRow)
         End If
+        If e.KeyCode = Keys.Subtract Then
+            PedidoDetalleDataGridView.Rows.Remove(PedidoDetalleDataGridView.CurrentRow)
+        End If
     End Sub
 
     Private Sub PedidosBindingNavigatorSaveItem_Click_1(sender As Object, e As EventArgs)
@@ -399,5 +406,51 @@
         Me.PedidosBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
 
+    End Sub
+
+    Private Sub RecepcionSinPedido_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
+        If e.KeyCode = Keys.Add Then
+            buscaproductomanual()
+            e.SuppressKeyPress = True
+            codigotextbox.Text = Nothing
+        End If
+        If e.KeyCode = Keys.F4 Then
+            buscaproductomanual()
+            e.SuppressKeyPress = True
+            codigotextbox.Text = Nothing
+        End If
+        If e.KeyCode = Keys.Delete Then
+            PedidoDetalleDataGridView.Rows.Remove(PedidoDetalleDataGridView.CurrentRow)
+            e.SuppressKeyPress = True
+        End If
+        If e.KeyCode = Keys.Subtract Then
+            PedidoDetalleDataGridView.Rows.Remove(PedidoDetalleDataGridView.CurrentRow)
+            e.SuppressKeyPress = True
+        End If
+    End Sub
+
+    Private Sub PedidoDetalleDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles PedidoDetalleDataGridView.CellClick
+
+    End Sub
+
+    Private Sub IdproveedorTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles IdproveedorTextBox.KeyDown
+        If e.KeyCode = Keys.Add Then
+            e.SuppressKeyPress = True
+        End If
+        If e.KeyCode = Keys.F4 Then
+            e.SuppressKeyPress = True
+        End If
+    End Sub
+
+    Private Sub IdproveedorTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles IdproveedorTextBox.KeyPress
+        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
+            'MessageBox.Show("Solo se permiten numeros")
+            e.KeyChar = ""
+        End If
     End Sub
 End Class

@@ -767,10 +767,10 @@ Public Class ABMProductos
                         Throw New Exception("No se pudo actualizar el producto en la nube -" + MSGERROR + "-")
                     End If
                 End If
-                MsgBox("Actualización correcta!", MsgBoxStyle.Information)
+                MsgBox("Actualización correcta!", MsgBoxStyle.Information, "Mensaje")
             End If
         Catch ex As Exception
-            MsgBox("Not se pudo completar la operación: " + ex.Message, vbExclamation)
+            MsgBox("No se pudo completar la operación: " + ex.Message, vbExclamation)
         End Try
 
         '/*******************************************************************/
@@ -781,7 +781,7 @@ Public Class ABMProductos
                         Dim idprod
                         idprod = ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)
                         If Not StockTableAdapter1.stock_insertarmovimiento(idprod, Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E", "Nvo. Producto Stock Inicial") >= 0 Then
-                            MsgBox("Ocurrioun error al insertar el stock inicial", MsgBoxStyle.Exclamation)
+                            MsgBox("Ocurrioun error al insertar el stock inicial", MsgBoxStyle.Exclamation, "Advertencia")
                         End If
                         stockinicialtextbox.Text = Nothing
                         MsgBox("Producto agregado correctamente!", MsgBoxStyle.Information, "Mensaje")

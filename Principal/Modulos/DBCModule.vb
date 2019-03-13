@@ -18,16 +18,21 @@ Module DBCModule
             Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
             parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
             Dim server As String
+            Dim dbserverauth As String
+            Dim dbuserauth As String
             Dim userid As String
             Dim password As String
             Dim database As String
-
+            ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             server = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBSERVERWEB")
             database = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBWEB")
             userid = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBUSERWEB")
             password = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBPWDWEB")
+            dbserverauth = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("dbserverauth")
+            dbuserauth = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("dbuserauth")
+            ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             MySQLStrConn = "server=" + server + ";" + "user id=" + userid + ";" + "password=" + password + ";" + "database=" + database + ";persistsecurityinfo=True;Connect Timeout=17"
-
+            SCStrConn = "server=" + dbserverauth + ";" + "user id=" + dbuserauth + ";" + "password=" + password + ";database=sistema1_siscom;persistsecurityinfo=True"
         Catch ex As Exception
             MsgBox("No se pudo Construir el string de conexión al servidor remoto: " + ex.Message, MsgBoxStyle.Information, "DBWEB")
             status = False

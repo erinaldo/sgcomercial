@@ -37,6 +37,7 @@ Partial Class SeleccionarProductoEnvio
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaproductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaproductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -166,6 +167,7 @@ Partial Class SeleccionarProductoEnvio
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
@@ -178,15 +180,15 @@ Partial Class SeleccionarProductoEnvio
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(162, 30)
+        Me.Label1.Location = New System.Drawing.Point(99, 29)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(82, 17)
+        Me.Label1.Size = New System.Drawing.Size(73, 17)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Descripción"
+        Me.Label1.Text = "Filtrar por:"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(255, 27)
+        Me.TextBox1.Location = New System.Drawing.Point(313, 26)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(207, 22)
         Me.TextBox1.TabIndex = 0
@@ -216,6 +218,16 @@ Partial Class SeleccionarProductoEnvio
         Me.Label2.Size = New System.Drawing.Size(68, 17)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Cantidad:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Código", "Descripción"})
+        Me.ComboBox1.Location = New System.Drawing.Point(178, 25)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 24)
+        Me.ComboBox1.TabIndex = 2
         '
         'SeleccionarProductoEnvio
         '
@@ -257,4 +269,5 @@ Partial Class SeleccionarProductoEnvio
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

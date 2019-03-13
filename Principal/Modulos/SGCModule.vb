@@ -27,6 +27,7 @@ Module SGCModule
     Public gModuloClowd As Long
     Public gProgressBarCounter As Long
     Public gUserToken As String
+    Public gSUToken As Boolean
 
     '************************************************
     Public FormPrincipal As Principal
@@ -685,7 +686,7 @@ Module SGCModule
                     status = False
                     cod = 1
                     msg = "Ocurrio un problema en: ActualizarBD() - " + sFile + " - " + ex.Message
-                    Exit For
+                    'Exit For
                 End Try
                 status = True
                 cod = 0

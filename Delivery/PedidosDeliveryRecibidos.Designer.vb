@@ -67,6 +67,9 @@ Partial Class PedidosDeliveryRecibidos
         Me.ListapedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliveryTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.PedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliveryTableAdapter()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,13 +86,16 @@ Partial Class PedidosDeliveryRecibidos
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.PedidosdeliveryDataGridView)
         Me.GroupBox1.Controls.Add(Me.ListapedidosdeliveryDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1318, 575)
+        Me.GroupBox1.Size = New System.Drawing.Size(1299, 605)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lista de pedidos recibidos"
@@ -216,13 +222,13 @@ Partial Class PedidosDeliveryRecibidos
         Me.ListapedidosdeliveryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ListapedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpedidodelivery, Me.estado, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.imprimircomanda, Me.Pagar, Me.Baja, Me.saldo, Me.idcliente, Me.modificar})
         Me.ListapedidosdeliveryDataGridView.DataSource = Me.ListapedidosdeliveryBindingSource
-        Me.ListapedidosdeliveryDataGridView.Location = New System.Drawing.Point(16, 35)
+        Me.ListapedidosdeliveryDataGridView.Location = New System.Drawing.Point(16, 52)
         Me.ListapedidosdeliveryDataGridView.MultiSelect = False
         Me.ListapedidosdeliveryDataGridView.Name = "ListapedidosdeliveryDataGridView"
         Me.ListapedidosdeliveryDataGridView.ReadOnly = True
         Me.ListapedidosdeliveryDataGridView.RowTemplate.Height = 24
         Me.ListapedidosdeliveryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1283, 529)
+        Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1264, 542)
         Me.ListapedidosdeliveryDataGridView.TabIndex = 0
         '
         'idpedidodelivery
@@ -494,11 +500,37 @@ Partial Class PedidosDeliveryRecibidos
         '
         Me.PedidosdeliveryTableAdapter.ClearBeforeFill = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(357, 26)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(73, 17)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "Filtrar por:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Pedido N°", "Cliente"})
+        Me.ComboBox1.Location = New System.Drawing.Point(445, 22)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 24)
+        Me.ComboBox1.TabIndex = 7
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(574, 23)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(216, 22)
+        Me.TextBox1.TabIndex = 8
+        '
         'PedidosDeliveryRecibidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1340, 596)
+        Me.ClientSize = New System.Drawing.Size(1321, 626)
         Me.Controls.Add(Me.GroupBox1)
         Me.KeyPreview = True
         Me.MaximizeBox = False
@@ -508,6 +540,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.Tag = "PedidosRecibidos"
         Me.Text = "Pedidos Recibidos"
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -563,4 +596,7 @@ Partial Class PedidosDeliveryRecibidos
     Friend WithEvents saldo As DataGridViewTextBoxColumn
     Friend WithEvents idcliente As DataGridViewTextBoxColumn
     Friend WithEvents modificar As DataGridViewButtonColumn
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label1 As Label
 End Class

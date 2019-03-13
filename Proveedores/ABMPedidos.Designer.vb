@@ -45,6 +45,12 @@ Partial Class ABMPedidos
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PedidoDetalleDataGridView = New System.Windows.Forms.DataGridView()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.actual = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.preciocosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Labelproducto = New System.Windows.Forms.Label()
         Me.codigotextbox = New System.Windows.Forms.TextBox()
@@ -63,12 +69,6 @@ Partial Class ABMPedidos
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.listapedidosreporteTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosreporteTableAdapter()
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
-        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.actual = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.preciocosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdproveedorLabel = New System.Windows.Forms.Label()
         FechaaltaLabel = New System.Windows.Forms.Label()
         CType(Me.listapedidosreporteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -270,6 +270,42 @@ Partial Class ABMPedidos
         Me.PedidoDetalleDataGridView.Size = New System.Drawing.Size(796, 338)
         Me.PedidoDetalleDataGridView.TabIndex = 8
         '
+        'idproducto
+        '
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.Visible = False
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 275
+        '
+        'actual
+        '
+        Me.actual.HeaderText = "Cant. en Stock"
+        Me.actual.Name = "actual"
+        Me.actual.ReadOnly = True
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad Pedida"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ToolTipText = "Cantidad Pedida"
+        '
+        'preciocosto
+        '
+        Me.preciocosto.HeaderText = "Precio costo"
+        Me.preciocosto.Name = "preciocosto"
+        '
+        'subtotal
+        '
+        Me.subtotal.HeaderText = "Sub Total"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
+        '
         'PictureBox1
         '
         Me.PictureBox1.AccessibleDescription = "Búsqueda manual"
@@ -458,42 +494,6 @@ Partial Class ABMPedidos
         '
         Me.StockTableAdapter.ClearBeforeFill = True
         '
-        'idproducto
-        '
-        Me.idproducto.HeaderText = "idproducto"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.Visible = False
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 275
-        '
-        'actual
-        '
-        Me.actual.HeaderText = "Cant. en Stock"
-        Me.actual.Name = "actual"
-        Me.actual.ReadOnly = True
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad Pedida"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ToolTipText = "Cantidad Pedida"
-        '
-        'preciocosto
-        '
-        Me.preciocosto.HeaderText = "Precio costo"
-        Me.preciocosto.Name = "preciocosto"
-        '
-        'subtotal
-        '
-        Me.subtotal.HeaderText = "Sub Total"
-        Me.subtotal.Name = "subtotal"
-        Me.subtotal.ReadOnly = True
-        '
         'ABMPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -503,6 +503,7 @@ Partial Class ABMPedidos
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ABMPedidos"

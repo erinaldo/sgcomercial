@@ -122,8 +122,7 @@ Public Class BuscaProductoPedidos
     End Sub
 
     Private Sub cantidadtextbox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cantidadtextbox.TextChanged
-
-        If Len(Trim(cantidadtextbox.Text)) = 0 Then Return
+        If Len(Trim(cantidadtextbox.Text)) = 0 Or Len(Trim(precioventatextbox.Text)) Then Return
         If IsNumeric(cantidadtextbox.Text) = False Then
             Return
         End If

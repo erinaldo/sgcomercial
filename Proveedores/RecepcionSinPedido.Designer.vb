@@ -34,6 +34,13 @@ Partial Class RecepcionSinPedido
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PedidoDetalleDataGridView = New System.Windows.Forms.DataGridView()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripción = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.preciocosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.umedida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Labelproducto = New System.Windows.Forms.Label()
         Me.codigotextbox = New System.Windows.Forms.TextBox()
@@ -129,13 +136,6 @@ Partial Class RecepcionSinPedido
         Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn58 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripción = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.preciocosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.umedida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdproveedorLabel = New System.Windows.Forms.Label()
         FechaaltaLabel = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
@@ -250,6 +250,52 @@ Partial Class RecepcionSinPedido
         Me.PedidoDetalleDataGridView.Size = New System.Drawing.Size(732, 303)
         Me.PedidoDetalleDataGridView.TabIndex = 8
         '
+        'idproducto
+        '
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        '
+        'descripción
+        '
+        Me.descripción.HeaderText = "Descripción"
+        Me.descripción.Name = "descripción"
+        Me.descripción.ReadOnly = True
+        Me.descripción.Width = 275
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        '
+        'preciocosto
+        '
+        Me.preciocosto.HeaderText = "Precio costo"
+        Me.preciocosto.Name = "preciocosto"
+        Me.preciocosto.ReadOnly = True
+        '
+        'subtotal
+        '
+        Me.subtotal.HeaderText = "Sub Total"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
+        '
+        'umedida
+        '
+        Me.umedida.HeaderText = "umedida"
+        Me.umedida.Name = "umedida"
+        Me.umedida.ReadOnly = True
+        Me.umedida.Visible = False
+        '
+        'cproducto
+        '
+        Me.cproducto.HeaderText = "cproducto"
+        Me.cproducto.Name = "cproducto"
+        Me.cproducto.ReadOnly = True
+        Me.cproducto.Visible = False
+        '
         'PictureBox1
         '
         Me.PictureBox1.AccessibleDescription = "Búsqueda manual"
@@ -325,12 +371,13 @@ Partial Class RecepcionSinPedido
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.ReportPedido.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(412, 8)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(45, 76)
+        Me.ReportViewer1.Size = New System.Drawing.Size(30, 27)
         Me.ReportViewer1.TabIndex = 19
         Me.ReportViewer1.Visible = False
         '
         'LabelProveedor
         '
+        Me.LabelProveedor.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "nombre", True))
         Me.LabelProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
         Me.LabelProveedor.Location = New System.Drawing.Point(214, 38)
         Me.LabelProveedor.Name = "LabelProveedor"
@@ -393,19 +440,33 @@ Partial Class RecepcionSinPedido
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
         Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
         Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
         Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdetalleTableAdapter = Me.PedidosdetalleTableAdapter
         Me.TableAdapterManager.pedidosTableAdapter = Me.PedidosTableAdapter
         Me.TableAdapterManager.perfilesTableAdapter = Nothing
@@ -413,14 +474,24 @@ Partial Class RecepcionSinPedido
         Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.presupuestosTableAdapter = Nothing
         Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Me.ProductosTableAdapter
         Me.TableAdapterManager.proveedoresTableAdapter = Me.ProveedoresTableAdapter
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Me.StockTableAdapter
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
         Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuariosTableAdapter = Nothing
@@ -654,14 +725,17 @@ Partial Class RecepcionSinPedido
         '
         'ProveedoresDataGridView
         '
+        Me.ProveedoresDataGridView.AllowUserToAddRows = False
+        Me.ProveedoresDataGridView.AllowUserToDeleteRows = False
         Me.ProveedoresDataGridView.AutoGenerateColumns = False
         Me.ProveedoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ProveedoresDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn29})
         Me.ProveedoresDataGridView.DataSource = Me.ProveedoresBindingSource
         Me.ProveedoresDataGridView.Location = New System.Drawing.Point(779, 57)
         Me.ProveedoresDataGridView.Name = "ProveedoresDataGridView"
+        Me.ProveedoresDataGridView.ReadOnly = True
         Me.ProveedoresDataGridView.RowTemplate.Height = 24
-        Me.ProveedoresDataGridView.Size = New System.Drawing.Size(143, 26)
+        Me.ProveedoresDataGridView.Size = New System.Drawing.Size(145, 26)
         Me.ProveedoresDataGridView.TabIndex = 6
         Me.ProveedoresDataGridView.Visible = False
         '
@@ -677,36 +751,42 @@ Partial Class RecepcionSinPedido
         Me.DataGridViewTextBoxColumn24.DataPropertyName = "nombre"
         Me.DataGridViewTextBoxColumn24.HeaderText = "nombre"
         Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        Me.DataGridViewTextBoxColumn24.ReadOnly = True
         '
         'DataGridViewTextBoxColumn25
         '
         Me.DataGridViewTextBoxColumn25.DataPropertyName = "cuitcuil"
         Me.DataGridViewTextBoxColumn25.HeaderText = "cuitcuil"
         Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        Me.DataGridViewTextBoxColumn25.ReadOnly = True
         '
         'DataGridViewTextBoxColumn26
         '
         Me.DataGridViewTextBoxColumn26.DataPropertyName = "telefono"
         Me.DataGridViewTextBoxColumn26.HeaderText = "telefono"
         Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
+        Me.DataGridViewTextBoxColumn26.ReadOnly = True
         '
         'DataGridViewTextBoxColumn27
         '
         Me.DataGridViewTextBoxColumn27.DataPropertyName = "email"
         Me.DataGridViewTextBoxColumn27.HeaderText = "email"
         Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
+        Me.DataGridViewTextBoxColumn27.ReadOnly = True
         '
         'DataGridViewTextBoxColumn28
         '
         Me.DataGridViewTextBoxColumn28.DataPropertyName = "condicioniva"
         Me.DataGridViewTextBoxColumn28.HeaderText = "condicioniva"
         Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
+        Me.DataGridViewTextBoxColumn28.ReadOnly = True
         '
         'DataGridViewTextBoxColumn29
         '
         Me.DataGridViewTextBoxColumn29.DataPropertyName = "personacontacto"
         Me.DataGridViewTextBoxColumn29.HeaderText = "personacontacto"
         Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
+        Me.DataGridViewTextBoxColumn29.ReadOnly = True
         '
         'PedidosdetalleBindingSource
         '
@@ -951,57 +1031,11 @@ Partial Class RecepcionSinPedido
         Me.DataGridViewTextBoxColumn59.HeaderText = "idpedido"
         Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
         '
-        'idproducto
-        '
-        Me.idproducto.HeaderText = "idproducto"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.ReadOnly = True
-        Me.idproducto.Visible = False
-        '
-        'descripción
-        '
-        Me.descripción.HeaderText = "Descripción"
-        Me.descripción.Name = "descripción"
-        Me.descripción.ReadOnly = True
-        Me.descripción.Width = 275
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        '
-        'preciocosto
-        '
-        Me.preciocosto.HeaderText = "Precio costo"
-        Me.preciocosto.Name = "preciocosto"
-        Me.preciocosto.ReadOnly = True
-        '
-        'subtotal
-        '
-        Me.subtotal.HeaderText = "Sub Total"
-        Me.subtotal.Name = "subtotal"
-        Me.subtotal.ReadOnly = True
-        '
-        'umedida
-        '
-        Me.umedida.HeaderText = "umedida"
-        Me.umedida.Name = "umedida"
-        Me.umedida.ReadOnly = True
-        Me.umedida.Visible = False
-        '
-        'cproducto
-        '
-        Me.cproducto.HeaderText = "cproducto"
-        Me.cproducto.Name = "cproducto"
-        Me.cproducto.ReadOnly = True
-        Me.cproducto.Visible = False
-        '
         'RecepcionSinPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(792, 575)
+        Me.ClientSize = New System.Drawing.Size(784, 575)
         Me.Controls.Add(Me.StockDataGridView)
         Me.Controls.Add(Me.ListapedidosreporteDataGridView)
         Me.Controls.Add(Me.PedidosdetalleDataGridView)
@@ -1012,7 +1046,9 @@ Partial Class RecepcionSinPedido
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "RecepcionSinPedido"

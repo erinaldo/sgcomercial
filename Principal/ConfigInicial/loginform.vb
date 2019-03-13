@@ -118,6 +118,7 @@ Public Class loginform
         ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
         Try 'CONNECT DB REMOTE
             Try
+                ArmaSTRConnWEB(status)
                 'Dim CheckConnection As MySqlConnection
                 'CheckConnection = New MySqlConnection
                 'CheckConnection.ConnectionString = SCStrConn
@@ -143,7 +144,7 @@ Public Class loginform
             Catch ex As Exception
                 ErrorLogTableAdapter.errorlog_insertar("Login", "CONEXIÓN", "Load", "No se pudo Conectar al servidor SC " + ex.Message)
             End Try
-            ArmaSTRConnWEB(status)
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             If gModuloClowd = 1 Then
                 Try
                     'Dim CheckConnection As MySqlConnection
@@ -293,9 +294,20 @@ Public Class loginform
                 MsgBox(ex.Message)
             End Try
         End If
-        '====================   REPARA UNIDADES DE MEDIDA ==================
-        If (e.KeyCode = Keys.M AndAlso e.Control AndAlso e.Shift) Then
-
+        '====================   WEB CONFIG ==================
+        If (e.KeyCode = Keys.K AndAlso e.Control AndAlso e.Shift) Then
+            Dim su As SUAuth
+            su = New SUAuth
+            gSUToken = Nothing
+            su.ShowDialog()
+            If gSUToken = True Then
+                Dim wconf As FormWebConf
+                wconf = New FormWebConf
+                wconf.ShowDialog()
+                Me.Hide()
+                Me.loginform_Load(e, e)
+                Me.Show()
+            End If
         End If
         'If (e.KeyCode = Keys.L AndAlso e.Modifiers = Keys.Control) Then
         '    Me.Dispose()

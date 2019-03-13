@@ -3,15 +3,28 @@ Public Class SeleccionarProductoEnvio
     Private Sub SeleccionarProductoEnvio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listaproductos' Puede moverla o quitarla según sea necesario.
         Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
+        ComboBox1.SelectedIndex = 1
         TextBox1.Select()
+
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        Try
-            ListaproductosBindingSource.Filter = "descripcion like '%" + TextBox1.Text + "%'"
-        Catch ex As Exception
-            ListaproductosBindingSource.Filter = ""
-        End Try
+        Select Case ComboBox1.Text
+            Case "Código"
+                Try
+                    ListaproductosBindingSource.Filter = "codigoproducto like '%" + TextBox1.Text.ToUpper + "%'"
+                Catch ex As Exception
+                    ListaproductosBindingSource.Filter = ""
+                End Try
+            Case "Descripción"
+                Try
+                    ListaproductosBindingSource.Filter = "descripcion like '%" + TextBox1.Text.ToUpper + "%'"
+                Catch ex As Exception
+                    ListaproductosBindingSource.Filter = ""
+                End Try
+
+        End Select
+
     End Sub
 
     Private Sub ListaproductosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListaproductosDataGridView.CellContentClick
@@ -113,5 +126,9 @@ Public Class SeleccionarProductoEnvio
                 Me.Close()
             End If
         End If
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        TextBox1.Select()
     End Sub
 End Class

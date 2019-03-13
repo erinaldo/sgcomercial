@@ -40,7 +40,7 @@
 
         End Try
         '*****************************************************************************
-
+        ComboBox1.SelectedIndex = 1
     End Sub
 
     Private Sub ListapedidosdeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellContentClick
@@ -192,5 +192,31 @@
             Me.Cursor = Cursors.Default
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        TextBox1.Select()
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        Select Case ComboBox1.Text
+            Case "Pedido N°"
+                Try
+                    ListapedidosdeliveryBindingSource.Filter = "idpedidodelivery =" + TextBox1.Text.ToUpper
+                    colorear()
+                Catch ex As Exception
+                    ListapedidosdeliveryBindingSource.Filter = ""
+                    colorear()
+                End Try
+
+            Case "Cliente"
+                Try
+                    ListapedidosdeliveryBindingSource.Filter = "nombre like'%" + TextBox1.Text.ToUpper + "%'"
+                    colorear()
+                Catch ex As Exception
+                    ListapedidosdeliveryBindingSource.Filter = ""
+                    colorear()
+                End Try
+        End Select
     End Sub
 End Class
