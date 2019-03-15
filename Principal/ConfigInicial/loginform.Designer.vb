@@ -54,6 +54,7 @@ Partial Class loginform
         Me.PictureUpdateAlert = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LabelDatosCliente = New System.Windows.Forms.Label()
+        Me.LabelMACaddress = New System.Windows.Forms.Label()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -297,9 +298,9 @@ Partial Class loginform
         Me.Button3.BackColor = System.Drawing.Color.White
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
         Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Button3.Location = New System.Drawing.Point(140, 274)
+        Me.Button3.Location = New System.Drawing.Point(140, 279)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(209, 29)
+        Me.Button3.Size = New System.Drawing.Size(209, 24)
         Me.Button3.TabIndex = 11
         Me.Button3.Text = "Buscar Actualizaciones"
         Me.Button3.UseVisualStyleBackColor = False
@@ -345,21 +346,32 @@ Partial Class loginform
         'LabelDatosCliente
         '
         Me.LabelDatosCliente.Font = New System.Drawing.Font("Exo 2.0 Medium", 10.0!)
-        Me.LabelDatosCliente.Location = New System.Drawing.Point(3, 303)
+        Me.LabelDatosCliente.Location = New System.Drawing.Point(3, 279)
         Me.LabelDatosCliente.Name = "LabelDatosCliente"
         Me.LabelDatosCliente.Size = New System.Drawing.Size(483, 24)
         Me.LabelDatosCliente.TabIndex = 14
         Me.LabelDatosCliente.Text = "..........................................."
         Me.LabelDatosCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'LabelMACaddress
+        '
+        Me.LabelMACaddress.Font = New System.Drawing.Font("Exo 2.0 Medium", 11.0!)
+        Me.LabelMACaddress.Location = New System.Drawing.Point(3, 301)
+        Me.LabelMACaddress.Name = "LabelMACaddress"
+        Me.LabelMACaddress.Size = New System.Drawing.Size(483, 24)
+        Me.LabelMACaddress.TabIndex = 15
+        Me.LabelMACaddress.Text = "........................"
+        Me.LabelMACaddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'loginform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(488, 337)
+        Me.ClientSize = New System.Drawing.Size(488, 335)
         Me.ControlBox = False
         Me.Controls.Add(Me.LabelDatosCliente)
+        Me.Controls.Add(Me.LabelMACaddress)
         Me.Controls.Add(Me.UpdateAlert)
         Me.Controls.Add(Me.version)
         Me.Controls.Add(Me.Label3)
@@ -420,4 +432,5 @@ Partial Class loginform
     Friend WithEvents UpdateAlert As Label
     Friend WithEvents UpdateCheckBG As System.ComponentModel.BackgroundWorker
     Friend WithEvents LabelDatosCliente As Label
+    Friend WithEvents LabelMACaddress As Label
 End Class

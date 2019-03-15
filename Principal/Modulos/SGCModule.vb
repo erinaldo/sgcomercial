@@ -3,6 +3,7 @@ Imports System.Net
 Imports System.Net.WebRequest
 Imports System.Threading
 Imports System.Data.SqlClient
+
 'Imports System.IO.Compression
 
 
@@ -14,8 +15,10 @@ Module SGCModule
     Public gstrSheetName As New List(Of String)
     Public gstrSheetSelected As String
     '************************************************
-    Public StrSysCurrentVersion As String
-    Public SysCurrentVersion As Long
+    'Public StrSysCurrentVersion As String
+    'Public SysCurrentVersion As Long
+    Public gDownloadProgress As Long
+    Public SoftwareVersion As String
     Public PermisoVtaCC As Long
     Public gValidarSTK As String
     Public gbalprefix As String
@@ -539,7 +542,7 @@ Module SGCModule
 
         Try
             newversion = Val(ProductosSCTableAdapter.productos_consultarversionvigente("SGComercia"))
-            currentversion = Val(TerminalesSCTableAdapter.terminales_consultarsgcversion(gTerminal))
+            'currentversion = Val(TerminalesSCTableAdapter.terminales_consultarsgcversion(gTerminal))
             If newversion > currentversion Then
                 status = True
             Else
@@ -555,68 +558,52 @@ Module SGCModule
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     End Sub
     Public Sub UpdateSGC(ByRef newversion As Long)
-        Cursor.Current = Cursors.WaitCursor
-        Dim ftpRequest As FtpWebRequest = DirectCast(WebRequest.Create("ftp://sistemascomerciales.net/"), FtpWebRequest)
-        ftpRequest.Credentials = New NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
-        ftpRequest.Method = WebRequestMethods.Ftp.ListDirectory
-        Dim response As FtpWebResponse = DirectCast(ftpRequest.GetResponse(), FtpWebResponse)
-        Dim streamReader As New StreamReader(response.GetResponseStream())
-        Dim directories As New List(Of String)()
+        '============ ACTUALIZAR SISTEMA FTP DESCARGAR ACTUALIZACION =================
+        'Cursor.Current = Cursors.WaitCursor
+        'Dim ftpRequest As FtpWebRequest = DirectCast(WebRequest.Create("ftp://sistemascomerciales.net/"), FtpWebRequest)
+        'ftpRequest.Credentials = New NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
+        'ftpRequest.Method = WebRequestMethods.Ftp.ListDirectory
+        'Dim response As FtpWebResponse = DirectCast(ftpRequest.GetResponse(), FtpWebResponse)
+        'Dim streamReader As New StreamReader(response.GetResponseStream())
+        'Dim directories As New List(Of String)()
 
-        'Dim line As String = streamReader.ReadLine()
-        'While Not String.IsNullOrEmpty(line)
-        '    directories.Add(line)
-        '    line = streamReader.ReadLine()
-        'End While
-        'streamReader.Close()
+        ''Dim line As String = streamReader.ReadLine()
+        ''While Not String.IsNullOrEmpty(line)
+        ''    directories.Add(line)
+        ''    line = streamReader.ReadLine()
+        ''End While
+        ''streamReader.Close()
+
+        ''***************************    descargando la nueva version *************************
+        'Using ftpClient As New WebClient()
+
+        '    ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
+
+        '    'For i As Integer = 0 To directories.Count - 1
+        '    '    'If  directories(i).Contains(".") Then
+        '    '    If directories(i) <> "." And directories(i) <> ".." Then
+        '    Try
+        '        'FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.*")
+        '        Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar" '+ directories(i).ToString()
+        '        Dim trnsfrpth As String = "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar" '+ directories(i).ToString()
+        '        ftpClient.DownloadFile(path, trnsfrpth)
+        '    Catch ex As Exception
+        '        Cursor.Current = Cursors.Default
+        '        MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
+        '        Return
+        '    End Try
+        '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
+        '   *********************   DESCOMPRIMIR LA NUEVA VERSION
         Try
-            '**********************************************
-            Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
-                IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
-            Catch ex As Exception
-
-            End Try
-            '**********************************************
-            ' SI NO EXISTE LA CREA
-            If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
-                System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
-            End If
+            Module_unrar.UnRar("C:\SGComercial\UpdatePack\Ejecutable\", "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
+            Threading.Thread.Sleep(6000)
         Catch ex As Exception
-            Cursor.Current = Cursors.Default
-            MsgBox("Borrando archivos " + ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
+            MsgBox("Ocurrió un error al descomprimir la actualización: " + ex.Message, MsgBoxStyle.Exclamation)
             Return
         End Try
-        '***************************    descargando la nueva version *************************
-        Using ftpClient As New WebClient()
-            ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
-
-            'For i As Integer = 0 To directories.Count - 1
-            '    'If  directories(i).Contains(".") Then
-            '    If directories(i) <> "." And directories(i) <> ".." Then
-            Try
-                'FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.*")
-                Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar" '+ directories(i).ToString()
-                Dim trnsfrpth As String = "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar" '+ directories(i).ToString()
-                ftpClient.DownloadFile(path, trnsfrpth)
-            Catch ex As Exception
-                Cursor.Current = Cursors.Default
-                MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
-                Return
-            End Try
-            '    End If
-            'Next
-            '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
-            '   *********************   DESCOMPRIMIR LA NUEVA VERSION
-            Try
-                Module_unrar.UnRar("C:\SGComercial\UpdatePack\Ejecutable\", "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
-                Threading.Thread.Sleep(6000)
-            Catch ex As Exception
-                MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Exclamation)
-                Return
-            End Try
-            '''''''''''''''''''''''''''''''''''''''''''''''
-            Cursor.Current = Cursors.Default
-            MsgBox("La aplicación se cerrará para comenzar el proceso de instalación", MsgBoxStyle.Information, "Advertencia")
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        'Cursor.Current = Cursors.Default
+        MsgBox("La aplicación se cerrará para comenzar el proceso de instalación", MsgBoxStyle.Information, "Advertencia")
             '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
             '   *********************   CREANDO OBJETOS DE CONEXION SISCOMBD
             Dim TerminalesSCTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
@@ -649,7 +636,7 @@ Module SGCModule
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             Process.Start("C:\SGComercial\UpdatePack\Ejecutable\setup.exe")
             End
-        End Using
+        'End Using
     End Sub
     Public Sub ActualizarBD(ByRef status As Boolean, ByRef cod As Integer, ByRef msg As String)
         ''''''''''''

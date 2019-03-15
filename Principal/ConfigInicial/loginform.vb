@@ -1,14 +1,22 @@
 ﻿Imports System.Net.NetworkInformation
 Imports System.Data.SqlClient
+Imports System.Net
 Imports MySql.Data.MySqlClient
 
 
 Public Class loginform
     Dim sqlserverconnection As SqlConnection
-    Dim softwareversion As String
     Dim currentversion As Long
-    Dim newversion As Long
+    Dim newversion As Long = 0
     Dim UpdateAlertStatus As Boolean
+    '================ DESCARGA DE VERSION
+    Dim xi As LoadingForm
+    'Dim random As New Random
+    Dim counter As Integer = 0
+    Dim ftpClient As New WebClient
+    Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar"
+    Dim trnsfrpth As String = "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
+    '===============================================================================
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         '*********************************************************
@@ -76,6 +84,7 @@ Public Class loginform
     Private Sub identificarterminal()
         gmacadress = getMacAddress()
         MachineKey = "LLAuth" + gmacadress
+        LabelMACaddress.Text = gmacadress
     End Sub
     Private Sub connectdblocal()
         Try 'CONNECT DB LOCAL
@@ -162,7 +171,16 @@ Public Class loginform
             End
         End Try
     End Sub
+    Private Sub GetSoftwareVersion()
+        version.Text = "Versión "
+        version.Text += My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString
+        version.Text += "." + My.Application.Info.Version.Build.ToString
+        version.Text += "." + My.Application.Info.Version.MinorRevision.ToString
+        SoftwareVersion = My.Application.Info.Version.Major.ToString + My.Application.Info.Version.Minor.ToString + My.Application.Info.Version.Build.ToString + My.Application.Info.Version.MinorRevision.ToString
+    End Sub
+
     Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Button3.Visible = True
         Dim hi As LoadingForm
         hi = New LoadingForm
         hi.Show()
@@ -195,7 +213,12 @@ Public Class loginform
         Dim status As Boolean
         Dim cod As Integer
         Dim msg As String = Nothing
-        ActualizarBD(status, cod, msg)
+        If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\BD")) Then
+            'System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\") 'la crearia
+        Else
+            ActualizarBD(status, cod, msg)
+        End If
+
         ReparaProductosMedidas()
         '''''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Conectando a la Nube"
@@ -209,43 +232,18 @@ Public Class loginform
         'hi.ProgressBar.Value = 6
         hi.ProgressBar.PerformStep()
         hi.Refresh()
+        GetSoftwareVersion()
         UpdateCheckBG.RunWorkerAsync()
-        '********************************  
-        '********************************
-        Try
-            sqlserverconnection = New SqlConnection(sgcomercial.My.MySettings.Default.comercialConnectionString)
-            sqlserverconnection.Open()
-            '=======================================
-            'StrSysCurrentVersion = ParametrosgeneralesTableAdapter1.parametrosgenerales_GetPrgstring1("SysCurrentVersion")
-            SysCurrentVersion = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byclave("SysCurrentVersion")
-            StrSysCurrentVersion = "Versión " + SysCurrentVersion.ToString
-
-            version.Text = "Versión "
-            version.Text += My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString
-            version.Text += "." + My.Application.Info.Version.Build.ToString
-            version.Text += "." + My.Application.Info.Version.MinorRevision.ToString
-            softwareversion = My.Application.Info.Version.Major.ToString + My.Application.Info.Version.Minor.ToString + My.Application.Info.Version.Build.ToString + My.Application.Info.Version.MinorRevision.ToString
-            textusuario.Select()
-            If SysCurrentVersion <> Val(softwareversion) Then
-                MsgBox("Tu BASE DE DATOS se encuentra desactualizada!", MsgBoxStyle.Exclamation, "Contacto: sistemascomerciales.net")
-                enablebuttons(False)
-            End If
-
-            gidcaja = 0
-            gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
-            '=======================================
-            sqlserverconnection.Close()
-            sqlserverconnection.Dispose()
-        Catch ex As Exception
-            MsgBox("No se pudo conectar con el servidor LOCAL", MsgBoxStyle.Exclamation)
-            sqlserverconnection.Dispose()
-            textusuario.Enabled = False
-            textpassword.Enabled = False
-            Button1.Enabled = False
-            Button2.PerformClick()
-        End Try
+        '************************************
         Cursor.Current = Cursors.Default
         hi.Dispose()
+        GetCajaOperativa()
+        textusuario.Select()
+    End Sub
+    Private Sub GetCajaOperativa()
+        gidcaja = 0
+        gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
+        LabelMACaddress.Text = LabelMACaddress.Text + " - Caja: " + gidcaja.ToString
     End Sub
     Private Sub enablebuttons(ByVal status As Boolean)
         textusuario.Enabled = status
@@ -282,13 +280,12 @@ Public Class loginform
             Dim status As Boolean
             Dim cod As Integer
             Dim msg As String = Nothing
-
             Try
-                Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
-                parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
-                parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("SysCurrentVersion", Val(softwareversion), softwareversion, Nothing)
+                'Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
+                'parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+                'parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("SysCurrentVersion", Val(softwareversion), softwareversion, Nothing)
                 ActualizarBD(status, cod, msg)
-                MsgBox("Versión de Base Actualizada")
+                MsgBox("Ajustes de Base aplicados!", MsgBoxStyle.Information, "Mensaje")
                 enablebuttons(True)
             Catch ex As Exception
                 MsgBox(ex.Message)
@@ -376,8 +373,46 @@ Public Class loginform
     End Sub
 
     Private Sub Button3_Click_3(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim status As Boolean
-        UpdateCheck(status, currentversion, newversion)
+        If UpdateAlertStatus = False Then Return
+        Try
+            '**********************************************
+            Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
+                IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
+            Catch ex As Exception
+
+            End Try
+            '**********************************************
+            ' SI NO EXISTE LA CREA
+            If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
+                System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
+            End If
+        Catch ex As Exception
+            Cursor.Current = Cursors.Default
+            MsgBox("Borrando archivos " + ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
+            Return
+        End Try
+        '======================================
+        gDownloadProgress = 0
+        '=====================================
+        'BackgroundWorker.RunWorkerAsync()
+        '===========================
+        AddHandler ftpClient.DownloadProgressChanged, AddressOf DownloadProgressChanged
+        AddHandler ftpClient.DownloadFileCompleted, AddressOf DownloadComplete
+        xi = New LoadingForm
+        xi.Text = "Descargando última versión"
+        xi.ProgressBar.Maximum = 100
+        xi.ProgressBar.MarqueeAnimationSpeed = 100
+        'xi.mensaje.TextAlign = ContentAlignment.MiddleLeft
+        xi.mensaje.Text = "Descargando"
+        xi.Show()
+        'Try
+        Try
+            FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.rar")
+        Catch ex As Exception
+
+        End Try
+        ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
+        ftpClient.DownloadFileAsync(New Uri(path), trnsfrpth)
     End Sub
 
     Private Sub textusuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles textusuario.KeyPress
@@ -387,26 +422,30 @@ Public Class loginform
     End Sub
 
     Private Sub UpdateCheckBG_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles UpdateCheckBG.DoWork
-        UpdateCheckPasivo(UpdateAlertStatus, currentversion, newversion)
+        UpdateCheckPasivo(UpdateAlertStatus, Val(SoftwareVersion), newversion)
     End Sub
 
     Private Sub UpdateCheckBG_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles UpdateCheckBG.RunWorkerCompleted
         ' Called when the BackgroundWorker is completed.
-        If UpdateAlertStatus = True Then
-            UpdateAlert.Visible = True
-            UpdateAlert.Text = "Nueva versión disponible!"
-            UpdateAlert.ForeColor = Color.Orange
-            PictureUpdateAlert.Image = My.Resources.UpdateAlert
-            PictureUpdateAlert.Visible = True
-            Button3.Visible = True
+        If newversion = 0 Then
+            LabelDatosCliente.Text = "Versión OFF-LINE"
         Else
-            If newversion = 0 Then Return
-            UpdateAlert.Visible = True
-            UpdateAlert.Text = "Sistema Actualizado!"
-            UpdateAlert.ForeColor = Color.Green
-            PictureUpdateAlert.Image = My.Resources.checked
-            PictureUpdateAlert.Visible = True
-            Button3.Visible = False
+            If newversion > Val(SoftwareVersion) And UpdateAlertStatus = True Then
+                UpdateAlert.Visible = True
+                UpdateAlert.Text = "Nueva versión disponible!"
+                UpdateAlert.ForeColor = Color.Orange
+                PictureUpdateAlert.Image = My.Resources.UpdateAlert
+                PictureUpdateAlert.Visible = True
+                'Button3.Visible = False
+            Else
+                If newversion = 0 Then Return
+                UpdateAlert.Visible = True
+                UpdateAlert.Text = "Sistema Actualizado!"
+                UpdateAlert.ForeColor = Color.Green
+                PictureUpdateAlert.Image = My.Resources.checked
+                PictureUpdateAlert.Visible = True
+                'Button3.Visible = False
+            End If
         End If
     End Sub
     Private Sub UpdateAlert_Click(sender As Object, e As EventArgs) Handles UpdateAlert.Click
@@ -423,5 +462,27 @@ Public Class loginform
 
     Private Sub Button4_Click_1(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub Button4_Click_2(sender As Object, e As EventArgs)
+        Dim UPDATER As DownloadForm
+        UPDATER = New DownloadForm
+        UPDATER.ShowDialog()
+
+    End Sub
+    Private Sub DownloadProgressChanged(ByVal sender As Object, ByVal e As Net.DownloadProgressChangedEventArgs)
+        'counter = counter + 1
+        Dim info As New IO.FileInfo("C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
+        Dim length As Long
+        length = (info.Length) / 1000
+        gDownloadProgress = e.ProgressPercentage
+        xi.ProgressBar.Value = gDownloadProgress
+        xi.mensaje.Text = length.ToString + "kb " + "Descargando... "
+        xi.Refresh()
+    End Sub
+    Private Sub DownloadComplete(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
+        'MsgBox("Descarga completa! " + gDownloadProgress.ToString)
+        xi.Dispose()
+        UpdateSGC(newversion)
     End Sub
 End Class

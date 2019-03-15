@@ -37,8 +37,8 @@ Public Class BuscaProductoManualPedidos
             '********************************************************************************************************
             If glistapreferida > 0 Then
                 ComboListaPrecios.SelectedValue = glistapreferida
+                TextBox1.Select()
             End If
-
         Catch ex As Exception
             MsgBox("NO hay productos en la lista!")
             Me.Close()
