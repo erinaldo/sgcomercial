@@ -307,7 +307,7 @@
         total = 0
 
         For i = 0 To PedidoDetalleDataGridView.RowCount - 1
-            precio = PedidoDetalleDataGridView.Rows(i).Cells("preciocosto").Value
+            precio = PedidoDetalleDataGridView.Rows(i).Cells("preciocosto").Value * PedidoDetalleDataGridView.Rows(i).Cells("cantidad").Value
             total += precio
         Next
         total = Decimal.Round(total, 2)

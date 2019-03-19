@@ -281,7 +281,7 @@ Public Class Principal
     End Sub
 
     Private Sub IngresoDeProductosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IngresoDeProductosToolStripMenuItem.Click
-
+        ingresoegresoproductos.MdiParent = Me
         ingresoegresoproductos.Visible = True
     End Sub
 
@@ -373,18 +373,21 @@ Public Class Principal
     Private Sub AcercaDeSGComercialToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AcercaDeSGComercialToolStripMenuItem.Click
         'Dim p As AcercaDe
         'p = New AcercaDe
+        AcercaDe.TopMost = True
         AcercaDe.ShowDialog()
     End Sub
 
     Private Sub MiComercioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MiComercioToolStripMenuItem.Click
         'Dim p As MiComercio
         'p = New MiComercio
+        MiComercio.TopMost = True
         MiComercio.ShowDialog()
     End Sub
 
     Private Sub FondoAplicaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FondoAplicaciónToolStripMenuItem.Click
         'Dim p As FondoAplicacion
         'p = New FondoAplicacion
+        FondoAplicacion.TopMost = True
         FondoAplicacion.ShowDialog()
     End Sub
 
@@ -448,6 +451,7 @@ Public Class Principal
 
     Private Sub ABMProveedoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMProveedoresToolStripMenuItem.Click
         'ABMProveedores.MdiParent = Me
+        ABMProveedores.TopMost = True
         ABMProveedores.ShowDialog()
     End Sub
 
@@ -475,6 +479,7 @@ Public Class Principal
     End Sub
 
     Private Sub ImpresiónEtiquetasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImpresiónEtiquetasToolStripMenuItem.Click
+        BarCodePrint.TopMost = True
         BarCodePrint.ShowDialog()
 
     End Sub
@@ -527,10 +532,12 @@ Public Class Principal
 
     Private Sub ABMMotivosValesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMMotivosValesToolStripMenuItem.Click
         'ABMMotivosVales.MdiParent = Me
+        ABMMotivosVales.TopMost = True
         ABMMotivosVales.ShowDialog()
     End Sub
 
     Private Sub AdministrarValesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AdministrarValesToolStripMenuItem.Click
+        ADMVales.TopMost = True
         ADMVales.ShowDialog()
 
     End Sub
@@ -671,7 +678,7 @@ Public Class Principal
     End Sub
 
     Private Sub AltaTerminalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaTerminalToolStripMenuItem.Click
-
+        SCAltaDispositivo.TopMost = True
         SCAltaDispositivo.ShowDialog()
 
     End Sub
@@ -790,6 +797,7 @@ Public Class Principal
             Case "Revisar Cuentas Vencidas!"
                 Dim p As AlertaCuentasCorrientes
                 p = New AlertaCuentasCorrientes
+                p.TopMost = True
                 p.ShowDialog()
         End Select
     End Sub
@@ -830,6 +838,7 @@ Public Class Principal
     End Sub
 
     Private Sub ExportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarProductosToolStripMenuItem.Click
+        ExportarProductos.MdiParent = Me
         ExportarProductos.ShowDialog()
     End Sub
 

@@ -282,8 +282,13 @@
             End If
             '****************************   VALIDAR si se entregó que el monto pagado no sea cero
             If estadoentrega = "EP" Or estadoentrega = "ESCC" Then
-                If montoapagar = 0 Then
+                If montoapagar = 0 And montopagado = 0 Then
                     rtn_mensaje = "No puede ingresar monto cero (0)"
+                    rtn = False
+                    Return
+                End If
+                If montoapagar < 0 Then
+                    rtn_mensaje = "No puede ingresar monto MENOR a cero (0)"
                     rtn = False
                     Return
                 End If
@@ -314,7 +319,7 @@
             Dim transporte As String = ListalotesdetalleDataGridView.Rows(i).Cells("nombretransporte").Value
             If transporte = "Delivery Local" Then
                 ListalotesdetalleDataGridView.Rows(i).Cells("estadoentrega").Value = "EP"
-                ListalotesdetalleDataGridView.Rows(i).Cells("montoapagar").Value = ListalotesdetalleDataGridView.Rows(i).Cells("montototal").Value
+                ListalotesdetalleDataGridView.Rows(i).Cells("montoapagar").Value = ListalotesdetalleDataGridView.Rows(i).Cells("montototal").Value - ListalotesdetalleDataGridView.Rows(i).Cells("importepagado").Value
             End If
         Next
     End Sub

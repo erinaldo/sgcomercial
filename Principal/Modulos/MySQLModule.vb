@@ -847,151 +847,156 @@ Module MySQLModule
             p.Show()
             p.ProgressBar1.Maximum = ProductosTable.Rows.Count
             p.LabelProgress.Text = "Progreso: " + "0/" + p.ProgressBar1.Maximum.ToString
-            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            For i = 0 To ProductosTable.Rows.Count - 1
-                '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-                Dim idproductoweb As Long
-                'Dim idproductolocal As Long
-                '-----------------------------------------------------------------------------------
-                idproductoweb = ProductosWEBTableAdapter.productos_existeproducto(ProductosTable.Rows(i).Item(1))
-                ProductosTable = ProductosTableAdapter.GetData()
-                '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-                Dim codigoproducto As String
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("codigoproducto"))) Then
-                    codigoproducto = Nothing
-                Else
-                    codigoproducto = ProductosTable.Rows(i).Item(ProductosTable.Columns("codigoproducto"))
-                End If
-                Dim marca As String
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("marca"))) Then
-                    marca = Nothing
-                Else
-                    marca = ProductosTable.Rows(i).Item(ProductosTable.Columns("marca"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim modelo As String
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("modelo"))) Then
-                    modelo = Nothing
-                Else
-                    modelo = ProductosTable.Rows(i).Item(ProductosTable.Columns("modelo"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim presentacion As String
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("presentacion"))) Then
-                    presentacion = Nothing
-                Else
-                    presentacion = ProductosTable.Rows(i).Item(ProductosTable.Columns("presentacion"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim unidadmedida As Int16
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("unidadmedida"))) Then
-                    unidadmedida = Nothing
-                Else
-                    unidadmedida = ProductosTable.Rows(i).Item(ProductosTable.Columns("unidadmedida"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim medida As Decimal
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("medida"))) Then
-                    medida = Nothing
-                Else
-                    medida = ProductosTable.Rows(i).Item(ProductosTable.Columns("medida"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim descripcion As String
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("descripcion"))) Then
-                    descripcion = Nothing
-                Else
-                    descripcion = ProductosTable.Rows(i).Item(ProductosTable.Columns("descripcion"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim preciocosto As Decimal
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("preciocosto"))) Then
-                    preciocosto = Nothing
-                Else
-                    preciocosto = ProductosTable.Rows(i).Item(ProductosTable.Columns("preciocosto"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim precioventa As Decimal
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventa"))) Then
-                    precioventa = Nothing
-                Else
-                    precioventa = ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventa"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim stockminimo As Decimal
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("stockminimo"))) Then
-                    stockminimo = Nothing
-                Else
-                    stockminimo = ProductosTable.Rows(i).Item(ProductosTable.Columns("stockminimo"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim precioventamayorista As Decimal
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventamayorista"))) Then
-                    precioventamayorista = Nothing
-                Else
-                    precioventamayorista = ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventamayorista"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim precioventagranel As Decimal
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventagranel"))) Then
-                    precioventagranel = Nothing
-                Else
-                    precioventagranel = ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventagranel"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim precioventadistribuidor As Decimal
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventadistribuidor"))) Then
-                    precioventadistribuidor = Nothing
-                Else
-                    precioventadistribuidor = ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventadistribuidor"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim idrubro As Integer
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("idrubro"))) Then
-                    idrubro = 1
-                Else
-                    idrubro = ProductosTable.Rows(i).Item(ProductosTable.Columns("idrubro"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim iva As Double
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("iva"))) Then
-                    iva = Nothing
-                Else
-                    iva = ProductosTable.Rows(i).Item(ProductosTable.Columns("iva"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim fabricante As String
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("fabricante"))) Then
-                    fabricante = Nothing
-                Else
-                    fabricante = ProductosTable.Rows(i).Item(ProductosTable.Columns("fabricante"))
-                End If
-                '-----------------------------------------------------------------------------------
-                Dim productocompuesto As String
-                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("productocompuesto"))) Then
-                    productocompuesto = "N"
-                Else
-                    productocompuesto = ProductosTable.Rows(i).Item(ProductosTable.Columns("productocompuesto"))
-                End If
-                '-----------------------------------------------------------------------------------
-                ' SI EXISTE UPDATE
-                If idproductoweb > 0 Then
-                    ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
-                Else ' NO EXISTE INSERT
-                    ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
-                End If
-                '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-                SyncLogWEBTableAdapter.synclog_update(1, Now, gmacadress, gusername, "productos")
-                Cursor.Current = Cursors.Default
-                coderror = 0
-                msgerror = ""
-                '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-                gProgressBarCounter = i
-                p.ProgressBar1.Value = i
-                p.LabelProgress.Text = "Progreso: " + i.ToString + "/" + p.ProgressBar1.Maximum.ToString
-                p.Refresh()
-            Next
+            Try
+
+                ''''''''''''''''    RECORRO TODA LA LISTA DE PRODUCTOS Y LA VOY SUBIENDO A LA NUBE'''''''''''''''''''''''''''''''''''''''''''
+                For i = 0 To ProductosTable.Rows.Count - 1
+                    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+                    Dim idproductoweb As Long
+                    'Dim idproductolocal As Long
+                    '-----------------------------------------------------------------------------------
+                    idproductoweb = ProductosWEBTableAdapter.productos_existeproducto(ProductosTable.Rows(i).Item(1))
+                    ProductosTable = ProductosTableAdapter.GetData()
+                    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+                    Dim codigoproducto As String
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("codigoproducto"))) Then
+                        codigoproducto = Nothing
+                    Else
+                        codigoproducto = ProductosTable.Rows(i).Item(ProductosTable.Columns("codigoproducto"))
+                    End If
+                    Dim marca As String
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("marca"))) Then
+                        marca = Nothing
+                    Else
+                        marca = ProductosTable.Rows(i).Item(ProductosTable.Columns("marca"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim modelo As String
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("modelo"))) Then
+                        modelo = Nothing
+                    Else
+                        modelo = ProductosTable.Rows(i).Item(ProductosTable.Columns("modelo"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim presentacion As String
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("presentacion"))) Then
+                        presentacion = Nothing
+                    Else
+                        presentacion = ProductosTable.Rows(i).Item(ProductosTable.Columns("presentacion"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim unidadmedida As Int16
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("unidadmedida"))) Then
+                        unidadmedida = Nothing
+                    Else
+                        unidadmedida = ProductosTable.Rows(i).Item(ProductosTable.Columns("unidadmedida"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim medida As Decimal
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("medida"))) Then
+                        medida = Nothing
+                    Else
+                        medida = ProductosTable.Rows(i).Item(ProductosTable.Columns("medida"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim descripcion As String
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("descripcion"))) Then
+                        descripcion = Nothing
+                    Else
+                        descripcion = ProductosTable.Rows(i).Item(ProductosTable.Columns("descripcion"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim preciocosto As Decimal
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("preciocosto"))) Then
+                        preciocosto = Nothing
+                    Else
+                        preciocosto = ProductosTable.Rows(i).Item(ProductosTable.Columns("preciocosto"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim precioventa As Decimal
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventa"))) Then
+                        precioventa = Nothing
+                    Else
+                        precioventa = ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventa"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim stockminimo As Decimal
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("stockminimo"))) Then
+                        stockminimo = Nothing
+                    Else
+                        stockminimo = ProductosTable.Rows(i).Item(ProductosTable.Columns("stockminimo"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim precioventamayorista As Decimal
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventamayorista"))) Then
+                        precioventamayorista = Nothing
+                    Else
+                        precioventamayorista = ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventamayorista"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim precioventagranel As Decimal
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventagranel"))) Then
+                        precioventagranel = Nothing
+                    Else
+                        precioventagranel = ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventagranel"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim precioventadistribuidor As Decimal
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventadistribuidor"))) Then
+                        precioventadistribuidor = Nothing
+                    Else
+                        precioventadistribuidor = ProductosTable.Rows(i).Item(ProductosTable.Columns("precioventadistribuidor"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim idrubro As Integer
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("idrubro"))) Then
+                        idrubro = 1
+                    Else
+                        idrubro = ProductosTable.Rows(i).Item(ProductosTable.Columns("idrubro"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim iva As Double
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("iva"))) Then
+                        iva = Nothing
+                    Else
+                        iva = ProductosTable.Rows(i).Item(ProductosTable.Columns("iva"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim fabricante As String
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("fabricante"))) Then
+                        fabricante = Nothing
+                    Else
+                        fabricante = ProductosTable.Rows(i).Item(ProductosTable.Columns("fabricante"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    Dim productocompuesto As String
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("productocompuesto"))) Then
+                        productocompuesto = "N"
+                    Else
+                        productocompuesto = ProductosTable.Rows(i).Item(ProductosTable.Columns("productocompuesto"))
+                    End If
+                    '-----------------------------------------------------------------------------------
+                    ' SI EXISTE UPDATE
+                    If idproductoweb > 0 Then
+                        ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
+                    Else ' NO EXISTE INSERT
+                        ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
+                    End If
+                    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+                    Cursor.Current = Cursors.Default
+                    coderror = 0
+                    msgerror = ""
+                    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+                    gProgressBarCounter = i
+                    p.ProgressBar1.Value = i
+                    p.LabelProgress.Text = "Progreso: " + i.ToString + "/" + p.ProgressBar1.Maximum.ToString
+                    p.Refresh()
+                Next
+            Catch ex As Exception
+
+            End Try
             '-----------------------------------------------------------------------------------
+            SyncLogWEBTableAdapter.synclog_update(1, Now, gmacadress, gusername, "productos")
             p.ProgressBar1.Value = p.ProgressBar1.Maximum
             Cursor.Current = Cursors.Default
             coderror = 0

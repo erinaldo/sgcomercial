@@ -362,11 +362,17 @@ Public Class RegistrarVenta
                 Case "Siempre"
                     Dim p As ViewerFactura
                     p = New ViewerFactura
+                    'p.MdiParent = Me.ParentForm
+                    p.ShowInTaskbar = True
+                    'p.TopMost = True
                     p.ShowDialog()
                 Case "Preguntar"
                     If MsgBox("Desea Imprimir el comprobante?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
                         Dim p As ViewerFactura
                         p = New ViewerFactura
+                        'p.MdiParent = Me.ParentForm
+                        p.ShowInTaskbar = True
+                        'p.TopMost = True
                         p.ShowDialog()
                     End If
             End Select

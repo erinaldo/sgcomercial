@@ -12,6 +12,7 @@
                 HojaA4ToolStripMenuItem.PerformClick()
         End Select
         Me.Select()
+
         'Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
         'Me.libroventasTableAdapter.FillByIdventa(Me.comercialDataSet.libroventas, gidventa)
         'Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
@@ -44,7 +45,7 @@
         Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
 
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComandera80.rdlc"
-        Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
+        'Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
         Me.ReportViewer1.RefreshReport()
 
     End Sub
@@ -55,7 +56,7 @@
         Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
 
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComandera58.rdlc"
-        Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
+        'Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
         Me.ReportViewer1.RefreshReport()
 
 
@@ -70,6 +71,7 @@
         End If
         If e.KeyCode = Keys.Enter Then
             ReportViewer1.PrintDialog()
+            Me.Close()
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
     End Sub
@@ -85,6 +87,18 @@
     End Sub
 
     Private Sub PrintDocument_PrintPage(sender As Object, e As Printing.PrintPageEventArgs)
+
+    End Sub
+
+    Private Sub ViewerFactura_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
+
+    End Sub
+
+    Private Sub ReportViewer1_Print(sender As Object, e As ReportPrintEventArgs) Handles ReportViewer1.Print
+
+    End Sub
+
+    Private Sub ReportViewer1_PrintingBegin(sender As Object, e As ReportPrintEventArgs) Handles ReportViewer1.PrintingBegin
 
     End Sub
 End Class

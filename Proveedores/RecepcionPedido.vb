@@ -85,11 +85,17 @@
         If MsgBox("Seguro desea confirmar recepcion del pedido?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.No Then
             Return
         End If
+        '****************** GUARDO CAMBIOS LOCALES ****************************
+        Me.ProductosBindingSource.EndEdit()
+        If Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) Then
+
+        End If
         '**********************************************
         Dim i As Integer = 0
         For i = 0 To PedidoDetalleConfirmarDataGridView.RowCount - 1
             If PedidoDetalleConfirmarDataGridView.Rows(i).Cells(4).Value = 1 Then
-                StockTableAdapter.stock_insertarmovimientorecepcion(PedidoDetalleConfirmarDataGridView.Rows(i).Cells(0).Value, PedidoDetalleConfirmarDataGridView.Rows(i).Cells(2).Value, Today, guserid, "E", Val(TextBoxIdPedido.Text))
+                StockTableAdapter.stock_insertarmovimientorecepcion(PedidoDetalleConfirmarDataGridView.Rows(i).Cells(0).Value, Convert.ToDecimal(PedidoDetalleConfirmarDataGridView.Rows(i).Cells("cantidad").Value), Today, guserid, "E", Val(TextBoxIdPedido.Text))
+                PedidosdetalleTableAdapter.pedidosdetalle_mod_cantidadprecio(Convert.ToDecimal(PedidoDetalleConfirmarDataGridView.Rows(i).Cells("cantidad").Value), Convert.ToDecimal(PedidoDetalleConfirmarDataGridView.Rows(i).Cells("precio").Value), Val(TextBoxIdPedido.Text), PedidoDetalleConfirmarDataGridView.Rows(i).Cells(0).Value)
                 PedidosdetalleTableAdapter.pedidosdetalle_confirmarecepcion(1, Val(TextBoxIdPedido.Text), PedidoDetalleConfirmarDataGridView.Rows(i).Cells(0).Value)
                 'PedidosTableAdapter.pedidos_confirmarecepcion(Today, Val(TextBoxIdPedido.Text))
             Else
