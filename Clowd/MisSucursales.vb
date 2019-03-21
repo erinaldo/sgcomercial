@@ -35,7 +35,11 @@ Public Class MisSucursales
                 gSucursalSeleccionada = Val(ComboSucursal.SelectedValue)
                 z.ShowDialog()
             Case "Stock General"
-                MsgBox("Temporalmente no disponible", MsgBoxStyle.Exclamation, "Aviso")
+                Cursor.Current = Cursors.WaitCursor
+                Dim z As CldStockGeneral
+                z = New CldStockGeneral
+                gSucursalSeleccionada = Val(ComboSucursal.SelectedValue)
+                z.ShowDialog()
         End Select
     End Sub
 

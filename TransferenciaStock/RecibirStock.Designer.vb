@@ -72,6 +72,7 @@ Partial Class RecibirStock
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         Me.UnidadesmedidaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.unidadesmedidaTableAdapter()
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
+        Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.RemitosdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -446,6 +447,9 @@ Partial Class RecibirStock
         '
         Me.StockTableAdapter.ClearBeforeFill = True
         '
+        'BGWStockClowd
+        '
+        '
         'RecibirStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -525,4 +529,5 @@ Partial Class RecibirStock
     Friend WithEvents precioventamayorista As DataGridViewTextBoxColumn
     Friend WithEvents precioventagranel As DataGridViewTextBoxColumn
     Friend WithEvents StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
+    Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
 End Class

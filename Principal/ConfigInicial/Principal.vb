@@ -37,7 +37,6 @@ Public Class Principal
         If gModuloClowd = 1 Then
             BackgroundSyncLibroventasClowd.RunWorkerAsync()
         End If
-
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================
@@ -958,7 +957,7 @@ Public Class Principal
         'Dim SynLibroVentasStatus As Boolean
         Dim coderror As Integer
         Dim msgerror As String = ""
-        gMiSucursal = 1
+        'gMiSucursal = 1
         SynLibroVentas(coderror, msgerror)
     End Sub
 
@@ -997,5 +996,22 @@ Public Class Principal
         Catch ex As Exception
             MsgBox("Ocurrio un problema: " + ex.Message)
         End Try
+    End Sub
+
+    Private Sub SubirStockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SubirStockToolStripMenuItem.Click
+        If Not BGWStock.IsBusy Then
+            BGWStock.RunWorkerAsync()
+            MsgBox("El proceso ha comenzado, te avisaremos cuando finalice!", MsgBoxStyle.Information, "Aviso")
+        End If
+    End Sub
+
+    Private Sub BGWStock_DoWork(sender As Object, e As DoWorkEventArgs) Handles BGWStock.DoWork
+        Dim coderror As Integer
+        Dim msgerror As String = ""
+        SynStockGeneral(coderror, msgerror)
+    End Sub
+
+    Private Sub BGWStock_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BGWStock.RunWorkerCompleted
+        MsgBox("Se cargado todo el STOCK a la nube!", MsgBoxStyle.Information, "Aviso")
     End Sub
 End Class

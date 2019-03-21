@@ -699,7 +699,6 @@ Module MySQLModule
                     Else
                         medida = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("medida"))
                     End If
-
                 End If
                 '-----------------------------------------------------------------------------------
                 Dim descripcion As String
@@ -755,7 +754,13 @@ Module MySQLModule
                 If IsDBNull(ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("idrubro"))) Then
                     idrubro = 1
                 Else
+                    Dim rubrosTableAdapter As comercialDataSetTableAdapters.rubrosTableAdapter
+                    rubrosTableAdapter = New comercialDataSetTableAdapters.rubrosTableAdapter()
+                    rubrosTableAdapter.rubros_existerubro(idrubro)
                     idrubro = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("idrubro"))
+                    If rubrosTableAdapter.rubros_existerubro(idrubro) = 0 Then
+                        idrubro = 2
+                    End If
                 End If
                 '-----------------------------------------------------------------------------------
                 Dim iva As Double
@@ -787,7 +792,7 @@ Module MySQLModule
                     ProductosTableAdapter.productos_pullinsert(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
                 End If
                 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-                SyncLogTableAdapter.synclog_update(1, Now, gmacadress, gusername, "productos")
+                'SyncLogTableAdapter.synclog_update(1, Now, gmacadress, gusername, "productos")
                 Cursor.Current = Cursors.Default
                 coderror = 0
                 msgerror = ""
@@ -1181,6 +1186,199 @@ Module MySQLModule
             ErrorLogTableAdapter.errorlog_insertar("SynLibroVentas", "Al verificar conexion al servidor", "SynLibroVentas", "Mensaje: " + ex.Message)
         End Try
 
+    End Sub
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Public Sub SynStockGeneral(ByRef coderror As String, ByRef msgerror As String)
+        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
+        If Not My.Computer.Network.IsAvailable Then
+            coderror = 0
+            ErrorLogTableAdapter.errorlog_insertar("SynStockGeneral", "Al verificar conexion al servidor", "SynStockGeneral", "Mensaje: No hay conexión a internet")
+            'MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
+        'Cursor.Current = Cursors.WaitCursor
+        '***************************************
+        '********************** verificar conexion al servidor ************************
+        Try
+            'Dim CheckConnection As MySqlConnection
+            'CheckConnection = New MySqlConnection
+            'CheckConnection.ConnectionString = SCStrConn
+            'CheckConnection.Open()
+            My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
+            Dim TerminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+            TerminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+            gMiSucursal = TerminalesTableAdapter.terminales_consultarsucursal(gmacadress)
+            'CheckConnection.Close()
+            'CheckConnection.Dispose()
+        Catch ex As Exception
+            ErrorLogTableAdapter.errorlog_insertar("SynStockGeneral", "Al verificar conexion al servidor siscom para obtener idsucursal", "SynLibroVentas", "Mensaje: " + ex.Message)
+            Return
+        End Try
+        '***************************************
+        Dim status As Boolean
+        conectarMySQL(status)
+        If status = False Then
+            'coderror = 1
+            'msgerror = "No se pudo conectar al servidor remoto"
+            ErrorLogTableAdapter.errorlog_insertar("SynStockGeneral", "Al verificar conexion al servidor", "SynStockGeneral", "Mensaje: no se pudo conectar a la nube")
+            Return
+        End If
+        'Dim maxidventas As Long
+        Try
+            '-----------------------------------------------------
+            Dim StockgeneralWEBTableAdapter As MySQLDataSetTableAdapters.stockgeneralTableAdapter
+            StockgeneralWEBTableAdapter = New MySQLDataSetTableAdapters.stockgeneralTableAdapter()
+            'maxidventas = LibroventasWEBTableAdapter.libroventas_maxidventa(gMiSucursal)
+            Dim stockgeneralTableAdapter As comercialDataSetTableAdapters.stockgeneralTableAdapter
+            stockgeneralTableAdapter = New comercialDataSetTableAdapters.stockgeneralTableAdapter()
+            '-----------------------------------------------------
+            Dim stockgeneral As comercialDataSet.stockgeneralDataTable
+            stockgeneral = stockgeneralTableAdapter.GetData
+            '-------------------------------    barra de progreso----------------------------------------------------
+            'Dim p As SubirProductosClowd
+            'p = New SubirProductosClowd
+            'p.Show()
+            'p.ProgressBar1.Maximum = ProductosWEBTable.Rows.Count
+            'p.GroupBox1.Text = "Descargando Productos de la Nube"
+            'p.LabelProgress.Text = "Progreso: " + "0/" + p.ProgressBar1.Maximum.ToString
+            ''-----------------------------------------------------------------------------------
+            'Cursor.Current = Cursors.WaitCursor
+            ''-----------------------------------------------------------------------------------
+            For i = 0 To stockgeneral.Rows.Count - 1
+                Dim codigoproducto As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(stockgeneral.Rows(i).Item(stockgeneral.Columns("codigoproducto"))) Then
+                    codigoproducto = stockgeneral.Rows(i).Item(stockgeneral.Columns("codigoproducto"))
+                Else
+                    Continue For
+                End If
+                Dim disponible As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(stockgeneral.Rows(i).Item(stockgeneral.Columns("disponible"))) Then
+                    disponible = stockgeneral.Rows(i).Item(stockgeneral.Columns("disponible"))
+                    If disponible < 0 Then
+                        disponible = 0
+                    End If
+                Else
+                    Continue For
+                End If
+                Dim unidades As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(stockgeneral.Rows(i).Item(stockgeneral.Columns("unidades"))) Then
+                    unidades = stockgeneral.Rows(i).Item(stockgeneral.Columns("unidades"))
+                    If unidades < 0 Then
+                        unidades = 0
+                    End If
+                Else
+                    Continue For
+                End If
+                '=======================    INSERTAR REGISTRO =================
+                StockgeneralWEBTableAdapter.stockgeneral_update(gMiSucursal, codigoproducto, disponible, unidades)
+            Next
+        Catch ex As Exception
+            'Cursor.Current = Cursors.Default
+            coderror = 1
+            msgerror = ex.Message
+            ErrorLogTableAdapter.errorlog_insertar("SynStockgeneral", "Al verificar conexion al servidor", "SynStockgeneral", "Mensaje: " + ex.Message)
+        End Try
+    End Sub
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Public Sub SynStockClowd(ByRef idventa As Long, ByRef origen As String, ByRef coderror As String, ByRef msgerror As String)
+        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
+        If Not My.Computer.Network.IsAvailable Then
+            coderror = 0
+            ErrorLogTableAdapter.errorlog_insertar("SynStockGeneral", "Al verificar conexion al servidor", "SynStockGeneral", "Mensaje: No hay conexión a internet")
+            'MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
+        'Cursor.Current = Cursors.WaitCursor
+        '***************************************
+        '********************** verificar conexion al servidor ************************
+        Try
+            'Dim CheckConnection As MySqlConnection
+            'CheckConnection = New MySqlConnection
+            'CheckConnection.ConnectionString = SCStrConn
+            'CheckConnection.Open()
+            My.Settings.SetUserOverride("SCConnectionString", SCStrConn)
+            Dim TerminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+            TerminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+            gMiSucursal = TerminalesTableAdapter.terminales_consultarsucursal(gmacadress)
+            'CheckConnection.Close()
+            'CheckConnection.Dispose()
+        Catch ex As Exception
+            ErrorLogTableAdapter.errorlog_insertar("SynStockGeneral", "Al verificar conexion al servidor siscom para obtener idsucursal", "SynLibroVentas", "Mensaje: " + ex.Message)
+            Return
+        End Try
+        '***************************************
+        Dim status As Boolean
+        conectarMySQL(status)
+        If status = False Then
+            'coderror = 1
+            'msgerror = "No se pudo conectar al servidor remoto"
+            ErrorLogTableAdapter.errorlog_insertar("SynStockGeneral", "Al verificar conexion al servidor", "SynStockGeneral", "Mensaje: no se pudo conectar a la nube")
+            Return
+        End If
+        'Dim maxidventas As Long
+        Try
+            '-----------------------------------------------------
+            Dim StockgeneralWEBTableAdapter As MySQLDataSetTableAdapters.stockgeneralTableAdapter
+            StockgeneralWEBTableAdapter = New MySQLDataSetTableAdapters.stockgeneralTableAdapter()
+            'maxidventas = LibroventasWEBTableAdapter.libroventas_maxidventa(gMiSucursal)
+            Dim stockgeneralTableAdapter As comercialDataSetTableAdapters.stockgeneralTableAdapter
+            stockgeneralTableAdapter = New comercialDataSetTableAdapters.stockgeneralTableAdapter()
+            '-----------------------------------------------------
+            Dim stockgeneral As comercialDataSet.stockgeneralDataTable
+            Select Case origen
+                Case "V"
+                    stockgeneral = stockgeneralTableAdapter.GetDataByVenta(idventa)
+                Case "R"
+                    stockgeneral = stockgeneralTableAdapter.GetDataByRemito(idventa)
+                Case "A"
+                    stockgeneral = stockgeneralTableAdapter.GetDataByIDproducto(idventa)
+            End Select
+            '-------------------------------    barra de progreso----------------------------------------------------
+            'Dim p As SubirProductosClowd
+            'p = New SubirProductosClowd
+            'p.Show()
+            'p.ProgressBar1.Maximum = ProductosWEBTable.Rows.Count
+            'p.GroupBox1.Text = "Descargando Productos de la Nube"
+            'p.LabelProgress.Text = "Progreso: " + "0/" + p.ProgressBar1.Maximum.ToString
+            ''-----------------------------------------------------------------------------------
+            'Cursor.Current = Cursors.WaitCursor
+            ''-----------------------------------------------------------------------------------
+            For i = 0 To stockgeneral.Rows.Count - 1
+                Dim codigoproducto As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(stockgeneral.Rows(i).Item(stockgeneral.Columns("codigoproducto"))) Then
+                    codigoproducto = stockgeneral.Rows(i).Item(stockgeneral.Columns("codigoproducto"))
+                Else
+                    Continue For
+                End If
+                Dim disponible As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(stockgeneral.Rows(i).Item(stockgeneral.Columns("disponible"))) Then
+                    disponible = stockgeneral.Rows(i).Item(stockgeneral.Columns("disponible"))
+                    If disponible < 0 Then
+                        disponible = 0
+                    End If
+                Else
+                    Continue For
+                End If
+                Dim unidades As String '''''''''''''''''''''''''''''''''
+                If Not IsDBNull(stockgeneral.Rows(i).Item(stockgeneral.Columns("unidades"))) Then
+                    unidades = stockgeneral.Rows(i).Item(stockgeneral.Columns("unidades"))
+                    If unidades < 0 Then
+                        unidades = 0
+                    End If
+                Else
+                    Continue For
+                End If
+                '=======================    INSERTAR REGISTRO =================
+                StockgeneralWEBTableAdapter.stockgeneral_update(gMiSucursal, codigoproducto, disponible, unidades)
+            Next
+        Catch ex As Exception
+            'Cursor.Current = Cursors.Default
+            coderror = 1
+            msgerror = ex.Message
+            ErrorLogTableAdapter.errorlog_insertar("SynStockgeneral", "Al verificar conexion al servidor", "SynStockgeneral", "Mensaje: " + ex.Message)
+        End Try
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 End Module

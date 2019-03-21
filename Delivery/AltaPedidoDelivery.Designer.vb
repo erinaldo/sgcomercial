@@ -180,6 +180,8 @@ Partial Class AltaPedidoDelivery
         Me.DataGridViewTextBoxColumn72 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn73 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn74 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
+        Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
         IdclienteLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
@@ -1437,6 +1439,12 @@ Partial Class AltaPedidoDelivery
         Me.DataGridViewTextBoxColumn74.HeaderText = "recargo"
         Me.DataGridViewTextBoxColumn74.Name = "DataGridViewTextBoxColumn74"
         '
+        'BackgroundSyncLibroventasClowd
+        '
+        '
+        'BGWStockClowd
+        '
+        '
         'AltaPedidoDelivery
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1646,4 +1654,6 @@ Partial Class AltaPedidoDelivery
     Friend WithEvents precioventa As DataGridViewTextBoxColumn
     Friend WithEvents SubTotal As DataGridViewTextBoxColumn
     Friend WithEvents idlistaprecio As DataGridViewTextBoxColumn
+    Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
 End Class

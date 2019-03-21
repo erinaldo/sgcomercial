@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -33,8 +33,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>51</ApplicationRevision>
-    <ApplicationVersion>4.0.8.51</ApplicationVersion>
+    <ApplicationRevision>54</ApplicationRevision>
+    <ApplicationVersion>4.0.8.54</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -128,7 +128,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
@@ -182,6 +181,12 @@
       <DependentUpon>CldLibroVentas.vb</DependentUpon>
     </Compile>
     <Compile Include="Clowd\CldLibroVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clowd\CldStockGeneral.Designer.vb">
+      <DependentUpon>CldStockGeneral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clowd\CldStockGeneral.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clowd\MisSucursales.Designer.vb">
@@ -998,9 +1003,13 @@
     <EmbeddedResource Include="Clowd\CldLibroVentas.resx">
       <DependentUpon>CldLibroVentas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clowd\CldStockGeneral.resx">
+      <DependentUpon>CldStockGeneral.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clowd\MisSucursales.resx">
       <DependentUpon>MisSucursales.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clowd\Reportes\repStockGRemoto.rdlc" />
     <EmbeddedResource Include="Contabilidad\AsignacionIVAMasivo.resx">
       <DependentUpon>AsignacionIVAMasivo.vb</DependentUpon>
     </EmbeddedResource>

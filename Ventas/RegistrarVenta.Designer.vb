@@ -108,6 +108,7 @@ Partial Class RegistrarVenta
         Me.listasprecios = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VentasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.ButtonDescuentoDefecto = New System.Windows.Forms.Button()
         Me.FechavencimientoDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.VentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NrocomprobanteTextBox = New System.Windows.Forms.TextBox()
@@ -154,7 +155,7 @@ Partial Class RegistrarVenta
         Me.idformapagocombo2 = New System.Windows.Forms.ComboBox()
         Me.FormaspagoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
-        Me.ButtonDescuentoDefecto = New System.Windows.Forms.Button()
+        Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
         IdclienteLabel = New System.Windows.Forms.Label()
         FechaventaLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
@@ -864,6 +865,16 @@ Partial Class RegistrarVenta
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Venta"
         '
+        'ButtonDescuentoDefecto
+        '
+        Me.ButtonDescuentoDefecto.Location = New System.Drawing.Point(745, 10)
+        Me.ButtonDescuentoDefecto.Name = "ButtonDescuentoDefecto"
+        Me.ButtonDescuentoDefecto.Size = New System.Drawing.Size(101, 51)
+        Me.ButtonDescuentoDefecto.TabIndex = 21
+        Me.ButtonDescuentoDefecto.Text = "Descuento Autom."
+        Me.ButtonDescuentoDefecto.UseVisualStyleBackColor = True
+        Me.ButtonDescuentoDefecto.Visible = False
+        '
         'FechavencimientoDateTimePicker
         '
         Me.FechavencimientoDateTimePicker.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1314,15 +1325,8 @@ Partial Class RegistrarVenta
         'BackgroundSyncLibroventasClowd
         '
         '
-        'ButtonDescuentoDefecto
+        'BGWStockClowd
         '
-        Me.ButtonDescuentoDefecto.Location = New System.Drawing.Point(745, 10)
-        Me.ButtonDescuentoDefecto.Name = "ButtonDescuentoDefecto"
-        Me.ButtonDescuentoDefecto.Size = New System.Drawing.Size(101, 51)
-        Me.ButtonDescuentoDefecto.TabIndex = 21
-        Me.ButtonDescuentoDefecto.Text = "Descuento Autom."
-        Me.ButtonDescuentoDefecto.UseVisualStyleBackColor = True
-        Me.ButtonDescuentoDefecto.Visible = False
         '
         'RegistrarVenta
         '
@@ -1493,4 +1497,5 @@ Partial Class RegistrarVenta
     Friend WithEvents listasprecios As DataGridViewTextBoxColumn
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents ButtonDescuentoDefecto As Button
+    Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
 End Class

@@ -111,10 +111,10 @@ Partial Class Principal
         Me.SysConfigToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaTerminalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ABMUnidadesMedidaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ModulosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMCajasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModulosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ABMUnidadesMedidaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.POSTFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -186,6 +186,8 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
+        Me.SubirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BGWStock = New System.ComponentModel.BackgroundWorker()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -214,7 +216,7 @@ Partial Class Principal
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 85)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 58)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -864,21 +866,6 @@ Partial Class Principal
         Me.AsignarCajaToolStripMenuItem.Tag = "AsignarCaja"
         Me.AsignarCajaToolStripMenuItem.Text = "Asignar Caja"
         '
-        'ABMUnidadesMedidaToolStripMenuItem
-        '
-        Me.ABMUnidadesMedidaToolStripMenuItem.Name = "ABMUnidadesMedidaToolStripMenuItem"
-        Me.ABMUnidadesMedidaToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
-        Me.ABMUnidadesMedidaToolStripMenuItem.Tag = "ABMUnidadesMedida"
-        Me.ABMUnidadesMedidaToolStripMenuItem.Text = "ABM Unidades Medida"
-        Me.ABMUnidadesMedidaToolStripMenuItem.Visible = False
-        '
-        'ModulosToolStripMenuItem
-        '
-        Me.ModulosToolStripMenuItem.Name = "ModulosToolStripMenuItem"
-        Me.ModulosToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
-        Me.ModulosToolStripMenuItem.Tag = "Modulos"
-        Me.ModulosToolStripMenuItem.Text = "Modulos"
-        '
         'ABMCajasToolStripMenuItem1
         '
         Me.ABMCajasToolStripMenuItem1.Name = "ABMCajasToolStripMenuItem1"
@@ -892,6 +879,21 @@ Partial Class Principal
         Me.ABMSucursalesToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
         Me.ABMSucursalesToolStripMenuItem.Tag = "ABMSucursales"
         Me.ABMSucursalesToolStripMenuItem.Text = "ABM Sucursales"
+        '
+        'ModulosToolStripMenuItem
+        '
+        Me.ModulosToolStripMenuItem.Name = "ModulosToolStripMenuItem"
+        Me.ModulosToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
+        Me.ModulosToolStripMenuItem.Tag = "Modulos"
+        Me.ModulosToolStripMenuItem.Text = "Modulos"
+        '
+        'ABMUnidadesMedidaToolStripMenuItem
+        '
+        Me.ABMUnidadesMedidaToolStripMenuItem.Name = "ABMUnidadesMedidaToolStripMenuItem"
+        Me.ABMUnidadesMedidaToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
+        Me.ABMUnidadesMedidaToolStripMenuItem.Tag = "ABMUnidadesMedida"
+        Me.ABMUnidadesMedidaToolStripMenuItem.Text = "ABM Unidades Medida"
+        Me.ABMUnidadesMedidaToolStripMenuItem.Visible = False
         '
         'POSTFormToolStripMenuItem
         '
@@ -931,7 +933,7 @@ Partial Class Principal
         '
         'NubeToolStripMenuItem
         '
-        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.DescargarPedidosWEBToolStripMenuItem, Me.MisSucursalesToolStripMenuItem})
+        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.DescargarPedidosWEBToolStripMenuItem, Me.MisSucursalesToolStripMenuItem})
         Me.NubeToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
         Me.NubeToolStripMenuItem.Name = "NubeToolStripMenuItem"
         Me.NubeToolStripMenuItem.Size = New System.Drawing.Size(83, 27)
@@ -1456,6 +1458,16 @@ Partial Class Principal
         'BackgroundSyncLibroventasClowd
         '
         '
+        'SubirStockToolStripMenuItem
+        '
+        Me.SubirStockToolStripMenuItem.Name = "SubirStockToolStripMenuItem"
+        Me.SubirStockToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.SubirStockToolStripMenuItem.Tag = "SubirStockClowd"
+        Me.SubirStockToolStripMenuItem.Text = "Subir Stock"
+        '
+        'BGWStock
+        '
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1666,4 +1678,6 @@ Partial Class Principal
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents MisSucursalesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroDePedidosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SubirStockToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BGWStock As System.ComponentModel.BackgroundWorker
 End Class

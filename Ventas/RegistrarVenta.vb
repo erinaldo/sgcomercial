@@ -175,6 +175,9 @@ Public Class RegistrarVenta
         FechavencimientoDateTimePicker.Enabled = False
     End Sub
     Private Sub BtnConfirmar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnConfirmar.Click
+        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
+        '=======================================
         Dim valida As Boolean
         validardatos(valida)
         If valida = False Then Return
@@ -346,10 +349,14 @@ Public Class RegistrarVenta
             '********************************************************************************************
             '=================== RESETAR CONTROLES  ================================
             resetearcontroles()
-            If Not (BackgroundSyncLibroventasClowd.IsBusy) Then
-                BackgroundSyncLibroventasClowd.RunWorkerAsync()
+            '=================== FUNCIONES CLOWD NUBE  ================================
+            If gModuloClowd = 1 Then
+                gidventa = idventas
+                BGWStockClowd.RunWorkerAsync()
+                If Not (BackgroundSyncLibroventasClowd.IsBusy) Then
+                    BackgroundSyncLibroventasClowd.RunWorkerAsync()
+                End If
             End If
-
             '******************************************************************************************** 
             '****** impresion ticket
             '*****************************************************************************
@@ -360,20 +367,28 @@ Public Class RegistrarVenta
                 Case "Nunca"
                     'Radionunca.Checked = True
                 Case "Siempre"
-                    Dim p As ViewerFactura
-                    p = New ViewerFactura
-                    'p.MdiParent = Me.ParentForm
-                    p.ShowInTaskbar = True
-                    'p.TopMost = True
-                    p.ShowDialog()
-                Case "Preguntar"
-                    If MsgBox("Desea Imprimir el comprobante?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                    Try
                         Dim p As ViewerFactura
                         p = New ViewerFactura
                         'p.MdiParent = Me.ParentForm
                         p.ShowInTaskbar = True
                         'p.TopMost = True
                         p.ShowDialog()
+                    Catch ex As Exception
+                        ErrorLogTableAdapter.errorlog_insertar("Registrar Venta", "Aplicacion", "Confirmar", ex.Message)
+                    End Try
+                Case "Preguntar"
+                    If MsgBox("Desea Imprimir el comprobante?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                        Try
+                            Dim p As ViewerFactura
+                            p = New ViewerFactura
+                            'p.MdiParent = Me.ParentForm
+                            p.ShowInTaskbar = True
+                            'p.TopMost = True
+                            p.ShowDialog()
+                        Catch ex As Exception
+                            ErrorLogTableAdapter.errorlog_insertar("Registrar Venta", "Aplicacion", "Confirmar", ex.Message)
+                        End Try
                     End If
             End Select
             gidventa = Nothing
@@ -1553,5 +1568,11 @@ Public Class RegistrarVenta
         Next
         recuento()
 
+    End Sub
+
+    Private Sub BGWStockClowd_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWStockClowd.DoWork
+        Dim coderror As Long
+        Dim msgerror As String = Nothing
+        SynStockClowd(gidventa, "V", coderror, msgerror)
     End Sub
 End Class

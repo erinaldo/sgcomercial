@@ -4,7 +4,12 @@
         'Me.LibroventasdetalleTableAdapter.Fill(Me.ComercialDataSet.libroventasdetalle)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.libroventas' Puede moverla o quitarla según sea necesario.
         'Me.LibroventasTableAdapter.Fill(Me.ComercialDataSet.libroventas)
-        Me.LibroventasTableAdapter.FillByFecha(Me.ComercialDataSet.libroventas, Today)
+        Try
+            Me.LibroventasTableAdapter.FillByFecha(Me.ComercialDataSet.libroventas, Convert.ToDateTime(Today.ToString))
+        Catch ex As Exception
+            MsgBox("Excepción: ", ex.Message)
+        End Try
+
     End Sub
 
     Private Sub LibroventasDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles LibroventasDataGridView.CellContentClick
@@ -40,7 +45,11 @@
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
-        Me.LibroventasTableAdapter.FillByFecha(Me.ComercialDataSet.libroventas, DateTimePicker1.Value.ToString)
+        Try
+            Me.LibroventasTableAdapter.FillByFecha(Me.ComercialDataSet.libroventas, Convert.ToDateTime(DateTimePicker1.Value))
+        Catch ex As Exception
+            MsgBox("Exception: " + ex.Message)
+        End Try
     End Sub
 
     Private Sub LibroVentasDetalladas_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown

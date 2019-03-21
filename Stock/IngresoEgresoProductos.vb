@@ -1,5 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class ingresoegresoproductos
+    Dim idproducto As Long
     'Public Sub setcodigoproducto()
     '    codigoproductoTextBox.Text = gcodigoproducto
     'End Sub
@@ -48,6 +49,7 @@ Public Class ingresoegresoproductos
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         '********************validaciones previas**********************
+        idproducto = ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)
         If ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text) = 0 Then
             MsgBox("Seleccione un producto válido", MsgBoxStyle.Exclamation, "Advertencia")
             Return
@@ -90,6 +92,12 @@ Public Class ingresoegresoproductos
                 'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
                 textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
                 FormPrincipal.reloadstock()
+                '=======================================================
+                '=================== FUNCIONES CLOWD NUBE  ================================
+                If gModuloClowd = 1 Then
+                    BGWStockClowd.RunWorkerAsync()
+                End If
+                '=================== --------------------------  ================================
                 'ParentForm.reloadstock()
                 Labeldescripcion.Text = ".............................................."
                 textdisponible.Text = ""
@@ -293,5 +301,11 @@ Public Class ingresoegresoproductos
             End If
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub BGWStockClowd_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWStockClowd.DoWork
+        Dim coderror As Long
+        Dim msgerror As String = Nothing
+        SynStockClowd(idproducto, "A", coderror, msgerror)
     End Sub
 End Class

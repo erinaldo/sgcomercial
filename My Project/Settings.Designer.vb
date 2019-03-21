@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server=sistemascomerciales.net;user id=sistema1_sgcweb;password=sgcomercial*?;dat"& _ 
-            "abase=sistema1_sgcaguadagrande;persistsecurityinfo=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=sistemascomerciales.net;user id=sistema1_sgcweb;password=Sistemascomercial"& _ 
+            "es*?;database=sistema1_sgcaguadagrande;persistsecurityinfo=True")>  _
         Public ReadOnly Property MySQLConnectionString() As String
             Get
                 Return CType(Me("MySQLConnectionString"),String)

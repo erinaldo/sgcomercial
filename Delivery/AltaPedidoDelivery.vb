@@ -339,6 +339,7 @@ Public Class AltaPedidoDelivery
         Try
             Dim nvavta As Long
             nvavta = VentasTableAdapter.ventas_insertarventa(nvocliente, Now(), Nothing, 1, gusername, Nothing, Nothing)
+            gidventa = nvavta
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
                 Dim cantidad As Decimal = VentasdetalleDataGridView.Rows(i).Cells(3).Value
@@ -352,6 +353,14 @@ Public Class AltaPedidoDelivery
             MsgBox("No se pudo registrar la venta: " + ex.Message)
         End Try
         '****** FIN REGISTRAR VENTA **********
+        '=================== FUNCIONES CLOWD NUBE  ================================
+        If gModuloClowd = 1 Then
+            BGWStockClowd.RunWorkerAsync()
+            If Not (BackgroundSyncLibroventasClowd.IsBusy) Then
+                BackgroundSyncLibroventasClowd.RunWorkerAsync()
+            End If
+        End If
+        '===================  FIN FUNCIONES CLOWD NUBE  ================================
         MsgBox("Pedido cargado exitosanente!", MsgBoxStyle.Information)
         'Me.Close()
         CheckBoxNuevoCliente.Checked = False
@@ -520,5 +529,18 @@ Public Class AltaPedidoDelivery
                 Me.Close()
             End If
         End If
+    End Sub
+
+    Private Sub BGWStockClowd_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWStockClowd.DoWork
+        Dim coderror As Long
+        Dim msgerror As String = Nothing
+        SynStockClowd(gidventa, "V", coderror, msgerror)
+    End Sub
+
+    Private Sub BackgroundSyncLibroventasClowd_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundSyncLibroventasClowd.DoWork
+        Dim coderror As Integer
+        Dim msgerror As String = ""
+        'gMiSucursal = 1
+        SynLibroVentas(coderror, msgerror)
     End Sub
 End Class

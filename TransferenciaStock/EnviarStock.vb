@@ -125,6 +125,14 @@
                         MsgBox("Hubo un problema al cargar un item al detalle del remito")
                     End If
                 Next 'FINALIZA EL RECORRIDO POR LA LISTA DE PRODUCTOS
+                '=================== REMITO REGISTRADO CORRECTAMENTE ================================
+                '=======================================================
+                '=================== FUNCIONES CLOWD NUBE  ================================
+                If gModuloClowd = 1 Then
+                    gidremito = idremito
+                    BGWStockClowd.RunWorkerAsync()
+                End If
+                '=================== FUNCIONES CLOWD NUBE  ================================
                 If MsgBox("Desea imprimir el reporte?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
                     'imprimir--------------------
                     Dim p As ViewerRemito
@@ -164,5 +172,11 @@
                 Me.Close()
             End If
         End If
+    End Sub
+
+    Private Sub BGWStockClowd_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWStockClowd.DoWork
+        Dim coderror As Long
+        Dim msgerror As String = Nothing
+        SynStockClowd(gidremito, "R", coderror, msgerror)
     End Sub
 End Class

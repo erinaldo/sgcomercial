@@ -83,6 +83,7 @@ Partial Class ingresoegresoproductos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.ProductoscomponentesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productoscomponentesTableAdapter()
+        Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
         IdproductoLabel = New System.Windows.Forms.Label()
         CantidadLabel = New System.Windows.Forms.Label()
         TipomovimientostockLabel = New System.Windows.Forms.Label()
@@ -223,7 +224,7 @@ Partial Class ingresoegresoproductos
         Me.ComboUnidad.Location = New System.Drawing.Point(216, 84)
         Me.ComboUnidad.Name = "ComboUnidad"
         Me.ComboUnidad.Size = New System.Drawing.Size(112, 24)
-        Me.ComboUnidad.TabIndex = 1
+        Me.ComboUnidad.TabIndex = 2
         '
         'ProductoscomponentesDataGridView
         '
@@ -316,7 +317,6 @@ Partial Class ingresoegresoproductos
         Me.TextBoxEnvasado.ReadOnly = True
         Me.TextBoxEnvasado.Size = New System.Drawing.Size(100, 26)
         Me.TextBoxEnvasado.TabIndex = 4
-        Me.TextBoxEnvasado.TabStop = False
         Me.TextBoxEnvasado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label4
@@ -338,6 +338,7 @@ Partial Class ingresoegresoproductos
         Me.textstockminimo.ReadOnly = True
         Me.textstockminimo.Size = New System.Drawing.Size(132, 26)
         Me.textstockminimo.TabIndex = 2
+        Me.textstockminimo.TabStop = False
         Me.textstockminimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'textdisponible
@@ -349,6 +350,7 @@ Partial Class ingresoegresoproductos
         Me.textdisponible.ReadOnly = True
         Me.textdisponible.Size = New System.Drawing.Size(132, 26)
         Me.textdisponible.TabIndex = 1
+        Me.textdisponible.TabStop = False
         Me.textdisponible.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label2
@@ -520,7 +522,7 @@ Partial Class ingresoegresoproductos
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(127, 28)
-        Me.Button1.TabIndex = 4
+        Me.Button1.TabIndex = 7
         Me.Button1.Text = "Guardar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -538,7 +540,7 @@ Partial Class ingresoegresoproductos
         Me.CantidadTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.CantidadTextBox.Name = "CantidadTextBox"
         Me.CantidadTextBox.Size = New System.Drawing.Size(144, 22)
-        Me.CantidadTextBox.TabIndex = 0
+        Me.CantidadTextBox.TabIndex = 1
         '
         'TipomovimientostockComboBox
         '
@@ -550,7 +552,7 @@ Partial Class ingresoegresoproductos
         Me.TipomovimientostockComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.TipomovimientostockComboBox.Name = "TipomovimientostockComboBox"
         Me.TipomovimientostockComboBox.Size = New System.Drawing.Size(265, 24)
-        Me.TipomovimientostockComboBox.TabIndex = 2
+        Me.TipomovimientostockComboBox.TabIndex = 3
         Me.TipomovimientostockComboBox.ValueMember = "idtipomovimientostock"
         '
         'TipomovimientostockBindingSource
@@ -565,7 +567,8 @@ Partial Class ingresoegresoproductos
         Me.FechamovimientoDateTimePicker.Margin = New System.Windows.Forms.Padding(4)
         Me.FechamovimientoDateTimePicker.Name = "FechamovimientoDateTimePicker"
         Me.FechamovimientoDateTimePicker.Size = New System.Drawing.Size(132, 22)
-        Me.FechamovimientoDateTimePicker.TabIndex = 3
+        Me.FechamovimientoDateTimePicker.TabIndex = 4
+        Me.FechamovimientoDateTimePicker.TabStop = False
         '
         'FechacargaDateTimePicker
         '
@@ -575,6 +578,7 @@ Partial Class ingresoegresoproductos
         Me.FechacargaDateTimePicker.Name = "FechacargaDateTimePicker"
         Me.FechacargaDateTimePicker.Size = New System.Drawing.Size(132, 22)
         Me.FechacargaDateTimePicker.TabIndex = 5
+        Me.FechacargaDateTimePicker.TabStop = False
         '
         'UsuariocargaTextBox
         '
@@ -583,6 +587,7 @@ Partial Class ingresoegresoproductos
         Me.UsuariocargaTextBox.Name = "UsuariocargaTextBox"
         Me.UsuariocargaTextBox.Size = New System.Drawing.Size(265, 22)
         Me.UsuariocargaTextBox.TabIndex = 6
+        Me.UsuariocargaTextBox.TabStop = False
         '
         'TipomovimientostockTableAdapter
         '
@@ -661,6 +666,9 @@ Partial Class ingresoegresoproductos
         'ProductoscomponentesTableAdapter
         '
         Me.ProductoscomponentesTableAdapter.ClearBeforeFill = True
+        '
+        'BGWStockClowd
+        '
         '
         'ingresoegresoproductos
         '
@@ -746,4 +754,5 @@ Partial Class ingresoegresoproductos
     Friend WithEvents TextBoxMedida As TextBox
     Friend WithEvents TextBoxEnvasado As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
 End Class

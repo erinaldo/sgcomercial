@@ -75,6 +75,7 @@ Partial Class EnviarStock
         Me.listaremitosdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.listaremitosdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosdetalleTableAdapter()
         Me.StockgeneralTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockgeneralTableAdapter()
+        Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
         Me.GroupBox1.SuspendLayout()
         CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -493,6 +494,9 @@ Partial Class EnviarStock
         '
         Me.StockgeneralTableAdapter.ClearBeforeFill = True
         '
+        'BGWStockClowd
+        '
+        '
         'EnviarStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -577,4 +581,5 @@ Partial Class EnviarStock
     Friend WithEvents listaremitosTableAdapter As comercialDataSetTableAdapters.listaremitosTableAdapter
     Friend WithEvents listaremitosdetalleTableAdapter As comercialDataSetTableAdapters.listaremitosdetalleTableAdapter
     Friend WithEvents StockgeneralTableAdapter As comercialDataSetTableAdapters.stockgeneralTableAdapter
+    Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
 End Class
