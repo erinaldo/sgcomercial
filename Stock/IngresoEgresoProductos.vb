@@ -67,7 +67,7 @@ Public Class ingresoegresoproductos
             MsgBox("Ingrese una cantidad válida", MsgBoxStyle.Exclamation, "Advertencia")
             Return
         End If
-        If TipomovimientostockComboBox.SelectedValue = "S" And Not Val(textdisponible.Text) > 0 Then
+        If TipomovimientostockComboBox.SelectedValue = "S" And Not Convert.ToDecimal(textdisponible.Text) > 0 Then
             MsgBox("No se puede sacar productos sin stock disponible", MsgBoxStyle.Exclamation, "Advertencia")
             Return
         End If
@@ -171,10 +171,11 @@ Public Class ingresoegresoproductos
 
                 If StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)) > 0 Then
                     textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
+                    If textdisponible.Text = "" Then textdisponible.Text = "0"
                     CantidadTextBox.Text = ""
                 Else
                     CantidadTextBox.Select()
-                    textdisponible.Text = ""
+                    If textdisponible.Text = "" Then textdisponible.Text = "0"
                     CantidadTextBox.Text = ""
                 End If
 
@@ -210,10 +211,11 @@ Public Class ingresoegresoproductos
 
             If StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)) > 0 Then
                 textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
+                If textdisponible.Text = "" Then textdisponible.Text = "0"
                 CantidadTextBox.Text = ""
             Else
                 CantidadTextBox.Select()
-                textdisponible.Text = ""
+                If textdisponible.Text = "" Then textdisponible.Text = "0"
                 CantidadTextBox.Text = ""
             End If
             ComboUnidad.SelectedIndex = -1
@@ -280,8 +282,8 @@ Public Class ingresoegresoproductos
             medida = ProductosTableAdapter.productos_consultarmedida(codigoproductoTextBox.Text)
             TextBoxEnvasado.Text = Math.Round(disponible / medida, 2)
         Catch ex As Exception
-            textdisponible.Text = Nothing
-            TextBoxEnvasado.Text = Nothing
+            'textdisponible.Text = "0"
+            TextBoxEnvasado.Text = "0"
         End Try
 
     End Sub

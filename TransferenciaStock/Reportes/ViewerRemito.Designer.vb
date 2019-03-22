@@ -23,9 +23,9 @@ Partial Class ViewerRemito
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource8 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource9 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.listaremitosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -34,10 +34,14 @@ Partial Class ViewerRemito
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.listaremitosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosTableAdapter()
         Me.listaremitosdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosdetalleTableAdapter()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.OcultarCostosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MostrarCostosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.listaremitosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.listaremitosdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MiComercioBindingSource
@@ -63,19 +67,19 @@ Partial Class ViewerRemito
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "MiComercio"
-        ReportDataSource1.Value = Me.MiComercioBindingSource
-        ReportDataSource2.Name = "listaremitos"
-        ReportDataSource2.Value = Me.listaremitosBindingSource
-        ReportDataSource3.Name = "listaremitosdetalle"
-        ReportDataSource3.Value = Me.listaremitosdetalleBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        ReportDataSource7.Name = "MiComercio"
+        ReportDataSource7.Value = Me.MiComercioBindingSource
+        ReportDataSource8.Name = "listaremitos"
+        ReportDataSource8.Value = Me.listaremitosBindingSource
+        ReportDataSource9.Name = "listaremitosdetalle"
+        ReportDataSource9.Value = Me.listaremitosdetalleBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource8)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource9)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEnvioSucursal.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 28)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(970, 747)
+        Me.ReportViewer1.Size = New System.Drawing.Size(970, 719)
         Me.ReportViewer1.TabIndex = 0
         '
         'MiComercioTableAdapter
@@ -90,13 +94,37 @@ Partial Class ViewerRemito
         '
         Me.listaremitosdetalleTableAdapter.ClearBeforeFill = True
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OcultarCostosToolStripMenuItem, Me.MostrarCostosToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(970, 28)
+        Me.MenuStrip1.TabIndex = 1
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'OcultarCostosToolStripMenuItem
+        '
+        Me.OcultarCostosToolStripMenuItem.Name = "OcultarCostosToolStripMenuItem"
+        Me.OcultarCostosToolStripMenuItem.Size = New System.Drawing.Size(117, 24)
+        Me.OcultarCostosToolStripMenuItem.Text = "Ocultar Costos"
+        '
+        'MostrarCostosToolStripMenuItem
+        '
+        Me.MostrarCostosToolStripMenuItem.Name = "MostrarCostosToolStripMenuItem"
+        Me.MostrarCostosToolStripMenuItem.Size = New System.Drawing.Size(120, 24)
+        Me.MostrarCostosToolStripMenuItem.Text = "Mostrar Costos"
+        '
         'ViewerRemito
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(970, 747)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.KeyPreview = True
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "ViewerRemito"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Vista Previa Remito"
@@ -104,7 +132,10 @@ Partial Class ViewerRemito
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.listaremitosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.listaremitosdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -116,4 +147,7 @@ Partial Class ViewerRemito
     Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
     Friend WithEvents listaremitosTableAdapter As comercialDataSetTableAdapters.listaremitosTableAdapter
     Friend WithEvents listaremitosdetalleTableAdapter As comercialDataSetTableAdapters.listaremitosdetalleTableAdapter
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents OcultarCostosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MostrarCostosToolStripMenuItem As ToolStripMenuItem
 End Class

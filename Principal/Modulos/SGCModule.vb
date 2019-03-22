@@ -664,15 +664,25 @@ Module SGCModule
                 Try
                     mycommand = New SqlCommand(fileReader, myConn2)
                     mycommand.ExecuteNonQuery()
+                    Try
+                        FileSystem.Kill(sFile)
+                    Catch ex2 As Exception
+
+                    End Try
                     'MsgBox(sFile, MsgBoxStyle.Information, "Upgrade data base")
                 Catch ex As Exception
-                    MsgBox("Ocurrio un problema en: ActualizarBD() -" + ex.Message)
+                    'MsgBox("Ocurrio un problema en: ActualizarBD() -" + ex.Message)
                     myConn2.Close()
                     myConn2.Dispose()
                     ErrorLogTableAdapter.errorlog_insertar("Aplicación", "Actualización de versión", "ActualizarBD", sFile + " - " + ex.Message)
                     status = False
                     cod = 1
                     msg = "Ocurrio un problema en: ActualizarBD() - " + sFile + " - " + ex.Message
+                    Try
+                        FileSystem.Kill(sFile)
+                    Catch ex2 As Exception
+
+                    End Try
                     'Exit For
                 End Try
                 status = True
