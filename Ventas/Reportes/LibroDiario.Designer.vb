@@ -23,8 +23,10 @@ Partial Class LibroDiario
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.librodiarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.comercialDataSet = New SGComercial.comercialDataSet()
+        Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -35,12 +37,12 @@ Partial Class LibroDiario
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.cajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.cajasoperacionesTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
-        Me.librodiarioTableAdapter = New SGComercial.comercialDataSetTableAdapters.librodiarioTableAdapter()
+        Me.cajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.librodiarioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librodiarioTableAdapter()
         Me.LibrodiarioBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MiComercioTableAdapter = New SGComercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.cajaresumenTableAdapter = New SGComercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
+        Me.cajaresumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
         CType(Me.librodiarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -146,7 +148,13 @@ Partial Class LibroDiario
         '
         'ReportViewer1
         '
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "SGComercial.RepLibroDiario.rdlc"
+        ReportDataSource1.Name = "librodiario"
+        ReportDataSource1.Value = Me.librodiarioBindingSource
+        ReportDataSource2.Name = "MiComercio"
+        ReportDataSource2.Value = Me.MiComercioBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.Report2.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(8, 23)
         Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(4)
         Me.ReportViewer1.Name = "ReportViewer1"

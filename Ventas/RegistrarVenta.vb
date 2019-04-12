@@ -131,25 +131,55 @@ Public Class RegistrarVenta
         End If
         '''''''''''''''''''''''''''''''''''''''''''''''
     End Sub
-
-    Private Sub BtnNueva_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNueva.Click
-        enablefields(True)
-        BtnNueva.Enabled = False
-        BtnCancelar.Enabled = True
-        BtnConfirmar.Enabled = True
-        codigotextbox.Select()
-        IdclienteTextBox.Text = "1"
-        labeltotal.Text = ""
-        idformapagocombo.SelectedIndex = 0
-        NrocomprobanteTextBox.Text = Nothing
-        '''''''''''''''''''''''''''' permiso GenVale
-        If permisoGenVale = 0 Then
-            CheckBoxVale.Enabled = False
-        Else
-            CheckBoxVale.Enabled = True
+    Private Sub validarestadocaja(ByRef status As Boolean)
+        '***************    consultar el estado de caja *************
+        gidcaja = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
+        If gidcaja = 0 Then
+            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            status = False
+            Return
         End If
-        '''''''''''''''''''''''''''''''''''''''''''''''
-        CheckBoxFP2.Checked = False
+
+        'Dim idevento As Integer
+        'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
+        'lblCaja.Text = "Caja Nº: " + idcaja.ToString
+        gidevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
+
+        If gidevento = 0 Then
+            status = False
+            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        Else
+            'RegistrarVenta.MdiParent = Me
+            'RegistrarVenta.Visible = True
+            status = True
+        End If
+        '***************    FIN consultar el estado de caja *************
+    End Sub
+    Private Sub BtnNueva_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNueva.Click
+        Dim STATUSCAJA As Boolean
+        validarestadocaja(STATUSCAJA)
+        If STATUSCAJA = False Then
+            enablefields(False)
+        Else
+            enablefields(True)
+            BtnNueva.Enabled = False
+            BtnCancelar.Enabled = True
+            BtnConfirmar.Enabled = True
+            codigotextbox.Select()
+            IdclienteTextBox.Text = "1"
+            labeltotal.Text = ""
+            idformapagocombo.SelectedIndex = 0
+            NrocomprobanteTextBox.Text = Nothing
+            '''''''''''''''''''''''''''' permiso GenVale
+            If permisoGenVale = 0 Then
+                CheckBoxVale.Enabled = False
+            Else
+                CheckBoxVale.Enabled = True
+            End If
+            '''''''''''''''''''''''''''''''''''''''''''''''
+            CheckBoxFP2.Checked = False
+        End If
     End Sub
 
     Private Sub BtnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCancelar.Click

@@ -89,12 +89,12 @@
                     Dim precioventa As Decimal = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
                     Dim precioventamayorista As Decimal = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
                     Dim precioventagranel As Decimal = ProductosTableAdapter.productos_consultarpreciogranel(gcodigoproducto)
-                    If StockTableAdapter.stock_insertarmovimientoremito(DataGridViewProductos.Rows(i).Cells(0).Value, cantidad, Today, gusername, "E", idremito) > 0 Then
-                        'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
-                        FormPrincipal.reloadstock()
-                    Else
-                        MsgBox("No se pudo insertar el movimiento", MsgBoxStyle.Information, "Advertencia")
-                    End If
+                    'If StockTableAdapter.stock_insertarmovimientoremito(DataGridViewProductos.Rows(i).Cells(0).Value, cantidad, Today, gusername, "E", idremito) > 0 Then
+                    '    'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
+                    '    FormPrincipal.reloadstock()
+                    'Else
+                    '    MsgBox("No se pudo insertar el movimiento", MsgBoxStyle.Information, "Advertencia")
+                    'End If
                     If Not RemitosdetalleTableAdapter.remitosdetalle_insertar(idremito, DataGridViewProductos.Rows(i).Cells(0).Value, DataGridViewProductos.Rows(i).Cells(1).Value, DataGridViewProductos.Rows(i).Cells(2).Value, cantidad, unidadmedida, medida, preciocosto, precioventa, precioventagranel, precioventamayorista) > 0 Then
                         MsgBox("Hubo un problema al cargar un item al detalle del remito")
                     End If

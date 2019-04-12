@@ -808,6 +808,7 @@ Module MySQLModule
             Cursor.Current = Cursors.Default
             coderror = 0
             msgerror = ""
+            SyncLogTableAdapter.synclog_update(1, Now(), gmacadress, gusername, "productos")
             p.Close()
         Catch ex As Exception
             Cursor.Current = Cursors.Default
@@ -1044,6 +1045,8 @@ Module MySQLModule
                 MySQLModule.DescargarProductosClowd(coderror, msgerror)
                 If coderror > 0 Then
                     MsgBox("No se pudo descargar el listado de productos de la nube: " + msgerror)
+                Else
+                    SyncLogTableAdapter.synclog_update(1, LastSyncRemote, gmacadress, gusername, "productos")
                 End If
             End If
         Catch ex As Exception

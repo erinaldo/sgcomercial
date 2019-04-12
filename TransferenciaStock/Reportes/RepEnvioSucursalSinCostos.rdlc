@@ -1070,7 +1070,7 @@
   <Width>7.17717in</Width>
   <Page>
     <PageHeader>
-      <Height>5.54567cm</Height>
+      <Height>5.22817cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1091,7 +1091,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>NombreComercio</rd:DefaultName>
-          <Top>1.14563cm</Top>
+          <Top>0.82813cm</Top>
           <Left>5.68594cm</Left>
           <Height>0.6cm</Height>
           <Width>8.5325cm</Width>
@@ -1128,7 +1128,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>CuitCuil</rd:DefaultName>
-          <Top>1.90058cm</Top>
+          <Top>1.58308cm</Top>
           <Left>5.68594cm</Left>
           <Height>0.6cm</Height>
           <Width>8.5325cm</Width>
@@ -1160,7 +1160,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Dirección</rd:DefaultName>
-          <Top>2.65552cm</Top>
+          <Top>2.33802cm</Top>
           <Left>5.68594cm</Left>
           <Height>0.6cm</Height>
           <Width>8.5325cm</Width>
@@ -1198,7 +1198,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Teléfono</rd:DefaultName>
-          <Top>3.41046cm</Top>
+          <Top>3.09296cm</Top>
           <Left>5.68594cm</Left>
           <Height>0.6cm</Height>
           <Width>8.5325cm</Width>
@@ -1218,7 +1218,7 @@
           <Value>=First(Fields!Logo.Value, "MiComercio")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>1.14563cm</Top>
+          <Top>0.82813cm</Top>
           <Left>2.42956cm</Left>
           <Height>2.86483cm</Height>
           <Width>2.86483cm</Width>
@@ -1249,7 +1249,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.40356cm</Top>
+          <Top>0.08606cm</Top>
           <Height>0.6cm</Height>
           <Width>8.04567cm</Width>
           <ZIndex>5</ZIndex>
@@ -1283,7 +1283,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.40356cm</Top>
+          <Top>0.08606cm</Top>
           <Left>11.07956cm</Left>
           <Height>0.6cm</Height>
           <Width>7.15045cm</Width>
@@ -1299,7 +1299,7 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>5.43844cm</Top>
+          <Top>5.12094cm</Top>
           <Left>1.68487cm</Left>
           <Height>0cm</Height>
           <Width>15.91014cm</Width>
@@ -1329,7 +1329,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>4.61999cm</Top>
+          <Top>4.30249cm</Top>
           <Left>1.68487cm</Left>
           <Height>0.78317cm</Height>
           <Width>15.91017cm</Width>
@@ -1405,10 +1405,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>0cm</TopMargin>
+    <BottomMargin>0cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

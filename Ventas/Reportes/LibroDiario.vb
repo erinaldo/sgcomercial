@@ -1,6 +1,8 @@
 ﻿Public Class LibroDiario
 
     Private Sub LibroDiario_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.librodiario' Puede moverla o quitarla según sea necesario.
+        'Me.librodiarioTableAdapter.Fill(Me.comercialDataSet.librodiario)
 
         'Me.librodiarioTableAdapter.Fill(Me.comercialDataSet.librodiario)
         'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.MiComercio' Puede moverla o quitarla según sea necesario.
@@ -13,12 +15,10 @@
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-
         '******************
         'Dim value As String
         Dim parametros As New List(Of Microsoft.Reporting.WinForms.ReportParameter)
         '*****************
-
         Try
             Select Case ComboBoxReporte.Text
                 Case "Ventas"

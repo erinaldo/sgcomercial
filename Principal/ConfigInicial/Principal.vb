@@ -154,10 +154,26 @@ Public Class Principal
         FormPrincipal.BackgroundImage = PictureBox1.Image
     End Sub
     Public Sub reloadstock()
+        '*************  errorlog    **************************************
+        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter
+        '*******************************************************************************
         Try
             Me.StockalertaTableAdapter.Fill(Me.ComercialDataSet.stockalerta)
         Catch ex As Exception
-            MsgBox("Ocurrio un problema al cargar las alertas de stock: " + ex.Message)
+            Try
+                Dim myConnX As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
+                Dim mycommand As New SqlCommand
+                myConnX.Open()
+                mycommand = New SqlCommand("update productos set medida = 1 where medida is null or medida = 0", myConnX)
+                mycommand.ExecuteNonQuery()
+                ErrorLogTableAdapter.errorlog_insertar("AlertasStock", "Aplicacion", "reloadstock", ex.Message)
+                myConnX.Close()
+                myConnX.Dispose()
+                'MsgBox("Ocurrio un problema al cargar las alertas de stock: " + ex.Message)
+            Catch ex2 As Exception
+                ErrorLogTableAdapter.errorlog_insertar("AlertasStock", "Aplicacion", "reloadstock-nivel2", ex2.Message)
+            End Try
         End Try
 
         '=========== VERIFICO SI HAY ALERTA ACTIVA
