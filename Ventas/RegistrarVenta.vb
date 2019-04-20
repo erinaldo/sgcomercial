@@ -373,6 +373,18 @@ Public Class RegistrarVenta
                     End If
                 End If
             End If
+            '**************************************************************
+            '***** CUENTA CORRIENTE MOVIMIENTO DE CAJA
+            '**************************************************************
+            If idformapagocombo.Text = "Cuenta Corriente" Then
+                idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarvtactacte(idevento, Nothing, idformapagocombo.SelectedValue, total, gusername, Nothing, idventas)
+                If idoperacioncaja > 0 Then
+
+                Else
+                    MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
+                    Return
+                End If
+            End If
 
             '**************************************************************
             '================   VENTA REGISTRADA EXITOSAMENTE ======================
@@ -547,6 +559,7 @@ Public Class RegistrarVenta
                 End If
                 VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = v_precioventa
                 VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
+                VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = 1 ' glistaprecio
                 codigotextbox.SelectAll()
                 codigotextbox.Select()
                 recuento()
@@ -568,6 +581,7 @@ Public Class RegistrarVenta
                             VentasdetalleDataGridView.Rows(i).Cells(2).Value = VentasdetalleDataGridView.Rows(i).Cells(2).Value + gcantidad '*******  cantidad
                         End If
                         VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(i).Cells(2).Value
+                        VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = 1 ' glistaprecio
                         codigotextbox.SelectAll()
                         codigotextbox.Select()
                         recuento()
@@ -594,6 +608,7 @@ Public Class RegistrarVenta
                     End If
                     VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = v_precioventa
                     VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
+                    VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = 1 ' glistaprecio
                     codigotextbox.SelectAll()
                     codigotextbox.Select()
                     recuento()

@@ -43,6 +43,7 @@ Public Class BuscaProductoManualPedidos
             MsgBox("NO hay productos en la lista!")
             Me.Close()
         End Try
+        montotextbox.Enabled = False
     End Sub
 
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
@@ -251,9 +252,11 @@ Public Class BuscaProductoManualPedidos
     Private Sub montotextbox_KeyDown(sender As Object, e As KeyEventArgs) Handles montotextbox.KeyDown
         If Len(Trim(montotextbox.Text)) = 0 Then Return
         If e.KeyCode = Keys.Enter Then
-            Dim cantidaddisponible As Decimal = textboxUnidades.Text
-            Dim cantidaddisponibleenv As Decimal = textboxEnvasado.Text
+            Dim cantidaddisponible As Decimal
+            Dim cantidaddisponibleenv As Decimal
             Try
+                cantidaddisponible = textboxUnidades.Text
+                cantidaddisponibleenv = textboxEnvasado.Text
                 gcantidad = cantidadtextbox.Text
             Catch ex As Exception
                 MsgBox("Verifique la cantidad ingresada!", MsgBoxStyle.Exclamation, "Advertencia")

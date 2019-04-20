@@ -18,6 +18,9 @@
 End Class
 
 Namespace comercialDataSetTableAdapters
+    Partial Public Class cajasoperacionesTableAdapter
+    End Class
+
     Partial Public Class listaproductosTableAdapter
     End Class
 
