@@ -120,7 +120,11 @@ Public Class loginform
         ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
-        gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+        Try
+            gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+        Catch ex As Exception
+            Return
+        End Try
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         '*************  errorlog    **************************************
         Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter

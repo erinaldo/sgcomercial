@@ -89,6 +89,8 @@ Partial Class RegistrarVenta
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BtnConfirmar = New System.Windows.Forms.Button()
+        Me.ContextMenuConfirmar = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.GenerarPresupuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -176,6 +178,7 @@ Partial Class RegistrarVenta
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuConfirmar.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VentasdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -628,6 +631,7 @@ Partial Class RegistrarVenta
         '
         'BtnConfirmar
         '
+        Me.BtnConfirmar.ContextMenuStrip = Me.ContextMenuConfirmar
         Me.BtnConfirmar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnConfirmar.Location = New System.Drawing.Point(33, 101)
         Me.BtnConfirmar.Margin = New System.Windows.Forms.Padding(4)
@@ -636,6 +640,20 @@ Partial Class RegistrarVenta
         Me.BtnConfirmar.TabIndex = 2
         Me.BtnConfirmar.Text = "Confirmar (F3)"
         Me.BtnConfirmar.UseVisualStyleBackColor = True
+        '
+        'ContextMenuConfirmar
+        '
+        Me.ContextMenuConfirmar.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuConfirmar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerarPresupuestoToolStripMenuItem})
+        Me.ContextMenuConfirmar.Name = "ContextMenuConfirmar"
+        Me.ContextMenuConfirmar.Size = New System.Drawing.Size(215, 28)
+        '
+        'GenerarPresupuestoToolStripMenuItem
+        '
+        Me.GenerarPresupuestoToolStripMenuItem.Name = "GenerarPresupuestoToolStripMenuItem"
+        Me.GenerarPresupuestoToolStripMenuItem.Size = New System.Drawing.Size(214, 24)
+        Me.GenerarPresupuestoToolStripMenuItem.Tag = "GenerarPresupuesto"
+        Me.GenerarPresupuestoToolStripMenuItem.Text = "Generar Presupuesto"
         '
         'BtnCancelar
         '
@@ -1360,6 +1378,7 @@ Partial Class RegistrarVenta
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuConfirmar.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1499,4 +1518,6 @@ Partial Class RegistrarVenta
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents ButtonDescuentoDefecto As Button
     Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
+    Friend WithEvents ContextMenuConfirmar As ContextMenuStrip
+    Friend WithEvents GenerarPresupuestoToolStripMenuItem As ToolStripMenuItem
 End Class

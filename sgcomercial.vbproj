@@ -961,10 +961,22 @@
     <Compile Include="Ventas\RegistrarVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\Reportes\ViewerPresupuestos.Designer.vb">
+      <DependentUpon>ViewerPresupuestos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Reportes\ViewerPresupuestos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\SeleccionarCliente.Designer.vb">
       <DependentUpon>SeleccionarCliente.vb</DependentUpon>
     </Compile>
     <Compile Include="Ventas\SeleccionarCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\SeleccionFechaVigencia.Designer.vb">
+      <DependentUpon>SeleccionFechaVigencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\SeleccionFechaVigencia.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventas\TerminalVerificadoraPrecios.Designer.vb">
@@ -1324,6 +1336,7 @@
       <DependentUpon>ReporteCierreCaja.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\GraphIngresos.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepPresupuesto.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\ViewerFactura.resx">
       <DependentUpon>ViewerFactura.vb</DependentUpon>
     </EmbeddedResource>
@@ -1403,8 +1416,14 @@
       <DependentUpon>RegistrarVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\RepLibroDiario.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\ViewerPresupuestos.resx">
+      <DependentUpon>ViewerPresupuestos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\SeleccionarCliente.resx">
       <DependentUpon>SeleccionarCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\SeleccionFechaVigencia.resx">
+      <DependentUpon>SeleccionFechaVigencia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\TerminalVerificadoraPrecios.resx">
       <DependentUpon>TerminalVerificadoraPrecios.vb</DependentUpon>

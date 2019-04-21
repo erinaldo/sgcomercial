@@ -121,6 +121,7 @@ Partial Class Principal
         Me.Alerta2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NubeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubirProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SubirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescargarPedidosWEBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -186,8 +187,9 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
-        Me.SubirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
+        Me.PresupuestosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarPresupuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -216,13 +218,13 @@ Partial Class Principal
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 58)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 85)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'GestionDeProductosToolStripMenuItem
         '
-        Me.GestionDeProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem, Me.CambioMercaderíaVendidaToolStripMenuItem, Me.CambioMultipleToolStripMenuItem, Me.ABMClientesToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConsultarPreciosToolStripMenuItem})
+        Me.GestionDeProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem, Me.CambioMercaderíaVendidaToolStripMenuItem, Me.CambioMultipleToolStripMenuItem, Me.ABMClientesToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConsultarPreciosToolStripMenuItem, Me.PresupuestosToolStripMenuItem})
         Me.GestionDeProductosToolStripMenuItem.Name = "GestionDeProductosToolStripMenuItem"
         Me.GestionDeProductosToolStripMenuItem.Size = New System.Drawing.Size(73, 27)
         Me.GestionDeProductosToolStripMenuItem.Tag = "ModuloVentas"
@@ -947,6 +949,13 @@ Partial Class Principal
         Me.SubirProductosToolStripMenuItem.Tag = "SubirProductosClowd"
         Me.SubirProductosToolStripMenuItem.Text = "Subir Productos"
         '
+        'SubirStockToolStripMenuItem
+        '
+        Me.SubirStockToolStripMenuItem.Name = "SubirStockToolStripMenuItem"
+        Me.SubirStockToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.SubirStockToolStripMenuItem.Tag = "SubirStockClowd"
+        Me.SubirStockToolStripMenuItem.Text = "Subir Stock"
+        '
         'DescargarProductosToolStripMenuItem
         '
         Me.DescargarProductosToolStripMenuItem.Name = "DescargarProductosToolStripMenuItem"
@@ -1320,6 +1329,7 @@ Partial Class Principal
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
@@ -1458,15 +1468,23 @@ Partial Class Principal
         'BackgroundSyncLibroventasClowd
         '
         '
-        'SubirStockToolStripMenuItem
-        '
-        Me.SubirStockToolStripMenuItem.Name = "SubirStockToolStripMenuItem"
-        Me.SubirStockToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.SubirStockToolStripMenuItem.Tag = "SubirStockClowd"
-        Me.SubirStockToolStripMenuItem.Text = "Subir Stock"
-        '
         'BGWStock
         '
+        '
+        'PresupuestosToolStripMenuItem
+        '
+        Me.PresupuestosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarPresupuestoToolStripMenuItem})
+        Me.PresupuestosToolStripMenuItem.Name = "PresupuestosToolStripMenuItem"
+        Me.PresupuestosToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
+        Me.PresupuestosToolStripMenuItem.Tag = "ABMPresupuestos"
+        Me.PresupuestosToolStripMenuItem.Text = "Presupuestos"
+        '
+        'RegistrarPresupuestoToolStripMenuItem
+        '
+        Me.RegistrarPresupuestoToolStripMenuItem.Name = "RegistrarPresupuestoToolStripMenuItem"
+        Me.RegistrarPresupuestoToolStripMenuItem.Size = New System.Drawing.Size(252, 28)
+        Me.RegistrarPresupuestoToolStripMenuItem.Tag = "RegistrarPresupuesto"
+        Me.RegistrarPresupuestoToolStripMenuItem.Text = "Registrar Presupuesto"
         '
         'Principal
         '
@@ -1680,4 +1698,6 @@ Partial Class Principal
     Friend WithEvents LibroDePedidosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SubirStockToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BGWStock As System.ComponentModel.BackgroundWorker
+    Friend WithEvents PresupuestosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RegistrarPresupuestoToolStripMenuItem As ToolStripMenuItem
 End Class

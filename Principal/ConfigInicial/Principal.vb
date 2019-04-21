@@ -1030,4 +1030,26 @@ Public Class Principal
     Private Sub BGWStock_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BGWStock.RunWorkerCompleted
         MsgBox("Se cargado todo el STOCK a la nube!", MsgBoxStyle.Information, "Aviso")
     End Sub
+
+    Private Sub RegistrarPresupuestoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarPresupuestoToolStripMenuItem.Click
+        '***************    consultar el estado de caja *************
+        gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
+        If gidcaja = 0 Then
+            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
+
+        Dim idevento As Integer
+        'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
+        'lblCaja.Text = "Caja Nº: " + idcaja.ToString
+        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
+
+        If idevento = 0 Then
+            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+        Else
+            RegistrarVenta.MdiParent = Me
+            RegistrarVenta.Visible = True
+        End If
+        '***************    FIN consultar el estado de caja *************
+    End Sub
 End Class

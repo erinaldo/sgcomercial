@@ -1,0 +1,6 @@
+﻿Public Class SeleccionFechaVigencia
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        gPresupuestoFechaVigencia = DateTimePicker1.Value
+        Me.Close()
+    End Sub
+End Class

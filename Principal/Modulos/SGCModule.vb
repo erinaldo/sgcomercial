@@ -31,7 +31,7 @@ Module SGCModule
     Public gProgressBarCounter As Long
     Public gUserToken As String
     Public gSUToken As Boolean
-
+    Public gPresupuestoFechaVigencia As Date
     '************************************************
     Public FormPrincipal As Principal
     '************************************************
@@ -59,6 +59,7 @@ Module SGCModule
     Public gclienteseleccionado As Long
     Public gdomicilioseleccionado As Long
     Public gmontovale As Decimal
+    Public gidpresupuesto As Long
     '************************************
     Public gcantidad As Decimal
     Public glistaprecio As Integer

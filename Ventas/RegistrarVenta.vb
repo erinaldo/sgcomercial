@@ -1620,4 +1620,73 @@ Public Class RegistrarVenta
         Dim msgerror As String = Nothing
         SynStockClowd(gidventa, "V", coderror, msgerror)
     End Sub
+
+    Private Sub GenerarPresupuestoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerarPresupuestoToolStripMenuItem.Click
+        '***********************************************************************************************
+        '*********** VALIDACIONES   ********************************************************************
+        ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, Val(IdclienteTextBox.Text))
+        If Not ClientesBindingSource.Count = 1 Or Val(IdclienteTextBox.Text) = 1 Then
+            MsgBox("Seleccione un cliente válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
+        If VentasdetalleDataGridView.RowCount = 0 Then
+            MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
+            'valida = False
+            Return
+        End If
+        '***********************************************************************************************
+        '***********************************************************************************************
+        If MsgBox("Seguro desea generar el presupuesto?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+            Try
+                '***********************************************************************************************
+                Dim PresupuestosTableAdapter As comercialDataSetTableAdapters.presupuestosTableAdapter
+                PresupuestosTableAdapter = New comercialDataSetTableAdapters.presupuestosTableAdapter
+                Dim PresupuestosDetalleTableAdapter As comercialDataSetTableAdapters.presupuestosdetalleTableAdapter
+                PresupuestosDetalleTableAdapter = New comercialDataSetTableAdapters.presupuestosdetalleTableAdapter
+                '***********************************************************************************************
+                Dim h As SeleccionFechaVigencia
+                h = New SeleccionFechaVigencia
+                h.ShowDialog()
+
+                Dim idpresupuesto As Long
+                idpresupuesto = PresupuestosTableAdapter.presupuestos_insertar(Val(IdclienteTextBox.Text), gPresupuestoFechaVigencia, Today, Nothing)
+                gPresupuestoFechaVigencia = Nothing
+                Dim listacorrecta As Integer = 0
+                Dim idproducto As Long
+                Try
+                    For i = 0 To VentasdetalleDataGridView.RowCount - 1
+                        idproducto = ProductosTableAdapter.productos_existeproducto(VentasdetalleDataGridView.Rows(i).Cells("codproducto").Value)
+                    Next
+                    listacorrecta = 1
+                Catch ex As Exception
+                    MsgBox("Ocurrió un error: verifique la lista de productos y los códigos asociados" + ex.Message, MsgBoxStyle.Information, "Aviso")
+                    listacorrecta = 0
+                End Try
+                If listacorrecta = 1 Then
+                    If idpresupuesto > 0 Then
+                        For i = 0 To VentasdetalleDataGridView.RowCount - 1
+                            idproducto = ProductosTableAdapter.productos_existeproducto(VentasdetalleDataGridView.Rows(i).Cells("codproducto").Value)
+                            Dim cantidad As Decimal = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value
+                            Dim precioventa As Decimal = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
+                            Dim idlistaprecio As Decimal = VentasdetalleDataGridView.Rows(i).Cells("listasprecios").Value
+                            Dim descuento As Decimal = VentasdetalleDataGridView.Rows(i).Cells("descuento").Value
+                            Dim recargo As Decimal = VentasdetalleDataGridView.Rows(i).Cells("recargo").Value
+                            PresupuestosDetalleTableAdapter.presupuestosdetalle_insertar(idpresupuesto, idproducto, cantidad, precioventa, descuento, idlistaprecio, recargo)
+                        Next
+                        Dim preview As ViewerPresupuestos
+                        preview = New ViewerPresupuestos
+                        gidpresupuesto = idpresupuesto
+                        preview.ShowDialog()
+                        gidpresupuesto = Nothing
+                    End If
+                Else
+                    MsgBox("Ocurrió un error: verifique la lista de productos y los códigos asociados", MsgBoxStyle.Information, "Aviso")
+                End If
+            Catch ex As Exception
+                MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Information, "Aviso")
+            End Try
+        Else
+            MsgBox("Operación Cancelada", MsgBoxStyle.Information, "Aviso")
+        End If
+    End Sub
 End Class

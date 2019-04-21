@@ -390,7 +390,7 @@ SELECT idoperacion, idevento, idpagos, idgastos, idformapago, monto, fechabaja, 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="cajasoperaciones_insertarvtactacte" Modifier="Public" Name="cajasoperaciones_insertarvtactacte" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="cajasoperaciones_insertarvtactacte">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="cajasoperaciones_insertarvtactacte" Modifier="Public" Name="cajasoperaciones_insertarvtactacte" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="cajasoperaciones_insertarvtactacte">
                 <InsertCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.cajasoperaciones_insertarvtactacte</CommandText>
@@ -407,7 +407,7 @@ SELECT idoperacion, idevento, idpagos, idgastos, idformapago, monto, fechabaja, 
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.cajasoperaciones_montoneto" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="cajasoperaciones_montoneto" Modifier="Public" Name="cajasoperaciones_montoneto" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="cajasoperaciones_montoneto">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.cajasoperaciones_montoneto" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="cajasoperaciones_montoneto" Modifier="Public" Name="cajasoperaciones_montoneto" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="cajasoperaciones_montoneto">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.cajasoperaciones_montoneto</CommandText>
@@ -418,7 +418,7 @@ SELECT idoperacion, idevento, idpagos, idgastos, idformapago, monto, fechabaja, 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.cajasoperaciones_totalgastos" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="cajasoperaciones_totalgastos" Modifier="Public" Name="cajasoperaciones_totalgastos" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="cajasoperaciones_totalgastos">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.cajasoperaciones_totalgastos" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="cajasoperaciones_totalgastos" Modifier="Public" Name="cajasoperaciones_totalgastos" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="cajasoperaciones_totalgastos">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.cajasoperaciones_totalgastos</CommandText>
@@ -429,7 +429,7 @@ SELECT idoperacion, idevento, idpagos, idgastos, idformapago, monto, fechabaja, 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.cajasoperaciones_totalpagos" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="cajasoperaciones_totalpagos" Modifier="Public" Name="cajasoperaciones_totalpagos" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="cajasoperaciones_totalpagos">
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.cajasoperaciones_totalpagos" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="cajasoperaciones_totalpagos" Modifier="Public" Name="cajasoperaciones_totalpagos" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="cajasoperaciones_totalpagos">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.cajasoperaciones_totalpagos</CommandText>
@@ -2522,7 +2522,22 @@ SELECT idpresupuesto, idcliente, fechavigencia, fechaalta, fechabaja FROM presup
               <Mapping SourceColumn="fechaalta" DataSetColumn="fechaalta" />
               <Mapping SourceColumn="fechabaja" DataSetColumn="fechabaja" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.presupuestos_insertar" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="presupuestos_insertar" Modifier="Public" Name="presupuestos_insertar" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="presupuestos_insertar">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.presupuestos_insertar</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@idcliente" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@fechavigencia" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@fechaalta" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@fechabaja" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="proveedoresTableAdapter" GeneratorDataComponentClassName="proveedoresTableAdapter" Name="proveedores" UserDataComponentName="proveedoresTableAdapter">
             <MainSource>
@@ -3478,7 +3493,7 @@ WHERE fechabaja is null and fechafin is null</CommandText>
               <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.presupuestosdetalle" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[presupuestosdetalle] WHERE (([idpresupuestodetalle] = @Original_idpresupuestodetalle) AND ([idpresupuesto] = @Original_idpresupuesto) AND ((@IsNull_idproducto = 1 AND [idproducto] IS NULL) OR ([idproducto] = @Original_idproducto)) AND ((@IsNull_cantidad = 1 AND [cantidad] IS NULL) OR ([cantidad] = @Original_cantidad)) AND ((@IsNull_precioventa = 1 AND [precioventa] IS NULL) OR ([precioventa] = @Original_precioventa)))</CommandText>
+                    <CommandText>DELETE FROM [presupuestosdetalle] WHERE (([idpresupuestodetalle] = @Original_idpresupuestodetalle) AND ([idpresupuesto] = @Original_idpresupuesto) AND ((@IsNull_idproducto = 1 AND [idproducto] IS NULL) OR ([idproducto] = @Original_idproducto)) AND ((@IsNull_cantidad = 1 AND [cantidad] IS NULL) OR ([cantidad] = @Original_cantidad)) AND ((@IsNull_precioventa = 1 AND [precioventa] IS NULL) OR ([precioventa] = @Original_precioventa)) AND ((@IsNull_descuento = 1 AND [descuento] IS NULL) OR ([descuento] = @Original_descuento)) AND ((@IsNull_idlistaprecio = 1 AND [idlistaprecio] IS NULL) OR ([idlistaprecio] = @Original_idlistaprecio)) AND ((@IsNull_recargo = 1 AND [recargo] IS NULL) OR ([recargo] = @Original_recargo)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idpresupuestodetalle" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idpresupuestodetalle" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idpresupuesto" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idpresupuesto" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -3488,36 +3503,48 @@ WHERE fechabaja is null and fechafin is null</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_cantidad" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cantidad" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_precioventa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="precioventa" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_precioventa" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="precioventa" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descuento" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descuento" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_descuento" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="descuento" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idlistaprecio" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idlistaprecio" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idlistaprecio" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idlistaprecio" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_recargo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="recargo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_recargo" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="recargo" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[presupuestosdetalle] ([idpresupuesto], [idproducto], [cantidad], [precioventa]) VALUES (@idpresupuesto, @idproducto, @cantidad, @precioventa);
-SELECT idpresupuestodetalle, idpresupuesto, idproducto, cantidad, precioventa FROM presupuestosdetalle WHERE (idpresupuestodetalle = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [presupuestosdetalle] ([idpresupuesto], [idproducto], [cantidad], [precioventa], [descuento], [idlistaprecio], [recargo]) VALUES (@idpresupuesto, @idproducto, @cantidad, @precioventa, @descuento, @idlistaprecio, @recargo);
+SELECT idpresupuestodetalle, idpresupuesto, idproducto, cantidad, precioventa, descuento, idlistaprecio, recargo FROM presupuestosdetalle WHERE (idpresupuestodetalle = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idpresupuesto" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idpresupuesto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@idproducto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="idproducto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@cantidad" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cantidad" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@precioventa" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="precioventa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@descuento" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="descuento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idlistaprecio" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idlistaprecio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@recargo" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="recargo" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT idpresupuestodetalle, idpresupuesto, idproducto, cantidad, precioventa FROM dbo.presupuestosdetalle</CommandText>
+                    <CommandText>SELECT idpresupuestodetalle, idpresupuesto, idproducto, cantidad, precioventa, descuento, idlistaprecio, recargo FROM presupuestosdetalle</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[presupuestosdetalle] SET [idpresupuesto] = @idpresupuesto, [idproducto] = @idproducto, [cantidad] = @cantidad, [precioventa] = @precioventa WHERE (([idpresupuestodetalle] = @Original_idpresupuestodetalle) AND ([idpresupuesto] = @Original_idpresupuesto) AND ((@IsNull_idproducto = 1 AND [idproducto] IS NULL) OR ([idproducto] = @Original_idproducto)) AND ((@IsNull_cantidad = 1 AND [cantidad] IS NULL) OR ([cantidad] = @Original_cantidad)) AND ((@IsNull_precioventa = 1 AND [precioventa] IS NULL) OR ([precioventa] = @Original_precioventa)));
-SELECT idpresupuestodetalle, idpresupuesto, idproducto, cantidad, precioventa FROM presupuestosdetalle WHERE (idpresupuestodetalle = @idpresupuestodetalle)</CommandText>
+                    <CommandText>UPDATE [presupuestosdetalle] SET [idpresupuesto] = @idpresupuesto, [idproducto] = @idproducto, [cantidad] = @cantidad, [precioventa] = @precioventa, [descuento] = @descuento, [idlistaprecio] = @idlistaprecio, [recargo] = @recargo WHERE (([idpresupuestodetalle] = @Original_idpresupuestodetalle) AND ([idpresupuesto] = @Original_idpresupuesto) AND ((@IsNull_idproducto = 1 AND [idproducto] IS NULL) OR ([idproducto] = @Original_idproducto)) AND ((@IsNull_cantidad = 1 AND [cantidad] IS NULL) OR ([cantidad] = @Original_cantidad)) AND ((@IsNull_precioventa = 1 AND [precioventa] IS NULL) OR ([precioventa] = @Original_precioventa)) AND ((@IsNull_descuento = 1 AND [descuento] IS NULL) OR ([descuento] = @Original_descuento)) AND ((@IsNull_idlistaprecio = 1 AND [idlistaprecio] IS NULL) OR ([idlistaprecio] = @Original_idlistaprecio)) AND ((@IsNull_recargo = 1 AND [recargo] IS NULL) OR ([recargo] = @Original_recargo)));
+SELECT idpresupuestodetalle, idpresupuesto, idproducto, cantidad, precioventa, descuento, idlistaprecio, recargo FROM presupuestosdetalle WHERE (idpresupuestodetalle = @idpresupuestodetalle)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idpresupuesto" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idpresupuesto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@idproducto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="idproducto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@cantidad" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cantidad" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@precioventa" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="precioventa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@descuento" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="descuento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idlistaprecio" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idlistaprecio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@recargo" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="recargo" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idpresupuestodetalle" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idpresupuestodetalle" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idpresupuesto" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idpresupuesto" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idproducto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idproducto" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -3526,6 +3553,12 @@ SELECT idpresupuestodetalle, idpresupuesto, idproducto, cantidad, precioventa FR
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_cantidad" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cantidad" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_precioventa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="precioventa" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_precioventa" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="precioventa" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descuento" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descuento" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_descuento" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="descuento" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idlistaprecio" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idlistaprecio" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idlistaprecio" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idlistaprecio" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_recargo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="recargo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_recargo" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="recargo" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="idpresupuestodetalle" ColumnName="idpresupuestodetalle" DataSourceName="comercial.dbo.presupuestosdetalle" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@idpresupuestodetalle" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idpresupuestodetalle" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
@@ -3538,8 +3571,29 @@ SELECT idpresupuestodetalle, idpresupuesto, idproducto, cantidad, precioventa FR
               <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
               <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
               <Mapping SourceColumn="precioventa" DataSetColumn="precioventa" />
+              <Mapping SourceColumn="idlistaprecio" DataSetColumn="idlistaprecio" />
+              <Mapping SourceColumn="recargo" DataSetColumn="recargo" />
+              <Mapping SourceColumn="descuento" DataSetColumn="descuento" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="presupuestosdetalle_insertar" Modifier="Public" Name="presupuestosdetalle_insertar" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="presupuestosdetalle_insertar">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO [presupuestosdetalle] ([idpresupuesto], [idproducto], [cantidad], [precioventa], [descuento], [idlistaprecio], [recargo]) VALUES (@idpresupuesto, @idproducto, @cantidad, @precioventa, @descuento, @idlistaprecio, @recargo);
+SELECT idpresupuestodetalle  FROM presupuestosdetalle WHERE (idpresupuestodetalle = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idpresupuesto" ColumnName="idpresupuesto" DataSourceName="comercial.dbo.presupuestosdetalle" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@idpresupuesto" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idpresupuesto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="idproducto" ColumnName="idproducto" DataSourceName="comercial.dbo.presupuestosdetalle" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@idproducto" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="idproducto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="cantidad" ColumnName="cantidad" DataSourceName="comercial.dbo.presupuestosdetalle" DataTypeServer="numeric(18, 2)" DbType="Decimal" Direction="Input" ParameterName="@cantidad" Precision="18" ProviderType="Decimal" Scale="2" Size="9" SourceColumn="cantidad" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="precioventa" ColumnName="precioventa" DataSourceName="comercial.dbo.presupuestosdetalle" DataTypeServer="numeric(18, 2)" DbType="Decimal" Direction="Input" ParameterName="@precioventa" Precision="18" ProviderType="Decimal" Scale="2" Size="9" SourceColumn="precioventa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="descuento" ColumnName="descuento" DataSourceName="comercial.dbo.presupuestosdetalle" DataTypeServer="numeric(18, 2)" DbType="Decimal" Direction="Input" ParameterName="@descuento" Precision="18" ProviderType="Decimal" Scale="2" Size="9" SourceColumn="descuento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="idlistaprecio" ColumnName="idlistaprecio" DataSourceName="comercial.dbo.presupuestosdetalle" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@idlistaprecio" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idlistaprecio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="recargo" ColumnName="recargo" DataSourceName="comercial.dbo.presupuestosdetalle" DataTypeServer="numeric(18, 2)" DbType="Decimal" Direction="Input" ParameterName="@recargo" Precision="18" ProviderType="Decimal" Scale="2" Size="9" SourceColumn="recargo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="listamarcasTableAdapter" GeneratorDataComponentClassName="listamarcasTableAdapter" Name="listamarcas" UserDataComponentName="listamarcasTableAdapter">
             <MainSource>
@@ -8344,6 +8398,83 @@ where idsucursal = @idsucursal and codigoproducto = @codigoproducto</CommandText
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="libropresupuestosTableAdapter" GeneratorDataComponentClassName="libropresupuestosTableAdapter" Name="libropresupuestos" UserDataComponentName="libropresupuestosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.libropresupuestos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idcliente, nombre, cuit, telefono, email, idclienteweb, condicioniva, diasvencimiento, porcentajedescuento, idpresupuesto, fechavigencia, fechaalta, fechabaja FROM dbo.libropresupuestos</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idcliente" DataSetColumn="idcliente" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="cuit" DataSetColumn="cuit" />
+              <Mapping SourceColumn="telefono" DataSetColumn="telefono" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="idclienteweb" DataSetColumn="idclienteweb" />
+              <Mapping SourceColumn="condicioniva" DataSetColumn="condicioniva" />
+              <Mapping SourceColumn="diasvencimiento" DataSetColumn="diasvencimiento" />
+              <Mapping SourceColumn="porcentajedescuento" DataSetColumn="porcentajedescuento" />
+              <Mapping SourceColumn="idpresupuesto" DataSetColumn="idpresupuesto" />
+              <Mapping SourceColumn="fechavigencia" DataSetColumn="fechavigencia" />
+              <Mapping SourceColumn="fechaalta" DataSetColumn="fechaalta" />
+              <Mapping SourceColumn="fechabaja" DataSetColumn="fechabaja" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.libropresupuestos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByIDPresupuesto" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIDPresupuesto" GeneratorSourceName="FillByIDPresupuesto" GetMethodModifier="Public" GetMethodName="GetDataByIDPresupuesto" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIDPresupuesto" UserSourceName="FillByIDPresupuesto">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT idcliente, nombre, cuit, telefono, email, idclienteweb, condicioniva, diasvencimiento, porcentajedescuento, idpresupuesto, fechavigencia, fechaalta, fechabaja FROM dbo.libropresupuestos
+where idpresupuesto = @idpresupuesto</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idpresupuesto" ColumnName="idpresupuesto" DataSourceName="comercial.dbo.libropresupuestos" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@idpresupuesto" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idpresupuesto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="libropresupuestosdetalleTableAdapter" GeneratorDataComponentClassName="libropresupuestosdetalleTableAdapter" Name="libropresupuestosdetalle" UserDataComponentName="libropresupuestosdetalleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.libropresupuestosdetalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT descripcion, idpresupuestodetalle, idpresupuesto, idproducto, cantidad, precioventa, idlistaprecio, recargo, descuento FROM dbo.libropresupuestosdetalle</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="idpresupuestodetalle" DataSetColumn="idpresupuestodetalle" />
+              <Mapping SourceColumn="idpresupuesto" DataSetColumn="idpresupuesto" />
+              <Mapping SourceColumn="idproducto" DataSetColumn="idproducto" />
+              <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
+              <Mapping SourceColumn="precioventa" DataSetColumn="precioventa" />
+              <Mapping SourceColumn="idlistaprecio" DataSetColumn="idlistaprecio" />
+              <Mapping SourceColumn="recargo" DataSetColumn="recargo" />
+              <Mapping SourceColumn="descuento" DataSetColumn="descuento" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.libropresupuestosdetalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByIDPresupuesto" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIDPresupuesto" GeneratorSourceName="FillByIDPresupuesto" GetMethodModifier="Public" GetMethodName="GetDataByIDPresupuesto" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIDPresupuesto" UserSourceName="FillByIDPresupuesto">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT descripcion, idpresupuestodetalle, idpresupuesto, idproducto, cantidad, precioventa, idlistaprecio, recargo, descuento FROM dbo.libropresupuestosdetalle
+
+where idpresupuesto = @idpresupuesto</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idpresupuesto" ColumnName="idpresupuesto" DataSourceName="comercial.dbo.libropresupuestosdetalle" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@idpresupuesto" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="idpresupuesto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -9288,6 +9419,9 @@ where idsucursal = @idsucursal and codigoproducto = @codigoproducto</CommandText
               </xs:element>
               <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:decimal" minOccurs="0" />
               <xs:element name="precioventa" msprop:Generator_ColumnVarNameInTable="columnprecioventa" msprop:Generator_ColumnPropNameInRow="precioventa" msprop:Generator_ColumnPropNameInTable="precioventaColumn" msprop:Generator_UserColumnName="precioventa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="idlistaprecio" msprop:Generator_ColumnVarNameInTable="columnidlistaprecio" msprop:Generator_ColumnPropNameInRow="idlistaprecio" msprop:Generator_ColumnPropNameInTable="idlistaprecioColumn" msprop:Generator_UserColumnName="idlistaprecio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="recargo" msprop:Generator_ColumnVarNameInTable="columnrecargo" msprop:Generator_ColumnPropNameInRow="recargo" msprop:Generator_ColumnPropNameInTable="recargoColumn" msprop:Generator_UserColumnName="recargo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="descuento" msprop:Generator_ColumnVarNameInTable="columndescuento" msprop:Generator_ColumnPropNameInRow="descuento" msprop:Generator_ColumnPropNameInTable="descuentoColumn" msprop:Generator_UserColumnName="descuento" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -11293,6 +11427,76 @@ where idsucursal = @idsucursal and codigoproducto = @codigoproducto</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="libropresupuestos" msprop:Generator_TableClassName="libropresupuestosDataTable" msprop:Generator_TableVarName="tablelibropresupuestos" msprop:Generator_TablePropName="libropresupuestos" msprop:Generator_RowDeletingName="libropresupuestosRowDeleting" msprop:Generator_RowChangingName="libropresupuestosRowChanging" msprop:Generator_RowEvHandlerName="libropresupuestosRowChangeEventHandler" msprop:Generator_RowDeletedName="libropresupuestosRowDeleted" msprop:Generator_UserTableName="libropresupuestos" msprop:Generator_RowChangedName="libropresupuestosRowChanged" msprop:Generator_RowEvArgName="libropresupuestosRowChangeEvent" msprop:Generator_RowClassName="libropresupuestosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idcliente" msprop:Generator_ColumnVarNameInTable="columnidcliente" msprop:Generator_ColumnPropNameInRow="idcliente" msprop:Generator_ColumnPropNameInTable="idclienteColumn" msprop:Generator_UserColumnName="idcliente" type="xs:decimal" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cuit" msprop:Generator_ColumnVarNameInTable="columncuit" msprop:Generator_ColumnPropNameInRow="cuit" msprop:Generator_ColumnPropNameInTable="cuitColumn" msprop:Generator_UserColumnName="cuit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" msprop:Generator_UserColumnName="telefono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idclienteweb" msprop:Generator_ColumnVarNameInTable="columnidclienteweb" msprop:Generator_ColumnPropNameInRow="idclienteweb" msprop:Generator_ColumnPropNameInTable="idclientewebColumn" msprop:Generator_UserColumnName="idclienteweb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="condicioniva" msprop:Generator_ColumnVarNameInTable="columncondicioniva" msprop:Generator_ColumnPropNameInRow="condicioniva" msprop:Generator_ColumnPropNameInTable="condicionivaColumn" msprop:Generator_UserColumnName="condicioniva" type="xs:int" minOccurs="0" />
+              <xs:element name="diasvencimiento" msprop:Generator_ColumnVarNameInTable="columndiasvencimiento" msprop:Generator_ColumnPropNameInRow="diasvencimiento" msprop:Generator_ColumnPropNameInTable="diasvencimientoColumn" msprop:Generator_UserColumnName="diasvencimiento" type="xs:int" minOccurs="0" />
+              <xs:element name="porcentajedescuento" msprop:Generator_ColumnVarNameInTable="columnporcentajedescuento" msprop:Generator_ColumnPropNameInRow="porcentajedescuento" msprop:Generator_ColumnPropNameInTable="porcentajedescuentoColumn" msprop:Generator_UserColumnName="porcentajedescuento" type="xs:decimal" minOccurs="0" />
+              <xs:element name="idpresupuesto" msprop:Generator_ColumnVarNameInTable="columnidpresupuesto" msprop:Generator_ColumnPropNameInRow="idpresupuesto" msprop:Generator_ColumnPropNameInTable="idpresupuestoColumn" msprop:Generator_UserColumnName="idpresupuesto" type="xs:decimal" />
+              <xs:element name="fechavigencia" msprop:Generator_ColumnVarNameInTable="columnfechavigencia" msprop:Generator_ColumnPropNameInRow="fechavigencia" msprop:Generator_ColumnPropNameInTable="fechavigenciaColumn" msprop:Generator_UserColumnName="fechavigencia" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechaalta" msprop:Generator_ColumnVarNameInTable="columnfechaalta" msprop:Generator_ColumnPropNameInRow="fechaalta" msprop:Generator_ColumnPropNameInTable="fechaaltaColumn" msprop:Generator_UserColumnName="fechaalta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechabaja" msprop:Generator_ColumnVarNameInTable="columnfechabaja" msprop:Generator_ColumnPropNameInRow="fechabaja" msprop:Generator_ColumnPropNameInTable="fechabajaColumn" msprop:Generator_UserColumnName="fechabaja" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="libropresupuestosdetalle" msprop:Generator_TableClassName="libropresupuestosdetalleDataTable" msprop:Generator_TableVarName="tablelibropresupuestosdetalle" msprop:Generator_TablePropName="libropresupuestosdetalle" msprop:Generator_RowDeletingName="libropresupuestosdetalleRowDeleting" msprop:Generator_RowChangingName="libropresupuestosdetalleRowChanging" msprop:Generator_RowEvHandlerName="libropresupuestosdetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="libropresupuestosdetalleRowDeleted" msprop:Generator_UserTableName="libropresupuestosdetalle" msprop:Generator_RowChangedName="libropresupuestosdetalleRowChanged" msprop:Generator_RowEvArgName="libropresupuestosdetalleRowChangeEvent" msprop:Generator_RowClassName="libropresupuestosdetalleRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="descripcion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="302" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idpresupuestodetalle" msprop:Generator_ColumnVarNameInTable="columnidpresupuestodetalle" msprop:Generator_ColumnPropNameInRow="idpresupuestodetalle" msprop:Generator_ColumnPropNameInTable="idpresupuestodetalleColumn" msprop:Generator_UserColumnName="idpresupuestodetalle" type="xs:decimal" />
+              <xs:element name="idpresupuesto" msprop:Generator_ColumnVarNameInTable="columnidpresupuesto" msprop:Generator_ColumnPropNameInRow="idpresupuesto" msprop:Generator_ColumnPropNameInTable="idpresupuestoColumn" msprop:Generator_UserColumnName="idpresupuesto" type="xs:decimal" />
+              <xs:element name="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" msprop:Generator_UserColumnName="idproducto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="precioventa" msprop:Generator_ColumnVarNameInTable="columnprecioventa" msprop:Generator_ColumnPropNameInRow="precioventa" msprop:Generator_ColumnPropNameInTable="precioventaColumn" msprop:Generator_UserColumnName="precioventa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="idlistaprecio" msprop:Generator_ColumnVarNameInTable="columnidlistaprecio" msprop:Generator_ColumnPropNameInRow="idlistaprecio" msprop:Generator_ColumnPropNameInTable="idlistaprecioColumn" msprop:Generator_UserColumnName="idlistaprecio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="recargo" msprop:Generator_ColumnVarNameInTable="columnrecargo" msprop:Generator_ColumnPropNameInRow="recargo" msprop:Generator_ColumnPropNameInTable="recargoColumn" msprop:Generator_UserColumnName="recargo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="descuento" msprop:Generator_ColumnVarNameInTable="columndescuento" msprop:Generator_ColumnPropNameInRow="descuento" msprop:Generator_ColumnPropNameInTable="descuentoColumn" msprop:Generator_UserColumnName="descuento" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -11607,6 +11811,15 @@ where idsucursal = @idsucursal and codigoproducto = @codigoproducto</CommandText
     <xs:unique name="stockremoto_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:stockremoto" />
       <xs:field xpath="mstns:idstockremoto" />
+    </xs:unique>
+    <xs:unique name="libropresupuestos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:libropresupuestos" />
+      <xs:field xpath="mstns:idcliente" />
+      <xs:field xpath="mstns:idpresupuesto" />
+    </xs:unique>
+    <xs:unique name="libropresupuestosdetalle_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:libropresupuestosdetalle" />
+      <xs:field xpath="mstns:idpresupuestodetalle" />
     </xs:unique>
   </xs:element>
 </xs:schema>
