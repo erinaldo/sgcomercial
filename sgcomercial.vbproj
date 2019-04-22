@@ -33,8 +33,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>60</ApplicationRevision>
-    <ApplicationVersion>4.0.8.60</ApplicationVersion>
+    <ApplicationRevision>61</ApplicationRevision>
+    <ApplicationVersion>4.0.8.61</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -787,6 +787,12 @@
     <Compile Include="Ventas\EditarCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\PresupuestosGenerados.Designer.vb">
+      <DependentUpon>PresupuestosGenerados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\PresupuestosGenerados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\Reportes\LibroVentasDetalladas.Designer.vb">
       <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
     </Compile>
@@ -1214,6 +1220,9 @@
       <DependentUpon>ABMSucursales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransferenciaStock\Reportes\RepEnvioSucursalSinCostos.rdlc" />
+    <EmbeddedResource Include="Ventas\PresupuestosGenerados.resx">
+      <DependentUpon>PresupuestosGenerados.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\RepComandera80.rdlc" />
     <EmbeddedResource Include="TransferenciaStock\EnviarStock.resx">
       <DependentUpon>EnviarStock.vb</DependentUpon>

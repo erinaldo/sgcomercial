@@ -35,6 +35,9 @@ Partial Class Principal
         Me.VentasPorDiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroMayorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarPreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PresupuestosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarPresupuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PresupuestosGeneradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeliveryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaPedidoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecibidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -188,8 +191,6 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
-        Me.PresupuestosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RegistrarPresupuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -299,6 +300,28 @@ Partial Class Principal
         Me.ConsultarPreciosToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.ConsultarPreciosToolStripMenuItem.Tag = "ConsultarPrecios"
         Me.ConsultarPreciosToolStripMenuItem.Text = "Consultar Precios"
+        '
+        'PresupuestosToolStripMenuItem
+        '
+        Me.PresupuestosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarPresupuestoToolStripMenuItem, Me.PresupuestosGeneradosToolStripMenuItem})
+        Me.PresupuestosToolStripMenuItem.Name = "PresupuestosToolStripMenuItem"
+        Me.PresupuestosToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
+        Me.PresupuestosToolStripMenuItem.Tag = "ABMPresupuestos"
+        Me.PresupuestosToolStripMenuItem.Text = "Presupuestos"
+        '
+        'RegistrarPresupuestoToolStripMenuItem
+        '
+        Me.RegistrarPresupuestoToolStripMenuItem.Name = "RegistrarPresupuestoToolStripMenuItem"
+        Me.RegistrarPresupuestoToolStripMenuItem.Size = New System.Drawing.Size(274, 28)
+        Me.RegistrarPresupuestoToolStripMenuItem.Tag = "RegistrarPresupuesto"
+        Me.RegistrarPresupuestoToolStripMenuItem.Text = "Registrar Presupuesto"
+        '
+        'PresupuestosGeneradosToolStripMenuItem
+        '
+        Me.PresupuestosGeneradosToolStripMenuItem.Name = "PresupuestosGeneradosToolStripMenuItem"
+        Me.PresupuestosGeneradosToolStripMenuItem.Size = New System.Drawing.Size(274, 28)
+        Me.PresupuestosGeneradosToolStripMenuItem.Tag = "PresupuestosGenerados"
+        Me.PresupuestosGeneradosToolStripMenuItem.Text = "Presupuestos Generados"
         '
         'DeliveryToolStripMenuItem
         '
@@ -1471,21 +1494,6 @@ Partial Class Principal
         'BGWStock
         '
         '
-        'PresupuestosToolStripMenuItem
-        '
-        Me.PresupuestosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarPresupuestoToolStripMenuItem})
-        Me.PresupuestosToolStripMenuItem.Name = "PresupuestosToolStripMenuItem"
-        Me.PresupuestosToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
-        Me.PresupuestosToolStripMenuItem.Tag = "ABMPresupuestos"
-        Me.PresupuestosToolStripMenuItem.Text = "Presupuestos"
-        '
-        'RegistrarPresupuestoToolStripMenuItem
-        '
-        Me.RegistrarPresupuestoToolStripMenuItem.Name = "RegistrarPresupuestoToolStripMenuItem"
-        Me.RegistrarPresupuestoToolStripMenuItem.Size = New System.Drawing.Size(252, 28)
-        Me.RegistrarPresupuestoToolStripMenuItem.Tag = "RegistrarPresupuesto"
-        Me.RegistrarPresupuestoToolStripMenuItem.Text = "Registrar Presupuesto"
-        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1700,4 +1708,5 @@ Partial Class Principal
     Friend WithEvents BGWStock As System.ComponentModel.BackgroundWorker
     Friend WithEvents PresupuestosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistrarPresupuestoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PresupuestosGeneradosToolStripMenuItem As ToolStripMenuItem
 End Class

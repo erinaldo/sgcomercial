@@ -75,7 +75,7 @@ Partial Class ViewerPresupuestos
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepPresupuesto.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(725, 624)
+        Me.ReportViewer1.Size = New System.Drawing.Size(874, 624)
         Me.ReportViewer1.TabIndex = 0
         '
         'MiComercioTableAdapter
@@ -94,10 +94,11 @@ Partial Class ViewerPresupuestos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(725, 624)
+        Me.ClientSize = New System.Drawing.Size(874, 624)
         Me.Controls.Add(Me.ReportViewer1)
         Me.KeyPreview = True
         Me.Name = "ViewerPresupuestos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ViewerPresupuestos"
         Me.Text = "Vista Previa Presupuestos"
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

@@ -646,7 +646,8 @@ Module SGCModule
         ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter
         '*******************************************************************************
         Dim fileReader As String
-        Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
+        Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString) 'gActiveSQLConnectionString
+        'MsgBox(gActiveSQLConnectionString)
         Dim mycommand As New SqlCommand
 
         'fileReader = My.Computer.FileSystem.ReadAllText("C:\SGComercial\UpdatePack\Ejecutable\BD\test.txt")
@@ -672,27 +673,19 @@ Module SGCModule
                     End Try
                     'MsgBox(sFile, MsgBoxStyle.Information, "Upgrade data base")
                 Catch ex As Exception
-                    'MsgBox("Ocurrio un problema en: ActualizarBD() -" + ex.Message)
-                    myConn2.Close()
-                    myConn2.Dispose()
                     ErrorLogTableAdapter.errorlog_insertar("Aplicación", "Actualización de versión", "ActualizarBD", sFile + " - " + ex.Message)
                     status = False
                     cod = 1
                     msg = "Ocurrio un problema en: ActualizarBD() - " + sFile + " - " + ex.Message
-                    Try
-                        FileSystem.Kill(sFile)
-                    Catch ex2 As Exception
-
-                    End Try
                     'Exit For
                 End Try
                 status = True
                 cod = 0
                 msg = Nothing
             Next
-            myConn2.Close()
-            myConn2.Dispose()
         End If
+        myConn2.Close()
+        myConn2.Dispose()
     End Sub
     Public Sub ReparaProductosMedidas()
         Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
