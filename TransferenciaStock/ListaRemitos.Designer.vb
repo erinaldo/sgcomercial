@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ListaRemitos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,9 @@ Partial Class ListaRemitos
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ListaremitosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -39,10 +36,11 @@ Partial Class ListaRemitos
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ReportePorRangoDeFechasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListaremitosBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaremitosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.listaremitosdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosdetalleTableAdapter()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,6 +49,7 @@ Partial Class ListaRemitos
         CType(Me.listaremitosdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ListaremitosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.ListaremitosBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -79,7 +78,7 @@ Partial Class ListaRemitos
         Me.GroupBox1.Controls.Add(Me.ListaremitosDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(598, 593)
+        Me.GroupBox1.Size = New System.Drawing.Size(598, 612)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Listado de remitos (clic para ver detalle del remito)"
@@ -90,9 +89,13 @@ Partial Class ListaRemitos
         Me.ListaremitosDataGridView.AllowUserToDeleteRows = False
         Me.ListaremitosDataGridView.AllowUserToResizeColumns = False
         Me.ListaremitosDataGridView.AllowUserToResizeRows = False
+        Me.ListaremitosDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListaremitosDataGridView.AutoGenerateColumns = False
         Me.ListaremitosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ListaremitosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.ListaremitosDataGridView.ContextMenuStrip = Me.ContextMenuStrip1
         Me.ListaremitosDataGridView.DataSource = Me.ListaremitosBindingSource1
         Me.ListaremitosDataGridView.Location = New System.Drawing.Point(15, 30)
         Me.ListaremitosDataGridView.MultiSelect = False
@@ -100,7 +103,7 @@ Partial Class ListaRemitos
         Me.ListaremitosDataGridView.ReadOnly = True
         Me.ListaremitosDataGridView.RowTemplate.Height = 24
         Me.ListaremitosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ListaremitosDataGridView.Size = New System.Drawing.Size(577, 547)
+        Me.ListaremitosDataGridView.Size = New System.Drawing.Size(577, 566)
         Me.ListaremitosDataGridView.TabIndex = 0
         '
         'DataGridViewTextBoxColumn1
@@ -153,6 +156,19 @@ Partial Class ListaRemitos
         Me.DataGridViewTextBoxColumn7.HeaderText = "Fecha"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReportePorRangoDeFechasToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(269, 28)
+        '
+        'ReportePorRangoDeFechasToolStripMenuItem
+        '
+        Me.ReportePorRangoDeFechasToolStripMenuItem.Name = "ReportePorRangoDeFechasToolStripMenuItem"
+        Me.ReportePorRangoDeFechasToolStripMenuItem.Size = New System.Drawing.Size(268, 24)
+        Me.ReportePorRangoDeFechasToolStripMenuItem.Text = "Reporte por rango de fechas"
         '
         'ListaremitosBindingSource1
         '
@@ -209,6 +225,7 @@ Partial Class ListaRemitos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
@@ -226,23 +243,6 @@ Partial Class ListaRemitos
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'ReportViewer1
-        '
-        ReportDataSource1.Name = "MiComercio"
-        ReportDataSource1.Value = Me.MiComercioBindingSource
-        ReportDataSource2.Name = "listaremitos"
-        ReportDataSource2.Value = Me.ListaremitosBindingSource
-        ReportDataSource3.Name = "listaremitosdetalle"
-        ReportDataSource3.Value = Me.listaremitosdetalleBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEnvioSucursal.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(673, 61)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(337, 198)
-        Me.ReportViewer1.TabIndex = 1
-        '
         'MiComercioTableAdapter
         '
         Me.MiComercioTableAdapter.ClearBeforeFill = True
@@ -255,9 +255,9 @@ Partial Class ListaRemitos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(623, 613)
-        Me.Controls.Add(Me.ReportViewer1)
+        Me.ClientSize = New System.Drawing.Size(623, 640)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -271,6 +271,7 @@ Partial Class ListaRemitos
         CType(Me.listaremitosdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.ListaremitosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.ListaremitosBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -289,10 +290,11 @@ Partial Class ListaRemitos
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents ReportViewer1 As ReportViewer
     Friend WithEvents MiComercioBindingSource As BindingSource
     Friend WithEvents listaremitosdetalleBindingSource As BindingSource
     Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
     Friend WithEvents listaremitosdetalleTableAdapter As comercialDataSetTableAdapters.listaremitosdetalleTableAdapter
     Friend WithEvents ListaremitosBindingSource1 As BindingSource
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents ReportePorRangoDeFechasToolStripMenuItem As ToolStripMenuItem
 End Class

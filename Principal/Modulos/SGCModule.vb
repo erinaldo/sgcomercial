@@ -48,6 +48,7 @@ Module SGCModule
     Public guserprofile As String
     Public gusername As String
     Public gnombremodulo As String
+    Public gReporteSeleccionado As String
     '**************************************************
     Public gmontoapagar As Decimal
     Public gmontoinicial As Decimal

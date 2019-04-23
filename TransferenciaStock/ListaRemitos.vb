@@ -42,4 +42,15 @@
     Private Sub ListaremitosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListaremitosDataGridView.CellContentClick
 
     End Sub
+
+    Private Sub RemitosEnUnRangoDeFechasToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ReportePorRangoDeFechasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportePorRangoDeFechasToolStripMenuItem.Click
+        Dim gg As ViewerReportesRemitos
+        gg = New ViewerReportesRemitos
+        gReporteSeleccionado = "RepEnviosRangoFechas"
+        gg.ShowDialog()
+    End Sub
 End Class
