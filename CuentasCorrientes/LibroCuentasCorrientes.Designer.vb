@@ -23,9 +23,9 @@ Partial Class LibroCuentasCorrientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.LibrocuentascorrientesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre = New System.Windows.Forms.DataGridViewLinkColumn()
@@ -41,6 +41,7 @@ Partial Class LibroCuentasCorrientes
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LibrocuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librocuentascorrientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.LibrocuentascorrientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibrocuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,9 +52,9 @@ Partial Class LibroCuentasCorrientes
         '
         Me.LibrocuentascorrientesDataGridView.AllowUserToAddRows = False
         Me.LibrocuentascorrientesDataGridView.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
-        Me.LibrocuentascorrientesDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        Me.LibrocuentascorrientesDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         Me.LibrocuentascorrientesDataGridView.AutoGenerateColumns = False
         Me.LibrocuentascorrientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LibrocuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.nombre, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.saldo, Me.saldovencido})
@@ -62,9 +63,9 @@ Partial Class LibroCuentasCorrientes
         Me.LibrocuentascorrientesDataGridView.MultiSelect = False
         Me.LibrocuentascorrientesDataGridView.Name = "LibrocuentascorrientesDataGridView"
         Me.LibrocuentascorrientesDataGridView.ReadOnly = True
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        Me.LibrocuentascorrientesDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
+        Me.LibrocuentascorrientesDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.LibrocuentascorrientesDataGridView.RowTemplate.Height = 24
         Me.LibrocuentascorrientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.LibrocuentascorrientesDataGridView.Size = New System.Drawing.Size(978, 452)
@@ -118,8 +119,8 @@ Partial Class LibroCuentasCorrientes
         'saldo
         '
         Me.saldo.DataPropertyName = "saldo"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.saldo.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.saldo.DefaultCellStyle = DataGridViewCellStyle5
         Me.saldo.HeaderText = "Saldo"
         Me.saldo.Name = "saldo"
         Me.saldo.ReadOnly = True
@@ -146,6 +147,7 @@ Partial Class LibroCuentasCorrientes
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.LibrocuentascorrientesDataGridView)
@@ -222,6 +224,7 @@ Partial Class LibroCuentasCorrientes
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
@@ -238,6 +241,15 @@ Partial Class LibroCuentasCorrientes
         Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(437, 34)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(218, 31)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Imprimir reporte de morosos"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'LibroCuentasCorrientes
         '
@@ -276,4 +288,5 @@ Partial Class LibroCuentasCorrientes
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents saldo As DataGridViewTextBoxColumn
     Friend WithEvents saldovencido As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

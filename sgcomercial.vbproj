@@ -33,8 +33,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>62</ApplicationRevision>
-    <ApplicationVersion>4.0.8.62</ApplicationVersion>
+    <ApplicationRevision>64</ApplicationRevision>
+    <ApplicationVersion>4.0.8.64</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -247,6 +247,12 @@
       <DependentUpon>ViewerCtaCte.vb</DependentUpon>
     </Compile>
     <Compile Include="CuentasCorrientes\Reportes\ViewerCtaCte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasCorrientes\ViewerReporteCC.Designer.vb">
+      <DependentUpon>ViewerReporteCC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\ViewerReporteCC.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Delivery\ABMTransportes.Designer.vb">
@@ -1058,9 +1064,13 @@
     <EmbeddedResource Include="CuentasCorrientes\RegistrarVentaCC.resx">
       <DependentUpon>RegistrarVentaCC.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CuentasCorrientes\Reportes\RepCCMorosos.rdlc" />
     <EmbeddedResource Include="CuentasCorrientes\Reportes\RepResumenCtaCte.rdlc" />
     <EmbeddedResource Include="CuentasCorrientes\Reportes\ViewerCtaCte.resx">
       <DependentUpon>ViewerCtaCte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasCorrientes\ViewerReporteCC.resx">
+      <DependentUpon>ViewerReporteCC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\ABMTransportes.resx">
       <DependentUpon>ABMTransportes.vb</DependentUpon>
@@ -1561,42 +1571,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

@@ -543,6 +543,7 @@
                                         <Value>=Fields!fechaalta.Value</Value>
                                         <Style>
                                           <FontWeight>Bold</FontWeight>
+                                          <Format>dd/MM/yyyy</Format>
                                         </Style>
                                       </TextRun>
                                     </TextRuns>

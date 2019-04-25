@@ -1,5 +1,7 @@
 ﻿Public Class ViewerReportesRemitos
     Private Sub ViewerReportesRemitos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
+
         DateTimePicker1.Value = Today
         DateTimePicker2.Value = Today
         Dim SucursalesTableAdapter As comercialDataSetTableAdapters.sucursalesTableAdapter
