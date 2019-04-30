@@ -51,7 +51,7 @@ Partial Class ViewerListaProduccion
         Me.GroupBox1.Controls.Add(Me.ReportViewer1)
         Me.GroupBox1.Location = New System.Drawing.Point(8, 107)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(789, 580)
+        Me.GroupBox1.Size = New System.Drawing.Size(952, 580)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -62,7 +62,7 @@ Partial Class ViewerListaProduccion
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Location = New System.Drawing.Point(11, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(783, 89)
+        Me.GroupBox2.Size = New System.Drawing.Size(946, 89)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Opciones"
@@ -107,7 +107,7 @@ Partial Class ViewerListaProduccion
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepListaProduccion.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(783, 559)
+        Me.ReportViewer1.Size = New System.Drawing.Size(946, 559)
         Me.ReportViewer1.TabIndex = 0
         '
         'comercialDataSet
@@ -137,7 +137,7 @@ Partial Class ViewerListaProduccion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(809, 699)
+        Me.ClientSize = New System.Drawing.Size(972, 699)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "ViewerListaProduccion"
