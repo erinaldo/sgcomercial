@@ -24,6 +24,7 @@ Partial Class PedidosDeliveryRecibidos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -86,6 +87,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -100,10 +102,19 @@ Partial Class PedidosDeliveryRecibidos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lista de pedidos recibidos"
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(918, 25)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(174, 34)
+        Me.Button3.TabIndex = 9
+        Me.Button3.Text = "Lista de Producción"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'TextBox1
         '
         Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(556, 23)
+        Me.TextBox1.Location = New System.Drawing.Point(513, 31)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(216, 22)
         Me.TextBox1.TabIndex = 8
@@ -114,7 +125,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Pedido N°", "Cliente"})
-        Me.ComboBox1.Location = New System.Drawing.Point(427, 22)
+        Me.ComboBox1.Location = New System.Drawing.Point(384, 30)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 24)
         Me.ComboBox1.TabIndex = 7
@@ -123,7 +134,7 @@ Partial Class PedidosDeliveryRecibidos
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(339, 26)
+        Me.Label1.Location = New System.Drawing.Point(296, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(73, 17)
         Me.Label1.TabIndex = 6
@@ -131,7 +142,7 @@ Partial Class PedidosDeliveryRecibidos
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(796, -5)
+        Me.Button1.Location = New System.Drawing.Point(796, -16)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(102, 34)
         Me.Button1.TabIndex = 4
@@ -141,7 +152,7 @@ Partial Class PedidosDeliveryRecibidos
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(903, -5)
+        Me.Button2.Location = New System.Drawing.Point(903, -16)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(100, 34)
         Me.Button2.TabIndex = 5
@@ -252,13 +263,13 @@ Partial Class PedidosDeliveryRecibidos
         Me.ListapedidosdeliveryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ListapedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpedidodelivery, Me.estado, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.imprimircomanda, Me.Pagar, Me.Baja, Me.saldo, Me.idcliente, Me.modificar})
         Me.ListapedidosdeliveryDataGridView.DataSource = Me.ListapedidosdeliveryBindingSource
-        Me.ListapedidosdeliveryDataGridView.Location = New System.Drawing.Point(16, 52)
+        Me.ListapedidosdeliveryDataGridView.Location = New System.Drawing.Point(16, 79)
         Me.ListapedidosdeliveryDataGridView.MultiSelect = False
         Me.ListapedidosdeliveryDataGridView.Name = "ListapedidosdeliveryDataGridView"
         Me.ListapedidosdeliveryDataGridView.ReadOnly = True
         Me.ListapedidosdeliveryDataGridView.RowTemplate.Height = 24
         Me.ListapedidosdeliveryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1076, 542)
+        Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1076, 515)
         Me.ListapedidosdeliveryDataGridView.TabIndex = 0
         '
         'idpedidodelivery
@@ -268,7 +279,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.idpedidodelivery.Name = "idpedidodelivery"
         Me.idpedidodelivery.ReadOnly = True
         Me.idpedidodelivery.ToolTipText = "Pedido N°"
-        Me.idpedidodelivery.Width = 93
+        Me.idpedidodelivery.Width = 101
         '
         'estado
         '
@@ -285,7 +296,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         Me.DataGridViewTextBoxColumn2.ToolTipText = "Fecha Alta"
-        Me.DataGridViewTextBoxColumn2.Width = 96
+        Me.DataGridViewTextBoxColumn2.Width = 104
         '
         'DataGridViewTextBoxColumn4
         '
@@ -358,7 +369,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.imprimircomanda.Text = "Imprimir Orden"
         Me.imprimircomanda.ToolTipText = "Imprimir Orden"
         Me.imprimircomanda.UseColumnTextForButtonValue = True
-        Me.imprimircomanda.Width = 96
+        Me.imprimircomanda.Width = 107
         '
         'Pagar
         '
@@ -451,6 +462,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.TableAdapterManager1.productosTableAdapter = Nothing
         Me.TableAdapterManager1.provinciasTableAdapter = Nothing
         Me.TableAdapterManager1.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager1.stockgeneralTableAdapter = Nothing
         Me.TableAdapterManager1.stockTableAdapter = Nothing
         Me.TableAdapterManager1.synclogTableAdapter = Nothing
         Me.TableAdapterManager1.tipocomprobantesTableAdapter = Nothing
@@ -514,6 +526,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
@@ -607,4 +620,5 @@ Partial Class PedidosDeliveryRecibidos
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button3 As Button
 End Class

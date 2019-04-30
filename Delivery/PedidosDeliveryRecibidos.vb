@@ -219,4 +219,11 @@
                 End Try
         End Select
     End Sub
+
+    Private Sub Button3_Click_2(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim y As ViewerListaProduccion
+        y = New ViewerListaProduccion
+        y.ShowDialog()
+
+    End Sub
 End Class
