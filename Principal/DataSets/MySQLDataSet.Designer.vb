@@ -28133,7 +28133,7 @@ Namespace MySQLDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(1) {}
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(2) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT `idstockgeneral`, `idsucursal`, `idproducto`, `idproveedor`, `codigoproduc"& _ 
@@ -28142,36 +28142,50 @@ Namespace MySQLDataSetTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "`stockgeneral_update`"
-            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._commandCollection(1).CommandText = "SELECT `idstockgeneral`, `idsucursal`, `idproducto`, `idproveedor`, `codigoproduc"& _ 
+                "to`, `rubro`, `producto`, `medida`, `disponible`, `unidades`, `stockminimo` FROM"& _ 
+                " `stockgeneral`"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where `codigoproducto`  = @codigoproducto"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@codigoproducto"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 45
+            param.IsNullable = true
+            param.SourceColumn = "codigoproducto"
+            Me._commandCollection(1).Parameters.Add(param)
+            Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "`stockgeneral_update`"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.StoredProcedure
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "idsucursal"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.Size = 2147483647
             param.IsNullable = true
-            Me._commandCollection(1).Parameters.Add(param)
+            Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "codigoproducto"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.Size = 45
             param.IsNullable = true
-            Me._commandCollection(1).Parameters.Add(param)
+            Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "disponible"
             param.DbType = Global.System.Data.DbType.[Decimal]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.NewDecimal
             param.Size = 2147483647
             param.IsNullable = true
-            Me._commandCollection(1).Parameters.Add(param)
+            Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "unidades"
             param.DbType = Global.System.Data.DbType.[Decimal]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.NewDecimal
             param.Size = 2147483647
             param.IsNullable = true
-            Me._commandCollection(1).Parameters.Add(param)
+            Me._commandCollection(2).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -28193,6 +28207,40 @@ Namespace MySQLDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As MySQLDataSet.stockgeneralDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As MySQLDataSet.stockgeneralDataTable = New MySQLDataSet.stockgeneralDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBycodigoproducto(ByVal dataTable As MySQLDataSet.stockgeneralDataTable, ByVal codigoproducto As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (codigoproducto Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(codigoproducto,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBycodigoproducto(ByVal codigoproducto As String) As MySQLDataSet.stockgeneralDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (codigoproducto Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(codigoproducto,String)
+            End If
             Dim dataTable As MySQLDataSet.stockgeneralDataTable = New MySQLDataSet.stockgeneralDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -28553,7 +28601,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function stockgeneral_update(ByVal idsucursal As Global.System.Nullable(Of Integer), ByVal codigoproducto As String, ByVal disponible As Global.System.Nullable(Of Decimal), ByVal unidades As Global.System.Nullable(Of Decimal)) As Integer
-            Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(1)
+            Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(2)
             If (idsucursal.HasValue = true) Then
                 command.Parameters(0).Value = CType(idsucursal.Value,Integer)
             Else

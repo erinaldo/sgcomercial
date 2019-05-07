@@ -169,7 +169,10 @@
                 End If
                 '***********************************************************
                 If gidpago > 0 Then ' visualizar el pago
-                    Return
+                    Dim p As ViewerRecibo 'ViewerFactura
+                    p = New ViewerRecibo 'ViewerFactura
+                    p.ShowDialog()
+
                 End If
                 If gidventa > 0 Then
                     Dim p As ConsultarVenta 'ViewerFactura

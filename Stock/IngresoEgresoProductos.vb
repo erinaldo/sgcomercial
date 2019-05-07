@@ -19,6 +19,7 @@ Public Class ingresoegresoproductos
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
         'Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
         enableedit(True)
+        LinkStockRemoto.Enabled = False
         'Labeldescripcion.Text = ""
 
 
@@ -187,6 +188,7 @@ Public Class ingresoegresoproductos
                 CantidadTextBox.Text = ""
                 textstockminimo.Text = Nothing
                 TextBoxEnvasado.Text = Nothing
+                LinkStockRemoto.Enabled = False
                 'MsgBox("El código ingresado no pertenece a ningun producto registrado", MsgBoxStyle.Information, "Advertencia")
             End If
         End If
@@ -208,6 +210,9 @@ Public Class ingresoegresoproductos
             End If
             textstockminimo.Text = ProductosTableAdapter.productos_stockminimo(codigoproductoTextBox.Text)
             Labeldescripcion.Text = ProductosTableAdapter.productos_consultardescripcion(codigoproductoTextBox.Text)
+            gcodigoproducto = codigoproductoTextBox.Text
+            LinkStockRemoto.Enabled = True
+
 
             If StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)) > 0 Then
                 textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
@@ -226,6 +231,7 @@ Public Class ingresoegresoproductos
             CantidadTextBox.Text = ""
             textstockminimo.Text = Nothing
             TextBoxEnvasado.Text = Nothing
+            LinkStockRemoto.Enabled = False
             'MsgBox("El código ingresado no pertenece a ningun producto registrado", MsgBoxStyle.Information, "Advertencia")
         End If
     End Sub
@@ -309,5 +315,11 @@ Public Class ingresoegresoproductos
         Dim coderror As Long
         Dim msgerror As String = Nothing
         SynStockClowd(idproducto, "A", coderror, msgerror)
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkStockRemoto.LinkClicked
+        Dim stkr As ConsultaStockRemotoProducto
+        stkr = New ConsultaStockRemotoProducto
+        stkr.ShowDialog()
     End Sub
 End Class

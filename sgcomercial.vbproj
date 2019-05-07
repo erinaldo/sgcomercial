@@ -351,6 +351,12 @@
     <Compile Include="Principal\ParametrosGenerales\FormWebConf.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Stock\ConsultaStockRemotoProducto.Designer.vb">
+      <DependentUpon>ConsultaStockRemotoProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\ConsultaStockRemotoProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Testing\POSTForm.Designer.vb">
       <DependentUpon>POSTForm.vb</DependentUpon>
     </Compile>
@@ -1083,6 +1089,7 @@
       <DependentUpon>RegistrarVentaCC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\Reportes\RepCCMorosos.rdlc" />
+    <EmbeddedResource Include="CuentasCorrientes\Reportes\RepReciboPago.rdlc" />
     <EmbeddedResource Include="CuentasCorrientes\Reportes\RepResumenCtaCte.rdlc" />
     <EmbeddedResource Include="CuentasCorrientes\Reportes\ViewerCtaCte.resx">
       <DependentUpon>ViewerCtaCte.vb</DependentUpon>
@@ -1138,6 +1145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\ParametrosGenerales\FormWebConf.resx">
       <DependentUpon>FormWebConf.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\ConsultaStockRemotoProducto.resx">
+      <DependentUpon>ConsultaStockRemotoProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Testing\POSTForm.resx">
       <DependentUpon>POSTForm.vb</DependentUpon>

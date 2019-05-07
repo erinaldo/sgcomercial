@@ -43,6 +43,7 @@ Partial Class ingresoegresoproductos
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.LinkStockRemoto = New System.Windows.Forms.LinkLabel()
         Me.TextBoxEnvasado = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.textstockminimo = New System.Windows.Forms.TextBox()
@@ -202,7 +203,7 @@ Partial Class ingresoegresoproductos
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(718, 434)
+        Me.GroupBox1.Size = New System.Drawing.Size(718, 436)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Movimiento de Stock"
@@ -293,6 +294,7 @@ Partial Class ingresoegresoproductos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.LinkStockRemoto)
         Me.GroupBox2.Controls.Add(Me.TextBoxEnvasado)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.textstockminimo)
@@ -308,6 +310,16 @@ Partial Class ingresoegresoproductos
         Me.GroupBox2.TabIndex = 17
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Estado actual en Stock"
+        '
+        'LinkStockRemoto
+        '
+        Me.LinkStockRemoto.AutoSize = True
+        Me.LinkStockRemoto.Location = New System.Drawing.Point(396, 71)
+        Me.LinkStockRemoto.Name = "LinkStockRemoto"
+        Me.LinkStockRemoto.Size = New System.Drawing.Size(217, 20)
+        Me.LinkStockRemoto.TabIndex = 5
+        Me.LinkStockRemoto.TabStop = True
+        Me.LinkStockRemoto.Text = "Ver Stock en Sucursales"
         '
         'TextBoxEnvasado
         '
@@ -332,7 +344,7 @@ Partial Class ingresoegresoproductos
         'textstockminimo
         '
         Me.textstockminimo.Enabled = False
-        Me.textstockminimo.Location = New System.Drawing.Point(271, 72)
+        Me.textstockminimo.Location = New System.Drawing.Point(142, 68)
         Me.textstockminimo.Margin = New System.Windows.Forms.Padding(4)
         Me.textstockminimo.Name = "textstockminimo"
         Me.textstockminimo.ReadOnly = True
@@ -356,7 +368,7 @@ Partial Class ingresoegresoproductos
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(135, 74)
+        Me.Label2.Location = New System.Drawing.Point(6, 70)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(128, 20)
@@ -642,6 +654,7 @@ Partial Class ingresoegresoproductos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
@@ -674,7 +687,7 @@ Partial Class ingresoegresoproductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(747, 457)
+        Me.ClientSize = New System.Drawing.Size(747, 460)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -755,4 +768,5 @@ Partial Class ingresoegresoproductos
     Friend WithEvents TextBoxEnvasado As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
+    Friend WithEvents LinkStockRemoto As LinkLabel
 End Class

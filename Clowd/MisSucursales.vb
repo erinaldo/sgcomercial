@@ -12,19 +12,23 @@ Public Class MisSucursales
 
     Private Sub MisSucursales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cursor.Current = Cursors.WaitCursor
+
         Dim TerminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
         TerminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
-        gMiIDCliente = TerminalesTableAdapter.terminales_consultarIDCliente(gmacadress)
-        If ComboSucursal.Items.Count = 0 Then
-            If gMiIDCliente > 0 Then
-                Me.ClientessucursalesTableAdapter.FillByIDcliente(Me.SiscomDataSet.clientessucursales, gMiIDCliente)
-                Cursor.Current = Cursors.Default
-            Else
-                Cursor.Current = Cursors.Default
-                MsgBox("No se pudo obtener el identificador de cliente", MsgBoxStyle.Exclamation, "Advertencia")
+        Try
+            gMiIDCliente = TerminalesTableAdapter.terminales_consultarIDCliente(gmacadress)
+            If ComboSucursal.Items.Count = 0 Then
+                If gMiIDCliente > 0 Then
+                    Me.ClientessucursalesTableAdapter.FillByIDcliente(Me.SiscomDataSet.clientessucursales, gMiIDCliente)
+                    Cursor.Current = Cursors.Default
+                Else
+                    Cursor.Current = Cursors.Default
+                    MsgBox("No se pudo obtener el identificador de cliente", MsgBoxStyle.Exclamation, "Advertencia")
+                End If
             End If
-        End If
-
+        Catch ex As Exception
+            MsgBox("Excepción: " + ex.Message)
+        End Try
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboInforme.SelectedIndexChanged

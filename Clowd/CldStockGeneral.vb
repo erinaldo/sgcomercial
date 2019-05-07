@@ -14,16 +14,20 @@
         Me.StockgeneralTableAdapter.Fill(Me.MySQLDataSet.stockgeneral)
         Dim StockremotoTableAdapter As comercialDataSetTableAdapters.stockremotoTableAdapter
         StockremotoTableAdapter = New comercialDataSetTableAdapters.stockremotoTableAdapter()
+        Try
+            Dim existe As Integer
+            For i = 0 To StockgeneralDataGridView.RowCount - 1
+                existe = StockremotoTableAdapter.stockremoto_existe(StockgeneralDataGridView.Rows(i).Cells("idsucursal").Value, StockgeneralDataGridView.Rows(i).Cells("codigoproducto").Value)
+                If existe = 0 Then
+                    StockremotoTableAdapter.stockremoto_insertar(StockgeneralDataGridView.Rows(i).Cells("idsucursal").Value, StockgeneralDataGridView.Rows(i).Cells("codigoproducto").Value, StockgeneralDataGridView.Rows(i).Cells("disponible").Value, StockgeneralDataGridView.Rows(i).Cells("unidades").Value)
+                Else
+                    StockremotoTableAdapter.stockremoto_update(StockgeneralDataGridView.Rows(i).Cells("disponible").Value, StockgeneralDataGridView.Rows(i).Cells("unidades").Value, StockgeneralDataGridView.Rows(i).Cells("idsucursal").Value, StockgeneralDataGridView.Rows(i).Cells("codigoproducto").Value)
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox("Excepción: " + ex.Message)
+        End Try
 
-        Dim existe As Integer
-        For i = 0 To StockgeneralDataGridView.RowCount - 1
-            existe = StockremotoTableAdapter.stockremoto_existe(StockgeneralDataGridView.Rows(i).Cells("idsucursal").Value, StockgeneralDataGridView.Rows(i).Cells("codigoproducto").Value)
-            If existe = 0 Then
-                StockremotoTableAdapter.stockremoto_insertar(StockgeneralDataGridView.Rows(i).Cells("idsucursal").Value, StockgeneralDataGridView.Rows(i).Cells("codigoproducto").Value, StockgeneralDataGridView.Rows(i).Cells("disponible").Value, StockgeneralDataGridView.Rows(i).Cells("unidades").Value)
-            Else
-                StockremotoTableAdapter.stockremoto_update(StockgeneralDataGridView.Rows(i).Cells("disponible").Value, StockgeneralDataGridView.Rows(i).Cells("unidades").Value, StockgeneralDataGridView.Rows(i).Cells("idsucursal").Value, StockgeneralDataGridView.Rows(i).Cells("codigoproducto").Value)
-            End If
-        Next
         Cursor.Current = Cursors.Default
         ComboBox1.SelectedIndex = 2
         TextBox1.Select()
