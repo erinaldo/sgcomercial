@@ -33,8 +33,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>65</ApplicationRevision>
-    <ApplicationVersion>4.0.8.65</ApplicationVersion>
+    <ApplicationRevision>68</ApplicationRevision>
+    <ApplicationVersion>4.0.8.68</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -247,6 +247,12 @@
       <DependentUpon>ViewerCtaCte.vb</DependentUpon>
     </Compile>
     <Compile Include="CuentasCorrientes\Reportes\ViewerCtaCte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasCorrientes\Reportes\ViewerRecibo.Designer.vb">
+      <DependentUpon>ViewerRecibo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\Reportes\ViewerRecibo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CuentasCorrientes\ViewerReporteCC.Designer.vb">
@@ -829,6 +835,12 @@
     <Compile Include="Ventas\Reportes\ReporteCierreCaja.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\Reportes\VentasPorUsuario.Designer.vb">
+      <DependentUpon>VentasPorUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Reportes\VentasPorUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\Reportes\ViewerFactura.Designer.vb">
       <DependentUpon>ViewerFactura.vb</DependentUpon>
     </Compile>
@@ -1074,6 +1086,9 @@
     <EmbeddedResource Include="CuentasCorrientes\Reportes\RepResumenCtaCte.rdlc" />
     <EmbeddedResource Include="CuentasCorrientes\Reportes\ViewerCtaCte.resx">
       <DependentUpon>ViewerCtaCte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasCorrientes\Reportes\ViewerRecibo.resx">
+      <DependentUpon>ViewerRecibo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\ViewerReporteCC.resx">
       <DependentUpon>ViewerReporteCC.vb</DependentUpon>
@@ -1376,6 +1391,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\GraphIngresos.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepPresupuesto.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepVentasPorUsuario.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\VentasPorUsuario.resx">
+      <DependentUpon>VentasPorUsuario.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\ViewerFactura.resx">
       <DependentUpon>ViewerFactura.vb</DependentUpon>
     </EmbeddedResource>

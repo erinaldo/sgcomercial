@@ -595,6 +595,29 @@ Module SGCModule
         '        Return
         '    End Try
         '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
+        '   *********************   CREANDO OBJETOS DE CONEXION SISCOMBD
+        Dim TerminalesSCTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+        TerminalesSCTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+        Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
+        parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        '/*********************************************************/
+        '   *********************   VALIDAR SUSCRIPCION A SOPORTE Y ACTUALIZACIONES
+        '/*********************************************************/
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Try
+
+            gAutoUpdater = TerminalesSCTableAdapter.terminales_autoupdater(gTerminal)
+            If gAutoUpdater = 0 Then
+                Cursor.Current = Cursors.Default
+                MsgBox("Tu suscripción a soporte y actualizaciones se encuentra vencida!", MsgBoxStyle.Exclamation, "Advertencia")
+                Return
+            End If
+        Catch ex As Exception
+            MsgBox("No se pudo validar tu suscripción a SGComercial", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End Try
+
+        '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
         '   *********************   DESCOMPRIMIR LA NUEVA VERSION
         Try
             Module_unrar.UnRar("C:\SGComercial\UpdatePack\Ejecutable\", "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
@@ -606,16 +629,11 @@ Module SGCModule
         '''''''''''''''''''''''''''''''''''''''''''''''
         'Cursor.Current = Cursors.Default
         MsgBox("La aplicación se cerrará para comenzar el proceso de instalación", MsgBoxStyle.Information, "Advertencia")
-            '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
-            '   *********************   CREANDO OBJETOS DE CONEXION SISCOMBD
-            Dim TerminalesSCTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
-            TerminalesSCTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
-            Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
-            parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
-            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            '================= ACTUALIZAR OBJETOS DE BASE DE DATOS
-            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            Dim status As Boolean
+        '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        '================= ACTUALIZAR OBJETOS DE BASE DE DATOS
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Dim status As Boolean
             Dim cod As Integer
             Dim msg As String = Nothing
             Try

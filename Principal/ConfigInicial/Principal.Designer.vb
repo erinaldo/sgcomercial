@@ -191,6 +191,7 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
+        Me.VentasPorUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -266,7 +267,7 @@ Partial Class Principal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LibroVentasToolStripMenuItem, Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LibroVentasToolStripMenuItem, Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem, Me.VentasPorUsuarioToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.ReportesToolStripMenuItem.Tag = "ReportesParent"
@@ -1494,6 +1495,13 @@ Partial Class Principal
         'BGWStock
         '
         '
+        'VentasPorUsuarioToolStripMenuItem
+        '
+        Me.VentasPorUsuarioToolStripMenuItem.Name = "VentasPorUsuarioToolStripMenuItem"
+        Me.VentasPorUsuarioToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.VentasPorUsuarioToolStripMenuItem.Tag = "ReporteVentasPorUsuario"
+        Me.VentasPorUsuarioToolStripMenuItem.Text = "Ventas por Usuario"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1709,4 +1717,5 @@ Partial Class Principal
     Friend WithEvents PresupuestosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistrarPresupuestoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PresupuestosGeneradosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VentasPorUsuarioToolStripMenuItem As ToolStripMenuItem
 End Class

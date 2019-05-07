@@ -38,20 +38,14 @@ Public Class loginform
         If rtn = 0 Then
             MsgBox("Los datos ingresados son incorrectos", MsgBoxStyle.Information, "Advertencia")
         Else    '''''''' ACCESO CORRECTO   ´'''''''''''''
-            '************  VALIDAR LICENCIA    **************************
+            ''************  VALIDAR LICENCIA    **************************
             'ValidarLicencia(gmacadress, LicenceValidDate)
             'If LicenceValidDate = Nothing Or LicenceValidDate < Now Then
-            '    Cursor.Current = Cursors.Default
-            '    If LicenceValidDate = Nothing Then
-            '        MsgBox("No posee suscripción activa, periodo de prueba finalizado.", MsgBoxStyle.Exclamation, "Licencia Inválida")
-            '    End If
-            '    'If LicenceValidDate < Now Then
-            '    '    MsgBox("Usted no posee una suscripción activa, su periodo de prueba ha finalizado.", MsgBoxStyle.Exclamation, "Licencia Inválida")
-            '    'End If
-
-            '    'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
-            '    closeaplication(False)
-            'Else
+            '    MsgBox("Usted no posee una suscripción activa, o su periodo de prueba ha finalizado.", MsgBoxStyle.Exclamation, "Licencia Inválida")
+            '    System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+            '    End
+            'End If
+            ''************  VALIDAR LICENCIA    **************************
             gusername = textusuario.Text
             guserid = rtn
             guserprofile = UsuariosTableAdapter.usuarios_getperfil(gusername)
@@ -377,6 +371,7 @@ Public Class loginform
     End Sub
 
     Private Sub Button3_Click_3(sender As Object, e As EventArgs) Handles Button3.Click
+        'btn descarga actualizacion
         If UpdateAlertStatus = False Then Return
         Try
             '**********************************************
@@ -488,5 +483,9 @@ Public Class loginform
         'MsgBox("Descarga completa! " + gDownloadProgress.ToString)
         xi.Dispose()
         UpdateSGC(newversion)
+    End Sub
+
+    Private Sub LabelDatosCliente_Click(sender As Object, e As EventArgs) Handles LabelDatosCliente.Click
+
     End Sub
 End Class

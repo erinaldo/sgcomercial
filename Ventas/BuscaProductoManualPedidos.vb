@@ -43,7 +43,7 @@ Public Class BuscaProductoManualPedidos
             MsgBox("NO hay productos en la lista!")
             Me.Close()
         End Try
-        montotextbox.Enabled = False
+        montotextbox.Enabled = True
     End Sub
 
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged

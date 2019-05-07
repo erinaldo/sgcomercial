@@ -1057,4 +1057,9 @@ Public Class Principal
         PresupuestosGenerados.MdiParent = Me
         PresupuestosGenerados.Visible = True
     End Sub
+
+    Private Sub VentasPorUsuarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentasPorUsuarioToolStripMenuItem.Click
+        VentasPorUsuario.MdiParent = Me
+        VentasPorUsuario.Visible = True
+    End Sub
 End Class

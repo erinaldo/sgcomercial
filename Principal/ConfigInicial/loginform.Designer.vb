@@ -141,6 +141,7 @@ Partial Class loginform
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
@@ -346,7 +347,7 @@ Partial Class loginform
         'LabelDatosCliente
         '
         Me.LabelDatosCliente.Font = New System.Drawing.Font("Exo 2.0 Medium", 10.0!)
-        Me.LabelDatosCliente.Location = New System.Drawing.Point(3, 279)
+        Me.LabelDatosCliente.Location = New System.Drawing.Point(3, 278)
         Me.LabelDatosCliente.Name = "LabelDatosCliente"
         Me.LabelDatosCliente.Size = New System.Drawing.Size(483, 24)
         Me.LabelDatosCliente.TabIndex = 14
@@ -356,7 +357,7 @@ Partial Class loginform
         'LabelMACaddress
         '
         Me.LabelMACaddress.Font = New System.Drawing.Font("Exo 2.0 Medium", 11.0!)
-        Me.LabelMACaddress.Location = New System.Drawing.Point(3, 301)
+        Me.LabelMACaddress.Location = New System.Drawing.Point(3, 300)
         Me.LabelMACaddress.Name = "LabelMACaddress"
         Me.LabelMACaddress.Size = New System.Drawing.Size(483, 24)
         Me.LabelMACaddress.TabIndex = 15
