@@ -64,16 +64,19 @@
                 MsgBox("Ocurrió una excepción al buscar la información del cliente: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia!")
                 ClientesBindingSource.Filter = "idcliente = " + "0"
             End Try
-            Try
-                For i = 0 To ListacuentascorrientesDataGridView.RowCount - 1
-                    Select Case ListacuentascorrientesDataGridView.Rows(i).Cells("descripcion").Value
-                        Case "Pago"
-                            ListacuentascorrientesDataGridView.Rows(i).Cells("anular") = New DataGridViewTextBoxCell()
-                    End Select
-                Next
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            '''''''''''''   oculta el boton de anular en PAGOS
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            'Try
+            '    For i = 0 To ListacuentascorrientesDataGridView.RowCount - 1
+            '        Select Case ListacuentascorrientesDataGridView.Rows(i).Cells("descripcion").Value
+            '            Case "Pago"
+            '                ListacuentascorrientesDataGridView.Rows(i).Cells("anular") = New DataGridViewTextBoxCell()
+            '        End Select
+            '    Next
+            'Catch ex As Exception
+            '    MsgBox(ex.Message)
+            'End Try
         Else
             IdclienteTextBox.Text = "0"
             ClientesBindingSource.Filter = "idcliente = " + "0"
@@ -208,19 +211,17 @@
                 End If
                 '*******************    anular pagos    ******************************************************
                 If Not IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idpagos").Value) Then
-                    'MsgBox("No se puede anular el PAGO seleccionado", MsgBoxStyle.Exclamation)
-                    Return
-                    'gidpago = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idpagos").Value
-                    'If MsgBox("Seguro desea eliminar el pago?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
-                    '    Try
-                    '        PagosTableAdapter.pagos_anular(gidpago)
-                    '        MsgBox("Operacion exitosa!", MsgBoxStyle.Information)
-                    '        filtrarcliente()
-                    '        Return
-                    '    Catch ex As Exception
-                    '        MsgBox("Ocurrio un error: " + ex.Message)
-                    '    End Try
-                    'End If
+                    gidpago = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("idpagos").Value
+                    If MsgBox("Seguro desea eliminar el pago?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                        Try
+                            PagosTableAdapter.pagos_anular(gidpago)
+                            MsgBox("Operacion exitosa!", MsgBoxStyle.Information)
+                            filtrarcliente()
+                            Return
+                        Catch ex As Exception
+                            MsgBox("Ocurrio un error: " + ex.Message)
+                        End Try
+                    End If
                 End If
                 '***********************************************************
             Case Else
