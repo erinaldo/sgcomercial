@@ -394,7 +394,10 @@ Public Class RegistrarVenta
             '=================== FUNCIONES CLOWD NUBE  ================================
             If gModuloClowd = 1 Then
                 gidventa = idventas
-                BGWStockClowd.RunWorkerAsync()
+                If Not BGWStockClowd.IsBusy Then
+                    BGWStockClowd.RunWorkerAsync()
+                End If
+
                 If Not (BackgroundSyncLibroventasClowd.IsBusy) Then
                     BackgroundSyncLibroventasClowd.RunWorkerAsync()
                 End If
