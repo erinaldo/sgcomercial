@@ -55,6 +55,7 @@ Partial Class loginform
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LabelDatosCliente = New System.Windows.Forms.Label()
         Me.LabelMACaddress = New System.Windows.Forms.Label()
+        Me.BGWUpdateLicencia = New System.ComponentModel.BackgroundWorker()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -364,6 +365,9 @@ Partial Class loginform
         Me.LabelMACaddress.Text = "........................"
         Me.LabelMACaddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'BGWUpdateLicencia
+        '
+        '
         'loginform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -434,4 +438,5 @@ Partial Class loginform
     Friend WithEvents UpdateCheckBG As System.ComponentModel.BackgroundWorker
     Friend WithEvents LabelDatosCliente As Label
     Friend WithEvents LabelMACaddress As Label
+    Friend WithEvents BGWUpdateLicencia As System.ComponentModel.BackgroundWorker
 End Class

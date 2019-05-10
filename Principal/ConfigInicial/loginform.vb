@@ -38,14 +38,6 @@ Public Class loginform
         If rtn = 0 Then
             MsgBox("Los datos ingresados son incorrectos", MsgBoxStyle.Information, "Advertencia")
         Else    '''''''' ACCESO CORRECTO   ´'''''''''''''
-            ''************  VALIDAR LICENCIA    **************************
-            'ValidarLicencia(gmacadress, LicenceValidDate)
-            'If LicenceValidDate = Nothing Or LicenceValidDate < Now Then
-            '    MsgBox("Usted no posee una suscripción activa, o su periodo de prueba ha finalizado.", MsgBoxStyle.Exclamation, "Licencia Inválida")
-            '    System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
-            '    End
-            'End If
-            ''************  VALIDAR LICENCIA    **************************
             gusername = textusuario.Text
             guserid = rtn
             guserprofile = UsuariosTableAdapter.usuarios_getperfil(gusername)
@@ -216,7 +208,6 @@ Public Class loginform
         Else
             ActualizarBD(status, cod, msg)
         End If
-
         ReparaProductosMedidas()
         '''''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Conectando a la Nube"
@@ -236,6 +227,7 @@ Public Class loginform
         Cursor.Current = Cursors.Default
         hi.Dispose()
         GetCajaOperativa()
+        BGWUpdateLicencia.RunWorkerAsync()
         textusuario.Select()
     End Sub
     Private Sub GetCajaOperativa()
@@ -487,5 +479,32 @@ Public Class loginform
 
     Private Sub LabelDatosCliente_Click(sender As Object, e As EventArgs) Handles LabelDatosCliente.Click
 
+    End Sub
+
+    Private Sub BGWUpdateLicencia_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWUpdateLicencia.DoWork
+        UpdateLocalLicence()
+        '********************************************************
+        Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
+        parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        '********************************************************
+        gTipoLicencia = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("tipolicencia")
+        LicenceValidDate = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1(MachineKey)
+        '************  VALIDAR LICENCIA    **************************
+        If LicenceValidDate.ToShortDateString = DateTime.Now.ToShortDateString() Then
+            MessageBox.Show("Tu suscripción a soporte y actualizaciones expira hoy! Ponete en contacto con nosotros para renovarla!", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+            Return
+        End If
+        If LicenceValidDate.ToShortDateString < DateTime.Now.ToShortDateString() And gTipoLicencia <> "P" Then
+            MessageBox.Show("Tu suscripción a soporte y actualizaciones ha expirado. Ponete en contacto con nosotros para renovarla!", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+            AcercaDe.ShowDialog()
+            Return
+        Else
+            CreateObject("WScript.Shell").Popup("Periodo de prueba ha finalizado.", 5, "Advertencia! Licencia Caducada", vbExclamation)
+            System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+            End
+        End If
+        '************  VALIDAR LICENCIA    **************************
     End Sub
 End Class

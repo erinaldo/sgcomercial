@@ -33,9 +33,15 @@ Partial Class AcercaDe
         Me.IDCliente = New System.Windows.Forms.Label()
         Me.NombreCliente = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.LabelTipoLicencia = New System.Windows.Forms.Label()
+        Me.LabelVencimiento = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,7 +49,7 @@ Partial Class AcercaDe
         '
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OKButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.OKButton.Location = New System.Drawing.Point(285, 14)
+        Me.OKButton.Location = New System.Drawing.Point(276, 47)
         Me.OKButton.Margin = New System.Windows.Forms.Padding(4)
         Me.OKButton.Name = "OKButton"
         Me.OKButton.Size = New System.Drawing.Size(87, 37)
@@ -100,11 +106,14 @@ Partial Class AcercaDe
         '
         'LogoPictureBox
         '
+        Me.LogoPictureBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LogoPictureBox.Image = Global.sgcomercial.My.Resources.Resources.appicon
         Me.LogoPictureBox.Location = New System.Drawing.Point(4, 4)
         Me.LogoPictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.LogoPictureBox.Name = "LogoPictureBox"
-        Me.LogoPictureBox.Size = New System.Drawing.Size(276, 277)
+        Me.LogoPictureBox.Size = New System.Drawing.Size(276, 260)
         Me.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.LogoPictureBox.TabIndex = 0
         Me.LogoPictureBox.TabStop = False
@@ -159,6 +168,10 @@ Partial Class AcercaDe
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.LabelProductName)
         Me.GroupBox1.Controls.Add(Me.LabelVersion)
         Me.GroupBox1.Controls.Add(Me.LabelCopyright)
@@ -170,6 +183,67 @@ Partial Class AcercaDe
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Software"
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.LabelTipoLicencia)
+        Me.GroupBox3.Controls.Add(Me.LabelVencimiento)
+        Me.GroupBox3.Controls.Add(Me.Label8)
+        Me.GroupBox3.Controls.Add(Me.Label7)
+        Me.GroupBox3.Location = New System.Drawing.Point(210, 5)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(169, 125)
+        Me.GroupBox3.TabIndex = 14
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Datos de Licencia"
+        '
+        'LabelTipoLicencia
+        '
+        Me.LabelTipoLicencia.AutoSize = True
+        Me.LabelTipoLicencia.Location = New System.Drawing.Point(4, 49)
+        Me.LabelTipoLicencia.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.LabelTipoLicencia.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.LabelTipoLicencia.Name = "LabelTipoLicencia"
+        Me.LabelTipoLicencia.Size = New System.Drawing.Size(88, 17)
+        Me.LabelTipoLicencia.TabIndex = 4
+        Me.LabelTipoLicencia.Text = "TipoLicencia"
+        Me.LabelTipoLicencia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabelVencimiento
+        '
+        Me.LabelVencimiento.AutoSize = True
+        Me.LabelVencimiento.Location = New System.Drawing.Point(4, 91)
+        Me.LabelVencimiento.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.LabelVencimiento.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.LabelVencimiento.Name = "LabelVencimiento"
+        Me.LabelVencimiento.Size = New System.Drawing.Size(66, 17)
+        Me.LabelVencimiento.TabIndex = 3
+        Me.LabelVencimiento.Text = "fechaven"
+        Me.LabelVencimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(1, 70)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.Label8.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(85, 17)
+        Me.Label8.TabIndex = 2
+        Me.Label8.Text = "Vencimiento"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(1, 28)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(8, 0, 4, 0)
+        Me.Label7.MaximumSize = New System.Drawing.Size(0, 21)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(36, 17)
+        Me.Label7.TabIndex = 1
+        Me.Label7.Text = "Tipo"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.NombreCliente)
@@ -179,7 +253,7 @@ Partial Class AcercaDe
         Me.GroupBox2.Controls.Add(Me.IDTerminal)
         Me.GroupBox2.Location = New System.Drawing.Point(287, 133)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(379, 148)
+        Me.GroupBox2.Size = New System.Drawing.Size(379, 132)
         Me.GroupBox2.TabIndex = 13
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos del Cliente"
@@ -189,7 +263,7 @@ Partial Class AcercaDe
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.OKButton
-        Me.ClientSize = New System.Drawing.Size(678, 286)
+        Me.ClientSize = New System.Drawing.Size(678, 272)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.LogoPictureBox)
@@ -201,11 +275,13 @@ Partial Class AcercaDe
         Me.Name = "AcercaDe"
         Me.Padding = New System.Windows.Forms.Padding(12, 11, 12, 11)
         Me.ShowInTaskbar = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AcercaDe"
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
@@ -230,4 +306,9 @@ Partial Class AcercaDe
     Friend WithEvents IDTerminal As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents LabelTipoLicencia As Label
+    Friend WithEvents LabelVencimiento As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
 End Class

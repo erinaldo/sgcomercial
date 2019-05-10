@@ -13,6 +13,7 @@ Module SCModule
     Public MachineKey As String
     Public SCstatus As Boolean
     Public LicenceValidDate As DateTime
+    Public gTipoLicencia As String
     Public SCConn As MySqlConnection
 
     Sub conectarSCConn(ByRef status As Boolean)
@@ -82,6 +83,12 @@ Module SCModule
     End Sub
     '******************************-----------------------------------------------------------------------------------*****************************
     Public Sub UpdateLocalLicence()
+        'Dim table As DataTable = GetTable()
+        Dim table As New DataTable
+        ' Create four typed columns in the DataTable.
+        table.Columns.Add("autoupdater", GetType(Integer))
+        table.Columns.Add("tipolicencia", GetType(String))
+        table.Columns.Add("fechabaja", GetType(DateTime))
         '****Licencia local********
         Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
         parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
@@ -89,19 +96,31 @@ Module SCModule
         Try
             conectarSCConn(SCstatus)
             If SCstatus = False Then Return
+
             '*******************************************************************************
             '*************  terminalesTableAdapter    **************************************
             Try
                 Dim terminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
                 terminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
-                LicenceValidDate = terminalesTableAdapter.terminales_validarlicencia(gmacadress)
+                'LicenceValidDate = terminalesTableAdapter.terminales_validarlicencia(gmacadress)
+                table = terminalesTableAdapter.GetDataByDatosLicencia(gmacadress)
+                LicenceValidDate = table.Rows(0).Item("fechabaja")
+                '******************************************************
+                If IsDBNull(table.Rows(0).Item("tipolicencia")) Then
+                    gTipoLicencia = "P"
+                Else
+                    gTipoLicencia = table.Rows(0).Item("tipolicencia")
+                End If
+                '******************************************************
                 If parametrosgeneralesTableAdapter.parametrosgenerales_existeclave(MachineKey) > 0 Then
                     parametrosgeneralesTableAdapter.parametrosgenerales_updateprgstring1(MachineKey, LicenceValidDate.ToString) ' UPDATEA LOCAL
+                    parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("tipolicencia", Nothing, gTipoLicencia, Nothing)
                 End If
             Catch ex As Exception
                 Dim msg As String = ex.Message
                 LicenceValidDate = Nothing
             End Try
+
         Catch ex As Exception
             LicenceValidDate = Nothing
         End Try

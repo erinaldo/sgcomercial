@@ -38,7 +38,18 @@
         IDCliente.Text = "ID Cliente:" + gMiIDCliente.ToString
         Terminal.Text = "Terminal: " + gNombreTerminal
         IDTerminal.Text = "ID Terminal: " + gTerminal.ToString
-
+        Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
+        parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        LabelTipoLicencia.Text = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("tipolicencia")
+        Select Case LabelTipoLicencia.Text
+            Case "A"
+                LabelTipoLicencia.Text = "Anual"
+            Case "M"
+                LabelTipoLicencia.Text = "Mensual"
+            Case "P"
+                LabelTipoLicencia.Text = "Prueba"
+        End Select
+        LabelVencimiento.Text = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1(MachineKey)
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
