@@ -11,6 +11,7 @@ Public Class ABMGastos
         Button1.Enabled = status
         DescripcionTextBox.Enabled = status
         MontoTextBox.Enabled = status
+        ComboTipoGasto.Enabled = status
         'FechagastoDateTimePicker.Enabled = status
     End Sub
 
@@ -22,6 +23,8 @@ Public Class ABMGastos
     End Sub
 
     Private Sub ABMGastos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipogastos' Puede moverla o quitarla según sea necesario.
+        Me.TipogastosTableAdapter.Fill(Me.ComercialDataSet.tipogastos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
         Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.gastos' Puede moverla o quitarla según sea necesario.
@@ -65,7 +68,7 @@ Public Class ABMGastos
         If MsgBox("Seguro desea Guardar " + DescripcionTextBox.Text + " por un monto de: " + MontoTextBox.Text + " ?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
 
             ''*******************************************************
-            idgasto = GastosTableAdapter.gastos_insertar(DescripcionTextBox.Text, CDbl(MontoTextBox.Text), Now())
+            idgasto = GastosTableAdapter.gastos_insertar(DescripcionTextBox.Text, CDbl(MontoTextBox.Text), Now(), ComboTipoGasto.SelectedValue)
             'MsgBox(gusername)
             CajasoperacionesTableAdapter.cajasoperaciones_insertargasto(idevento, 1, CDbl(MontoTextBox.Text), idgasto, gusername)
             ''*******************************************************
@@ -74,6 +77,7 @@ Public Class ABMGastos
             DescripcionTextBox.Text = ""
             MontoTextBox.Text = ""
             FechagastoDateTimePicker.Value = Today
+            ComboTipoGasto.SelectedIndex = -1
         Else
             MsgBox("Operacion Cancelada", MsgBoxStyle.Information, "Aviso")
         End If

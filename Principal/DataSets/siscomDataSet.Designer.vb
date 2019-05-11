@@ -6527,7 +6527,7 @@ Namespace siscomDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(10) {}
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(11) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT idterminales, idcliente, mac, nombre, tvid, fechaalta, fechabaja, sgcversi"& _ 
@@ -6678,30 +6678,15 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(8).Parameters.Add(param)
             Me._commandCollection(9) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(9).Connection = Me.Connection
-            Me._commandCollection(9).CommandText = "update terminales"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"set sgcversion = @version"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where idterminales = @ideterminales"& _ 
-                ""
+            Me._commandCollection(9).CommandText = "update terminales "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"set autoupdater = @status "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where mac = @mac"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@version"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
-            param.Size = 45
-            param.IsNullable = true
-            param.SourceColumn = "sgcversion"
-            Me._commandCollection(9).Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@ideterminales"
+            param.ParameterName = "@status"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "idterminales"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumn = "autoupdater"
             Me._commandCollection(9).Parameters.Add(param)
-            Me._commandCollection(10) = New Global.MySql.Data.MySqlClient.MySqlCommand()
-            Me._commandCollection(10).Connection = Me.Connection
-            Me._commandCollection(10).CommandText = "SELECT fechabaja, sgcversion, autoupdater, idsucursal,tipolicencia FROM terminale"& _ 
-                "s WHERE (mac = @mac) "
-            Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@mac"
             param.DbType = Global.System.Data.DbType.[String]
@@ -6709,7 +6694,42 @@ Namespace siscomDataSetTableAdapters
             param.Size = 12
             param.IsNullable = true
             param.SourceColumn = "mac"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._commandCollection(9).Parameters.Add(param)
+            Me._commandCollection(10) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(10).Connection = Me.Connection
+            Me._commandCollection(10).CommandText = "update terminales"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"set sgcversion = @version"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where idterminales = @ideterminales"& _ 
+                ""
+            Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@version"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 45
+            param.IsNullable = true
+            param.SourceColumn = "sgcversion"
             Me._commandCollection(10).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@ideterminales"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "idterminales"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._commandCollection(10).Parameters.Add(param)
+            Me._commandCollection(11) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(11).Connection = Me.Connection
+            Me._commandCollection(11).CommandText = "SELECT fechabaja, sgcversion, autoupdater, idsucursal,tipolicencia FROM terminale"& _ 
+                "s WHERE (mac = @mac) "
+            Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@mac"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 12
+            param.IsNullable = true
+            param.SourceColumn = "mac"
+            Me._commandCollection(11).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7334,8 +7354,40 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function terminales_updatesgcversion(ByVal version As String, ByVal ideterminales As Integer) As Integer
+        Public Overloads Overridable Function terminales_updateautoupdater(ByVal status As Global.System.Nullable(Of Integer), ByVal mac As String) As Integer
             Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(9)
+            If (status.HasValue = true) Then
+                command.Parameters(0).Value = CType(status.Value,Integer)
+            Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (mac Is Nothing) Then
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(1).Value = CType(mac,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function terminales_updatesgcversion(ByVal version As String, ByVal ideterminales As Integer) As Integer
+            Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(10)
             If (version Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -7362,7 +7414,7 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function terminales_validarlicencia(ByVal mac As String) As Object
-            Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(10)
+            Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(11)
             If (mac Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else

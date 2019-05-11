@@ -26,15 +26,10 @@ Partial Class ABMGastos
         Dim DescripcionLabel As System.Windows.Forms.Label
         Dim MontoLabel As System.Windows.Forms.Label
         Dim FechagastoLabel As System.Windows.Forms.Label
+        Dim Label1 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMGastos))
         Me.CajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
         Me.GastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gastosTableAdapter()
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.CajaseventosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,7 +37,8 @@ Partial Class ABMGastos
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CajasoperacionesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,32 +46,42 @@ Partial Class ABMGastos
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GastosBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CajasoperacionesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.GastosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GastosBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboTipoGasto = New System.Windows.Forms.ComboBox()
+        Me.TipogastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DescripcionTextBox = New System.Windows.Forms.TextBox()
         Me.MontoTextBox = New System.Windows.Forms.TextBox()
         Me.FechagastoDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.BtnNuevo = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.GastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gastosTableAdapter()
+        Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.TipogastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipogastosTableAdapter()
         DescripcionLabel = New System.Windows.Forms.Label()
         MontoLabel = New System.Windows.Forms.Label()
         FechagastoLabel = New System.Windows.Forms.Label()
+        Label1 = New System.Windows.Forms.Label()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CajasoperacionesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GastosBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CajasoperacionesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GastosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GastosBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.TipogastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -102,95 +108,22 @@ Partial Class ABMGastos
         'FechagastoLabel
         '
         FechagastoLabel.AutoSize = True
-        FechagastoLabel.Location = New System.Drawing.Point(69, 114)
+        FechagastoLabel.Location = New System.Drawing.Point(110, 114)
         FechagastoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         FechagastoLabel.Name = "FechagastoLabel"
-        FechagastoLabel.Size = New System.Drawing.Size(93, 17)
+        FechagastoLabel.Size = New System.Drawing.Size(51, 17)
         FechagastoLabel.TabIndex = 25
-        FechagastoLabel.Text = "Fecha Gasto:"
+        FechagastoLabel.Text = "Fecha:"
         '
-        'CajasoperacionesTableAdapter
+        'Label1
         '
-        Me.CajasoperacionesTableAdapter.ClearBeforeFill = True
-        '
-        'GastosTableAdapter
-        '
-        Me.GastosTableAdapter.ClearBeforeFill = True
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CajaseventosBindingSource
-        '
-        Me.CajaseventosBindingSource.DataMember = "cajaseventos"
-        Me.CajaseventosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'CajaseventosTableAdapter
-        '
-        Me.CajaseventosTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
-        Me.TableAdapterManager.cajaseventosTableAdapter = Me.CajaseventosTableAdapter
-        Me.TableAdapterManager.cajasoperacionesTableAdapter = Me.CajasoperacionesTableAdapter
-        Me.TableAdapterManager.cajasTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
-        Me.TableAdapterManager.errorlogTableAdapter = Nothing
-        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
-        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager.funcionesTableAdapter = Nothing
-        Me.TableAdapterManager.gastosTableAdapter = Me.GastosTableAdapter
-        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosTableAdapter = Nothing
-        Me.TableAdapterManager.perfilesTableAdapter = Nothing
-        Me.TableAdapterManager.permisosTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
-        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
-        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.remitosTableAdapter = Nothing
-        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager.stockTableAdapter = Nothing
-        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
-        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
-        Me.TableAdapterManager.transportesTableAdapter = Nothing
-        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.valesTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        Label1.AutoSize = True
+        Label1.Location = New System.Drawing.Point(79, 145)
+        Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label1.Name = "Label1"
+        Label1.Size = New System.Drawing.Size(82, 17)
+        Label1.TabIndex = 25
+        Label1.Text = "Tipo Gasto:"
         '
         'CajaseventosDataGridView
         '
@@ -242,10 +175,15 @@ Partial Class ABMGastos
         Me.DataGridViewTextBoxColumn6.HeaderText = "saldofinal"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         '
-        'CajasoperacionesBindingSource1
+        'CajaseventosBindingSource
         '
-        Me.CajasoperacionesBindingSource1.DataMember = "cajasoperaciones"
-        Me.CajasoperacionesBindingSource1.DataSource = Me.ComercialDataSet
+        Me.CajaseventosBindingSource.DataMember = "cajaseventos"
+        Me.CajaseventosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CajasoperacionesDataGridView
         '
@@ -297,10 +235,10 @@ Partial Class ABMGastos
         Me.DataGridViewTextBoxColumn12.HeaderText = "monto"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         '
-        'GastosBindingSource1
+        'CajasoperacionesBindingSource1
         '
-        Me.GastosBindingSource1.DataMember = "gastos"
-        Me.GastosBindingSource1.DataSource = Me.ComercialDataSet
+        Me.CajasoperacionesBindingSource1.DataMember = "cajasoperaciones"
+        Me.CajasoperacionesBindingSource1.DataSource = Me.ComercialDataSet
         '
         'GastosDataGridView
         '
@@ -340,20 +278,48 @@ Partial Class ABMGastos
         Me.DataGridViewTextBoxColumn16.HeaderText = "fechagasto"
         Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
         '
+        'GastosBindingSource1
+        '
+        Me.GastosBindingSource1.DataMember = "gastos"
+        Me.GastosBindingSource1.DataSource = Me.ComercialDataSet
+        '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.ComboTipoGasto)
         Me.GroupBox1.Controls.Add(DescripcionLabel)
         Me.GroupBox1.Controls.Add(Me.DescripcionTextBox)
         Me.GroupBox1.Controls.Add(MontoLabel)
         Me.GroupBox1.Controls.Add(Me.MontoTextBox)
+        Me.GroupBox1.Controls.Add(Label1)
         Me.GroupBox1.Controls.Add(FechagastoLabel)
         Me.GroupBox1.Controls.Add(Me.FechagastoDateTimePicker)
         Me.GroupBox1.Location = New System.Drawing.Point(276, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(587, 177)
+        Me.GroupBox1.Size = New System.Drawing.Size(587, 238)
         Me.GroupBox1.TabIndex = 21
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Gasto"
+        '
+        'ComboTipoGasto
+        '
+        Me.ComboTipoGasto.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.GastosBindingSource1, "idtipogasto", True))
+        Me.ComboTipoGasto.DataSource = Me.TipogastosBindingSource
+        Me.ComboTipoGasto.DisplayMember = "descripcion"
+        Me.ComboTipoGasto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboTipoGasto.FormattingEnabled = True
+        Me.ComboTipoGasto.Location = New System.Drawing.Point(166, 138)
+        Me.ComboTipoGasto.Name = "ComboTipoGasto"
+        Me.ComboTipoGasto.Size = New System.Drawing.Size(351, 24)
+        Me.ComboTipoGasto.TabIndex = 27
+        Me.ComboTipoGasto.ValueMember = "idtipogasto"
+        '
+        'TipogastosBindingSource
+        '
+        Me.TipogastosBindingSource.DataMember = "tipogastos"
+        Me.TipogastosBindingSource.DataSource = Me.ComercialDataSet
         '
         'DescripcionTextBox
         '
@@ -388,18 +354,20 @@ Partial Class ABMGastos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.BtnNuevo)
         Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 5)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(253, 177)
+        Me.GroupBox2.Size = New System.Drawing.Size(253, 238)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Opciones"
         '
         'BtnNuevo
         '
-        Me.BtnNuevo.Location = New System.Drawing.Point(47, 53)
+        Me.BtnNuevo.Location = New System.Drawing.Point(47, 84)
         Me.BtnNuevo.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(158, 32)
@@ -409,7 +377,7 @@ Partial Class ABMGastos
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(47, 92)
+        Me.Button1.Location = New System.Drawing.Point(47, 123)
         Me.Button1.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(158, 32)
@@ -417,11 +385,91 @@ Partial Class ABMGastos
         Me.Button1.Text = "Guardar Gasto"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'CajasoperacionesTableAdapter
+        '
+        Me.CajasoperacionesTableAdapter.ClearBeforeFill = True
+        '
+        'GastosTableAdapter
+        '
+        Me.GastosTableAdapter.ClearBeforeFill = True
+        '
+        'CajaseventosTableAdapter
+        '
+        Me.CajaseventosTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager.cajaseventosTableAdapter = Me.CajaseventosTableAdapter
+        Me.TableAdapterManager.cajasoperacionesTableAdapter = Me.CajasoperacionesTableAdapter
+        Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager.gastosTableAdapter = Me.GastosTableAdapter
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager.permisosTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'TipogastosTableAdapter
+        '
+        Me.TipogastosTableAdapter.ClearBeforeFill = True
+        '
         'ABMGastos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(875, 194)
+        Me.ClientSize = New System.Drawing.Size(875, 255)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GastosDataGridView)
@@ -438,15 +486,16 @@ Partial Class ABMGastos
         Me.Text = "ABM Gastos"
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CajasoperacionesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GastosBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CajasoperacionesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GastosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GastosBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.TipogastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -487,4 +536,7 @@ Partial Class ABMGastos
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents BtnNuevo As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents ComboTipoGasto As ComboBox
+    Friend WithEvents TipogastosBindingSource As BindingSource
+    Friend WithEvents TipogastosTableAdapter As comercialDataSetTableAdapters.tipogastosTableAdapter
 End Class

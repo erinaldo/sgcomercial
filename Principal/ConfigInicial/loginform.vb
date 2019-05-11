@@ -483,28 +483,6 @@ Public Class loginform
 
     Private Sub BGWUpdateLicencia_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWUpdateLicencia.DoWork
         UpdateLocalLicence()
-        '********************************************************
-        Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
-        parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
-        '********************************************************
-        gTipoLicencia = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("tipolicencia")
-        LicenceValidDate = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1(MachineKey)
-        '************  VALIDAR LICENCIA    **************************
-        If LicenceValidDate.ToShortDateString = DateTime.Now.ToShortDateString() Then
-            MessageBox.Show("Tu suscripción a soporte y actualizaciones expira hoy! Ponete en contacto con nosotros para renovarla!", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
-            Return
-        End If
-        If LicenceValidDate.ToShortDateString < DateTime.Now.ToShortDateString() And gTipoLicencia <> "P" Then
-            MessageBox.Show("Tu suscripción a soporte y actualizaciones ha expirado. Ponete en contacto con nosotros para renovarla!", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
-            AcercaDe.ShowDialog()
-            Return
-        Else
-            CreateObject("WScript.Shell").Popup("Periodo de prueba ha finalizado.", 5, "Advertencia! Licencia Caducada", vbExclamation)
-            System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
-            End
-        End If
-        '************  VALIDAR LICENCIA    **************************
+        ValidarLicencia()
     End Sub
 End Class

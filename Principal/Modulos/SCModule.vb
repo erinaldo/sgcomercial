@@ -41,45 +41,92 @@ Module SCModule
         End Try
     End Sub
     '******************************-----------------------------------------------------------------------------------*****************************
-    Public Sub ValidarLicencia(ByVal mac As String, ByRef validdate As DateTime)
-        '****Licencia local********
+    Public Sub ValidarLicencia()
+        '********************************************************
         Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
         parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
-        '****   ----    ********
-        If parametrosgeneralesTableAdapter.parametrosgenerales_existeclave(MachineKey) > 0 Then 'EXISTE LICENCIA LOCAL siiii
-            Try
-                'consultar la licencia local
-                Dim resultado As String
-                resultado = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1(MachineKey)
-                LicenceValidDate = Convert.ToDateTime(resultado)
-                If LicenceValidDate < Now Then
-                    UpdateLocalLicence()
-                End If
-            Catch ex2 As Exception
-                LicenceValidDate = Nothing
-            End Try
-        Else '  NO EXISTE LICENCIA LOCAL
-            Try
-                conectarSCConn(SCstatus)
-                If SCstatus = False Then Return
-                '*******************************************************************************
-                '*************  terminalesTableAdapter    **************************************
-                Try
-                    Dim terminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
-                    terminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
-                    LicenceValidDate = terminalesTableAdapter.terminales_validarlicencia(mac)
-                    If parametrosgeneralesTableAdapter.parametrosgenerales_existeclave(MachineKey) > 0 Then
-                        parametrosgeneralesTableAdapter.parametrosgenerales_updateprgstring1(MachineKey, LicenceValidDate.ToString) ' UPDATEA LOCAL
-                    Else
-                        parametrosgeneralesTableAdapter.parametrosgenerales_insertar(MachineKey, Nothing, LicenceValidDate, Nothing, Nothing) ' INSERT LOCAL
-                    End If
-                Catch ex As Exception
-                    LicenceValidDate = Nothing
-                End Try
-            Catch ex As Exception
-                LicenceValidDate = Nothing
-            End Try
+        '********************************************************
+        Dim TerminalesTableadapter As siscomDataSetTableAdapters.terminalesTableAdapter
+        TerminalesTableadapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+        '********************************************************
+        '*************  errorlog    **************************************
+        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
+        '********************************************************
+        gTipoLicencia = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("tipolicencia")
+        LicenceValidDate = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1(MachineKey)
+        '************  VALIDAR LICENCIA    **************************
+        '*************************************************licencia vigente*************************
+        If CDate(LicenceValidDate) > CDate(DateTime.Now) Then
+            Return
         End If
+        '**************************************     licencia VENCE HOY    *************************
+        If CDate(LicenceValidDate) = CDate(DateTime.Now) And gTipoLicencia = "P" Then
+            MessageBox.Show("Tu periodo de prueba expira hoy! Ponete en contacto con nosotros para renovarla!", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+            Return
+        End If
+        If CDate(LicenceValidDate) = CDate(DateTime.Now) And gTipoLicencia <> "P" Then
+            MessageBox.Show("Tu suscripción a soporte y actualizaciones expira hoy! Contactanos para renovarla y mantener tu sistema actualizado", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+            Return
+        End If
+        '*************************************************************
+        '**************************************     FIN VENCE HOY    *************************
+        '*************************************************************
+        '**************************************     LICENCIA VENCIDA!!      *************************
+        If CDate(LicenceValidDate) < CDate(DateTime.Now) Then
+            Select Case gTipoLicencia
+                Case "V"
+                Case "A"
+                    CreateObject("WScript.Shell").Popup("Tu suscripción a soporte y actualizaciones ha expirado. Contactanos para renovarla y mantener tu sistema actualizado!", 6, "Advertencia! Licencia Caducada", vbExclamation)
+                    'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+                    'AcercaDe.ShowDialog()
+                    Try
+                        TerminalesTableadapter.terminales_updateautoupdater(0, gmacadress)
+                    Catch ex As Exception
+                        ErrorLogTableAdapter.errorlog_insertar("Login", "LICENCIA", "terminales_updateautoupdater", ex.Message)
+                    End Try
+                    End
+                    Return
+                Case "AV"
+                    MessageBox.Show("Tu suscripción a soporte y actualizaciones ha expirado. Contactanos para renovarla y mantener tu sistema actualizado!", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+                    'AcercaDe.ShowDialog()
+                    Try
+                        TerminalesTableadapter.terminales_updateautoupdater(0, gmacadress)
+                    Catch ex As Exception
+                        ErrorLogTableAdapter.errorlog_insertar("Login", "LICENCIA", "terminales_updateautoupdater", ex.Message)
+                    End Try
+                    Return
+                Case "M"
+                    CreateObject("WScript.Shell").Popup("Tu suscripción a soporte y actualizaciones ha expirado. Contactanos para renovarla y mantener tu sistema actualizado!", 6, "Advertencia! Licencia Caducada", vbExclamation)
+                    'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+                    'AcercaDe.ShowDialog()
+                    Try
+                        TerminalesTableadapter.terminales_updateautoupdater(0, gmacadress)
+                    Catch ex As Exception
+                        ErrorLogTableAdapter.errorlog_insertar("Login", "LICENCIA", "terminales_updateautoupdater", ex.Message)
+                    End Try
+                    End
+                    Return
+                Case "MV"
+                    MessageBox.Show("Tu suscripción a soporte y actualizaciones ha expirado. Contactanos para renovarla y mantener tu sistema actualizado!", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    'System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+                    'AcercaDe.ShowDialog()
+                    Try
+                        TerminalesTableadapter.terminales_updateautoupdater(0, gmacadress)
+                    Catch ex As Exception
+                        ErrorLogTableAdapter.errorlog_insertar("Login", "LICENCIA", "terminales_updateautoupdater", ex.Message)
+                    End Try
+                    Return
+                Case "P"
+                    CreateObject("WScript.Shell").Popup("Periodo de prueba ha finalizado. Conseguí tu licencia ya!", 5, "Advertencia! Licencia Caducada", vbExclamation)
+                    System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
+                    End
+            End Select
+        End If
+        '************  VALIDAR LICENCIA    **************************
     End Sub
     '******************************-----------------------------------------------------------------------------------*****************************
     Public Sub UpdateLocalLicence()
