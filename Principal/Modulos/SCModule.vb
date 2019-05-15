@@ -15,6 +15,7 @@ Module SCModule
     Public LicenceValidDate As DateTime
     Public gTipoLicencia As String
     Public SCConn As MySqlConnection
+    Public gidventaSC
 
     Sub conectarSCConn(ByRef status As Boolean)
         Try

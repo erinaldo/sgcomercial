@@ -351,6 +351,18 @@
     <Compile Include="Principal\ParametrosGenerales\FormWebConf.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Principal\Siscom\SCVentas.Designer.vb">
+      <DependentUpon>SCVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\Siscom\SCVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\Siscom\ViewerFacturaSiscom.Designer.vb">
+      <DependentUpon>ViewerFacturaSiscom.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\Siscom\ViewerFacturaSiscom.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Stock\ConsultaStockRemotoProducto.Designer.vb">
       <DependentUpon>ConsultaStockRemotoProducto.vb</DependentUpon>
     </Compile>
@@ -1145,6 +1157,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\ParametrosGenerales\FormWebConf.resx">
       <DependentUpon>FormWebConf.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\Siscom\RepFacturaSC.rdlc" />
+    <EmbeddedResource Include="Principal\Siscom\SCventas.resx">
+      <DependentUpon>SCVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\Siscom\ViewerFacturaSiscom.resx">
+      <DependentUpon>ViewerFacturaSiscom.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock\ConsultaStockRemotoProducto.resx">
       <DependentUpon>ConsultaStockRemotoProducto.vb</DependentUpon>

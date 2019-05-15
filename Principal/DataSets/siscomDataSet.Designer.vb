@@ -4178,6 +4178,8 @@ Partial Public Class siscomDataSet
         
         Private columncuil As Global.System.Data.DataColumn
         
+        Private columnidcliente As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -4278,6 +4280,14 @@ Partial Public Class siscomDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property idclienteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnidcliente
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4314,9 +4324,9 @@ Partial Public Class siscomDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddlibroventasRow(ByVal fechaventa As Date, ByVal fechabaja As Date, ByVal fechavencimiento As Date, ByVal nombre As String, ByVal email As String, ByVal telefono As String, ByVal cuil As String) As libroventasRow
+        Public Overloads Function AddlibroventasRow(ByVal fechaventa As Date, ByVal fechabaja As Date, ByVal fechavencimiento As Date, ByVal nombre As String, ByVal email As String, ByVal telefono As String, ByVal cuil As String, ByVal idcliente As Integer) As libroventasRow
             Dim rowlibroventasRow As libroventasRow = CType(Me.NewRow,libroventasRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, fechaventa, fechabaja, fechavencimiento, nombre, email, telefono, cuil}
+            Dim columnValuesArray() As Object = New Object() {Nothing, fechaventa, fechabaja, fechavencimiento, nombre, email, telefono, cuil, idcliente}
             rowlibroventasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowlibroventasRow)
             Return rowlibroventasRow
@@ -4353,6 +4363,7 @@ Partial Public Class siscomDataSet
             Me.columnemail = MyBase.Columns("email")
             Me.columntelefono = MyBase.Columns("telefono")
             Me.columncuil = MyBase.Columns("cuil")
+            Me.columnidcliente = MyBase.Columns("idcliente")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4374,6 +4385,8 @@ Partial Public Class siscomDataSet
             MyBase.Columns.Add(Me.columntelefono)
             Me.columncuil = New Global.System.Data.DataColumn("cuil", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncuil)
+            Me.columnidcliente = New Global.System.Data.DataColumn("idcliente", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidcliente)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidventas}, true))
             Me.columnidventas.AutoIncrement = true
             Me.columnidventas.AutoIncrementSeed = -1
@@ -6855,6 +6868,21 @@ Partial Public Class siscomDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property idcliente() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablelibroventas.idclienteColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'idcliente' de la tabla 'libroventas' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablelibroventas.idclienteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsfechaventaNull() As Boolean
             Return Me.IsNull(Me.tablelibroventas.fechaventaColumn)
         End Function
@@ -6935,6 +6963,18 @@ Partial Public Class siscomDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetcuilNull()
             Me(Me.tablelibroventas.cuilColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsidclienteNull() As Boolean
+            Return Me.IsNull(Me.tablelibroventas.idclienteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetidclienteNull()
+            Me(Me.tablelibroventas.idclienteColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -15225,6 +15265,7 @@ Namespace siscomDataSetTableAdapters
             tableMapping.ColumnMappings.Add("email", "email")
             tableMapping.ColumnMappings.Add("telefono", "telefono")
             tableMapping.ColumnMappings.Add("cuil", "cuil")
+            tableMapping.ColumnMappings.Add("idcliente", "idcliente")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -15238,24 +15279,36 @@ Namespace siscomDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(1) {}
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(2) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT `idventas`, `fechaventa`, `fechabaja`, `fechavencimiento`, `nombre`, `emai"& _ 
-                "l`, `telefono`, `cuil` FROM `sistema1_siscom`.`libroventas`"
+            Me._commandCollection(0).CommandText = "SELECT idventas, fechaventa, fechabaja, fechavencimiento, nombre, email, telefono"& _ 
+                ", cuil, idcliente FROM libroventas"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT `idventas`, `fechaventa`, `fechabaja`, `fechavencimiento`, `nombre`, `emai"& _ 
-                "l`, `telefono`, `cuil` "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"`libroventas`"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"`idventas` = @idventa"
+            Me._commandCollection(1).CommandText = "SELECT idventas, fechaventa, fechabaja, fechavencimiento, nombre, email, telefono"& _ 
+                ", cuil, idcliente FROM libroventas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where idcliente  = @idcliente"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@idcliente"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "idcliente"
+            Me._commandCollection(1).Parameters.Add(param)
+            Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT idventas, fechaventa, fechabaja, fechavencimiento, nombre, email, telefono"& _ 
+                ", cuil, idcliente FROM libroventas WHERE (idventas = @idventa)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@idventa"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "idventas"
-            Me._commandCollection(1).Parameters.Add(param)
+            Me._commandCollection(2).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15286,8 +15339,42 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDVenta(ByVal dataTable As siscomDataSet.libroventasDataTable, ByVal idventa As Integer) As Integer
+        Public Overloads Overridable Function FillByIDCliente(ByVal dataTable As siscomDataSet.libroventasDataTable, ByVal idcliente As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (idcliente.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(idcliente.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByIDCliente(ByVal idcliente As Global.System.Nullable(Of Integer)) As siscomDataSet.libroventasDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (idcliente.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(idcliente.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As siscomDataSet.libroventasDataTable = New siscomDataSet.libroventasDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByIDVenta(ByVal dataTable As siscomDataSet.libroventasDataTable, ByVal idventa As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(idventa,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -15301,7 +15388,7 @@ Namespace siscomDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByIDVenta(ByVal idventa As Integer) As siscomDataSet.libroventasDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(idventa,Integer)
             Dim dataTable As siscomDataSet.libroventasDataTable = New siscomDataSet.libroventasDataTable()
             Me.Adapter.Fill(dataTable)

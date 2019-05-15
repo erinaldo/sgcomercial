@@ -66,6 +66,6 @@
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        'SCPagos.ShowDialog()
+        SCventas.ShowDialog()
     End Sub
 End Class
