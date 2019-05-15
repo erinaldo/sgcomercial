@@ -34,6 +34,7 @@ Partial Class Principal
         Me.LibroVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasPorDiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroMayorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VentasPorUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarPreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PresupuestosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarPresupuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -191,7 +192,7 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
-        Me.VentasPorUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroDeGastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -267,7 +268,7 @@ Partial Class Principal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LibroVentasToolStripMenuItem, Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem, Me.VentasPorUsuarioToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LibroVentasToolStripMenuItem, Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem, Me.VentasPorUsuarioToolStripMenuItem, Me.LibroDeGastosToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.ReportesToolStripMenuItem.Tag = "ReportesParent"
@@ -293,6 +294,13 @@ Partial Class Principal
         Me.LibroMayorToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
         Me.LibroMayorToolStripMenuItem.Tag = "LibroMayor"
         Me.LibroMayorToolStripMenuItem.Text = "Libro Mayor"
+        '
+        'VentasPorUsuarioToolStripMenuItem
+        '
+        Me.VentasPorUsuarioToolStripMenuItem.Name = "VentasPorUsuarioToolStripMenuItem"
+        Me.VentasPorUsuarioToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.VentasPorUsuarioToolStripMenuItem.Tag = "ReporteVentasPorUsuario"
+        Me.VentasPorUsuarioToolStripMenuItem.Text = "Ventas por Usuario"
         '
         'ConsultarPreciosToolStripMenuItem
         '
@@ -1360,6 +1368,7 @@ Partial Class Principal
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -1495,12 +1504,12 @@ Partial Class Principal
         'BGWStock
         '
         '
-        'VentasPorUsuarioToolStripMenuItem
+        'LibroDeGastosToolStripMenuItem
         '
-        Me.VentasPorUsuarioToolStripMenuItem.Name = "VentasPorUsuarioToolStripMenuItem"
-        Me.VentasPorUsuarioToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
-        Me.VentasPorUsuarioToolStripMenuItem.Tag = "ReporteVentasPorUsuario"
-        Me.VentasPorUsuarioToolStripMenuItem.Text = "Ventas por Usuario"
+        Me.LibroDeGastosToolStripMenuItem.Name = "LibroDeGastosToolStripMenuItem"
+        Me.LibroDeGastosToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.LibroDeGastosToolStripMenuItem.Tag = "LibroGastos"
+        Me.LibroDeGastosToolStripMenuItem.Text = "Libro de Gastos"
         '
         'Principal
         '
@@ -1718,4 +1727,5 @@ Partial Class Principal
     Friend WithEvents RegistrarPresupuestoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PresupuestosGeneradosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentasPorUsuarioToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LibroDeGastosToolStripMenuItem As ToolStripMenuItem
 End Class

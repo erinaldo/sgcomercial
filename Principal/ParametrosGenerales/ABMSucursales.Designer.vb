@@ -45,6 +45,7 @@ Partial Class ABMSucursales
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.SucursalesBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.IdsucursalTextBox = New System.Windows.Forms.TextBox()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
         Me.DireccionTextBox = New System.Windows.Forms.TextBox()
@@ -54,7 +55,6 @@ Partial Class ABMSucursales
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         IdsucursalLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         DireccionLabel = New System.Windows.Forms.Label()
@@ -162,12 +162,14 @@ Partial Class ABMSucursales
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Me.SucursalesTableAdapter
         Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -194,7 +196,7 @@ Partial Class ABMSucursales
         Me.SucursalesBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.SucursalesBindingNavigator.Name = "SucursalesBindingNavigator"
         Me.SucursalesBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.SucursalesBindingNavigator.Size = New System.Drawing.Size(596, 27)
+        Me.SucursalesBindingNavigator.Size = New System.Drawing.Size(600, 27)
         Me.SucursalesBindingNavigator.TabIndex = 0
         Me.SucursalesBindingNavigator.Text = "BindingNavigator1"
         '
@@ -291,6 +293,15 @@ Partial Class ABMSucursales
         Me.SucursalesBindingNavigatorSaveItem.Size = New System.Drawing.Size(24, 24)
         Me.SucursalesBindingNavigatorSaveItem.Text = "Guardar datos"
         '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(157, 24)
+        Me.ToolStripButton1.Text = "Descargar de la Nube"
+        '
         'IdsucursalTextBox
         '
         Me.IdsucursalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SucursalesBindingSource, "idsucursal", True))
@@ -362,20 +373,11 @@ Partial Class ABMSucursales
         Me.DataGridViewTextBoxColumn4.HeaderText = "telefono"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(157, 24)
-        Me.ToolStripButton1.Text = "Descargar de la Nube"
-        '
         'ABMSucursales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(596, 428)
+        Me.ClientSize = New System.Drawing.Size(600, 428)
         Me.Controls.Add(Me.SucursalesDataGridView)
         Me.Controls.Add(IdsucursalLabel)
         Me.Controls.Add(Me.IdsucursalTextBox)

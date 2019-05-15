@@ -44,12 +44,17 @@
         Select Case LabelTipoLicencia.Text
             Case "A"
                 LabelTipoLicencia.Text = "Anual"
+            Case "AV"
+                LabelTipoLicencia.Text = "Anual"
             Case "M"
+                LabelTipoLicencia.Text = "Mensual"
+            Case "MV"
                 LabelTipoLicencia.Text = "Mensual"
             Case "P"
                 LabelTipoLicencia.Text = "Prueba"
         End Select
         LabelVencimiento.Text = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1(MachineKey)
+        LabelVencimiento.Text = Mid(LabelVencimiento.Text, 1, 10)
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
@@ -58,5 +63,9 @@
 
     Private Sub TableLayoutPanel_Paint(sender As Object, e As PaintEventArgs)
 
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        'SCPagos.ShowDialog()
     End Sub
 End Class

@@ -9,7 +9,7 @@ Imports System.Data.SqlClient
 
 
 Module SGCModule
-
+    Dim xi As LoadingForm
     '************************************************
     Public gActiveSQLConnectionString As String
     Public gstrSheetName As New List(Of String)
@@ -501,7 +501,8 @@ Module SGCModule
         If status = True Then
             Cursor.Current = Cursors.Default
             If MsgBox("Existe una nueva versión -" + newversion.ToString + "- para tu dispositivo " + gmacadress + " terminal N°: " + gTerminal.ToString + ", desea realizar la actualización ahora?", MsgBoxStyle.YesNo, "Control de Versión: " + currentversion.ToString) = MsgBoxResult.Yes Then
-                UpdateSGC(newversion)
+                '                UpdateSGC(newversion)
+                UpdateSGC()
             End If
             'Else
             '    MsgBox("Tu versión de sistema se encuentra actualizada", MsgBoxStyle.Information)
@@ -559,7 +560,9 @@ Module SGCModule
         '''''''*******************        
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     End Sub
-    Public Sub UpdateSGC(ByRef newversion As Long)
+
+
+    Public Sub UpdateSGC()
         '============ ACTUALIZAR SISTEMA FTP DESCARGAR ACTUALIZACION =================
         'Cursor.Current = Cursors.WaitCursor
         'Dim ftpRequest As FtpWebRequest = DirectCast(WebRequest.Create("ftp://sistemascomerciales.net/"), FtpWebRequest)
@@ -621,41 +624,42 @@ Module SGCModule
         '   *********************   DESCOMPRIMIR LA NUEVA VERSION
         Try
             Module_unrar.UnRar("C:\SGComercial\UpdatePack\Ejecutable\", "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
-            Threading.Thread.Sleep(6000)
+            Threading.Thread.Sleep(8000)
         Catch ex As Exception
             MsgBox("Ocurrió un error al descomprimir la actualización: " + ex.Message, MsgBoxStyle.Exclamation)
             Return
         End Try
         '''''''''''''''''''''''''''''''''''''''''''''''
         'Cursor.Current = Cursors.Default
-        MsgBox("La aplicación se cerrará para comenzar el proceso de instalación", MsgBoxStyle.Information, "Advertencia")
+        'MsgBox("La aplicación se cerrará para comenzar el proceso de instalación", MsgBoxStyle.Information, "Advertencia")
+        CreateObject("WScript.Shell").Popup("La aplicación se cerrará para comenzar el proceso de instalación", 3, "Aviso!", vbInformation)
         '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         '================= ACTUALIZAR OBJETOS DE BASE DE DATOS
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         Dim status As Boolean
-            Dim cod As Integer
-            Dim msg As String = Nothing
-            Try
-                ActualizarBD(status, cod, msg)
-            Catch ex As Exception
+        Dim cod As Integer
+        Dim msg As String = Nothing
+        Try
+            ActualizarBD(status, cod, msg)
+        Catch ex As Exception
 
-            End Try
-            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            '   *********************   ACTUALIZAR NRO DE VERSION REMOTA 
-            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            Try
-                TerminalesSCTableAdapter.terminales_updatesgcversion(newversion.ToString, gTerminal)
-                parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("SysCurrentVersion", newversion, newversion.ToString, Nothing)
-            Catch ex As Exception
-                MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Exclamation)
-                Return
-            End Try
-            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            'COMENZAR LA EJECUCION
-            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            Process.Start("C:\SGComercial\UpdatePack\Ejecutable\setup.exe")
-            End
+        End Try
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ''   *********************   ACTUALIZAR NRO DE VERSION REMOTA 
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        'Try
+        '    TerminalesSCTableAdapter.terminales_updatesgcversion(newversion.ToString, gTerminal)
+        '    parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("SysCurrentVersion", newversion, newversion.ToString, Nothing)
+        'Catch ex As Exception
+        '    MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Exclamation)
+        '    Return
+        'End Try
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        'COMENZAR LA EJECUCION
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Process.Start("C:\SGComercial\UpdatePack\Ejecutable\setup.exe")
+        End
         'End Using
     End Sub
     Public Sub ActualizarBD(ByRef status As Boolean, ByRef cod As Integer, ByRef msg As String)
@@ -720,6 +724,124 @@ Module SGCModule
         Catch ex As Exception
             MsgBox("Ocurrio un problema en ReparaProductosMedidas: " + ex.Message)
         End Try
+    End Sub
+    Public Sub UpdateRemoteVersion(ByRef CurrVersion As Long, ByRef terminal As Long)
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        '   *********************   ACTUALIZAR NRO DE VERSION REMOTA 
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Dim TerminalesSCTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+        TerminalesSCTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+        Try
+            TerminalesSCTableAdapter.terminales_updatesgcversion(CurrVersion.ToString, gTerminal)
+            'parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("SysCurrentVersion", newversion, newversion.ToString, Nothing)
+        Catch ex As Exception
+            MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Exclamation)
+            Return
+        End Try
+    End Sub
+    Public Sub GetSucursalesClowd()
+        Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString) 'gActiveSQLConnectionString
+        Dim mycommand As New SqlCommand
+        myConn2.Open()
+        Try
+            mycommand = New SqlCommand("truncate table sucursales", myConn2)
+            mycommand.ExecuteNonQuery()
+        Catch ex As Exception
+            'ErrorLogTableAdapter.errorlog_insertar("Aplicación", "Actualización de versión", "ActualizarBD", sFile + " - " + ex.Message)
+            'status = False
+            'cod = 1
+            'msg = "Ocurrio un problema en: ActualizarBD() - " + sFile + " - " + ex.Message
+            ''Exit For
+        End Try
+        myConn2.Close()
+        myConn2.Dispose()
+        Try
+            Dim sucursalesTableAdapter As comercialDataSetTableAdapters.sucursalesTableAdapter
+            sucursalesTableAdapter = New comercialDataSetTableAdapters.sucursalesTableAdapter()
+            Dim clientessucursalesTableAdapter As siscomDataSetTableAdapters.clientessucursalesTableAdapter
+            clientessucursalesTableAdapter = New siscomDataSetTableAdapters.clientessucursalesTableAdapter()
+            Dim ClientesSucursalesTable As siscomDataSet.clientessucursalesDataTable
+            ClientesSucursalesTable = clientessucursalesTableAdapter.GetDataByIDcliente(gMiIDCliente)
+            If ClientesSucursalesTable.Rows.Count > 0 Then
+                For i = 0 To ClientesSucursalesTable.Count - 1
+                    Dim idsucursal As Long = ClientesSucursalesTable.Rows(i).Item(ClientesSucursalesTable.Columns("idsucursal"))
+                    sucursalesTableAdapter.sucursales_insertar(ClientesSucursalesTable.Rows(i).Item(ClientesSucursalesTable.Columns("nombre")), ClientesSucursalesTable.Rows(i).Item(ClientesSucursalesTable.Columns("direccion")), Nothing)
+                Next
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Public Sub DownloadSGC()
+        'Dim xi As LoadingForm
+        Dim ftpClient As New WebClient
+        Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar"
+        Dim trnsfrpth As String = "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
+        'Dim UpdateAlertStatus As Boolean
+        '***********************************************************
+        'DESCARGA ACTUALIZACIÓN
+        '***********************************************************
+        'If UpdateAlertStatus = False Then Return
+        Try
+            '**********************************************
+            Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
+                IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
+            Catch ex As Exception
+
+            End Try
+            '**********************************************
+            ' SI NO EXISTE LA CREA
+            If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
+                System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
+            End If
+        Catch ex As Exception
+            Cursor.Current = Cursors.Default
+            MsgBox("Borrando archivos " + ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
+            Return
+        End Try
+        '======================================
+        gDownloadProgress = 0
+        '=====================================
+        'BackgroundWorker.RunWorkerAsync()
+        '===========================
+        AddHandler ftpClient.DownloadProgressChanged, AddressOf DownloadProgressChanged
+        AddHandler ftpClient.DownloadFileCompleted, AddressOf DownloadComplete
+        xi = New LoadingForm
+        xi.Text = "Descargando última versión"
+        xi.ProgressBar.Maximum = 100
+        xi.ProgressBar.MarqueeAnimationSpeed = 100
+        'xi.mensaje.TextAlign = ContentAlignment.MiddleLeft
+        xi.mensaje.Text = "Descargando"
+        xi.Show()
+        'Try
+        Try
+            FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.rar")
+        Catch ex As Exception
+
+        End Try
+        ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
+        ftpClient.DownloadFileAsync(New Uri(path), trnsfrpth)
+    End Sub
+    Private Sub DownloadProgressChanged(ByVal sender As Object, ByVal e As Net.DownloadProgressChangedEventArgs)
+        'counter = counter + 1
+        'Dim xi As LoadingForm
+        Dim info As New IO.FileInfo("C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
+        Dim length As Long
+        length = (info.Length) / 1000
+        gDownloadProgress = e.ProgressPercentage
+        xi.ProgressBar.Value = gDownloadProgress
+        xi.mensaje.Text = length.ToString + "kb " + "Descargando... "
+        xi.Refresh()
+    End Sub
+    Private Sub DownloadComplete(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
+        'MsgBox("Descarga completa! " + gDownloadProgress.ToString)
+        'Dim xi As LoadingForm
+        xi.Dispose()
+        'UpdateSGC(newversion)
+        'If MsgBox("La descarga esta lista, Desea instalar?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+        UpdateSGC()
+        'End If
+
     End Sub
 End Module
 

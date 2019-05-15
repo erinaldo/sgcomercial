@@ -5,6 +5,7 @@ Imports System.Net.Sockets
 Imports System.Runtime.InteropServices
 Imports System.Data.SqlClient
 Public Class Principal
+    Dim xi As LoadingForm
     Dim permiso As Integer = 0
     Private Sub Principal_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
         End
@@ -877,7 +878,22 @@ Public Class Principal
         If MsgBox("    Seguro desea salir del sistema?   ", MessageBoxButtons.YesNo, "Pregunta") = MsgBoxResult.No Then
             e.Cancel = True
         Else
-            End
+            '********************************************************
+            Dim TerminalesTableadapter As siscomDataSetTableAdapters.terminalesTableAdapter
+            TerminalesTableadapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+            '********************************************************
+            Dim forceupdate As Integer = 0
+            Try
+                forceupdate = TerminalesTableadapter.terminales_getforceupdate(gmacadress)
+            Catch ex As Exception
+                forceupdate = 0
+            End Try
+            If gAutoUpdater = 1 And forceupdate = 1 Then
+                e.Cancel = True
+                DownloadSGC()
+            Else
+                End
+            End If
         End If
     End Sub
 
@@ -1000,7 +1016,7 @@ Public Class Principal
         PedidosDeliveryLibro.Visible = True
     End Sub
 
-    Private Sub RepararMedidasToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+    Private Sub RepararMedidasToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
         Dim mycommand As New SqlCommand
         Dim qry As String = "update productos set medida = 2"
@@ -1062,4 +1078,76 @@ Public Class Principal
         VentasPorUsuario.MdiParent = Me
         VentasPorUsuario.Visible = True
     End Sub
+
+    Private Sub LibroDeGastosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroDeGastosToolStripMenuItem.Click
+        MsgBox("Temporalmente no disponible")
+    End Sub
+    'Private Sub PrivateDownloadSGC()
+
+    '    Dim ftpClient As New WebClient
+    '    Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar"
+    '    Dim trnsfrpth As String = "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
+    '    'Dim UpdateAlertStatus As Boolean
+    '    '***********************************************************
+    '    'DESCARGA ACTUALIZACIÓN
+    '    '***********************************************************
+    '    'If UpdateAlertStatus = False Then Return
+    '    Try
+    '        '**********************************************
+    '        Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
+    '            IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
+    '        Catch ex As Exception
+
+    '        End Try
+    '        '**********************************************
+    '        ' SI NO EXISTE LA CREA
+    '        If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
+    '            System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
+    '        End If
+    '    Catch ex As Exception
+    '        Cursor.Current = Cursors.Default
+    '        MsgBox("Borrando archivos " + ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
+    '        Return
+    '    End Try
+    '    '======================================
+    '    gDownloadProgress = 0
+    '    '=====================================
+    '    'BackgroundWorker.RunWorkerAsync()
+    '    '===========================
+    '    AddHandler ftpClient.DownloadProgressChanged, AddressOf DownloadProgressChanged
+    '    AddHandler ftpClient.DownloadFileCompleted, AddressOf DownloadComplete
+    '    xi = New LoadingForm
+    '    xi.Text = "Descargando última versión"
+    '    xi.ProgressBar.Maximum = 100
+    '    xi.ProgressBar.MarqueeAnimationSpeed = 100
+    '    'xi.mensaje.TextAlign = ContentAlignment.MiddleLeft
+    '    xi.mensaje.Text = "Descargando"
+    '    xi.Show()
+    '    'Try
+    '    Try
+    '        FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.rar")
+    '    Catch ex As Exception
+
+    '    End Try
+    '    ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
+    '    ftpClient.DownloadFileAsync(New Uri(path), trnsfrpth)
+    'End Sub
+    'Private Sub DownloadProgressChanged(ByVal sender As Object, ByVal e As Net.DownloadProgressChangedEventArgs)
+    '    'counter = counter + 1
+    '    'Dim xi As LoadingForm
+    '    Dim info As New IO.FileInfo("C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
+    '    Dim length As Long
+    '    length = (info.Length) / 1000
+    '    gDownloadProgress = e.ProgressPercentage
+    '    xi.ProgressBar.Value = gDownloadProgress
+    '    xi.mensaje.Text = length.ToString + "kb " + "Descargando... "
+    '    xi.Refresh()
+    'End Sub
+    'Private Sub DownloadComplete(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
+    '    'MsgBox("Descarga completa! " + gDownloadProgress.ToString)
+    '    'Dim xi As LoadingForm
+    '    xi.Dispose()
+    '    'UpdateSGC(newversion)
+    '    UpdateSGC()
+    'End Sub
 End Class

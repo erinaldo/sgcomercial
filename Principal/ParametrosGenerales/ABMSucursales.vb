@@ -1,4 +1,6 @@
-﻿Public Class ABMSucursales
+﻿Imports System.Data.SqlClient
+
+Public Class ABMSucursales
     Private Sub SucursalesBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.SucursalesBindingSource.EndEdit()
@@ -20,20 +22,7 @@
     End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
-        'Try
-        '    Dim clientessucursalesTableAdapter As siscomDataSetTableAdapters.clientessucursalesTableAdapter
-        '    clientessucursalesTableAdapter = New siscomDataSetTableAdapters.clientessucursalesTableAdapter()
-        '    Dim ClientesSucursalesTable As siscomDataSet.clientessucursalesDataTable
-        '    ClientesSucursalesTable = clientessucursalesTableAdapter.GetDataByIDcliente(gMiIDCliente)
-        '    If ClientesSucursalesTable.Rows.Count > 0 Then
-        '        For i = 0 To ClientesSucursalesTable.Count - 1
-        '            Dim idsucursal As Long = ClientesSucursalesTable.Rows(i).Item(ClientesSucursalesTable.Columns("idsucursal"))
-        '            SucursalesTableAdapter.sucursales_existe(idsucursal)
-
-        '        Next
-        '    End If
-        'Catch ex As Exception
-
-        'End Try
+        GetSucursalesClowd()
+        Me.SucursalesTableAdapter.Fill(Me.ComercialDataSet.sucursales)
     End Sub
 End Class

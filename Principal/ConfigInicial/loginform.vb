@@ -11,9 +11,9 @@ Public Class loginform
     Dim UpdateAlertStatus As Boolean
     '================ DESCARGA DE VERSION
     Dim xi As LoadingForm
+    Dim ftpClient As New WebClient
     'Dim random As New Random
     Dim counter As Integer = 0
-    Dim ftpClient As New WebClient
     Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar"
     Dim trnsfrpth As String = "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
     '===============================================================================
@@ -414,6 +414,7 @@ Public Class loginform
 
     Private Sub UpdateCheckBG_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles UpdateCheckBG.DoWork
         UpdateCheckPasivo(UpdateAlertStatus, Val(SoftwareVersion), newversion)
+        UpdateRemoteVersion(SoftwareVersion, gTerminal)
     End Sub
 
     Private Sub UpdateCheckBG_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles UpdateCheckBG.RunWorkerCompleted
@@ -474,7 +475,8 @@ Public Class loginform
     Private Sub DownloadComplete(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
         'MsgBox("Descarga completa! " + gDownloadProgress.ToString)
         xi.Dispose()
-        UpdateSGC(newversion)
+        'UpdateSGC(newversion)
+        UpdateSGC()
     End Sub
 
     Private Sub LabelDatosCliente_Click(sender As Object, e As EventArgs) Handles LabelDatosCliente.Click

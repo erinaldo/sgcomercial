@@ -160,7 +160,7 @@ Module SCModule
                 End If
                 '******************************************************
                 If parametrosgeneralesTableAdapter.parametrosgenerales_existeclave(MachineKey) > 0 Then
-                    parametrosgeneralesTableAdapter.parametrosgenerales_updateprgstring1(MachineKey, LicenceValidDate.ToString) ' UPDATEA LOCAL
+                    parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave(MachineKey, Nothing, LicenceValidDate.ToString, Nothing) ' UPDATEA LOCAL
                     parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("tipolicencia", Nothing, gTipoLicencia, Nothing)
                 End If
             Catch ex As Exception
