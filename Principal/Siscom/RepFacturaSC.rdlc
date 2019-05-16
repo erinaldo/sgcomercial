@@ -263,6 +263,7 @@
         <Width>17.93166cm</Width>
         <Style>
           <Border>
+            <Color>White</Color>
             <Style>None</Style>
           </Border>
         </Style>
@@ -868,7 +869,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1022,7 +1022,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Right</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -1085,7 +1085,7 @@
     <Height>2.89589in</Height>
     <Style />
   </Body>
-  <Width>7.50574in</Width>
+  <Width>7.30574in</Width>
   <Page>
     <PageHeader>
       <Height>3.6082cm</Height>
@@ -1117,7 +1117,7 @@
                   <Style>
                     <FontFamily>MONTSErrat</FontFamily>
                     <FontSize>18pt</FontSize>
-                    <Color>CadetBlue</Color>
+                    <Color>#3fbeea</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1140,6 +1140,38 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>evolucioná tu negocio</Value>
+                  <Style>
+                    <FontFamily>exo 2.0 Medium</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>2.47381cm</Top>
+          <Left>6.54331cm</Left>
+          <Height>0.958cm</Height>
+          <Width>4.54611cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -1148,7 +1180,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.397cm</Height>
+      <Height>1.82033cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1158,6 +1190,10 @@
           <Paragraphs>
             <Paragraph>
               <TextRuns>
+                <TextRun>
+                  <Value>Pág. </Value>
+                  <Style />
+                </TextRun>
                 <TextRun>
                   <Value>=Globals!PageNumber</Value>
                   <Style />
@@ -1169,10 +1205,44 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.42617cm</Top>
+          <Top>0.15875cm</Top>
           <Left>0.54187cm</Left>
           <Height>0.6cm</Height>
-          <Width>18.43966cm</Width>
+          <Width>17.84699cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox5">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>sistemascomerciales.net</Value>
+                  <Style>
+                    <FontFamily>exo 2.0 Medium</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.90742cm</Top>
+          <Left>0.54187cm</Left>
+          <Height>0.595cm</Height>
+          <Width>17.84699cm</Width>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
