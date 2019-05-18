@@ -23,7 +23,6 @@
         </Paragraphs>
         <rd:DefaultName>tipocomprobante</rd:DefaultName>
         <Top>0.30311cm</Top>
-        <Left>0.3175cm</Left>
         <Height>0.6cm</Height>
         <Width>10.91375cm</Width>
         <Style>
@@ -38,7 +37,6 @@
       </Textbox>
       <Line Name="Line2">
         <Top>1.0795cm</Top>
-        <Left>0.3175cm</Left>
         <Height>0cm</Height>
         <Width>16.637cm</Width>
         <ZIndex>1</ZIndex>
@@ -69,7 +67,6 @@
         </Paragraphs>
         <rd:DefaultName>tipocomprobante</rd:DefaultName>
         <Top>3.59664cm</Top>
-        <Left>0.3175cm</Left>
         <Height>0.6cm</Height>
         <Width>10.91375cm</Width>
         <ZIndex>2</ZIndex>
@@ -331,7 +328,6 @@
                       </Style>
                     </Textbox>
                     <ColSpan>2</ColSpan>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -469,7 +465,6 @@
                       </Style>
                     </Textbox>
                     <ColSpan>2</ColSpan>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -612,7 +607,7 @@
         </TablixRowHierarchy>
         <DataSetName>listapedidosreporte</DataSetName>
         <Top>4.37303cm</Top>
-        <Left>0.40295cm</Left>
+        <Left>0.08545cm</Left>
         <Height>2.4cm</Height>
         <Width>18.97824cm</Width>
         <ZIndex>3</ZIndex>
@@ -638,7 +633,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>1.97089cm</Top>
-        <Left>0.40295cm</Left>
+        <Left>0.08545cm</Left>
         <Height>0.6cm</Height>
         <Width>7.4295cm</Width>
         <ZIndex>4</ZIndex>
@@ -669,7 +664,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
         <Top>1.97089cm</Top>
-        <Left>7.83245cm</Left>
+        <Left>7.51495cm</Left>
         <Height>0.6cm</Height>
         <Width>3.45017cm</Width>
         <ZIndex>5</ZIndex>
@@ -700,7 +695,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
         <Top>1.97089cm</Top>
-        <Left>11.28261cm</Left>
+        <Left>10.96511cm</Left>
         <Height>0.6cm</Height>
         <Width>5.59858cm</Width>
         <ZIndex>6</ZIndex>
@@ -733,7 +728,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox21</rd:DefaultName>
         <Top>1.21214cm</Top>
-        <Left>0.42411cm</Left>
+        <Left>0.10661cm</Left>
         <Height>0.6cm</Height>
         <Width>7.39422cm</Width>
         <ZIndex>7</ZIndex>
@@ -765,7 +760,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox21</rd:DefaultName>
         <Top>1.21214cm</Top>
-        <Left>7.85361cm</Left>
+        <Left>7.53611cm</Left>
         <Height>0.6cm</Height>
         <Width>3.429cm</Width>
         <ZIndex>8</ZIndex>
@@ -797,7 +792,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox21</rd:DefaultName>
         <Top>1.18533cm</Top>
-        <Left>11.30378cm</Left>
+        <Left>10.98628cm</Left>
         <Height>0.6cm</Height>
         <Width>5.57741cm</Width>
         <ZIndex>9</ZIndex>

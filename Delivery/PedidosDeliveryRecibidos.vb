@@ -10,7 +10,7 @@
             Me.ListapedidosdeliveryTableAdapter.FillByAptosPreparacion(Me.ComercialDataSet.listapedidosdelivery)
             ListapedidosdeliveryDataGridView.Columns("Pagar").Visible = False
         End If
-        Me.ListapedidosdeliveryBindingSource.Filter = "estado <> 'ENTREGADO'"
+        Me.ListapedidosdeliveryBindingSource.Filter = "estado <> 'ENTREGADO' and estado <> 'CANCELADO'"
     End Sub
     Public Sub colorear()
         Dim i As Integer
@@ -48,8 +48,12 @@
     End Sub
 
     Private Sub ListapedidosdeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellClick
+        Dim estadopedido As String = Nothing
         Try
-            Dim estadopedido As String = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("estado").Value
+            If e.RowIndex >= 0 Then
+                estadopedido = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("estado").Value
+            End If
+
             Select Case ListapedidosdeliveryDataGridView.Columns(e.ColumnIndex).Name
                 Case "imprimircomanda" ' imprimir orden de produccion
                     Dim p As ViewerComanda
@@ -117,8 +121,9 @@
                     reloadpedidos()
                     colorear()
                     'MsgBox("vamos a modificar: " + ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value.ToString)
+                Case Else
+                    'colorear()
             End Select
-
         Catch ex As Exception
             MsgBox("No se pudo completar la operación: " + ex.Message)
         End Try
@@ -225,5 +230,9 @@
         y = New ViewerListaProduccion
         y.ShowDialog()
 
+    End Sub
+
+    Private Sub ListapedidosdeliveryDataGridView_Sorted(sender As Object, e As EventArgs) Handles ListapedidosdeliveryDataGridView.Sorted
+        colorear()
     End Sub
 End Class

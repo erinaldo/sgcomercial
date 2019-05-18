@@ -94,7 +94,9 @@ Module SGCModule
     Public importarubro As Integer
     Public importadescripcion As Integer
     Public importastockminimo As Integer
-
+    '**************************
+    Public gFechaDesde As Date
+    Public gFechaHasta As Date
     '*******************************    GLOBAL FUNCTIONS        *********************************
     '***************************    NormalizarCodigo    ***************************************************
     ' convierte un codigo numerico de longitud menor a 12 caracteres a un codigo de longitud 13 (digito verificador incluido)
@@ -841,6 +843,14 @@ Module SGCModule
         'If MsgBox("La descarga esta lista, Desea instalar?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
         UpdateSGC()
         'End If
+
+    End Sub
+    Public Sub GetRangoFechas()
+        gFechaDesde = Nothing
+        gFechaHasta = Nothing
+        Dim srf As SeleccionaRangoFechas
+        srf = New SeleccionaRangoFechas
+        srf.ShowDialog()
 
     End Sub
 End Module

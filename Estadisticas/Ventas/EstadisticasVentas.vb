@@ -39,6 +39,22 @@
                 Me.EstHistoricoVentasTableAdapter.FillByFechaDesde(Me.comercialDataSet.EstHistoricoVentas, fechadesde)
 
                 Me.ReportViewer1.RefreshReport()
+            Case "Ventas por Provincia"
+                ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepVentasProvincias.rdlc"
+                Dim rptDs As Microsoft.Reporting.WinForms.ReportDataSource
+                rptDs = New Microsoft.Reporting.WinForms.ReportDataSource("libroventas", LibroventasBindingSource)
+
+                Me.ReportViewer1.LocalReport.DataSources.Clear()
+                Me.ReportViewer1.LocalReport.DataSources.Add(rptDs)
+
+                GetRangoFechas()
+
+                If gFechaDesde <> Nothing And gFechaHasta <> Nothing Then
+                    LibroventasTableAdapter.FillByRangoFechas(Me.comercialDataSet.libroventas, gFechaDesde, gFechaHasta)
+                    Me.ReportViewer1.RefreshReport()
+                Else
+                    MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)
+                End If
             Case Else
                 Me.ReportViewer1.Clear()
 

@@ -23,8 +23,6 @@ Partial Class ListaPedidos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListaPedidos))
         Me.listapedidosreporteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
@@ -41,7 +39,6 @@ Partial Class ListaPedidos
         Me.TelefonoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PersonacontactoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListapedidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.PedidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.ProveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.proveedoresTableAdapter()
@@ -49,6 +46,10 @@ Partial Class ListaPedidos
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.listapedidosreporteTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosreporteTableAdapter()
         Me.ListapedidosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosTableAdapter()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.SoloCantidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DetalladoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.listapedidosreporteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,6 +58,7 @@ Partial Class ListaPedidos
         CType(Me.ListapedidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PedidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'listapedidosreporteBindingSource
@@ -76,10 +78,14 @@ Partial Class ListaPedidos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.PedidosDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(8, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(651, 552)
+        Me.GroupBox1.Size = New System.Drawing.Size(747, 513)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pedidos"
@@ -90,6 +96,9 @@ Partial Class ListaPedidos
         Me.PedidosDataGridView.AllowUserToDeleteRows = False
         Me.PedidosDataGridView.AllowUserToResizeColumns = False
         Me.PedidosDataGridView.AllowUserToResizeRows = False
+        Me.PedidosDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PedidosDataGridView.AutoGenerateColumns = False
         Me.PedidosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.PedidosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdpedidoDataGridViewTextBoxColumn, Me.IdproveedorDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn, Me.FechaaltaDataGridViewTextBoxColumn, Me.FechabajaDataGridViewTextBoxColumn, Me.Finalizado, Me.CuitcuilDataGridViewTextBoxColumn, Me.TelefonoDataGridViewTextBoxColumn, Me.PersonacontactoDataGridViewTextBoxColumn})
@@ -99,7 +108,7 @@ Partial Class ListaPedidos
         Me.PedidosDataGridView.ReadOnly = True
         Me.PedidosDataGridView.RowTemplate.Height = 24
         Me.PedidosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.PedidosDataGridView.Size = New System.Drawing.Size(630, 495)
+        Me.PedidosDataGridView.Size = New System.Drawing.Size(726, 456)
         Me.PedidosDataGridView.TabIndex = 2
         '
         'IdpedidoDataGridViewTextBoxColumn
@@ -182,21 +191,6 @@ Partial Class ListaPedidos
         Me.ListapedidosBindingSource.DataMember = "listapedidos"
         Me.ListapedidosBindingSource.DataSource = Me.ComercialDataSet
         '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.DocumentMapWidth = 87
-        ReportDataSource1.Name = "listapedidosreporte"
-        ReportDataSource1.Value = Me.listapedidosreporteBindingSource
-        ReportDataSource2.Name = "MiComercio"
-        ReportDataSource2.Value = Me.MiComercioBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.ReportPedido.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(676, 12)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(647, 545)
-        Me.ReportViewer1.TabIndex = 3
-        '
         'PedidosBindingSource
         '
         Me.PedidosBindingSource.DataMember = "pedidos"
@@ -247,11 +241,14 @@ Partial Class ListaPedidos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -284,12 +281,39 @@ Partial Class ListaPedidos
         '
         Me.ListapedidosTableAdapter.ClearBeforeFill = True
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SoloCantidadesToolStripMenuItem, Me.DetalladoToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(187, 52)
+        '
+        'SoloCantidadesToolStripMenuItem
+        '
+        Me.SoloCantidadesToolStripMenuItem.Name = "SoloCantidadesToolStripMenuItem"
+        Me.SoloCantidadesToolStripMenuItem.Size = New System.Drawing.Size(186, 24)
+        Me.SoloCantidadesToolStripMenuItem.Text = "Solo Cantidades"
+        '
+        'DetalladoToolStripMenuItem
+        '
+        Me.DetalladoToolStripMenuItem.Name = "DetalladoToolStripMenuItem"
+        Me.DetalladoToolStripMenuItem.Size = New System.Drawing.Size(186, 24)
+        Me.DetalladoToolStripMenuItem.Text = "Detallado"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(235, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(277, 17)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "<< Click en el pedido para ver el detalle >>"
+        '
         'ListaPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1342, 578)
-        Me.Controls.Add(Me.ReportViewer1)
+        Me.ClientSize = New System.Drawing.Size(766, 529)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ListaPedidos"
@@ -300,10 +324,12 @@ Partial Class ListaPedidos
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.PedidosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListapedidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PedidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -315,7 +341,6 @@ Partial Class ListaPedidos
     Friend WithEvents ProveedoresBindingSource As BindingSource
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents PedidosDataGridView As DataGridView
-    Friend WithEvents ReportViewer1 As ReportViewer
     Friend WithEvents MiComercioBindingSource As BindingSource
     Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
     Friend WithEvents listapedidosreporteBindingSource As BindingSource
@@ -331,4 +356,8 @@ Partial Class ListaPedidos
     Friend WithEvents CuitcuilDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TelefonoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PersonacontactoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents SoloCantidadesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DetalladoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label1 As Label
 End Class

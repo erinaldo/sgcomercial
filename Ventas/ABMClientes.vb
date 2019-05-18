@@ -9,6 +9,7 @@ Public Class ABMClientes
         ComboCondicionIVA.Enabled = status
         DiasvencimientoTextBox.Enabled = status
         porcentajedescuentoTextbox.Enabled = status
+        ComboBox2.Enabled = status
         'DireccionTextBox.Enabled = status
     End Sub
 

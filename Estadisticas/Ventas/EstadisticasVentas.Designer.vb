@@ -26,10 +26,10 @@ Partial Class EstadisticasVentas
         Dim IdclienteLabel As System.Windows.Forms.Label
         Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.EstHistoricoVentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.EstABCResumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.EstClasificacionParetoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EstHistoricoVentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EstParetoParticipacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboBoxEstadistica = New System.Windows.Forms.ComboBox()
@@ -39,14 +39,18 @@ Partial Class EstadisticasVentas
         Me.EstABCResumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstABCResumenTableAdapter()
         Me.EstClasificacionParetoTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstClasificacionParetoTableAdapter()
         Me.EstHistoricoVentasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstHistoricoVentasTableAdapter()
+        Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
+        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         IdclienteLabel = New System.Windows.Forms.Label()
-        CType(Me.EstHistoricoVentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstABCResumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstClasificacionParetoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EstHistoricoVentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstParetoParticipacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -59,25 +63,25 @@ Partial Class EstadisticasVentas
         IdclienteLabel.TabIndex = 16
         IdclienteLabel.Text = "Seleccione Informe:"
         '
-        'EstHistoricoVentasBindingSource
+        'EstABCResumenBindingSource
         '
-        Me.EstHistoricoVentasBindingSource.DataMember = "EstHistoricoVentas"
-        Me.EstHistoricoVentasBindingSource.DataSource = Me.comercialDataSet
+        Me.EstABCResumenBindingSource.DataMember = "EstABCResumen"
+        Me.EstABCResumenBindingSource.DataSource = Me.comercialDataSet
         '
         'comercialDataSet
         '
         Me.comercialDataSet.DataSetName = "comercialDataSet"
         Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'EstABCResumenBindingSource
-        '
-        Me.EstABCResumenBindingSource.DataMember = "EstABCResumen"
-        Me.EstABCResumenBindingSource.DataSource = Me.comercialDataSet
-        '
         'EstClasificacionParetoBindingSource
         '
         Me.EstClasificacionParetoBindingSource.DataMember = "EstClasificacionPareto"
         Me.EstClasificacionParetoBindingSource.DataSource = Me.comercialDataSet
+        '
+        'EstHistoricoVentasBindingSource
+        '
+        Me.EstHistoricoVentasBindingSource.DataMember = "EstHistoricoVentas"
+        Me.EstHistoricoVentasBindingSource.DataSource = Me.comercialDataSet
         '
         'EstParetoParticipacionBindingSource
         '
@@ -99,10 +103,10 @@ Partial Class EstadisticasVentas
         '
         Me.ComboBoxEstadistica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxEstadistica.FormattingEnabled = True
-        Me.ComboBoxEstadistica.Items.AddRange(New Object() {"Historico Ventas", "Principio de Pareto"})
+        Me.ComboBoxEstadistica.Items.AddRange(New Object() {"Historico Ventas", "Principio de Pareto", "Ventas por Provincia"})
         Me.ComboBoxEstadistica.Location = New System.Drawing.Point(155, 22)
         Me.ComboBoxEstadistica.Name = "ComboBoxEstadistica"
-        Me.ComboBoxEstadistica.Size = New System.Drawing.Size(155, 24)
+        Me.ComboBoxEstadistica.Size = New System.Drawing.Size(327, 24)
         Me.ComboBoxEstadistica.TabIndex = 0
         '
         'GroupBox2
@@ -146,11 +150,85 @@ Partial Class EstadisticasVentas
         '
         Me.EstHistoricoVentasTableAdapter.ClearBeforeFill = True
         '
+        'LibroventasTableAdapter
+        '
+        Me.LibroventasTableAdapter.ClearBeforeFill = True
+        '
+        'LibroventasBindingSource
+        '
+        Me.LibroventasBindingSource.DataMember = "libroventas"
+        Me.LibroventasBindingSource.DataSource = Me.comercialDataSet
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
+        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
+        Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager.permisosTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
         'EstadisticasVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(829, 612)
+        Me.ClientSize = New System.Drawing.Size(837, 629)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -158,14 +236,15 @@ Partial Class EstadisticasVentas
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "EstadisticasVentas"
         Me.Text = "Estadisticas Ventas"
-        CType(Me.EstHistoricoVentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EstABCResumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EstClasificacionParetoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstHistoricoVentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EstParetoParticipacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -183,4 +262,7 @@ Partial Class EstadisticasVentas
     Friend WithEvents EstClasificacionParetoTableAdapter As comercialDataSetTableAdapters.EstClasificacionParetoTableAdapter
     Friend WithEvents EstHistoricoVentasBindingSource As BindingSource
     Friend WithEvents EstHistoricoVentasTableAdapter As comercialDataSetTableAdapters.EstHistoricoVentasTableAdapter
+    Friend WithEvents LibroventasTableAdapter As comercialDataSetTableAdapters.libroventasTableAdapter
+    Friend WithEvents LibroventasBindingSource As BindingSource
+    Friend WithEvents TableAdapterManager As comercialDataSetTableAdapters.TableAdapterManager
 End Class
