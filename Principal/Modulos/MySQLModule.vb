@@ -638,7 +638,8 @@ Module MySQLModule
             ProductosTableAdapter = New comercialDataSetTableAdapters.productosTableAdapter()
             '-----------------------------------------------------
             Dim ProductosWEBTable As MySQLDataSet.productosDataTable
-            ProductosWEBTable = ProductosWEBTableAdapter.GetDataByActivos
+            'ProductosWEBTable = ProductosWEBTableAdapter.GetDataByActivos
+            ProductosWEBTable = ProductosWEBTableAdapter.GetData
             '-------------------------------    barra de progreso----------------------------------------------------
             Dim p As SubirProductosClowd
             p = New SubirProductosClowd
@@ -756,10 +757,12 @@ Module MySQLModule
                 Else
                     Dim rubrosTableAdapter As comercialDataSetTableAdapters.rubrosTableAdapter
                     rubrosTableAdapter = New comercialDataSetTableAdapters.rubrosTableAdapter()
-                    rubrosTableAdapter.rubros_existerubro(idrubro)
                     idrubro = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("idrubro"))
-                    If rubrosTableAdapter.rubros_existerubro(idrubro) = 0 Then
-                        idrubro = 2
+                    idrubro = rubrosTableAdapter.rubros_existerubro(idrubro)
+                    If idrubro > 0 Then
+                        idrubro = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("idrubro"))
+                    Else
+                        idrubro = 1
                     End If
                 End If
                 '-----------------------------------------------------------------------------------
@@ -785,11 +788,18 @@ Module MySQLModule
                     productocompuesto = "N"
                 End If
                 '-----------------------------------------------------------------------------------
+                Dim estado As String = Nothing
+                If IsDBNull(ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("estado"))) Then
+                    estado = "I"
+                Else
+                    estado = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("estado"))
+                End If
+                '-----------------------------------------------------------------------------------
                 ' SI EXISTE UPDATE
                 If idproductolocal > 0 Then
-                    ProductosTableAdapter.productos_pullupdate(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto, idproductolocal)
+                    ProductosTableAdapter.productos_pullupdate(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, estado, precioventadistribuidor, idrubro, iva, fabricante, codigoproducto, idproductolocal)
                 Else ' NO EXISTE INSERT
-                    ProductosTableAdapter.productos_pullinsert(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
+                    ProductosTableAdapter.productos_pullinsert(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, estado, precioventadistribuidor, idrubro, iva, fabricante)
                 End If
                 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 'SyncLogTableAdapter.synclog_update(1, Now, gmacadress, gusername, "productos")

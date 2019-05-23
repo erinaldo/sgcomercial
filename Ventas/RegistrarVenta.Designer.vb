@@ -681,7 +681,7 @@ Partial Class RegistrarVenta
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1061, 366)
+        Me.GroupBox2.Size = New System.Drawing.Size(1061, 257)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -766,7 +766,7 @@ Partial Class RegistrarVenta
         DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VentasdetalleDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle7
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1024, 289)
+        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1024, 180)
         Me.VentasdetalleDataGridView.TabIndex = 0
         '
         'codproducto
@@ -1065,6 +1065,7 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -1105,7 +1106,7 @@ Partial Class RegistrarVenta
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.labeltotal)
         Me.GroupBox4.Controls.Add(Me.Label3)
-        Me.GroupBox4.Location = New System.Drawing.Point(16, 531)
+        Me.GroupBox4.Location = New System.Drawing.Point(16, 422)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
@@ -1268,7 +1269,7 @@ Partial Class RegistrarVenta
         Me.GFP2.Controls.Add(Me.pagotextbox2)
         Me.GFP2.Controls.Add(Label2)
         Me.GFP2.Controls.Add(Me.idformapagocombo2)
-        Me.GFP2.Location = New System.Drawing.Point(16, 584)
+        Me.GFP2.Location = New System.Drawing.Point(16, 475)
         Me.GFP2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GFP2.Name = "GFP2"
         Me.GFP2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -1351,7 +1352,7 @@ Partial Class RegistrarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1092, 662)
+        Me.ClientSize = New System.Drawing.Size(1092, 553)
         Me.Controls.Add(Me.GFP2)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)

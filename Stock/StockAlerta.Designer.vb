@@ -136,11 +136,14 @@ Partial Class StockAlerta
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -325,7 +328,7 @@ Partial Class StockAlerta
         'LabelFiltro
         '
         Me.LabelFiltro.AutoSize = True
-        Me.LabelFiltro.Location = New System.Drawing.Point(220, 41)
+        Me.LabelFiltro.Location = New System.Drawing.Point(194, 41)
         Me.LabelFiltro.Name = "LabelFiltro"
         Me.LabelFiltro.Size = New System.Drawing.Size(73, 17)
         Me.LabelFiltro.TabIndex = 1
