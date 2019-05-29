@@ -33,26 +33,27 @@ Partial Class StkMovimientos
         Me.DPDesde = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.StkmovimientosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContextMenuStripGrilla = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.BtnActualizar = New System.Windows.Forms.ToolStripMenuItem()
         Me.StkmovimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.StkmovimientosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stkmovimientosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.ContextMenuStripGrilla = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.BtnActualizar = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.motivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.StkmovimientosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStripGrilla.SuspendLayout()
         CType(Me.StkmovimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ContextMenuStripGrilla.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -68,7 +69,7 @@ Partial Class StkMovimientos
         Me.GroupBox1.Controls.Add(Me.DPDesde)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(964, 59)
+        Me.GroupBox1.Size = New System.Drawing.Size(1108, 59)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -88,7 +89,7 @@ Partial Class StkMovimientos
         '
         Me.RadioButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(811, 24)
+        Me.RadioButton1.Location = New System.Drawing.Point(955, 24)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(84, 21)
         Me.RadioButton1.TabIndex = 17
@@ -102,7 +103,7 @@ Partial Class StkMovimientos
         Me.PictureSeleccionarCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureSeleccionarCliente.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSeleccionarCliente.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(663, 20)
+        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(807, 20)
         Me.PictureSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureSeleccionarCliente.Name = "PictureSeleccionarCliente"
         Me.PictureSeleccionarCliente.Size = New System.Drawing.Size(29, 28)
@@ -116,7 +117,7 @@ Partial Class StkMovimientos
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox1.Location = New System.Drawing.Point(482, 23)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(161, 22)
+        Me.TextBox1.Size = New System.Drawing.Size(305, 22)
         Me.TextBox1.TabIndex = 3
         '
         'Label2
@@ -154,7 +155,7 @@ Partial Class StkMovimientos
         Me.GroupBox2.Controls.Add(Me.StkmovimientosDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 63)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(964, 525)
+        Me.GroupBox2.Size = New System.Drawing.Size(1108, 525)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         '
@@ -163,8 +164,9 @@ Partial Class StkMovimientos
         Me.StkmovimientosDataGridView.AllowUserToAddRows = False
         Me.StkmovimientosDataGridView.AllowUserToDeleteRows = False
         Me.StkmovimientosDataGridView.AutoGenerateColumns = False
+        Me.StkmovimientosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.StkmovimientosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.StkmovimientosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.producto, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.cantidad, Me.DataGridViewTextBoxColumn3, Me.fecha})
+        Me.StkmovimientosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.codigoproducto, Me.producto, Me.cantidad, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.motivo, Me.fecha})
         Me.StkmovimientosDataGridView.ContextMenuStrip = Me.ContextMenuStripGrilla
         Me.StkmovimientosDataGridView.DataSource = Me.StkmovimientosBindingSource
         Me.StkmovimientosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
@@ -173,68 +175,23 @@ Partial Class StkMovimientos
         Me.StkmovimientosDataGridView.ReadOnly = True
         Me.StkmovimientosDataGridView.RowTemplate.Height = 24
         Me.StkmovimientosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.StkmovimientosDataGridView.Size = New System.Drawing.Size(958, 504)
+        Me.StkmovimientosDataGridView.Size = New System.Drawing.Size(1102, 504)
         Me.StkmovimientosDataGridView.TabIndex = 0
         '
-        'codigoproducto
+        'ContextMenuStripGrilla
         '
-        Me.codigoproducto.DataPropertyName = "codigoproducto"
-        Me.codigoproducto.HeaderText = "Código Producto"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.ToolTipText = "Código Producto"
-        Me.codigoproducto.Width = 150
+        Me.ContextMenuStripGrilla.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStripGrilla.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnActualizar})
+        Me.ContextMenuStripGrilla.Name = "ContextMenuStripGrilla"
+        Me.ContextMenuStripGrilla.Size = New System.Drawing.Size(173, 30)
         '
-        'producto
+        'BtnActualizar
         '
-        Me.producto.DataPropertyName = "producto"
-        Me.producto.HeaderText = "Producto"
-        Me.producto.Name = "producto"
-        Me.producto.ReadOnly = True
-        Me.producto.ToolTipText = "Producto"
-        Me.producto.Width = 300
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "tipomovimiento"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Tipo Movimiento"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.ToolTipText = "Tipo Movimiento"
-        Me.DataGridViewTextBoxColumn1.Width = 150
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "origen"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Origen Movimiento"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.ToolTipText = "Origen"
-        Me.DataGridViewTextBoxColumn2.Width = 150
-        '
-        'cantidad
-        '
-        Me.cantidad.DataPropertyName = "cantidad"
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechacarga"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Fecha Carga"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.ToolTipText = "Fecha Carga"
-        Me.DataGridViewTextBoxColumn3.Width = 150
-        '
-        'fecha
-        '
-        Me.fecha.DataPropertyName = "fecha"
-        Me.fecha.HeaderText = "fecha"
-        Me.fecha.Name = "fecha"
-        Me.fecha.ReadOnly = True
-        Me.fecha.Visible = False
+        Me.BtnActualizar.Image = Global.sgcomercial.My.Resources.Resources.refresh_icon
+        Me.BtnActualizar.Name = "BtnActualizar"
+        Me.BtnActualizar.ShortcutKeys = System.Windows.Forms.Keys.F5
+        Me.BtnActualizar.Size = New System.Drawing.Size(172, 26)
+        Me.BtnActualizar.Text = "Actualizar"
         '
         'StkmovimientosBindingSource
         '
@@ -277,6 +234,7 @@ Partial Class StkMovimientos
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -296,12 +254,14 @@ Partial Class StkMovimientos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -313,26 +273,81 @@ Partial Class StkMovimientos
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'ContextMenuStripGrilla
+        'DataGridViewTextBoxColumn3
         '
-        Me.ContextMenuStripGrilla.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuStripGrilla.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnActualizar})
-        Me.ContextMenuStripGrilla.Name = "ContextMenuStripGrilla"
-        Me.ContextMenuStripGrilla.Size = New System.Drawing.Size(173, 30)
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechacarga"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Fecha Carga"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.ToolTipText = "Fecha Carga"
+        Me.DataGridViewTextBoxColumn3.Width = 109
         '
-        'BtnActualizar
+        'codigoproducto
         '
-        Me.BtnActualizar.Image = Global.sgcomercial.My.Resources.Resources.refresh_icon
-        Me.BtnActualizar.Name = "BtnActualizar"
-        Me.BtnActualizar.ShortcutKeys = System.Windows.Forms.Keys.F5
-        Me.BtnActualizar.Size = New System.Drawing.Size(179, 26)
-        Me.BtnActualizar.Text = "Actualizar"
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Código Producto"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.ToolTipText = "Código Producto"
+        Me.codigoproducto.Width = 130
+        '
+        'producto
+        '
+        Me.producto.DataPropertyName = "producto"
+        Me.producto.HeaderText = "Producto"
+        Me.producto.Name = "producto"
+        Me.producto.ReadOnly = True
+        Me.producto.ToolTipText = "Producto"
+        Me.producto.Width = 94
+        '
+        'cantidad
+        '
+        Me.cantidad.DataPropertyName = "cantidad"
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.Width = 93
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "tipomovimiento"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Tipo Movimiento"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.ToolTipText = "Tipo Movimiento"
+        Me.DataGridViewTextBoxColumn1.Width = 128
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "origen"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Origen Movimiento"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.ToolTipText = "Origen"
+        Me.DataGridViewTextBoxColumn2.Width = 142
+        '
+        'motivo
+        '
+        Me.motivo.DataPropertyName = "motivo"
+        Me.motivo.HeaderText = "Motivo"
+        Me.motivo.Name = "motivo"
+        Me.motivo.ReadOnly = True
+        Me.motivo.ToolTipText = "Motivo"
+        Me.motivo.Width = 78
+        '
+        'fecha
+        '
+        Me.fecha.DataPropertyName = "fecha"
+        Me.fecha.HeaderText = "fecha"
+        Me.fecha.Name = "fecha"
+        Me.fecha.ReadOnly = True
+        Me.fecha.Visible = False
         '
         'StkMovimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(988, 594)
+        Me.ClientSize = New System.Drawing.Size(1132, 594)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.KeyPreview = True
@@ -347,9 +362,9 @@ Partial Class StkMovimientos
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.StkmovimientosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStripGrilla.ResumeLayout(False)
         CType(Me.StkmovimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ContextMenuStripGrilla.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -365,16 +380,17 @@ Partial Class StkMovimientos
     Friend WithEvents StkmovimientosTableAdapter As comercialDataSetTableAdapters.stkmovimientosTableAdapter
     Friend WithEvents TableAdapterManager As comercialDataSetTableAdapters.TableAdapterManager
     Friend WithEvents StkmovimientosDataGridView As DataGridView
-    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
-    Friend WithEvents producto As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents fecha As DataGridViewTextBoxColumn
     Friend WithEvents PictureSeleccionarCliente As PictureBox
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents ContextMenuStripGrilla As ContextMenuStrip
     Friend WithEvents BtnActualizar As ToolStripMenuItem
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
+    Friend WithEvents producto As DataGridViewTextBoxColumn
+    Friend WithEvents cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents motivo As DataGridViewTextBoxColumn
+    Friend WithEvents fecha As DataGridViewTextBoxColumn
 End Class

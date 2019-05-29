@@ -308,7 +308,7 @@
             For i = 0 To DataGridView1.RowCount - 1
                 medida = ProductosTableAdapter.productos_consultarmedida(DataGridView1.Rows(i).Cells("codigoproducto").Value)
                 Try
-                    If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(DataGridView1.Rows(i).Cells("codigoproducto").Value), DataGridView1.Rows(i).Cells("cantidad").Value, Today, guserid, "E", "Cambio Mercaderías Varias") >= 0 Then
+                    If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(DataGridView1.Rows(i).Cells("codigoproducto").Value), DataGridView1.Rows(i).Cells("cantidad").Value, Today, guserid, "E", "Cambio Mercaderías Varias", 1) >= 0 Then
                         Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(DataGridView1.Rows(i).Cells("codigoproducto").Value)
                         Dim cant As Decimal = DataGridView1.Rows(i).Cells("cantidad").Value
                         Dim subt As Decimal = DataGridView1.Rows(i).Cells("subtotal").Value
@@ -335,7 +335,7 @@
             For i = 0 To DataGridView2.RowCount - 1
                 medida = ProductosTableAdapter.productos_consultarmedida(DataGridView2.Rows(i).Cells("codigoproducto2").Value)
                 Try
-                    If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(DataGridView2.Rows(i).Cells("codigoproducto2").Value), DataGridView2.Rows(i).Cells("cantidad2").Value, Today, guserid, "S", "Cambio Mercaderías Varias") >= 0 Then
+                    If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(DataGridView2.Rows(i).Cells("codigoproducto2").Value), DataGridView2.Rows(i).Cells("cantidad2").Value, Today, guserid, "S", "Cambio Mercaderías Varias", 1) >= 0 Then
                         Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(DataGridView2.Rows(i).Cells("codigoproducto2").Value)
                         Dim cant As Decimal = DataGridView2.Rows(i).Cells("cantidad2").Value
                         Dim subt As Decimal = DataGridView2.Rows(i).Cells("subtotal2").Value

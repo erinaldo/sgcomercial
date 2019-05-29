@@ -17,6 +17,7 @@ Module SGCModule
     '************************************************
     'Public StrSysCurrentVersion As String
     'Public SysCurrentVersion As Long
+    Public gReloadPermisos As Boolean = False
     Public gDownloadProgress As Long
     Public SoftwareVersion As String
     Public PermisoVtaCC As Long

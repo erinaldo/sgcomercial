@@ -35,6 +35,7 @@ Partial Class Principal
         Me.VentasPorDiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroMayorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasPorUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroDeGastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarPreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PresupuestosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarPresupuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -192,7 +193,6 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
-        Me.LibroDeGastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -221,7 +221,7 @@ Partial Class Principal
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 85)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 58)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -301,6 +301,13 @@ Partial Class Principal
         Me.VentasPorUsuarioToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
         Me.VentasPorUsuarioToolStripMenuItem.Tag = "ReporteVentasPorUsuario"
         Me.VentasPorUsuarioToolStripMenuItem.Text = "Ventas por Usuario"
+        '
+        'LibroDeGastosToolStripMenuItem
+        '
+        Me.LibroDeGastosToolStripMenuItem.Name = "LibroDeGastosToolStripMenuItem"
+        Me.LibroDeGastosToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.LibroDeGastosToolStripMenuItem.Tag = "LibroGastos"
+        Me.LibroDeGastosToolStripMenuItem.Text = "Libro de Gastos"
         '
         'ConsultarPreciosToolStripMenuItem
         '
@@ -951,7 +958,7 @@ Partial Class Principal
         '
         Me.Alerta1ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
         Me.Alerta1ToolStripMenuItem.Name = "Alerta1ToolStripMenuItem"
-        Me.Alerta1ToolStripMenuItem.Size = New System.Drawing.Size(140, 28)
+        Me.Alerta1ToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.Alerta1ToolStripMenuItem.Tag = "Alerta1"
         Me.Alerta1ToolStripMenuItem.Text = "Alerta1"
         Me.Alerta1ToolStripMenuItem.Visible = False
@@ -960,7 +967,7 @@ Partial Class Principal
         '
         Me.Alerta2ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
         Me.Alerta2ToolStripMenuItem.Name = "Alerta2ToolStripMenuItem"
-        Me.Alerta2ToolStripMenuItem.Size = New System.Drawing.Size(140, 28)
+        Me.Alerta2ToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.Alerta2ToolStripMenuItem.Tag = "Alerta2"
         Me.Alerta2ToolStripMenuItem.Text = "Alerta2"
         Me.Alerta2ToolStripMenuItem.Visible = False
@@ -1342,6 +1349,7 @@ Partial Class Principal
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Me.ParametrosgeneralesTableAdapter
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -1503,13 +1511,6 @@ Partial Class Principal
         '
         'BGWStock
         '
-        '
-        'LibroDeGastosToolStripMenuItem
-        '
-        Me.LibroDeGastosToolStripMenuItem.Name = "LibroDeGastosToolStripMenuItem"
-        Me.LibroDeGastosToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
-        Me.LibroDeGastosToolStripMenuItem.Tag = "LibroGastos"
-        Me.LibroDeGastosToolStripMenuItem.Text = "Libro de Gastos"
         '
         'Principal
         '

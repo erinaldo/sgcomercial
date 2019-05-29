@@ -26,6 +26,7 @@ Public Class loginform
             gusername = textusuario.Text
             guserid = rtn
             guserprofile = UsuariosTableAdapter.usuarios_getperfil(gusername)
+            gReloadPermisos = True
             FormPrincipal = New Principal
             Me.Hide()
             FormPrincipal.Show()

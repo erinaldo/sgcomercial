@@ -481,10 +481,10 @@ Public Class ImportarProductos
                                 If diferencia <> 0 Then
                                     If diferencia > 0 Then
                                         stock = Math.Abs(diferencia)
-                                        StockTableAdapter.stock_insertarmovimiento(existe, stock, Today, gusername, "S", "Ajuste Stock Importación Excel")
+                                        StockTableAdapter.stock_insertarmovimiento(existe, stock, Today, gusername, "S", "Ajuste Stock Importación Excel", 1)
                                     Else
                                         stock = Math.Abs(diferencia)
-                                        StockTableAdapter.stock_insertarmovimiento(existe, stock, Today, gusername, "E", "Ajuste Stock Importación Excel")
+                                        StockTableAdapter.stock_insertarmovimiento(existe, stock, Today, gusername, "E", "Ajuste Stock Importación Excel", 1)
                                     End If
                                 End If
                             End If
@@ -596,7 +596,7 @@ Public Class ImportarProductos
                             stockactual = DataGridView1.Rows(i).Cells("stock").Value
                             'MsgBox("con stock")
                             If stockactual > 0 Then 'voy a insertar stock
-                                StockTableAdapter.stock_insertarmovimiento(existe, stockactual, Today, gusername, "E", "Ajuste Stock Importación Excel")
+                                StockTableAdapter.stock_insertarmovimiento(existe, stockactual, Today, gusername, "E", "Ajuste Stock Importación Excel", 1)
                             End If
                         Catch ex As Exception
                             Cursor.Current = Cursors.Default

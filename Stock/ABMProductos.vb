@@ -780,7 +780,7 @@ Public Class ABMProductos
                     If Convert.ToDecimal(stockinicialtextbox.Text) > 0 Then
                         Dim idprod
                         idprod = ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)
-                        If Not StockTableAdapter1.stock_insertarmovimiento(idprod, Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E", "Nvo. Producto Stock Inicial") >= 0 Then
+                        If Not StockTableAdapter1.stock_insertarmovimiento(idprod, Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E", "Nvo. Producto Stock Inicial", 1) >= 0 Then
                             MsgBox("Ocurrioun error al insertar el stock inicial", MsgBoxStyle.Exclamation, "Advertencia")
                         End If
                         stockinicialtextbox.Text = Nothing

@@ -539,7 +539,7 @@ Public Class CambioMercaderiaVendida
                 cantidadentrante = cantidadentrante * medida
             End If
             Try
-                If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigotextbox.Text), cantidadentrante, Today, guserid, "E", "Cambio Mercadería") >= 0 Then
+                If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigotextbox.Text), cantidadentrante, Today, guserid, "E", "Cambio Mercadería", 1) >= 0 Then
                     'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
                     FormPrincipal.reloadstock()
                     'ParentForm.reloadstock()
@@ -557,7 +557,7 @@ Public Class CambioMercaderiaVendida
                 cantidadsaliente = cantidadsaliente * medida
             End If
             Try
-                If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(TextBoxCodigoSaliente.Text), cantidadsaliente, Today, guserid, "S", "Cambio Mercadería") >= 0 Then
+                If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(TextBoxCodigoSaliente.Text), cantidadsaliente, Today, guserid, "S", "Cambio Mercadería", 1) >= 0 Then
                     'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
                     FormPrincipal.reloadstock()
                     'ParentForm.reloadstock()

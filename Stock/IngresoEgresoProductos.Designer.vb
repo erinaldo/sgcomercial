@@ -30,8 +30,12 @@ Partial Class ingresoegresoproductos
         Dim FechacargaLabel As System.Windows.Forms.Label
         Dim UsuariocargaLabel As System.Windows.Forms.Label
         Dim Label3 As System.Windows.Forms.Label
+        Dim Label5 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ingresoegresoproductos))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboMotivoStock = New System.Windows.Forms.ComboBox()
+        Me.MotivostockBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.TextBoxMedida = New System.Windows.Forms.TextBox()
         Me.ComboUnidad = New System.Windows.Forms.ComboBox()
         Me.ProductoscomponentesDataGridView = New System.Windows.Forms.DataGridView()
@@ -40,7 +44,6 @@ Partial Class ingresoegresoproductos
         Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductoscomponentesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LinkStockRemoto = New System.Windows.Forms.LinkLabel()
@@ -85,6 +88,7 @@ Partial Class ingresoegresoproductos
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.ProductoscomponentesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productoscomponentesTableAdapter()
         Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
+        Me.MotivostockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.motivostockTableAdapter()
         IdproductoLabel = New System.Windows.Forms.Label()
         CantidadLabel = New System.Windows.Forms.Label()
         TipomovimientostockLabel = New System.Windows.Forms.Label()
@@ -92,10 +96,12 @@ Partial Class ingresoegresoproductos
         FechacargaLabel = New System.Windows.Forms.Label()
         UsuariocargaLabel = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
+        Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.MotivostockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductoscomponentesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductoscomponentesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.StockDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -175,8 +181,22 @@ Partial Class ingresoegresoproductos
         Label3.TabIndex = 20
         Label3.Text = "Medida (Kg, Lt, Mt):"
         '
+        'Label5
+        '
+        Label5.AutoSize = True
+        Label5.Location = New System.Drawing.Point(153, 248)
+        Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label5.Name = "Label5"
+        Label5.Size = New System.Drawing.Size(53, 17)
+        Label5.TabIndex = 12
+        Label5.Text = "Motivo:"
+        '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.ComboMotivoStock)
         Me.GroupBox1.Controls.Add(Me.TextBoxMedida)
         Me.GroupBox1.Controls.Add(Label3)
         Me.GroupBox1.Controls.Add(Me.ComboUnidad)
@@ -197,16 +217,39 @@ Partial Class ingresoegresoproductos
         Me.GroupBox1.Controls.Add(Me.FechamovimientoDateTimePicker)
         Me.GroupBox1.Controls.Add(FechacargaLabel)
         Me.GroupBox1.Controls.Add(Me.FechacargaDateTimePicker)
+        Me.GroupBox1.Controls.Add(Label5)
         Me.GroupBox1.Controls.Add(UsuariocargaLabel)
         Me.GroupBox1.Controls.Add(Me.UsuariocargaTextBox)
         Me.GroupBox1.Location = New System.Drawing.Point(16, 15)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(718, 436)
+        Me.GroupBox1.Size = New System.Drawing.Size(718, 481)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Movimiento de Stock"
+        '
+        'ComboMotivoStock
+        '
+        Me.ComboMotivoStock.DataSource = Me.MotivostockBindingSource
+        Me.ComboMotivoStock.DisplayMember = "descripcion"
+        Me.ComboMotivoStock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboMotivoStock.FormattingEnabled = True
+        Me.ComboMotivoStock.Location = New System.Drawing.Point(216, 245)
+        Me.ComboMotivoStock.Name = "ComboMotivoStock"
+        Me.ComboMotivoStock.Size = New System.Drawing.Size(265, 24)
+        Me.ComboMotivoStock.TabIndex = 22
+        Me.ComboMotivoStock.ValueMember = "idmotivostock"
+        '
+        'MotivostockBindingSource
+        '
+        Me.MotivostockBindingSource.DataMember = "motivostock"
+        Me.MotivostockBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'TextBoxMedida
         '
@@ -270,11 +313,6 @@ Partial Class ingresoegresoproductos
         Me.ProductoscomponentesBindingSource.DataMember = "productoscomponentes"
         Me.ProductoscomponentesBindingSource.DataSource = Me.ComercialDataSet
         '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'PictureBox1
         '
         Me.PictureBox1.AccessibleDescription = "Búsqueda manual"
@@ -302,7 +340,7 @@ Partial Class ingresoegresoproductos
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(53, 256)
+        Me.GroupBox2.Location = New System.Drawing.Point(53, 301)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
@@ -530,7 +568,7 @@ Partial Class ingresoegresoproductos
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(296, 388)
+        Me.Button1.Location = New System.Drawing.Point(296, 433)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(127, 28)
@@ -551,7 +589,7 @@ Partial Class ingresoegresoproductos
         Me.CantidadTextBox.Location = New System.Drawing.Point(335, 85)
         Me.CantidadTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.CantidadTextBox.Name = "CantidadTextBox"
-        Me.CantidadTextBox.Size = New System.Drawing.Size(144, 22)
+        Me.CantidadTextBox.Size = New System.Drawing.Size(146, 22)
         Me.CantidadTextBox.TabIndex = 1
         '
         'TipomovimientostockComboBox
@@ -635,6 +673,7 @@ Partial Class ingresoegresoproductos
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -661,6 +700,7 @@ Partial Class ingresoegresoproductos
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -683,11 +723,15 @@ Partial Class ingresoegresoproductos
         'BGWStockClowd
         '
         '
+        'MotivostockTableAdapter
+        '
+        Me.MotivostockTableAdapter.ClearBeforeFill = True
+        '
         'ingresoegresoproductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(747, 460)
+        Me.ClientSize = New System.Drawing.Size(747, 505)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -700,9 +744,10 @@ Partial Class ingresoegresoproductos
         Me.Text = "Ingreso / Egreso Productos"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.MotivostockBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductoscomponentesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductoscomponentesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -769,4 +814,7 @@ Partial Class ingresoegresoproductos
     Friend WithEvents Label4 As Label
     Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents LinkStockRemoto As LinkLabel
+    Friend WithEvents ComboMotivoStock As ComboBox
+    Friend WithEvents MotivostockBindingSource As BindingSource
+    Friend WithEvents MotivostockTableAdapter As comercialDataSetTableAdapters.motivostockTableAdapter
 End Class

@@ -38,6 +38,9 @@ Public Class Principal
         If gModuloClowd = 1 Then
             BackgroundSyncLibroventasClowd.RunWorkerAsync()
         End If
+        '======================================
+
+
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================
@@ -76,7 +79,7 @@ Public Class Principal
 
 
 
-    Private Sub InsertarModulos()
+    Public Sub InsertarModulos()
         For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
             If Not miitem.Tag = "SysConfig" Then
                 ModulosTableAdapter.modulos_insertar(miitem.Tag, miitem.Name, 0)
@@ -90,25 +93,29 @@ Public Class Principal
             End If
         Next
     End Sub
-    Private Sub cargapermisos()
+    Public Sub cargapermisos()
+        'If gReloadPermisos = True Then
         Try
-            Dim rtn As Integer
-            For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
-                rtn = ModulosTableAdapter.modulos_habilitar(miitem.Tag)
-                If rtn > 0 Then
-                    If Not miitem.Name = "NotificacionesToolStripMenuItem" Then
-                        recorrer(miitem)
+                Dim rtn As Integer
+                For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
+                    rtn = ModulosTableAdapter.modulos_habilitar(miitem.Tag)
+                    If rtn > 0 Then
+                        If Not miitem.Name = "NotificacionesToolStripMenuItem" Then
+                            recorrer(miitem)
+                        End If
+                    Else
+                        miitem.Visible = False
+                        miitem.Enabled = False
                     End If
-                Else
-                    miitem.Visible = False
-                    miitem.Enabled = False
-                End If
-            Next
-            ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
-            PermisoVtaCC = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "RegistrarVentaCuentaCorriente")
-        Catch ex As Exception
-            MsgBox("Ocurrio un excepción mientras se realizaba la acción:" + ex.Message)
-        End Try
+                Next
+                ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
+                PermisoVtaCC = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "RegistrarVentaCuentaCorriente")
+                gReloadPermisos = False
+            Catch ex As Exception
+                MsgBox("Ocurrio un excepción mientras se realizaba la acción:" + ex.Message)
+            End Try
+        'End If
+
 
 
     End Sub
@@ -473,10 +480,11 @@ Public Class Principal
 
     Private Sub Principal_GotFocus(sender As Object, e As EventArgs) Handles Me.GotFocus
         ''''''''''''''  CARGA DE PERMISOS DE USUARIO '''''''''''''''''''''
-        If Not gusername = "lucasmartinbs" Then
-            cargapermisos()
-        End If
-        EjecutarAlertas()
+        'If Not gusername = "lucasmartinbs" Then
+        '    cargapermisos()
+        'End If
+        'EjecutarAlertas()
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     End Sub
 
     Private Sub ABMPedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMPedidosToolStripMenuItem.Click
@@ -969,14 +977,12 @@ Public Class Principal
         '        Me.Close()
         '    End If
         'End If
-        'If e.KeyCode = Keys.F12 Then
-        '    If Me.WindowState = FormWindowState.Normal Then
-        '        Me.WindowState = FormWindowState.Maximized
-        '    Else
-        '        Me.WindowState = FormWindowState.Normal
-        '    End If
-        'End If
+
         ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.F5 Then
+            'MsgBox("recargando")
+            EjecutarAlertas()
+        End If
     End Sub
 
     Private Sub DescargarPedidosWEBToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DescargarPedidosWEBToolStripMenuItem.Click
@@ -1081,6 +1087,10 @@ Public Class Principal
 
     Private Sub LibroDeGastosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroDeGastosToolStripMenuItem.Click
         MsgBox("Temporalmente no disponible")
+    End Sub
+
+    Private Sub BGWAlertas_DoWork(sender As Object, e As DoWorkEventArgs) 
+
     End Sub
     'Private Sub PrivateDownloadSGC()
 

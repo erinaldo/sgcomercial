@@ -6,6 +6,8 @@ Public Class ingresoegresoproductos
     'End Sub
 
     Private Sub ingresoegresoproductos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.motivostock' Puede moverla o quitarla según sea necesario.
+        Me.MotivostockTableAdapter.Fill(Me.ComercialDataSet.motivostock)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productoscomponentes' Puede moverla o quitarla según sea necesario.
         Me.ProductoscomponentesTableAdapter.Fill(Me.ComercialDataSet.productoscomponentes)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
@@ -34,6 +36,7 @@ Public Class ingresoegresoproductos
         FechacargaDateTimePicker.Value = Today
         UsuariocargaTextBox.Enabled = False
         UsuariocargaTextBox.Text = gusername
+        ComboMotivoStock.Enabled = status
     End Sub
 
 
@@ -49,6 +52,7 @@ Public Class ingresoegresoproductos
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        consultardisponibles()
         '********************validaciones previas**********************
         idproducto = ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)
         If ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text) = 0 Then
@@ -89,7 +93,7 @@ Public Class ingresoegresoproductos
             cantidad = cantidad 'son kilogramos de producto
         End If
         Try
-            If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), cantidad, FechamovimientoDateTimePicker.Value.ToShortDateString, guserid, TipomovimientostockComboBox.SelectedValue, "Manual") >= 0 Then
+            If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), cantidad, FechamovimientoDateTimePicker.Value.ToShortDateString, guserid, TipomovimientostockComboBox.SelectedValue, "Manual", ComboMotivoStock.SelectedValue) >= 0 Then
                 'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
                 textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
                 FormPrincipal.reloadstock()
@@ -180,7 +184,7 @@ Public Class ingresoegresoproductos
                     CantidadTextBox.Text = ""
                 End If
 
-                ComboUnidad.SelectedIndex = 1
+                ComboUnidad.SelectedIndex = -1
                 TextBoxMedida.Text = "1"
             Else
                 Labeldescripcion.Text = "No Registrado"
@@ -194,6 +198,20 @@ Public Class ingresoegresoproductos
         End If
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    End Sub
+    Private Sub consultardisponibles()
+        textstockminimo.Text = ProductosTableAdapter.productos_stockminimo(codigoproductoTextBox.Text)
+        Labeldescripcion.Text = ProductosTableAdapter.productos_consultardescripcion(codigoproductoTextBox.Text)
+
+        If StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)) > 0 Then
+            textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
+            If textdisponible.Text = "" Then textdisponible.Text = "0"
+            'CantidadTextBox.Text = ""
+        Else
+            CantidadTextBox.Select()
+            If textdisponible.Text = "" Then textdisponible.Text = "0"
+            'CantidadTextBox.Text = ""
+        End If
     End Sub
     Private Sub enterkeydown()
         If ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text) > 0 Then
@@ -223,7 +241,7 @@ Public Class ingresoegresoproductos
                 If textdisponible.Text = "" Then textdisponible.Text = "0"
                 CantidadTextBox.Text = ""
             End If
-            ComboUnidad.SelectedIndex = -1
+            ComboUnidad.SelectedIndex = 1
             TextBoxMedida.Text = Nothing
         Else
             Labeldescripcion.Text = "No Registrado"
