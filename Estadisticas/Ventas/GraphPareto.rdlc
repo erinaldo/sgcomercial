@@ -1036,7 +1036,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>EstClasificacionPareto</DataSetName>
-        <Top>1.70603cm</Top>
+        <Top>12.18353cm</Top>
         <Height>2.978cm</Height>
         <Width>18.0607cm</Width>
         <Style>
@@ -1064,7 +1064,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>1.00753cm</Top>
+        <Top>11.48503cm</Top>
         <Left>3.4941cm</Left>
         <Height>0.6cm</Height>
         <Width>11.0725cm</Width>
@@ -1793,7 +1793,6 @@
                         <rd:FormatSymbolCulture>es-AR</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -2112,7 +2111,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>EstABCResumen</DataSetName>
-        <Top>5.7277cm</Top>
+        <Top>0.9652cm</Top>
         <Height>2.53351cm</Height>
         <Width>18.06072cm</Width>
         <ZIndex>2</ZIndex>
@@ -2141,7 +2140,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>4.87525cm</Top>
+        <Top>0.11275cm</Top>
         <Left>3.4941cm</Left>
         <Height>0.6cm</Height>
         <Width>11.0725cm</Width>
@@ -2492,7 +2491,7 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>EstABCResumen</DataSetName>
-        <Top>8.88153cm</Top>
+        <Top>3.80153cm</Top>
         <Left>0.00001cm</Left>
         <Height>7.2225cm</Height>
         <Width>18.06069cm</Width>
@@ -2526,7 +2525,7 @@
         </Style>
       </Chart>
     </ReportItems>
-    <Height>6.34017in</Height>
+    <Height>6.13184in</Height>
     <Style />
   </Body>
   <Width>7.11052in</Width>

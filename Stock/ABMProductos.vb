@@ -42,7 +42,6 @@ Public Class ABMProductos
 
     Private Sub ProductosBindingNavigatorSaveItem_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductosBindingNavigatorSaveItem.Click
         Me.Validate()
-        codigoNUEVO = codigoproductoTextBox.Text
         '*************  VALIDAR DATOS CARGADOS ************
         '****************   primero valido el codigo
         Dim res As Boolean = True
@@ -50,6 +49,7 @@ Public Class ABMProductos
         If res = False Then
             Return
         End If
+        codigoNUEVO = codigoproductoTextBox.Text
         '**********************************************
         If Len(Trim(MarcaTextBox.Text)) = 0 Then
             MsgBox("Ingrese la marca del producto", MsgBoxStyle.Exclamation, "Advertencia")
@@ -145,7 +145,7 @@ Public Class ABMProductos
             Me.ProductosBindingSource.EndEdit()
             If Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) Then
                 If gModuloClowd = 1 Then
-                    PushProducto(codigoproductoTextBox.Text, CODERROR, MSGERROR)
+                    PushProducto(codigoNUEVO, CODERROR, MSGERROR)
                     If CODERROR = 0 Then
                         Dim ProductosWEBTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
                         ProductosWEBTableAdapter = New MySQLDataSetTableAdapters.productosTableAdapter()
@@ -674,6 +674,7 @@ Public Class ABMProductos
         If res = False Then
             Return
         End If
+        codigoNUEVO = codigoproductoTextBox.Text
         '**********************************************
         If Len(Trim(MarcaTextBox.Text)) = 0 Then
             MsgBox("Ingrese la marca del producto", MsgBoxStyle.Exclamation, "Advertencia")
@@ -762,7 +763,7 @@ Public Class ABMProductos
                 If gModuloClowd = 1 Then
                     Dim CODERROR As Long
                     Dim MSGERROR As String = ""
-                    PushProducto(codigoproductoTextBox.Text, CODERROR, MSGERROR)
+                    PushProducto(codigoNUEVO, CODERROR, MSGERROR)
                     If CODERROR > 0 Then
                         Throw New Exception("No se pudo actualizar el producto en la nube -" + MSGERROR + "-")
                     End If
@@ -779,7 +780,7 @@ Public Class ABMProductos
                 Try
                     If Convert.ToDecimal(stockinicialtextbox.Text) > 0 Then
                         Dim idprod
-                        idprod = ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)
+                        idprod = ProductosTableAdapter.productos_existeproducto(codigoNUEVO)
                         If Not StockTableAdapter1.stock_insertarmovimiento(idprod, Convert.ToDecimal(stockinicialtextbox.Text), Today, guserid, "E", "Nvo. Producto Stock Inicial", 1) >= 0 Then
                             MsgBox("Ocurrioun error al insertar el stock inicial", MsgBoxStyle.Exclamation, "Advertencia")
                         End If

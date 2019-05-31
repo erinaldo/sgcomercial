@@ -92,6 +92,10 @@ Partial Class Principal
         Me.LibroIVAComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HistoricoVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnvíosPorSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrincipioDeParetoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VentasPorProvinciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -221,7 +225,7 @@ Partial Class Principal
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 58)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 85)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -727,22 +731,51 @@ Partial Class Principal
         '
         'MisVentasToolStripMenuItem
         '
+        Me.MisVentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HistoricoVentasToolStripMenuItem, Me.EnvíosPorSucursalesToolStripMenuItem, Me.PrincipioDeParetoToolStripMenuItem, Me.VentasPorProvinciaToolStripMenuItem})
         Me.MisVentasToolStripMenuItem.Name = "MisVentasToolStripMenuItem"
-        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
+        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.MisVentasToolStripMenuItem.Tag = "EstadisticasVentas"
         Me.MisVentasToolStripMenuItem.Text = "Ventas"
+        '
+        'HistoricoVentasToolStripMenuItem
+        '
+        Me.HistoricoVentasToolStripMenuItem.Name = "HistoricoVentasToolStripMenuItem"
+        Me.HistoricoVentasToolStripMenuItem.Size = New System.Drawing.Size(350, 28)
+        Me.HistoricoVentasToolStripMenuItem.Tag = "EstHistoricoVentasMes"
+        Me.HistoricoVentasToolStripMenuItem.Text = "Historico Ventas por Mes"
+        '
+        'EnvíosPorSucursalesToolStripMenuItem
+        '
+        Me.EnvíosPorSucursalesToolStripMenuItem.Name = "EnvíosPorSucursalesToolStripMenuItem"
+        Me.EnvíosPorSucursalesToolStripMenuItem.Size = New System.Drawing.Size(350, 28)
+        Me.EnvíosPorSucursalesToolStripMenuItem.Tag = "EstEnviosRecepcionesSucursales"
+        Me.EnvíosPorSucursalesToolStripMenuItem.Text = "Envíos/Recepciones por Sucursales"
+        '
+        'PrincipioDeParetoToolStripMenuItem
+        '
+        Me.PrincipioDeParetoToolStripMenuItem.Name = "PrincipioDeParetoToolStripMenuItem"
+        Me.PrincipioDeParetoToolStripMenuItem.Size = New System.Drawing.Size(350, 28)
+        Me.PrincipioDeParetoToolStripMenuItem.Tag = "EstPrincipioPareto"
+        Me.PrincipioDeParetoToolStripMenuItem.Text = "Principio de Pareto"
+        '
+        'VentasPorProvinciaToolStripMenuItem
+        '
+        Me.VentasPorProvinciaToolStripMenuItem.Name = "VentasPorProvinciaToolStripMenuItem"
+        Me.VentasPorProvinciaToolStripMenuItem.Size = New System.Drawing.Size(350, 28)
+        Me.VentasPorProvinciaToolStripMenuItem.Tag = "EstVentasProvincias"
+        Me.VentasPorProvinciaToolStripMenuItem.Text = "Ventas por Provincia"
         '
         'MisClientesToolStripMenuItem
         '
         Me.MisClientesToolStripMenuItem.Name = "MisClientesToolStripMenuItem"
-        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
+        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.MisClientesToolStripMenuItem.Tag = "EstadisticasClientes"
         Me.MisClientesToolStripMenuItem.Text = "Clientes"
         '
         'MisProveedoresToolStripMenuItem
         '
         Me.MisProveedoresToolStripMenuItem.Name = "MisProveedoresToolStripMenuItem"
-        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
+        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.MisProveedoresToolStripMenuItem.Tag = "EstadisticasProveedores"
         Me.MisProveedoresToolStripMenuItem.Text = "Proveedores"
         '
@@ -958,7 +991,7 @@ Partial Class Principal
         '
         Me.Alerta1ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
         Me.Alerta1ToolStripMenuItem.Name = "Alerta1ToolStripMenuItem"
-        Me.Alerta1ToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.Alerta1ToolStripMenuItem.Size = New System.Drawing.Size(140, 28)
         Me.Alerta1ToolStripMenuItem.Tag = "Alerta1"
         Me.Alerta1ToolStripMenuItem.Text = "Alerta1"
         Me.Alerta1ToolStripMenuItem.Visible = False
@@ -967,7 +1000,7 @@ Partial Class Principal
         '
         Me.Alerta2ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
         Me.Alerta2ToolStripMenuItem.Name = "Alerta2ToolStripMenuItem"
-        Me.Alerta2ToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.Alerta2ToolStripMenuItem.Size = New System.Drawing.Size(140, 28)
         Me.Alerta2ToolStripMenuItem.Tag = "Alerta2"
         Me.Alerta2ToolStripMenuItem.Text = "Alerta2"
         Me.Alerta2ToolStripMenuItem.Visible = False
@@ -1729,4 +1762,8 @@ Partial Class Principal
     Friend WithEvents PresupuestosGeneradosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentasPorUsuarioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroDeGastosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EnvíosPorSucursalesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HistoricoVentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PrincipioDeParetoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VentasPorProvinciaToolStripMenuItem As ToolStripMenuItem
 End Class

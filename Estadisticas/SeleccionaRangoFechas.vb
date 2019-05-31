@@ -8,6 +8,8 @@
             End If
         End If
         If e.KeyCode = Keys.Enter Then
+            DateTimePicker1.Select()
+            DateTimePicker2.Select()
             gFechaDesde = DateTimePicker1.Value
             gFechaHasta = DateTimePicker2.Value
             Me.Close()

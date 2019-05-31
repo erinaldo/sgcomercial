@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class EstadisticasVentas
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,21 +20,21 @@ Partial Class EstadisticasVentas
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim IdclienteLabel As System.Windows.Forms.Label
-        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.EstABCResumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.EstEnviosSucursalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
-        Me.EstClasificacionParetoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EstHistoricoVentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EstParetoParticipacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboBoxEstadistica = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.EstABCResumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EstClasificacionParetoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EstHistoricoVentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EstParetoParticipacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EstParetoParticipacionTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstParetoParticipacionTableAdapter()
         Me.EstABCResumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstABCResumenTableAdapter()
         Me.EstClasificacionParetoTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstClasificacionParetoTableAdapter()
@@ -42,14 +42,16 @@ Partial Class EstadisticasVentas
         Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
         Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.EstEnviosSucursalesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstEnviosSucursalesTableAdapter()
         IdclienteLabel = New System.Windows.Forms.Label()
-        CType(Me.EstABCResumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EstEnviosSucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.EstABCResumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstClasificacionParetoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstHistoricoVentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstParetoParticipacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -63,30 +65,15 @@ Partial Class EstadisticasVentas
         IdclienteLabel.TabIndex = 16
         IdclienteLabel.Text = "Seleccione Informe:"
         '
-        'EstABCResumenBindingSource
+        'EstEnviosSucursalesBindingSource
         '
-        Me.EstABCResumenBindingSource.DataMember = "EstABCResumen"
-        Me.EstABCResumenBindingSource.DataSource = Me.comercialDataSet
+        Me.EstEnviosSucursalesBindingSource.DataMember = "EstEnviosSucursales"
+        Me.EstEnviosSucursalesBindingSource.DataSource = Me.comercialDataSet
         '
         'comercialDataSet
         '
         Me.comercialDataSet.DataSetName = "comercialDataSet"
         Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EstClasificacionParetoBindingSource
-        '
-        Me.EstClasificacionParetoBindingSource.DataMember = "EstClasificacionPareto"
-        Me.EstClasificacionParetoBindingSource.DataSource = Me.comercialDataSet
-        '
-        'EstHistoricoVentasBindingSource
-        '
-        Me.EstHistoricoVentasBindingSource.DataMember = "EstHistoricoVentas"
-        Me.EstHistoricoVentasBindingSource.DataSource = Me.comercialDataSet
-        '
-        'EstParetoParticipacionBindingSource
-        '
-        Me.EstParetoParticipacionBindingSource.DataMember = "EstParetoParticipacion"
-        Me.EstParetoParticipacionBindingSource.DataSource = Me.comercialDataSet
         '
         'GroupBox1
         '
@@ -103,7 +90,7 @@ Partial Class EstadisticasVentas
         '
         Me.ComboBoxEstadistica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxEstadistica.FormattingEnabled = True
-        Me.ComboBoxEstadistica.Items.AddRange(New Object() {"Historico Ventas", "Principio de Pareto", "Ventas por Provincia"})
+        Me.ComboBoxEstadistica.Items.AddRange(New Object() {"Historico Ventas", "Principio de Pareto", "Ventas por Provincia", "Envíos a sucursales"})
         Me.ComboBoxEstadistica.Location = New System.Drawing.Point(155, 22)
         Me.ComboBoxEstadistica.Name = "ComboBoxEstadistica"
         Me.ComboBoxEstadistica.Size = New System.Drawing.Size(327, 24)
@@ -121,18 +108,35 @@ Partial Class EstadisticasVentas
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource3.Name = "EstABCResumen"
-        ReportDataSource3.Value = Me.EstABCResumenBindingSource
-        ReportDataSource4.Name = "EstClasificacionPareto"
-        ReportDataSource4.Value = Me.EstClasificacionParetoBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        ReportDataSource1.Name = "EstEnviosSucursales"
+        ReportDataSource1.Value = Me.EstEnviosSucursalesBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.MapTileServerConfiguration.MaxConnections = 5
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphPareto.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEstEnviosSucursales.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(805, 505)
         Me.ReportViewer1.TabIndex = 0
+        '
+        'EstABCResumenBindingSource
+        '
+        Me.EstABCResumenBindingSource.DataMember = "EstABCResumen"
+        Me.EstABCResumenBindingSource.DataSource = Me.comercialDataSet
+        '
+        'EstClasificacionParetoBindingSource
+        '
+        Me.EstClasificacionParetoBindingSource.DataMember = "EstClasificacionPareto"
+        Me.EstClasificacionParetoBindingSource.DataSource = Me.comercialDataSet
+        '
+        'EstHistoricoVentasBindingSource
+        '
+        Me.EstHistoricoVentasBindingSource.DataMember = "EstHistoricoVentas"
+        Me.EstHistoricoVentasBindingSource.DataSource = Me.comercialDataSet
+        '
+        'EstParetoParticipacionBindingSource
+        '
+        Me.EstParetoParticipacionBindingSource.DataMember = "EstParetoParticipacion"
+        Me.EstParetoParticipacionBindingSource.DataSource = Me.comercialDataSet
         '
         'EstParetoParticipacionTableAdapter
         '
@@ -186,6 +190,7 @@ Partial Class EstadisticasVentas
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -224,11 +229,15 @@ Partial Class EstadisticasVentas
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
+        'EstEnviosSucursalesTableAdapter
+        '
+        Me.EstEnviosSucursalesTableAdapter.ClearBeforeFill = True
+        '
         'EstadisticasVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(837, 629)
+        Me.ClientSize = New System.Drawing.Size(839, 629)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -236,14 +245,15 @@ Partial Class EstadisticasVentas
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "EstadisticasVentas"
         Me.Text = "Estadisticas Ventas"
-        CType(Me.EstABCResumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstEnviosSucursalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EstClasificacionParetoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EstHistoricoVentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EstParetoParticipacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.EstABCResumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstClasificacionParetoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstHistoricoVentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstParetoParticipacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -265,4 +275,6 @@ Partial Class EstadisticasVentas
     Friend WithEvents LibroventasTableAdapter As comercialDataSetTableAdapters.libroventasTableAdapter
     Friend WithEvents LibroventasBindingSource As BindingSource
     Friend WithEvents TableAdapterManager As comercialDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents EstEnviosSucursalesBindingSource As BindingSource
+    Friend WithEvents EstEnviosSucursalesTableAdapter As comercialDataSetTableAdapters.EstEnviosSucursalesTableAdapter
 End Class

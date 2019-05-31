@@ -1,5 +1,7 @@
 ﻿Public Class EstadisticasVentas
     Private Sub EstadisticasVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.EstEnviosSucursales' Puede moverla o quitarla según sea necesario.
+        'Me.EstEnviosSucursalesTableAdapter.Fill(Me.comercialDataSet.EstEnviosSucursales)
         'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.EstABCResumen' Puede moverla o quitarla según sea necesario.
         Me.EstABCResumenTableAdapter.Fill(Me.comercialDataSet.EstABCResumen)
         'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.EstClasificacionPareto' Puede moverla o quitarla según sea necesario.
@@ -51,6 +53,22 @@
 
                 If gFechaDesde <> Nothing And gFechaHasta <> Nothing Then
                     LibroventasTableAdapter.FillByRangoFechas(Me.comercialDataSet.libroventas, gFechaDesde, gFechaHasta)
+                    Me.ReportViewer1.RefreshReport()
+                Else
+                    MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)
+                End If
+            Case "Envíos a sucursales"
+                ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEstEnviosSucursales.rdlc"
+                Dim rptDs As Microsoft.Reporting.WinForms.ReportDataSource
+                rptDs = New Microsoft.Reporting.WinForms.ReportDataSource("EstEnviosSucursales", EstEnviosSucursalesBindingSource)
+
+                Me.ReportViewer1.LocalReport.DataSources.Clear()
+                Me.ReportViewer1.LocalReport.DataSources.Add(rptDs)
+
+                GetRangoFechas()
+
+                If gFechaDesde <> Nothing And gFechaHasta <> Nothing Then
+                    EstEnviosSucursalesTableAdapter.FillByRangoFechas(Me.comercialDataSet.EstEnviosSucursales, gFechaDesde, gFechaHasta)
                     Me.ReportViewer1.RefreshReport()
                 Else
                     MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)

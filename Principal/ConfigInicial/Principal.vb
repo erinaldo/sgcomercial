@@ -870,6 +870,7 @@ Public Class Principal
 
     End Sub
 
+
     Private Sub Principal_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
 
     End Sub
@@ -935,8 +936,8 @@ Public Class Principal
     End Sub
 
     Private Sub MisVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisVentasToolStripMenuItem.Click
-        EstadisticasVentas.MdiParent = Me
-        EstadisticasVentas.Visible = True
+        'EstadisticasVentas.MdiParent = Me
+        'EstadisticasVentas.Visible = True
     End Sub
 
     Private Sub DescargarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DescargarProductosToolStripMenuItem.Click
@@ -1091,6 +1092,26 @@ Public Class Principal
 
     Private Sub BGWAlertas_DoWork(sender As Object, e As DoWorkEventArgs) 
 
+    End Sub
+
+    Private Sub HistoricoVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoricoVentasToolStripMenuItem.Click
+        EstHistoricoVentas.MdiParent = Me
+        EstHistoricoVentas.Visible = True
+    End Sub
+
+    Private Sub EnvíosPorSucursalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvíosPorSucursalesToolStripMenuItem.Click
+        EstEnviosRecepcionesSucursales.MdiParent = Me
+        EstEnviosRecepcionesSucursales.Visible = True
+    End Sub
+
+    Private Sub PrincipioDeParetoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrincipioDeParetoToolStripMenuItem.Click
+        EstParetto.MdiParent = Me
+        EstParetto.Visible = True
+    End Sub
+
+    Private Sub VentasPorProvinciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentasPorProvinciaToolStripMenuItem.Click
+        EstVentasProvincias.MdiParent = Me
+        EstVentasProvincias.Visible = True
     End Sub
     'Private Sub PrivateDownloadSGC()
 
