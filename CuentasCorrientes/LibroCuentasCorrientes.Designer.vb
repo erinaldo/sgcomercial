@@ -37,11 +37,15 @@ Partial Class LibroCuentasCorrientes
         Me.LibrocuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LibrocuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librocuentascorrientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TextSaldo = New System.Windows.Forms.MaskedTextBox()
+        Me.TextSaldoVencido = New System.Windows.Forms.MaskedTextBox()
         CType(Me.LibrocuentascorrientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibrocuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,7 +72,7 @@ Partial Class LibroCuentasCorrientes
         Me.LibrocuentascorrientesDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.LibrocuentascorrientesDataGridView.RowTemplate.Height = 24
         Me.LibrocuentascorrientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LibrocuentascorrientesDataGridView.Size = New System.Drawing.Size(978, 452)
+        Me.LibrocuentascorrientesDataGridView.Size = New System.Drawing.Size(978, 400)
         Me.LibrocuentascorrientesDataGridView.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
@@ -147,6 +151,10 @@ Partial Class LibroCuentasCorrientes
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TextSaldoVencido)
+        Me.GroupBox1.Controls.Add(Me.TextSaldo)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -157,6 +165,15 @@ Partial Class LibroCuentasCorrientes
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lista"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(437, 34)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(218, 31)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Imprimir reporte de morosos"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
@@ -205,6 +222,7 @@ Partial Class LibroCuentasCorrientes
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -231,6 +249,7 @@ Partial Class LibroCuentasCorrientes
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -242,14 +261,42 @@ Partial Class LibroCuentasCorrientes
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'Button1
+        'Label2
         '
-        Me.Button1.Location = New System.Drawing.Point(437, 34)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(218, 31)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Imprimir reporte de morosos"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(435, 525)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(84, 17)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Saldo Total:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(699, 525)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(139, 17)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Saldo Vencido Total:"
+        '
+        'TextSaldo
+        '
+        Me.TextSaldo.Location = New System.Drawing.Point(525, 523)
+        Me.TextSaldo.Name = "TextSaldo"
+        Me.TextSaldo.ReadOnly = True
+        Me.TextSaldo.Size = New System.Drawing.Size(149, 22)
+        Me.TextSaldo.TabIndex = 7
+        Me.TextSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextSaldoVencido
+        '
+        Me.TextSaldoVencido.Location = New System.Drawing.Point(844, 522)
+        Me.TextSaldoVencido.Name = "TextSaldoVencido"
+        Me.TextSaldoVencido.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TextSaldoVencido.ReadOnly = True
+        Me.TextSaldoVencido.Size = New System.Drawing.Size(149, 22)
+        Me.TextSaldoVencido.TabIndex = 8
+        Me.TextSaldoVencido.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'LibroCuentasCorrientes
         '
@@ -289,4 +336,8 @@ Partial Class LibroCuentasCorrientes
     Friend WithEvents saldo As DataGridViewTextBoxColumn
     Friend WithEvents saldovencido As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
+    Friend WithEvents TextSaldoVencido As MaskedTextBox
+    Friend WithEvents TextSaldo As MaskedTextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
 End Class

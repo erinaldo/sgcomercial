@@ -5,6 +5,7 @@ Public Class LibroCuentasCorrientes
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.librocuentascorrientes' Puede moverla o quitarla según sea necesario.
         Me.LibrocuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.librocuentascorrientes)
         LibrocuentascorrientesDataGridView.Sort(LibrocuentascorrientesDataGridView.Columns("saldo"), ListSortDirection.Descending)
+        calculasaldos()
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
@@ -58,5 +59,20 @@ Public Class LibroCuentasCorrientes
         k = New ViewerReporteCC
         k.ShowDialog()
 
+    End Sub
+    Private Sub calculasaldos()
+        Dim saldo As Decimal = Nothing
+        Dim saldovencido As Decimal = Nothing
+
+        For i = 0 To LibrocuentascorrientesDataGridView.RowCount - 1
+            saldo = saldo + LibrocuentascorrientesDataGridView.Rows(i).Cells("saldo").Value
+            saldovencido = saldovencido + LibrocuentascorrientesDataGridView.Rows(i).Cells("saldovencido").Value
+        Next
+        Try
+            TextSaldo.Text = saldo
+            TextSaldoVencido.Text = saldovencido
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

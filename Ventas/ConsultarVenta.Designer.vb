@@ -134,6 +134,9 @@ Partial Class ConsultarVenta
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Label3)
         Me.GroupBox1.Controls.Add(Me.PagosDataGridView)
@@ -149,7 +152,7 @@ Partial Class ConsultarVenta
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(672, 143)
+        Me.GroupBox1.Size = New System.Drawing.Size(798, 143)
         Me.GroupBox1.TabIndex = 11
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la venta"
@@ -265,12 +268,15 @@ Partial Class ConsultarVenta
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.LibroventasdetalleDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(16, 159)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(672, 393)
+        Me.GroupBox2.Size = New System.Drawing.Size(798, 393)
         Me.GroupBox2.TabIndex = 12
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -286,13 +292,13 @@ Partial Class ConsultarVenta
         Me.LibroventasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LibroventasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.precioventa, Me.descuento, Me.recargo, Me.subtotal})
         Me.LibroventasdetalleDataGridView.DataSource = Me.LibroventasdetalleBindingSource
-        Me.LibroventasdetalleDataGridView.Location = New System.Drawing.Point(23, 26)
+        Me.LibroventasdetalleDataGridView.Location = New System.Drawing.Point(8, 26)
         Me.LibroventasdetalleDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.LibroventasdetalleDataGridView.MultiSelect = False
         Me.LibroventasdetalleDataGridView.Name = "LibroventasdetalleDataGridView"
         Me.LibroventasdetalleDataGridView.ReadOnly = True
         Me.LibroventasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LibroventasdetalleDataGridView.Size = New System.Drawing.Size(627, 344)
+        Me.LibroventasdetalleDataGridView.Size = New System.Drawing.Size(782, 344)
         Me.LibroventasdetalleDataGridView.TabIndex = 0
         '
         'DataGridViewTextBoxColumn1
@@ -400,6 +406,7 @@ Partial Class ConsultarVenta
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -419,11 +426,14 @@ Partial Class ConsultarVenta
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -441,6 +451,9 @@ Partial Class ConsultarVenta
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.LinkLabel1)
         Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Controls.Add(Me.totaltextbox)
@@ -449,7 +462,7 @@ Partial Class ConsultarVenta
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox3.Size = New System.Drawing.Size(671, 70)
+        Me.GroupBox3.Size = New System.Drawing.Size(797, 70)
         Me.GroupBox3.TabIndex = 13
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Resumen:"
@@ -457,7 +470,7 @@ Partial Class ConsultarVenta
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(515, 35)
+        Me.LinkLabel1.Location = New System.Drawing.Point(652, 33)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(115, 17)
         Me.LinkLabel1.TabIndex = 5
@@ -477,11 +490,11 @@ Partial Class ConsultarVenta
         '
         Me.totaltextbox.Cursor = System.Windows.Forms.Cursors.Hand
         Me.totaltextbox.Enabled = False
-        Me.totaltextbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.totaltextbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
         Me.totaltextbox.Location = New System.Drawing.Point(355, 30)
         Me.totaltextbox.Margin = New System.Windows.Forms.Padding(4)
         Me.totaltextbox.Name = "totaltextbox"
-        Me.totaltextbox.Size = New System.Drawing.Size(121, 30)
+        Me.totaltextbox.Size = New System.Drawing.Size(176, 24)
         Me.totaltextbox.TabIndex = 3
         '
         'Label2
@@ -512,7 +525,7 @@ Partial Class ConsultarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(702, 650)
+        Me.ClientSize = New System.Drawing.Size(828, 650)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)

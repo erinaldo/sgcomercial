@@ -1133,7 +1133,7 @@ Partial Class AltaPedidoDelivery
         Me.BtnConfirmar.Location = New System.Drawing.Point(644, 525)
         Me.BtnConfirmar.Name = "BtnConfirmar"
         Me.BtnConfirmar.Size = New System.Drawing.Size(162, 29)
-        Me.BtnConfirmar.TabIndex = 3
+        Me.BtnConfirmar.TabIndex = 4
         Me.BtnConfirmar.Text = "Confirmar"
         Me.BtnConfirmar.UseVisualStyleBackColor = True
         '
@@ -1142,7 +1142,7 @@ Partial Class AltaPedidoDelivery
         Me.TextBoxPagaCon.Location = New System.Drawing.Point(532, 528)
         Me.TextBoxPagaCon.Name = "TextBoxPagaCon"
         Me.TextBoxPagaCon.Size = New System.Drawing.Size(100, 22)
-        Me.TextBoxPagaCon.TabIndex = 2
+        Me.TextBoxPagaCon.TabIndex = 3
         '
         'Label13
         '
@@ -1150,7 +1150,7 @@ Partial Class AltaPedidoDelivery
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(452, 531)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(80, 16)
+        Me.Label13.Size = New System.Drawing.Size(73, 15)
         Me.Label13.TabIndex = 9
         Me.Label13.Text = "Paga Con:"
         '
@@ -1461,7 +1461,7 @@ Partial Class AltaPedidoDelivery
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(15, 531)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(40, 16)
+        Me.Label15.Size = New System.Drawing.Size(36, 15)
         Me.Label15.TabIndex = 9
         Me.Label15.Text = "Obs:"
         '
@@ -1471,7 +1471,7 @@ Partial Class AltaPedidoDelivery
         Me.TextBoxObs.Multiline = True
         Me.TextBoxObs.Name = "TextBoxObs"
         Me.TextBoxObs.Size = New System.Drawing.Size(390, 22)
-        Me.TextBoxObs.TabIndex = 14
+        Me.TextBoxObs.TabIndex = 2
         '
         'AltaPedidoDelivery
         '
