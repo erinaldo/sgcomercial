@@ -182,6 +182,8 @@ Partial Class AltaPedidoDelivery
         Me.DataGridViewTextBoxColumn74 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.TextBoxObs = New System.Windows.Forms.TextBox()
         IdclienteLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
@@ -377,7 +379,7 @@ Partial Class AltaPedidoDelivery
         Me.GroupBox1.Controls.Add(IdclienteLabel)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(443, 170)
+        Me.GroupBox1.Size = New System.Drawing.Size(443, 169)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cliente"
@@ -704,7 +706,7 @@ Partial Class AltaPedidoDelivery
         Me.GroupBox2.Controls.Add(Me.TextBoxDireccion)
         Me.GroupBox2.Location = New System.Drawing.Point(461, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(584, 170)
+        Me.GroupBox2.Size = New System.Drawing.Size(558, 169)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Domicilio"
@@ -814,7 +816,7 @@ Partial Class AltaPedidoDelivery
         Me.ClientesdomiciliosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ClientesdomiciliosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14})
         Me.ClientesdomiciliosDataGridView.DataSource = Me.ClientesdomiciliosBindingSource
-        Me.ClientesdomiciliosDataGridView.Location = New System.Drawing.Point(120, 556)
+        Me.ClientesdomiciliosDataGridView.Location = New System.Drawing.Point(-12, 461)
         Me.ClientesdomiciliosDataGridView.Name = "ClientesdomiciliosDataGridView"
         Me.ClientesdomiciliosDataGridView.RowTemplate.Height = 24
         Me.ClientesdomiciliosDataGridView.Size = New System.Drawing.Size(30, 23)
@@ -894,6 +896,7 @@ Partial Class AltaPedidoDelivery
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -913,12 +916,14 @@ Partial Class AltaPedidoDelivery
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -953,7 +958,7 @@ Partial Class AltaPedidoDelivery
         Me.GroupBox3.Controls.Add(Me.VentasdetalleDataGridView)
         Me.GroupBox3.Location = New System.Drawing.Point(13, 188)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(1032, 362)
+        Me.GroupBox3.Size = New System.Drawing.Size(1006, 330)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Detalle del pedido"
@@ -964,7 +969,7 @@ Partial Class AltaPedidoDelivery
         Me.ComboBox1.DisplayMember = "descripcion"
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(458, 26)
+        Me.ComboBox1.Location = New System.Drawing.Point(458, 19)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(289, 24)
         Me.ComboBox1.TabIndex = 2
@@ -978,7 +983,7 @@ Partial Class AltaPedidoDelivery
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(285, 29)
+        Me.Label14.Location = New System.Drawing.Point(285, 22)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(166, 17)
         Me.Label14.TabIndex = 1
@@ -988,15 +993,17 @@ Partial Class AltaPedidoDelivery
         '
         Me.VentasdetalleDataGridView.AllowUserToAddRows = False
         Me.VentasdetalleDataGridView.AllowUserToDeleteRows = False
+        Me.VentasdetalleDataGridView.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.VentasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.cantidad, Me.unidadmedida, Me.medida, Me.precioventa, Me.SubTotal, Me.idlistaprecio})
-        Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(11, 60)
+        Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(11, 55)
         Me.VentasdetalleDataGridView.MultiSelect = False
         Me.VentasdetalleDataGridView.Name = "VentasdetalleDataGridView"
         Me.VentasdetalleDataGridView.ReadOnly = True
         Me.VentasdetalleDataGridView.RowTemplate.Height = 24
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1010, 296)
+        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(984, 260)
         Me.VentasdetalleDataGridView.TabIndex = 0
         '
         'idproducto
@@ -1092,9 +1099,10 @@ Partial Class AltaPedidoDelivery
         'LabelTotal
         '
         Me.LabelTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LabelTotal.Location = New System.Drawing.Point(741, 558)
+        Me.LabelTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelTotal.Location = New System.Drawing.Point(899, 528)
         Me.LabelTotal.Name = "LabelTotal"
-        Me.LabelTotal.Size = New System.Drawing.Size(106, 23)
+        Me.LabelTotal.Size = New System.Drawing.Size(118, 23)
         Me.LabelTotal.TabIndex = 3
         Me.LabelTotal.Text = "Label10"
         Me.LabelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1102,9 +1110,10 @@ Partial Class AltaPedidoDelivery
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(718, 561)
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(876, 531)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(16, 17)
+        Me.Label10.Size = New System.Drawing.Size(17, 17)
         Me.Label10.TabIndex = 4
         Me.Label10.Text = "$"
         '
@@ -1112,7 +1121,7 @@ Partial Class AltaPedidoDelivery
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(653, 560)
+        Me.Label11.Location = New System.Drawing.Point(822, 530)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(60, 18)
         Me.Label11.TabIndex = 5
@@ -1121,7 +1130,7 @@ Partial Class AltaPedidoDelivery
         'BtnConfirmar
         '
         Me.BtnConfirmar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnConfirmar.Location = New System.Drawing.Point(208, 555)
+        Me.BtnConfirmar.Location = New System.Drawing.Point(644, 525)
         Me.BtnConfirmar.Name = "BtnConfirmar"
         Me.BtnConfirmar.Size = New System.Drawing.Size(162, 29)
         Me.BtnConfirmar.TabIndex = 3
@@ -1130,7 +1139,7 @@ Partial Class AltaPedidoDelivery
         '
         'TextBoxPagaCon
         '
-        Me.TextBoxPagaCon.Location = New System.Drawing.Point(546, 558)
+        Me.TextBoxPagaCon.Location = New System.Drawing.Point(532, 528)
         Me.TextBoxPagaCon.Name = "TextBoxPagaCon"
         Me.TextBoxPagaCon.Size = New System.Drawing.Size(100, 22)
         Me.TextBoxPagaCon.TabIndex = 2
@@ -1138,9 +1147,10 @@ Partial Class AltaPedidoDelivery
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(466, 561)
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(452, 531)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(74, 17)
+        Me.Label13.Size = New System.Drawing.Size(80, 16)
         Me.Label13.TabIndex = 9
         Me.Label13.Text = "Paga Con:"
         '
@@ -1159,7 +1169,7 @@ Partial Class AltaPedidoDelivery
         Me.PedidosdeliveryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.PedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn43, Me.DataGridViewTextBoxColumn44, Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn47, Me.DataGridViewTextBoxColumn48, Me.DataGridViewTextBoxColumn49, Me.DataGridViewTextBoxColumn50, Me.DataGridViewTextBoxColumn51})
         Me.PedidosdeliveryDataGridView.DataSource = Me.PedidosdeliveryBindingSource
-        Me.PedidosdeliveryDataGridView.Location = New System.Drawing.Point(84, 556)
+        Me.PedidosdeliveryDataGridView.Location = New System.Drawing.Point(-12, 432)
         Me.PedidosdeliveryDataGridView.Name = "PedidosdeliveryDataGridView"
         Me.PedidosdeliveryDataGridView.RowTemplate.Height = 24
         Me.PedidosdeliveryDataGridView.Size = New System.Drawing.Size(30, 23)
@@ -1242,7 +1252,7 @@ Partial Class AltaPedidoDelivery
         Me.PedidosdeliverydetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.PedidosdeliverydetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn52, Me.DataGridViewTextBoxColumn53, Me.DataGridViewTextBoxColumn54, Me.DataGridViewTextBoxColumn55, Me.DataGridViewTextBoxColumn56, Me.DataGridViewTextBoxColumn57})
         Me.PedidosdeliverydetalleDataGridView.DataSource = Me.PedidosdeliverydetalleBindingSource
-        Me.PedidosdeliverydetalleDataGridView.Location = New System.Drawing.Point(48, 556)
+        Me.PedidosdeliverydetalleDataGridView.Location = New System.Drawing.Point(-12, 404)
         Me.PedidosdeliverydetalleDataGridView.Name = "PedidosdeliverydetalleDataGridView"
         Me.PedidosdeliverydetalleDataGridView.RowTemplate.Height = 24
         Me.PedidosdeliverydetalleDataGridView.Size = New System.Drawing.Size(30, 23)
@@ -1306,7 +1316,7 @@ Partial Class AltaPedidoDelivery
         Me.VentasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn58, Me.DataGridViewTextBoxColumn59, Me.DataGridViewTextBoxColumn60, Me.DataGridViewTextBoxColumn61, Me.DataGridViewTextBoxColumn62, Me.DataGridViewTextBoxColumn63, Me.DataGridViewTextBoxColumn64, Me.DataGridViewTextBoxColumn65, Me.DataGridViewTextBoxColumn66, Me.DataGridViewTextBoxColumn67})
         Me.VentasDataGridView.DataSource = Me.VentasBindingSource
-        Me.VentasDataGridView.Location = New System.Drawing.Point(159, 556)
+        Me.VentasDataGridView.Location = New System.Drawing.Point(-12, 490)
         Me.VentasDataGridView.Name = "VentasDataGridView"
         Me.VentasDataGridView.RowTemplate.Height = 24
         Me.VentasDataGridView.Size = New System.Drawing.Size(30, 23)
@@ -1389,7 +1399,7 @@ Partial Class AltaPedidoDelivery
         Me.VentasdetalleDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentasdetalleDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn68, Me.DataGridViewTextBoxColumn69, Me.DataGridViewTextBoxColumn70, Me.DataGridViewTextBoxColumn71, Me.DataGridViewTextBoxColumn72, Me.DataGridViewTextBoxColumn73, Me.DataGridViewTextBoxColumn74})
         Me.VentasdetalleDataGridView1.DataSource = Me.VentasdetalleBindingSource
-        Me.VentasdetalleDataGridView1.Location = New System.Drawing.Point(18, 556)
+        Me.VentasdetalleDataGridView1.Location = New System.Drawing.Point(-12, 375)
         Me.VentasdetalleDataGridView1.Name = "VentasdetalleDataGridView1"
         Me.VentasdetalleDataGridView1.RowTemplate.Height = 24
         Me.VentasdetalleDataGridView1.Size = New System.Drawing.Size(30, 23)
@@ -1445,23 +1455,43 @@ Partial Class AltaPedidoDelivery
         'BGWStockClowd
         '
         '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(15, 531)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(40, 16)
+        Me.Label15.TabIndex = 9
+        Me.Label15.Text = "Obs:"
+        '
+        'TextBoxObs
+        '
+        Me.TextBoxObs.Location = New System.Drawing.Point(56, 528)
+        Me.TextBoxObs.Multiline = True
+        Me.TextBoxObs.Name = "TextBoxObs"
+        Me.TextBoxObs.Size = New System.Drawing.Size(390, 22)
+        Me.TextBoxObs.TabIndex = 14
+        '
         'AltaPedidoDelivery
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1055, 592)
+        Me.ClientSize = New System.Drawing.Size(1029, 560)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.TextBoxObs)
         Me.Controls.Add(Me.VentasdetalleDataGridView1)
         Me.Controls.Add(Me.VentasDataGridView)
         Me.Controls.Add(Me.PedidosdeliverydetalleDataGridView)
         Me.Controls.Add(Me.PedidosdeliveryDataGridView)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.TextBoxPagaCon)
         Me.Controls.Add(Me.BtnConfirmar)
         Me.Controls.Add(Me.ClientesdomiciliosDataGridView)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.LabelTotal)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.KeyPreview = True
@@ -1656,4 +1686,6 @@ Partial Class AltaPedidoDelivery
     Friend WithEvents idlistaprecio As DataGridViewTextBoxColumn
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Label15 As Label
+    Friend WithEvents TextBoxObs As TextBox
 End Class

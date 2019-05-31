@@ -89,8 +89,9 @@ Public Class MiComercio
         '***************    ComandaDefault   ******************************************
         ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("ComandaDefault", Nothing, ComboBoxComandaDefault.Text, Nothing)
         '***************    -----------     FIN     ------------  ******************************************
-
-
+        '***************    ComandaDefault   ******************************************
+        ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("ModPVV", Nothing, ComboModPV.Text, Nothing)
+        '***************    -----------     FIN     ------------  ******************************************
     End Sub
 
 
@@ -173,6 +174,11 @@ Public Class MiComercio
         Dim V_ComandaDefault As String
         V_ComandaDefault = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ComandaDefault")
         ComboBoxComandaDefault.Text = V_ComandaDefault
+        '**********
+        '********** ComandaDefault
+        Dim V_ModPVV As String
+        V_ModPVV = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ModPVV")
+        ComboModPV.Text = V_ModPVV
         '**********
         textnombrecomercio.Select()
     End Sub

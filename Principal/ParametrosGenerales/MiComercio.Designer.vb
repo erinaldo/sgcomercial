@@ -76,6 +76,8 @@ Partial Class MiComercio
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.ComboBoxComandaDefault = New System.Windows.Forms.ComboBox()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.ComboModPV = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,6 +94,7 @@ Partial Class MiComercio
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -326,6 +329,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Me.ParametrosgeneralesTableAdapter
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -345,12 +349,14 @@ Partial Class MiComercio
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -620,11 +626,32 @@ Partial Class MiComercio
         Me.ComboBoxComandaDefault.Size = New System.Drawing.Size(228, 24)
         Me.ComboBoxComandaDefault.TabIndex = 0
         '
+        'GroupBox11
+        '
+        Me.GroupBox11.Controls.Add(Me.ComboModPV)
+        Me.GroupBox11.Location = New System.Drawing.Point(674, 485)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(457, 68)
+        Me.GroupBox11.TabIndex = 11
+        Me.GroupBox11.TabStop = False
+        Me.GroupBox11.Text = "Permitir Modificar Precio venta en ventana de Venta"
+        '
+        'ComboModPV
+        '
+        Me.ComboModPV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboModPV.FormattingEnabled = True
+        Me.ComboModPV.Items.AddRange(New Object() {"SI", "NO"})
+        Me.ComboModPV.Location = New System.Drawing.Point(225, 27)
+        Me.ComboModPV.Name = "ComboModPV"
+        Me.ComboModPV.Size = New System.Drawing.Size(207, 24)
+        Me.ComboModPV.TabIndex = 2
+        '
         'MiComercio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1141, 540)
+        Me.ClientSize = New System.Drawing.Size(1141, 562)
+        Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox10)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.GroupBox8)
@@ -667,6 +694,7 @@ Partial Class MiComercio
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox9.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox11.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -724,4 +752,6 @@ Partial Class MiComercio
     Friend WithEvents Label8 As Label
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents ComboBoxComandaDefault As ComboBox
+    Friend WithEvents GroupBox11 As GroupBox
+    Friend WithEvents ComboModPV As ComboBox
 End Class

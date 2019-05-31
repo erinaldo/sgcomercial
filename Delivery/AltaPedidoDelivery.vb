@@ -321,7 +321,7 @@ Public Class AltaPedidoDelivery
         End If
         '*****************************************  INSERTAR PEDIDODELIVERY ***************************************************************
         Try
-            nvopedido = PedidosdeliveryTableAdapter.pedidosdelivery_insertar(nvocliente, Nothing, ComboBoxTransporte.SelectedValue, nvodomicilio, Convert.ToDecimal(TextBoxPagaCon.Text), Today, gusername, Nothing, Nothing)
+            nvopedido = PedidosdeliveryTableAdapter.pedidosdelivery_insertar(nvocliente, Nothing, ComboBoxTransporte.SelectedValue, nvodomicilio, Convert.ToDecimal(TextBoxPagaCon.Text), Today, gusername, Nothing, Nothing, TextBoxObs.Text)
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
                 Dim cantidad As Decimal = VentasdetalleDataGridView.Rows(i).Cells(3).Value

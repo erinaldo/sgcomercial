@@ -92,6 +92,9 @@ Public Class RegistrarVenta
         '********** GBalPrefix
         gbalprefix = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("BalPrefix")
         '********************************************************************************************************
+        '********** GBalPrefix
+        gModPVV = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ModPVV")
+        '******************************************************************************************
         ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
@@ -969,6 +972,30 @@ Public Class RegistrarVenta
                             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
 
                         End If
+                    Case "cantidad"
+                        If VentasdetalleDataGridView.RowCount = 0 Then Return
+                        Dim p As SeleccionarCantidad
+                        p = New SeleccionarCantidad
+                        gcodigoproducto = 0
+                        p.ShowDialog()
+                        'p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
+                        VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
+                        gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
+                        VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("subtotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+                        recuento()
+                    Case "precioventa"
+                        If gModPVV = "SI" Then
+                            gprecioventa = Nothing
+                            IngresaPrecioVenta.ShowDialog()
+                            If gprecioventa = Nothing Or gprecioventa = 0 Then
+                                Return
+                            Else
+                                VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value = gprecioventa
+                                gcantidad = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value
+                                VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("subtotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+                                recuento()
+                            End If
+                        End If
                 End Select
             End If
             recuento()
@@ -1352,6 +1379,26 @@ Public Class RegistrarVenta
     Private Sub VentasdetalleDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles VentasdetalleDataGridView.KeyDown
         If e.KeyCode = Keys.Delete Then
             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+        End If
+        If e.KeyCode = Keys.Add Then
+            buscaproductomanual()
+            recuento()
+        End If
+        If e.KeyCode = Keys.Subtract Then
+            VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+            recuento()
+        End If
+        If e.KeyCode = Keys.Multiply Then
+            If VentasdetalleDataGridView.RowCount = 0 Then Return
+            Dim p As SeleccionarCantidad
+            p = New SeleccionarCantidad
+            gcodigoproducto = 0
+            p.ShowDialog()
+            'p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
+            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
+            gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
+            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("subtotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+            recuento()
         End If
         recuento()
     End Sub
