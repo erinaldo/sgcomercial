@@ -9,35 +9,55 @@
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
-        gFechaDesde = DateTimePicker1.Value
-        gFechaHasta = DateTimePicker2.Value
-        ComboBox1.SelectedIndex = -1
-        RadioButton1.Checked = False
-        RadioButton2.Checked = False
-        EstEnviosSucursalesBindingSource.Filter = ""
-        If gFechaDesde <> Nothing And gFechaHasta <> Nothing Then
-            EstEnviosSucursalesTableAdapter.FillByRangoFechas(Me.comercialDataSet.EstEnviosSucursales, gFechaDesde, gFechaHasta)
+        Try
+            Dim desde As DateTime = Nothing
+            Dim hasta As DateTime = Nothing
+
+            desde = DateTimePicker1.Value
+            hasta = DateTimePicker2.Value
+            'MsgBox("conv1")
             ComboBox1.SelectedIndex = -1
-            Me.ReportViewer1.RefreshReport()
-        Else
-            MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)
-        End If
+            RadioButton1.Checked = False
+            RadioButton2.Checked = False
+            EstEnviosSucursalesBindingSource.Filter = ""
+            If desde <> Nothing And hasta <> Nothing Then
+                'MsgBox("eje1")
+                EstEnviosSucursalesTableAdapter.FillByRangoFechas(Me.comercialDataSet.EstEnviosSucursales, desde.ToString, hasta.ToString)
+                'MsgBox("eje2")
+                ComboBox1.SelectedIndex = -1
+                Me.ReportViewer1.RefreshReport()
+            Else
+                MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
-        gFechaDesde = DateTimePicker1.Value
-        gFechaHasta = DateTimePicker2.Value
-        ComboBox1.SelectedIndex = -1
-        RadioButton1.Checked = False
-        RadioButton2.Checked = False
-        EstEnviosSucursalesBindingSource.Filter = ""
-        If gFechaDesde <> Nothing And gFechaHasta <> Nothing Then
-            EstEnviosSucursalesTableAdapter.FillByRangoFechas(Me.comercialDataSet.EstEnviosSucursales, gFechaDesde, gFechaHasta)
-            Me.ReportViewer1.RefreshReport()
+        Try
+            Dim desde As Date = Nothing
+            Dim hasta As Date = Nothing
 
-        Else
-            MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)
-        End If
+            desde = DateTimePicker1.Value
+            hasta = DateTimePicker2.Value
+            ComboBox1.SelectedIndex = -1
+            RadioButton1.Checked = False
+            RadioButton2.Checked = False
+            EstEnviosSucursalesBindingSource.Filter = ""
+            If desde <> Nothing And hasta <> Nothing Then
+                EstEnviosSucursalesTableAdapter.FillByRangoFechas(Me.comercialDataSet.EstEnviosSucursales, desde.ToString, hasta.ToString)
+                Me.ReportViewer1.RefreshReport()
+
+            Else
+                MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged

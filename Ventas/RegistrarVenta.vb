@@ -982,6 +982,8 @@ Public Class RegistrarVenta
                         VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
                         gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
                         VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("subtotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+                        gcantidad = Nothing
+                        gprecioventa = Nothing
                         recuento()
                     Case "precioventa"
                         If gModPVV = "SI" Then
@@ -993,6 +995,8 @@ Public Class RegistrarVenta
                                 VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value = gprecioventa
                                 gcantidad = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value
                                 VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("subtotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+                                gcantidad = Nothing
+                                gprecioventa = Nothing
                                 recuento()
                             End If
                         End If
@@ -1398,6 +1402,8 @@ Public Class RegistrarVenta
             VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
             gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
             VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("subtotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+            gcantidad = Nothing
+            gprecioventa = Nothing
             recuento()
         End If
         recuento()

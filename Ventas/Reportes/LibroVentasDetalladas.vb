@@ -5,7 +5,9 @@
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.libroventas' Puede moverla o quitarla según sea necesario.
         'Me.LibroventasTableAdapter.Fill(Me.ComercialDataSet.libroventas)
         Try
-            Me.LibroventasTableAdapter.FillByFecha(Me.ComercialDataSet.libroventas, Convert.ToDateTime(Today.ToString))
+            Dim fecha As Date
+            fecha = Convert.ToDateTime(DateTimePicker1.Value)
+            Me.LibroventasTableAdapter.FillByFechaDate(Me.ComercialDataSet.libroventas, fecha.ToString)
         Catch ex As Exception
             MsgBox("Excepción: ", ex.Message)
         End Try
@@ -46,7 +48,9 @@
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
         Try
-            Me.LibroventasTableAdapter.FillByFecha(Me.ComercialDataSet.libroventas, Convert.ToDateTime(DateTimePicker1.Value))
+            Dim fecha As Date
+            fecha = Convert.ToDateTime(DateTimePicker1.Value)
+            Me.LibroventasTableAdapter.FillByFechaDate(Me.ComercialDataSet.libroventas, fecha.ToString)
         Catch ex As Exception
             MsgBox("Exception: " + ex.Message)
         End Try

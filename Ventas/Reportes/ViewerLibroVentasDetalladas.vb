@@ -8,7 +8,7 @@
         libroventasdetalladasBindingSource.Filter = ""
         Dim fecha As Date = gFechaSeleccionada
         Try
-            Me.libroventasdetalladasTableAdapter.FillByFecha(Me.comercialDataSet.libroventasdetalladas, fecha.ToString)
+            Me.libroventasdetalladasTableAdapter.FillByFecha(Me.comercialDataSet.libroventasdetalladas, fecha.ToString, fecha.ToString)
 
             Me.ReportViewer1.RefreshReport()
         Catch ex As Exception
@@ -22,7 +22,7 @@
         libroventasdetalladasBindingSource.Filter = ""
         Try
             Dim fecha As Date = gFechaSeleccionada
-            Me.libroventasdetalladasTableAdapter.FillByFecha(Me.comercialDataSet.libroventasdetalladas, fecha.ToString)
+            Me.libroventasdetalladasTableAdapter.FillByFecha(Me.comercialDataSet.libroventasdetalladas, fecha.ToString, fecha.ToString)
 
             Me.ReportViewer1.RefreshReport()
         Catch ex As Exception

@@ -24,21 +24,21 @@ Partial Class LibroVentasDetalladas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LibroventasDataGridView = New System.Windows.Forms.DataGridView()
+        Me.formapago = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.Imprimir = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.usuariocarga = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LibroventasdetalleDataGridView = New System.Windows.Forms.DataGridView()
         Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.recargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.formapago = New System.Windows.Forms.DataGridViewLinkColumn()
-        Me.Imprimir = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.usuariocarga = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -81,13 +81,39 @@ Partial Class LibroVentasDetalladas
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ventas"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Nombre", "Usuario Carga"})
+        Me.ComboBox1.Location = New System.Drawing.Point(246, 530)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(144, 24)
+        Me.ComboBox1.TabIndex = 6
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(396, 531)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(148, 22)
+        Me.TextBox1.TabIndex = 5
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(171, 534)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(73, 17)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Filtrar por:"
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(421, 33)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(257, 25)
         Me.Button1.TabIndex = 3
-        Me.Button1.Text = "Imprimir libro"
+        Me.Button1.Text = "Imprimir Libro"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'DateTimePicker1
@@ -125,6 +151,36 @@ Partial Class LibroVentasDetalladas
         Me.LibroventasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.LibroventasDataGridView.Size = New System.Drawing.Size(672, 443)
         Me.LibroventasDataGridView.TabIndex = 0
+        '
+        'formapago
+        '
+        Me.formapago.DataPropertyName = "formapago"
+        Me.formapago.HeaderText = "Forma pago"
+        Me.formapago.Name = "formapago"
+        Me.formapago.ReadOnly = True
+        Me.formapago.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.formapago.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.formapago.Width = 113
+        '
+        'Imprimir
+        '
+        Me.Imprimir.DataPropertyName = "fechaventa"
+        Me.Imprimir.HeaderText = "Imprimir"
+        Me.Imprimir.Name = "Imprimir"
+        Me.Imprimir.ReadOnly = True
+        Me.Imprimir.Text = "Imprimir"
+        Me.Imprimir.ToolTipText = "Imprimir"
+        Me.Imprimir.UseColumnTextForButtonValue = True
+        Me.Imprimir.Width = 63
+        '
+        'usuariocarga
+        '
+        Me.usuariocarga.DataPropertyName = "usuariocarga"
+        Me.usuariocarga.HeaderText = "Usuario Carga"
+        Me.usuariocarga.Name = "usuariocarga"
+        Me.usuariocarga.ReadOnly = True
+        Me.usuariocarga.ToolTipText = "Usuario Carga"
+        Me.usuariocarga.Width = 128
         '
         'GroupBox2
         '
@@ -178,62 +234,6 @@ Partial Class LibroVentasDetalladas
         Me.subtotal.ReadOnly = True
         Me.subtotal.ToolTipText = "SubTotal"
         Me.subtotal.Width = 94
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(171, 534)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(73, 17)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Filtrar por:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(396, 531)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(148, 22)
-        Me.TextBox1.TabIndex = 5
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Nombre", "Usuario Carga"})
-        Me.ComboBox1.Location = New System.Drawing.Point(246, 530)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(144, 24)
-        Me.ComboBox1.TabIndex = 6
-        '
-        'formapago
-        '
-        Me.formapago.DataPropertyName = "formapago"
-        Me.formapago.HeaderText = "Forma pago"
-        Me.formapago.Name = "formapago"
-        Me.formapago.ReadOnly = True
-        Me.formapago.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.formapago.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.formapago.Width = 113
-        '
-        'Imprimir
-        '
-        Me.Imprimir.DataPropertyName = "fechaventa"
-        Me.Imprimir.HeaderText = "Imprimir"
-        Me.Imprimir.Name = "Imprimir"
-        Me.Imprimir.ReadOnly = True
-        Me.Imprimir.Text = "Imprimir"
-        Me.Imprimir.ToolTipText = "Imprimir"
-        Me.Imprimir.UseColumnTextForButtonValue = True
-        Me.Imprimir.Width = 63
-        '
-        'usuariocarga
-        '
-        Me.usuariocarga.DataPropertyName = "usuariocarga"
-        Me.usuariocarga.HeaderText = "Usuario Carga"
-        Me.usuariocarga.Name = "usuariocarga"
-        Me.usuariocarga.ReadOnly = True
-        Me.usuariocarga.ToolTipText = "Usuario Carga"
-        Me.usuariocarga.Width = 128
         '
         'DataGridViewTextBoxColumn9
         '
@@ -374,6 +374,7 @@ Partial Class LibroVentasDetalladas
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -393,12 +394,14 @@ Partial Class LibroVentasDetalladas
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing

@@ -146,9 +146,9 @@
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         Try
-            ListapedidosdeliveryBindingSource.Filter = "nombre like '%" + TextBox1.Text + "%'"
+            ListapedidosdeliveryBindingSource.Filter = "estado = 'ENPROCESO' and nombre like '%" + TextBox1.Text + "%'"
         Catch ex As Exception
-            ListapedidosdeliveryBindingSource.Filter = ""
+            ListapedidosdeliveryBindingSource.Filter = "estado = 'ENPROCESO'"
         End Try
     End Sub
 
