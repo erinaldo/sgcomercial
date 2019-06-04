@@ -549,7 +549,7 @@ Partial Class EstadoCuentaCorriente
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
         Me.Label3.Location = New System.Drawing.Point(662, 15)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(102, 23)
+        Me.Label3.Size = New System.Drawing.Size(112, 23)
         Me.Label3.TabIndex = 16
         Me.Label3.Text = "Haber"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -558,9 +558,9 @@ Partial Class EstadoCuentaCorriente
         '
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(556, 15)
+        Me.Label2.Location = New System.Drawing.Point(546, 15)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(102, 23)
+        Me.Label2.Size = New System.Drawing.Size(112, 23)
         Me.Label2.TabIndex = 15
         Me.Label2.Text = "Debe"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -571,7 +571,7 @@ Partial Class EstadoCuentaCorriente
         Me.LabelTipoSaldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelTipoSaldo.Location = New System.Drawing.Point(662, 75)
         Me.LabelTipoSaldo.Name = "LabelTipoSaldo"
-        Me.LabelTipoSaldo.Size = New System.Drawing.Size(102, 23)
+        Me.LabelTipoSaldo.Size = New System.Drawing.Size(112, 23)
         Me.LabelTipoSaldo.TabIndex = 14
         Me.LabelTipoSaldo.Text = "---------"
         Me.LabelTipoSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -580,18 +580,18 @@ Partial Class EstadoCuentaCorriente
         '
         Me.Labeltotalgeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Labeltotalgeneral.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Labeltotalgeneral.Location = New System.Drawing.Point(556, 75)
+        Me.Labeltotalgeneral.Location = New System.Drawing.Point(546, 75)
         Me.Labeltotalgeneral.Name = "Labeltotalgeneral"
-        Me.Labeltotalgeneral.Size = New System.Drawing.Size(102, 23)
+        Me.Labeltotalgeneral.Size = New System.Drawing.Size(112, 23)
         Me.Labeltotalgeneral.TabIndex = 13
-        Me.Labeltotalgeneral.Text = "00000000"
+        Me.Labeltotalgeneral.Text = "00000000000"
         Me.Labeltotalgeneral.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label5
         '
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Label5.Location = New System.Drawing.Point(300, 75)
+        Me.Label5.Location = New System.Drawing.Point(290, 75)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(252, 23)
         Me.Label5.TabIndex = 12
@@ -602,7 +602,7 @@ Partial Class EstadoCuentaCorriente
         '
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
-        Me.Label4.Location = New System.Drawing.Point(300, 43)
+        Me.Label4.Location = New System.Drawing.Point(290, 43)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(252, 23)
         Me.Label4.TabIndex = 11
@@ -615,20 +615,20 @@ Partial Class EstadoCuentaCorriente
         Me.Labeltotalhaber.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold)
         Me.Labeltotalhaber.Location = New System.Drawing.Point(662, 43)
         Me.Labeltotalhaber.Name = "Labeltotalhaber"
-        Me.Labeltotalhaber.Size = New System.Drawing.Size(102, 23)
+        Me.Labeltotalhaber.Size = New System.Drawing.Size(112, 23)
         Me.Labeltotalhaber.TabIndex = 10
-        Me.Labeltotalhaber.Text = "00000000"
+        Me.Labeltotalhaber.Text = "00000000000"
         Me.Labeltotalhaber.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Labeltotaldebe
         '
         Me.Labeltotaldebe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Labeltotaldebe.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Labeltotaldebe.Location = New System.Drawing.Point(556, 43)
+        Me.Labeltotaldebe.Location = New System.Drawing.Point(546, 43)
         Me.Labeltotaldebe.Name = "Labeltotaldebe"
-        Me.Labeltotaldebe.Size = New System.Drawing.Size(102, 23)
+        Me.Labeltotaldebe.Size = New System.Drawing.Size(112, 23)
         Me.Labeltotaldebe.TabIndex = 9
-        Me.Labeltotaldebe.Text = "00000000"
+        Me.Labeltotaldebe.Text = "00000000000"
         Me.Labeltotaldebe.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'ListacuentascorrientesTableAdapter
@@ -662,6 +662,7 @@ Partial Class EstadoCuentaCorriente
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -681,12 +682,14 @@ Partial Class EstadoCuentaCorriente
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing

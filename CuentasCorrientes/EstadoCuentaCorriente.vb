@@ -145,11 +145,11 @@
         Select Case ListacuentascorrientesDataGridView.Columns(e.ColumnIndex).Name
             Case "saldo"
                 If IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value) Then Return
-                If ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value > 0 Then
+                If ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value < 0 Then
                     gidventa = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("nro").Value
                     Dim p As CtasCtesPagar
                     p = New CtasCtesPagar
-                    p.TextBoxMontoaPagar.Text = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value
+                    p.TextBoxMontoaPagar.Text = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value * -1
                     p.ShowDialog()
                     If gidpago > 0 Then
                         Try

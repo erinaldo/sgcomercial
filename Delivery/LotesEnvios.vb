@@ -8,7 +8,8 @@ Public Class LotesEnvios
 
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.lotesenvios' Puede moverla o quitarla según sea necesario.
         Me.LotesenviosTableAdapter.Fill(Me.ComercialDataSet.lotesenvios)
-
+        Dim newColumn As DataGridViewColumn = LotesenviosDataGridView.Columns(0)
+        LotesenviosDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
     End Sub
 
 
