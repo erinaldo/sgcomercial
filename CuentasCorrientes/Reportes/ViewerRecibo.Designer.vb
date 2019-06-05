@@ -26,11 +26,16 @@ Partial Class ViewerRecibo
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.EnviarPorMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
-        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.listapagosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.listapagosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapagosTableAdapter()
+        Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Me.PagosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pagosTableAdapter()
+        Me.MenuStrip1.SuspendLayout()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.listapagosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,10 +51,26 @@ Partial Class ViewerRecibo
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepReciboPago.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 28)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(895, 631)
+        Me.ReportViewer1.Size = New System.Drawing.Size(895, 603)
         Me.ReportViewer1.TabIndex = 0
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnviarPorMailToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(895, 28)
+        Me.MenuStrip1.TabIndex = 1
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'EnviarPorMailToolStripMenuItem
+        '
+        Me.EnviarPorMailToolStripMenuItem.Name = "EnviarPorMailToolStripMenuItem"
+        Me.EnviarPorMailToolStripMenuItem.Size = New System.Drawing.Size(121, 24)
+        Me.EnviarPorMailToolStripMenuItem.Text = "Enviar por Mail"
         '
         'MiComercioBindingSource
         '
@@ -61,18 +82,26 @@ Partial Class ViewerRecibo
         Me.comercialDataSet.DataSetName = "comercialDataSet"
         Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'MiComercioTableAdapter
-        '
-        Me.MiComercioTableAdapter.ClearBeforeFill = True
-        '
         'listapagosBindingSource
         '
         Me.listapagosBindingSource.DataMember = "listapagos"
         Me.listapagosBindingSource.DataSource = Me.comercialDataSet
         '
+        'MiComercioTableAdapter
+        '
+        Me.MiComercioTableAdapter.ClearBeforeFill = True
+        '
         'listapagosTableAdapter
         '
         Me.listapagosTableAdapter.ClearBeforeFill = True
+        '
+        'ParametrosgeneralesTableAdapter
+        '
+        Me.ParametrosgeneralesTableAdapter.ClearBeforeFill = True
+        '
+        'PagosTableAdapter
+        '
+        Me.PagosTableAdapter.ClearBeforeFill = True
         '
         'ViewerRecibo
         '
@@ -80,14 +109,19 @@ Partial Class ViewerRecibo
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(895, 631)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "ViewerRecibo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ViewerRecibo"
         Me.Text = "Vista previa Recibo de Pago"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.listapagosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -97,4 +131,8 @@ Partial Class ViewerRecibo
     Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
     Friend WithEvents listapagosBindingSource As BindingSource
     Friend WithEvents listapagosTableAdapter As comercialDataSetTableAdapters.listapagosTableAdapter
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents EnviarPorMailToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ParametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
+    Friend WithEvents PagosTableAdapter As comercialDataSetTableAdapters.pagosTableAdapter
 End Class

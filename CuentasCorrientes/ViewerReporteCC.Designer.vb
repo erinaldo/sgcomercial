@@ -27,13 +27,17 @@ Partial Class ViewerReporteCC
         Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
+        Me.librocuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
-        Me.librocuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.librocuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librocuentascorrientesTableAdapter()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.EnviarPorMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.librocuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MiComercioBindingSource
@@ -46,6 +50,11 @@ Partial Class ViewerReporteCC
         Me.comercialDataSet.DataSetName = "comercialDataSet"
         Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'librocuentascorrientesBindingSource
+        '
+        Me.librocuentascorrientesBindingSource.DataMember = "librocuentascorrientes"
+        Me.librocuentascorrientesBindingSource.DataSource = Me.comercialDataSet
+        '
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -56,23 +65,38 @@ Partial Class ViewerReporteCC
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCCMorosos.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 28)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(875, 712)
+        Me.ReportViewer1.Size = New System.Drawing.Size(875, 684)
         Me.ReportViewer1.TabIndex = 0
         '
         'MiComercioTableAdapter
         '
         Me.MiComercioTableAdapter.ClearBeforeFill = True
         '
-        'librocuentascorrientesBindingSource
-        '
-        Me.librocuentascorrientesBindingSource.DataMember = "librocuentascorrientes"
-        Me.librocuentascorrientesBindingSource.DataSource = Me.comercialDataSet
-        '
         'librocuentascorrientesTableAdapter
         '
         Me.librocuentascorrientesTableAdapter.ClearBeforeFill = True
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnviarPorMailToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(875, 28)
+        Me.MenuStrip1.TabIndex = 1
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'EnviarPorMailToolStripMenuItem
+        '
+        Me.EnviarPorMailToolStripMenuItem.Name = "EnviarPorMailToolStripMenuItem"
+        Me.EnviarPorMailToolStripMenuItem.Size = New System.Drawing.Size(121, 24)
+        Me.EnviarPorMailToolStripMenuItem.Text = "Enviar por Mail"
+        '
+        'ParametrosgeneralesTableAdapter
+        '
+        Me.ParametrosgeneralesTableAdapter.ClearBeforeFill = True
         '
         'ViewerReporteCC
         '
@@ -80,7 +104,9 @@ Partial Class ViewerReporteCC
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(875, 712)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "ViewerReporteCC"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ViewerReporteCC"
@@ -88,7 +114,10 @@ Partial Class ViewerReporteCC
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.librocuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -98,4 +127,7 @@ Partial Class ViewerReporteCC
     Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
     Friend WithEvents librocuentascorrientesBindingSource As BindingSource
     Friend WithEvents librocuentascorrientesTableAdapter As comercialDataSetTableAdapters.librocuentascorrientesTableAdapter
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents EnviarPorMailToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ParametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
 End Class
