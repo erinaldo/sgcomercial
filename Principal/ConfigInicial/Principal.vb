@@ -1047,6 +1047,15 @@ Public Class Principal
     Private Sub BGWStock_DoWork(sender As Object, e As DoWorkEventArgs) Handles BGWStock.DoWork
         Dim coderror As Integer
         Dim msgerror As String = ""
+        '*************  stock    **************************************
+        Dim StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
+        StockTableAdapter = New comercialDataSetTableAdapters.stockTableAdapter
+        Try
+            StockTableAdapter.stock_resetproductosmasivo()
+        Catch ex As Exception
+            MsgBox("No se pudo completar una operación de rutina, contacte al proveedor de sistema: stock_resetproductosmasivo - notfound -")
+        End Try
+        '*******************************************************************************
         SynStockGeneral(coderror, msgerror)
     End Sub
 

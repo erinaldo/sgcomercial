@@ -25,15 +25,16 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.nombreproveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductocompuestoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListaproductosproveedoresvinculadosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ProductosproveedoresDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ListaproductosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ListaproductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,32 +44,45 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductosproveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ListaproductosDataGridView = New System.Windows.Forms.DataGridView()
         Me.CodigoproductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductocompuestoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListaproductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ListaproductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaproductosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.ProductosproveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosproveedoresTableAdapter()
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ListaproductosproveedoresvinculadosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaproductosproveedoresvinculadosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaproductosproveedoresvinculadosTableAdapter()
-        Me.nombreproveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescripcionDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductocompuestoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListaproductosproveedoresvinculadosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2.SuspendLayout()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListaproductosproveedoresvinculadosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ProductosproveedoresDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProductosproveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaproductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaproductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProductosproveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ListaproductosproveedoresvinculadosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListaproductosproveedoresvinculadosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -92,7 +106,7 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.ProductosDataGridView.AutoGenerateColumns = False
         Me.ProductosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ProductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombreproveedor, Me.codigoproducto, Me.DescripcionDataGridViewTextBoxColumn1, Me.ProductocompuestoDataGridViewTextBoxColumn1, Me.precioventa, Me.idproducto})
+        Me.ProductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombreproveedor, Me.codigoproducto, Me.descripcion, Me.ProductocompuestoDataGridViewTextBoxColumn1, Me.precioventa, Me.idproducto})
         Me.ProductosDataGridView.DataSource = Me.ListaproductosproveedoresvinculadosBindingSource
         Me.ProductosDataGridView.Location = New System.Drawing.Point(19, 31)
         Me.ProductosDataGridView.Margin = New System.Windows.Forms.Padding(4)
@@ -101,6 +115,70 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.ProductosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ProductosDataGridView.Size = New System.Drawing.Size(818, 347)
         Me.ProductosDataGridView.TabIndex = 0
+        '
+        'nombreproveedor
+        '
+        Me.nombreproveedor.DataPropertyName = "nombreproveedor"
+        Me.nombreproveedor.HeaderText = "Proveedor"
+        Me.nombreproveedor.Name = "nombreproveedor"
+        Me.nombreproveedor.ReadOnly = True
+        Me.nombreproveedor.ToolTipText = "Proveedor"
+        Me.nombreproveedor.Width = 103
+        '
+        'codigoproducto
+        '
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Código"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.ToolTipText = "Código"
+        Me.codigoproducto.Width = 81
+        '
+        'descripcion
+        '
+        Me.descripcion.DataPropertyName = "descripcion"
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.ToolTipText = "Descripción"
+        Me.descripcion.Width = 111
+        '
+        'ProductocompuestoDataGridViewTextBoxColumn1
+        '
+        Me.ProductocompuestoDataGridViewTextBoxColumn1.DataPropertyName = "productocompuesto"
+        Me.ProductocompuestoDataGridViewTextBoxColumn1.HeaderText = "productocompuesto"
+        Me.ProductocompuestoDataGridViewTextBoxColumn1.Name = "ProductocompuestoDataGridViewTextBoxColumn1"
+        Me.ProductocompuestoDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.ProductocompuestoDataGridViewTextBoxColumn1.Visible = False
+        Me.ProductocompuestoDataGridViewTextBoxColumn1.Width = 162
+        '
+        'precioventa
+        '
+        Me.precioventa.DataPropertyName = "precioventa"
+        Me.precioventa.HeaderText = "precioventa"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.Visible = False
+        Me.precioventa.Width = 111
+        '
+        'idproducto
+        '
+        Me.idproducto.DataPropertyName = "idproducto"
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        Me.idproducto.Width = 104
+        '
+        'ListaproductosproveedoresvinculadosBindingSource
+        '
+        Me.ListaproductosproveedoresvinculadosBindingSource.DataMember = "listaproductosproveedoresvinculados"
+        Me.ListaproductosproveedoresvinculadosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox1
         '
@@ -131,67 +209,6 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.ProductosproveedoresDataGridView.Size = New System.Drawing.Size(26, 16)
         Me.ProductosproveedoresDataGridView.TabIndex = 8
         Me.ProductosproveedoresDataGridView.Visible = False
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(678, 21)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(141, 37)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Confirmar"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'ListaproductosDataGridView
-        '
-        Me.ListaproductosDataGridView.AutoGenerateColumns = False
-        Me.ListaproductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListaproductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodigoproductoDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.ProductocompuestoDataGridViewTextBoxColumn})
-        Me.ListaproductosDataGridView.DataSource = Me.ListaproductosBindingSource
-        Me.ListaproductosDataGridView.Location = New System.Drawing.Point(23, 28)
-        Me.ListaproductosDataGridView.Name = "ListaproductosDataGridView"
-        Me.ListaproductosDataGridView.RowTemplate.Height = 24
-        Me.ListaproductosDataGridView.Size = New System.Drawing.Size(39, 39)
-        Me.ListaproductosDataGridView.TabIndex = 5
-        Me.ListaproductosDataGridView.Visible = False
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(323, 28)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(326, 22)
-        Me.TextBox1.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(69, 32)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(81, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Buscar por:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Código", "Descripción"})
-        Me.ComboBox1.Location = New System.Drawing.Point(154, 27)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(160, 24)
-        Me.ComboBox1.TabIndex = 0
-        '
-        'ListaproductosBindingSource
-        '
-        Me.ListaproductosBindingSource.DataMember = "listaproductos"
-        Me.ListaproductosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'DataGridViewTextBoxColumn1
         '
@@ -247,6 +264,28 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.ProductosproveedoresBindingSource.DataMember = "productosproveedores"
         Me.ProductosproveedoresBindingSource.DataSource = Me.ComercialDataSet
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(678, 21)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(141, 37)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Confirmar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ListaproductosDataGridView
+        '
+        Me.ListaproductosDataGridView.AutoGenerateColumns = False
+        Me.ListaproductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ListaproductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodigoproductoDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.ProductocompuestoDataGridViewTextBoxColumn})
+        Me.ListaproductosDataGridView.DataSource = Me.ListaproductosBindingSource
+        Me.ListaproductosDataGridView.Location = New System.Drawing.Point(23, 28)
+        Me.ListaproductosDataGridView.Name = "ListaproductosDataGridView"
+        Me.ListaproductosDataGridView.RowTemplate.Height = 24
+        Me.ListaproductosDataGridView.Size = New System.Drawing.Size(39, 39)
+        Me.ListaproductosDataGridView.TabIndex = 5
+        Me.ListaproductosDataGridView.Visible = False
+        '
         'CodigoproductoDataGridViewTextBoxColumn
         '
         Me.CodigoproductoDataGridViewTextBoxColumn.DataPropertyName = "codigoproducto"
@@ -265,6 +304,40 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.ProductocompuestoDataGridViewTextBoxColumn.DataPropertyName = "productocompuesto"
         Me.ProductocompuestoDataGridViewTextBoxColumn.HeaderText = "productocompuesto"
         Me.ProductocompuestoDataGridViewTextBoxColumn.Name = "ProductocompuestoDataGridViewTextBoxColumn"
+        '
+        'ListaproductosBindingSource
+        '
+        Me.ListaproductosBindingSource.DataMember = "listaproductos"
+        Me.ListaproductosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(323, 28)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(326, 22)
+        Me.TextBox1.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(69, 32)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(81, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Buscar por:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Proveedor", "Código", "Descripción"})
+        Me.ComboBox1.Location = New System.Drawing.Point(154, 27)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(160, 24)
+        Me.ComboBox1.TabIndex = 0
         '
         'ListaproductosTableAdapter
         '
@@ -296,6 +369,7 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -315,11 +389,14 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -344,74 +421,106 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.ProductosBindingSource.DataMember = "productos"
         Me.ProductosBindingSource.DataSource = Me.ComercialDataSet
         '
-        'ListaproductosproveedoresvinculadosBindingSource
-        '
-        Me.ListaproductosproveedoresvinculadosBindingSource.DataMember = "listaproductosproveedoresvinculados"
-        Me.ListaproductosproveedoresvinculadosBindingSource.DataSource = Me.ComercialDataSet
-        '
         'ListaproductosproveedoresvinculadosTableAdapter
         '
         Me.ListaproductosproveedoresvinculadosTableAdapter.ClearBeforeFill = True
         '
-        'nombreproveedor
+        'ListaproductosproveedoresvinculadosDataGridView
         '
-        Me.nombreproveedor.DataPropertyName = "nombreproveedor"
-        Me.nombreproveedor.HeaderText = "Proveedor"
-        Me.nombreproveedor.Name = "nombreproveedor"
-        Me.nombreproveedor.ReadOnly = True
-        Me.nombreproveedor.ToolTipText = "Proveedor"
-        Me.nombreproveedor.Width = 103
+        Me.ListaproductosproveedoresvinculadosDataGridView.AutoGenerateColumns = False
+        Me.ListaproductosproveedoresvinculadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ListaproductosproveedoresvinculadosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20})
+        Me.ListaproductosproveedoresvinculadosDataGridView.DataSource = Me.ListaproductosproveedoresvinculadosBindingSource
+        Me.ListaproductosproveedoresvinculadosDataGridView.Location = New System.Drawing.Point(946, 140)
+        Me.ListaproductosproveedoresvinculadosDataGridView.Name = "ListaproductosproveedoresvinculadosDataGridView"
+        Me.ListaproductosproveedoresvinculadosDataGridView.RowTemplate.Height = 24
+        Me.ListaproductosproveedoresvinculadosDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.ListaproductosproveedoresvinculadosDataGridView.TabIndex = 8
         '
-        'codigoproducto
+        'DataGridViewTextBoxColumn9
         '
-        Me.codigoproducto.DataPropertyName = "codigoproducto"
-        Me.codigoproducto.HeaderText = "Código"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.ToolTipText = "Código"
-        Me.codigoproducto.Width = 81
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "nombreproveedor"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "nombreproveedor"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
         '
-        'DescripcionDataGridViewTextBoxColumn1
+        'DataGridViewTextBoxColumn10
         '
-        Me.DescripcionDataGridViewTextBoxColumn1.DataPropertyName = "descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn1.HeaderText = "Descripción"
-        Me.DescripcionDataGridViewTextBoxColumn1.Name = "DescripcionDataGridViewTextBoxColumn1"
-        Me.DescripcionDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DescripcionDataGridViewTextBoxColumn1.ToolTipText = "Descripción"
-        Me.DescripcionDataGridViewTextBoxColumn1.Width = 111
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "idproducto"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "idproducto"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
         '
-        'ProductocompuestoDataGridViewTextBoxColumn1
+        'DataGridViewTextBoxColumn11
         '
-        Me.ProductocompuestoDataGridViewTextBoxColumn1.DataPropertyName = "productocompuesto"
-        Me.ProductocompuestoDataGridViewTextBoxColumn1.HeaderText = "productocompuesto"
-        Me.ProductocompuestoDataGridViewTextBoxColumn1.Name = "ProductocompuestoDataGridViewTextBoxColumn1"
-        Me.ProductocompuestoDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.ProductocompuestoDataGridViewTextBoxColumn1.Visible = False
-        Me.ProductocompuestoDataGridViewTextBoxColumn1.Width = 162
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "fabricante"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "fabricante"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
         '
-        'precioventa
+        'DataGridViewTextBoxColumn12
         '
-        Me.precioventa.DataPropertyName = "precioventa"
-        Me.precioventa.HeaderText = "precioventa"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        Me.precioventa.Visible = False
-        Me.precioventa.Width = 111
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "rubro"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "rubro"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
         '
-        'idproducto
+        'DataGridViewTextBoxColumn13
         '
-        Me.idproducto.DataPropertyName = "idproducto"
-        Me.idproducto.HeaderText = "idproducto"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.ReadOnly = True
-        Me.idproducto.Visible = False
-        Me.idproducto.Width = 104
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "codigoproducto"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "codigoproducto"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "marca"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "marca"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "descripcion"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "precioventa"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "precioventa"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "precioventagranel"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "precioventagranel"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.DataPropertyName = "precioventamayorista"
+        Me.DataGridViewTextBoxColumn18.HeaderText = "precioventamayorista"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.DataPropertyName = "precioventadistribuidor"
+        Me.DataGridViewTextBoxColumn19.HeaderText = "precioventadistribuidor"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        '
+        'DataGridViewTextBoxColumn20
+        '
+        Me.DataGridViewTextBoxColumn20.DataPropertyName = "productocompuesto"
+        Me.DataGridViewTextBoxColumn20.HeaderText = "productocompuesto"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
         '
         'AgregarProductoaProveedorMasivo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(895, 521)
+        Me.ClientSize = New System.Drawing.Size(1351, 521)
+        Me.Controls.Add(Me.ListaproductosproveedoresvinculadosDataGridView)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -421,15 +530,16 @@ Partial Class AgregarProductoaProveedorMasivo
         Me.Text = "Vincular productos a Proveedor"
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListaproductosproveedoresvinculadosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.ProductosproveedoresDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProductosproveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaproductosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaproductosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProductosproveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ListaproductosproveedoresvinculadosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListaproductosproveedoresvinculadosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -466,8 +576,21 @@ Partial Class AgregarProductoaProveedorMasivo
     Friend WithEvents ListaproductosproveedoresvinculadosTableAdapter As comercialDataSetTableAdapters.listaproductosproveedoresvinculadosTableAdapter
     Friend WithEvents nombreproveedor As DataGridViewTextBoxColumn
     Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
-    Friend WithEvents DescripcionDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents descripcion As DataGridViewTextBoxColumn
     Friend WithEvents ProductocompuestoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents precioventa As DataGridViewTextBoxColumn
     Friend WithEvents idproducto As DataGridViewTextBoxColumn
+    Friend WithEvents ListaproductosproveedoresvinculadosDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
 End Class

@@ -7,19 +7,22 @@
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         Try
             Select Case ComboBox1.Text
-                Case "Código"
-                    ListaproductosBindingSource.Filter = "codigoproducto like'%" + TextBox1.Text + "%'"
+                Case "Proveedor"
+                    ListaproductosproveedoresvinculadosBindingSource.Filter = "nombreproveedor like'%" + TextBox1.Text + "%'"
                     'If ProductosDataGridView.RowCount = 0 Then
                     '    ProductosDataGridView.Rows(0).Selected = False
                     'End If
-
-
+                Case "Código"
+                    ListaproductosproveedoresvinculadosBindingSource.Filter = "codigoproducto like'%" + TextBox1.Text + "%'"
+                    'If ProductosDataGridView.RowCount = 0 Then
+                    '    ProductosDataGridView.Rows(0).Selected = False
+                    'End If
                 Case "Descripción"
-                    ListaproductosBindingSource.Filter = "descripcion like'%" + TextBox1.Text + "%'"
+                    ListaproductosproveedoresvinculadosBindingSource.Filter = "descripcion like'%" + TextBox1.Text + "%'"
 
             End Select
         Catch ex As Exception
-
+            ListaproductosBindingSource.Filter = ""
         End Try
     End Sub
 
@@ -61,5 +64,9 @@
         Catch ex As Exception
             MsgBox("No se completó la acción seleccionada: " + ex.Message)
         End Try
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
     End Sub
 End Class

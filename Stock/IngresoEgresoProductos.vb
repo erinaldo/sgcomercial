@@ -179,6 +179,7 @@ Public Class ingresoegresoproductos
                     If textdisponible.Text = "" Then textdisponible.Text = "0"
                     CantidadTextBox.Text = ""
                 Else
+                    textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
                     CantidadTextBox.Select()
                     If textdisponible.Text = "" Then textdisponible.Text = "0"
                     CantidadTextBox.Text = ""
@@ -208,6 +209,7 @@ Public Class ingresoegresoproductos
             If textdisponible.Text = "" Then textdisponible.Text = "0"
             'CantidadTextBox.Text = ""
         Else
+            textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
             CantidadTextBox.Select()
             If textdisponible.Text = "" Then textdisponible.Text = "0"
             'CantidadTextBox.Text = ""
@@ -339,5 +341,16 @@ Public Class ingresoegresoproductos
         Dim stkr As ConsultaStockRemotoProducto
         stkr = New ConsultaStockRemotoProducto
         stkr.ShowDialog()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim idproducto As Long = 0
+        idproducto = ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)
+        If Not idproducto > 0 Then Return
+
+        If MsgBox("Seguro desea resetear el stock de este producto a CERO?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+            StockTableAdapter.stock_resetproducto(idproducto, gusername)
+            consultardisponibles()
+        End If
     End Sub
 End Class

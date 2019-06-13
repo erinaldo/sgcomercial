@@ -38,7 +38,7 @@ Public Class RegistrarVenta
         Cursor.Current = Cursors.WaitCursor
         'Me.WindowState = FormWindowState.Maximized
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
-        Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
+        Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
         Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.
@@ -68,7 +68,6 @@ Public Class RegistrarVenta
         BtnNueva.Enabled = True
         BtnConfirmar.Enabled = False
         Labelproducto.Text = ""
-        stockdisp.Visible = False
         NrocomprobanteTextBox.Text = ""
         FechavencimientoDateTimePicker.Enabled = False
 
@@ -539,7 +538,6 @@ Public Class RegistrarVenta
         productodisponible = StockTableAdapter.stock_consultardisponible(existeproducto)
         unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(codigoproducto)
         If existeproducto > 0 Then ' existeproducto es el codigo de producto
-            stockdisp.Text = "Stock: " + productodisponible.ToString
             Labelproducto.Text = ProductosTableAdapter.productos_consultardescripcion(codigoproducto)
             v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
             If VentasdetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
@@ -638,7 +636,6 @@ Public Class RegistrarVenta
         productodisponibleenvasado = StockTableAdapter.stock_consultardisponibleenvasado(existeproducto)
         unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(codigotextbox.Text)
         If existeproducto > 0 Then ' existeproducto ------------- es el codigo de producto
-            stockdisp.Text = "Stock: " + productodisponible.ToString
             Labelproducto.Text = ProductosTableAdapter.productos_consultardescripcion(codigotextbox.Text)
             v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigotextbox.Text)
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -1744,5 +1741,13 @@ Public Class RegistrarVenta
         Else
             MsgBox("Operación Cancelada", MsgBoxStyle.Information, "Aviso")
         End If
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        glistapreferida = ComboBox1.SelectedValue
+    End Sub
+
+    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
+
     End Sub
 End Class

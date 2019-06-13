@@ -1,6 +1,15 @@
 ﻿Public Class ControlStock
 
     Private Sub ControlStock_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        '*************  stock    **************************************
+        Dim StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
+        StockTableAdapter = New comercialDataSetTableAdapters.stockTableAdapter
+        Try
+            StockTableAdapter.stock_resetproductosmasivo()
+        Catch ex As Exception
+            MsgBox("No se pudo completar una operación de rutina, contacte al proveedor de sistema: stock_resetproductosmasivo - notfound -")
+        End Try
+        '*******************************************************************************
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stockgeneral' Puede moverla o quitarla según sea necesario.
         Me.StockgeneralTableAdapter.Fill(Me.ComercialDataSet.stockgeneral)
         ComboBox1.SelectedIndex = 2
@@ -37,7 +46,7 @@
         p.Close()
     End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
         Me.StockgeneralTableAdapter.Fill(Me.ComercialDataSet.stockgeneral)
     End Sub
 
@@ -46,13 +55,6 @@
     End Sub
 
     Private Sub StockgeneralDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles StockgeneralDataGridView.CellClick
-        Try
-            If e.RowIndex = -1 And e.ColumnIndex = -1 Then
-                Me.StockgeneralTableAdapter.Fill(Me.ComercialDataSet.stockgeneral)
-            End If
-        Catch ex As Exception
-
-        End Try
 
     End Sub
 
@@ -76,6 +78,13 @@
             Else
                 Me.WindowState = FormWindowState.Normal
             End If
+        End If
+        If e.KeyCode = Keys.F5 And Me.MaximizeBox = True Then
+            Try
+                Me.StockgeneralTableAdapter.Fill(Me.ComercialDataSet.stockgeneral)
+            Catch ex As Exception
+
+            End Try
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
     End Sub

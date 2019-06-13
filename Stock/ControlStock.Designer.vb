@@ -26,7 +26,6 @@ Partial Class ControlStock
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ControlStock))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -45,7 +44,6 @@ Partial Class ControlStock
         Me.StockgeneralTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockgeneralTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockgeneralDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockgeneralBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,7 +55,6 @@ Partial Class ControlStock
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -82,20 +79,6 @@ Partial Class ControlStock
         Me.Button2.TabIndex = 6
         Me.Button2.Text = "Rep. Relevamiento"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.AccessibleDescription = "Recargar Grilla"
-        Me.PictureBox1.AccessibleName = "Recargar Grilla"
-        Me.PictureBox1.BackColor = System.Drawing.SystemColors.Window
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.reload_512
-        Me.PictureBox1.Location = New System.Drawing.Point(21, 99)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(25, 25)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
         '
         'Button1
         '
@@ -146,7 +129,7 @@ Partial Class ControlStock
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StockgeneralDataGridView.AutoGenerateColumns = False
-        Me.StockgeneralDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.StockgeneralDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.StockgeneralDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.StockgeneralDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.codigoproducto, Me.rubro, Me.producto, Me.medida, Me.disponible, Me.unidades, Me.stockminimo})
         Me.StockgeneralDataGridView.DataSource = Me.StockgeneralBindingSource
@@ -173,7 +156,7 @@ Partial Class ControlStock
         Me.codigoproducto.HeaderText = "Cod. Producto"
         Me.codigoproducto.Name = "codigoproducto"
         Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.Width = 132
+        Me.codigoproducto.Width = 144
         '
         'rubro
         '
@@ -222,7 +205,7 @@ Partial Class ControlStock
         Me.stockminimo.HeaderText = "Stock mínimo"
         Me.stockminimo.Name = "stockminimo"
         Me.stockminimo.ReadOnly = True
-        Me.stockminimo.Width = 127
+        Me.stockminimo.Width = 139
         '
         'StockgeneralBindingSource
         '
@@ -265,6 +248,7 @@ Partial Class ControlStock
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -284,11 +268,14 @@ Partial Class ControlStock
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -317,7 +304,6 @@ Partial Class ControlStock
         Me.Text = "Stock General"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockgeneralDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockgeneralBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -342,6 +328,5 @@ Partial Class ControlStock
     Friend WithEvents unidades As DataGridViewTextBoxColumn
     Friend WithEvents stockminimo As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Button2 As Button
 End Class

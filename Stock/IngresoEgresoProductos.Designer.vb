@@ -89,6 +89,7 @@ Partial Class ingresoegresoproductos
         Me.ProductoscomponentesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productoscomponentesTableAdapter()
         Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
         Me.MotivostockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.motivostockTableAdapter()
+        Me.Button2 = New System.Windows.Forms.Button()
         IdproductoLabel = New System.Windows.Forms.Label()
         CantidadLabel = New System.Windows.Forms.Label()
         TipomovimientostockLabel = New System.Windows.Forms.Label()
@@ -196,6 +197,7 @@ Partial Class ingresoegresoproductos
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.ComboMotivoStock)
         Me.GroupBox1.Controls.Add(Me.TextBoxMedida)
         Me.GroupBox1.Controls.Add(Label3)
@@ -568,7 +570,7 @@ Partial Class ingresoegresoproductos
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(296, 433)
+        Me.Button1.Location = New System.Drawing.Point(228, 433)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(127, 28)
@@ -727,6 +729,15 @@ Partial Class ingresoegresoproductos
         '
         Me.MotivostockTableAdapter.ClearBeforeFill = True
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(362, 433)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(127, 28)
+        Me.Button2.TabIndex = 23
+        Me.Button2.Text = "Resetear a Cero"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'ingresoegresoproductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -817,4 +828,5 @@ Partial Class ingresoegresoproductos
     Friend WithEvents ComboMotivoStock As ComboBox
     Friend WithEvents MotivostockBindingSource As BindingSource
     Friend WithEvents MotivostockTableAdapter As comercialDataSetTableAdapters.motivostockTableAdapter
+    Friend WithEvents Button2 As Button
 End Class
