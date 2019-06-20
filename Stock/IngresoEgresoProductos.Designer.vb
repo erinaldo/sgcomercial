@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ingresoegresoproductos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ingresoegresoproductos
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim IdproductoLabel As System.Windows.Forms.Label
@@ -33,6 +33,7 @@ Partial Class ingresoegresoproductos
         Dim Label5 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ingresoegresoproductos))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.ComboMotivoStock = New System.Windows.Forms.ComboBox()
         Me.MotivostockBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
@@ -89,7 +90,6 @@ Partial Class ingresoegresoproductos
         Me.ProductoscomponentesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productoscomponentesTableAdapter()
         Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
         Me.MotivostockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.motivostockTableAdapter()
-        Me.Button2 = New System.Windows.Forms.Button()
         IdproductoLabel = New System.Windows.Forms.Label()
         CantidadLabel = New System.Windows.Forms.Label()
         TipomovimientostockLabel = New System.Windows.Forms.Label()
@@ -226,10 +226,19 @@ Partial Class ingresoegresoproductos
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(718, 481)
+        Me.GroupBox1.Size = New System.Drawing.Size(712, 481)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Movimiento de Stock"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(362, 433)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(127, 28)
+        Me.Button2.TabIndex = 23
+        Me.Button2.Text = "Resetear a Cero"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'ComboMotivoStock
         '
@@ -729,20 +738,11 @@ Partial Class ingresoegresoproductos
         '
         Me.MotivostockTableAdapter.ClearBeforeFill = True
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(362, 433)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(127, 28)
-        Me.Button2.TabIndex = 23
-        Me.Button2.Text = "Resetear a Cero"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'ingresoegresoproductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(747, 505)
+        Me.ClientSize = New System.Drawing.Size(741, 505)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

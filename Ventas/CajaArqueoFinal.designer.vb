@@ -106,6 +106,7 @@ Partial Class CajaArqueoFinal
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -125,11 +126,14 @@ Partial Class CajaArqueoFinal
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -199,7 +203,7 @@ Partial Class CajaArqueoFinal
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.CajaseventosDataGridView)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(21, 20)
+        Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
@@ -214,8 +218,7 @@ Partial Class CajaArqueoFinal
         Me.Enteros.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.Enteros.Location = New System.Drawing.Point(195, 108)
         Me.Enteros.Margin = New System.Windows.Forms.Padding(4)
-        Me.Enteros.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.Enteros.Minimum = New Decimal(New Integer() {999999, 0, 0, -2147483648})
+        Me.Enteros.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Enteros.Name = "Enteros"
         Me.Enteros.Size = New System.Drawing.Size(160, 30)
         Me.Enteros.TabIndex = 17
@@ -320,7 +323,7 @@ Partial Class CajaArqueoFinal
         Me.NumericUpDown1.Enabled = False
         Me.NumericUpDown1.Location = New System.Drawing.Point(588, 58)
         Me.NumericUpDown1.Margin = New System.Windows.Forms.Padding(4)
-        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {999999, 0, 0, -2147483648})
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.ReadOnly = True
@@ -346,8 +349,7 @@ Partial Class CajaArqueoFinal
         Me.numEgresos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.numEgresos.Location = New System.Drawing.Point(609, 175)
         Me.numEgresos.Margin = New System.Windows.Forms.Padding(4)
-        Me.numEgresos.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.numEgresos.Minimum = New Decimal(New Integer() {999999, 0, 0, -2147483648})
+        Me.numEgresos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.numEgresos.Name = "numEgresos"
         Me.numEgresos.ReadOnly = True
         Me.numEgresos.Size = New System.Drawing.Size(160, 30)
@@ -361,8 +363,7 @@ Partial Class CajaArqueoFinal
         Me.numIngresos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.numIngresos.Location = New System.Drawing.Point(609, 127)
         Me.numIngresos.Margin = New System.Windows.Forms.Padding(4)
-        Me.numIngresos.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.numIngresos.Minimum = New Decimal(New Integer() {999999, 0, 0, -2147483648})
+        Me.numIngresos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.numIngresos.Name = "numIngresos"
         Me.numIngresos.ReadOnly = True
         Me.numIngresos.Size = New System.Drawing.Size(160, 30)
@@ -395,7 +396,7 @@ Partial Class CajaArqueoFinal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(447, 359)
+        Me.ClientSize = New System.Drawing.Size(436, 345)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.numEgresos)

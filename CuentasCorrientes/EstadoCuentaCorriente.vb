@@ -193,7 +193,15 @@
                     Dim debe As Decimal = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("debe").Value
                     Dim saldo As Decimal = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value
 
-                    If debe <> saldo Then
+                    'If MsgBox("Seguro desea anular la operación?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                    '    If MsgBox("Esta operacion anulará la venta y todos sus comprobantes de pago asociados. Desea continuar?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                    '        CajasoperacionesTableAdapter.cajasoperaciones_bajaoperacionventa(CajasmovimientosDataGridView.CurrentRow.Cells("idoperacion").Value, gusername)
+                    '    Else
+                    '        MsgBox("Operacion cancelada")
+                    '    End If
+                    'End If
+                    debe = debe * -1
+                    If Not debe = saldo Then
                         MsgBox("No es posible anular: existen pagos asociados a esta operación.", MsgBoxStyle.Exclamation, "Advertencia")
                         Return
                     Else
@@ -269,5 +277,9 @@
                 Me.Close()
             End If
         End If
+    End Sub
+
+    Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
+
     End Sub
 End Class

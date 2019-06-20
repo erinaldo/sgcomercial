@@ -17,7 +17,6 @@
     Private Sub ABMListasprecios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
         Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
-
     End Sub
 
     Private Sub ABMListasprecios_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
