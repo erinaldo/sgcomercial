@@ -51,7 +51,7 @@ Public Class ingresoegresoproductos
 
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click, Button4.Click
         consultardisponibles()
         '********************validaciones previas**********************
         idproducto = ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)
@@ -343,7 +343,7 @@ Public Class ingresoegresoproductos
         stkr.ShowDialog()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click, Button5.Click
         Dim idproducto As Long = 0
         idproducto = ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)
         If Not idproducto > 0 Then Return
@@ -360,5 +360,22 @@ Public Class ingresoegresoproductos
 
     Private Sub Button4_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        If Not ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text) > 0 Then Return
+        Try
+            'If MsgBox("Esta acción no se podrá volver atrás." & vbCr & "Esta seguro que desea dar de baja este producto?", MsgBoxStyle.Question, "Pregunta") Then
+            If MessageBox.Show("Esta acción no se podrá volver atrás." & vbCr & "Esta seguro que desea dar de baja este producto?", "Pregunta", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+                Try
+                    ProductosTableAdapter.productos_estadoproducto("I", ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text))
+                    nuevo()
+                Catch ex As Exception
+
+                End Try
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

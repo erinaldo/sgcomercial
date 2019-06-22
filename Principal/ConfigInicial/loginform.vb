@@ -263,8 +263,12 @@ Public Class loginform
     End Sub
 
     Private Sub loginform_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyCode.ToString = "Escape" Then
-            Me.Close()
+        If e.KeyCode = Keys.Escape Then
+            If e.KeyCode.ToString = "Escape" Then
+                If MsgBox("Seguro desea salir del sistema?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                    End
+                End If
+            End If
         End If
         ''''''''''***************************   POR DEFECTO **************************************
         If (e.KeyCode = Keys.X AndAlso e.Control AndAlso e.Shift) Then
@@ -289,12 +293,27 @@ Public Class loginform
             gSUToken = Nothing
             su.ShowDialog()
             If gSUToken = True Then
-                Dim wconf As FormWebConf
-                wconf = New FormWebConf
-                wconf.ShowDialog()
+                Dim conf As WebConf
+                conf = New WebConf
+                conf.ShowDialog()
                 Me.Hide()
                 Me.loginform_Load(e, e)
                 Me.Show()
+            End If
+        End If
+        '====================   FEAFIP CONFIG ==================
+        If (e.KeyCode = Keys.F AndAlso e.Control AndAlso e.Shift) Then
+            Dim su As SUAuth
+            su = New SUAuth
+            gSUToken = Nothing
+            su.ShowDialog()
+            If gSUToken = True Then
+                Dim conf As FeConf
+                conf = New FeConf
+                conf.ShowDialog()
+                'Me.Hide()
+                'Me.loginform_Load(e, e)
+                'Me.Show()
             End If
         End If
         'If (e.KeyCode = Keys.L AndAlso e.Modifiers = Keys.Control) Then
@@ -324,19 +343,19 @@ Public Class loginform
     End Sub
 
     Private Sub textusuario_KeyDown(sender As Object, e As KeyEventArgs) Handles textusuario.KeyDown
-        If e.KeyCode.ToString = "Escape" Then
-            If MsgBox("Seguro desea salir del sistema?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                Me.Close()
-            End If
-        End If
+        'If e.KeyCode.ToString = "Escape" Then
+        '    If MsgBox("Seguro desea salir del sistema?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+        '        Me.Close()
+        '    End If
+        'End If
     End Sub
 
     Private Sub textpassword_KeyDown(sender As Object, e As KeyEventArgs) Handles textpassword.KeyDown
-        If e.KeyCode.ToString = "Escape" Then
-            If MsgBox("Seguro desea salir del sistema?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                Me.Close()
-            End If
-        End If
+        'If e.KeyCode.ToString = "Escape" Then
+        '    If MsgBox("Seguro desea salir del sistema?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+        '        Me.Close()
+        '    End If
+        'End If
     End Sub
     '/************************/
     Function getMacAddress()

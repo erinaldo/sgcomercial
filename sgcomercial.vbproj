@@ -385,10 +385,16 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal\Modulos\ModuleAFIP.vb" />
-    <Compile Include="Principal\ParametrosGenerales\FormWebConf.Designer.vb">
-      <DependentUpon>FormWebConf.vb</DependentUpon>
+    <Compile Include="Principal\ParametrosGenerales\FeConf.Designer.vb">
+      <DependentUpon>FeConf.vb</DependentUpon>
     </Compile>
-    <Compile Include="Principal\ParametrosGenerales\FormWebConf.vb">
+    <Compile Include="Principal\ParametrosGenerales\FeConf.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\WebConf.Designer.vb">
+      <DependentUpon>WebConf.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\WebConf.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal\Siscom\SCVentas.Designer.vb">
@@ -1231,8 +1237,11 @@
     <EmbeddedResource Include="Principal\ConfigInicial\SUAuth.resx">
       <DependentUpon>SUAuth.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal\ParametrosGenerales\FormWebConf.resx">
-      <DependentUpon>FormWebConf.vb</DependentUpon>
+    <EmbeddedResource Include="Principal\ParametrosGenerales\FeConf.resx">
+      <DependentUpon>FeConf.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\ParametrosGenerales\WebConf.resx">
+      <DependentUpon>WebConf.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\Siscom\RepFacturaSC.rdlc" />
     <EmbeddedResource Include="Principal\Siscom\SCventas.resx">

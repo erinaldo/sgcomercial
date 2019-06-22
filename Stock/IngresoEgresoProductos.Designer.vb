@@ -33,6 +33,9 @@ Partial Class ingresoegresoproductos
         Dim Label5 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ingresoegresoproductos))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.ComboMotivoStock = New System.Windows.Forms.ComboBox()
         Me.MotivostockBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -64,6 +67,7 @@ Partial Class ingresoegresoproductos
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StockBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Labeldescripcion = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -197,6 +201,9 @@ Partial Class ingresoegresoproductos
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button6)
+        Me.GroupBox1.Controls.Add(Me.Button5)
+        Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.ComboMotivoStock)
         Me.GroupBox1.Controls.Add(Me.TextBoxMedida)
@@ -207,6 +214,7 @@ Partial Class ingresoegresoproductos
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.StockDataGridView)
         Me.GroupBox1.Controls.Add(Me.Labeldescripcion)
+        Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.ProductosDataGridView)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(IdproductoLabel)
@@ -231,9 +239,36 @@ Partial Class ingresoegresoproductos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Movimiento de Stock"
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(159, 438)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(127, 28)
+        Me.Button6.TabIndex = 24
+        Me.Button6.Text = "Eliminar Producto"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(427, 438)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(127, 28)
+        Me.Button5.TabIndex = 23
+        Me.Button5.Text = "Resetear a Cero"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(159, 438)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(127, 28)
+        Me.Button3.TabIndex = 24
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(362, 433)
+        Me.Button2.Location = New System.Drawing.Point(427, 438)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(127, 28)
         Me.Button2.TabIndex = 23
@@ -505,6 +540,16 @@ Partial Class ingresoegresoproductos
         Me.Labeldescripcion.TabIndex = 16
         Me.Labeldescripcion.Text = "........................................."
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(293, 438)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(127, 28)
+        Me.Button4.TabIndex = 7
+        Me.Button4.Text = "Guardar"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'ProductosDataGridView
         '
         Me.ProductosDataGridView.AutoGenerateColumns = False
@@ -579,7 +624,7 @@ Partial Class ingresoegresoproductos
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(228, 433)
+        Me.Button1.Location = New System.Drawing.Point(293, 438)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(127, 28)
@@ -708,6 +753,7 @@ Partial Class ingresoegresoproductos
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -829,4 +875,8 @@ Partial Class ingresoegresoproductos
     Friend WithEvents MotivostockBindingSource As BindingSource
     Friend WithEvents MotivostockTableAdapter As comercialDataSetTableAdapters.motivostockTableAdapter
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
 End Class
