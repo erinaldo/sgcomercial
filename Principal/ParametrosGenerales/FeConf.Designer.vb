@@ -51,6 +51,8 @@ Partial Class FeConf
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
         Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.TAFIPPTOVTA = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.TipocondicionivaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,6 +63,8 @@ Partial Class FeConf
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.TAFIPPTOVTA)
+        Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.TCUIT)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Button2)
@@ -90,9 +94,9 @@ Partial Class FeConf
         '
         'TCUIT
         '
-        Me.TCUIT.Location = New System.Drawing.Point(516, 36)
+        Me.TCUIT.Location = New System.Drawing.Point(442, 36)
         Me.TCUIT.Name = "TCUIT"
-        Me.TCUIT.Size = New System.Drawing.Size(251, 22)
+        Me.TCUIT.Size = New System.Drawing.Size(179, 22)
         Me.TCUIT.TabIndex = 12
         '
         'Button3
@@ -192,7 +196,7 @@ Partial Class FeConf
         Me.ComboBox1.Items.AddRange(New Object() {"DESACTIVADO", "HOMOLOGACION", "PRODUCCION"})
         Me.ComboBox1.Location = New System.Drawing.Point(227, 35)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(238, 24)
+        Me.ComboBox1.Size = New System.Drawing.Size(162, 24)
         Me.ComboBox1.TabIndex = 2
         '
         'Label3
@@ -261,7 +265,7 @@ Partial Class FeConf
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(471, 39)
+        Me.Label8.Location = New System.Drawing.Point(397, 39)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(39, 17)
         Me.Label8.TabIndex = 1
@@ -290,6 +294,22 @@ Partial Class FeConf
         'TipocondicionivaTableAdapter
         '
         Me.TipocondicionivaTableAdapter.ClearBeforeFill = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(627, 39)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(70, 17)
+        Me.Label10.TabIndex = 13
+        Me.Label10.Text = "PtoVta N°"
+        '
+        'TAFIPPTOVTA
+        '
+        Me.TAFIPPTOVTA.Location = New System.Drawing.Point(705, 36)
+        Me.TAFIPPTOVTA.Name = "TAFIPPTOVTA"
+        Me.TAFIPPTOVTA.Size = New System.Drawing.Size(63, 22)
+        Me.TAFIPPTOVTA.TabIndex = 14
         '
         'FeConf
         '
@@ -338,4 +358,6 @@ Partial Class FeConf
     Friend WithEvents Label9 As Label
     Friend WithEvents TCUIT As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents TAFIPPTOVTA As TextBox
+    Friend WithEvents Label10 As Label
 End Class

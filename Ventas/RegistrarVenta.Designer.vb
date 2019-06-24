@@ -31,6 +31,7 @@ Partial Class RegistrarVenta
         Dim Label2 As System.Windows.Forms.Label
         Dim Label7 As System.Windows.Forms.Label
         Dim Label5 As System.Windows.Forms.Label
+        Dim Label8 As System.Windows.Forms.Label
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -93,6 +94,9 @@ Partial Class RegistrarVenta
         Me.GenerarPresupuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ListaspreciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Labelproducto = New System.Windows.Forms.Label()
         Me.codigotextbox = New System.Windows.Forms.TextBox()
@@ -109,6 +113,7 @@ Partial Class RegistrarVenta
         Me.listasprecios = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VentasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ButtonDescuentoDefecto = New System.Windows.Forms.Button()
         Me.FechavencimientoDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.VentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -146,9 +151,9 @@ Partial Class RegistrarVenta
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.PermisosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.permisosTableAdapter()
         Me.ValesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.valesTableAdapter()
-        Me.ListaspreciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListaspreciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaspreciosTableAdapter()
         Me.GFP2 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.CheckBoxFP2 = New System.Windows.Forms.CheckBox()
         Me.NrocomprobanteTextBox2 = New System.Windows.Forms.TextBox()
         Me.LabelMontoFP2 = New System.Windows.Forms.Label()
@@ -157,8 +162,6 @@ Partial Class RegistrarVenta
         Me.FormaspagoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label14 = New System.Windows.Forms.Label()
         IdclienteLabel = New System.Windows.Forms.Label()
         FechaventaLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
@@ -167,6 +170,7 @@ Partial Class RegistrarVenta
         Label2 = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
         Label5 = New System.Windows.Forms.Label()
+        Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PagosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PagosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -181,6 +185,7 @@ Partial Class RegistrarVenta
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuConfirmar.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VentasdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VentasdetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -191,7 +196,6 @@ Partial Class RegistrarVenta
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FormaspagoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
-        CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GFP2.SuspendLayout()
         CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -220,7 +224,7 @@ Partial Class RegistrarVenta
         'IdformapagoLabel
         '
         IdformapagoLabel.AutoSize = True
-        IdformapagoLabel.Location = New System.Drawing.Point(9, 121)
+        IdformapagoLabel.Location = New System.Drawing.Point(7, 121)
         IdformapagoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         IdformapagoLabel.Name = "IdformapagoLabel"
         IdformapagoLabel.Size = New System.Drawing.Size(89, 17)
@@ -230,7 +234,7 @@ Partial Class RegistrarVenta
         'IdtipocomprobanteLabel
         '
         IdtipocomprobanteLabel.AutoSize = True
-        IdtipocomprobanteLabel.Location = New System.Drawing.Point(9, 82)
+        IdtipocomprobanteLabel.Location = New System.Drawing.Point(7, 82)
         IdtipocomprobanteLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         IdtipocomprobanteLabel.Name = "IdtipocomprobanteLabel"
         IdtipocomprobanteLabel.Size = New System.Drawing.Size(129, 17)
@@ -270,12 +274,22 @@ Partial Class RegistrarVenta
         '
         Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Label5.AutoSize = True
-        Label5.Location = New System.Drawing.Point(640, 121)
+        Label5.Location = New System.Drawing.Point(641, 121)
         Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label5.Name = "Label5"
-        Label5.Size = New System.Drawing.Size(76, 17)
+        Label5.Size = New System.Drawing.Size(80, 17)
         Label5.TabIndex = 19
-        Label5.Text = "Fecha Vto."
+        Label5.Text = "Fecha Vto.:"
+        '
+        'Label8
+        '
+        Label8.AutoSize = True
+        Label8.Location = New System.Drawing.Point(382, 82)
+        Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label8.Name = "Label8"
+        Label8.Size = New System.Drawing.Size(72, 17)
+        Label8.TabIndex = 15
+        Label8.Text = "Concepto:"
         '
         'BtnNueva
         '
@@ -688,6 +702,33 @@ Partial Class RegistrarVenta
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataSource = Me.ListaspreciosBindingSource
+        Me.ComboBox1.DisplayMember = "descripcion"
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(934, 24)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(146, 25)
+        Me.ComboBox1.TabIndex = 7
+        Me.ComboBox1.ValueMember = "idlistaprecio"
+        '
+        'ListaspreciosBindingSource
+        '
+        Me.ListaspreciosBindingSource.DataMember = "listasprecios"
+        Me.ListaspreciosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(887, 28)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(42, 17)
+        Me.Label14.TabIndex = 6
+        Me.Label14.Text = "Lista:"
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'PictureBox1
         '
         Me.PictureBox1.AccessibleDescription = "Búsqueda manual (F4)"
@@ -850,6 +891,7 @@ Partial Class RegistrarVenta
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.ComboBox2)
         Me.GroupBox3.Controls.Add(Me.ButtonDescuentoDefecto)
         Me.GroupBox3.Controls.Add(Me.FechavencimientoDateTimePicker)
         Me.GroupBox3.Controls.Add(Label5)
@@ -857,6 +899,7 @@ Partial Class RegistrarVenta
         Me.GroupBox3.Controls.Add(Me.NrocomprobanteTextBox)
         Me.GroupBox3.Controls.Add(Me.labelcliente)
         Me.GroupBox3.Controls.Add(Me.Idtipocomprobantecombo)
+        Me.GroupBox3.Controls.Add(Label8)
         Me.GroupBox3.Controls.Add(IdtipocomprobanteLabel)
         Me.GroupBox3.Controls.Add(Me.PictureSeleccionarCliente)
         Me.GroupBox3.Controls.Add(Me.idformapagocombo)
@@ -873,6 +916,16 @@ Partial Class RegistrarVenta
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Venta"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"Producto", "Servicio", "Productos y Servicios"})
+        Me.ComboBox2.Location = New System.Drawing.Point(461, 79)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(161, 25)
+        Me.ComboBox2.TabIndex = 22
         '
         'ButtonDescuentoDefecto
         '
@@ -938,7 +991,7 @@ Partial Class RegistrarVenta
         Me.Idtipocomprobantecombo.Location = New System.Drawing.Point(140, 78)
         Me.Idtipocomprobantecombo.Margin = New System.Windows.Forms.Padding(4)
         Me.Idtipocomprobantecombo.Name = "Idtipocomprobantecombo"
-        Me.Idtipocomprobantecombo.Size = New System.Drawing.Size(288, 25)
+        Me.Idtipocomprobantecombo.Size = New System.Drawing.Size(234, 25)
         Me.Idtipocomprobantecombo.TabIndex = 5
         Me.Idtipocomprobantecombo.ValueMember = "idtipocomprobante"
         '
@@ -1054,6 +1107,7 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -1241,11 +1295,6 @@ Partial Class RegistrarVenta
         '
         Me.ValesTableAdapter.ClearBeforeFill = True
         '
-        'ListaspreciosBindingSource
-        '
-        Me.ListaspreciosBindingSource.DataMember = "listasprecios"
-        Me.ListaspreciosBindingSource.DataSource = Me.ComercialDataSet
-        '
         'ListaspreciosTableAdapter
         '
         Me.ListaspreciosTableAdapter.ClearBeforeFill = True
@@ -1254,6 +1303,7 @@ Partial Class RegistrarVenta
         '
         Me.GFP2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GFP2.Controls.Add(Me.Button1)
         Me.GFP2.Controls.Add(Me.CheckBoxFP2)
         Me.GFP2.Controls.Add(Label7)
         Me.GFP2.Controls.Add(Me.NrocomprobanteTextBox2)
@@ -1269,6 +1319,16 @@ Partial Class RegistrarVenta
         Me.GFP2.TabIndex = 5
         Me.GFP2.TabStop = False
         Me.GFP2.Text = "Segundo medio de pago"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(995, 29)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "CAE"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'CheckBoxFP2
         '
@@ -1340,28 +1400,6 @@ Partial Class RegistrarVenta
         'BGWStockClowd
         '
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.DataSource = Me.ListaspreciosBindingSource
-        Me.ComboBox1.DisplayMember = "descripcion"
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(934, 24)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(146, 25)
-        Me.ComboBox1.TabIndex = 7
-        Me.ComboBox1.ValueMember = "idlistaprecio"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(887, 28)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(42, 17)
-        Me.Label14.TabIndex = 6
-        Me.Label14.Text = "Lista:"
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'RegistrarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
@@ -1396,6 +1434,7 @@ Partial Class RegistrarVenta
         Me.ContextMenuConfirmar.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VentasdetalleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VentasdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1408,7 +1447,6 @@ Partial Class RegistrarVenta
         CType(Me.FormaspagoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GFP2.ResumeLayout(False)
         Me.GFP2.PerformLayout()
         CType(Me.FormaspagoBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1536,4 +1574,6 @@ Partial Class RegistrarVenta
     Friend WithEvents GenerarPresupuestoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label14 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents ComboBox2 As ComboBox
 End Class

@@ -111,12 +111,14 @@ Module ModuleAFIP
                 GWSAADireccion = Nothing
                 GWSFEV1Direccion = Nothing
                 GCUIT = Nothing
+                GPtoVta = Nothing
             Case "HOMOLOGACION"
                 Try
                     RutaDelCertificadoFirmante = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("AFIPCRTHOMO")
                     GWSAADireccion = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("WSAAH")
                     GWSFEV1Direccion = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("WSFEV1H")
                     GCUIT = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("AFIPCUIT")
+                    GPtoVta = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("AFIPPTOVTA")
                 Catch ex As Exception
                     RutaDelCertificadoFirmante = Nothing
                     GWSAADireccion = Nothing
@@ -129,6 +131,7 @@ Module ModuleAFIP
                     GWSAADireccion = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("WSAAP")
                     GWSFEV1Direccion = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("WSFEV1P")
                     GCUIT = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("AFIPCUIT")
+                    GPtoVta = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("AFIPPTOVTA")
                 Catch ex As Exception
                     RutaDelCertificadoFirmante = Nothing
                     GWSAADireccion = Nothing
@@ -139,7 +142,7 @@ Module ModuleAFIP
         Return FEAFIPENTORNO
     End Function
 
-    Public Sub GenTRA(ByRef loginTicketResponse As String)
+    Public Sub GenTRA(ByRef loginTicketResponse As String, ByRef codigo As Integer, ByRef mensaje As String)
         '---------------------
         Dim cmsFirmadoBase64 As String
         'Dim loginTicketResponse As String = Nothing
@@ -172,7 +175,10 @@ Module ModuleAFIP
             'End If
 
         Catch excepcionAlGenerarLoginTicketRequest As Exception
-            Throw New Exception(ID_FNC + "***Error GENERANDO el LoginTicketRequest : " + excepcionAlGenerarLoginTicketRequest.Message + excepcionAlGenerarLoginTicketRequest.StackTrace)
+            'Throw New Exception(ID_FNC + "***Error GENERANDO el LoginTicketRequest : " + excepcionAlGenerarLoginTicketRequest.Message + excepcionAlGenerarLoginTicketRequest.StackTrace)
+            codigo = 66
+            mensaje = ID_FNC + "***Error GENERANDO el LoginTicketRequest : " + excepcionAlGenerarLoginTicketRequest.Message + excepcionAlGenerarLoginTicketRequest.StackTrace
+            Return
         End Try
         '---------------------
         ' PASO 2: Firmo el Login Ticket Request
@@ -196,7 +202,9 @@ Module ModuleAFIP
             cmsFirmadoBase64 = Convert.ToBase64String(encodedSignedCms)
 
         Catch excepcionAlFirmar As Exception
-            Throw New Exception(ID_FNC + "***Error FIRMANDO el LoginTicketRequest: " + excepcionAlFirmar.Message)
+            'Throw New Exception(ID_FNC + "***Error FIRMANDO el LoginTicketRequest: " + excepcionAlFirmar.Message)
+            mensaje = ID_FNC + "***Error FIRMANDO el LoginTicketRequest: " + excepcionAlFirmar.Message
+            Return
         End Try
 
         ' PASO 3: Invoco al WSAA para obtener el Login Ticket Response
@@ -221,7 +229,18 @@ Module ModuleAFIP
             Console.WriteLine(loginTicketResponse)
         Catch excepcionAlInvocarWsaa As Exception
             'Throw New Exception(ID_FNC + "***Error INVOCANDO al servicio WSAA: " + excepcionAlInvocarWsaa.Message)
-            Return
+            If excepcionAlInvocarWsaa.Message = "El CEE ya posee un TA valido para el acceso al WSN solicitado" Then
+                Dim TicketAccesoFETableAdapter As New comercialDataSetTableAdapters.ticketaccesofeTableAdapter()
+                Dim ticketaccesofeDataTable As New comercialDataSet.ticketaccesofeDataTable
+                TicketAccesoFETableAdapter.FillByLastTicket(ticketaccesofeDataTable)
+                GTOKEN = ticketaccesofeDataTable.Rows(0).Item("token")
+                GSIGN = ticketaccesofeDataTable.Rows(0).Item("sign")
+                Return
+            Else
+                codigo = 66
+                mensaje = ID_FNC + "***Error INVOCANDO al servicio WSAA: " + excepcionAlInvocarWsaa.Message
+                Return
+            End If
         End Try
 
         ' PASO 4: Analizo el Login Ticket Response recibido del WSAA
@@ -246,7 +265,9 @@ Module ModuleAFIP
             End Try
             '*******************************
         Catch excepcionAlAnalizarLoginTicketResponse As Exception
-            Throw New Exception(ID_FNC + "***Error ANALIZANDO el LoginTicketResponse: " + excepcionAlAnalizarLoginTicketResponse.Message)
+            'Throw New Exception(ID_FNC + "***Error ANALIZANDO el LoginTicketResponse: " + excepcionAlAnalizarLoginTicketResponse.Message)
+            codigo = 66
+            mensaje = ID_FNC + "***Error ANALIZANDO el LoginTicketResponse: " + excepcionAlAnalizarLoginTicketResponse.Message
             Return
         End Try
 
@@ -264,7 +285,7 @@ Module ModuleAFIP
             'MsgBox("Generar Ticket de Acceso", MsgBoxStyle.Exclamation, "Advertencia")
             Err = New WSFEV1.Err()
             Err.Code = 404
-            Err.Msg = "Generar Ticket de Acceso"
+            Err.Msg = "Primero debe Generar Ticket de Acceso"
             Return
         End If
         auth.Token = GTOKEN
@@ -275,6 +296,7 @@ Module ModuleAFIP
         '--------------------------------------
         Dim wsfev1 As WSFEV1.ServiceSoapClient
         wsfev1 = New WSFEV1.ServiceSoapClient()
+        wsfev1.Endpoint.Address = New EndpointAddress(GWSFEV1Direccion)
         '--------------------------------------
         Dim response As WSFEV1.FERecuperaLastCbteResponse
         response = New WSFEV1.FERecuperaLastCbteResponse()
@@ -360,80 +382,143 @@ Module ModuleAFIP
 
     End Sub
     '**********************************************************************************************************************
-    Public Function FECAELoadRequest(ByVal idventa As Long) As String
-        ' ----- RECUPERO LOS DATOS DE LA VENTA ------
-        Dim VentasTableAdapter As New comercialDataSetTableAdapters.ventasTableAdapter()
-        Dim VentasDataTable As New comercialDataSet.ventasDataTable
-        VentasTableAdapter.FillByIDventa(VentasDataTable, idventa)
-        ' ------------------------------------------------
-        Dim CbtNro As Long
-        Dim Err1 As WSFEV1.Err
-        Dim Err2 As WSFEV1.Err
-        UltimoCbte(GPtoVta, GCbteTipo, CbtNro, Err1)
-        If Err1.Code > 0 Then
-            ErrFEHandle(Err1)
-            Return "No se pudo obtener el último Número de comprobante"
-        End If
-        CbtNro = CbtNro + 1
-        ' ********************* COMIENZA LA ASIGNACIÓN DE PARAMETROS *********************
-        ' ----- PARAMETROS POR DEFECTO ------
-        GCantReg = 1
-        ' ----- PARAMETROS A CONSULTAR------
-        GCbteTipo = 11
-        GConcepto = 1 '------   Sign ES PRODUCTO , SERVICIO O AMBOS
-        GDocTipo = 80 '------ dni 96 O cuit 80
-        GDocNro = 27170277959 '------ cuit DEL CLIENTE
-        '---------- IMPORTES -------
-        GImpTotal = 100
-        GImpTotConc = 0 ' -- Importe neto no gravado.
-        GImpNeto = 100 '--- Importe neto gravado.
-        GImpOpEx = 0 '--- Importe exento.
-        GImpTrib = 0 '' Suma de los importes del array de tributos
-        GImpIVA = 0 '-- Suma de los importes del array de IVA.
-        ' ----- FINALIZA LA ASIGNACIÓN DE PARAMETROS ------
-        '-----------------------------------------------------------
-        '------------ CABECERA
-        Dim FECabRequest As WSFEV1.FECAECabRequest
-        FECabRequest = New WSFEV1.FECAECabRequest()
-        FECabRequest.CantReg = GCantReg
-        FECabRequest.CbteTipo = GCbteTipo
-        FECabRequest.PtoVta = GPtoVta
-        '-----------------------------------------------------------
-        '------------ DETALLE
-        Dim FeDetReq As WSFEV1.FECAEDetRequest
-        FeDetReq = New WSFEV1.FECAEDetRequest()
-        FeDetReq.Concepto = GConcepto ' Concepto del Comprobante. Valores permitidos: 1 Productos 2 Servicios 3 Productos y Servicios
-        FeDetReq.DocTipo = GDocTipo ' 80 CUIT -- 96 DNI
-        FeDetReq.DocNro = GDocNro
-        FeDetReq.CbteDesde = CbtNro
-        FeDetReq.CbteHasta = CbtNro
-        Dim mydate As String
-        mydate = DateTime.Now.ToString("yyyyMMdd")
-        FeDetReq.CbteFch = mydate
-        FeDetReq.ImpTotal = GImpTotal ' --Importe total del comprobante, Debe ser igual a Importe neto no gravado + Importe exento + Importe neto gravado + todos los campos de IVA al XX% + Importe de tributos.
-        FeDetReq.ImpTotConc = GImpTotConc ' -- Importe neto no gravado. Debe ser menor o igual a Importe total y no puede ser menor a cero. No puede ser mayor al Importe total de la operación ni menor a cero (0). Para comprobantes tipo C debe ser igual a cero (0). Para comprobantes tipo Bienes Usados – Emisor Monotributista este campo corresponde al importe subtotal.
-        FeDetReq.ImpNeto = GImpNeto '--- Importe neto gravado. Debe ser menor o igual a Importe total y no puede ser menor a cero. Para comprobantes tipo C este campo corresponde al Importe del Sub Total. Para comprobantes tipo Bienes Usados – Emisor Monotributista no debe informarse o debe ser igual a cero (0).
-        FeDetReq.ImpOpEx = GImpOpEx '--- Importe exento. Debe ser menor o igual a Importe total y no puede ser menor a cero. Para comprobantes tipo C debe ser igual a cero (0). Para comprobantes tipo Bienes Usados – Emisor Monotributista no debe informarse o debe ser igual a cero (0).
-        FeDetReq.ImpTrib = GImpTrib '' Suma de los importes del array de tributos
-        FeDetReq.ImpIVA = GImpIVA '-- Suma de los importes del array de IVA. Para comprobantes tipo C debe ser igual a cero (0). Para comprobantes tipo Bienes Usados – Emisor  Monotributista no debe informarse o debe ser igual a cero (0).
-        If GConcepto = 1 Then
-            mydate = Nothing
-        End If
-        FeDetReq.FchServDesde = mydate 'opcional - (vacio) para concepto 1
-        FeDetReq.FchServHasta = mydate 'opcional - (vacio) para concepto 1
-        FeDetReq.FchVtoPago = mydate 'opcional
-        FeDetReq.MonId = GMonid 'opcional
-        FeDetReq.MonCotiz = GMonCotiz 'opcional
-        '--------- RESPUESTA
-        Dim FeCAEResponse As WSFEV1.FECAEResponse
-        FeCAEResponse = New WSFEV1.FECAEResponse()
-
-        FECAESolicitar(FECabRequest, FeDetReq, FeCAEResponse, Err2)
-
-        If Not FeCAEResponse.FeDetResp Is Nothing Then
-            MsgBox(FeCAEResponse.FeDetResp(0).Resultado.ToString, MsgBoxStyle.Information, "Resultado de Solicitud")
-        End If
-
+    Public Function FECAELoadRequest(ByVal idventa As Long, ByRef FECAERequest As WSFEV1.FECAERequest) As String
+        Try
+            Dim CbtNro As Long
+            Dim Err1 As WSFEV1.Err
+            Dim Err2 As WSFEV1.Err
+            ' ----- RECUPERO LOS DATOS DE LA VENTA ------
+            Dim LibroVentasTableAdapter As New comercialDataSetTableAdapters.libroventasTableAdapter()
+            Dim libroventasDataTable As New comercialDataSet.libroventasDataTable
+            LibroVentasTableAdapter.FillByIdventa(libroventasDataTable, idventa)
+            ' ********************* COMIENZA LA ASIGNACIÓN DE PARAMETROS *********************
+            '------------ CABECERA --------------------------
+            Dim FECabRequest As New WSFEV1.FECAECabRequest()
+            '---------------------------------------------
+            FECabRequest.CantReg = 1
+            FECabRequest.CbteTipo = GCbteTipo
+            FECabRequest.PtoVta = GPtoVta
+            FECabRequest.CbteTipo = libroventasDataTable.Rows(0).Item("idtipocomprobanteafip")
+            '------------ DETALLE --------------------------
+            Dim FeDetReq As New WSFEV1.FECAEDetRequest()
+            '---------------------------------------------
+            FeDetReq.Concepto = libroventasDataTable.Rows(0).Item("idconcepto") '------   Sign ES PRODUCTO , SERVICIO O AMBOS
+            FeDetReq.DocTipo = 80 '------ dni 96 O cuit 80
+            FeDetReq.DocNro = libroventasDataTable.Rows(0).Item("cuit") '------ cuit DEL CLIENTE
+            UltimoCbte(GPtoVta, FECabRequest.CbteTipo, CbtNro, Err1)
+            If Err1.Code > 0 Then
+                ErrFEHandle(Err1)
+                Return "No se pudo obtener el último Número de comprobante"
+            Else
+                CbtNro = CbtNro + 1
+            End If
+            FeDetReq.CbteDesde = CbtNro
+            FeDetReq.CbteHasta = CbtNro
+            Dim mydate As String
+            mydate = DateTime.Now.ToString("yyyyMMdd")
+            FeDetReq.CbteFch = mydate
+            If FeDetReq.Concepto Then
+                mydate = Nothing
+            End If
+            FeDetReq.FchServDesde = mydate 'opcional - (vacio) para concepto 1
+            FeDetReq.FchServHasta = mydate 'opcional - (vacio) para concepto 1
+            FeDetReq.FchVtoPago = mydate
+            '---------- IMPORTES -------
+            FeDetReq.ImpTotal = libroventasDataTable.Rows(0).Item("importe")
+            '--Importe total del comprobante, Debe ser igual a:
+            'Importe neto no gravado + Importe exento + Importe neto gravado + todos los campos de IVA al XX% + Importe de tributos.
+            FeDetReq.ImpTotConc = libroventasDataTable.Rows(0).Item("ImpTotConc")
+            ' -- Importe neto no gravado. Debe ser menor o igual a Importe total y no puede ser menor a cero. No puede ser mayor 
+            'al Importe total de la operación ni menor a cero (0). Para comprobantes tipo C debe ser igual a cero (0). 
+            'Para comprobantes tipo Bienes Usados – Emisor Monotributista este campo corresponde al importe subtotal.
+            FeDetReq.ImpNeto = libroventasDataTable.Rows(0).Item("ImpNeto")
+            '--- Importe neto gravado. Debe ser menor o igual a Importe total y no puede ser menor a cero. 
+            'Para comprobantes tipo C este campo corresponde al Importe del Sub Total. 
+            'Para comprobantes tipo Bienes Usados – Emisor Monotributista no debe informarse o debe ser igual a cero (0).
+            'si es mayor a cero debe informarse el objeto IVA
+            If FeDetReq.ImpNeto > 0 Then
+                Dim index As Integer = 0
+                If libroventasDataTable.Rows(0).Item("IVA_27") > 0 Then
+                    Dim ObjIVA As New WSFEV1.AlicIva()
+                    ObjIVA.Id = 6
+                    ObjIVA.Importe = libroventasDataTable.Rows(0).Item("IVA_27")
+                    ObjIVA.BaseImp = libroventasDataTable.Rows(0).Item("BASEIVA_27")
+                    ReDim Preserve FeDetReq.Iva(index)
+                    FeDetReq.Iva(index) = ObjIVA
+                    index = index + 1
+                End If
+                If libroventasDataTable.Rows(0).Item("IVA_21") > 0 Then
+                    Dim ObjIVA As New WSFEV1.AlicIva()
+                    ObjIVA.Id = 5
+                    ObjIVA.Importe = libroventasDataTable.Rows(0).Item("IVA_21")
+                    ObjIVA.BaseImp = libroventasDataTable.Rows(0).Item("BASEIVA_21")
+                    ReDim Preserve FeDetReq.Iva(index)
+                    FeDetReq.Iva(index) = ObjIVA
+                    index = index + 1
+                End If
+                If libroventasDataTable.Rows(0).Item("IVA_10") > 0 Then
+                    Dim ObjIVA As New WSFEV1.AlicIva()
+                    ObjIVA.Id = 4
+                    ObjIVA.Importe = libroventasDataTable.Rows(0).Item("IVA_10")
+                    ObjIVA.BaseImp = libroventasDataTable.Rows(0).Item("BASEIVA_10")
+                    ReDim Preserve FeDetReq.Iva(index)
+                    FeDetReq.Iva(index) = ObjIVA
+                    index = index + 1
+                End If
+                If libroventasDataTable.Rows(0).Item("IVA_5") > 0 Then
+                    Dim ObjIVA As New WSFEV1.AlicIva()
+                    ObjIVA.Id = 8
+                    ObjIVA.Importe = libroventasDataTable.Rows(0).Item("IVA_5")
+                    ObjIVA.BaseImp = libroventasDataTable.Rows(0).Item("BASEIVA_5")
+                    ReDim Preserve FeDetReq.Iva(index)
+                    FeDetReq.Iva(index) = ObjIVA
+                    index = index + 1
+                End If
+                If libroventasDataTable.Rows(0).Item("IVA_2") > 0 Then
+                    Dim ObjIVA As New WSFEV1.AlicIva()
+                    ObjIVA.Id = 9
+                    ObjIVA.Importe = libroventasDataTable.Rows(0).Item("IVA_2")
+                    ObjIVA.BaseImp = libroventasDataTable.Rows(0).Item("BASEIVA_2")
+                    ReDim Preserve FeDetReq.Iva(index)
+                    FeDetReq.Iva(index) = ObjIVA
+                End If
+                If libroventasDataTable.Rows(0).Item("BASEIVA_0") > 0 Then
+                    Dim ObjIVA As New WSFEV1.AlicIva()
+                    ObjIVA.Id = 3
+                    ObjIVA.Importe = libroventasDataTable.Rows(0).Item("IVA_0")
+                    ObjIVA.BaseImp = libroventasDataTable.Rows(0).Item("BASEIVA_0")
+                    ReDim Preserve FeDetReq.Iva(index)
+                    FeDetReq.Iva(index) = ObjIVA
+                End If
+            End If
+            FeDetReq.ImpOpEx = libroventasDataTable.Rows(0).Item("ImpOpEx")
+            '--- Importe exento. Debe ser menor o igual a Importe total y no puede ser menor a cero. 
+            'Para comprobantes tipo C debe ser igual a cero (0). Para comprobantes tipo Bienes Usados – 
+            'Emisor Monotributista no debe informarse o debe ser igual a cero (0).
+            FeDetReq.ImpTrib = libroventasDataTable.Rows(0).Item("ImpTrib") '' Suma de los importes del array de tributos
+            FeDetReq.ImpIVA = libroventasDataTable.Rows(0).Item("ImpIVA") '-- Suma de los importes del array de IVA. 
+            'Para comprobantes tipo C debe ser igual a cero (0). Para comprobantes tipo Bienes Usados – 
+            'Emisor  Monotributista no debe informarse o debe ser igual a cero (0).
+            FeDetReq.MonId = libroventasDataTable.Rows(0).Item("MonId") 'opcional
+            FeDetReq.MonCotiz = libroventasDataTable.Rows(0).Item("MonCotiz") 'opcional
+            '--------- Inicializar RESPUESTA ---------------------------------------------------------------
+            Dim FeCAEResponse As New WSFEV1.FECAEResponse()
+            '--------- SOLICITAR CAE ---------------------------------------------------------------
+            FECAESolicitar(FECabRequest, FeDetReq, FeCAEResponse, Err2)
+            '----------------------------------------------------------------
+            If Not FeCAEResponse.FeDetResp Is Nothing Then
+                'MsgBox(FeCAEResponse.FeDetResp(0).Resultado.ToString, MsgBoxStyle.Information, "Resultado de Solicitud")
+                If FeCAEResponse.FeDetResp(0).Resultado.ToString = "A" Then
+                    Dim VentasTableAdapter As New comercialDataSetTableAdapters.ventasTableAdapter()
+                    VentasTableAdapter.ventas_registrarCAE(FeCAEResponse.FeDetResp(0).CAE, FeCAEResponse.FeDetResp(0).CAEFchVto, idventa)
+                    MsgBox("CAE Registrado exitosamente!", MsgBoxStyle.Information, "Resultado de Solicitud")
+                Else
+                    MsgBox("NO se registró la Factura Electrónica, intente nuevamente más tarde", MsgBoxStyle.Information, "Resultado de Solicitud")
+                End If
+            End If
+        Catch ex As Exception
+            Return ex.Message
+        End Try
     End Function
     Class CertificadosX509Lib
 

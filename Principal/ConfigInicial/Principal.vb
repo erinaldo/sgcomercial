@@ -39,7 +39,7 @@ Public Class Principal
             BackgroundSyncLibroventasClowd.RunWorkerAsync()
         End If
         '======================================
-
+        FeAFIPLoad()
 
     End Sub
     Private Sub EjecutarAlertas()

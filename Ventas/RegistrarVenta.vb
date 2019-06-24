@@ -56,7 +56,7 @@ Public Class RegistrarVenta
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
         Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocomprobantes' Puede moverla o quitarla según sea necesario.
-        Me.TipocomprobantesTableAdapter.Fill(Me.ComercialDataSet.tipocomprobantes)
+        Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.formaspago' Puede moverla o quitarla según sea necesario.
         Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.ventasdetalle' Puede moverla o quitarla según sea necesario.
@@ -389,8 +389,17 @@ Public Class RegistrarVenta
             End If
 
             '**************************************************************
-            '================   VENTA REGISTRADA EXITOSAMENTE ======================
+            '================   VENTA REGISTRADA EXITOSAMENTE -- BASE DE DATOS LOCAL======================
             '********************************************************************************************
+            '-----------------  REGISTRAR FACTURA ELECTRÓNICA   ----------------------------------------
+            If FEAFIPENTORNO = "HOMOLOGACION" Or FEAFIPENTORNO = "PRODUCCION" Then
+                Dim FECAERequest As New WSFEV1.FECAERequest()
+                Dim codigo As Integer
+                Dim mensaje As String
+                Dim TRA As String = Nothing
+                GenTRA(TRA, codigo, mensaje)
+                FECAELoadRequest(idventas, FECAERequest)
+            End If
             '=================== RESETAR CONTROLES  ================================
             resetearcontroles()
             '=================== FUNCIONES CLOWD NUBE  ================================
@@ -1749,5 +1758,14 @@ Public Class RegistrarVenta
 
     Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
 
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim FECAERequest As New WSFEV1.FECAERequest()
+        Dim codigo As Integer
+        Dim mensaje As String
+        Dim TRA As String = Nothing
+        GenTRA(TRA, codigo, mensaje)
+        FECAELoadRequest(Val(NrocomprobanteTextBox2.Text), FECAERequest)
     End Sub
 End Class
