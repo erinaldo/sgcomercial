@@ -53,7 +53,8 @@ Partial Class ABMProductos
         Me.GuardarNuevo = New System.Windows.Forms.ToolStripButton()
         Me.ImagenPictureBox = New System.Windows.Forms.PictureBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -111,6 +112,9 @@ Partial Class ABMProductos
         Me.StockTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.stockTableAdapter()
         Me.StockTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.TipoivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipoivaTableAdapter()
+        Me.ContextMenuStripGrilla = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ActivarTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DesactivarTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         IdproductoLabel = New System.Windows.Forms.Label()
         MarcaLabel = New System.Windows.Forms.Label()
         ModeloLabel = New System.Windows.Forms.Label()
@@ -144,6 +148,7 @@ Partial Class ABMProductos
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxCalidacodigo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        Me.ContextMenuStripGrilla.SuspendLayout()
         Me.SuspendLayout()
         '
         'IdproductoLabel
@@ -449,7 +454,8 @@ Partial Class ABMProductos
         Me.ProductosDataGridView.AutoGenerateColumns = False
         Me.ProductosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ProductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.ProductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.estado, Me.codigoproducto, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.ProductosDataGridView.ContextMenuStrip = Me.ContextMenuStripGrilla
         Me.ProductosDataGridView.DataSource = Me.ProductosBindingSource
         Me.ProductosDataGridView.Location = New System.Drawing.Point(27, 380)
         Me.ProductosDataGridView.Margin = New System.Windows.Forms.Padding(4)
@@ -460,13 +466,25 @@ Partial Class ABMProductos
         Me.ProductosDataGridView.Size = New System.Drawing.Size(1106, 234)
         Me.ProductosDataGridView.TabIndex = 19
         '
-        'DataGridViewTextBoxColumn1
+        'estado
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "codigoproducto"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Cod. Producto"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 127
+        Me.estado.DataPropertyName = "estado"
+        Me.estado.FalseValue = "I"
+        Me.estado.HeaderText = "Activo/Inactivo"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        Me.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.estado.ToolTipText = "Activo/Inactivo"
+        Me.estado.TrueValue = "A"
+        Me.estado.Width = 127
+        '
+        'codigoproducto
+        '
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Cod. Producto"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.Width = 127
         '
         'DataGridViewTextBoxColumn2
         '
@@ -552,6 +570,7 @@ Partial Class ABMProductos
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -571,12 +590,15 @@ Partial Class ABMProductos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -1030,6 +1052,25 @@ Partial Class ABMProductos
         '
         Me.TipoivaTableAdapter.ClearBeforeFill = True
         '
+        'ContextMenuStripGrilla
+        '
+        Me.ContextMenuStripGrilla.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStripGrilla.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ActivarTodosToolStripMenuItem, Me.DesactivarTodosToolStripMenuItem})
+        Me.ContextMenuStripGrilla.Name = "ContextMenuStripGrilla"
+        Me.ContextMenuStripGrilla.Size = New System.Drawing.Size(192, 80)
+        '
+        'ActivarTodosToolStripMenuItem
+        '
+        Me.ActivarTodosToolStripMenuItem.Name = "ActivarTodosToolStripMenuItem"
+        Me.ActivarTodosToolStripMenuItem.Size = New System.Drawing.Size(191, 24)
+        Me.ActivarTodosToolStripMenuItem.Text = "Activar Todos"
+        '
+        'DesactivarTodosToolStripMenuItem
+        '
+        Me.DesactivarTodosToolStripMenuItem.Name = "DesactivarTodosToolStripMenuItem"
+        Me.DesactivarTodosToolStripMenuItem.Size = New System.Drawing.Size(191, 24)
+        Me.DesactivarTodosToolStripMenuItem.Text = "Desactivar Todos"
+        '
         'ABMProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1073,6 +1114,7 @@ Partial Class ABMProductos
         CType(Me.PictureBoxCalidacodigo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.ContextMenuStripGrilla.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1143,8 +1185,12 @@ Partial Class ABMProductos
     Friend WithEvents TipoivaBindingSource As BindingSource
     Friend WithEvents TipoivaTableAdapter As comercialDataSetTableAdapters.tipoivaTableAdapter
     Friend WithEvents FabricanteTextBox As TextBox
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents estado As DataGridViewCheckBoxColumn
+    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents ContextMenuStripGrilla As ContextMenuStrip
+    Friend WithEvents ActivarTodosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DesactivarTodosToolStripMenuItem As ToolStripMenuItem
 End Class

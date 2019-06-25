@@ -283,7 +283,7 @@ Module MySQLModule
                     NvoPedido = PedidosDeliveryTableAdapter.pedidosdelivery_insertfromweb(idclientelocal, Nothing, idtransporte, idclientedomiciliolocal, pagoesperado, fechaalta, "usuarioweb", "RECIBIDO", idpedidosdeliveryweb)
                     Dim nvavta As Int64
                     '***************** REGISTRO LA VENTA    *******************************
-                    nvavta = VentasTableAdapter.ventas_insertarventa(idclientelocal, Now(), Nothing, 1, "usuarioweb", Nothing, Nothing)
+                    nvavta = VentasTableAdapter.ventas_insertarventa(idclientelocal, Now(), Nothing, 1, "usuarioweb", Nothing, Nothing, 1)
                     '****************   REGISTRO EL DETALLE DE LA VENTA **************
                     For j = 0 To PedidosDeliveryDetalleWEBTable.Rows.Count - 1
                         Dim idpedidodeliverydetalleweb As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idpedidosdeliverydetallewebColumn)

@@ -41,7 +41,8 @@ Module ModuleAFIP
     Public argServicio As String = "wsfe"
     '****************************************************************************
     '----------------------------------------------------------------------------
-    Public FEAFIPENTORNO As String
+    Public GFEAFIPENTORNO As String
+    Public GFEAUTOCAEAFIP As String
     Public GTOKEN As String = ""
     Public GSIGN As String = ""
     Public GMonid As String
@@ -96,16 +97,18 @@ Module ModuleAFIP
         parametrosgeneralestableadapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         RutaDelCertificadoFirmante = Nothing
         Try
-            FEAFIPENTORNO = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("FEAFIP")
+            GFEAFIPENTORNO = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("FEAFIP")
+            GFEAUTOCAEAFIP = parametrosgeneralestableadapter.parametrosgenerales_GetPrgstring1("FEAutoCAEAFIP")
         Catch ex As Exception
-            FEAFIPENTORNO = "DESACTIVADO"
+            GFEAFIPENTORNO = "DESACTIVADO"
+            GFEAUTOCAEAFIP = "NO"
             RutaDelCertificadoFirmante = Nothing
             GWSAADireccion = Nothing
             GWSFEV1Direccion = Nothing
             GCUIT = Nothing
         End Try
         '****************************************************************************
-        Select Case FEAFIPENTORNO
+        Select Case GFEAFIPENTORNO
             Case "DESACTIVADO"
                 RutaDelCertificadoFirmante = Nothing
                 GWSAADireccion = Nothing
@@ -139,10 +142,10 @@ Module ModuleAFIP
                     GCUIT = Nothing
                 End Try
         End Select
-        Return FEAFIPENTORNO
+        Return GFEAFIPENTORNO
     End Function
 
-    Public Sub GenTRA(ByRef loginTicketResponse As String, ByRef codigo As Integer, ByRef mensaje As String)
+    Public Function GenTRA(ByRef loginTicketResponse As String, ByRef codigo As Integer, ByRef mensaje As String) As String
         '---------------------
         Dim cmsFirmadoBase64 As String
         'Dim loginTicketResponse As String = Nothing
@@ -178,7 +181,7 @@ Module ModuleAFIP
             'Throw New Exception(ID_FNC + "***Error GENERANDO el LoginTicketRequest : " + excepcionAlGenerarLoginTicketRequest.Message + excepcionAlGenerarLoginTicketRequest.StackTrace)
             codigo = 66
             mensaje = ID_FNC + "***Error GENERANDO el LoginTicketRequest : " + excepcionAlGenerarLoginTicketRequest.Message + excepcionAlGenerarLoginTicketRequest.StackTrace
-            Return
+            Return "ERROR"
         End Try
         '---------------------
         ' PASO 2: Firmo el Login Ticket Request
@@ -204,7 +207,7 @@ Module ModuleAFIP
         Catch excepcionAlFirmar As Exception
             'Throw New Exception(ID_FNC + "***Error FIRMANDO el LoginTicketRequest: " + excepcionAlFirmar.Message)
             mensaje = ID_FNC + "***Error FIRMANDO el LoginTicketRequest: " + excepcionAlFirmar.Message
-            Return
+            Return "ERROR"
         End Try
 
         ' PASO 3: Invoco al WSAA para obtener el Login Ticket Response
@@ -235,11 +238,11 @@ Module ModuleAFIP
                 TicketAccesoFETableAdapter.FillByLastTicket(ticketaccesofeDataTable)
                 GTOKEN = ticketaccesofeDataTable.Rows(0).Item("token")
                 GSIGN = ticketaccesofeDataTable.Rows(0).Item("sign")
-                Return
+                Return "WARNING"
             Else
                 codigo = 66
                 mensaje = ID_FNC + "***Error INVOCANDO al servicio WSAA: " + excepcionAlInvocarWsaa.Message
-                Return
+                Return "ERROR"
             End If
         End Try
 
@@ -268,12 +271,12 @@ Module ModuleAFIP
             'Throw New Exception(ID_FNC + "***Error ANALIZANDO el LoginTicketResponse: " + excepcionAlAnalizarLoginTicketResponse.Message)
             codigo = 66
             mensaje = ID_FNC + "***Error ANALIZANDO el LoginTicketResponse: " + excepcionAlAnalizarLoginTicketResponse.Message
-            Return
+            Return "ERROR"
         End Try
 
         'Return loginTicketResponse
 
-    End Sub
+    End Function
 
     Public Sub ErrFEHandle(ByVal Err As WSFEV1.Err)
         MsgBox("Code: " + Err.Code.ToString + " Msg: " + Err.Msg, MsgBoxStyle.Exclamation, "WS Error")

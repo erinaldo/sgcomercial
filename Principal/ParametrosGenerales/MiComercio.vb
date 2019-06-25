@@ -1,7 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class MiComercio
     Private Sub ParametrosgeneralesBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles ParametrosgeneralesBindingNavigatorSaveItem.Click
-
         If Len(Trim(textnombrecomercio.Text)) = 0 Or Len(Trim(textcuitcuil.Text)) = 0 Or Len(Trim(texttelefono.Text)) = 0 Or Len(Trim(textdireccion.Text)) = 0 Then
             MsgBox("Debe completar todos los campos", MsgBoxStyle.Exclamation, "Información")
             Return
@@ -91,6 +90,10 @@ Public Class MiComercio
         '***************    -----------     FIN     ------------  ******************************************
         '***************    ComandaDefault   ******************************************
         ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("ModPVV", Nothing, ComboModPV.Text, Nothing)
+        '********** FEAutoCAEAFIP
+        If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
+            ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("FEAutoCAEAFIP", Nothing, ComboFEAutoCAEAFIP.Text, Nothing)
+        End If
         '***************    -----------     FIN     ------------  ******************************************
     End Sub
 
@@ -179,6 +182,15 @@ Public Class MiComercio
         Dim V_ModPVV As String
         V_ModPVV = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ModPVV")
         ComboModPV.Text = V_ModPVV
+        '**********
+        '********** FEAutoCAEAFIP
+        If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
+            Dim V_FEAutoCAEAFIP As String
+            V_FEAutoCAEAFIP = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("FEAutoCAEAFIP")
+            ComboFEAutoCAEAFIP.Text = V_FEAutoCAEAFIP
+        Else
+            GroupBoxFEAFIP.Enabled = False
+        End If
         '**********
         textnombrecomercio.Select()
     End Sub

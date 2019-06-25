@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
 Public Class ABMProductos
     Dim codigolimpio As String
     Dim codigoORIGINAL As String
@@ -864,7 +865,74 @@ Public Class ABMProductos
         End If
     End Sub
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) 
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs)
         ComboBox1.SelectedValue = 6
+    End Sub
+
+    Private Sub ProductosDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.CellClick
+        If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
+            Try
+                Dim idproducto As Long
+                Dim fdsp As Long
+                fdsp = ProductosDataGridView.FirstDisplayedScrollingRowIndex
+                idproducto = ProductosTableAdapter.productos_existeproducto(ProductosDataGridView.Rows(e.RowIndex).Cells("codigoproducto").Value)
+                Select Case ProductosDataGridView.Columns(e.ColumnIndex).Name
+                    Case "estado"
+                        If MessageBox.Show("Seguro desea cambiar la visibilidad del producto?", "Activar / Desactivar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+                            If IsDBNull(ProductosDataGridView.Rows(e.RowIndex).Cells("estado").Value) Then
+                                ProductosTableAdapter.productos_estadoproducto("A", idproducto)
+                                Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+                                ProductosDataGridView.FirstDisplayedScrollingRowIndex = fdsp
+                                ProductosDataGridView.Rows(e.RowIndex).Selected = True
+                                Return
+                            End If
+                            If ProductosDataGridView.Rows(e.RowIndex).Cells("estado").Value = "A" Then
+                                ProductosTableAdapter.productos_estadoproducto("I", idproducto)
+                            Else
+                                ProductosTableAdapter.productos_estadoproducto("A", idproducto)
+                            End If
+                            Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+                            ProductosDataGridView.FirstDisplayedScrollingRowIndex = fdsp
+                            ProductosDataGridView.Rows(e.RowIndex).Selected = True
+                        End If
+                    Case Else
+                        'MsgBox("es cualquier otra")
+                End Select
+            Catch ex As Exception
+                MessageBox.Show("No se pudo completar la operación: " + ex.Message, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+        End If
+    End Sub
+
+    Private Sub ActivarTodosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActivarTodosToolStripMenuItem.Click
+        Try
+            Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString) 'gActiveSQLConnectionString
+            myConn2.Open()
+
+            'MsgBox(gActiveSQLConnectionString)
+            Dim mycommand As New SqlCommand
+            mycommand = New SqlCommand("Update productos set estado = 'A'", myConn2)
+            mycommand.ExecuteNonQuery()
+            myConn2.Dispose()
+
+            Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+        Catch ex As Exception
+            MessageBox.Show("No se pudo completar la operación: " + ex.Message, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+    End Sub
+
+    Private Sub DesactivarTodosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DesactivarTodosToolStripMenuItem.Click
+        Try
+            Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString) 'gActiveSQLConnectionString
+            myConn2.Open()
+            'MsgBox(gActiveSQLConnectionString)
+            Dim mycommand As New SqlCommand
+            mycommand = New SqlCommand("Update productos set estado = 'I'", myConn2)
+            mycommand.ExecuteNonQuery()
+            myConn2.Dispose()
+            Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+        Catch ex As Exception
+            MessageBox.Show("No se pudo completar la operación: " + ex.Message, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
     End Sub
 End Class

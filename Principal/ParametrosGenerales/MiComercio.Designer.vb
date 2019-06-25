@@ -78,6 +78,8 @@ Partial Class MiComercio
         Me.ComboBoxComandaDefault = New System.Windows.Forms.ComboBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.ComboModPV = New System.Windows.Forms.ComboBox()
+        Me.GroupBoxFEAFIP = New System.Windows.Forms.GroupBox()
+        Me.ComboFEAutoCAEAFIP = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,6 +97,7 @@ Partial Class MiComercio
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
+        Me.GroupBoxFEAFIP.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -353,6 +356,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -646,11 +650,32 @@ Partial Class MiComercio
         Me.ComboModPV.Size = New System.Drawing.Size(207, 24)
         Me.ComboModPV.TabIndex = 2
         '
+        'GroupBoxFEAFIP
+        '
+        Me.GroupBoxFEAFIP.Controls.Add(Me.ComboFEAutoCAEAFIP)
+        Me.GroupBoxFEAFIP.Location = New System.Drawing.Point(9, 532)
+        Me.GroupBoxFEAFIP.Name = "GroupBoxFEAFIP"
+        Me.GroupBoxFEAFIP.Size = New System.Drawing.Size(657, 68)
+        Me.GroupBoxFEAFIP.TabIndex = 12
+        Me.GroupBoxFEAFIP.TabStop = False
+        Me.GroupBoxFEAFIP.Text = "Facturación Electrónica AFIP - CAE Automático"
+        '
+        'ComboFEAutoCAEAFIP
+        '
+        Me.ComboFEAutoCAEAFIP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboFEAutoCAEAFIP.FormattingEnabled = True
+        Me.ComboFEAutoCAEAFIP.Items.AddRange(New Object() {"SI", "NO"})
+        Me.ComboFEAutoCAEAFIP.Location = New System.Drawing.Point(225, 27)
+        Me.ComboFEAutoCAEAFIP.Name = "ComboFEAutoCAEAFIP"
+        Me.ComboFEAutoCAEAFIP.Size = New System.Drawing.Size(207, 24)
+        Me.ComboFEAutoCAEAFIP.TabIndex = 2
+        '
         'MiComercio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1141, 562)
+        Me.ClientSize = New System.Drawing.Size(1141, 622)
+        Me.Controls.Add(Me.GroupBoxFEAFIP)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox10)
         Me.Controls.Add(Me.GroupBox9)
@@ -695,6 +720,7 @@ Partial Class MiComercio
         Me.GroupBox9.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBoxFEAFIP.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -754,4 +780,6 @@ Partial Class MiComercio
     Friend WithEvents ComboBoxComandaDefault As ComboBox
     Friend WithEvents GroupBox11 As GroupBox
     Friend WithEvents ComboModPV As ComboBox
+    Friend WithEvents GroupBoxFEAFIP As GroupBox
+    Friend WithEvents ComboFEAutoCAEAFIP As ComboBox
 End Class

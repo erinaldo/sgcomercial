@@ -158,7 +158,7 @@ Public Class RegistrarVentaCC
             '====================================================
             '********* insertar VENTAS cabecera
             '====================================================
-            idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, Nothing, 1, gusername, Nothing, VencimientoDateTimePicker.Value)
+            idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, Nothing, 1, gusername, Nothing, VencimientoDateTimePicker.Value, 1)
             'MsgBox(idventas.ToString)
             '====================================================
             '********* insertar ventas detalle

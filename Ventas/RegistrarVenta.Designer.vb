@@ -113,7 +113,7 @@ Partial Class RegistrarVenta
         Me.listasprecios = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VentasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboConcepto = New System.Windows.Forms.ComboBox()
         Me.ButtonDescuentoDefecto = New System.Windows.Forms.Button()
         Me.FechavencimientoDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.VentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -249,7 +249,7 @@ Partial Class RegistrarVenta
         NrocomprobanteLabel.Name = "NrocomprobanteLabel"
         NrocomprobanteLabel.Size = New System.Drawing.Size(117, 17)
         NrocomprobanteLabel.TabIndex = 17
-        NrocomprobanteLabel.Text = "N° Comprobante:"
+        NrocomprobanteLabel.Text = "N° Cbte. Externo:"
         '
         'Label2
         '
@@ -891,7 +891,7 @@ Partial Class RegistrarVenta
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox3.Controls.Add(Me.ComboBox2)
+        Me.GroupBox3.Controls.Add(Me.ComboConcepto)
         Me.GroupBox3.Controls.Add(Me.ButtonDescuentoDefecto)
         Me.GroupBox3.Controls.Add(Me.FechavencimientoDateTimePicker)
         Me.GroupBox3.Controls.Add(Label5)
@@ -917,15 +917,15 @@ Partial Class RegistrarVenta
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Venta"
         '
-        'ComboBox2
+        'ComboConcepto
         '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Producto", "Servicio", "Productos y Servicios"})
-        Me.ComboBox2.Location = New System.Drawing.Point(461, 79)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(161, 25)
-        Me.ComboBox2.TabIndex = 22
+        Me.ComboConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboConcepto.FormattingEnabled = True
+        Me.ComboConcepto.Items.AddRange(New Object() {"Producto", "Servicio", "Productos y Servicios"})
+        Me.ComboConcepto.Location = New System.Drawing.Point(461, 79)
+        Me.ComboConcepto.Name = "ComboConcepto"
+        Me.ComboConcepto.Size = New System.Drawing.Size(161, 25)
+        Me.ComboConcepto.TabIndex = 22
         '
         'ButtonDescuentoDefecto
         '
@@ -960,7 +960,7 @@ Partial Class RegistrarVenta
         Me.NrocomprobanteTextBox.Location = New System.Drawing.Point(508, 118)
         Me.NrocomprobanteTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.NrocomprobanteTextBox.Name = "NrocomprobanteTextBox"
-        Me.NrocomprobanteTextBox.Size = New System.Drawing.Size(123, 23)
+        Me.NrocomprobanteTextBox.Size = New System.Drawing.Size(114, 23)
         Me.NrocomprobanteTextBox.TabIndex = 18
         '
         'labelcliente
@@ -1322,9 +1322,9 @@ Partial Class RegistrarVenta
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(995, 29)
+        Me.Button1.Location = New System.Drawing.Point(1044, 30)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(51, 23)
         Me.Button1.TabIndex = 22
         Me.Button1.Text = "CAE"
         Me.Button1.UseVisualStyleBackColor = True
@@ -1575,5 +1575,5 @@ Partial Class RegistrarVenta
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents ComboConcepto As ComboBox
 End Class

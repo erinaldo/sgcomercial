@@ -38,31 +38,23 @@ Public Class RegistrarVenta
         Cursor.Current = Cursors.WaitCursor
         'Me.WindowState = FormWindowState.Maximized
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
-        Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
-        Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
+        'Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.
-        Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
+        'Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pagos' Puede moverla o quitarla según sea necesario.
-        Me.PagosTableAdapter.Fill(Me.ComercialDataSet.pagos)
+        'Me.PagosTableAdapter.Fill(Me.ComercialDataSet.pagos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
-        Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
+        'Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
+        'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+        'Me.VentasdetalleTableAdapter.Fill(Me.ComercialDataSet.ventasdetalle)
+        Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
+        Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
+        Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
         '/******************************************/
         IdclienteTextBox.Text = "1"
         idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
         '************************************************
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.clientes' Puede moverla o quitarla según sea necesario.
-        'Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocomprobantes' Puede moverla o quitarla según sea necesario.
-        Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.formaspago' Puede moverla o quitarla según sea necesario.
-        Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.ventasdetalle' Puede moverla o quitarla según sea necesario.
-        Me.VentasdetalleTableAdapter.Fill(Me.ComercialDataSet.ventasdetalle)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.ventas' Puede moverla o quitarla según sea necesario.
-        'Me.VentasTableAdapter.Fill(Me.ComercialDataSet.ventas)
         enablefields(False)
         BtnCancelar.Enabled = False
         BtnNueva.Enabled = True
@@ -70,7 +62,7 @@ Public Class RegistrarVenta
         Labelproducto.Text = ""
         NrocomprobanteTextBox.Text = ""
         FechavencimientoDateTimePicker.Enabled = False
-
+        FeAFIPLoad()
         '******************* 
         '****** BCScanerCR
         '******************* 
@@ -125,6 +117,7 @@ Public Class RegistrarVenta
         CheckBoxFP2.Enabled = status
         LabelMontoFP2.Enabled = status
         ButtonDescuentoDefecto.Visible = False
+        ComboConcepto.Enabled = status
         '''''''''''''''''''''''''''' permiso GenVale
         If permisoGenVale = 0 Then
             CheckBoxVale.Enabled = False
@@ -172,6 +165,7 @@ Public Class RegistrarVenta
             IdclienteTextBox.Text = "1"
             labeltotal.Text = ""
             idformapagocombo.SelectedIndex = 0
+            ComboConcepto.SelectedIndex = 0
             NrocomprobanteTextBox.Text = Nothing
             '''''''''''''''''''''''''''' permiso GenVale
             If permisoGenVale = 0 Then
@@ -276,7 +270,7 @@ Public Class RegistrarVenta
             End If
             'total = labeltotal.Text
             '********* insertar cabecera
-            idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, idformapagocombo.SelectedValue, Idtipocomprobantecombo.SelectedValue, gusername, NrocomprobanteTextBox.Text, FechavencimientoDateTimePicker.Value)
+            idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, idformapagocombo.SelectedValue, Idtipocomprobantecombo.SelectedValue, gusername, NrocomprobanteTextBox.Text, FechavencimientoDateTimePicker.Value, ComboConcepto.SelectedIndex + 1)
             'MsgBox(idventas.ToString)
             '********* insertar detalle
             Dim i As Integer = 0
@@ -392,14 +386,22 @@ Public Class RegistrarVenta
             '================   VENTA REGISTRADA EXITOSAMENTE -- BASE DE DATOS LOCAL======================
             '********************************************************************************************
             '-----------------  REGISTRAR FACTURA ELECTRÓNICA   ----------------------------------------
-            If FEAFIPENTORNO = "HOMOLOGACION" Or FEAFIPENTORNO = "PRODUCCION" Then
-                Dim FECAERequest As New WSFEV1.FECAERequest()
-                Dim codigo As Integer
-                Dim mensaje As String
-                Dim TRA As String = Nothing
-                GenTRA(TRA, codigo, mensaje)
-                FECAELoadRequest(idventas, FECAERequest)
+            '********************************************************************************************
+            '================================================================================================================================
+            If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
+                If GFEAUTOCAEAFIP = "SI" Then
+                    Dim FECAERequest As New WSFEV1.FECAERequest()
+                    Dim codigo As Integer
+                    Dim mensaje As String
+                    Dim RESULTADO As String
+                    Dim TRA As String = Nothing
+                    RESULTADO = GenTRA(TRA, codigo, mensaje)
+                    If RESULTADO = "OK" Or RESULTADO = "WARNING" Then
+                        FECAELoadRequest(idventas, FECAERequest)
+                    End If
+                End If
             End If
+            '================================================================================================================================
             '=================== RESETAR CONTROLES  ================================
             resetearcontroles()
             '=================== FUNCIONES CLOWD NUBE  ================================

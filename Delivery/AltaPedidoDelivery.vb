@@ -338,7 +338,7 @@ Public Class AltaPedidoDelivery
         '****** REGISTRAR VENTA **********
         Try
             Dim nvavta As Long
-            nvavta = VentasTableAdapter.ventas_insertarventa(nvocliente, Now(), Nothing, 1, gusername, Nothing, Nothing)
+            nvavta = VentasTableAdapter.ventas_insertarventa(nvocliente, Now(), Nothing, 1, gusername, Nothing, Nothing, 1)
             gidventa = nvavta
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value

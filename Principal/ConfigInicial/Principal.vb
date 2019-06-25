@@ -37,10 +37,10 @@ Public Class Principal
         '================= BACKGROUND WORKERS   ==========================
         If gModuloClowd = 1 Then
             BackgroundSyncLibroventasClowd.RunWorkerAsync()
+            BGWStock.RunWorkerAsync()
         End If
         '======================================
         FeAFIPLoad()
-
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================
