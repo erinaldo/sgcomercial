@@ -386,11 +386,11 @@ Partial Class ingresoegresoproductos
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(53, 301)
+        Me.GroupBox2.Location = New System.Drawing.Point(8, 301)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(637, 115)
+        Me.GroupBox2.Size = New System.Drawing.Size(696, 115)
         Me.GroupBox2.TabIndex = 17
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Estado actual en Stock"
@@ -398,7 +398,7 @@ Partial Class ingresoegresoproductos
         'LinkStockRemoto
         '
         Me.LinkStockRemoto.AutoSize = True
-        Me.LinkStockRemoto.Location = New System.Drawing.Point(396, 71)
+        Me.LinkStockRemoto.Location = New System.Drawing.Point(453, 71)
         Me.LinkStockRemoto.Name = "LinkStockRemoto"
         Me.LinkStockRemoto.Size = New System.Drawing.Size(217, 20)
         Me.LinkStockRemoto.TabIndex = 5
@@ -408,7 +408,7 @@ Partial Class ingresoegresoproductos
         'TextBoxEnvasado
         '
         Me.TextBoxEnvasado.Enabled = False
-        Me.TextBoxEnvasado.Location = New System.Drawing.Point(513, 34)
+        Me.TextBoxEnvasado.Location = New System.Drawing.Point(570, 34)
         Me.TextBoxEnvasado.Name = "TextBoxEnvasado"
         Me.TextBoxEnvasado.ReadOnly = True
         Me.TextBoxEnvasado.Size = New System.Drawing.Size(100, 26)
@@ -418,17 +418,17 @@ Partial Class ingresoegresoproductos
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(297, 37)
+        Me.Label4.Location = New System.Drawing.Point(371, 37)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(198, 20)
+        Me.Label4.Size = New System.Drawing.Size(190, 20)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Unidades Disponibles:"
+        Me.Label4.Text = "Unidades Envasadas:"
         '
         'textstockminimo
         '
         Me.textstockminimo.Enabled = False
-        Me.textstockminimo.Location = New System.Drawing.Point(142, 68)
+        Me.textstockminimo.Location = New System.Drawing.Point(215, 68)
         Me.textstockminimo.Margin = New System.Windows.Forms.Padding(4)
         Me.textstockminimo.Name = "textstockminimo"
         Me.textstockminimo.ReadOnly = True
@@ -440,7 +440,7 @@ Partial Class ingresoegresoproductos
         'textdisponible
         '
         Me.textdisponible.Enabled = False
-        Me.textdisponible.Location = New System.Drawing.Point(142, 34)
+        Me.textdisponible.Location = New System.Drawing.Point(215, 34)
         Me.textdisponible.Margin = New System.Windows.Forms.Padding(4)
         Me.textdisponible.Name = "textdisponible"
         Me.textdisponible.ReadOnly = True
@@ -452,7 +452,7 @@ Partial Class ingresoegresoproductos
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 70)
+        Me.Label2.Location = New System.Drawing.Point(84, 70)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(128, 20)
@@ -462,12 +462,12 @@ Partial Class ingresoegresoproductos
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(27, 37)
+        Me.Label1.Location = New System.Drawing.Point(6, 37)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(104, 20)
+        Me.Label1.Size = New System.Drawing.Size(206, 20)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Disponible:"
+        Me.Label1.Text = "Disponible (Kg, Lt, Mt):"
         '
         'StockDataGridView
         '

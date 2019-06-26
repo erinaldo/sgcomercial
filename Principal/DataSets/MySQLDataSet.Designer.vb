@@ -28136,15 +28136,14 @@ Namespace MySQLDataSetTableAdapters
             Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(2) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT `idstockgeneral`, `idsucursal`, `idproducto`, `idproveedor`, `codigoproduc"& _ 
-                "to`, `rubro`, `producto`, `medida`, `disponible`, `unidades`, `stockminimo` FROM"& _ 
-                " `stockgeneral`"
+            Me._commandCollection(0).CommandText = "SELECT `idstockgeneral`,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" `idsucursal`,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" `idproducto`,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" `idproveedor`,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" `codi"& _ 
+                "goproducto`,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" `rubro`,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" `producto`,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" `medida`,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" `disponible`,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" `unidades`,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" `stockminimo` FROM `stockgeneral`"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT `idstockgeneral`, `idsucursal`, `idproducto`, `idproveedor`, `codigoproduc"& _ 
-                "to`, `rubro`, `producto`, `medida`, `disponible`, `unidades`, `stockminimo` FROM"& _ 
-                " `stockgeneral`"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where `codigoproducto`  = @codigoproducto"
+            Me._commandCollection(1).CommandText = "SELECT codigoproducto, disponible, idproducto, idproveedor, idstockgeneral, idsuc"& _ 
+                "ursal, medida, producto, rubro, stockminimo, unidades FROM stockgeneral WHERE (c"& _ 
+                "odigoproducto = @codigoproducto)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@codigoproducto"

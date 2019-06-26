@@ -245,6 +245,7 @@ Public Class ingresoegresoproductos
             End If
             ComboUnidad.SelectedIndex = 1
             TextBoxMedida.Text = Nothing
+            SetUnidadMedida()
         Else
             Labeldescripcion.Text = "No Registrado"
             textdisponible.Text = ""
@@ -263,6 +264,7 @@ Public Class ingresoegresoproductos
         p.ShowDialog()
         If Len(Trim(gcodigoproducto)) = 0 Then Return
         codigoproductoTextBox.Text = gcodigoproducto
+        consultardisponibles()
 
 
     End Sub
@@ -291,6 +293,9 @@ Public Class ingresoegresoproductos
     End Sub
 
     Private Sub ComboUnidad_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboUnidad.SelectedIndexChanged
+        SetUnidadMedida()
+    End Sub
+    Private Sub SetUnidadMedida()
         Select Case ComboUnidad.SelectedIndex
             Case 1
                 Dim medida As Decimal

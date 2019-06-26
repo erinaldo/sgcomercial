@@ -1238,6 +1238,9 @@ Module MySQLModule
             Return
         End If
         'Dim maxidventas As Long
+        '***************************************'***************************************'***************************************
+        '==========   sincronización del stock general ============================
+        '***************************************'***************************************'***************************************
         Try
             '-----------------------------------------------------
             Dim StockgeneralWEBTableAdapter As MySQLDataSetTableAdapters.stockgeneralTableAdapter
@@ -1291,6 +1294,8 @@ Module MySQLModule
             coderror = 1
             msgerror = ex.Message
             ErrorLogTableAdapter.errorlog_insertar("SynStockgeneral", "Al verificar conexion al servidor", "SynStockgeneral", "Mensaje: " + ex.Message)
+            MessageBox.Show("No se pudo completar la operación SynStockGeneral: " + ex.Message & vbCr & "Contactar al proveedor de sistema.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
         End Try
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''

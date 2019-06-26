@@ -24,31 +24,33 @@ Partial Class ConsultaStockRemotoProducto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.StockgeneralDataGridView = New System.Windows.Forms.DataGridView()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.StockgeneralBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MySQLDataSet = New sgcomercial.MySQLDataSet()
-        Me.StockgeneralTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.stockgeneralTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager()
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.SucursalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SucursalesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.sucursalesTableAdapter()
-        Me.TableAdapterManager1 = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.SucursalesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SucursalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.StockgeneralTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.stockgeneralTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager()
+        Me.SucursalesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.sucursalesTableAdapter()
+        Me.TableAdapterManager1 = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.idsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreSucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Envasado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.StockgeneralDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.StockgeneralBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MySQLDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.SucursalesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StockgeneralDataGridView
@@ -63,27 +65,14 @@ Partial Class ConsultaStockRemotoProducto
         Me.StockgeneralDataGridView.AutoGenerateColumns = False
         Me.StockgeneralDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.StockgeneralDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.StockgeneralDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idsucursal, Me.NombreSucursal, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn9})
+        Me.StockgeneralDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idsucursal, Me.NombreSucursal, Me.codigoproducto, Me.medida, Me.DataGridViewTextBoxColumn9, Me.Envasado})
         Me.StockgeneralDataGridView.DataSource = Me.StockgeneralBindingSource
         Me.StockgeneralDataGridView.Location = New System.Drawing.Point(16, 21)
         Me.StockgeneralDataGridView.Name = "StockgeneralDataGridView"
         Me.StockgeneralDataGridView.ReadOnly = True
         Me.StockgeneralDataGridView.RowTemplate.Height = 24
-        Me.StockgeneralDataGridView.Size = New System.Drawing.Size(569, 205)
+        Me.StockgeneralDataGridView.Size = New System.Drawing.Size(967, 205)
         Me.StockgeneralDataGridView.TabIndex = 1
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.SucursalesDataGridView)
-        Me.GroupBox1.Controls.Add(Me.StockgeneralDataGridView)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(604, 250)
-        Me.GroupBox1.TabIndex = 2
-        Me.GroupBox1.TabStop = False
         '
         'StockgeneralBindingSource
         '
@@ -95,113 +84,18 @@ Partial Class ConsultaStockRemotoProducto
         Me.MySQLDataSet.DataSetName = "MySQLDataSet"
         Me.MySQLDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'StockgeneralTableAdapter
+        'GroupBox1
         '
-        Me.StockgeneralTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.errorlogTableAdapter = Nothing
-        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager.libroventasTableAdapter = Nothing
-        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager.stockgeneralTableAdapter = Me.StockgeneralTableAdapter
-        Me.TableAdapterManager.stockTableAdapter = Nothing
-        Me.TableAdapterManager.synclogTableAdapter = Nothing
-        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager.transportesTableAdapter = Nothing
-        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'SucursalesBindingSource
-        '
-        Me.SucursalesBindingSource.DataMember = "sucursales"
-        Me.SucursalesBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'SucursalesTableAdapter
-        '
-        Me.SucursalesTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager1
-        '
-        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager1.bultosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.bultosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager1.cajasestadosTableAdapter = Nothing
-        Me.TableAdapterManager1.cajaseventosTableAdapter = Nothing
-        Me.TableAdapterManager1.cajasoperacionesTableAdapter = Nothing
-        Me.TableAdapterManager1.cajasTableAdapter = Nothing
-        Me.TableAdapterManager1.cambiodevoluciondetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.cambiodevolucionTableAdapter = Nothing
-        Me.TableAdapterManager1.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager1.clientesTableAdapter = Nothing
-        Me.TableAdapterManager1.cuentascorrientesTableAdapter = Nothing
-        Me.TableAdapterManager1.errorlogTableAdapter = Nothing
-        Me.TableAdapterManager1.estadosentregadeliveryTableAdapter = Nothing
-        Me.TableAdapterManager1.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager1.extraccionesTableAdapter = Nothing
-        Me.TableAdapterManager1.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager1.funcionesTableAdapter = Nothing
-        Me.TableAdapterManager1.gastosTableAdapter = Nothing
-        Me.TableAdapterManager1.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager1.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager1.lotesenviosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.lotesenviosTableAdapter = Nothing
-        Me.TableAdapterManager1.modulosTableAdapter = Nothing
-        Me.TableAdapterManager1.pagosTableAdapter = Nothing
-        Me.TableAdapterManager1.parametrosgeneralesTableAdapter = Nothing
-        Me.TableAdapterManager1.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.pedidosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager1.pedidosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.pedidosTableAdapter = Nothing
-        Me.TableAdapterManager1.perfilesTableAdapter = Nothing
-        Me.TableAdapterManager1.permisosTableAdapter = Nothing
-        Me.TableAdapterManager1.presupuestosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.presupuestosTableAdapter = Nothing
-        Me.TableAdapterManager1.productoscomponentesTableAdapter = Nothing
-        Me.TableAdapterManager1.productosproveedoresTableAdapter = Nothing
-        Me.TableAdapterManager1.productosTableAdapter = Nothing
-        Me.TableAdapterManager1.proveedoresTableAdapter = Nothing
-        Me.TableAdapterManager1.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager1.remitosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.remitosTableAdapter = Nothing
-        Me.TableAdapterManager1.responsablesdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager1.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager1.stockremotoTableAdapter = Nothing
-        Me.TableAdapterManager1.stockTableAdapter = Nothing
-        Me.TableAdapterManager1.sucursalesTableAdapter = Me.SucursalesTableAdapter
-        Me.TableAdapterManager1.synclogTableAdapter = Nothing
-        Me.TableAdapterManager1.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager1.tipocondicionivaTableAdapter = Nothing
-        Me.TableAdapterManager1.tipoestadosTableAdapter = Nothing
-        Me.TableAdapterManager1.tipoivaTableAdapter = Nothing
-        Me.TableAdapterManager1.tipomotivosvalesTableAdapter = Nothing
-        Me.TableAdapterManager1.tipomovimientostockTableAdapter = Nothing
-        Me.TableAdapterManager1.transportesTableAdapter = Nothing
-        Me.TableAdapterManager1.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager1.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager1.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager1.valesTableAdapter = Nothing
-        Me.TableAdapterManager1.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.ventasTableAdapter = Nothing
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.SucursalesDataGridView)
+        Me.GroupBox1.Controls.Add(Me.StockgeneralDataGridView)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(1002, 250)
+        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabStop = False
         '
         'SucursalesDataGridView
         '
@@ -241,6 +135,117 @@ Partial Class ConsultaStockRemotoProducto
         Me.DataGridViewTextBoxColumn4.HeaderText = "telefono"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         '
+        'SucursalesBindingSource
+        '
+        Me.SucursalesBindingSource.DataMember = "sucursales"
+        Me.SucursalesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'StockgeneralTableAdapter
+        '
+        Me.StockgeneralTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.libroventasTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.stockgeneralTableAdapter = Me.StockgeneralTableAdapter
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'SucursalesTableAdapter
+        '
+        Me.SucursalesTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager1.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager1.cajaseventosTableAdapter = Nothing
+        Me.TableAdapterManager1.cajasoperacionesTableAdapter = Nothing
+        Me.TableAdapterManager1.cajasTableAdapter = Nothing
+        Me.TableAdapterManager1.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager1.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager1.clientesTableAdapter = Nothing
+        Me.TableAdapterManager1.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager1.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager1.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager1.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager1.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager1.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager1.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager1.gastosTableAdapter = Nothing
+        Me.TableAdapterManager1.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager1.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager1.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager1.modulosTableAdapter = Nothing
+        Me.TableAdapterManager1.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager1.pagosTableAdapter = Nothing
+        Me.TableAdapterManager1.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager1.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager1.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager1.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager1.permisosTableAdapter = Nothing
+        Me.TableAdapterManager1.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager1.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager1.productosproveedoresTableAdapter = Nothing
+        Me.TableAdapterManager1.productosTableAdapter = Nothing
+        Me.TableAdapterManager1.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager1.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager1.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.remitosTableAdapter = Nothing
+        Me.TableAdapterManager1.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager1.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager1.stockremotoTableAdapter = Nothing
+        Me.TableAdapterManager1.stockTableAdapter = Nothing
+        Me.TableAdapterManager1.sucursalesTableAdapter = Me.SucursalesTableAdapter
+        Me.TableAdapterManager1.synclogTableAdapter = Nothing
+        Me.TableAdapterManager1.ticketaccesofeTableAdapter = Nothing
+        Me.TableAdapterManager1.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager1.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager1.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager1.tipogastosTableAdapter = Nothing
+        Me.TableAdapterManager1.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager1.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager1.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager1.transportesTableAdapter = Nothing
+        Me.TableAdapterManager1.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager1.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager1.valesTableAdapter = Nothing
+        Me.TableAdapterManager1.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.ventasTableAdapter = Nothing
+        '
         'idsucursal
         '
         Me.idsucursal.DataPropertyName = "idsucursal"
@@ -257,13 +262,22 @@ Partial Class ConsultaStockRemotoProducto
         Me.NombreSucursal.ReadOnly = True
         Me.NombreSucursal.Width = 134
         '
-        'DataGridViewTextBoxColumn5
+        'codigoproducto
         '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "codigoproducto"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Código"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 81
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Código"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.Width = 81
+        '
+        'medida
+        '
+        Me.medida.DataPropertyName = "medida"
+        Me.medida.HeaderText = "Unidad de Medida"
+        Me.medida.Name = "medida"
+        Me.medida.ReadOnly = True
+        Me.medida.ToolTipText = "Unidad de Medida"
+        Me.medida.Width = 139
         '
         'DataGridViewTextBoxColumn9
         '
@@ -273,24 +287,34 @@ Partial Class ConsultaStockRemotoProducto
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
         Me.DataGridViewTextBoxColumn9.Width = 103
         '
+        'Envasado
+        '
+        Me.Envasado.DataPropertyName = "unidades"
+        Me.Envasado.HeaderText = "Unidades Envasadas"
+        Me.Envasado.Name = "Envasado"
+        Me.Envasado.ReadOnly = True
+        Me.Envasado.Width = 156
+        '
         'ConsultaStockRemotoProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(633, 277)
+        Me.ClientSize = New System.Drawing.Size(1031, 277)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ConsultaStockRemotoProducto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ConsultaStockRemotoProducto"
         Me.Text = "Consulta Stock Remoto"
         CType(Me.StockgeneralDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
         CType(Me.StockgeneralBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MySQLDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
         CType(Me.SucursalesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -312,6 +336,8 @@ Partial Class ConsultaStockRemotoProducto
     Friend WithEvents TableAdapterManager1 As comercialDataSetTableAdapters.TableAdapterManager
     Friend WithEvents idsucursal As DataGridViewTextBoxColumn
     Friend WithEvents NombreSucursal As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
+    Friend WithEvents medida As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents Envasado As DataGridViewTextBoxColumn
 End Class

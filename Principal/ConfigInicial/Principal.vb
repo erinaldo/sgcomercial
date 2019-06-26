@@ -1053,14 +1053,14 @@ Public Class Principal
         Try
             StockTableAdapter.stock_resetproductosmasivo()
         Catch ex As Exception
-            MsgBox("No se pudo completar una operación de rutina, contacte al proveedor de sistema: stock_resetproductosmasivo - notfound -")
+            MessageBox.Show("No se pudo completar una operación de rutina, contacte al proveedor de sistema: stock_resetproductosmasivo - notfound -", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
         '*******************************************************************************
         SynStockGeneral(coderror, msgerror)
     End Sub
 
     Private Sub BGWStock_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BGWStock.RunWorkerCompleted
-        MsgBox("Se cargado todo el STOCK a la nube!", MsgBoxStyle.Information, "Aviso")
+        MsgBox("Stock cargado en la NUBE exitosamente!", MsgBoxStyle.Information, "Aviso")
     End Sub
 
     Private Sub RegistrarPresupuestoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarPresupuestoToolStripMenuItem.Click
