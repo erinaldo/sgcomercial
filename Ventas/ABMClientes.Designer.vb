@@ -31,8 +31,8 @@ Partial Class ABMClientes
         Dim Label2 As System.Windows.Forms.Label
         Dim Label3 As System.Windows.Forms.Label
         Dim Label5 As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMClientes))
         Dim Label7 As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMClientes))
         Me.ClientesBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -43,7 +43,7 @@ Partial Class ABMClientes
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ClientesBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButtonEditar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
@@ -57,6 +57,11 @@ Partial Class ABMClientes
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboDocTipo = New System.Windows.Forms.ComboBox()
+        Me.TipodocumentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ProvinciasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label6 = New System.Windows.Forms.Label()
         Me.porcentajedescuentoTextbox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -70,10 +75,8 @@ Partial Class ABMClientes
         Me.ClientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComercialDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ProvinciasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProvinciasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.provinciasTableAdapter()
+        Me.TipodocumentosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipodocumentosTableAdapter()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         RazonsocialLabel = New System.Windows.Forms.Label()
@@ -89,10 +92,11 @@ Partial Class ABMClientes
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.TipodocumentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipocondicionivaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -108,7 +112,7 @@ Partial Class ABMClientes
         'NombreLabel
         '
         NombreLabel.AutoSize = True
-        NombreLabel.Location = New System.Drawing.Point(15, 54)
+        NombreLabel.Location = New System.Drawing.Point(31, 54)
         NombreLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         NombreLabel.Name = "NombreLabel"
         NombreLabel.Size = New System.Drawing.Size(62, 17)
@@ -118,17 +122,17 @@ Partial Class ABMClientes
         'RazonsocialLabel
         '
         RazonsocialLabel.AutoSize = True
-        RazonsocialLabel.Location = New System.Drawing.Point(41, 85)
+        RazonsocialLabel.Location = New System.Drawing.Point(9, 85)
         RazonsocialLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         RazonsocialLabel.Name = "RazonsocialLabel"
-        RazonsocialLabel.Size = New System.Drawing.Size(36, 17)
+        RazonsocialLabel.Size = New System.Drawing.Size(84, 17)
         RazonsocialLabel.TabIndex = 5
-        RazonsocialLabel.Text = "Cuit:"
+        RazonsocialLabel.Text = "Documento:"
         '
         'TelefonoLabel
         '
         TelefonoLabel.AutoSize = True
-        TelefonoLabel.Location = New System.Drawing.Point(9, 116)
+        TelefonoLabel.Location = New System.Drawing.Point(25, 116)
         TelefonoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         TelefonoLabel.Name = "TelefonoLabel"
         TelefonoLabel.Size = New System.Drawing.Size(68, 17)
@@ -138,7 +142,7 @@ Partial Class ABMClientes
         'EmailLabel
         '
         EmailLabel.AutoSize = True
-        EmailLabel.Location = New System.Drawing.Point(31, 149)
+        EmailLabel.Location = New System.Drawing.Point(47, 149)
         EmailLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EmailLabel.Name = "EmailLabel"
         EmailLabel.Size = New System.Drawing.Size(46, 17)
@@ -175,6 +179,16 @@ Partial Class ABMClientes
         Label5.TabIndex = 16
         Label5.Text = "Porcentaje Descuento:"
         '
+        'Label7
+        '
+        Label7.AutoSize = True
+        Label7.Location = New System.Drawing.Point(23, 182)
+        Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label7.Name = "Label7"
+        Label7.Size = New System.Drawing.Size(70, 17)
+        Label7.TabIndex = 19
+        Label7.Text = "Provincia:"
+        '
         'ClientesBindingNavigator
         '
         Me.ClientesBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
@@ -182,7 +196,7 @@ Partial Class ABMClientes
         Me.ClientesBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.ClientesBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.ClientesBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ClientesBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.ClientesBindingNavigatorSaveItem, Me.ToolStripButton1, Me.ToolStripButton2})
+        Me.ClientesBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.ClientesBindingNavigatorSaveItem, Me.ToolStripButtonEditar, Me.ToolStripButton2})
         Me.ClientesBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.ClientesBindingNavigator.MoveFirstItem = Nothing
         Me.ClientesBindingNavigator.MoveLastItem = Nothing
@@ -258,14 +272,14 @@ Partial Class ABMClientes
         Me.ClientesBindingNavigatorSaveItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.ClientesBindingNavigatorSaveItem.Visible = False
         '
-        'ToolStripButton1
+        'ToolStripButtonEditar
         '
-        Me.ToolStripButton1.Image = Global.sgcomercial.My.Resources.Resources.editar
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(52, 44)
-        Me.ToolStripButton1.Text = "Editar"
-        Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ToolStripButtonEditar.Image = Global.sgcomercial.My.Resources.Resources.editar
+        Me.ToolStripButtonEditar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonEditar.Name = "ToolStripButtonEditar"
+        Me.ToolStripButtonEditar.Size = New System.Drawing.Size(52, 44)
+        Me.ToolStripButtonEditar.Text = "Editar"
+        Me.ToolStripButtonEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ToolStripButton2
         '
@@ -291,40 +305,40 @@ Partial Class ABMClientes
         '
         Me.NombreTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "nombre", True))
-        Me.NombreTextBox.Location = New System.Drawing.Point(84, 51)
+        Me.NombreTextBox.Location = New System.Drawing.Point(100, 51)
         Me.NombreTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.NombreTextBox.Name = "NombreTextBox"
-        Me.NombreTextBox.Size = New System.Drawing.Size(283, 22)
-        Me.NombreTextBox.TabIndex = 4
+        Me.NombreTextBox.Size = New System.Drawing.Size(271, 22)
+        Me.NombreTextBox.TabIndex = 0
         '
         'RazonsocialTextBox
         '
         Me.RazonsocialTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.RazonsocialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "cuit", True))
-        Me.RazonsocialTextBox.Location = New System.Drawing.Point(84, 82)
+        Me.RazonsocialTextBox.Location = New System.Drawing.Point(228, 82)
         Me.RazonsocialTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.RazonsocialTextBox.Name = "RazonsocialTextBox"
-        Me.RazonsocialTextBox.Size = New System.Drawing.Size(283, 22)
-        Me.RazonsocialTextBox.TabIndex = 6
+        Me.RazonsocialTextBox.Size = New System.Drawing.Size(143, 22)
+        Me.RazonsocialTextBox.TabIndex = 2
         '
         'TelefonoTextBox
         '
         Me.TelefonoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "telefono", True))
-        Me.TelefonoTextBox.Location = New System.Drawing.Point(84, 113)
+        Me.TelefonoTextBox.Location = New System.Drawing.Point(100, 113)
         Me.TelefonoTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.TelefonoTextBox.Name = "TelefonoTextBox"
-        Me.TelefonoTextBox.Size = New System.Drawing.Size(283, 22)
-        Me.TelefonoTextBox.TabIndex = 8
+        Me.TelefonoTextBox.Size = New System.Drawing.Size(271, 22)
+        Me.TelefonoTextBox.TabIndex = 3
         '
         'EmailTextBox
         '
         Me.EmailTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "email", True))
-        Me.EmailTextBox.Location = New System.Drawing.Point(84, 146)
+        Me.EmailTextBox.Location = New System.Drawing.Point(100, 146)
         Me.EmailTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.EmailTextBox.Name = "EmailTextBox"
-        Me.EmailTextBox.Size = New System.Drawing.Size(283, 22)
-        Me.EmailTextBox.TabIndex = 10
+        Me.EmailTextBox.Size = New System.Drawing.Size(271, 22)
+        Me.EmailTextBox.TabIndex = 4
         '
         'ClientesDataGridView
         '
@@ -335,6 +349,7 @@ Partial Class ABMClientes
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ClientesDataGridView.AutoGenerateColumns = False
+        Me.ClientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
         Me.ClientesDataGridView.DataSource = Me.ClientesBindingSource
@@ -387,6 +402,7 @@ Partial Class ABMClientes
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.ComboDocTipo)
         Me.GroupBox1.Controls.Add(Me.ComboBox2)
         Me.GroupBox1.Controls.Add(Label7)
         Me.GroupBox1.Controls.Add(Me.Label6)
@@ -416,6 +432,47 @@ Partial Class ABMClientes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del cliente"
         '
+        'ComboDocTipo
+        '
+        Me.ComboDocTipo.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ClientesBindingSource, "idtipodocumento", True))
+        Me.ComboDocTipo.DataSource = Me.TipodocumentosBindingSource
+        Me.ComboDocTipo.DisplayMember = "descripcion"
+        Me.ComboDocTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboDocTipo.FormattingEnabled = True
+        Me.ComboDocTipo.Location = New System.Drawing.Point(100, 81)
+        Me.ComboDocTipo.Name = "ComboDocTipo"
+        Me.ComboDocTipo.Size = New System.Drawing.Size(121, 24)
+        Me.ComboDocTipo.TabIndex = 1
+        Me.ComboDocTipo.ValueMember = "idtipodocumento"
+        '
+        'TipodocumentosBindingSource
+        '
+        Me.TipodocumentosBindingSource.DataMember = "tipodocumentos"
+        Me.TipodocumentosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ClientesBindingSource, "idprovincia", True))
+        Me.ComboBox2.DataSource = Me.ProvinciasBindingSource
+        Me.ComboBox2.DisplayMember = "nombreprovincia"
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(100, 182)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(271, 24)
+        Me.ComboBox2.TabIndex = 5
+        Me.ComboBox2.ValueMember = "idprovincia"
+        '
+        'ProvinciasBindingSource
+        '
+        Me.ProvinciasBindingSource.DataMember = "provincias"
+        Me.ProvinciasBindingSource.DataSource = Me.ComercialDataSetBindingSource
+        '
+        'ComercialDataSetBindingSource
+        '
+        Me.ComercialDataSetBindingSource.DataSource = Me.ComercialDataSet
+        Me.ComercialDataSetBindingSource.Position = 0
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -431,7 +488,7 @@ Partial Class ABMClientes
         Me.porcentajedescuentoTextbox.Location = New System.Drawing.Point(538, 113)
         Me.porcentajedescuentoTextbox.Name = "porcentajedescuentoTextbox"
         Me.porcentajedescuentoTextbox.Size = New System.Drawing.Size(100, 22)
-        Me.porcentajedescuentoTextbox.TabIndex = 17
+        Me.porcentajedescuentoTextbox.TabIndex = 8
         '
         'Label4
         '
@@ -448,7 +505,7 @@ Partial Class ABMClientes
         Me.DiasvencimientoTextBox.Location = New System.Drawing.Point(538, 82)
         Me.DiasvencimientoTextBox.Name = "DiasvencimientoTextBox"
         Me.DiasvencimientoTextBox.Size = New System.Drawing.Size(100, 22)
-        Me.DiasvencimientoTextBox.TabIndex = 14
+        Me.DiasvencimientoTextBox.TabIndex = 7
         '
         'ComboCondicionIVA
         '
@@ -461,7 +518,7 @@ Partial Class ABMClientes
         Me.ComboCondicionIVA.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboCondicionIVA.Name = "ComboCondicionIVA"
         Me.ComboCondicionIVA.Size = New System.Drawing.Size(283, 24)
-        Me.ComboCondicionIVA.TabIndex = 11
+        Me.ComboCondicionIVA.TabIndex = 6
         Me.ComboCondicionIVA.ValueMember = "idtipocondicioniva"
         '
         'TipocondicionivaBindingSource
@@ -545,6 +602,7 @@ Partial Class ABMClientes
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -568,9 +626,13 @@ Partial Class ABMClientes
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -586,42 +648,13 @@ Partial Class ABMClientes
         '
         Me.TipocondicionivaTableAdapter.ClearBeforeFill = True
         '
-        'Label7
-        '
-        Label7.AutoSize = True
-        Label7.Location = New System.Drawing.Point(7, 182)
-        Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label7.Name = "Label7"
-        Label7.Size = New System.Drawing.Size(70, 17)
-        Label7.TabIndex = 19
-        Label7.Text = "Provincia:"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ClientesBindingSource, "idprovincia", True))
-        Me.ComboBox2.DataSource = Me.ProvinciasBindingSource
-        Me.ComboBox2.DisplayMember = "nombreprovincia"
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(84, 182)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(283, 24)
-        Me.ComboBox2.TabIndex = 20
-        Me.ComboBox2.ValueMember = "idprovincia"
-        '
-        'ComercialDataSetBindingSource
-        '
-        Me.ComercialDataSetBindingSource.DataSource = Me.ComercialDataSet
-        Me.ComercialDataSetBindingSource.Position = 0
-        '
-        'ProvinciasBindingSource
-        '
-        Me.ProvinciasBindingSource.DataMember = "provincias"
-        Me.ProvinciasBindingSource.DataSource = Me.ComercialDataSetBindingSource
-        '
         'ProvinciasTableAdapter
         '
         Me.ProvinciasTableAdapter.ClearBeforeFill = True
+        '
+        'TipodocumentosTableAdapter
+        '
+        Me.TipodocumentosTableAdapter.ClearBeforeFill = True
         '
         'ABMClientes
         '
@@ -647,11 +680,12 @@ Partial Class ABMClientes
         CType(Me.ClientesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.TipodocumentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipocondicionivaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -673,7 +707,7 @@ Partial Class ABMClientes
     Friend WithEvents RazonsocialTextBox As System.Windows.Forms.TextBox
     Friend WithEvents TelefonoTextBox As System.Windows.Forms.TextBox
     Friend WithEvents EmailTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButtonEditar As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ClientesDataGridView As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -698,4 +732,7 @@ Partial Class ABMClientes
     Friend WithEvents ComercialDataSetBindingSource As BindingSource
     Friend WithEvents ProvinciasBindingSource As BindingSource
     Friend WithEvents ProvinciasTableAdapter As comercialDataSetTableAdapters.provinciasTableAdapter
+    Friend WithEvents ComboDocTipo As ComboBox
+    Friend WithEvents TipodocumentosBindingSource As BindingSource
+    Friend WithEvents TipodocumentosTableAdapter As comercialDataSetTableAdapters.tipodocumentosTableAdapter
 End Class

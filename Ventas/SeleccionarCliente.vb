@@ -38,8 +38,13 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim p As ABMClientes
         p = New ABMClientes
+        gclienteseleccionado = -1
         p.ShowDialog()
         Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
+        If gclienteseleccionado > 0 Then
+            'gclienteseleccionado = ClientesDataGridView.CurrentRow.Cells(0).Value
+            Me.Close()
+        End If
     End Sub
 
     Private Sub SeleccionarCliente_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -56,5 +61,28 @@
             End If
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub TextBoxfiltro_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxfiltro.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ClientesDataGridView.Select()
+            Try
+                ClientesDataGridView.Rows(0).Selected = True
+
+            Catch ex As Exception
+                MsgBox("Debe seleccionar al menos un producto de la lista", MsgBoxStyle.Exclamation, "Advertencia!")
+            End Try
+
+        End If
+    End Sub
+
+    Private Sub ClientesDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles ClientesDataGridView.KeyDown
+        If e.KeyCode = Keys.Enter Then
+
+            e.SuppressKeyPress = True
+            gclienteseleccionado = ClientesDataGridView.CurrentRow.Cells(0).Value
+            Me.Close()
+
+        End If
     End Sub
 End Class

@@ -197,6 +197,7 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
+        Me.ABMTipoComprobantesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -733,7 +734,7 @@ Partial Class Principal
         '
         Me.MisVentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HistoricoVentasToolStripMenuItem, Me.EnvíosPorSucursalesToolStripMenuItem, Me.PrincipioDeParetoToolStripMenuItem, Me.VentasPorProvinciaToolStripMenuItem})
         Me.MisVentasToolStripMenuItem.Name = "MisVentasToolStripMenuItem"
-        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
         Me.MisVentasToolStripMenuItem.Tag = "EstadisticasVentas"
         Me.MisVentasToolStripMenuItem.Text = "Ventas"
         '
@@ -768,14 +769,14 @@ Partial Class Principal
         'MisClientesToolStripMenuItem
         '
         Me.MisClientesToolStripMenuItem.Name = "MisClientesToolStripMenuItem"
-        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
         Me.MisClientesToolStripMenuItem.Tag = "EstadisticasClientes"
         Me.MisClientesToolStripMenuItem.Text = "Clientes"
         '
         'MisProveedoresToolStripMenuItem
         '
         Me.MisProveedoresToolStripMenuItem.Name = "MisProveedoresToolStripMenuItem"
-        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
+        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
         Me.MisProveedoresToolStripMenuItem.Tag = "EstadisticasProveedores"
         Me.MisProveedoresToolStripMenuItem.Text = "Proveedores"
         '
@@ -921,7 +922,7 @@ Partial Class Principal
         '
         'SysConfigToolStripMenuItem
         '
-        Me.SysConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.POSTFormToolStripMenuItem})
+        Me.SysConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.POSTFormToolStripMenuItem, Me.ABMTipoComprobantesToolStripMenuItem})
         Me.SysConfigToolStripMenuItem.Name = "SysConfigToolStripMenuItem"
         Me.SysConfigToolStripMenuItem.Size = New System.Drawing.Size(96, 27)
         Me.SysConfigToolStripMenuItem.Tag = "SysConfig"
@@ -930,41 +931,41 @@ Partial Class Principal
         'AltaTerminalToolStripMenuItem
         '
         Me.AltaTerminalToolStripMenuItem.Name = "AltaTerminalToolStripMenuItem"
-        Me.AltaTerminalToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
+        Me.AltaTerminalToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
         Me.AltaTerminalToolStripMenuItem.Text = "Alta Dispositivo"
         '
         'AsignarCajaToolStripMenuItem
         '
         Me.AsignarCajaToolStripMenuItem.Name = "AsignarCajaToolStripMenuItem"
-        Me.AsignarCajaToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
+        Me.AsignarCajaToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
         Me.AsignarCajaToolStripMenuItem.Tag = "AsignarCaja"
         Me.AsignarCajaToolStripMenuItem.Text = "Asignar Caja"
         '
         'ABMCajasToolStripMenuItem1
         '
         Me.ABMCajasToolStripMenuItem1.Name = "ABMCajasToolStripMenuItem1"
-        Me.ABMCajasToolStripMenuItem1.Size = New System.Drawing.Size(260, 28)
+        Me.ABMCajasToolStripMenuItem1.Size = New System.Drawing.Size(268, 28)
         Me.ABMCajasToolStripMenuItem1.Tag = "ABMCajas"
         Me.ABMCajasToolStripMenuItem1.Text = "ABM Cajas"
         '
         'ABMSucursalesToolStripMenuItem
         '
         Me.ABMSucursalesToolStripMenuItem.Name = "ABMSucursalesToolStripMenuItem"
-        Me.ABMSucursalesToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
+        Me.ABMSucursalesToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
         Me.ABMSucursalesToolStripMenuItem.Tag = "ABMSucursales"
         Me.ABMSucursalesToolStripMenuItem.Text = "ABM Sucursales"
         '
         'ModulosToolStripMenuItem
         '
         Me.ModulosToolStripMenuItem.Name = "ModulosToolStripMenuItem"
-        Me.ModulosToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
+        Me.ModulosToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
         Me.ModulosToolStripMenuItem.Tag = "Modulos"
         Me.ModulosToolStripMenuItem.Text = "Modulos"
         '
         'ABMUnidadesMedidaToolStripMenuItem
         '
         Me.ABMUnidadesMedidaToolStripMenuItem.Name = "ABMUnidadesMedidaToolStripMenuItem"
-        Me.ABMUnidadesMedidaToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
+        Me.ABMUnidadesMedidaToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
         Me.ABMUnidadesMedidaToolStripMenuItem.Tag = "ABMUnidadesMedida"
         Me.ABMUnidadesMedidaToolStripMenuItem.Text = "ABM Unidades Medida"
         Me.ABMUnidadesMedidaToolStripMenuItem.Visible = False
@@ -972,7 +973,7 @@ Partial Class Principal
         'POSTFormToolStripMenuItem
         '
         Me.POSTFormToolStripMenuItem.Name = "POSTFormToolStripMenuItem"
-        Me.POSTFormToolStripMenuItem.Size = New System.Drawing.Size(260, 28)
+        Me.POSTFormToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
         Me.POSTFormToolStripMenuItem.Tag = "POSTForm"
         Me.POSTFormToolStripMenuItem.Text = "POSTForm"
         '
@@ -1406,8 +1407,11 @@ Partial Class Principal
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
         Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
@@ -1544,6 +1548,13 @@ Partial Class Principal
         '
         'BGWStock
         '
+        '
+        'ABMTipoComprobantesToolStripMenuItem
+        '
+        Me.ABMTipoComprobantesToolStripMenuItem.Name = "ABMTipoComprobantesToolStripMenuItem"
+        Me.ABMTipoComprobantesToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
+        Me.ABMTipoComprobantesToolStripMenuItem.Tag = "ABMTipoComprobantes"
+        Me.ABMTipoComprobantesToolStripMenuItem.Text = "ABMTipoComprobantes"
         '
         'Principal
         '
@@ -1766,4 +1777,5 @@ Partial Class Principal
     Friend WithEvents HistoricoVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrincipioDeParetoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentasPorProvinciaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ABMTipoComprobantesToolStripMenuItem As ToolStripMenuItem
 End Class

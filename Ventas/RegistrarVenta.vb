@@ -35,7 +35,7 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub RegistrarVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Cursor.Current = Cursors.WaitCursor
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipoconceptos' Puede moverla o quitarla según sea necesario.        
         'Me.WindowState = FormWindowState.Maximized
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
@@ -48,6 +48,8 @@ Public Class RegistrarVenta
         'Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
         'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
         'Me.VentasdetalleTableAdapter.Fill(Me.ComercialDataSet.ventasdetalle)
+        Cursor.Current = Cursors.WaitCursor
+        Me.TipoconceptosTableAdapter.Fill(Me.ComercialDataSet.tipoconceptos)
         Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
         Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
         Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
@@ -118,6 +120,8 @@ Public Class RegistrarVenta
         LabelMontoFP2.Enabled = status
         ButtonDescuentoDefecto.Visible = False
         ComboConcepto.Enabled = status
+        DateTimePickerPeriodoDesde.Enabled = False
+        DateTimePickerPeriodoHasta.Enabled = False
         '''''''''''''''''''''''''''' permiso GenVale
         If permisoGenVale = 0 Then
             CheckBoxVale.Enabled = False
@@ -177,8 +181,56 @@ Public Class RegistrarVenta
             CheckBoxFP2.Checked = False
         End If
     End Sub
+    Private Sub NuevaVenta()
+        Dim STATUSCAJA As Boolean
+        validarestadocaja(STATUSCAJA)
+        If STATUSCAJA = False Then
+            enablefields(False)
+        Else
+            enablefields(True)
+            BtnNueva.Enabled = False
+            BtnCancelar.Enabled = True
+            BtnConfirmar.Enabled = True
+            codigotextbox.Select()
+            IdclienteTextBox.Text = "1"
+            labeltotal.Text = ""
+            idformapagocombo.SelectedIndex = 0
+            ComboConcepto.SelectedIndex = 0
+            NrocomprobanteTextBox.Text = Nothing
+            '''''''''''''''''''''''''''' permiso GenVale
+            If permisoGenVale = 0 Then
+                CheckBoxVale.Enabled = False
+            Else
+                CheckBoxVale.Enabled = True
+            End If
+            '''''''''''''''''''''''''''''''''''''''''''''''
+            CheckBoxFP2.Checked = False
+        End If
+    End Sub
 
     Private Sub BtnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCancelar.Click
+        BtnNueva.Enabled = True
+        BtnConfirmar.Enabled = False
+        BtnCancelar.Enabled = False
+        Labelproducto.Text = ""
+        labelcliente.Text = ""
+        IdclienteTextBox.Text = ""
+        vueltotextbox.Text = ""
+        pagotextbox.Text = ""
+        enablefields(False)
+        VentasdetalleDataGridView.Rows.Clear()
+        codigotextbox.Text = ""
+        labeltotal.Text = ""
+        NrocomprobanteTextBox.Text = ""
+        gclienteseleccionado = Nothing
+        CheckBoxFP2.Checked = False
+        pagotextbox2.Text = ""
+        NrocomprobanteTextBox2.Text = ""
+        LabelMontoFP2.Enabled = False
+        FechavencimientoDateTimePicker.Value = Today
+        FechavencimientoDateTimePicker.Enabled = False
+    End Sub
+    Private Sub CancelarVenta()
         BtnNueva.Enabled = True
         BtnConfirmar.Enabled = False
         BtnCancelar.Enabled = False
@@ -510,7 +562,7 @@ Public Class RegistrarVenta
             Return
         End If
 
-        If Val(pagotextbox.Text) < 0 Then
+        If Val(pagotextbox.Text) <= 0 Or Trim(pagotextbox.Text) = "" Then
             If idformapagocombo.Text = "Cuenta Corriente" Then
                 pagotextbox.Text = total.ToString
                 CheckBoxFP2.Checked = False
@@ -1129,14 +1181,20 @@ Public Class RegistrarVenta
         p.ShowDialog()
         IdclienteTextBox.Text = gclienteseleccionado.ToString
         If gclienteseleccionado > 0 Then
-            Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
-            ClientesBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
+            Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
+            Me.ListaclientesTableAdapter.FillByIdCliente(Me.ComercialDataSet.listaclientes, gclienteseleccionado)
             If gclienteseleccionado > 1 Then
+                PictureBoxEditarCliente.Visible = True
                 calculafechavencimiento()
                 ButtonDescuentoDefecto.Visible = True
             Else
+                PictureBoxEditarCliente.Visible = False
                 ButtonDescuentoDefecto.Visible = False
             End If
+        Else
+            Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
+            Me.ListaclientesTableAdapter.FillByIdCliente(Me.ComercialDataSet.listaclientes, 0)
+            PictureBoxEditarCliente.Visible = False
         End If
         gclienteseleccionado = Nothing
     End Sub
@@ -1154,10 +1212,17 @@ Public Class RegistrarVenta
 
     Private Sub IdclienteTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IdclienteTextBox.TextChanged
         If Val(IdclienteTextBox.Text) > 0 Then
-            Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
-            ClientesBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
+            Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, Val(IdclienteTextBox.Text))
+            Me.ListaclientesTableAdapter.FillByIdCliente(Me.ComercialDataSet.listaclientes, Val(IdclienteTextBox.Text))
+            If Val(IdclienteTextBox.Text) > 1 Then
+                PictureBoxEditarCliente.Visible = True
+            Else
+                PictureBoxEditarCliente.Visible = False
+            End If
         Else
-            ClientesBindingSource.Filter = "idcliente = 0"
+            Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
+            Me.ListaclientesTableAdapter.FillByIdCliente(Me.ComercialDataSet.listaclientes, 0)
+            PictureBoxEditarCliente.Visible = False
         End If
     End Sub
 
@@ -1242,8 +1307,8 @@ Public Class RegistrarVenta
         '''''''''''''''''''''''''''''''''''''''''''''''
     End Sub
 
-    Private Sub Idtipocomprobantecombo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Idtipocomprobantecombo.SelectedIndexChanged
-        If Idtipocomprobantecombo.Text = "Consumidor Final" Then
+    Private Sub Idtipocomprobantecombo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        If Idtipocomprobantecombo.SelectedValue = 1 Then
             IdclienteTextBox.Text = "1"
         Else
             IdclienteTextBox.Text = ""
@@ -1443,7 +1508,7 @@ Public Class RegistrarVenta
             End If
         End If
     End Sub
-    Private Sub idformapagocombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles idformapagocombo.SelectedIndexChanged
+    Private Sub idformapagocombo_SelectedIndexChanged(sender As Object, e As EventArgs)
         recuento()
         VtaCC()
     End Sub
@@ -1567,7 +1632,8 @@ Public Class RegistrarVenta
                                     total = total + precio
                                     items = items + 1
                                 Next
-                                If total - efectivo < 0 Then
+                                recargolocal = (total * grecargoTC) / 100
+                                If total + recargolocal - efectivo < 0 Then
                                     total = total - efectivo
                                     Return
                                 Else
@@ -1582,6 +1648,9 @@ Public Class RegistrarVenta
                                 If grecargoTC > 0 Then
                                     For i = 0 To VentasdetalleDataGridView.RowCount - 1
                                         VentasdetalleDataGridView.Rows(i).Cells("recargo").Value = String.Format("{0:n}", recargolocal)
+                                        precio = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value * VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
+                                        descuento = VentasdetalleDataGridView.Rows(i).Cells("descuento").Value
+                                        precio = precio - descuento
                                         VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value = Math.Round(precio + recargolocal, 2)
                                     Next
                                 End If
@@ -1769,5 +1838,38 @@ Public Class RegistrarVenta
         Dim TRA As String = Nothing
         GenTRA(TRA, codigo, mensaje)
         FECAELoadRequest(Val(NrocomprobanteTextBox2.Text), FECAERequest)
+    End Sub
+
+    Private Sub ComboConcepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboConcepto.SelectedIndexChanged
+
+        If ComboConcepto.SelectedValue = 3 Or ComboConcepto.SelectedValue = 2 Then
+            DateTimePickerPeriodoDesde.Enabled = True
+            DateTimePickerPeriodoHasta.Enabled = True
+        Else
+            DateTimePickerPeriodoDesde.Enabled = False
+            DateTimePickerPeriodoHasta.Enabled = False
+        End If
+    End Sub
+
+    Private Sub PictureBoxEditarCliente_Click(sender As Object, e As EventArgs) Handles PictureBoxEditarCliente.Click
+        Dim p As ABMClientes
+        p = New ABMClientes
+        gclienteseleccionado = Val(IdclienteTextBox.Text)
+        p.ShowDialog()
+        Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
+        Me.ListaclientesTableAdapter.FillByIdCliente(Me.ComercialDataSet.listaclientes, gclienteseleccionado)
+    End Sub
+
+    Private Sub Idtipocomprobantecombo_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles Idtipocomprobantecombo.SelectedIndexChanged
+        Select Case Idtipocomprobantecombo.SelectedValue
+            Case 2
+                FechavencimientoDateTimePicker.Enabled = True
+            Case 5
+                FechavencimientoDateTimePicker.Enabled = True
+            Case 8
+                FechavencimientoDateTimePicker.Enabled = True
+            Case Else
+                FechavencimientoDateTimePicker.Enabled = False
+        End Select
     End Sub
 End Class

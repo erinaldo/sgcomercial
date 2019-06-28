@@ -1,6 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class ABMClientes
-
+    Dim autoclose As Boolean = False
     Public Sub enablefields(ByVal status As Boolean)
         NombreTextBox.Enabled = status
         RazonsocialTextBox.Enabled = status
@@ -10,26 +10,36 @@ Public Class ABMClientes
         DiasvencimientoTextBox.Enabled = status
         porcentajedescuentoTextbox.Enabled = status
         ComboBox2.Enabled = status
+        ComboDocTipo.Enabled = status
         'DireccionTextBox.Enabled = status
     End Sub
 
 
     Private Sub ClientesBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClientesBindingNavigatorSaveItem.Click
         If MsgBox("Seguro desea guardar los cambios realizados?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-            Me.Validate()
-            Me.ClientesBindingSource.EndEdit()
-            Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
-            ClientesDataGridView.Enabled = True
-            enabledit(False)
-            enablefields(False)
-            ClientesDataGridView.Enabled = True
-            filtrotextbox.Enabled = True
+            Try
+                Me.Validate()
+                Me.ClientesBindingSource.EndEdit()
+                Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
+                ClientesDataGridView.Enabled = True
+                enabledit(False)
+                enablefields(False)
+                ClientesDataGridView.Enabled = True
+                filtrotextbox.Enabled = True
+                If gclienteseleccionado = -1 Then
+                    gclienteseleccionado = Val(IdclienteTextBox.Text)
+                    Me.Close()
+                End If
+                If autoclose = True Then Me.Close()
+            Catch ex As Exception
+
+            End Try
         End If
-
-
     End Sub
 
     Private Sub ABMClientes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipodocumentos' Puede moverla o quitarla según sea necesario.
+        Me.TipodocumentosTableAdapter.Fill(Me.ComercialDataSet.tipodocumentos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.provincias' Puede moverla o quitarla según sea necesario.
         Me.ProvinciasTableAdapter.Fill(Me.ComercialDataSet.provincias)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocondicioniva' Puede moverla o quitarla según sea necesario.
@@ -38,10 +48,17 @@ Public Class ABMClientes
 
         Me.ClientesTableAdapter.FillByClientesTodos(Me.ComercialDataSet.clientes)
         enablefields(False)
-
+        If gclienteseleccionado = -1 Then
+            BindingNavigatorAddNewItem.PerformClick()
+        End If
+        If gclienteseleccionado > 1 Then
+            autoclose = True
+            Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
+            ToolStripButtonEditar.PerformClick()
+        End If
     End Sub
 
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButtonEditar.Click
         If IdclienteTextBox.Text = "1" Then Return
         enablefields(True)
         enabledit(True)
@@ -63,11 +80,12 @@ Public Class ABMClientes
         ToolStripButton2.Visible = status
         DiasvencimientoTextBox.Enabled = status
         porcentajedescuentoTextbox.Enabled = status
+        ComboDocTipo.Enabled = status
         If status = False Then
-            ToolStripButton1.Visible = True
+            ToolStripButtonEditar.Visible = True
             BindingNavigatorAddNewItem.Enabled = True
         Else
-            ToolStripButton1.Visible = False
+            ToolStripButtonEditar.Visible = False
             BindingNavigatorAddNewItem.Enabled = False
         End If
         ClientesBindingNavigatorSaveItem.Visible = status

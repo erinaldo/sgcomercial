@@ -980,6 +980,31 @@ Public Class Principal
         'End If
 
         ''''''''''***************************   POR DEFECTO **************************************
+        If (e.KeyCode = Keys.S AndAlso e.Control AndAlso e.Shift) Then
+            Dim suauth As New SUAuth
+            suauth.ShowDialog()
+            If gSUToken = True Then
+
+                For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
+                        If miitem.Name = "SysConfigToolStripMenuItem" Then
+                        If miitem.Visible = True Then
+                            miitem.Visible = False
+                            miitem.Enabled = False
+                            For Each otroitem As ToolStripMenuItem In miitem.DropDownItems
+                                otroitem.Enabled = False
+                            Next
+                        Else
+                            miitem.Visible = True
+                            miitem.Enabled = True
+                            For Each otroitem As ToolStripMenuItem In miitem.DropDownItems
+                                otroitem.Enabled = True
+                            Next
+                        End If
+                    End If
+                    Next
+
+            End If
+        End If
         If e.KeyCode = Keys.F5 Then
             'MsgBox("recargando")
             EjecutarAlertas()
@@ -1121,6 +1146,11 @@ Public Class Principal
     Private Sub VentasPorProvinciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentasPorProvinciaToolStripMenuItem.Click
         EstVentasProvincias.MdiParent = Me
         EstVentasProvincias.Visible = True
+    End Sub
+
+    Private Sub ABMTipoComprobantesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMTipoComprobantesToolStripMenuItem.Click
+        ABMTipoComprobantes.MdiParent = Me
+        ABMTipoComprobantes.Visible = True
     End Sub
     'Private Sub PrivateDownloadSGC()
 

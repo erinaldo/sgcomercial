@@ -797,6 +797,8 @@ Module MySQLModule
                 '-----------------------------------------------------------------------------------
                 ' SI EXISTE UPDATE
                 If idproductolocal > 0 Then
+                    Dim ProductosComponentesTableAdapter As New comercialDataSetTableAdapters.productoscomponentesTableAdapter()
+                    productocompuesto = ProductosComponentesTableAdapter.productoscomponentes_existecomponente(idproductolocal)
                     ProductosTableAdapter.productos_pullupdate(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, estado, precioventadistribuidor, idrubro, iva, fabricante, codigoproducto, idproductolocal)
                 Else ' NO EXISTE INSERT
                     ProductosTableAdapter.productos_pullinsert(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, estado, precioventadistribuidor, idrubro, iva, fabricante)
