@@ -3,7 +3,7 @@ Public Class ABMClientes
     Dim autoclose As Boolean = False
     Public Sub enablefields(ByVal status As Boolean)
         NombreTextBox.Enabled = status
-        RazonsocialTextBox.Enabled = status
+        CUITTextBox.Enabled = status
         TelefonoTextBox.Enabled = status
         EmailTextBox.Enabled = status
         ComboCondicionIVA.Enabled = status
@@ -16,6 +16,10 @@ Public Class ABMClientes
 
 
     Private Sub ClientesBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClientesBindingNavigatorSaveItem.Click
+        If ComboDocTipo.SelectedValue = Nothing Then
+            MessageBox.Show("Seleccione un tipo de documento válido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End If
         If MsgBox("Seguro desea guardar los cambios realizados?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
             Try
                 Me.Validate()
@@ -97,6 +101,7 @@ Public Class ABMClientes
         ClientesDataGridView.Enabled = False
         filtrotextbox.Enabled = False
         NombreTextBox.Select()
+        '--ComboDocTipo.SelectedIndex = 2
     End Sub
 
     Private Sub filtrotextbox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles filtrotextbox.TextChanged
@@ -153,5 +158,21 @@ Public Class ABMClientes
             'MessageBox.Show("Solo se permiten numeros")
             e.KeyChar = ""
         End If
+    End Sub
+
+    Private Sub ComboDocTipo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboDocTipo.SelectedIndexChanged
+        If ComboDocTipo.SelectedValue = Nothing Then Return
+        Try
+            Select Case ComboDocTipo.SelectedValue
+                Case 3
+                    CUITTextBox.Text = "0"
+                    CUITTextBox.Enabled = False
+                Case Else
+                    CUITTextBox.Text = ""
+                    CUITTextBox.Enabled = True
+            End Select
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

@@ -60,7 +60,7 @@ Partial Class SUAuth
         Me.Name = "SUAuth"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "SUAuth"
-        Me.Text = "Solicitud autorización"
+        Me.Text = "Solicitud de Autorización"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

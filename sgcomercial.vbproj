@@ -33,8 +33,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>11</ApplicationRevision>
-    <ApplicationVersion>4.0.9.11</ApplicationVersion>
+    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationVersion>4.0.9.12</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -366,6 +366,11 @@
     <Compile Include="Estadisticas\Ventas\EstVentasProvincias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Principal\ConfigInicial\DownloadForm.Designer.vb">
       <DependentUpon>DownloadForm.vb</DependentUpon>
     </Compile>
@@ -477,11 +482,6 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1293,9 +1293,9 @@
     <EmbeddedResource Include="Estadisticas\Ventas\GraphPareto.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\ConfigInicial\UpdaterForm.resx">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
@@ -1840,6 +1840,16 @@
     <None Include="My Project\img\SysUpdated2.png" />
     <None Include="My Project\img\UpdateAlert.png" />
     <None Include="My Project\img\checked.png" />
+    <None Include="My Project\img\FEAFIP.png" />
+    <None Include="My Project\img\AFIP.png" />
+    <None Include="My Project\img\FEA.png" />
+    <None Include="My Project\img\FE.png" />
+    <None Include="My Project\img\FEAFIP_ready.png" />
+    <None Include="My Project\img\FEAFIP_2.png" />
+    <None Include="My Project\img\fe_ready_low.png" />
+    <None Include="My Project\img\FEAFIP.gif" />
+    <None Include="My Project\img\FEAFIP_ON.gif" />
+    <None Include="My Project\img\FEAFIP_OFF.gif" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

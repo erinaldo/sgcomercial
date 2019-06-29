@@ -173,6 +173,26 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property FEAFIP_OFF() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("FEAFIP_OFF", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property FEAFIP_ON() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("FEAFIP_ON", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property green_plus_icon_13() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("green-plus-icon-13", resourceCulture)

@@ -47,7 +47,7 @@ Partial Class ABMClientes
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
-        Me.RazonsocialTextBox = New System.Windows.Forms.TextBox()
+        Me.CUITTextBox = New System.Windows.Forms.TextBox()
         Me.TelefonoTextBox = New System.Windows.Forms.TextBox()
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.ClientesDataGridView = New System.Windows.Forms.DataGridView()
@@ -311,15 +311,15 @@ Partial Class ABMClientes
         Me.NombreTextBox.Size = New System.Drawing.Size(271, 22)
         Me.NombreTextBox.TabIndex = 0
         '
-        'RazonsocialTextBox
+        'CUITTextBox
         '
-        Me.RazonsocialTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.RazonsocialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "cuit", True))
-        Me.RazonsocialTextBox.Location = New System.Drawing.Point(228, 82)
-        Me.RazonsocialTextBox.Margin = New System.Windows.Forms.Padding(4)
-        Me.RazonsocialTextBox.Name = "RazonsocialTextBox"
-        Me.RazonsocialTextBox.Size = New System.Drawing.Size(143, 22)
-        Me.RazonsocialTextBox.TabIndex = 2
+        Me.CUITTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.CUITTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "cuit", True))
+        Me.CUITTextBox.Location = New System.Drawing.Point(228, 82)
+        Me.CUITTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.CUITTextBox.Name = "CUITTextBox"
+        Me.CUITTextBox.Size = New System.Drawing.Size(143, 22)
+        Me.CUITTextBox.TabIndex = 2
         '
         'TelefonoTextBox
         '
@@ -421,7 +421,7 @@ Partial Class ABMClientes
         Me.GroupBox1.Controls.Add(EmailLabel)
         Me.GroupBox1.Controls.Add(RazonsocialLabel)
         Me.GroupBox1.Controls.Add(Me.TelefonoTextBox)
-        Me.GroupBox1.Controls.Add(Me.RazonsocialTextBox)
+        Me.GroupBox1.Controls.Add(Me.CUITTextBox)
         Me.GroupBox1.Controls.Add(TelefonoLabel)
         Me.GroupBox1.Location = New System.Drawing.Point(21, 52)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
@@ -704,7 +704,7 @@ Partial Class ABMClientes
     Friend WithEvents ClientesBindingNavigatorSaveItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents IdclienteTextBox As System.Windows.Forms.TextBox
     Friend WithEvents NombreTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents RazonsocialTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents CUITTextBox As System.Windows.Forms.TextBox
     Friend WithEvents TelefonoTextBox As System.Windows.Forms.TextBox
     Friend WithEvents EmailTextBox As System.Windows.Forms.TextBox
     Friend WithEvents ToolStripButtonEditar As System.Windows.Forms.ToolStripButton

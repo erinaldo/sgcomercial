@@ -65,6 +65,7 @@ Public Class RegistrarVenta
         NrocomprobanteTextBox.Text = ""
         FechavencimientoDateTimePicker.Enabled = False
         FeAFIPLoad()
+        FeAutoFE()
         '******************* 
         '****** BCScanerCR
         '******************* 
@@ -102,7 +103,37 @@ Public Class RegistrarVenta
         'idformapagocombo2.Items.RemoveAt(idformapagocombo2.FindString("Cheque"))
         Cursor.Current = Cursors.Default
         BtnNueva.PerformClick()
+
     End Sub
+    Private Sub FeAutoFE()
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        Try
+            If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
+                If GFEAUTOCAEAFIP = "SI" Then
+                    ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Text = "Desactivar Factura Electrónica"
+                    PictureBoxFE.Visible = True
+                    MainMenuStrip.Visible = True
+                    PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_ON
+                Else
+                    ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Text = "Activar Factura Electrónica"
+                    PictureBoxFE.Visible = True
+                    PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
+                End If
+            Else
+                MainMenuStrip.Visible = False
+                PictureBoxFE.Visible = True
+                PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Facturación Electrónica DESACTIVADA", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MainMenuStrip.Visible = False
+            PictureBoxFE.Visible = True
+            PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
+        End Try
+        '''''''''''''''''''''''''''''''''''''''''''''''
+    End Sub
+
+
     Private Sub enablefields(ByRef status As Boolean)
         'IdventaTextBox.Enabled = status
         NrocomprobanteTextBox.Enabled = status
@@ -128,7 +159,7 @@ Public Class RegistrarVenta
         Else
             CheckBoxVale.Enabled = status
         End If
-        '''''''''''''''''''''''''''''''''''''''''''''''
+
     End Sub
     Private Sub validarestadocaja(ByRef status As Boolean)
         '***************    consultar el estado de caja *************
@@ -441,15 +472,24 @@ Public Class RegistrarVenta
             '********************************************************************************************
             '================================================================================================================================
             If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
-                If GFEAUTOCAEAFIP = "SI" Then
+                If GFEAUTOCAEAFIP = "SI" And Idtipocomprobantecombo.SelectedValue > 1 Then
                     Dim FECAERequest As New WSFEV1.FECAERequest()
-                    Dim codigo As Integer
-                    Dim mensaje As String
-                    Dim RESULTADO As String
                     Dim TRA As String = Nothing
-                    RESULTADO = GenTRA(TRA, codigo, mensaje)
-                    If RESULTADO = "OK" Or RESULTADO = "WARNING" Then
-                        FECAELoadRequest(idventas, FECAERequest)
+                    Dim StrError As StrError
+                    '========================================================================================
+                    '       generacion TRA
+                    '========================================================================================
+                    StrError = GenTRA(TRA)
+                    If StrError.CodError > 1 Then
+                        MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Else
+                        '========================================================================================
+                        '       Generación Factura Electrónica
+                        '========================================================================================
+                        StrError = FECAELoadRequest(idventas, FECAERequest)
+                        If StrError.CodError > 0 Then
+                            MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        End If
                     End If
                 End If
             End If
@@ -533,7 +573,7 @@ Public Class RegistrarVenta
         FechavencimientoDateTimePicker.Enabled = False
     End Sub
     Private Sub validardatos(ByRef valida As Boolean)
-        '******************* valida cargade datos   *********************
+        '******************* valida carga de datos   *********************
         If idformapagocombo.Text = "Cuenta Corriente" And Val(IdclienteTextBox.Text) = 1 Then
             MsgBox("Seleccione un cliente válido!", MsgBoxStyle.Exclamation, "Advertencia")
             Return
@@ -586,8 +626,16 @@ Public Class RegistrarVenta
                 Return
             End If
         End If
-
-
+        If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
+            If GFEAUTOCAEAFIP = "SI" And Idtipocomprobantecombo.SelectedValue > 1 Then
+                Dim StrError As New StrError
+                StrError = ValidarDatosClienteAFIP(Val(IdclienteTextBox.Text))
+                If StrError.CodError > 1 Then
+                    MessageBox.Show(StrError.MsgError, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Return
+                End If
+            End If
+        End If
         valida = True
     End Sub
     Private Sub buscaproductobalanza()
@@ -1833,11 +1881,12 @@ Public Class RegistrarVenta
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Dim FECAERequest As New WSFEV1.FECAERequest()
-        Dim codigo As Integer
-        Dim mensaje As String
+        Dim strerror As New StrError
         Dim TRA As String = Nothing
-        GenTRA(TRA, codigo, mensaje)
-        FECAELoadRequest(Val(NrocomprobanteTextBox2.Text), FECAERequest)
+        strerror = GenTRA(TRA)
+        If Not strerror.CodError = 2 Then
+            FECAELoadRequest(Val(NrocomprobanteTextBox2.Text), FECAERequest)
+        End If
     End Sub
 
     Private Sub ComboConcepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboConcepto.SelectedIndexChanged
@@ -1871,5 +1920,28 @@ Public Class RegistrarVenta
             Case Else
                 FechavencimientoDateTimePicker.Enabled = False
         End Select
+    End Sub
+
+    Private Sub ActivarDesactivarFacturaElectrónicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Click
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        If GFEAUTOCAEAFIP = "SI" Then
+            ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Text = "Activar Factura Electrónica"
+            GFEAUTOCAEAFIP = "NO"
+        Else
+            GFEAUTOCAEAFIP = "SI"
+            ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Text = "Desactivar Factura Electrónica"
+        End If
+        FeAutoFE()
+        '''''''''''''''''''''''''''''''''''''''''''''''
+    End Sub
+
+    Private Sub IdclienteLabel_Click(sender As Object, e As EventArgs)
+        Dim valida As New StrError
+        valida = ValidarDatosClienteAFIP(Val(IdclienteTextBox.Text))
+        If valida.CodError > 1 Then
+            MessageBox.Show(valida.MsgError, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            MessageBox.Show(valida.MsgError, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
     End Sub
 End Class

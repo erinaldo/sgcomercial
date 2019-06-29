@@ -11,6 +11,7 @@ Public Class FeConf
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("AFIPCUIT", Nothing, TCUIT.Text, Nothing)
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("AFIPPTOVTA", Nothing, TAFIPPTOVTA.Text, Nothing)
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("FEAFIP", Nothing, ComboBox1.Text, Nothing)
+                    ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("FEAutoCAEAFIP", Nothing, "NO", Nothing)
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("WSAAH", Nothing, TWSAAH.Text, Nothing)
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("WSAAP", Nothing, TWSAAP.Text, Nothing)
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("WSFEV1H", Nothing, TWSFEV1H.Text, Nothing)
@@ -128,8 +129,7 @@ Public Class FeConf
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim ESTADO As String
-        Dim codigo As New Integer
-        Dim mensaje As String = Nothing
+        Dim strerror As New StrError
         Dim ticket As String = Nothing
 
         ESTADO = FeAFIPLoad()
@@ -137,9 +137,9 @@ Public Class FeConf
             MsgBox(ESTADO, MsgBoxStyle.Exclamation, "Modulo Facturación Electrónica")
             Return
         End If
-        GenTRA(ticket, codigo, mensaje)
-        If codigo > 0 Then
-            MsgBox(mensaje, MsgBoxStyle.Exclamation, "Advertencia!")
+        strerror = GenTRA(ticket)
+        If strerror.CodError > 0 Then
+            MsgBox(strerror.MsgError, MsgBoxStyle.Exclamation, "Advertencia!")
             Return
         End If
         MsgBox(ticket)

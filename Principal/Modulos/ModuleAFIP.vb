@@ -3,6 +3,8 @@
 'Imports System.Security.Cryptography
 'Imports System.Net
 'Imports System.Runtime.InteropServices
+'Imports System.Net
+'Imports System.Runtime.InteropServices
 Imports System.Text
 Imports System.Xml
 Imports System.Security
@@ -10,11 +12,9 @@ Imports System.Security.Cryptography.Pkcs
 Imports System.Security.Cryptography.X509Certificates
 Imports System.IO
 Imports System.ServiceModel
-
-
-Imports System.Net
 Imports System.Net.Sockets
-Imports System.Runtime.InteropServices
+
+
 
 
 Module ModuleAFIP
@@ -145,8 +145,9 @@ Module ModuleAFIP
         Return GFEAFIPENTORNO
     End Function
 
-    Public Function GenTRA(ByRef loginTicketResponse As String, ByRef codigo As Integer, ByRef mensaje As String) As String
+    Public Function GenTRA(ByRef loginTicketResponse As String) As StrError
         '---------------------
+        Dim StrError As New StrError
         Dim cmsFirmadoBase64 As String
         'Dim loginTicketResponse As String = Nothing
         Dim xmlNodoUniqueId As XmlNode
@@ -154,6 +155,26 @@ Module ModuleAFIP
         Dim xmlNodoExpirationTime As XmlNode
         Dim xmlNodoService As XmlNode
         Dim argRutaCertX509Firmante As String = Nothing
+        '---------------------
+        ' PASO 0: Consulto si hay ticket vigente
+        '---------------------
+        Try
+            Dim TicketAccesoFETableAdapter As New comercialDataSetTableAdapters.ticketaccesofeTableAdapter()
+            Dim ticketaccesofeDataTable As New comercialDataSet.ticketaccesofeDataTable
+            TicketAccesoFETableAdapter.FillByTRAVigente(ticketaccesofeDataTable)
+            If ticketaccesofeDataTable.Count > 0 Then
+                GTOKEN = ticketaccesofeDataTable.Rows(0).Item("token")
+                GSIGN = ticketaccesofeDataTable.Rows(0).Item("sign")
+                StrError.CodError = 1
+                StrError.MsgError = "Ultimo Ticket Vigente"
+                Return StrError
+            End If
+        Catch ex As Exception
+            StrError.CodError = 66
+            StrError.MsgError = ID_FNC + "***Error GENERANDO el LoginTicketRequest : " + ex.Message + ex.StackTrace
+            Return StrError
+        End Try
+
         '---------------------
         ' PASO 1: Genero el Login Ticket Request
         '---------------------
@@ -168,7 +189,7 @@ Module ModuleAFIP
             xmlNodoExpirationTime = XmlLoginTicketRequest.SelectSingleNode("//expirationTime")
             xmlNodoService = XmlLoginTicketRequest.SelectSingleNode("//service")
             xmlNodoGenerationTime.InnerText = DateTime.Now.AddMinutes(-1).ToString("s")
-            xmlNodoExpirationTime.InnerText = DateTime.Now.AddMinutes(+1).ToString("s")
+            xmlNodoExpirationTime.InnerText = DateTime.Now.AddMinutes(+60).ToString("s")
             xmlNodoUniqueId.InnerText = CStr(_globalUniqueID)
             xmlNodoService.InnerText = argServicio
             'Me.Service = argServicio
@@ -178,24 +199,23 @@ Module ModuleAFIP
             'End If
 
         Catch excepcionAlGenerarLoginTicketRequest As Exception
-            'Throw New Exception(ID_FNC + "***Error GENERANDO el LoginTicketRequest : " + excepcionAlGenerarLoginTicketRequest.Message + excepcionAlGenerarLoginTicketRequest.StackTrace)
-            codigo = 66
-            mensaje = ID_FNC + "***Error GENERANDO el LoginTicketRequest : " + excepcionAlGenerarLoginTicketRequest.Message + excepcionAlGenerarLoginTicketRequest.StackTrace
-            Return "ERROR"
+            StrError.CodError = 66
+            StrError.MsgError = ID_FNC + "***Error GENERANDO el LoginTicketRequest : " + excepcionAlGenerarLoginTicketRequest.Message + excepcionAlGenerarLoginTicketRequest.StackTrace
+            Return StrError
         End Try
         '---------------------
         ' PASO 2: Firmo el Login Ticket Request
         '---------------------
         Try
             'If Me._verboseMode Then
-            Console.WriteLine(ID_FNC + "***Leyendo certificado: {0}", RutaDelCertificadoFirmante)
+            'Console.WriteLine(ID_FNC + "***Leyendo certificado: {0}", RutaDelCertificadoFirmante)
             'End If
 
             Dim certFirmante As X509Certificate2 = CertificadosX509Lib.ObtieneCertificadoDesdeArchivo(RutaDelCertificadoFirmante, argPassword)
 
             'If Me._verboseMode Then
-            Console.WriteLine(ID_FNC + "***Firmando: ")
-            Console.WriteLine(XmlLoginTicketRequest.OuterXml)
+            'Console.WriteLine(ID_FNC + "***Firmando: ")
+            'Console.WriteLine(XmlLoginTicketRequest.OuterXml)
             'End If
 
             ' Convierto el login ticket request a bytes, firmo el msg y convierto a Base64
@@ -205,9 +225,9 @@ Module ModuleAFIP
             cmsFirmadoBase64 = Convert.ToBase64String(encodedSignedCms)
 
         Catch excepcionAlFirmar As Exception
-            'Throw New Exception(ID_FNC + "***Error FIRMANDO el LoginTicketRequest: " + excepcionAlFirmar.Message)
-            mensaje = ID_FNC + "***Error FIRMANDO el LoginTicketRequest: " + excepcionAlFirmar.Message
-            Return "ERROR"
+            StrError.CodError = 66
+            StrError.MsgError = ID_FNC + "***Error FIRMANDO el LoginTicketRequest: " + excepcionAlFirmar.Message
+            Return StrError
         End Try
 
         ' PASO 3: Invoco al WSAA para obtener el Login Ticket Response
@@ -238,11 +258,13 @@ Module ModuleAFIP
                 TicketAccesoFETableAdapter.FillByLastTicket(ticketaccesofeDataTable)
                 GTOKEN = ticketaccesofeDataTable.Rows(0).Item("token")
                 GSIGN = ticketaccesofeDataTable.Rows(0).Item("sign")
-                Return "WARNING"
+                StrError.CodError = 0
+                StrError.MsgError = "Ultimo Ticket Vigente"
+                Return StrError
             Else
-                codigo = 66
-                mensaje = ID_FNC + "***Error INVOCANDO al servicio WSAA: " + excepcionAlInvocarWsaa.Message
-                Return "ERROR"
+                StrError.CodError = 66
+                StrError.MsgError = ID_FNC + "***Error INVOCANDO al servicio WSAA: " + excepcionAlInvocarWsaa.Message
+                Return StrError
             End If
         End Try
 
@@ -268,13 +290,14 @@ Module ModuleAFIP
             End Try
             '*******************************
         Catch excepcionAlAnalizarLoginTicketResponse As Exception
-            'Throw New Exception(ID_FNC + "***Error ANALIZANDO el LoginTicketResponse: " + excepcionAlAnalizarLoginTicketResponse.Message)
-            codigo = 66
-            mensaje = ID_FNC + "***Error ANALIZANDO el LoginTicketResponse: " + excepcionAlAnalizarLoginTicketResponse.Message
-            Return "ERROR"
+            StrError.CodError = 66
+            StrError.MsgError = ID_FNC + "***Error ANALIZANDO el LoginTicketResponse: " + excepcionAlAnalizarLoginTicketResponse.Message
+            Return StrError
         End Try
 
-        'Return loginTicketResponse
+        StrError.CodError = 0
+        StrError.MsgError = "Ticket Generado exitosamente"
+        Return StrError
 
     End Function
 
@@ -385,7 +408,8 @@ Module ModuleAFIP
 
     End Sub
     '**********************************************************************************************************************
-    Public Function FECAELoadRequest(ByVal idventa As Long, ByRef FECAERequest As WSFEV1.FECAERequest) As String
+    Public Function FECAELoadRequest(ByVal idventa As Long, ByRef FECAERequest As WSFEV1.FECAERequest) As StrError
+        Dim StrError As New StrError
         Try
             Dim CbtNro As Long
             Dim Err1 As WSFEV1.Err
@@ -405,13 +429,29 @@ Module ModuleAFIP
             '------------ DETALLE --------------------------
             Dim FeDetReq As New WSFEV1.FECAEDetRequest()
             '---------------------------------------------
-            FeDetReq.Concepto = libroventasDataTable.Rows(0).Item("idconcepto") '------   Sign ES PRODUCTO , SERVICIO O AMBOS
-            FeDetReq.DocTipo = 80 '------ dni 96 O cuit 80
-            FeDetReq.DocNro = libroventasDataTable.Rows(0).Item("cuit") '------ cuit DEL CLIENTE
+            FeDetReq.Concepto = libroventasDataTable.Rows(0).Item("idconcepto") '------   si ES PRODUCTO , SERVICIO O AMBOS
+            If IsDBNull(libroventasDataTable.Rows(0).Item("doctipo")) Then
+                StrError.CodError = 1
+                StrError.MsgError = "Tipo de documento INVÁLIDO"
+                Return StrError
+            Else
+                FeDetReq.DocTipo = libroventasDataTable.Rows(0).Item("doctipo") '------ dni 96 O cuit 80
+            End If
+            '---------------------------------------------
+            If IsDBNull(libroventasDataTable.Rows(0).Item("cuit")) Then
+                StrError.CodError = 1
+                StrError.MsgError = "Documento INVÁLIDO"
+                Return StrError
+            Else
+                FeDetReq.DocNro = libroventasDataTable.Rows(0).Item("cuit") '------ cuit DEL CLIENTE
+            End If
+
             UltimoCbte(GPtoVta, FECabRequest.CbteTipo, CbtNro, Err1)
             If Err1.Code > 0 Then
                 ErrFEHandle(Err1)
-                Return "No se pudo obtener el último Número de comprobante"
+                StrError.CodError = 1
+                StrError.MsgError = "No se pudo obtener el último Número de comprobante"
+                Return StrError
             Else
                 CbtNro = CbtNro + 1
             End If
@@ -515,12 +555,23 @@ Module ModuleAFIP
                     Dim VentasTableAdapter As New comercialDataSetTableAdapters.ventasTableAdapter()
                     VentasTableAdapter.ventas_registrarCAE(FeCAEResponse.FeDetResp(0).CAE, FeCAEResponse.FeDetResp(0).CAEFchVto, idventa)
                     MsgBox("CAE Registrado exitosamente!", MsgBoxStyle.Information, "Resultado de Solicitud")
+                    StrError.CodError = 0
+                    StrError.MsgError = "Operación Realizada Exitosamente"
+                    Return StrError
                 Else
-                    MsgBox("NO se registró la Factura Electrónica, intente nuevamente más tarde", MsgBoxStyle.Information, "Resultado de Solicitud")
+                    StrError.CodError = 1
+                    StrError.MsgError = "NO se registró la Factura Electrónica, intente nuevamente más tarde desde la pantalla de -Comprobantes Emitidos-"
+                    Return StrError
                 End If
+            Else
+                StrError.CodError = 1
+                StrError.MsgError = "NO se registró la Factura Electrónica, intente nuevamente más tarde desde la pantalla de -Comprobantes Emitidos-"
+                Return StrError
             End If
         Catch ex As Exception
-            Return ex.Message
+            StrError.CodError = 2
+            StrError.MsgError = ex.Message
+            Return StrError
         End Try
     End Function
     Class CertificadosX509Lib
@@ -594,4 +645,42 @@ Module ModuleAFIP
         End Function
 
     End Class
+    Class StrError
+        Public CodError As Integer
+        Public MsgError As String
+    End Class
+    Public Function ValidarDatosClienteAFIP(ByVal idcliente As Long) As StrError
+        Dim StrError As New StrError
+        Dim ListaClientesTableAdapter As New comercialDataSetTableAdapters.listaclientesTableAdapter
+        Dim ListaClientesDataTable As New comercialDataSet.listaclientesDataTable
+        ListaClientesTableAdapter.FillByIdCliente(ListaClientesDataTable, idcliente)
+        '-----------------------------------------------------------------------------
+        If ListaClientesDataTable.Count <> 1 Then
+            StrError.CodError = 2
+            StrError.MsgError = "Cliente inválido"
+            Return StrError
+        End If
+        '-----------------------------------------------------------------------------
+        If IsDBNull(ListaClientesDataTable.Rows(0).Item("doctipoafip")) Then
+            StrError.CodError = 2
+            StrError.MsgError = "Debe indicar el tipo de documento"
+            Return StrError
+        End If
+        '-----------------------------------------------------------------------------
+        If IsDBNull(ListaClientesDataTable.Rows(0).Item("docnro")) Then
+            StrError.CodError = 2
+            StrError.MsgError = "Debe indicar el número de documento"
+            Return StrError
+        End If
+        '-----------------------------------------------------------------------------
+        If ListaClientesDataTable.Rows(0).Item("docnro") = "" Then
+            StrError.CodError = 2
+            StrError.MsgError = "Debe indicar el número de documento"
+            Return StrError
+        End If
+        '-----------------------------------------------------------------------------
+        StrError.CodError = 1
+        StrError.MsgError = "OK"
+        Return StrError
+    End Function
 End Module

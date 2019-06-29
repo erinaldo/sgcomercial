@@ -21,8 +21,10 @@ Public Class Principal
         ParametrosgeneralesTableAdapter.FillByPrgclave(Me.ComercialDataSet.parametrosgenerales, "FondoAplicacion")
         FormPrincipal.BackgroundImage = PictureBox1.Image
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
+        '   TITULO DE LA VENTANA PRINCIPAL
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''
         Try
-            Me.Text = " Sistema de Gestión Comercial " + " - [" + ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio") + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]"
+            Me.Text = " Sistema de Gestión Comercial " + " - [" + ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio") + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]"
         Catch ex As Exception
 
         End Try
