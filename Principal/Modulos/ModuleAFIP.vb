@@ -13,10 +13,6 @@ Imports System.Security.Cryptography.X509Certificates
 Imports System.IO
 Imports System.ServiceModel
 Imports System.Net.Sockets
-
-
-
-
 Module ModuleAFIP
     '**************************  FEAFIP GLOBALS **************************************************
     Public ID_FNC As String = "[ObtenerLoginTicketResponse]"
@@ -412,8 +408,8 @@ Module ModuleAFIP
         Dim StrError As New StrError
         Try
             Dim CbtNro As Long
-            Dim Err1 As WSFEV1.Err
-            Dim Err2 As WSFEV1.Err
+            Dim Err1 As New WSFEV1.Err
+            Dim Err2 As New WSFEV1.Err
             ' ----- RECUPERO LOS DATOS DE LA VENTA ------
             Dim LibroVentasTableAdapter As New comercialDataSetTableAdapters.libroventasTableAdapter()
             Dim libroventasDataTable As New comercialDataSet.libroventasDataTable
@@ -553,7 +549,7 @@ Module ModuleAFIP
                 'MsgBox(FeCAEResponse.FeDetResp(0).Resultado.ToString, MsgBoxStyle.Information, "Resultado de Solicitud")
                 If FeCAEResponse.FeDetResp(0).Resultado.ToString = "A" Then
                     Dim VentasTableAdapter As New comercialDataSetTableAdapters.ventasTableAdapter()
-                    VentasTableAdapter.ventas_registrarCAE(FeCAEResponse.FeDetResp(0).CAE, FeCAEResponse.FeDetResp(0).CAEFchVto, idventa)
+                    VentasTableAdapter.ventas_registrarCAE(FeCAEResponse.FeCabResp.PtoVta, FeCAEResponse.FeDetResp(0).CbteDesde, FeCAEResponse.FeDetResp(0).CAE, FeCAEResponse.FeDetResp(0).CAEFchVto, idventa)
                     MsgBox("CAE Registrado exitosamente!", MsgBoxStyle.Information, "Resultado de Solicitud")
                     StrError.CodError = 0
                     StrError.MsgError = "Operación Realizada Exitosamente"

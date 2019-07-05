@@ -181,6 +181,14 @@ Public Class CajaAperturaCierre
         Me.Close()
     End Sub
     Private Sub mail_cierrecaja()
+        Dim DesktopPath As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+        Dim ArchivoAdjunto As String
+        ArchivoAdjunto = DesktopPath + "\CierreCaja.pdf"
+        Try
+            FileSystem.Kill(ArchivoAdjunto)
+        Catch ex As Exception
+
+        End Try
         Me.Cursor = Cursors.WaitCursor
         Try
             '*******************************
@@ -198,7 +206,7 @@ Public Class CajaAperturaCierre
             saveFileDialog1.Filter = "*PDF files (*.pdf)|*.pdf"
             saveFileDialog1.FilterIndex = 2
             saveFileDialog1.RestoreDirectory = True
-            Dim newFile As New FileStream("CierreCaja.pdf", FileMode.Create)
+            Dim newFile As New FileStream(ArchivoAdjunto, FileMode.Create)
             newFile.Write(byteViewer, 0, byteViewer.Length)
             newFile.Close()
         Catch ex As Exception
@@ -213,7 +221,8 @@ Public Class CajaAperturaCierre
         Dim EmailPort As Long
         Dim EmailCierreCajaTo As String
         Dim SmtpClient As String
-
+        Dim EmailSubject As String = "Cierre de caja " + Today.ToShortDateString
+        Dim EmailBody As String = "Sistema de Gestión Comercial te envió el resumen de tu último Cierre de caja"
         Try
             '***************************************************************
             EmailCierreCajaTo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailCierreCajaTo")
@@ -226,26 +235,14 @@ Public Class CajaAperturaCierre
             EmailFrom = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFrom")
             EmailFromPwd = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFromPwd")
             EmailPort = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("EmailPort")
-            '***************************************************************
-            emailmessage.From = New MailAddress(EmailFrom)
-            emailmessage.To.Add(EmailCierreCajaTo)
-            emailmessage.Subject = "Cierre de caja " + Today.ToShortDateString
-            emailmessage.Body = "Sistema de Gestión Comercial te envió el resumen de tu último Cierre de caja"
-            '*************************  ADJUNTO **********************************************
-            Dim fileTXT As String = "CierreCaja.pdf"
-            Dim data As Net.Mail.Attachment = New Net.Mail.Attachment(fileTXT)
-            data.Name = "CierreCaja.pdf"
-            emailmessage.Attachments.Add(data)
-            '*********************************************************************************
-            Dim smtp As New SmtpClient(SmtpClient)
-            smtp.Port = EmailPort
-            smtp.EnableSsl = True
-            smtp.Credentials = New System.Net.NetworkCredential(EmailFrom, EmailFromPwd)
-            smtp.Timeout = 10
-            'smtp.Send(emailmessage)
-            smtp.SendAsync(emailmessage, gUserToken)
-            Me.Cursor = Cursors.Default
-            MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
+            '*************************  ENVIO EMAIL **********************************************
+            If ModuloUtilidades.clsSendMail.SendEMail(EmailFrom, EmailCierreCajaTo, EmailSubject, EmailBody, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
+                Me.Cursor = Cursors.Default
+                MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
+            Else
+                Me.Cursor = Cursors.Default
+                'MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
+            End If
         Catch ex As Exception
             Me.Cursor = Cursors.Default
             MsgBox(ex.Message)
@@ -262,5 +259,10 @@ Public Class CajaAperturaCierre
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
 
+    End Sub
+
+    Private Sub Button1_Click_3(sender As Object, e As EventArgs)
+        Dim s As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+        MsgBox(s)
     End Sub
 End Class

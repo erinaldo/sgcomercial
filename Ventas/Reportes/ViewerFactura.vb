@@ -63,17 +63,22 @@
     End Sub
 
     Private Sub ViewerFactura_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        ''''''''''***************************   POR DEFECTO **************************************
-        If e.KeyCode = Keys.Escape Then
-            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+        Try
+            ''''''''''***************************   POR DEFECTO **************************************
+            If e.KeyCode = Keys.Escape Then
+                If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                    Me.Close()
+                End If
+            End If
+            If e.KeyCode = Keys.Enter Then
+                ReportViewer1.PrintDialog()
                 Me.Close()
             End If
-        End If
-        If e.KeyCode = Keys.Enter Then
-            ReportViewer1.PrintDialog()
-            Me.Close()
-        End If
-        ''''''''''''''''''''*******************************************'''''''''''''''''''''
+            ''''''''''''''''''''*******************************************'''''''''''''''''''''
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub ReportViewer1_Load(sender As Object, e As EventArgs) Handles ReportViewer1.Load

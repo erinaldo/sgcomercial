@@ -1154,6 +1154,13 @@ Public Class Principal
         ABMTipoComprobantes.MdiParent = Me
         ABMTipoComprobantes.Visible = True
     End Sub
+
+    Private Sub RankingDeVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RankingDeVentasToolStripMenuItem.Click
+
+        EstRankingCantVentas.MdiParent = Me
+        EstRankingCantVentas.Visible = True
+
+    End Sub
     'Private Sub PrivateDownloadSGC()
 
     '    Dim ftpClient As New WebClient

@@ -33,8 +33,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>12</ApplicationRevision>
-    <ApplicationVersion>4.0.9.12</ApplicationVersion>
+    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationVersion>4.0.9.15</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -360,6 +360,12 @@
     <Compile Include="Estadisticas\Ventas\EstParetto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estadisticas\Ventas\EstRankingCantVentas.Designer.vb">
+      <DependentUpon>EstRankingCantVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Ventas\EstRankingCantVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Estadisticas\Ventas\EstVentasProvincias.Designer.vb">
       <DependentUpon>EstVentasProvincias.vb</DependentUpon>
     </Compile>
@@ -390,6 +396,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal\Modulos\ModuleAFIP.vb" />
+    <Compile Include="Principal\Modulos\ModuloUtilidades.vb" />
     <Compile Include="Principal\ParametrosGenerales\ABMTipoComprobantes.Designer.vb">
       <DependentUpon>ABMTipoComprobantes.vb</DependentUpon>
     </Compile>
@@ -1229,10 +1236,14 @@
     <EmbeddedResource Include="Estadisticas\Ventas\EstParetto.resx">
       <DependentUpon>EstParetto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Ventas\EstRankingCantVentas.resx">
+      <DependentUpon>EstRankingCantVentas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas\Ventas\EstVentasProvincias.resx">
       <DependentUpon>EstVentasProvincias.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas\Ventas\RepEstEnviosSucursales.rdlc" />
+    <EmbeddedResource Include="Estadisticas\Ventas\RepRankingVentas.rdlc" />
     <EmbeddedResource Include="Estadisticas\Ventas\RepVentasProvincias.rdlc" />
     <EmbeddedResource Include="Principal\ConfigInicial\DownloadForm.resx">
       <DependentUpon>DownloadForm.vb</DependentUpon>
@@ -1850,6 +1861,7 @@
     <None Include="My Project\img\FEAFIP.gif" />
     <None Include="My Project\img\FEAFIP_ON.gif" />
     <None Include="My Project\img\FEAFIP_OFF.gif" />
+    <None Include="My Project\img\Yes_check.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />
@@ -1871,42 +1883,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

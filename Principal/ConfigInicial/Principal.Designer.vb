@@ -96,6 +96,7 @@ Partial Class Principal
         Me.EnvíosPorSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrincipioDeParetoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasPorProvinciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RankingDeVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -125,6 +126,7 @@ Partial Class Principal
         Me.ModulosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMUnidadesMedidaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.POSTFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ABMTipoComprobantesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Alerta2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -197,7 +199,6 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
-        Me.ABMTipoComprobantesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -732,9 +733,9 @@ Partial Class Principal
         '
         'MisVentasToolStripMenuItem
         '
-        Me.MisVentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HistoricoVentasToolStripMenuItem, Me.EnvíosPorSucursalesToolStripMenuItem, Me.PrincipioDeParetoToolStripMenuItem, Me.VentasPorProvinciaToolStripMenuItem})
+        Me.MisVentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HistoricoVentasToolStripMenuItem, Me.EnvíosPorSucursalesToolStripMenuItem, Me.PrincipioDeParetoToolStripMenuItem, Me.VentasPorProvinciaToolStripMenuItem, Me.RankingDeVentasToolStripMenuItem})
         Me.MisVentasToolStripMenuItem.Name = "MisVentasToolStripMenuItem"
-        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
+        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.MisVentasToolStripMenuItem.Tag = "EstadisticasVentas"
         Me.MisVentasToolStripMenuItem.Text = "Ventas"
         '
@@ -766,17 +767,24 @@ Partial Class Principal
         Me.VentasPorProvinciaToolStripMenuItem.Tag = "EstVentasProvincias"
         Me.VentasPorProvinciaToolStripMenuItem.Text = "Ventas por Provincia"
         '
+        'RankingDeVentasToolStripMenuItem
+        '
+        Me.RankingDeVentasToolStripMenuItem.Name = "RankingDeVentasToolStripMenuItem"
+        Me.RankingDeVentasToolStripMenuItem.Size = New System.Drawing.Size(350, 28)
+        Me.RankingDeVentasToolStripMenuItem.Tag = "RankingVentas"
+        Me.RankingDeVentasToolStripMenuItem.Text = "Ranking de Ventas"
+        '
         'MisClientesToolStripMenuItem
         '
         Me.MisClientesToolStripMenuItem.Name = "MisClientesToolStripMenuItem"
-        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
+        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.MisClientesToolStripMenuItem.Tag = "EstadisticasClientes"
         Me.MisClientesToolStripMenuItem.Text = "Clientes"
         '
         'MisProveedoresToolStripMenuItem
         '
         Me.MisProveedoresToolStripMenuItem.Name = "MisProveedoresToolStripMenuItem"
-        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
+        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.MisProveedoresToolStripMenuItem.Tag = "EstadisticasProveedores"
         Me.MisProveedoresToolStripMenuItem.Text = "Proveedores"
         '
@@ -976,6 +984,13 @@ Partial Class Principal
         Me.POSTFormToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
         Me.POSTFormToolStripMenuItem.Tag = "POSTForm"
         Me.POSTFormToolStripMenuItem.Text = "POSTForm"
+        '
+        'ABMTipoComprobantesToolStripMenuItem
+        '
+        Me.ABMTipoComprobantesToolStripMenuItem.Name = "ABMTipoComprobantesToolStripMenuItem"
+        Me.ABMTipoComprobantesToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
+        Me.ABMTipoComprobantesToolStripMenuItem.Tag = "ABMTipoComprobantes"
+        Me.ABMTipoComprobantesToolStripMenuItem.Text = "ABMTipoComprobantes"
         '
         'NotificacionesToolStripMenuItem
         '
@@ -1549,13 +1564,6 @@ Partial Class Principal
         'BGWStock
         '
         '
-        'ABMTipoComprobantesToolStripMenuItem
-        '
-        Me.ABMTipoComprobantesToolStripMenuItem.Name = "ABMTipoComprobantesToolStripMenuItem"
-        Me.ABMTipoComprobantesToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
-        Me.ABMTipoComprobantesToolStripMenuItem.Tag = "ABMTipoComprobantes"
-        Me.ABMTipoComprobantesToolStripMenuItem.Text = "ABMTipoComprobantes"
-        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1778,4 +1786,5 @@ Partial Class Principal
     Friend WithEvents PrincipioDeParetoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentasPorProvinciaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMTipoComprobantesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RankingDeVentasToolStripMenuItem As ToolStripMenuItem
 End Class

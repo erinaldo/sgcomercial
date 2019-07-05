@@ -51,11 +51,11 @@ Partial Class loginform
         Me.Button3 = New System.Windows.Forms.Button()
         Me.UpdateAlert = New System.Windows.Forms.Label()
         Me.UpdateCheckBG = New System.ComponentModel.BackgroundWorker()
-        Me.PictureUpdateAlert = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LabelDatosCliente = New System.Windows.Forms.Label()
         Me.LabelMACaddress = New System.Windows.Forms.Label()
         Me.BGWUpdateLicencia = New System.ComponentModel.BackgroundWorker()
+        Me.PictureUpdateAlert = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,6 +123,7 @@ Partial Class loginform
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -146,9 +147,13 @@ Partial Class loginform
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -323,28 +328,6 @@ Partial Class loginform
         'UpdateCheckBG
         '
         '
-        'PictureUpdateAlert
-        '
-        Me.PictureUpdateAlert.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureUpdateAlert.Image = CType(resources.GetObject("PictureUpdateAlert.Image"), System.Drawing.Image)
-        Me.PictureUpdateAlert.Location = New System.Drawing.Point(426, 3)
-        Me.PictureUpdateAlert.Name = "PictureUpdateAlert"
-        Me.PictureUpdateAlert.Size = New System.Drawing.Size(60, 60)
-        Me.PictureUpdateAlert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureUpdateAlert.TabIndex = 12
-        Me.PictureUpdateAlert.TabStop = False
-        Me.PictureUpdateAlert.Visible = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.appicon
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(139, 144)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 8
-        Me.PictureBox1.TabStop = False
-        '
         'LabelDatosCliente
         '
         Me.LabelDatosCliente.Font = New System.Drawing.Font("Exo 2.0 Medium", 10.0!)
@@ -367,6 +350,28 @@ Partial Class loginform
         '
         'BGWUpdateLicencia
         '
+        '
+        'PictureUpdateAlert
+        '
+        Me.PictureUpdateAlert.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureUpdateAlert.Image = Global.sgcomercial.My.Resources.Resources.checked
+        Me.PictureUpdateAlert.Location = New System.Drawing.Point(426, 3)
+        Me.PictureUpdateAlert.Name = "PictureUpdateAlert"
+        Me.PictureUpdateAlert.Size = New System.Drawing.Size(60, 60)
+        Me.PictureUpdateAlert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureUpdateAlert.TabIndex = 12
+        Me.PictureUpdateAlert.TabStop = False
+        Me.PictureUpdateAlert.Visible = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.appicon
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(139, 144)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
         '
         'loginform
         '

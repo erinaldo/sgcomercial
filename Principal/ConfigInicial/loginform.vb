@@ -454,7 +454,7 @@ Public Class loginform
                 UpdateAlert.Visible = True
                 UpdateAlert.Text = "Sistema Actualizado!"
                 UpdateAlert.ForeColor = Color.Green
-                PictureUpdateAlert.Image = My.Resources.checked
+                PictureUpdateAlert.Image = My.Resources.checked ' My.Resources.Resources.Yes_check
                 PictureUpdateAlert.Visible = True
                 'Button3.Visible = False
             End If
