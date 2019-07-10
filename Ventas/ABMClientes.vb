@@ -85,6 +85,7 @@ Public Class ABMClientes
         DiasvencimientoTextBox.Enabled = status
         porcentajedescuentoTextbox.Enabled = status
         ComboDocTipo.Enabled = status
+        CUITTextBox.Enabled = status
         If status = False Then
             ToolStripButtonEditar.Visible = True
             BindingNavigatorAddNewItem.Enabled = True
@@ -163,14 +164,16 @@ Public Class ABMClientes
     Private Sub ComboDocTipo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboDocTipo.SelectedIndexChanged
         If ComboDocTipo.SelectedValue = Nothing Then Return
         Try
-            Select Case ComboDocTipo.SelectedValue
-                Case 3
-                    CUITTextBox.Text = "0"
-                    CUITTextBox.Enabled = False
-                Case Else
-                    CUITTextBox.Text = ""
-                    CUITTextBox.Enabled = True
-            End Select
+            If NombreTextBox.Enabled = True Then
+                Select Case ComboDocTipo.SelectedValue
+                    Case 3
+                        CUITTextBox.Text = "0"
+                        CUITTextBox.Enabled = False
+                    Case Else
+                        CUITTextBox.Text = ""
+                        CUITTextBox.Enabled = True
+                End Select
+            End If
         Catch ex As Exception
 
         End Try

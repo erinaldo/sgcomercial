@@ -730,6 +730,21 @@ Module SGCModule
             MsgBox("Ocurrio un problema en ReparaProductosMedidas: " + ex.Message)
         End Try
     End Sub
+    Public Sub ReparaProductosEstados()
+        Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
+        Dim mycommand As New SqlCommand
+        Dim qry As String = "update productos set estado = 'I' where estado <> 'A'"
+        Try
+            myConn2.Open()
+            mycommand = New SqlCommand(qry, myConn2)
+            mycommand.ExecuteNonQuery()
+            'MsgBox("Medidas reparadas", MsgBoxStyle.Information, "Auto Fix measurements:")
+            myConn2.Close()
+            myConn2.Dispose()
+        Catch ex As Exception
+            MsgBox("Ocurrio un problema en ReparaProductosMedidas: " + ex.Message)
+        End Try
+    End Sub
     Public Sub UpdateRemoteVersion(ByRef CurrVersion As Long, ByRef terminal As Long)
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         '   *********************   ACTUALIZAR NRO DE VERSION REMOTA 

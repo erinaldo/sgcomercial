@@ -35,8 +35,6 @@ Partial Class ingresoegresoproductos
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.ComboMotivoStock = New System.Windows.Forms.ComboBox()
         Me.MotivostockBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
@@ -79,7 +77,6 @@ Partial Class ingresoegresoproductos
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.codigoproductoTextBox = New System.Windows.Forms.TextBox()
         Me.CantidadTextBox = New System.Windows.Forms.TextBox()
         Me.TipomovimientostockComboBox = New System.Windows.Forms.ComboBox()
@@ -203,8 +200,6 @@ Partial Class ingresoegresoproductos
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Button6)
         Me.GroupBox1.Controls.Add(Me.Button5)
-        Me.GroupBox1.Controls.Add(Me.Button3)
-        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.ComboMotivoStock)
         Me.GroupBox1.Controls.Add(Me.TextBoxMedida)
         Me.GroupBox1.Controls.Add(Label3)
@@ -216,7 +211,6 @@ Partial Class ingresoegresoproductos
         Me.GroupBox1.Controls.Add(Me.Labeldescripcion)
         Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.ProductosDataGridView)
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(IdproductoLabel)
         Me.GroupBox1.Controls.Add(Me.codigoproductoTextBox)
         Me.GroupBox1.Controls.Add(CantidadLabel)
@@ -241,39 +235,21 @@ Partial Class ingresoegresoproductos
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(159, 438)
+        Me.Button6.Location = New System.Drawing.Point(132, 438)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(127, 28)
+        Me.Button6.Size = New System.Drawing.Size(145, 28)
         Me.Button6.TabIndex = 24
-        Me.Button6.Text = "Eliminar Producto"
+        Me.Button6.Text = "Desactivar Producto"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(427, 438)
+        Me.Button5.Location = New System.Drawing.Point(436, 438)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(127, 28)
+        Me.Button5.Size = New System.Drawing.Size(145, 28)
         Me.Button5.TabIndex = 23
         Me.Button5.Text = "Resetear a Cero"
         Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(159, 438)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(127, 28)
-        Me.Button3.TabIndex = 24
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(427, 438)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(127, 28)
-        Me.Button2.TabIndex = 23
-        Me.Button2.Text = "Resetear a Cero"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'ComboMotivoStock
         '
@@ -542,10 +518,10 @@ Partial Class ingresoegresoproductos
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(293, 438)
+        Me.Button4.Location = New System.Drawing.Point(284, 438)
         Me.Button4.Margin = New System.Windows.Forms.Padding(4)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(127, 28)
+        Me.Button4.Size = New System.Drawing.Size(145, 28)
         Me.Button4.TabIndex = 7
         Me.Button4.Text = "Guardar"
         Me.Button4.UseVisualStyleBackColor = True
@@ -621,16 +597,6 @@ Partial Class ingresoegresoproductos
         '
         Me.ProductosBindingSource.DataMember = "productos"
         Me.ProductosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(293, 438)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(127, 28)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Guardar"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'codigoproductoTextBox
         '
@@ -755,7 +721,9 @@ Partial Class ingresoegresoproductos
         Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
         Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
@@ -798,7 +766,7 @@ Partial Class ingresoegresoproductos
         Me.MinimizeBox = False
         Me.Name = "ingresoegresoproductos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Ingreso / Egreso Productos"
+        Me.Text = "Ingreso / Egreso de Productos"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.MotivostockBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -826,7 +794,6 @@ Partial Class ingresoegresoproductos
     Friend WithEvents ComercialDataSet As sgcomercial.comercialDataSet
     Friend WithEvents TipomovimientostockBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TipomovimientostockTableAdapter As sgcomercial.comercialDataSetTableAdapters.tipomovimientostockTableAdapter
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents ProductosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ProductosTableAdapter As sgcomercial.comercialDataSetTableAdapters.productosTableAdapter
     Friend WithEvents TableAdapterManager As sgcomercial.comercialDataSetTableAdapters.TableAdapterManager
@@ -874,9 +841,7 @@ Partial Class ingresoegresoproductos
     Friend WithEvents ComboMotivoStock As ComboBox
     Friend WithEvents MotivostockBindingSource As BindingSource
     Friend WithEvents MotivostockTableAdapter As comercialDataSetTableAdapters.motivostockTableAdapter
-    Friend WithEvents Button2 As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents Button5 As Button
-    Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
 End Class

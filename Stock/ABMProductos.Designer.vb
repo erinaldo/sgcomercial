@@ -53,11 +53,9 @@ Partial Class ABMProductos
         Me.GuardarNuevo = New System.Windows.Forms.ToolStripButton()
         Me.ImagenPictureBox = New System.Windows.Forms.PictureBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContextMenuStripGrilla = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ActivarTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DesactivarTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RubrosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UnidadesmedidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet1 = New sgcomercial.comercialDataSet()
@@ -112,9 +110,11 @@ Partial Class ABMProductos
         Me.StockTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.stockTableAdapter()
         Me.StockTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.TipoivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipoivaTableAdapter()
-        Me.ContextMenuStripGrilla = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ActivarTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DesactivarTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdproductoLabel = New System.Windows.Forms.Label()
         MarcaLabel = New System.Windows.Forms.Label()
         ModeloLabel = New System.Windows.Forms.Label()
@@ -139,6 +139,7 @@ Partial Class ABMProductos
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImagenPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStripGrilla.SuspendLayout()
         CType(Me.RubrosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,7 +149,6 @@ Partial Class ABMProductos
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxCalidacodigo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        Me.ContextMenuStripGrilla.SuspendLayout()
         Me.SuspendLayout()
         '
         'IdproductoLabel
@@ -466,49 +466,24 @@ Partial Class ABMProductos
         Me.ProductosDataGridView.Size = New System.Drawing.Size(1106, 234)
         Me.ProductosDataGridView.TabIndex = 19
         '
-        'estado
+        'ContextMenuStripGrilla
         '
-        Me.estado.DataPropertyName = "estado"
-        Me.estado.FalseValue = "I"
-        Me.estado.HeaderText = "Activo/Inactivo"
-        Me.estado.Name = "estado"
-        Me.estado.ReadOnly = True
-        Me.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.estado.ToolTipText = "Activo/Inactivo"
-        Me.estado.TrueValue = "A"
-        Me.estado.Width = 127
+        Me.ContextMenuStripGrilla.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStripGrilla.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ActivarTodosToolStripMenuItem, Me.DesactivarTodosToolStripMenuItem})
+        Me.ContextMenuStripGrilla.Name = "ContextMenuStripGrilla"
+        Me.ContextMenuStripGrilla.Size = New System.Drawing.Size(192, 52)
         '
-        'codigoproducto
+        'ActivarTodosToolStripMenuItem
         '
-        Me.codigoproducto.DataPropertyName = "codigoproducto"
-        Me.codigoproducto.HeaderText = "Cod. Producto"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.Width = 127
+        Me.ActivarTodosToolStripMenuItem.Name = "ActivarTodosToolStripMenuItem"
+        Me.ActivarTodosToolStripMenuItem.Size = New System.Drawing.Size(191, 24)
+        Me.ActivarTodosToolStripMenuItem.Text = "Activar Todos"
         '
-        'DataGridViewTextBoxColumn2
+        'DesactivarTodosToolStripMenuItem
         '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "marca"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Marca"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 76
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "modelo"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Producto"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 94
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "presentacion"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Presentación"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 120
+        Me.DesactivarTodosToolStripMenuItem.Name = "DesactivarTodosToolStripMenuItem"
+        Me.DesactivarTodosToolStripMenuItem.Size = New System.Drawing.Size(191, 24)
+        Me.DesactivarTodosToolStripMenuItem.Text = "Desactivar Todos"
         '
         'RubrosBindingSource
         '
@@ -596,7 +571,9 @@ Partial Class ABMProductos
         Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
         Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
@@ -1052,24 +1029,50 @@ Partial Class ABMProductos
         '
         Me.TipoivaTableAdapter.ClearBeforeFill = True
         '
-        'ContextMenuStripGrilla
+        'estado
         '
-        Me.ContextMenuStripGrilla.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuStripGrilla.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ActivarTodosToolStripMenuItem, Me.DesactivarTodosToolStripMenuItem})
-        Me.ContextMenuStripGrilla.Name = "ContextMenuStripGrilla"
-        Me.ContextMenuStripGrilla.Size = New System.Drawing.Size(192, 80)
+        Me.estado.DataPropertyName = "estado"
+        Me.estado.FalseValue = "I"
+        Me.estado.HeaderText = "Activo/Inactivo"
+        Me.estado.IndeterminateValue = "N"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        Me.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.estado.ToolTipText = "Activo/Inactivo"
+        Me.estado.TrueValue = "A"
+        Me.estado.Width = 127
         '
-        'ActivarTodosToolStripMenuItem
+        'codigoproducto
         '
-        Me.ActivarTodosToolStripMenuItem.Name = "ActivarTodosToolStripMenuItem"
-        Me.ActivarTodosToolStripMenuItem.Size = New System.Drawing.Size(191, 24)
-        Me.ActivarTodosToolStripMenuItem.Text = "Activar Todos"
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Cod. Producto"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.Width = 127
         '
-        'DesactivarTodosToolStripMenuItem
+        'DataGridViewTextBoxColumn2
         '
-        Me.DesactivarTodosToolStripMenuItem.Name = "DesactivarTodosToolStripMenuItem"
-        Me.DesactivarTodosToolStripMenuItem.Size = New System.Drawing.Size(191, 24)
-        Me.DesactivarTodosToolStripMenuItem.Text = "Desactivar Todos"
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "marca"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Marca"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 76
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "modelo"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Producto"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 94
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "presentacion"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Presentación"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 120
         '
         'ABMProductos
         '
@@ -1103,6 +1106,7 @@ Partial Class ABMProductos
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImagenPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStripGrilla.ResumeLayout(False)
         CType(Me.RubrosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UnidadesmedidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1114,7 +1118,6 @@ Partial Class ABMProductos
         CType(Me.PictureBoxCalidacodigo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.ContextMenuStripGrilla.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1185,12 +1188,12 @@ Partial Class ABMProductos
     Friend WithEvents TipoivaBindingSource As BindingSource
     Friend WithEvents TipoivaTableAdapter As comercialDataSetTableAdapters.tipoivaTableAdapter
     Friend WithEvents FabricanteTextBox As TextBox
+    Friend WithEvents ContextMenuStripGrilla As ContextMenuStrip
+    Friend WithEvents ActivarTodosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DesactivarTodosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents estado As DataGridViewCheckBoxColumn
     Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents ContextMenuStripGrilla As ContextMenuStrip
-    Friend WithEvents ActivarTodosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DesactivarTodosToolStripMenuItem As ToolStripMenuItem
 End Class

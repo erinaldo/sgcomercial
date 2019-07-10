@@ -15,13 +15,18 @@ Public Class ABMProductos
     End Sub
 
     Private Sub ABMProductos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.TipoivaTableAdapter.Fill(Me.ComercialDataSet.tipoiva)
-        Me.StockTableAdapter1.Fill(Me.ComercialDataSet.stock)
-        IdproductoTextBox.Visible = False
-        Me.RubrosTableAdapter.Fill(Me.ComercialDataSet.rubros)
-        Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet1.unidadesmedida)
-        Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
-        ErrorLog = New comercialDataSetTableAdapters.errorlogTableAdapter()
+        Try
+            ReparaProductosEstados()
+            Me.TipoivaTableAdapter.Fill(Me.ComercialDataSet.tipoiva)
+            Me.StockTableAdapter1.Fill(Me.ComercialDataSet.stock)
+            IdproductoTextBox.Visible = False
+            Me.RubrosTableAdapter.Fill(Me.ComercialDataSet.rubros)
+            Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet1.unidadesmedida)
+            Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+            ErrorLog = New comercialDataSetTableAdapters.errorlogTableAdapter()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
         ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()

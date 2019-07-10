@@ -82,7 +82,6 @@ Public Class CajaAperturaCierre
     End Sub
 
     Private Sub BtnCerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCerrar.Click
-
         Dim idcaja As Integer
         idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
         gidevento = CajaseventosTableAdapter.cajaseventos_isopen(idcaja)
@@ -108,7 +107,8 @@ Public Class CajaAperturaCierre
             End Try
 
             If rtn = 1 Then
-                MsgBox("Caja Cerrada Exitosamente!", MsgBoxStyle.Information, "Mensaje")
+                'MsgBox("Caja Cerrada Exitosamente!", MsgBoxStyle.Information, "Mensaje")
+                CreateObject("WScript.Shell").Popup("Caja Cerrada Exitosamente!" + " Enviando Email..." & vbCrLf & vbTab & "-NO APAGUE EL SISTEMA-", 3, "Aviso!", vbInformation)
                 If My.Computer.Network.IsAvailable Then
                     mail_cierrecaja()
                 Else
@@ -238,14 +238,16 @@ Public Class CajaAperturaCierre
             '*************************  ENVIO EMAIL **********************************************
             If ModuloUtilidades.clsSendMail.SendEMail(EmailFrom, EmailCierreCajaTo, EmailSubject, EmailBody, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
                 Me.Cursor = Cursors.Default
-                MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
+                MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                'MsgBox("El envío de mail del cierre de caja ha sido exitoso!", MsgBoxStyle.Information, "Envío email")
             Else
                 Me.Cursor = Cursors.Default
+                MessageBox.Show("El envío de mail falló! Verifíque su conexión a internet", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 'MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
             End If
         Catch ex As Exception
             Me.Cursor = Cursors.Default
-            MsgBox(ex.Message)
+            MessageBox.Show("El envío de mail falló: " + ex.Message, "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
 

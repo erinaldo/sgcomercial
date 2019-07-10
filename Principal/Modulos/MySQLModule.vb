@@ -793,6 +793,12 @@ Module MySQLModule
                     estado = "I"
                 Else
                     estado = ProductosWEBTable.Rows(i).Item(ProductosWEBTable.Columns("estado"))
+                    Select Case estado
+                        Case "A"
+                            'estado = "A"
+                        Case Else
+                            estado = "I"
+                    End Select
                 End If
                 '-----------------------------------------------------------------------------------
                 ' SI EXISTE UPDATE

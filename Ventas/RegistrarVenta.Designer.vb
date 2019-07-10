@@ -184,6 +184,9 @@ Partial Class RegistrarVenta
         Me.ListaclientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaclientesTableAdapter()
         Me.MainMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ActivarDesactivarFacturaElectrónicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TabControl = New System.Windows.Forms.TabControl()
+        Me.Articulos = New System.Windows.Forms.TabPage()
+        Me.otrostributos = New System.Windows.Forms.TabPage()
         IdclienteLabel = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
@@ -237,6 +240,8 @@ Partial Class RegistrarVenta
         Me.GroupBox5.SuspendLayout()
         CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainMenuStrip.SuspendLayout()
+        Me.TabControl.SuspendLayout()
+        Me.Articulos.SuspendLayout()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -387,23 +392,25 @@ Partial Class RegistrarVenta
         '
         'LabelIVA
         '
-        LabelIVA.AutoSize = True
+        LabelIVA.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         LabelIVA.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ListaclientesBindingSource, "condicioniva", True))
         LabelIVA.Location = New System.Drawing.Point(50, 103)
         LabelIVA.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         LabelIVA.Name = "LabelIVA"
-        LabelIVA.Size = New System.Drawing.Size(272, 17)
+        LabelIVA.Size = New System.Drawing.Size(335, 19)
         LabelIVA.TabIndex = 22
         LabelIVA.Text = "_________________________________"
         '
         'LabelEmail
         '
-        LabelEmail.AutoSize = True
+        LabelEmail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         LabelEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "email", True))
         LabelEmail.Location = New System.Drawing.Point(60, 131)
         LabelEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         LabelEmail.Name = "LabelEmail"
-        LabelEmail.Size = New System.Drawing.Size(304, 17)
+        LabelEmail.Size = New System.Drawing.Size(325, 17)
         LabelEmail.TabIndex = 22
         LabelEmail.Text = "_____________________________________"
         '
@@ -860,11 +867,11 @@ Partial Class RegistrarVenta
         Me.GroupBox2.Controls.Add(Me.codigotextbox)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.VentasdetalleDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(16, 189)
+        Me.GroupBox2.Location = New System.Drawing.Point(4, 7)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1096, 260)
+        Me.GroupBox2.Size = New System.Drawing.Size(1080, 211)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -877,7 +884,7 @@ Partial Class RegistrarVenta
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(898, 19)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(177, 25)
+        Me.ComboBox1.Size = New System.Drawing.Size(178, 28)
         Me.ComboBox1.TabIndex = 7
         Me.ComboBox1.ValueMember = "idlistaprecio"
         '
@@ -891,7 +898,7 @@ Partial Class RegistrarVenta
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(851, 23)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(42, 17)
+        Me.Label14.Size = New System.Drawing.Size(51, 20)
         Me.Label14.TabIndex = 6
         Me.Label14.Text = "Lista:"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -929,7 +936,7 @@ Partial Class RegistrarVenta
         Me.codigotextbox.Location = New System.Drawing.Point(173, 20)
         Me.codigotextbox.Margin = New System.Windows.Forms.Padding(4)
         Me.codigotextbox.Name = "codigotextbox"
-        Me.codigotextbox.Size = New System.Drawing.Size(132, 23)
+        Me.codigotextbox.Size = New System.Drawing.Size(132, 26)
         Me.codigotextbox.TabIndex = 0
         '
         'Label1
@@ -957,7 +964,7 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.VentasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codproducto, Me.descripcion, Me.cantidad, Me.precioventa, Me.descuento, Me.recargo, Me.subtotal, Me.eliminar, Me.listasprecios})
-        Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(16, 58)
+        Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(5, 51)
         Me.VentasdetalleDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.VentasdetalleDataGridView.MultiSelect = False
         Me.VentasdetalleDataGridView.Name = "VentasdetalleDataGridView"
@@ -965,7 +972,7 @@ Partial Class RegistrarVenta
         DataGridViewCellStyle28.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VentasdetalleDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle28
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1059, 183)
+        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1070, 152)
         Me.VentasdetalleDataGridView.TabIndex = 0
         '
         'codproducto
@@ -991,7 +998,7 @@ Partial Class RegistrarVenta
         Me.cantidad.HeaderText = "Cantidad"
         Me.cantidad.Name = "cantidad"
         Me.cantidad.ReadOnly = True
-        Me.cantidad.Width = 93
+        Me.cantidad.Width = 104
         '
         'precioventa
         '
@@ -1002,7 +1009,7 @@ Partial Class RegistrarVenta
         Me.precioventa.HeaderText = "Precio Venta"
         Me.precioventa.Name = "precioventa"
         Me.precioventa.ReadOnly = True
-        Me.precioventa.Width = 118
+        Me.precioventa.Width = 134
         '
         'descuento
         '
@@ -1011,7 +1018,7 @@ Partial Class RegistrarVenta
         Me.descuento.HeaderText = "Descuento"
         Me.descuento.Name = "descuento"
         Me.descuento.ReadOnly = True
-        Me.descuento.Width = 105
+        Me.descuento.Width = 119
         '
         'recargo
         '
@@ -1020,7 +1027,7 @@ Partial Class RegistrarVenta
         Me.recargo.HeaderText = "Recargo"
         Me.recargo.Name = "recargo"
         Me.recargo.ReadOnly = True
-        Me.recargo.Width = 91
+        Me.recargo.Width = 101
         '
         'subtotal
         '
@@ -1030,7 +1037,7 @@ Partial Class RegistrarVenta
         Me.subtotal.HeaderText = "Sub Total"
         Me.subtotal.Name = "subtotal"
         Me.subtotal.ReadOnly = True
-        Me.subtotal.Width = 98
+        Me.subtotal.Width = 109
         '
         'eliminar
         '
@@ -1108,15 +1115,17 @@ Partial Class RegistrarVenta
         '
         'labelcliente
         '
-        Me.labelcliente.AutoSize = True
+        Me.labelcliente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labelcliente.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "nombre", True))
         Me.labelcliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelcliente.Location = New System.Drawing.Point(78, 52)
         Me.labelcliente.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.labelcliente.Name = "labelcliente"
-        Me.labelcliente.Size = New System.Drawing.Size(269, 20)
+        Me.labelcliente.Size = New System.Drawing.Size(307, 20)
         Me.labelcliente.TabIndex = 17
-        Me.labelcliente.Text = "__________________________"
+        Me.labelcliente.Text = "____________________________________"
         '
         'PictureSeleccionarCliente
         '
@@ -1677,16 +1686,51 @@ Partial Class RegistrarVenta
         Me.ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Size = New System.Drawing.Size(195, 24)
         Me.ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Text = "Activar Factura Electrónica"
         '
+        'TabControl
+        '
+        Me.TabControl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TabControl.Controls.Add(Me.Articulos)
+        Me.TabControl.Controls.Add(Me.otrostributos)
+        Me.TabControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.TabControl.Location = New System.Drawing.Point(16, 195)
+        Me.TabControl.Name = "TabControl"
+        Me.TabControl.SelectedIndex = 0
+        Me.TabControl.Size = New System.Drawing.Size(1099, 254)
+        Me.TabControl.TabIndex = 33
+        '
+        'Articulos
+        '
+        Me.Articulos.Controls.Add(Me.GroupBox2)
+        Me.Articulos.Location = New System.Drawing.Point(4, 26)
+        Me.Articulos.Name = "Articulos"
+        Me.Articulos.Padding = New System.Windows.Forms.Padding(3)
+        Me.Articulos.Size = New System.Drawing.Size(1091, 224)
+        Me.Articulos.TabIndex = 0
+        Me.Articulos.Text = "Artículos"
+        Me.Articulos.UseVisualStyleBackColor = True
+        '
+        'otrostributos
+        '
+        Me.otrostributos.Location = New System.Drawing.Point(4, 29)
+        Me.otrostributos.Name = "otrostributos"
+        Me.otrostributos.Padding = New System.Windows.Forms.Padding(3)
+        Me.otrostributos.Size = New System.Drawing.Size(1091, 221)
+        Me.otrostributos.TabIndex = 1
+        Me.otrostributos.Text = "Otros Tributos"
+        Me.otrostributos.UseVisualStyleBackColor = True
+        '
         'RegistrarVenta
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(1127, 578)
+        Me.Controls.Add(Me.TabControl)
         Me.Controls.Add(Me.MainMenuStrip)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GFP2)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.2!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -1737,6 +1781,8 @@ Partial Class RegistrarVenta
         CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MainMenuStrip.ResumeLayout(False)
         Me.MainMenuStrip.PerformLayout()
+        Me.TabControl.ResumeLayout(False)
+        Me.Articulos.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1876,4 +1922,7 @@ Partial Class RegistrarVenta
     Friend WithEvents MainMenuStrip As MenuStrip
     Friend WithEvents ActivarDesactivarFacturaElectrónicaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBoxFE As PictureBox
+    Friend WithEvents TabControl As TabControl
+    Friend WithEvents Articulos As TabPage
+    Friend WithEvents otrostributos As TabPage
 End Class

@@ -167,7 +167,7 @@ Partial Class ABMClientes
         Label3.Name = "Label3"
         Label3.Size = New System.Drawing.Size(143, 17)
         Label3.TabIndex = 13
-        Label3.Text = "Dias de vencimiento :"
+        Label3.Text = "Días de vencimiento :"
         '
         'Label5
         '
@@ -315,6 +315,7 @@ Partial Class ABMClientes
         '
         Me.CUITTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.CUITTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "cuit", True))
+        Me.CUITTextBox.Enabled = False
         Me.CUITTextBox.Location = New System.Drawing.Point(228, 82)
         Me.CUITTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.CUITTextBox.Name = "CUITTextBox"
@@ -495,9 +496,9 @@ Partial Class ABMClientes
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(644, 85)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(252, 17)
+        Me.Label4.Size = New System.Drawing.Size(256, 17)
         Me.Label4.TabIndex = 15
-        Me.Label4.Text = "(por defecto para vtas a cta. corriente)"
+        Me.Label4.Text = "(por defecto para vtas. a cta. corriente)"
         '
         'DiasvencimientoTextBox
         '
@@ -671,7 +672,8 @@ Partial Class ABMClientes
         Me.MinimizeBox = False
         Me.Name = "ABMClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ABM Clientes"
+        Me.Tag = "ABMClientes"
+        Me.Text = "Altas, Bajas y Modificación de Clientes"
         CType(Me.ClientesBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ClientesBindingNavigator.ResumeLayout(False)
         Me.ClientesBindingNavigator.PerformLayout()

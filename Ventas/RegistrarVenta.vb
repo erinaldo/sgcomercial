@@ -113,16 +113,22 @@ Public Class RegistrarVenta
                     ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Text = "Desactivar Factura Electrónica"
                     PictureBoxFE.Visible = True
                     MainMenuStrip.Visible = True
+                    'TabControl.SelectedTab = TabControl.TabPages(0)
+                    TabControl.TabPages("otrostributos").Enabled = True
                     PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_ON
                 Else
                     ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Text = "Activar Factura Electrónica"
                     PictureBoxFE.Visible = True
+                    TabControl.SelectedTab = TabControl.TabPages(0)
+                    TabControl.TabPages("otrostributos").Enabled = False
                     PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
                 End If
             Else
                 MainMenuStrip.Visible = False
                 PictureBoxFE.Visible = True
                 PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
+                TabControl.SelectedTab = TabControl.TabPages(0)
+                TabControl.TabPages("otrostributos").Enabled = False
             End If
         Catch ex As Exception
             MessageBox.Show("Facturación Electrónica DESACTIVADA", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
