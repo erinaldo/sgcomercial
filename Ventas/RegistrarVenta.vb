@@ -1950,4 +1950,29 @@ Public Class RegistrarVenta
             MessageBox.Show(valida.MsgError, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
+
+    Private Sub BtnAgregarOT_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub BtnAgregarOT_Click_1(sender As Object, e As EventArgs) Handles BtnAgregarOT.Click
+        DataGridViewOT.Rows.Add()
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewOT.CellContentClick
+
+    End Sub
+
+    Private Sub DataGridViewOT_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewOT.CellClick
+        Try
+            Select Case DataGridViewOT.Columns(e.ColumnIndex).Name
+                Case "oteliminar"
+                    DataGridViewOT.Rows.RemoveAt(e.RowIndex)
+            End Select
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
 End Class

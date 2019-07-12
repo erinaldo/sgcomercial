@@ -23,7 +23,14 @@ Partial Class ConsultaStockRemotoProducto
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.StockgeneralDataGridView = New System.Windows.Forms.DataGridView()
+        Me.idsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreSucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Envasado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StockgeneralBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MySQLDataSet = New sgcomercial.MySQLDataSet()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -38,12 +45,6 @@ Partial Class ConsultaStockRemotoProducto
         Me.TableAdapterManager = New sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager()
         Me.SucursalesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.sucursalesTableAdapter()
         Me.TableAdapterManager1 = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.idsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreSucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Envasado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.StockgeneralDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockgeneralBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MySQLDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,12 +68,70 @@ Partial Class ConsultaStockRemotoProducto
         Me.StockgeneralDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.StockgeneralDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idsucursal, Me.NombreSucursal, Me.codigoproducto, Me.medida, Me.DataGridViewTextBoxColumn9, Me.Envasado})
         Me.StockgeneralDataGridView.DataSource = Me.StockgeneralBindingSource
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.StockgeneralDataGridView.DefaultCellStyle = DataGridViewCellStyle2
+        Me.StockgeneralDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.StockgeneralDataGridView.Location = New System.Drawing.Point(16, 21)
         Me.StockgeneralDataGridView.Name = "StockgeneralDataGridView"
         Me.StockgeneralDataGridView.ReadOnly = True
         Me.StockgeneralDataGridView.RowTemplate.Height = 24
         Me.StockgeneralDataGridView.Size = New System.Drawing.Size(967, 205)
         Me.StockgeneralDataGridView.TabIndex = 1
+        '
+        'idsucursal
+        '
+        Me.idsucursal.DataPropertyName = "idsucursal"
+        Me.idsucursal.HeaderText = "Sucursal"
+        Me.idsucursal.Name = "idsucursal"
+        Me.idsucursal.ReadOnly = True
+        Me.idsucursal.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.idsucursal.Width = 92
+        '
+        'NombreSucursal
+        '
+        Me.NombreSucursal.HeaderText = "Nombre Sucursal"
+        Me.NombreSucursal.Name = "NombreSucursal"
+        Me.NombreSucursal.ReadOnly = True
+        Me.NombreSucursal.Width = 134
+        '
+        'codigoproducto
+        '
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Código"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.Width = 81
+        '
+        'medida
+        '
+        Me.medida.DataPropertyName = "medida"
+        Me.medida.HeaderText = "Unidad de Medida"
+        Me.medida.Name = "medida"
+        Me.medida.ReadOnly = True
+        Me.medida.ToolTipText = "Unidad de Medida"
+        Me.medida.Width = 139
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "disponible"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Disponible"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Width = 103
+        '
+        'Envasado
+        '
+        Me.Envasado.DataPropertyName = "unidades"
+        Me.Envasado.HeaderText = "Unidades Envasadas"
+        Me.Envasado.Name = "Envasado"
+        Me.Envasado.ReadOnly = True
+        Me.Envasado.Width = 156
         '
         'StockgeneralBindingSource
         '
@@ -232,7 +291,9 @@ Partial Class ConsultaStockRemotoProducto
         Me.TableAdapterManager1.synclogTableAdapter = Nothing
         Me.TableAdapterManager1.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager1.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager1.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager1.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager1.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager1.tipoestadosTableAdapter = Nothing
         Me.TableAdapterManager1.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager1.tipoivaTableAdapter = Nothing
@@ -246,55 +307,6 @@ Partial Class ConsultaStockRemotoProducto
         Me.TableAdapterManager1.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager1.ventasTableAdapter = Nothing
         '
-        'idsucursal
-        '
-        Me.idsucursal.DataPropertyName = "idsucursal"
-        Me.idsucursal.HeaderText = "Sucursal"
-        Me.idsucursal.Name = "idsucursal"
-        Me.idsucursal.ReadOnly = True
-        Me.idsucursal.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.idsucursal.Width = 92
-        '
-        'NombreSucursal
-        '
-        Me.NombreSucursal.HeaderText = "Nombre Sucursal"
-        Me.NombreSucursal.Name = "NombreSucursal"
-        Me.NombreSucursal.ReadOnly = True
-        Me.NombreSucursal.Width = 134
-        '
-        'codigoproducto
-        '
-        Me.codigoproducto.DataPropertyName = "codigoproducto"
-        Me.codigoproducto.HeaderText = "Código"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.Width = 81
-        '
-        'medida
-        '
-        Me.medida.DataPropertyName = "medida"
-        Me.medida.HeaderText = "Unidad de Medida"
-        Me.medida.Name = "medida"
-        Me.medida.ReadOnly = True
-        Me.medida.ToolTipText = "Unidad de Medida"
-        Me.medida.Width = 139
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "disponible"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Disponible"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Width = 103
-        '
-        'Envasado
-        '
-        Me.Envasado.DataPropertyName = "unidades"
-        Me.Envasado.HeaderText = "Unidades Envasadas"
-        Me.Envasado.Name = "Envasado"
-        Me.Envasado.ReadOnly = True
-        Me.Envasado.Width = 156
-        '
         'ConsultaStockRemotoProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -302,6 +314,7 @@ Partial Class ConsultaStockRemotoProducto
         Me.ClientSize = New System.Drawing.Size(1031, 277)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ConsultaStockRemotoProducto"

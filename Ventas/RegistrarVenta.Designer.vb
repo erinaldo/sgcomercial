@@ -42,13 +42,13 @@ Partial Class RegistrarVenta
         Dim Label15 As System.Windows.Forms.Label
         Dim Label13 As System.Windows.Forms.Label
         Dim LabelDocTipo As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RegistrarVenta))
         Me.ListaclientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
@@ -187,6 +187,16 @@ Partial Class RegistrarVenta
         Me.TabControl = New System.Windows.Forms.TabControl()
         Me.Articulos = New System.Windows.Forms.TabPage()
         Me.otrostributos = New System.Windows.Forms.TabPage()
+        Me.BtnAgregarOT = New System.Windows.Forms.Button()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.DataGridViewOT = New System.Windows.Forms.DataGridView()
+        Me.otdescripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.otdetalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.otbaseimponible = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.otalicuota = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.otimporta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.oteliminar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         IdclienteLabel = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
@@ -242,6 +252,10 @@ Partial Class RegistrarVenta
         Me.MainMenuStrip.SuspendLayout()
         Me.TabControl.SuspendLayout()
         Me.Articulos.SuspendLayout()
+        Me.otrostributos.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        CType(Me.DataGridViewOT, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -871,7 +885,7 @@ Partial Class RegistrarVenta
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1080, 211)
+        Me.GroupBox2.Size = New System.Drawing.Size(1080, 208)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -882,9 +896,9 @@ Partial Class RegistrarVenta
         Me.ComboBox1.DisplayMember = "descripcion"
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(898, 19)
+        Me.ComboBox1.Location = New System.Drawing.Point(873, 19)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(178, 28)
+        Me.ComboBox1.Size = New System.Drawing.Size(200, 28)
         Me.ComboBox1.TabIndex = 7
         Me.ComboBox1.ValueMember = "idlistaprecio"
         '
@@ -896,7 +910,7 @@ Partial Class RegistrarVenta
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(851, 23)
+        Me.Label14.Location = New System.Drawing.Point(826, 23)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(51, 20)
         Me.Label14.TabIndex = 6
@@ -956,8 +970,8 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.AllowUserToDeleteRows = False
         Me.VentasdetalleDataGridView.AllowUserToResizeColumns = False
         Me.VentasdetalleDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle22.BackColor = System.Drawing.Color.GhostWhite
-        Me.VentasdetalleDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.GhostWhite
+        Me.VentasdetalleDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle15
         Me.VentasdetalleDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -969,10 +983,10 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.MultiSelect = False
         Me.VentasdetalleDataGridView.Name = "VentasdetalleDataGridView"
         Me.VentasdetalleDataGridView.ReadOnly = True
-        DataGridViewCellStyle28.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VentasdetalleDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle28
+        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VentasdetalleDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle21
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1070, 152)
+        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1070, 149)
         Me.VentasdetalleDataGridView.TabIndex = 0
         '
         'codproducto
@@ -993,8 +1007,8 @@ Partial Class RegistrarVenta
         '
         'cantidad
         '
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle16
         Me.cantidad.HeaderText = "Cantidad"
         Me.cantidad.Name = "cantidad"
         Me.cantidad.ReadOnly = True
@@ -1002,10 +1016,10 @@ Partial Class RegistrarVenta
         '
         'precioventa
         '
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle24.Format = "C2"
-        DataGridViewCellStyle24.NullValue = Nothing
-        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle17.Format = "C2"
+        DataGridViewCellStyle17.NullValue = Nothing
+        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle17
         Me.precioventa.HeaderText = "Precio Venta"
         Me.precioventa.Name = "precioventa"
         Me.precioventa.ReadOnly = True
@@ -1013,8 +1027,8 @@ Partial Class RegistrarVenta
         '
         'descuento
         '
-        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.descuento.DefaultCellStyle = DataGridViewCellStyle25
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.descuento.DefaultCellStyle = DataGridViewCellStyle18
         Me.descuento.HeaderText = "Descuento"
         Me.descuento.Name = "descuento"
         Me.descuento.ReadOnly = True
@@ -1022,8 +1036,8 @@ Partial Class RegistrarVenta
         '
         'recargo
         '
-        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.recargo.DefaultCellStyle = DataGridViewCellStyle26
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.recargo.DefaultCellStyle = DataGridViewCellStyle19
         Me.recargo.HeaderText = "Recargo"
         Me.recargo.Name = "recargo"
         Me.recargo.ReadOnly = True
@@ -1031,9 +1045,9 @@ Partial Class RegistrarVenta
         '
         'subtotal
         '
-        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle27.Format = "C2"
-        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle27
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle20.Format = "C2"
+        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle20
         Me.subtotal.HeaderText = "Sub Total"
         Me.subtotal.Name = "subtotal"
         Me.subtotal.ReadOnly = True
@@ -1703,16 +1717,18 @@ Partial Class RegistrarVenta
         'Articulos
         '
         Me.Articulos.Controls.Add(Me.GroupBox2)
-        Me.Articulos.Location = New System.Drawing.Point(4, 26)
+        Me.Articulos.Location = New System.Drawing.Point(4, 29)
         Me.Articulos.Name = "Articulos"
         Me.Articulos.Padding = New System.Windows.Forms.Padding(3)
-        Me.Articulos.Size = New System.Drawing.Size(1091, 224)
+        Me.Articulos.Size = New System.Drawing.Size(1091, 221)
         Me.Articulos.TabIndex = 0
         Me.Articulos.Text = "Artículos"
         Me.Articulos.UseVisualStyleBackColor = True
         '
         'otrostributos
         '
+        Me.otrostributos.Controls.Add(Me.BtnAgregarOT)
+        Me.otrostributos.Controls.Add(Me.GroupBox6)
         Me.otrostributos.Location = New System.Drawing.Point(4, 29)
         Me.otrostributos.Name = "otrostributos"
         Me.otrostributos.Padding = New System.Windows.Forms.Padding(3)
@@ -1720,6 +1736,91 @@ Partial Class RegistrarVenta
         Me.otrostributos.TabIndex = 1
         Me.otrostributos.Text = "Otros Tributos"
         Me.otrostributos.UseVisualStyleBackColor = True
+        '
+        'BtnAgregarOT
+        '
+        Me.BtnAgregarOT.Location = New System.Drawing.Point(425, 11)
+        Me.BtnAgregarOT.Name = "BtnAgregarOT"
+        Me.BtnAgregarOT.Size = New System.Drawing.Size(240, 29)
+        Me.BtnAgregarOT.TabIndex = 1
+        Me.BtnAgregarOT.Text = "Agregar Otro Tributo"
+        Me.BtnAgregarOT.UseVisualStyleBackColor = True
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.DataGridViewOT)
+        Me.GroupBox6.Location = New System.Drawing.Point(6, 37)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(1079, 179)
+        Me.GroupBox6.TabIndex = 0
+        Me.GroupBox6.TabStop = False
+        '
+        'DataGridViewOT
+        '
+        Me.DataGridViewOT.AllowUserToAddRows = False
+        Me.DataGridViewOT.AllowUserToDeleteRows = False
+        Me.DataGridViewOT.AllowUserToResizeColumns = False
+        Me.DataGridViewOT.AllowUserToResizeRows = False
+        Me.DataGridViewOT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridViewOT.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridViewOT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewOT.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.otdescripcion, Me.otdetalle, Me.otbaseimponible, Me.otalicuota, Me.otimporta, Me.oteliminar})
+        Me.DataGridViewOT.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridViewOT.Location = New System.Drawing.Point(3, 22)
+        Me.DataGridViewOT.Name = "DataGridViewOT"
+        Me.DataGridViewOT.RowTemplate.Height = 24
+        Me.DataGridViewOT.Size = New System.Drawing.Size(1073, 154)
+        Me.DataGridViewOT.TabIndex = 0
+        '
+        'otdescripcion
+        '
+        Me.otdescripcion.HeaderText = "Descripción"
+        Me.otdescripcion.Name = "otdescripcion"
+        '
+        'otdetalle
+        '
+        Me.otdetalle.HeaderText = "Detalle"
+        Me.otdetalle.Name = "otdetalle"
+        '
+        'otbaseimponible
+        '
+        Me.otbaseimponible.HeaderText = "Base Imponible"
+        Me.otbaseimponible.Name = "otbaseimponible"
+        '
+        'otalicuota
+        '
+        Me.otalicuota.HeaderText = "Alícuota"
+        Me.otalicuota.Name = "otalicuota"
+        '
+        'otimporta
+        '
+        Me.otimporta.HeaderText = "Importe"
+        Me.otimporta.Name = "otimporta"
+        '
+        'oteliminar
+        '
+        Me.oteliminar.HeaderText = ""
+        Me.oteliminar.Name = "oteliminar"
+        Me.oteliminar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.oteliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.oteliminar.Text = "Eliminar"
+        Me.oteliminar.UseColumnTextForButtonValue = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 22)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.Size = New System.Drawing.Size(1073, 154)
+        Me.DataGridView1.TabIndex = 0
         '
         'RegistrarVenta
         '
@@ -1783,6 +1884,10 @@ Partial Class RegistrarVenta
         Me.MainMenuStrip.PerformLayout()
         Me.TabControl.ResumeLayout(False)
         Me.Articulos.ResumeLayout(False)
+        Me.otrostributos.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
+        CType(Me.DataGridViewOT, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1925,4 +2030,14 @@ Partial Class RegistrarVenta
     Friend WithEvents TabControl As TabControl
     Friend WithEvents Articulos As TabPage
     Friend WithEvents otrostributos As TabPage
+    Friend WithEvents BtnAgregarOT As Button
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents otdescripcion As DataGridViewTextBoxColumn
+    Friend WithEvents otdetalle As DataGridViewTextBoxColumn
+    Friend WithEvents otbaseimponible As DataGridViewTextBoxColumn
+    Friend WithEvents otalicuota As DataGridViewTextBoxColumn
+    Friend WithEvents otimporta As DataGridViewTextBoxColumn
+    Friend WithEvents oteliminar As DataGridViewButtonColumn
+    Friend WithEvents DataGridViewOT As DataGridView
 End Class

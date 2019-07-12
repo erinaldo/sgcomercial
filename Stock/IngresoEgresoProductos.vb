@@ -21,7 +21,7 @@ Public Class ingresoegresoproductos
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
         'Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
         enableedit(True)
-        LinkStockRemoto.Enabled = False
+
         'Labeldescripcion.Text = ""
 
 
@@ -193,7 +193,7 @@ Public Class ingresoegresoproductos
                 CantidadTextBox.Text = ""
                 textstockminimo.Text = Nothing
                 TextBoxEnvasado.Text = Nothing
-                LinkStockRemoto.Enabled = False
+
                 'MsgBox("El código ingresado no pertenece a ningun producto registrado", MsgBoxStyle.Information, "Advertencia")
             End If
         End If
@@ -231,7 +231,7 @@ Public Class ingresoegresoproductos
             textstockminimo.Text = ProductosTableAdapter.productos_stockminimo(codigoproductoTextBox.Text)
             Labeldescripcion.Text = ProductosTableAdapter.productos_consultardescripcion(codigoproductoTextBox.Text)
             gcodigoproducto = codigoproductoTextBox.Text
-            LinkStockRemoto.Enabled = True
+
 
 
             If StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)) > 0 Then
@@ -252,7 +252,7 @@ Public Class ingresoegresoproductos
             CantidadTextBox.Text = ""
             textstockminimo.Text = Nothing
             TextBoxEnvasado.Text = Nothing
-            LinkStockRemoto.Enabled = False
+
             'MsgBox("El código ingresado no pertenece a ningun producto registrado", MsgBoxStyle.Information, "Advertencia")
         End If
     End Sub
@@ -326,13 +326,13 @@ Public Class ingresoegresoproductos
                 Me.Close()
             End If
         End If
-        If e.KeyCode = Keys.F12 And Me.MaximizeBox = True Then
-            If Me.WindowState = FormWindowState.Normal Then
-                Me.WindowState = FormWindowState.Maximized
-            Else
-                Me.WindowState = FormWindowState.Normal
-            End If
-        End If
+        'If e.KeyCode = Keys.F12 And Me.MaximizeBox = True Then
+        '    If Me.WindowState = FormWindowState.Normal Then
+        '        Me.WindowState = FormWindowState.Maximized
+        '    Else
+        '        Me.WindowState = FormWindowState.Normal
+        '    End If
+        'End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
     End Sub
 
@@ -342,10 +342,9 @@ Public Class ingresoegresoproductos
         SynStockClowd(idproducto, "A", coderror, msgerror)
     End Sub
 
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkStockRemoto.LinkClicked
-        Dim stkr As ConsultaStockRemotoProducto
-        stkr = New ConsultaStockRemotoProducto
-        stkr.ShowDialog()
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -386,5 +385,21 @@ Public Class ingresoegresoproductos
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+        Cursor.Current = Cursors.WaitCursor
+        Try
+            Dim idproducto As Long = 0
+            idproducto = ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)
+            If Not idproducto > 0 Then Return
+            Dim stkr As ConsultaStockRemotoProducto
+            stkr = New ConsultaStockRemotoProducto
+            gcodigoproducto = codigoproductoTextBox.Text
+            Cursor.Current = Cursors.Default
+            stkr.ShowDialog()
+        Catch ex As Exception
+            Cursor.Current = Cursors.Default
+        End Try
     End Sub
 End Class

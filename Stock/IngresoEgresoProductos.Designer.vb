@@ -48,7 +48,6 @@ Partial Class ingresoegresoproductos
         Me.ProductoscomponentesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.LinkStockRemoto = New System.Windows.Forms.LinkLabel()
         Me.TextBoxEnvasado = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.textstockminimo = New System.Windows.Forms.TextBox()
@@ -91,6 +90,7 @@ Partial Class ingresoegresoproductos
         Me.ProductoscomponentesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productoscomponentesTableAdapter()
         Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
         Me.MotivostockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.motivostockTableAdapter()
+        Me.Label6 = New System.Windows.Forms.Label()
         IdproductoLabel = New System.Windows.Forms.Label()
         CantidadLabel = New System.Windows.Forms.Label()
         TipomovimientostockLabel = New System.Windows.Forms.Label()
@@ -354,7 +354,7 @@ Partial Class ingresoegresoproductos
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.LinkStockRemoto)
+        Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.TextBoxEnvasado)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.textstockminimo)
@@ -370,16 +370,6 @@ Partial Class ingresoegresoproductos
         Me.GroupBox2.TabIndex = 17
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Estado actual en Stock"
-        '
-        'LinkStockRemoto
-        '
-        Me.LinkStockRemoto.AutoSize = True
-        Me.LinkStockRemoto.Location = New System.Drawing.Point(453, 71)
-        Me.LinkStockRemoto.Name = "LinkStockRemoto"
-        Me.LinkStockRemoto.Size = New System.Drawing.Size(217, 20)
-        Me.LinkStockRemoto.TabIndex = 5
-        Me.LinkStockRemoto.TabStop = True
-        Me.LinkStockRemoto.Text = "Ver Stock en Sucursales"
         '
         'TextBoxEnvasado
         '
@@ -752,6 +742,18 @@ Partial Class ingresoegresoproductos
         '
         Me.MotivostockTableAdapter.ClearBeforeFill = True
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label6.Location = New System.Drawing.Point(453, 71)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(217, 20)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "Ver Stock en Sucursales"
+        '
         'ingresoegresoproductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -837,11 +839,11 @@ Partial Class ingresoegresoproductos
     Friend WithEvents TextBoxEnvasado As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
-    Friend WithEvents LinkStockRemoto As LinkLabel
     Friend WithEvents ComboMotivoStock As ComboBox
     Friend WithEvents MotivostockBindingSource As BindingSource
     Friend WithEvents MotivostockTableAdapter As comercialDataSetTableAdapters.motivostockTableAdapter
     Friend WithEvents Button6 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Button4 As Button
+    Friend WithEvents Label6 As Label
 End Class
