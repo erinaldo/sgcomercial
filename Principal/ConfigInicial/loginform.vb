@@ -301,21 +301,7 @@ Public Class loginform
                 Me.Show()
             End If
         End If
-        '====================   FEAFIP CONFIG ==================
-        If (e.KeyCode = Keys.F AndAlso e.Control AndAlso e.Shift) Then
-            Dim su As SUAuth
-            su = New SUAuth
-            gSUToken = Nothing
-            su.ShowDialog()
-            If gSUToken = True Then
-                Dim conf As FeConf
-                conf = New FeConf
-                conf.ShowDialog()
-                'Me.Hide()
-                'Me.loginform_Load(e, e)
-                'Me.Show()
-            End If
-        End If
+
         'If (e.KeyCode = Keys.L AndAlso e.Modifiers = Keys.Control) Then
         '    Me.Dispose()
         '    'loginform_Load(e, e)
@@ -506,5 +492,9 @@ Public Class loginform
     Private Sub BGWUpdateLicencia_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWUpdateLicencia.DoWork
         UpdateLocalLicence()
         ValidarLicencia()
+    End Sub
+
+    Private Sub LabelMACaddress_Click(sender As Object, e As EventArgs) Handles LabelMACaddress.Click
+
     End Sub
 End Class

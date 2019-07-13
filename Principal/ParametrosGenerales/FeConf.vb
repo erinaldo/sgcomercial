@@ -5,6 +5,12 @@ Imports System.IO.Directory
 
 Public Class FeConf
     Private Sub FeConf_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
         If e.KeyCode = Keys.Enter Then
             If MsgBox("Seguro desea guardar la configuración?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
                 Try

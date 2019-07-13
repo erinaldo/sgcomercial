@@ -12,11 +12,8 @@ Public Class Principal
     End Sub
 
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'Me.ListaprecioscajaTableAdapter.Fill(Me.ComercialDataSet.listaprecioscaja)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.modulos' Puede moverla o quitarla según sea necesario.
         Me.ModulosTableAdapter.Fill(Me.ComercialDataSet.modulos)
         Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
-        'Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
         '''''''''''''''''''''''''''''''''''
         ParametrosgeneralesTableAdapter.FillByPrgclave(Me.ComercialDataSet.parametrosgenerales, "FondoAplicacion")
         FormPrincipal.BackgroundImage = PictureBox1.Image
@@ -24,7 +21,8 @@ Public Class Principal
         '   TITULO DE LA VENTANA PRINCIPAL
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
         Try
-            Me.Text = " Sistema de Gestión Comercial " + " - [" + ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio") + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]"
+            gNombreComercio = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio")
+            Me.Text = " Sistema de Gestión Comercial " + " - [" + gNombreComercio + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]"
         Catch ex As Exception
 
         End Try
@@ -868,22 +866,22 @@ Public Class Principal
         ExportarProductos.ShowDialog()
     End Sub
 
-    Private Sub Principal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    'Private Sub Principal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
 
-    End Sub
+    'End Sub
 
 
-    Private Sub Principal_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
+    'Private Sub Principal_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
 
-    End Sub
+    'End Sub
 
-    Private Sub Principal_Leave(sender As Object, e As EventArgs) Handles Me.Leave
+    'Private Sub Principal_Leave(sender As Object, e As EventArgs) Handles Me.Leave
 
-    End Sub
+    'End Sub
 
-    Private Sub Principal_CausesValidationChanged(sender As Object, e As EventArgs) Handles Me.CausesValidationChanged
+    'Private Sub Principal_CausesValidationChanged(sender As Object, e As EventArgs) Handles Me.CausesValidationChanged
 
-    End Sub
+    'End Sub
 
     Private Sub Principal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MsgBox("    Seguro desea salir del sistema?   ", MessageBoxButtons.YesNo, "Pregunta") = MsgBoxResult.No Then
@@ -908,14 +906,14 @@ Public Class Principal
         End If
     End Sub
 
-    Private Sub ImprimirPlantillasToolStripMenuItem_Click(sender As Object, e As EventArgs)
+    'Private Sub ImprimirPlantillasToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
 
-    End Sub
+    'End Sub
 
-    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs)
+    'Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs)
 
-    End Sub
+    'End Sub
 
     Private Sub ImprimirPlantillasToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ImprimirPlantillasToolStripMenuItem.Click
         ImprimirPlantillas.MdiParent = Me
@@ -983,19 +981,18 @@ Public Class Principal
 
         ''''''''''***************************   POR DEFECTO **************************************
         If (e.KeyCode = Keys.S AndAlso e.Control AndAlso e.Shift) Then
-            Dim suauth As New SUAuth
-            suauth.ShowDialog()
-            If gSUToken = True Then
-
-                For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
-                        If miitem.Name = "SysConfigToolStripMenuItem" Then
-                        If miitem.Visible = True Then
-                            miitem.Visible = False
-                            miitem.Enabled = False
-                            For Each otroitem As ToolStripMenuItem In miitem.DropDownItems
-                                otroitem.Enabled = False
-                            Next
-                        Else
+            For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
+                If miitem.Name = "SysConfigToolStripMenuItem" Then
+                    If miitem.Visible = True Then
+                        miitem.Visible = False
+                        miitem.Enabled = False
+                        For Each otroitem As ToolStripMenuItem In miitem.DropDownItems
+                            otroitem.Enabled = False
+                        Next
+                    Else
+                        Dim suauth As New SUAuth
+                        suauth.ShowDialog()
+                        If gSUToken = True Then
                             miitem.Visible = True
                             miitem.Enabled = True
                             For Each otroitem As ToolStripMenuItem In miitem.DropDownItems
@@ -1003,10 +1000,11 @@ Public Class Principal
                             Next
                         End If
                     End If
-                    Next
-
-            End If
+                End If
+            Next
         End If
+        '''''''''*************************** 
+        '''''''''*************************** 
         If e.KeyCode = Keys.F5 Then
             'MsgBox("recargando")
             EjecutarAlertas()
@@ -1087,7 +1085,7 @@ Public Class Principal
     End Sub
 
     Private Sub BGWStock_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BGWStock.RunWorkerCompleted
-        MsgBox("Stock cargado en la NUBE exitosamente!", MsgBoxStyle.Information, "Aviso")
+        'MsgBox("Stock cargado en la NUBE exitosamente!", MsgBoxStyle.Information, "Aviso")
     End Sub
 
     Private Sub RegistrarPresupuestoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarPresupuestoToolStripMenuItem.Click
@@ -1160,6 +1158,21 @@ Public Class Principal
         EstRankingCantVentas.MdiParent = Me
         EstRankingCantVentas.Visible = True
 
+    End Sub
+
+    Private Sub FacturaElectrónicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FacturaElectrónicaToolStripMenuItem.Click
+        FeConf.MdiParent = Me
+        FeConf.Visible = True
+    End Sub
+
+    Private Sub MailServerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MailServerToolStripMenuItem.Click
+        MailServerConf.MdiParent = Me
+        MailServerConf.Visible = True
+    End Sub
+
+    Private Sub RecargarPermisosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RecargarPermisosToolStripMenuItem.Click
+        cargapermisos()
+        FeAFIPLoad()
     End Sub
     'Private Sub PrivateDownloadSGC()
 

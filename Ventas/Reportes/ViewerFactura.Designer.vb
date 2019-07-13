@@ -42,6 +42,7 @@ Partial Class ViewerFactura
         Me.Comanda58mmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HojaA4ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Me.EnviarPorEMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.libroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,9 +92,9 @@ Partial Class ViewerFactura
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource8)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFacturaIVA.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 28)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 33)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(732, 675)
+        Me.ReportViewer1.Size = New System.Drawing.Size(732, 670)
         Me.ReportViewer1.TabIndex = 0
         Me.ReportViewer1.TabStop = False
         '
@@ -115,35 +116,43 @@ Partial Class ViewerFactura
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Comanda80mmToolStripMenuItem, Me.Comanda58mmToolStripMenuItem, Me.HojaA4ToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Comanda80mmToolStripMenuItem, Me.Comanda58mmToolStripMenuItem, Me.HojaA4ToolStripMenuItem, Me.EnviarPorEMailToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(732, 28)
+        Me.MenuStrip1.ShowItemToolTips = True
+        Me.MenuStrip1.Size = New System.Drawing.Size(732, 33)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'Comanda80mmToolStripMenuItem
         '
         Me.Comanda80mmToolStripMenuItem.Name = "Comanda80mmToolStripMenuItem"
-        Me.Comanda80mmToolStripMenuItem.Size = New System.Drawing.Size(131, 24)
+        Me.Comanda80mmToolStripMenuItem.Size = New System.Drawing.Size(162, 29)
         Me.Comanda80mmToolStripMenuItem.Text = "Comanda 80mm"
         '
         'Comanda58mmToolStripMenuItem
         '
         Me.Comanda58mmToolStripMenuItem.Name = "Comanda58mmToolStripMenuItem"
-        Me.Comanda58mmToolStripMenuItem.Size = New System.Drawing.Size(131, 24)
+        Me.Comanda58mmToolStripMenuItem.Size = New System.Drawing.Size(162, 29)
         Me.Comanda58mmToolStripMenuItem.Text = "Comanda 58mm"
         '
         'HojaA4ToolStripMenuItem
         '
         Me.HojaA4ToolStripMenuItem.Name = "HojaA4ToolStripMenuItem"
-        Me.HojaA4ToolStripMenuItem.Size = New System.Drawing.Size(75, 24)
+        Me.HojaA4ToolStripMenuItem.Size = New System.Drawing.Size(90, 29)
         Me.HojaA4ToolStripMenuItem.Text = "Hoja A4"
         '
         'ParametrosgeneralesTableAdapter
         '
         Me.ParametrosgeneralesTableAdapter.ClearBeforeFill = True
+        '
+        'EnviarPorEMailToolStripMenuItem
+        '
+        Me.EnviarPorEMailToolStripMenuItem.Name = "EnviarPorEMailToolStripMenuItem"
+        Me.EnviarPorEMailToolStripMenuItem.Size = New System.Drawing.Size(170, 29)
+        Me.EnviarPorEMailToolStripMenuItem.Text = "Enviar por E-Mail"
         '
         'ViewerFactura
         '
@@ -156,7 +165,7 @@ Partial Class ViewerFactura
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "ViewerFactura"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Factura - Vista Previa "
+        Me.Text = "Vista Previa Ticket Comprobante "
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.libroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -184,4 +193,5 @@ Partial Class ViewerFactura
     Friend WithEvents Comanda58mmToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HojaA4ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ParametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
+    Friend WithEvents EnviarPorEMailToolStripMenuItem As ToolStripMenuItem
 End Class

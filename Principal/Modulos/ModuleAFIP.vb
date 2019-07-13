@@ -35,6 +35,7 @@ Module ModuleAFIP
     Public XmlStrLoginTicketRequestTemplate As String = "<loginTicketRequest><header><uniqueId></uniqueId><generationTime></generationTime><expirationTime></expirationTime></header><service></service></loginTicketRequest>"
     Public _globalUniqueID As UInt32 = 0 ' OJO! NO ES THREAD-SAFE
     Public argServicio As String = "wsfe"
+    Public CajaCertificadaFEAFIP As Boolean
     '****************************************************************************
     '----------------------------------------------------------------------------
     Public GFEAFIPENTORNO As String
@@ -569,6 +570,15 @@ Module ModuleAFIP
             StrError.MsgError = ex.Message
             Return StrError
         End Try
+    End Function
+    Public Function VerificarCajaFEAFIP() As Boolean
+        If (IO.File.Exists(RutaDelCertificadoFirmante)) = True Then
+            CajaCertificadaFEAFIP = True
+            Return True
+        Else
+            CajaCertificadaFEAFIP = False
+            Return False
+        End If
     End Function
     Class CertificadosX509Lib
 

@@ -106,7 +106,24 @@ Public Class RegistrarVenta
 
     End Sub
     Private Sub FeAutoFE()
-        '''''''''''''''''''''''''''''''''''''''''''''''
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ''''''''''''''''''''''''''''''''' VERIFICO QUE EXISTA EL CERTIFICADO FIRMANTE '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Try
+            If VerificarCajaFEAFIP() = False Then
+                MainMenuStrip.Visible = False
+                PictureBoxFE.Visible = True
+                PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
+                Return
+            End If
+        Catch ex As Exception
+            MainMenuStrip.Visible = False
+            PictureBoxFE.Visible = True
+            PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
+            Return
+        End Try
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         Try
             If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
                 If GFEAUTOCAEAFIP = "SI" Then
@@ -136,7 +153,7 @@ Public Class RegistrarVenta
             PictureBoxFE.Visible = True
             PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
         End Try
-        '''''''''''''''''''''''''''''''''''''''''''''''
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     End Sub
 
 
@@ -338,6 +355,16 @@ Public Class RegistrarVenta
         ''''''''''''''''''''''''''''''''''''' DATOS CARGADOS CORRECTAMENTE! GUARDAMOS LA VENTA  '''''''''''''''''''''''''
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         If MsgBox("Seguro desea guardar la venta?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+            Try
+                If Val(IdclienteTextBox.Text) > 1 Then
+                    gidcliente = Val(IdclienteTextBox.Text)
+                Else
+                    gidcliente = Nothing
+                End If
+            Catch ex As Exception
+                gidcliente = Nothing
+            End Try
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             Dim idvale As Integer = Nothing
             '***** PREGUNTO SI SE VA insertar VALE    ****************
             If CheckBoxVale.Checked = True Then
@@ -519,13 +546,14 @@ Public Class RegistrarVenta
             gidventa = idventas
             Dim impresion As String
             impresion = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ImpresionTicket")
+
             Select Case impresion
                 Case "Nunca"
                     'Radionunca.Checked = True
                 Case "Siempre"
                     Try
-                        Dim p As ViewerFactura
-                        p = New ViewerFactura
+                        'Dim p As ViewTicketFE
+                        Dim p As New ViewerFactura
                         'p.MdiParent = Me.ParentForm
                         p.ShowInTaskbar = True
                         'p.TopMost = True
@@ -536,8 +564,7 @@ Public Class RegistrarVenta
                 Case "Preguntar"
                     If MsgBox("Desea Imprimir el comprobante?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
                         Try
-                            Dim p As ViewerFactura
-                            p = New ViewerFactura
+                            Dim p As New ViewerFactura
                             'p.MdiParent = Me.ParentForm
                             p.ShowInTaskbar = True
                             'p.TopMost = True

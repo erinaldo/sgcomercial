@@ -4,14 +4,16 @@ Imports System.Text
 Imports System.Net.Mail
 Public Class CajaAperturaCierre
     Private Sub CajaAperturaCierre_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
-        'Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajas' Puede moverla o quitarla según sea necesario.
-
         Try
-        Me.CajasTableAdapter.FillByACTIVA(Me.ComercialDataSet.cajas)
+            Me.CajasTableAdapter.FillByACTIVA(Me.ComercialDataSet.cajas)
         Catch ex As System.Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+        Try
+            Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)
+            Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
+        Catch ex As Exception
+
         End Try
         If CajasDataGridView.RowCount = 0 Then
             MsgBox("No se han configurado cajas para operar", MsgBoxStyle.Exclamation, "Advertencia")
@@ -108,7 +110,7 @@ Public Class CajaAperturaCierre
 
             If rtn = 1 Then
                 'MsgBox("Caja Cerrada Exitosamente!", MsgBoxStyle.Information, "Mensaje")
-                CreateObject("WScript.Shell").Popup("Caja Cerrada Exitosamente!" + " Enviando Email..." & vbCrLf & vbTab & "-NO APAGUE EL SISTEMA-", 3, "Aviso!", vbInformation)
+                CreateObject("WScript.Shell").Popup("Caja Cerrada Exitosamente!" + "-NO APAGUE EL SISTEMA-", 1, "Aviso!", vbInformation)
                 If My.Computer.Network.IsAvailable Then
                     mail_cierrecaja()
                 Else
@@ -192,14 +194,9 @@ Public Class CajaAperturaCierre
         Me.Cursor = Cursors.WaitCursor
         Try
             '*******************************
-            Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)
             Me.librodiarioTableAdapter.FillByIdevento(Me.ComercialDataSet.librodiario, gidevento)
             Me.cajaresumenTableAdapter.FillByidevento(Me.ComercialDataSet.cajaresumen, gidevento)
-            Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
-
             Me.ReportViewer1.RefreshReport()
-            'Return
-            'Threading.Thread.Sleep(7000)
             '*******************************
             Dim byteViewer As Byte() = ReportViewer1.LocalReport.Render("PDF")
             Dim saveFileDialog1 As New SaveFileDialog()
@@ -209,28 +206,27 @@ Public Class CajaAperturaCierre
             Dim newFile As New FileStream(ArchivoAdjunto, FileMode.Create)
             newFile.Write(byteViewer, 0, byteViewer.Length)
             newFile.Close()
+            Me.Cursor = Cursors.Default
         Catch ex As Exception
             Me.Cursor = Cursors.Default
             MsgBox(ex.Message)
         End Try
-        'Return
+        '****************** COMIENZA EL ENVIO DE MAIL   ********************
         '**********************************************************
+        CreateObject("WScript.Shell").Popup("Enviando Email... -NO APAGUE EL SISTEMA-", 1, "Aviso!", vbInformation)
         Dim emailmessage As New MailMessage()
-        Dim EmailFrom As String
-        Dim EmailFromPwd As String
-        Dim EmailPort As Long
         Dim EmailCierreCajaTo As String
-        Dim SmtpClient As String
-        Dim EmailSubject As String = "Cierre de caja " + Today.ToShortDateString
-        Dim EmailBody As String = "Sistema de Gestión Comercial te envió el resumen de tu último Cierre de caja"
+        Dim EmailSubject As String = "Cierre de caja al " + Today.ToShortDateString
+        Dim EmailBody As String = "Sistema de Gestión Comercial te envió el resumen de tu último Cierre de caja."
+        Me.Cursor = Cursors.WaitCursor
         Try
             '***************************************************************
             EmailCierreCajaTo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailCierreCajaTo")
             If EmailCierreCajaTo.Length = 0 Then
-                'MsgBox("Dirección Inválida", MsgBoxStyle.Exclamation, "Envío email")
                 Me.Cursor = Cursors.Default
                 Return
             End If
+            '*************************  CONSULTO PARAMETROS DE SMTP **********************************************
             SmtpClient = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("SmtpClient")
             EmailFrom = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFrom")
             EmailFromPwd = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFromPwd")
@@ -239,12 +235,11 @@ Public Class CajaAperturaCierre
             If ModuloUtilidades.clsSendMail.SendEMail(EmailFrom, EmailCierreCajaTo, EmailSubject, EmailBody, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
                 Me.Cursor = Cursors.Default
                 MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                'MsgBox("El envío de mail del cierre de caja ha sido exitoso!", MsgBoxStyle.Information, "Envío email")
             Else
                 Me.Cursor = Cursors.Default
-                MessageBox.Show("El envío de mail falló! Verifíque su conexión a internet", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                'MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
+                MessageBox.Show("El envío de mail falló! Verifíque su conexión a internet", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
+            Me.Cursor = Cursors.Default
         Catch ex As Exception
             Me.Cursor = Cursors.Default
             MessageBox.Show("El envío de mail falló: " + ex.Message, "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

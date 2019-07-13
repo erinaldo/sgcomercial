@@ -30,18 +30,19 @@ Partial Class GetMailCliente
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(33, 54)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Location = New System.Drawing.Point(33, 17)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(52, 17)
+        Me.Label1.Size = New System.Drawing.Size(61, 18)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Email:"
+        Me.Label1.Text = "E-mail:"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(93, 51)
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.TextBox1.Location = New System.Drawing.Point(103, 14)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(314, 22)
+        Me.TextBox1.Size = New System.Drawing.Size(314, 24)
         Me.TextBox1.TabIndex = 1
         '
         'ClientesTableAdapter
@@ -52,7 +53,9 @@ Partial Class GetMailCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(457, 120)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(457, 70)
+        Me.ControlBox = False
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -62,7 +65,7 @@ Partial Class GetMailCliente
         Me.Name = "GetMailCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "GetMailCliente"
-        Me.Text = "Consulta Mail Cliente"
+        Me.Text = "Dirección E-Mail Destino"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

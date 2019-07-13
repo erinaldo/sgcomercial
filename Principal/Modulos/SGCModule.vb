@@ -3,6 +3,7 @@ Imports System.Net
 Imports System.Net.WebRequest
 Imports System.Threading
 Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
 
 'Imports System.IO.Compression
 
@@ -35,6 +36,11 @@ Module SGCModule
     Public gUserToken As String
     Public gSUToken As Boolean
     Public gPresupuestoFechaVigencia As Date
+    Public SmtpClient As String
+    Public EmailFrom As String
+    Public EmailFromPwd As String
+    Public EmailPort As Integer
+    Public gNombreComercio As String
     '************************************************
     Public FormPrincipal As Principal
     '************************************************
@@ -871,5 +877,10 @@ Module SGCModule
         srf.ShowDialog()
 
     End Sub
+    Function IsValidEmailFormat(ByVal s As String) As Boolean
+        If s = Nothing Then Return False
+        Return Regex.IsMatch(s, "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$")
+    End Function
+
 End Module
 

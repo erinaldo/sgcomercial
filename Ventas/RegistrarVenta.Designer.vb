@@ -42,13 +42,13 @@ Partial Class RegistrarVenta
         Dim Label15 As System.Windows.Forms.Label
         Dim Label13 As System.Windows.Forms.Label
         Dim LabelDocTipo As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RegistrarVenta))
         Me.ListaclientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
@@ -482,6 +482,8 @@ Partial Class RegistrarVenta
         '
         Me.BtnNueva.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnNueva.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.BtnNueva.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNueva.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnNueva.Location = New System.Drawing.Point(33, 24)
         Me.BtnNueva.Margin = New System.Windows.Forms.Padding(4)
@@ -833,6 +835,8 @@ Partial Class RegistrarVenta
         Me.BtnConfirmar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnConfirmar.ContextMenuStrip = Me.ContextMenuConfirmar
+        Me.BtnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnConfirmar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnConfirmar.Location = New System.Drawing.Point(33, 101)
         Me.BtnConfirmar.Margin = New System.Windows.Forms.Padding(4)
@@ -860,6 +864,8 @@ Partial Class RegistrarVenta
         '
         Me.BtnCancelar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancelar.Location = New System.Drawing.Point(33, 62)
         Me.BtnCancelar.Margin = New System.Windows.Forms.Padding(4)
@@ -970,8 +976,8 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.AllowUserToDeleteRows = False
         Me.VentasdetalleDataGridView.AllowUserToResizeColumns = False
         Me.VentasdetalleDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.GhostWhite
-        Me.VentasdetalleDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite
+        Me.VentasdetalleDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.VentasdetalleDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -983,8 +989,8 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.MultiSelect = False
         Me.VentasdetalleDataGridView.Name = "VentasdetalleDataGridView"
         Me.VentasdetalleDataGridView.ReadOnly = True
-        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VentasdetalleDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VentasdetalleDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle7
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1070, 149)
         Me.VentasdetalleDataGridView.TabIndex = 0
@@ -1007,8 +1013,8 @@ Partial Class RegistrarVenta
         '
         'cantidad
         '
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle2
         Me.cantidad.HeaderText = "Cantidad"
         Me.cantidad.Name = "cantidad"
         Me.cantidad.ReadOnly = True
@@ -1016,10 +1022,10 @@ Partial Class RegistrarVenta
         '
         'precioventa
         '
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle17.Format = "C2"
-        DataGridViewCellStyle17.NullValue = Nothing
-        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle3
         Me.precioventa.HeaderText = "Precio Venta"
         Me.precioventa.Name = "precioventa"
         Me.precioventa.ReadOnly = True
@@ -1027,8 +1033,8 @@ Partial Class RegistrarVenta
         '
         'descuento
         '
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.descuento.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.descuento.DefaultCellStyle = DataGridViewCellStyle4
         Me.descuento.HeaderText = "Descuento"
         Me.descuento.Name = "descuento"
         Me.descuento.ReadOnly = True
@@ -1036,8 +1042,8 @@ Partial Class RegistrarVenta
         '
         'recargo
         '
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.recargo.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.recargo.DefaultCellStyle = DataGridViewCellStyle5
         Me.recargo.HeaderText = "Recargo"
         Me.recargo.Name = "recargo"
         Me.recargo.ReadOnly = True
@@ -1045,9 +1051,9 @@ Partial Class RegistrarVenta
         '
         'subtotal
         '
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle20.Format = "C2"
-        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "C2"
+        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle6
         Me.subtotal.HeaderText = "Sub Total"
         Me.subtotal.Name = "subtotal"
         Me.subtotal.ReadOnly = True
@@ -1825,6 +1831,7 @@ Partial Class RegistrarVenta
         'RegistrarVenta
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1127, 578)
         Me.Controls.Add(Me.TabControl)
         Me.Controls.Add(Me.MainMenuStrip)
