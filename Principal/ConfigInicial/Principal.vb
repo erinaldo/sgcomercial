@@ -12,6 +12,17 @@ Public Class Principal
     End Sub
 
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Dim hi As LoadingForm
+        hi = New LoadingForm
+        hi.Show()
+        hi.ProgressBar.Maximum = 2
+        Cursor.Current = Cursors.WaitCursor
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''
+        hi.mensaje.Text = "Cargando Permisos de usuario..."
+        hi.ProgressBar.PerformStep()
+        hi.Refresh()
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''
         Me.ModulosTableAdapter.Fill(Me.ComercialDataSet.modulos)
         Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
         '''''''''''''''''''''''''''''''''''
@@ -33,6 +44,11 @@ Public Class Principal
             cargapermisos()
         End If
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''
+        hi.mensaje.Text = "Cargando Notificaciones de Usuario..."
+        hi.ProgressBar.PerformStep()
+        hi.Refresh()
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''
         EjecutarAlertas()
         '================= BACKGROUND WORKERS   ==========================
         If gModuloClowd = 1 Then
@@ -41,6 +57,10 @@ Public Class Principal
         End If
         '======================================
         FeAFIPLoad()
+        '======================================
+        '======================================
+        Cursor.Current = Cursors.Default
+        hi.Dispose()
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================
@@ -68,7 +88,6 @@ Public Class Principal
         '====================================================================
         ''''''''''''''''''''''''''''''''''''''  FIN '''''''''''''''''''''''''''''''''''''
         '====================================================================
-
     End Sub
 
     Public Shared LastSysTime As DateTime

@@ -49,7 +49,14 @@ Partial Class Principal
         Me.LibroDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProductoEstandarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProductoCompuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ActualizacionDePreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IngresoDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ControlDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockEnAlertaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MovimientosDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpresiónEtiquetasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CodificarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -67,7 +74,9 @@ Partial Class Principal
         Me.RecibirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListaRemitosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CajasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AbrirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MovimientosDeCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExtraccionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GeneraciónDeValesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmitirValeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -118,12 +127,25 @@ Partial Class Principal
         Me.ABMUnidadesMedidaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.POSTFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMTipoComprobantesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FacturaElectrónicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MailServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RecargarPermisosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Alerta1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Alerta2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NubeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SubirProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SubirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DescargarPedidosWEBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ParametrosgeneralesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.DataGridViewStockAlerta = New System.Windows.Forms.DataGridView()
@@ -179,29 +201,7 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
-        Me.FacturaElectrónicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MailServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.ProductoEstandarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProductoCompuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IngresoDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ControlDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockEnAlertaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MovimientosDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AbrirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MovimientosDeCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Alerta1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Alerta2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NubeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SubirProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SubirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DescargarPedidosWEBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.RecargarPermisosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -222,6 +222,7 @@ Partial Class Principal
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem})
@@ -419,12 +420,71 @@ Partial Class Principal
         Me.ABMProductosToolStripMenuItem.Tag = "ABMProductosParent"
         Me.ABMProductosToolStripMenuItem.Text = "ABM Productos"
         '
+        'ProductoEstandarToolStripMenuItem
+        '
+        Me.ProductoEstandarToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.box_img
+        Me.ProductoEstandarToolStripMenuItem.Name = "ProductoEstandarToolStripMenuItem"
+        Me.ProductoEstandarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
+        Me.ProductoEstandarToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
+        Me.ProductoEstandarToolStripMenuItem.Tag = "ABMProductos"
+        Me.ProductoEstandarToolStripMenuItem.Text = "Producto estandar"
+        '
+        'ProductoCompuestoToolStripMenuItem
+        '
+        Me.ProductoCompuestoToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.products
+        Me.ProductoCompuestoToolStripMenuItem.Name = "ProductoCompuestoToolStripMenuItem"
+        Me.ProductoCompuestoToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
+            Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
+        Me.ProductoCompuestoToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
+        Me.ProductoCompuestoToolStripMenuItem.Tag = "ABMProductosCompuestos"
+        Me.ProductoCompuestoToolStripMenuItem.Text = "Producto compuesto"
+        '
         'ActualizacionDePreciosToolStripMenuItem
         '
         Me.ActualizacionDePreciosToolStripMenuItem.Name = "ActualizacionDePreciosToolStripMenuItem"
         Me.ActualizacionDePreciosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.ActualizacionDePreciosToolStripMenuItem.Tag = "ActualizacionPrecios"
         Me.ActualizacionDePreciosToolStripMenuItem.Text = "Actualización de Precios"
+        '
+        'StockToolStripMenuItem
+        '
+        Me.StockToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresoDeProductosToolStripMenuItem, Me.ControlDeStockToolStripMenuItem, Me.StockEnAlertaToolStripMenuItem, Me.MovimientosDeStockToolStripMenuItem})
+        Me.StockToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.products
+        Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
+        Me.StockToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
+        Me.StockToolStripMenuItem.Tag = "StockParent"
+        Me.StockToolStripMenuItem.Text = "Stock"
+        '
+        'IngresoDeProductosToolStripMenuItem
+        '
+        Me.IngresoDeProductosToolStripMenuItem.Name = "IngresoDeProductosToolStripMenuItem"
+        Me.IngresoDeProductosToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Shift) _
+            Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.IngresoDeProductosToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
+        Me.IngresoDeProductosToolStripMenuItem.Tag = "ingresoegresoproductos"
+        Me.IngresoDeProductosToolStripMenuItem.Text = "Ingreso/Egreso de Productos"
+        '
+        'ControlDeStockToolStripMenuItem
+        '
+        Me.ControlDeStockToolStripMenuItem.Name = "ControlDeStockToolStripMenuItem"
+        Me.ControlDeStockToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.ControlDeStockToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
+        Me.ControlDeStockToolStripMenuItem.Tag = "ControlStock"
+        Me.ControlDeStockToolStripMenuItem.Text = "Control de Stock General"
+        '
+        'StockEnAlertaToolStripMenuItem
+        '
+        Me.StockEnAlertaToolStripMenuItem.Name = "StockEnAlertaToolStripMenuItem"
+        Me.StockEnAlertaToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
+        Me.StockEnAlertaToolStripMenuItem.Tag = "StockAlerta"
+        Me.StockEnAlertaToolStripMenuItem.Text = "Stock en Alerta"
+        '
+        'MovimientosDeStockToolStripMenuItem
+        '
+        Me.MovimientosDeStockToolStripMenuItem.Name = "MovimientosDeStockToolStripMenuItem"
+        Me.MovimientosDeStockToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
+        Me.MovimientosDeStockToolStripMenuItem.Tag = "MovimientosStock"
+        Me.MovimientosDeStockToolStripMenuItem.Text = "Movimientos de Stock"
         '
         'ImpresiónEtiquetasToolStripMenuItem
         '
@@ -549,12 +609,29 @@ Partial Class Principal
         Me.CajasToolStripMenuItem.Tag = "ModuloCajas"
         Me.CajasToolStripMenuItem.Text = "Cajas"
         '
+        'AbrirToolStripMenuItem
+        '
+        Me.AbrirToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.cashregister
+        Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
+        Me.AbrirToolStripMenuItem.Tag = "CajaAperturaCierre"
+        Me.AbrirToolStripMenuItem.Text = "Apertura / Cierre"
+        '
         'GastosToolStripMenuItem
         '
         Me.GastosToolStripMenuItem.Name = "GastosToolStripMenuItem"
         Me.GastosToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
         Me.GastosToolStripMenuItem.Tag = "ABMGastos"
         Me.GastosToolStripMenuItem.Text = "Gastos"
+        '
+        'MovimientosDeCajaToolStripMenuItem
+        '
+        Me.MovimientosDeCajaToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.appicon
+        Me.MovimientosDeCajaToolStripMenuItem.Name = "MovimientosDeCajaToolStripMenuItem"
+        Me.MovimientosDeCajaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
+        Me.MovimientosDeCajaToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
+        Me.MovimientosDeCajaToolStripMenuItem.Tag = "Cajasmovimientos"
+        Me.MovimientosDeCajaToolStripMenuItem.Text = "Movimientos de Caja"
         '
         'ExtraccionesToolStripMenuItem
         '
@@ -919,6 +996,100 @@ Partial Class Principal
         Me.ABMTipoComprobantesToolStripMenuItem.Tag = "ABMTipoComprobantes"
         Me.ABMTipoComprobantesToolStripMenuItem.Text = "ABMTipoComprobantes"
         '
+        'FacturaElectrónicaToolStripMenuItem
+        '
+        Me.FacturaElectrónicaToolStripMenuItem.Name = "FacturaElectrónicaToolStripMenuItem"
+        Me.FacturaElectrónicaToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
+        Me.FacturaElectrónicaToolStripMenuItem.Tag = "FeConf"
+        Me.FacturaElectrónicaToolStripMenuItem.Text = "Factura Electrónica"
+        '
+        'MailServerToolStripMenuItem
+        '
+        Me.MailServerToolStripMenuItem.Name = "MailServerToolStripMenuItem"
+        Me.MailServerToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
+        Me.MailServerToolStripMenuItem.Tag = "MailServerConf"
+        Me.MailServerToolStripMenuItem.Text = "Mail Server"
+        '
+        'RecargarPermisosToolStripMenuItem
+        '
+        Me.RecargarPermisosToolStripMenuItem.Name = "RecargarPermisosToolStripMenuItem"
+        Me.RecargarPermisosToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
+        Me.RecargarPermisosToolStripMenuItem.Tag = "ReloadGlobals"
+        Me.RecargarPermisosToolStripMenuItem.Text = "Recargar Globales"
+        '
+        'NotificacionesToolStripMenuItem
+        '
+        Me.NotificacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Alerta1ToolStripMenuItem, Me.Alerta2ToolStripMenuItem})
+        Me.NotificacionesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
+        Me.NotificacionesToolStripMenuItem.Name = "NotificacionesToolStripMenuItem"
+        Me.NotificacionesToolStripMenuItem.Size = New System.Drawing.Size(148, 27)
+        Me.NotificacionesToolStripMenuItem.Tag = "ModuloNotificaciones"
+        Me.NotificacionesToolStripMenuItem.Text = "Notificaciones"
+        Me.NotificacionesToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.NotificacionesToolStripMenuItem.Visible = False
+        '
+        'Alerta1ToolStripMenuItem
+        '
+        Me.Alerta1ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
+        Me.Alerta1ToolStripMenuItem.Name = "Alerta1ToolStripMenuItem"
+        Me.Alerta1ToolStripMenuItem.Size = New System.Drawing.Size(140, 28)
+        Me.Alerta1ToolStripMenuItem.Tag = "Alerta1"
+        Me.Alerta1ToolStripMenuItem.Text = "Alerta1"
+        Me.Alerta1ToolStripMenuItem.Visible = False
+        '
+        'Alerta2ToolStripMenuItem
+        '
+        Me.Alerta2ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
+        Me.Alerta2ToolStripMenuItem.Name = "Alerta2ToolStripMenuItem"
+        Me.Alerta2ToolStripMenuItem.Size = New System.Drawing.Size(140, 28)
+        Me.Alerta2ToolStripMenuItem.Tag = "Alerta2"
+        Me.Alerta2ToolStripMenuItem.Text = "Alerta2"
+        Me.Alerta2ToolStripMenuItem.Visible = False
+        '
+        'NubeToolStripMenuItem
+        '
+        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.DescargarPedidosWEBToolStripMenuItem, Me.MisSucursalesToolStripMenuItem})
+        Me.NubeToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
+        Me.NubeToolStripMenuItem.Name = "NubeToolStripMenuItem"
+        Me.NubeToolStripMenuItem.Size = New System.Drawing.Size(83, 27)
+        Me.NubeToolStripMenuItem.Tag = "ModuloClowd"
+        Me.NubeToolStripMenuItem.Text = "Nube"
+        '
+        'SubirProductosToolStripMenuItem
+        '
+        Me.SubirProductosToolStripMenuItem.Name = "SubirProductosToolStripMenuItem"
+        Me.SubirProductosToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.SubirProductosToolStripMenuItem.Tag = "SubirProductosClowd"
+        Me.SubirProductosToolStripMenuItem.Text = "Subir Productos"
+        '
+        'SubirStockToolStripMenuItem
+        '
+        Me.SubirStockToolStripMenuItem.Name = "SubirStockToolStripMenuItem"
+        Me.SubirStockToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.SubirStockToolStripMenuItem.Tag = "SubirStockClowd"
+        Me.SubirStockToolStripMenuItem.Text = "Subir Stock"
+        '
+        'DescargarProductosToolStripMenuItem
+        '
+        Me.DescargarProductosToolStripMenuItem.Name = "DescargarProductosToolStripMenuItem"
+        Me.DescargarProductosToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.DescargarProductosToolStripMenuItem.Tag = "DescargarProductosClowd"
+        Me.DescargarProductosToolStripMenuItem.Text = "Descargar Productos"
+        '
+        'DescargarPedidosWEBToolStripMenuItem
+        '
+        Me.DescargarPedidosWEBToolStripMenuItem.Name = "DescargarPedidosWEBToolStripMenuItem"
+        Me.DescargarPedidosWEBToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.DescargarPedidosWEBToolStripMenuItem.Tag = "DescargarPedidosClowd"
+        Me.DescargarPedidosWEBToolStripMenuItem.Text = "Descargar Pedidos"
+        '
+        'MisSucursalesToolStripMenuItem
+        '
+        Me.MisSucursalesToolStripMenuItem.Name = "MisSucursalesToolStripMenuItem"
+        Me.MisSucursalesToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
+        Me.MisSucursalesToolStripMenuItem.Tag = "MisSucursales"
+        Me.MisSucursalesToolStripMenuItem.Text = "Mis Sucursales"
+        '
         'ParametrosgeneralesDataGridView
         '
         Me.ParametrosgeneralesDataGridView.AutoGenerateColumns = False
@@ -962,6 +1133,12 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "prgdecimal1"
         Me.DataGridViewTextBoxColumn5.HeaderText = "prgdecimal1"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewImageColumn1
+        '
+        Me.DataGridViewImageColumn1.DataPropertyName = "prgimagen1"
+        Me.DataGridViewImageColumn1.HeaderText = "prgimagen1"
+        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         '
         'ParametrosgeneralesBindingSource
         '
@@ -1401,175 +1578,6 @@ Partial Class Principal
         'BGWStock
         '
         '
-        'FacturaElectrónicaToolStripMenuItem
-        '
-        Me.FacturaElectrónicaToolStripMenuItem.Name = "FacturaElectrónicaToolStripMenuItem"
-        Me.FacturaElectrónicaToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
-        Me.FacturaElectrónicaToolStripMenuItem.Tag = "FeConf"
-        Me.FacturaElectrónicaToolStripMenuItem.Text = "Factura Electrónica"
-        '
-        'MailServerToolStripMenuItem
-        '
-        Me.MailServerToolStripMenuItem.Name = "MailServerToolStripMenuItem"
-        Me.MailServerToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
-        Me.MailServerToolStripMenuItem.Tag = "MailServerConf"
-        Me.MailServerToolStripMenuItem.Text = "Mail Server"
-        '
-        'DataGridViewImageColumn1
-        '
-        Me.DataGridViewImageColumn1.DataPropertyName = "prgimagen1"
-        Me.DataGridViewImageColumn1.HeaderText = "prgimagen1"
-        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
-        '
-        'ProductoEstandarToolStripMenuItem
-        '
-        Me.ProductoEstandarToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.box_img
-        Me.ProductoEstandarToolStripMenuItem.Name = "ProductoEstandarToolStripMenuItem"
-        Me.ProductoEstandarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.ProductoEstandarToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
-        Me.ProductoEstandarToolStripMenuItem.Tag = "ABMProductos"
-        Me.ProductoEstandarToolStripMenuItem.Text = "Producto estandar"
-        '
-        'ProductoCompuestoToolStripMenuItem
-        '
-        Me.ProductoCompuestoToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.products
-        Me.ProductoCompuestoToolStripMenuItem.Name = "ProductoCompuestoToolStripMenuItem"
-        Me.ProductoCompuestoToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
-            Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.ProductoCompuestoToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
-        Me.ProductoCompuestoToolStripMenuItem.Tag = "ABMProductosCompuestos"
-        Me.ProductoCompuestoToolStripMenuItem.Text = "Producto compuesto"
-        '
-        'StockToolStripMenuItem
-        '
-        Me.StockToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresoDeProductosToolStripMenuItem, Me.ControlDeStockToolStripMenuItem, Me.StockEnAlertaToolStripMenuItem, Me.MovimientosDeStockToolStripMenuItem})
-        Me.StockToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.products
-        Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
-        Me.StockToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
-        Me.StockToolStripMenuItem.Tag = "StockParent"
-        Me.StockToolStripMenuItem.Text = "Stock"
-        '
-        'IngresoDeProductosToolStripMenuItem
-        '
-        Me.IngresoDeProductosToolStripMenuItem.Name = "IngresoDeProductosToolStripMenuItem"
-        Me.IngresoDeProductosToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.IngresoDeProductosToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
-        Me.IngresoDeProductosToolStripMenuItem.Tag = "ingresoegresoproductos"
-        Me.IngresoDeProductosToolStripMenuItem.Text = "Ingreso/Egreso de Productos"
-        '
-        'ControlDeStockToolStripMenuItem
-        '
-        Me.ControlDeStockToolStripMenuItem.Name = "ControlDeStockToolStripMenuItem"
-        Me.ControlDeStockToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.ControlDeStockToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
-        Me.ControlDeStockToolStripMenuItem.Tag = "ControlStock"
-        Me.ControlDeStockToolStripMenuItem.Text = "Control de Stock General"
-        '
-        'StockEnAlertaToolStripMenuItem
-        '
-        Me.StockEnAlertaToolStripMenuItem.Name = "StockEnAlertaToolStripMenuItem"
-        Me.StockEnAlertaToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
-        Me.StockEnAlertaToolStripMenuItem.Tag = "StockAlerta"
-        Me.StockEnAlertaToolStripMenuItem.Text = "Stock en Alerta"
-        '
-        'MovimientosDeStockToolStripMenuItem
-        '
-        Me.MovimientosDeStockToolStripMenuItem.Name = "MovimientosDeStockToolStripMenuItem"
-        Me.MovimientosDeStockToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
-        Me.MovimientosDeStockToolStripMenuItem.Tag = "MovimientosStock"
-        Me.MovimientosDeStockToolStripMenuItem.Text = "Movimientos de Stock"
-        '
-        'AbrirToolStripMenuItem
-        '
-        Me.AbrirToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.cashregister
-        Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
-        Me.AbrirToolStripMenuItem.Tag = "CajaAperturaCierre"
-        Me.AbrirToolStripMenuItem.Text = "Apertura / Cierre"
-        '
-        'MovimientosDeCajaToolStripMenuItem
-        '
-        Me.MovimientosDeCajaToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.appicon
-        Me.MovimientosDeCajaToolStripMenuItem.Name = "MovimientosDeCajaToolStripMenuItem"
-        Me.MovimientosDeCajaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
-        Me.MovimientosDeCajaToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
-        Me.MovimientosDeCajaToolStripMenuItem.Tag = "Cajasmovimientos"
-        Me.MovimientosDeCajaToolStripMenuItem.Text = "Movimientos de Caja"
-        '
-        'NotificacionesToolStripMenuItem
-        '
-        Me.NotificacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Alerta1ToolStripMenuItem, Me.Alerta2ToolStripMenuItem})
-        Me.NotificacionesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
-        Me.NotificacionesToolStripMenuItem.Name = "NotificacionesToolStripMenuItem"
-        Me.NotificacionesToolStripMenuItem.Size = New System.Drawing.Size(148, 27)
-        Me.NotificacionesToolStripMenuItem.Tag = "ModuloNotificaciones"
-        Me.NotificacionesToolStripMenuItem.Text = "Notificaciones"
-        Me.NotificacionesToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.NotificacionesToolStripMenuItem.Visible = False
-        '
-        'Alerta1ToolStripMenuItem
-        '
-        Me.Alerta1ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
-        Me.Alerta1ToolStripMenuItem.Name = "Alerta1ToolStripMenuItem"
-        Me.Alerta1ToolStripMenuItem.Size = New System.Drawing.Size(140, 28)
-        Me.Alerta1ToolStripMenuItem.Tag = "Alerta1"
-        Me.Alerta1ToolStripMenuItem.Text = "Alerta1"
-        Me.Alerta1ToolStripMenuItem.Visible = False
-        '
-        'Alerta2ToolStripMenuItem
-        '
-        Me.Alerta2ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
-        Me.Alerta2ToolStripMenuItem.Name = "Alerta2ToolStripMenuItem"
-        Me.Alerta2ToolStripMenuItem.Size = New System.Drawing.Size(140, 28)
-        Me.Alerta2ToolStripMenuItem.Tag = "Alerta2"
-        Me.Alerta2ToolStripMenuItem.Text = "Alerta2"
-        Me.Alerta2ToolStripMenuItem.Visible = False
-        '
-        'NubeToolStripMenuItem
-        '
-        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.DescargarPedidosWEBToolStripMenuItem, Me.MisSucursalesToolStripMenuItem})
-        Me.NubeToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
-        Me.NubeToolStripMenuItem.Name = "NubeToolStripMenuItem"
-        Me.NubeToolStripMenuItem.Size = New System.Drawing.Size(83, 27)
-        Me.NubeToolStripMenuItem.Tag = "ModuloClowd"
-        Me.NubeToolStripMenuItem.Text = "Nube"
-        '
-        'SubirProductosToolStripMenuItem
-        '
-        Me.SubirProductosToolStripMenuItem.Name = "SubirProductosToolStripMenuItem"
-        Me.SubirProductosToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.SubirProductosToolStripMenuItem.Tag = "SubirProductosClowd"
-        Me.SubirProductosToolStripMenuItem.Text = "Subir Productos"
-        '
-        'SubirStockToolStripMenuItem
-        '
-        Me.SubirStockToolStripMenuItem.Name = "SubirStockToolStripMenuItem"
-        Me.SubirStockToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.SubirStockToolStripMenuItem.Tag = "SubirStockClowd"
-        Me.SubirStockToolStripMenuItem.Text = "Subir Stock"
-        '
-        'DescargarProductosToolStripMenuItem
-        '
-        Me.DescargarProductosToolStripMenuItem.Name = "DescargarProductosToolStripMenuItem"
-        Me.DescargarProductosToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.DescargarProductosToolStripMenuItem.Tag = "DescargarProductosClowd"
-        Me.DescargarProductosToolStripMenuItem.Text = "Descargar Productos"
-        '
-        'DescargarPedidosWEBToolStripMenuItem
-        '
-        Me.DescargarPedidosWEBToolStripMenuItem.Name = "DescargarPedidosWEBToolStripMenuItem"
-        Me.DescargarPedidosWEBToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.DescargarPedidosWEBToolStripMenuItem.Tag = "DescargarPedidosClowd"
-        Me.DescargarPedidosWEBToolStripMenuItem.Text = "Descargar Pedidos"
-        '
-        'MisSucursalesToolStripMenuItem
-        '
-        Me.MisSucursalesToolStripMenuItem.Name = "MisSucursalesToolStripMenuItem"
-        Me.MisSucursalesToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.MisSucursalesToolStripMenuItem.Tag = "MisSucursales"
-        Me.MisSucursalesToolStripMenuItem.Text = "Mis Sucursales"
-        '
         'PictureBox1
         '
         Me.PictureBox1.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ParametrosgeneralesBindingSource, "prgimagen1", True))
@@ -1580,13 +1588,6 @@ Partial Class Principal
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
-        '
-        'RecargarPermisosToolStripMenuItem
-        '
-        Me.RecargarPermisosToolStripMenuItem.Name = "RecargarPermisosToolStripMenuItem"
-        Me.RecargarPermisosToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
-        Me.RecargarPermisosToolStripMenuItem.Tag = "ReloadGlobals"
-        Me.RecargarPermisosToolStripMenuItem.Text = "Recargar Globales"
         '
         'Principal
         '

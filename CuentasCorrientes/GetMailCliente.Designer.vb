@@ -31,7 +31,7 @@ Partial Class GetMailCliente
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.Label1.Location = New System.Drawing.Point(33, 17)
+        Me.Label1.Location = New System.Drawing.Point(36, 17)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(61, 18)
         Me.Label1.TabIndex = 0
@@ -40,7 +40,7 @@ Partial Class GetMailCliente
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.TextBox1.Location = New System.Drawing.Point(103, 14)
+        Me.TextBox1.Location = New System.Drawing.Point(106, 14)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(314, 24)
         Me.TextBox1.TabIndex = 1
@@ -54,7 +54,7 @@ Partial Class GetMailCliente
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(457, 70)
+        Me.ClientSize = New System.Drawing.Size(457, 90)
         Me.ControlBox = False
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)

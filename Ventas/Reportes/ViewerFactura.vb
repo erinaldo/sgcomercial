@@ -23,10 +23,12 @@ Public Class ViewerFactura
         Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
 
         If libroventasTableAdapter.libroventas_consultar_tipocomprobante(gidventa) = "Factura A" Then
-            Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFacturaIVA.rdlc"
+            'Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFacturaIVA.rdlc"
+            Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFacturaElectronica.rdlc"
             Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
         Else
-            Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFactura.rdlc"
+            Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFacturaElectronica.rdlc"
+            'Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFactura.rdlc"
         End If
 
         Me.ReportViewer1.RefreshReport()
