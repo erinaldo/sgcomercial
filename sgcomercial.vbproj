@@ -1532,6 +1532,7 @@
     <EmbeddedResource Include="Ventas\Reportes\RepComandera58.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepEstadoResultados.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFactura.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepFacturaElectronica.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFacturaIVA.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepLibroMayor.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepCabecera.rdlc" />
