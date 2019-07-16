@@ -23,10 +23,10 @@ Partial Class ViewerFactura
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource8 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.libroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -41,8 +41,8 @@ Partial Class ViewerFactura
         Me.Comanda80mmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Comanda58mmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HojaA4ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.EnviarPorEMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.libroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,22 +79,22 @@ Partial Class ViewerFactura
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource5.Name = "MiComercio"
-        ReportDataSource5.Value = Me.MiComercioBindingSource
-        ReportDataSource6.Name = "libroventas"
-        ReportDataSource6.Value = Me.libroventasBindingSource
-        ReportDataSource7.Name = "libroventasdetalle"
-        ReportDataSource7.Value = Me.libroventasdetalleBindingSource
-        ReportDataSource8.Name = "ivaresumen"
-        ReportDataSource8.Value = Me.ivaresumenBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource8)
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "libroventas"
+        ReportDataSource2.Value = Me.libroventasBindingSource
+        ReportDataSource3.Name = "libroventasdetalle"
+        ReportDataSource3.Value = Me.libroventasdetalleBindingSource
+        ReportDataSource4.Name = "ivaresumen"
+        ReportDataSource4.Value = Me.ivaresumenBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFacturaIVA.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 33)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(732, 670)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1082, 670)
         Me.ReportViewer1.TabIndex = 0
         Me.ReportViewer1.TabStop = False
         '
@@ -122,7 +122,7 @@ Partial Class ViewerFactura
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(732, 33)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 33)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -144,21 +144,21 @@ Partial Class ViewerFactura
         Me.HojaA4ToolStripMenuItem.Size = New System.Drawing.Size(90, 29)
         Me.HojaA4ToolStripMenuItem.Text = "Hoja A4"
         '
-        'ParametrosgeneralesTableAdapter
-        '
-        Me.ParametrosgeneralesTableAdapter.ClearBeforeFill = True
-        '
         'EnviarPorEMailToolStripMenuItem
         '
         Me.EnviarPorEMailToolStripMenuItem.Name = "EnviarPorEMailToolStripMenuItem"
         Me.EnviarPorEMailToolStripMenuItem.Size = New System.Drawing.Size(170, 29)
         Me.EnviarPorEMailToolStripMenuItem.Text = "Enviar por E-Mail"
         '
+        'ParametrosgeneralesTableAdapter
+        '
+        Me.ParametrosgeneralesTableAdapter.ClearBeforeFill = True
+        '
         'ViewerFactura
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(732, 703)
+        Me.ClientSize = New System.Drawing.Size(1082, 703)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.KeyPreview = True

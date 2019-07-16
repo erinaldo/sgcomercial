@@ -28,6 +28,7 @@ Public Class ViewerFactura
             Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
         Else
             Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFacturaElectronica.rdlc"
+            Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
             'Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepFactura.rdlc"
         End If
 
