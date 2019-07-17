@@ -5,6 +5,7 @@ Imports System.Text
 Imports System.Net.Mail
 
 Public Class Cajasmovimientos
+    Public FechaCierre As String
     Private Sub Cajasmovimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.v_gastos' Puede moverla o quitarla según sea necesario.
 
@@ -51,6 +52,7 @@ Public Class Cajasmovimientos
                     Return
                 End If
                 gidevento = CajaseventosDataGridView.CurrentRow.Cells(0).Value()
+                FechaCierre = CajaseventosDataGridView.CurrentRow.Cells("FechacierreDataGridViewTextBoxColumn").Value()
                 Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)
                 Me.librodiarioTableAdapter.FillByIdevento(Me.ComercialDataSet.librodiario, gidevento)
                 Me.cajaresumenTableAdapter.FillByidevento(Me.ComercialDataSet.cajaresumen, gidevento)
@@ -220,7 +222,6 @@ Public Class Cajasmovimientos
         Dim emailmessage As New MailMessage()
         Dim EmailFrom As String
         Dim EmailFromPwd As String
-        Dim EmailPort As Long
         Dim EmailCierreCajaTo As String
         Dim SmtpClient As String
 
@@ -239,27 +240,21 @@ Public Class Cajasmovimientos
             '***************************************************************
             emailmessage.From = New MailAddress(EmailFrom)
             emailmessage.To.Add(EmailCierreCajaTo)
-            emailmessage.Subject = "Cierre de caja " + Today.ToShortDateString
-            emailmessage.Body = "Sistema de Gestión Comercial te envió el resumen de tu último Cierre de caja"
-            '*************************  ADJUNTO **********************************************
-            Dim fileTXT As String = ArchivoAdjunto.ToString
-            Dim data As Net.Mail.Attachment = New Net.Mail.Attachment(fileTXT)
-            data.Name = ArchivoAdjunto.ToString '"CierreCaja.pdf"
-            emailmessage.Attachments.Add(data)
-            '*********************************************************************************
-            Dim smtp As New SmtpClient(SmtpClient)
-            smtp.Port = EmailPort
-            smtp.EnableSsl = True
-            smtp.Credentials = New System.Net.NetworkCredential(EmailFrom, EmailFromPwd)
-            smtp.Timeout = 10
-            'smtp.Send(emailmessage)
-            smtp.SendAsync(emailmessage, gUserToken)
-            Me.Cursor = Cursors.Default
-            MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
-
+            emailmessage.Subject = "Cierre de caja " + FechaCierre 'Today.ToShortDateString
+            emailmessage.Body = "Sistema de Gestión Comercial te envió el reporte Cierre de caja correspondiente a la fecha " + FechaCierre
+            '***************************************************************
+            '***********************    ENVIO DE EMAIL  ****************************************
+            '***************************************************************
+            If clsSendMail.SendEMail(EmailFrom, EmailCierreCajaTo, emailmessage.Subject, emailmessage.Body, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
+                Me.Cursor = Cursors.Default
+                MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                Me.Cursor = Cursors.Default
+                MessageBox.Show("El envío de mail falló! Verifíque su conexión a internet", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
         Catch ex As Exception
             Me.Cursor = Cursors.Default
-            MsgBox(ex.Message)
+            MessageBox.Show("El envío de mail falló: " + ex.Message, "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
 

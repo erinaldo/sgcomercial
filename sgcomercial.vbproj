@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\cef.redist.x86.73.1.13\build\cef.redist.x86.props" Condition="Exists('packages\cef.redist.x86.73.1.13\build\cef.redist.x86.props')" />
+  <Import Project="packages\cef.redist.x64.73.1.13\build\cef.redist.x64.props" Condition="Exists('packages\cef.redist.x64.73.1.13\build\cef.redist.x64.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -134,12 +136,17 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
@@ -377,6 +384,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Principal\ConfigInicial\BienvenidaEPOS.Designer.vb">
+      <DependentUpon>BienvenidaEPOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ConfigInicial\BienvenidaEPOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Principal\ConfigInicial\DownloadForm.Designer.vb">
       <DependentUpon>DownloadForm.vb</DependentUpon>
     </Compile>
@@ -393,6 +406,12 @@
       <DependentUpon>SUAuth.vb</DependentUpon>
     </Compile>
     <Compile Include="Principal\ConfigInicial\SUAuth.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\ConfigInicial\WinPopUp.Designer.vb">
+      <DependentUpon>WinPopUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ConfigInicial\WinPopUp.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal\Modulos\ModuleAFIP.vb" />
@@ -916,6 +935,12 @@
     <Compile Include="Ventas\PresupuestosGenerados.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\ReenvioCierresCaja.Designer.vb">
+      <DependentUpon>ReenvioCierresCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\ReenvioCierresCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\Reportes\LibroVentasDetalladas.Designer.vb">
       <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
     </Compile>
@@ -1257,6 +1282,9 @@
     <EmbeddedResource Include="Estadisticas\Ventas\RepEstEnviosSucursales.rdlc" />
     <EmbeddedResource Include="Estadisticas\Ventas\RepRankingVentas.rdlc" />
     <EmbeddedResource Include="Estadisticas\Ventas\RepVentasProvincias.rdlc" />
+    <EmbeddedResource Include="Principal\ConfigInicial\BienvenidaEPOS.resx">
+      <DependentUpon>BienvenidaEPOS.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\ConfigInicial\DownloadForm.resx">
       <DependentUpon>DownloadForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -1265,6 +1293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\ConfigInicial\SUAuth.resx">
       <DependentUpon>SUAuth.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\ConfigInicial\WinPopUp.resx">
+      <DependentUpon>WinPopUp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\ParametrosGenerales\ABMTipoComprobantes.resx">
       <DependentUpon>ABMTipoComprobantes.vb</DependentUpon>
@@ -1420,6 +1451,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\PresupuestosGenerados.resx">
       <DependentUpon>PresupuestosGenerados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\ReenvioCierresCaja.resx">
+      <DependentUpon>ReenvioCierresCaja.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\RepComandera80.rdlc" />
     <EmbeddedResource Include="TransferenciaStock\EnviarStock.resx">
@@ -1847,6 +1881,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Bienvenidaepos.txt" />
+    <None Include="Resources\BANNER ALPHA.png" />
+    <None Include="Resources\512x512.jpg" />
+    <None Include="Resources\epos_logo.png" />
     <None Include="Service References\WSFEV1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
@@ -1881,6 +1919,7 @@
     <None Include="My Project\img\FEAFIP_ON.gif" />
     <None Include="My Project\img\FEAFIP_OFF.gif" />
     <None Include="My Project\img\Yes_check.png" />
+    <None Include="My Project\img\epos_logo.gif" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />
@@ -1902,42 +1941,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
@@ -1960,6 +1999,13 @@
     <WCFMetadataStorage Include="Service References\WSFEV1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\cef.redist.x64.73.1.13\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cef.redist.x64.73.1.13\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('packages\cef.redist.x86.73.1.13\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cef.redist.x86.73.1.13\build\cef.redist.x86.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

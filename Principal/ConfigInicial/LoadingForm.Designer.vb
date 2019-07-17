@@ -34,7 +34,7 @@ Partial Class LoadingForm
         Me.mensaje.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.mensaje.Location = New System.Drawing.Point(0, 0)
         Me.mensaje.Name = "mensaje"
-        Me.mensaje.Size = New System.Drawing.Size(592, 31)
+        Me.mensaje.Size = New System.Drawing.Size(588, 31)
         Me.mensaje.TabIndex = 0
         Me.mensaje.Text = "Encendiendo el Sistema"
         Me.mensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -42,9 +42,9 @@ Partial Class LoadingForm
         'ProgressBar
         '
         Me.ProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ProgressBar.Location = New System.Drawing.Point(0, 43)
+        Me.ProgressBar.Location = New System.Drawing.Point(0, 39)
         Me.ProgressBar.Name = "ProgressBar"
-        Me.ProgressBar.Size = New System.Drawing.Size(592, 30)
+        Me.ProgressBar.Size = New System.Drawing.Size(588, 30)
         Me.ProgressBar.Step = 2
         Me.ProgressBar.TabIndex = 1
         '
@@ -53,13 +53,14 @@ Partial Class LoadingForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(592, 73)
+        Me.ClientSize = New System.Drawing.Size(588, 69)
         Me.ControlBox = False
         Me.Controls.Add(Me.mensaje)
         Me.Controls.Add(Me.ProgressBar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "LoadingForm"
         Me.ShowIcon = False
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "LoadingForm"
         Me.Text = "Iniciando Sistema..."

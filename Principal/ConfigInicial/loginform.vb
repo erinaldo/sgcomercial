@@ -230,6 +230,7 @@ Public Class loginform
         GetCajaOperativa()
         BGWUpdateLicencia.RunWorkerAsync()
         textusuario.Select()
+        ShowPopUp("Hay algo que nos gustaría contarte! (click aquí)")
     End Sub
     Private Sub GetCajaOperativa()
         gidcaja = 0
@@ -495,6 +496,12 @@ Public Class loginform
     End Sub
 
     Private Sub LabelMACaddress_Click(sender As Object, e As EventArgs) Handles LabelMACaddress.Click
+
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        'ShowPopUp("hola mundo!")
+        '        BienvenidaEPOS.Show()
 
     End Sub
 End Class

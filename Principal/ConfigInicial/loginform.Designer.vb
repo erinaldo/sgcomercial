@@ -45,7 +45,6 @@ Partial Class loginform
         Me.textpassword = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.ParametrosgeneralesTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.version = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -67,7 +66,8 @@ Partial Class loginform
         '
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(84, 234)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.Button1.Location = New System.Drawing.Point(91, 234)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(157, 31)
@@ -79,7 +79,8 @@ Partial Class loginform
         '
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(247, 234)
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.Button2.Location = New System.Drawing.Point(254, 234)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(157, 31)
@@ -175,7 +176,7 @@ Partial Class loginform
         Me.UsuariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.UsuariosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10})
         Me.UsuariosDataGridView.DataSource = Me.UsuariosBindingSource
-        Me.UsuariosDataGridView.Location = New System.Drawing.Point(16, 15)
+        Me.UsuariosDataGridView.Location = New System.Drawing.Point(7, 316)
         Me.UsuariosDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.UsuariosDataGridView.Name = "UsuariosDataGridView"
         Me.UsuariosDataGridView.Size = New System.Drawing.Size(19, 17)
@@ -245,50 +246,46 @@ Partial Class loginform
         '
         'textusuario
         '
-        Me.textusuario.Location = New System.Drawing.Point(215, 163)
+        Me.textusuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.textusuario.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.textusuario.Location = New System.Drawing.Point(185, 163)
         Me.textusuario.Margin = New System.Windows.Forms.Padding(4)
         Me.textusuario.Name = "textusuario"
-        Me.textusuario.Size = New System.Drawing.Size(132, 26)
+        Me.textusuario.Size = New System.Drawing.Size(132, 28)
         Me.textusuario.TabIndex = 4
         '
         'textpassword
         '
-        Me.textpassword.Location = New System.Drawing.Point(215, 195)
+        Me.textpassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.textpassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.textpassword.Location = New System.Drawing.Point(185, 195)
         Me.textpassword.Margin = New System.Windows.Forms.Padding(4)
         Me.textpassword.Name = "textpassword"
         Me.textpassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.textpassword.Size = New System.Drawing.Size(132, 26)
+        Me.textpassword.Size = New System.Drawing.Size(132, 28)
         Me.textpassword.TabIndex = 5
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(141, 167)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Location = New System.Drawing.Point(104, 167)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 20)
+        Me.Label1.Size = New System.Drawing.Size(80, 20)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Usuario:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(153, 200)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.Label2.Location = New System.Drawing.Point(120, 200)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(56, 20)
+        Me.Label2.Size = New System.Drawing.Size(62, 20)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Clave:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.Label3.Location = New System.Drawing.Point(147, 76)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(339, 29)
-        Me.Label3.TabIndex = 9
-        Me.Label3.Text = "Sistema de Gestión Comercial"
         '
         'ParametrosgeneralesTableAdapter1
         '
@@ -296,13 +293,13 @@ Partial Class loginform
         '
         'version
         '
-        Me.version.AutoSize = True
         Me.version.Font = New System.Drawing.Font("Exo 2.0 Medium", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.version.Location = New System.Drawing.Point(248, 105)
+        Me.version.Location = New System.Drawing.Point(139, 139)
         Me.version.Name = "version"
-        Me.version.Size = New System.Drawing.Size(70, 20)
+        Me.version.Size = New System.Drawing.Size(225, 20)
         Me.version.TabIndex = 10
         Me.version.Text = "version"
+        Me.version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Button3
         '
@@ -321,7 +318,7 @@ Partial Class loginform
         Me.UpdateAlert.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.UpdateAlert.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateAlert.Font = New System.Drawing.Font("Exo 2.0 Medium", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateAlert.Location = New System.Drawing.Point(214, 24)
+        Me.UpdateAlert.Location = New System.Drawing.Point(227, 6)
         Me.UpdateAlert.Name = "UpdateAlert"
         Me.UpdateAlert.Size = New System.Drawing.Size(211, 25)
         Me.UpdateAlert.TabIndex = 13
@@ -334,7 +331,8 @@ Partial Class loginform
         '
         'LabelDatosCliente
         '
-        Me.LabelDatosCliente.Font = New System.Drawing.Font("Exo 2.0 Medium", 10.0!)
+        Me.LabelDatosCliente.Font = New System.Drawing.Font("Exo 2.0 Medium", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelDatosCliente.ForeColor = System.Drawing.Color.Black
         Me.LabelDatosCliente.Location = New System.Drawing.Point(3, 278)
         Me.LabelDatosCliente.Name = "LabelDatosCliente"
         Me.LabelDatosCliente.Size = New System.Drawing.Size(483, 24)
@@ -344,7 +342,8 @@ Partial Class loginform
         '
         'LabelMACaddress
         '
-        Me.LabelMACaddress.Font = New System.Drawing.Font("Exo 2.0 Medium", 11.0!)
+        Me.LabelMACaddress.Font = New System.Drawing.Font("Exo 2.0 Medium", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelMACaddress.ForeColor = System.Drawing.Color.Black
         Me.LabelMACaddress.Location = New System.Drawing.Point(3, 300)
         Me.LabelMACaddress.Name = "LabelMACaddress"
         Me.LabelMACaddress.Size = New System.Drawing.Size(483, 24)
@@ -359,9 +358,9 @@ Partial Class loginform
         '
         Me.PictureUpdateAlert.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureUpdateAlert.Image = Global.sgcomercial.My.Resources.Resources.checked
-        Me.PictureUpdateAlert.Location = New System.Drawing.Point(426, 3)
+        Me.PictureUpdateAlert.Location = New System.Drawing.Point(439, 3)
         Me.PictureUpdateAlert.Name = "PictureUpdateAlert"
-        Me.PictureUpdateAlert.Size = New System.Drawing.Size(60, 60)
+        Me.PictureUpdateAlert.Size = New System.Drawing.Size(30, 30)
         Me.PictureUpdateAlert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureUpdateAlert.TabIndex = 12
         Me.PictureUpdateAlert.TabStop = False
@@ -369,10 +368,10 @@ Partial Class loginform
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.appicon
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 12)
+        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.epos_logo1
+        Me.PictureBox1.Location = New System.Drawing.Point(139, 35)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(139, 144)
+        Me.PictureBox1.Size = New System.Drawing.Size(225, 100)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
@@ -388,10 +387,8 @@ Partial Class loginform
         Me.Controls.Add(Me.LabelMACaddress)
         Me.Controls.Add(Me.UpdateAlert)
         Me.Controls.Add(Me.version)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.PictureUpdateAlert)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.textpassword)
@@ -399,6 +396,7 @@ Partial Class loginform
         Me.Controls.Add(Me.UsuariosDataGridView)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -438,7 +436,6 @@ Partial Class loginform
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents ParametrosgeneralesTableAdapter1 As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
     Friend WithEvents version As Label
     Friend WithEvents Button3 As Button

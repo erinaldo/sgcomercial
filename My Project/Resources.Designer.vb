@@ -81,6 +81,26 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a &lt;html xmlns:v=&quot;urn:schemas-microsoft-com:vml&quot;
+        '''xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot;
+        '''xmlns:w=&quot;urn:schemas-microsoft-com:office:word&quot;
+        '''xmlns:m=&quot;http://schemas.microsoft.com/office/2004/12/omml&quot;
+        '''xmlns=&quot;http://www.w3.org/TR/REC-html40&quot;&gt;
+        '''
+        '''&lt;head&gt;
+        '''&lt;meta http-equiv=Content-Type content=&quot;text/html; charset=utf-8&quot;&gt;
+        '''&lt;meta name=ProgId content=Word.Document&gt;
+        '''&lt;meta name=Generator content=&quot;Microsoft Word 14&quot;&gt;
+        '''&lt;meta name=Originator content=&quot;Microsoft Word 14&quot;&gt;
+        '''&lt;link rel=File-List href=&quot;distinto_files/ [resto de la cadena truncado]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property Bienvenidaepos() As String
+            Get
+                Return ResourceManager.GetString("Bienvenidaepos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property box_img() As System.Drawing.Bitmap
@@ -156,6 +176,16 @@ Namespace My.Resources
         Friend ReadOnly Property editar() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("editar", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property epos_logo1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("epos_logo1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

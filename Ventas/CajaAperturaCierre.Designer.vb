@@ -34,6 +34,7 @@ Partial Class CajaAperturaCierre
         Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.lblCaja = New System.Windows.Forms.Label()
         Me.LblEstadocaja = New System.Windows.Forms.Label()
@@ -99,20 +100,34 @@ Partial Class CajaAperturaCierre
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.ReportViewer1)
         Me.GroupBox1.Controls.Add(Me.lblCaja)
         Me.GroupBox1.Controls.Add(Me.LblEstadocaja)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.BtnCerrar)
         Me.GroupBox1.Controls.Add(Me.BtnAbrir)
-        Me.GroupBox1.Location = New System.Drawing.Point(465, 15)
+        Me.GroupBox1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox1.Location = New System.Drawing.Point(465, 16)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(521, 310)
+        Me.GroupBox1.Size = New System.Drawing.Size(521, 329)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Opciones"
+        '
+        'Button1
+        '
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.Button1.Location = New System.Drawing.Point(105, 225)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(309, 46)
+        Me.Button1.TabIndex = 13
+        Me.Button1.Text = "Reenvío de Cierres por E-mail"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'ReportViewer1
         '
@@ -130,19 +145,20 @@ Partial Class CajaAperturaCierre
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(7, 204)
+        Me.ReportViewer1.Location = New System.Drawing.Point(7, 309)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(507, 98)
+        Me.ReportViewer1.Size = New System.Drawing.Size(507, 12)
         Me.ReportViewer1.TabIndex = 12
         Me.ReportViewer1.Visible = False
         '
         'lblCaja
         '
         Me.lblCaja.AutoSize = True
-        Me.lblCaja.Location = New System.Drawing.Point(220, 22)
+        Me.lblCaja.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblCaja.Location = New System.Drawing.Point(220, 23)
         Me.lblCaja.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCaja.Name = "lblCaja"
-        Me.lblCaja.Size = New System.Drawing.Size(51, 17)
+        Me.lblCaja.Size = New System.Drawing.Size(55, 18)
         Me.lblCaja.TabIndex = 10
         Me.lblCaja.Text = "Label2"
         '
@@ -150,7 +166,7 @@ Partial Class CajaAperturaCierre
         '
         Me.LblEstadocaja.AutoSize = True
         Me.LblEstadocaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.LblEstadocaja.Location = New System.Drawing.Point(275, 60)
+        Me.LblEstadocaja.Location = New System.Drawing.Point(275, 64)
         Me.LblEstadocaja.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.LblEstadocaja.Name = "LblEstadocaja"
         Me.LblEstadocaja.Size = New System.Drawing.Size(64, 20)
@@ -160,30 +176,36 @@ Partial Class CajaAperturaCierre
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label1.Location = New System.Drawing.Point(144, 60)
+        Me.Label1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Location = New System.Drawing.Point(144, 64)
         Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(116, 20)
+        Me.Label1.Size = New System.Drawing.Size(107, 18)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Estado actual:"
         '
         'BtnCerrar
         '
-        Me.BtnCerrar.Location = New System.Drawing.Point(105, 152)
+        Me.BtnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCerrar.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnCerrar.Location = New System.Drawing.Point(105, 163)
         Me.BtnCerrar.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.BtnCerrar.Name = "BtnCerrar"
-        Me.BtnCerrar.Size = New System.Drawing.Size(309, 43)
+        Me.BtnCerrar.Size = New System.Drawing.Size(309, 46)
         Me.BtnCerrar.TabIndex = 7
         Me.BtnCerrar.Text = "Cerrar Caja"
         Me.BtnCerrar.UseVisualStyleBackColor = True
         '
         'BtnAbrir
         '
-        Me.BtnAbrir.Location = New System.Drawing.Point(105, 94)
+        Me.BtnAbrir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.BtnAbrir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAbrir.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnAbrir.Location = New System.Drawing.Point(105, 100)
         Me.BtnAbrir.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.BtnAbrir.Name = "BtnAbrir"
-        Me.BtnAbrir.Size = New System.Drawing.Size(309, 43)
+        Me.BtnAbrir.Size = New System.Drawing.Size(309, 46)
         Me.BtnAbrir.TabIndex = 6
         Me.BtnAbrir.Text = "Abrir Caja"
         Me.BtnAbrir.UseVisualStyleBackColor = True
@@ -192,11 +214,12 @@ Partial Class CajaAperturaCierre
         '
         Me.GroupBox2.Controls.Add(Me.CajaseventosDataGridView)
         Me.GroupBox2.Controls.Add(Me.CajasDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(16, 15)
+        Me.GroupBox2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox2.Location = New System.Drawing.Point(16, 16)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(441, 310)
+        Me.GroupBox2.Size = New System.Drawing.Size(441, 329)
         Me.GroupBox2.TabIndex = 0
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Cajas Disponibles"
@@ -207,10 +230,10 @@ Partial Class CajaAperturaCierre
         Me.CajaseventosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.CajaseventosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
         Me.CajaseventosDataGridView.DataSource = Me.CajaseventosBindingSource
-        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(449, 167)
+        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(449, 177)
         Me.CajaseventosDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.CajaseventosDataGridView.Name = "CajaseventosDataGridView"
-        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(25, 22)
+        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(25, 23)
         Me.CajaseventosDataGridView.TabIndex = 1
         Me.CajaseventosDataGridView.Visible = False
         '
@@ -256,16 +279,17 @@ Partial Class CajaAperturaCierre
         Me.CajasDataGridView.AllowUserToAddRows = False
         Me.CajasDataGridView.AllowUserToDeleteRows = False
         Me.CajasDataGridView.AutoGenerateColumns = False
+        Me.CajasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.CajasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.CajasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdcajaDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.EstadoDataGridViewTextBoxColumn})
         Me.CajasDataGridView.DataSource = Me.CajasBindingSource
-        Me.CajasDataGridView.Location = New System.Drawing.Point(24, 52)
+        Me.CajasDataGridView.Location = New System.Drawing.Point(24, 55)
         Me.CajasDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.CajasDataGridView.MultiSelect = False
         Me.CajasDataGridView.Name = "CajasDataGridView"
         Me.CajasDataGridView.ReadOnly = True
         Me.CajasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CajasDataGridView.Size = New System.Drawing.Size(392, 235)
+        Me.CajasDataGridView.Size = New System.Drawing.Size(392, 250)
         Me.CajasDataGridView.TabIndex = 0
         '
         'IdcajaDataGridViewTextBoxColumn
@@ -274,7 +298,6 @@ Partial Class CajaAperturaCierre
         Me.IdcajaDataGridViewTextBoxColumn.HeaderText = "N°"
         Me.IdcajaDataGridViewTextBoxColumn.Name = "IdcajaDataGridViewTextBoxColumn"
         Me.IdcajaDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdcajaDataGridViewTextBoxColumn.Width = 50
         '
         'DescripcionDataGridViewTextBoxColumn
         '
@@ -282,7 +305,6 @@ Partial Class CajaAperturaCierre
         Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripción"
         Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
         Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DescripcionDataGridViewTextBoxColumn.Width = 150
         '
         'EstadoDataGridViewTextBoxColumn
         '
@@ -390,11 +412,13 @@ Partial Class CajaAperturaCierre
         '
         'CajaAperturaCierre
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1003, 340)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(1003, 361)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
@@ -450,4 +474,5 @@ Partial Class CajaAperturaCierre
     Friend WithEvents librodiarioTableAdapter As comercialDataSetTableAdapters.librodiarioTableAdapter
     Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
     Friend WithEvents cajaresumenTableAdapter As comercialDataSetTableAdapters.cajaresumenTableAdapter
+    Friend WithEvents Button1 As Button
 End Class

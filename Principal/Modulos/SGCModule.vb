@@ -881,6 +881,10 @@ Module SGCModule
         If s = Nothing Then Return False
         Return Regex.IsMatch(s, "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$")
     End Function
-
+    Public Sub ShowPopUp(msg As String)
+        Dim x As New WinPopUp()
+        x.Label.Text = msg
+        x.Show()
+    End Sub
 End Module
 

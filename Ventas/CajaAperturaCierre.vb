@@ -262,4 +262,9 @@ Public Class CajaAperturaCierre
         Dim s As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
         MsgBox(s)
     End Sub
+
+    Private Sub Button1_Click_4(sender As Object, e As EventArgs) Handles Button1.Click
+        ReenvioCierresCaja.ShowDialog()
+
+    End Sub
 End Class
