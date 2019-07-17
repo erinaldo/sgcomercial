@@ -557,7 +557,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=iif(Fields!neto.Value &gt; 0,Fields!precioventasiniva.Value,Fields!precioventa.Value)</Value>
+                              <Value>=iif(Fields!letra.Value like "A",Fields!precioventasiniva.Value,Fields!precioventa.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -656,7 +656,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=iif(Fields!neto.Value &gt; 0,Fields!neto.Value,Fields!subtotal.Value)</Value>
+                              <Value>=iif(Fields!letra.Value like "A",Fields!neto.Value,Fields!subtotal.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -689,7 +689,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=iif(Fields!neto.Value &gt; 0,Fields!iva.Value,"Inc.")</Value>
+                              <Value>=iif(Fields!letra.Value like "A",Fields!iva.Value,"Inc.")</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -771,7 +771,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=iif(Fields!neto.Value &gt; 0 , "","Importe Total:")</Value>
+                              <Value>=iif(Fields!letra.Value like "A", "","Importe Total:")</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -831,7 +831,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=iif(Fields!neto.Value &gt; 0 , " ",Sum(Fields!subtotal.Value))</Value>
+                              <Value>=iif(Fields!letra.Value like "A", " ",Sum(Fields!subtotal.Value))</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -871,7 +871,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -1464,7 +1463,7 @@
         <DataSetName>ivaresumen</DataSetName>
         <Top>4.22237cm</Top>
         <Left>0.03175cm</Left>
-        <Height>1.76351cm</Height>
+        <Height>1.7635cm</Height>
         <Width>20.10379cm</Width>
         <ZIndex>2</ZIndex>
         <Visibility>
@@ -2739,6 +2738,10 @@
         <Field Name="precioventasiniva">
           <DataField>precioventasiniva</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="letra">
+          <DataField>letra</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
