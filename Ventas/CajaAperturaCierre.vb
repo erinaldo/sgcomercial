@@ -104,6 +104,12 @@ Public Class CajaAperturaCierre
             Dim rtn As Integer
             Try
                 rtn = CajaseventosTableAdapter.cajaseventos_cerrarcaja(Now(), gmontofinal, idcaja, gusername)
+                '*******************************
+                Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)
+                Me.librodiarioTableAdapter.FillByIdevento(Me.ComercialDataSet.librodiario, gidevento)
+                Me.cajaresumenTableAdapter.FillByidevento(Me.ComercialDataSet.cajaresumen, gidevento)
+                Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
+                '*******************************
             Catch ex As Exception
                 MsgBox("Ocurrió una excepción al cerrar la caja: " + ex.Message)
             End Try
@@ -193,11 +199,6 @@ Public Class CajaAperturaCierre
         End Try
         Me.Cursor = Cursors.WaitCursor
         Try
-            '*******************************
-            Me.librodiarioTableAdapter.FillByIdevento(Me.ComercialDataSet.librodiario, gidevento)
-            Me.cajaresumenTableAdapter.FillByidevento(Me.ComercialDataSet.cajaresumen, gidevento)
-            Me.ReportViewer1.RefreshReport()
-            '*******************************
             Dim byteViewer As Byte() = ReportViewer1.LocalReport.Render("PDF")
             Dim saveFileDialog1 As New SaveFileDialog()
             saveFileDialog1.Filter = "*PDF files (*.pdf)|*.pdf"

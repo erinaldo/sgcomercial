@@ -101,14 +101,13 @@ Partial Class CajaAperturaCierre
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.ReportViewer1)
         Me.GroupBox1.Controls.Add(Me.lblCaja)
         Me.GroupBox1.Controls.Add(Me.LblEstadocaja)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.BtnCerrar)
         Me.GroupBox1.Controls.Add(Me.BtnAbrir)
         Me.GroupBox1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.Location = New System.Drawing.Point(465, 16)
+        Me.GroupBox1.Location = New System.Drawing.Point(459, 16)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
@@ -145,11 +144,10 @@ Partial Class CajaAperturaCierre
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(7, 309)
+        Me.ReportViewer1.Location = New System.Drawing.Point(993, 26)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(507, 12)
+        Me.ReportViewer1.Size = New System.Drawing.Size(510, 319)
         Me.ReportViewer1.TabIndex = 12
-        Me.ReportViewer1.Visible = False
         '
         'lblCaja
         '
@@ -215,7 +213,7 @@ Partial Class CajaAperturaCierre
         Me.GroupBox2.Controls.Add(Me.CajaseventosDataGridView)
         Me.GroupBox2.Controls.Add(Me.CajasDataGridView)
         Me.GroupBox2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox2.Location = New System.Drawing.Point(16, 16)
+        Me.GroupBox2.Location = New System.Drawing.Point(10, 16)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
@@ -415,8 +413,9 @@ Partial Class CajaAperturaCierre
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1003, 361)
+        Me.ClientSize = New System.Drawing.Size(991, 361)
         Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

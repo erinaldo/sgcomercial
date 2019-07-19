@@ -171,7 +171,7 @@ Public Class loginform
     End Sub
 
     Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Button3.Visible = True
+        Button3.Visible = False
         Dim hi As LoadingForm
         hi = New LoadingForm
         hi.Show()
@@ -440,7 +440,7 @@ Public Class loginform
                 If newversion = 0 Then Return
                 UpdateAlert.Visible = True
                 UpdateAlert.Text = "Sistema Actualizado!"
-                UpdateAlert.ForeColor = Color.Green
+                UpdateAlert.ForeColor = Color.White
                 PictureUpdateAlert.Image = My.Resources.checked ' My.Resources.Resources.Yes_check
                 PictureUpdateAlert.Visible = True
                 'Button3.Visible = False
@@ -499,7 +499,7 @@ Public Class loginform
 
     End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
         'ShowPopUp("hola mundo!")
         '        BienvenidaEPOS.Show()
 
