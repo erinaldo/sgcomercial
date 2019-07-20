@@ -81,6 +81,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property BG_1X1__1080X1080__FACE() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("BG 1X1 (1080X1080) FACE", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a &lt;html xmlns:v=&quot;urn:schemas-microsoft-com:vml&quot;
         '''xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot;
         '''xmlns:w=&quot;urn:schemas-microsoft-com:office:word&quot;
@@ -183,9 +193,9 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property epos_logo1() As System.Drawing.Bitmap
+        Friend ReadOnly Property epos_logo_B_sub() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("epos_logo1", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("epos_logo_B_sub", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

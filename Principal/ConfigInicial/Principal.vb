@@ -33,7 +33,7 @@ Public Class Principal
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
         Try
             gNombreComercio = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio")
-            Me.Text = " Sistema de Gestión Comercial " + " - [" + gNombreComercio + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]"
+            Me.Text = " EPOS " + " - [" + gNombreComercio + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]"
         Catch ex As Exception
 
         End Try
