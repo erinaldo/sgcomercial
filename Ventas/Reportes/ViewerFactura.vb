@@ -113,9 +113,8 @@ Public Class ViewerFactura
         End If
     End Sub
     Public Sub EmailTicketComprobante()
-        Dim DesktopPath As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
         Dim ArchivoAdjunto As String
-        ArchivoAdjunto = DesktopPath + "\TicketComprobante_" + gidventa.ToString + ".pdf"
+        ArchivoAdjunto = gPublicDocumentsPath + "\TicketComprobante_" + gidventa.ToString + ".pdf"
         Try
             FileSystem.Kill(ArchivoAdjunto)
         Catch ex As Exception

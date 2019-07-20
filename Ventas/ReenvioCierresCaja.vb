@@ -66,7 +66,7 @@ Public Class ReenvioCierresCaja
         Dim rnd As New Random
         Dim chrInt As Integer = 0
         chrInt = rnd.Next(1130, 9022)
-        ArchivoAdjunto = "CierreCaja" + chrInt.ToString + ".pdf"
+        ArchivoAdjunto = gPublicDocumentsPath + "\CierreCaja" + chrInt.ToString + ".pdf"
         Try
             '*******************************
             'Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)

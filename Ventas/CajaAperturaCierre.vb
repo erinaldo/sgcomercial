@@ -189,9 +189,9 @@ Public Class CajaAperturaCierre
         Me.Close()
     End Sub
     Private Sub mail_cierrecaja()
-        Dim DesktopPath As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+        'Dim DesktopPath As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
         Dim ArchivoAdjunto As String
-        ArchivoAdjunto = DesktopPath + "\CierreCaja.pdf"
+        ArchivoAdjunto = gPublicDocumentsPath + "\CierreCaja.pdf"
         Try
             FileSystem.Kill(ArchivoAdjunto)
         Catch ex As Exception

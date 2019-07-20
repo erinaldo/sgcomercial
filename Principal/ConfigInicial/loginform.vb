@@ -63,10 +63,16 @@ Public Class loginform
         Catch ex As Exception
 
         End Try
+        Try
+            FileSystem.Kill(gPublicDocumentsPath + "\*.pdf")
+        Catch ex As Exception
+
+        End Try
         '?========********************
     End Sub
     Private Sub formatos()
         Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Control Panel\International", "sShortDate", "dd/MM/yyyy")
+        gPublicDocumentsPath = Environment.GetFolderPath(System.Environment.SpecialFolder.CommonDocuments)
     End Sub
     Private Sub identificarterminal()
         gmacadress = getMacAddress()
@@ -171,6 +177,7 @@ Public Class loginform
     End Sub
 
     Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        gPublicDocumentsPath = Environment.GetFolderPath(System.Environment.SpecialFolder.CommonDocuments)
         Button3.Visible = False
         Dim hi As LoadingForm
         hi = New LoadingForm

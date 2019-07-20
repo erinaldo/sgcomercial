@@ -21,13 +21,13 @@ Public Class ViewerRecibo
     End Sub
     Private Sub mail_Recibo()
         Me.Cursor = Cursors.WaitCursor
-        Dim ArchivoAdjunto As String
+        Dim ArchivoAdjunto As String = Nothing
         Dim rnd As New Random
         Dim chrInt As Integer = 0
         chrInt = rnd.Next(1130, 9022)
-        ArchivoAdjunto = "ComprobantePagoRecibido" + chrInt.ToString + ".pdf"
         Try
             '*******************************
+            ArchivoAdjunto = gPublicDocumentsPath + "\ComprobantePagoRecibido" + chrInt.ToString + ".pdf"
             'Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)
             'Me.librodiarioTableAdapter.FillByIdevento(Me.ComercialDataSet.librodiario, gidevento)
             'Me.cajaresumenTableAdapter.FillByidevento(Me.ComercialDataSet.cajaresumen, gidevento)
@@ -53,17 +53,18 @@ Public Class ViewerRecibo
             newFile.Close()
         Catch ex As Exception
             Me.Cursor = Cursors.Default
-            MsgBox("No se pudo Crear el documento: " + ex.Message)
+            MsgBox("No se pudo Crear el documento PDF: " + ex.Message)
+            Return
         End Try
         'Return
         '**********************************************************
         Dim emailmessage As New MailMessage()
         Dim EmailFrom As String
         Dim EmailFromPwd As String
-        Dim EmailPort As Long
         Dim EmailCierreCajaTo As String
         Dim SmtpClient As String
-
+        Dim EmailSubject As String
+        Dim EmailBody As String
         Try
             '***************************************************************
             EmailCierreCajaTo = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailCierreCajaTo")
@@ -77,7 +78,7 @@ Public Class ViewerRecibo
             EmailFromPwd = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFromPwd")
             EmailPort = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("EmailPort")
             '***************************************************************
-            emailmessage.From = New MailAddress(EmailFrom)
+            'emailmessage.From = New MailAddress(EmailFrom)
             '-------------  get email address   ---------------
             gidcliente = PagosTableAdapter.pagos_GetIdCliente(gidpago)
             Dim kh As GetMailCliente
@@ -86,27 +87,25 @@ Public Class ViewerRecibo
             gidcliente = Nothing
             '------------- 
             emailmessage.To.Add(EmailTo) ' EmailCierreCajaTo
-            emailmessage.Subject = "Comprobante de Pago Recibido " + Today.ToShortDateString
-            emailmessage.Body = "Te enviamos tu comprobante de pago."
-            '*************************  ADJUNTO **********************************************
-            Dim fileTXT As String = ArchivoAdjunto.ToString
-            Dim data As Net.Mail.Attachment = New Net.Mail.Attachment(fileTXT)
-            data.Name = ArchivoAdjunto.ToString '"CierreCaja.pdf"
-            emailmessage.Attachments.Add(data)
-            '*********************************************************************************
-            Dim smtp As New SmtpClient(SmtpClient)
-            smtp.Port = EmailPort
-            smtp.EnableSsl = True
-            smtp.Credentials = New System.Net.NetworkCredential(EmailFrom, EmailFromPwd)
-            smtp.Timeout = 10
-            'smtp.Send(emailmessage)
-            smtp.SendAsync(emailmessage, gUserToken)
+            EmailSubject = "Comprobante de Pago Recibido " + Today.ToShortDateString
+            EmailBody = "Te enviamos tu comprobante de pago."
+            '*************************  CONSULTO PARAMETROS DE SMTP **********************************************
+            SmtpClient = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("SmtpClient")
+            EmailFrom = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFrom")
+            EmailFromPwd = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFromPwd")
+            EmailPort = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("EmailPort")
+            '*************************  ENVIO EMAIL **********************************************
+            If ModuloUtilidades.clsSendMail.SendEMail(EmailFrom, EmailCierreCajaTo, EmailSubject, EmailBody, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
+                Me.Cursor = Cursors.Default
+                MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                Me.Cursor = Cursors.Default
+                MessageBox.Show("El envío de mail falló! Verifíque su conexión a internet", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
             Me.Cursor = Cursors.Default
-            MsgBox("Operacion finalizada!", MsgBoxStyle.Information, "Envío email")
-
         Catch ex As Exception
             Me.Cursor = Cursors.Default
-            MsgBox(ex.Message)
+            MessageBox.Show("El envío de mail falló: " + ex.Message, "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
 
