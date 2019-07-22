@@ -202,6 +202,7 @@ Partial Class Principal
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ComprobanesEmitidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -231,7 +232,7 @@ Partial Class Principal
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 58)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 85)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -278,7 +279,7 @@ Partial Class Principal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LibroVentasToolStripMenuItem, Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem, Me.VentasPorUsuarioToolStripMenuItem, Me.LibroDeGastosToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ComprobanesEmitidosToolStripMenuItem, Me.LibroVentasToolStripMenuItem, Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem, Me.VentasPorUsuarioToolStripMenuItem, Me.LibroDeGastosToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.ReportesToolStripMenuItem.Tag = "ReportesParent"
@@ -1589,6 +1590,13 @@ Partial Class Principal
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
         '
+        'ComprobanesEmitidosToolStripMenuItem
+        '
+        Me.ComprobanesEmitidosToolStripMenuItem.Name = "ComprobanesEmitidosToolStripMenuItem"
+        Me.ComprobanesEmitidosToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.ComprobanesEmitidosToolStripMenuItem.Tag = "ComprobanesEmitidos"
+        Me.ComprobanesEmitidosToolStripMenuItem.Text = "Comprobanes Emitidos"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1815,4 +1823,5 @@ Partial Class Principal
     Friend WithEvents FacturaElectrónicaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MailServerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RecargarPermisosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ComprobanesEmitidosToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -17,6 +17,7 @@ Public Class MiComercio
             Return
         End If
         ParametrosgeneralesTableAdapter.parametrosgenerales_updateprgstring1("NombreComercio", textnombrecomercio.Text)
+        ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("MiRazonSocial", Nothing, TextRazonSocial.Text, Nothing)
         ParametrosgeneralesTableAdapter.parametrosgenerales_updateprgstring1("CuitCuil", textcuitcuil.Text)
         ParametrosgeneralesTableAdapter.parametrosgenerales_updateprgstring1("Telefono", texttelefono.Text)
         ParametrosgeneralesTableAdapter.parametrosgenerales_updateprgstring1("Direccion", textdireccion.Text)
@@ -105,6 +106,7 @@ Public Class MiComercio
         enablebuttons(True)
 
         textnombrecomercio.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio")
+        TextRazonSocial.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("MiRazonSocial")
         textcuitcuil.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("CuitCuil")
         textdireccion.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("Direccion")
         texttelefono.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("Telefono")

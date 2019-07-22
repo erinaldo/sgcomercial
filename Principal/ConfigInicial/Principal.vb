@@ -10,6 +10,17 @@ Public Class Principal
     Private Sub Principal_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
         End
     End Sub
+    Sub PrincipalTituloPrincipal()
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''
+        '   TITULO DE LA VENTANA PRINCIPAL
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Try
+            gNombreComercio = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio")
+            Me.Text = " EPOS " + " - [" + gNombreComercio + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]" + " - Facturación Electrónica: [" + GFEAFIPENTORNO + "]"
+        Catch ex As Exception
+
+        End Try
+    End Sub
 
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -28,15 +39,11 @@ Public Class Principal
         '''''''''''''''''''''''''''''''''''
         ParametrosgeneralesTableAdapter.FillByPrgclave(Me.ComercialDataSet.parametrosgenerales, "FondoAplicacion")
         FormPrincipal.BackgroundImage = PictureBox1.Image
-        '''''''''''''''''''''''''''''''''''''''''''''''''''''
+        '======================================
+        FeAFIPLoad()
+        '======================================
         '   TITULO DE LA VENTANA PRINCIPAL
-        '''''''''''''''''''''''''''''''''''''''''''''''''''''
-        Try
-            gNombreComercio = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio")
-            Me.Text = " EPOS " + " - [" + gNombreComercio + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]"
-        Catch ex As Exception
-
-        End Try
+        PrincipalTituloPrincipal()
         '''''''''''''''' carga  modulos y funciones a BD '''''''''''''''''''''''
         InsertarModulos()
         ''''''''''''''  CARGA DE PERMISOS DE USUARIO '''''''''''''''''''''
@@ -55,9 +62,6 @@ Public Class Principal
             BackgroundSyncLibroventasClowd.RunWorkerAsync()
             BGWStock.RunWorkerAsync()
         End If
-        '======================================
-        FeAFIPLoad()
-        '======================================
         '======================================
         Cursor.Current = Cursors.Default
         hi.Dispose()
@@ -1180,8 +1184,10 @@ Public Class Principal
     End Sub
 
     Private Sub FacturaElectrónicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FacturaElectrónicaToolStripMenuItem.Click
-        FeConf.MdiParent = Me
-        FeConf.Visible = True
+        Dim fe As New FeConf()
+        fe.TopMost = True
+        fe.ShowDialog()
+        PrincipalTituloPrincipal()
     End Sub
 
     Private Sub MailServerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MailServerToolStripMenuItem.Click
@@ -1192,6 +1198,21 @@ Public Class Principal
     Private Sub RecargarPermisosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RecargarPermisosToolStripMenuItem.Click
         cargapermisos()
         FeAFIPLoad()
+    End Sub
+
+    Private Sub ComprobanesEmitidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ComprobanesEmitidosToolStripMenuItem.Click
+        FeAFIPLoad()
+
+        Select Case GFEAFIPENTORNO
+            Case "HOMOLOGACION"
+                ComprobantesEmitidos.MdiParent = Me
+                ComprobantesEmitidos.Visible = True
+            Case "PRODUCCION"
+                ComprobantesEmitidos.MdiParent = Me
+                ComprobantesEmitidos.Visible = True
+            Case Else
+                MessageBox.Show("Módulo de Facturación Electrónica INACTIVO", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Select
     End Sub
     'Private Sub PrivateDownloadSGC()
 

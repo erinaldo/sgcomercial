@@ -178,7 +178,7 @@ Public Class loginform
 
     Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         gPublicDocumentsPath = Environment.GetFolderPath(System.Environment.SpecialFolder.CommonDocuments)
-        Button3.Visible = False
+
         Dim hi As LoadingForm
         hi = New LoadingForm
         hi.Show()
@@ -376,48 +376,9 @@ Public Class loginform
 
     End Sub
 
-    Private Sub Button3_Click_3(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click_3(sender As Object, e As EventArgs) 
         'btn descarga actualizacion
-        If UpdateAlertStatus = False Then Return
-        Try
-            '**********************************************
-            Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
-                IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
-            Catch ex As Exception
 
-            End Try
-            '**********************************************
-            ' SI NO EXISTE LA CREA
-            If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
-                System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
-            End If
-        Catch ex As Exception
-            Cursor.Current = Cursors.Default
-            MsgBox("Borrando archivos " + ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
-            Return
-        End Try
-        '======================================
-        gDownloadProgress = 0
-        '=====================================
-        'BackgroundWorker.RunWorkerAsync()
-        '===========================
-        AddHandler ftpClient.DownloadProgressChanged, AddressOf DownloadProgressChanged
-        AddHandler ftpClient.DownloadFileCompleted, AddressOf DownloadComplete
-        xi = New LoadingForm
-        xi.Text = "Descargando última versión"
-        xi.ProgressBar.Maximum = 100
-        xi.ProgressBar.MarqueeAnimationSpeed = 100
-        'xi.mensaje.TextAlign = ContentAlignment.MiddleLeft
-        xi.mensaje.Text = "Descargando"
-        xi.Show()
-        'Try
-        Try
-            FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.rar")
-        Catch ex As Exception
-
-        End Try
-        ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
-        ftpClient.DownloadFileAsync(New Uri(path), trnsfrpth)
     End Sub
 
     Private Sub textusuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles textusuario.KeyPress
@@ -442,7 +403,7 @@ Public Class loginform
                 UpdateAlert.ForeColor = Color.Orange
                 PictureUpdateAlert.Image = My.Resources.UpdateAlert
                 PictureUpdateAlert.Visible = True
-                'Button3.Visible = False
+
             Else
                 If newversion = 0 Then Return
                 UpdateAlert.Visible = True
@@ -450,16 +411,16 @@ Public Class loginform
                 UpdateAlert.ForeColor = Color.White
                 PictureUpdateAlert.Image = My.Resources.checked ' My.Resources.Resources.Yes_check
                 PictureUpdateAlert.Visible = True
-                'Button3.Visible = False
+
             End If
         End If
     End Sub
     Private Sub UpdateAlert_Click(sender As Object, e As EventArgs) Handles UpdateAlert.Click
-        Button3.PerformClick()
+        BuscarActualizaciones()
     End Sub
 
     Private Sub PictureUpdateAlert_Click(sender As Object, e As EventArgs) Handles PictureUpdateAlert.Click
-        Button3.PerformClick()
+        BuscarActualizaciones()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) 
@@ -510,5 +471,47 @@ Public Class loginform
         'ShowPopUp("hola mundo!")
         '        BienvenidaEPOS.Show()
 
+    End Sub
+    Sub BuscarActualizaciones()
+        If UpdateAlertStatus = False Then Return
+        Try
+            '**********************************************
+            Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
+                IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
+            Catch ex As Exception
+
+            End Try
+            '**********************************************
+            ' SI NO EXISTE LA CREA
+            If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
+                System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
+            End If
+        Catch ex As Exception
+            Cursor.Current = Cursors.Default
+            MsgBox("Borrando archivos " + ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
+            Return
+        End Try
+        '======================================
+        gDownloadProgress = 0
+        '=====================================
+        'BackgroundWorker.RunWorkerAsync()
+        '===========================
+        AddHandler ftpClient.DownloadProgressChanged, AddressOf DownloadProgressChanged
+        AddHandler ftpClient.DownloadFileCompleted, AddressOf DownloadComplete
+        xi = New LoadingForm
+        xi.Text = "Descargando última versión"
+        xi.ProgressBar.Maximum = 100
+        xi.ProgressBar.MarqueeAnimationSpeed = 100
+        'xi.mensaje.TextAlign = ContentAlignment.MiddleLeft
+        xi.mensaje.Text = "Descargando"
+        xi.Show()
+        'Try
+        Try
+            FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.rar")
+        Catch ex As Exception
+
+        End Try
+        ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
+        ftpClient.DownloadFileAsync(New Uri(path), trnsfrpth)
     End Sub
 End Class

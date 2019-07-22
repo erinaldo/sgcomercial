@@ -16,6 +16,7 @@ Public Class FeConf
                 Try
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("AFIPCUIT", Nothing, TCUIT.Text, Nothing)
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("AFIPPTOVTA", Nothing, TAFIPPTOVTA.Text, Nothing)
+                    ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("NroInscrIIBB", Nothing, TextIIBB.Text, Nothing)
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("FEAFIP", Nothing, ComboBox1.Text, Nothing)
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("FEAutoCAEAFIP", Nothing, "NO", Nothing)
                     ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("WSAAH", Nothing, TWSAAH.Text, Nothing)
@@ -27,6 +28,7 @@ Public Class FeConf
                     'ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("AFIPCRTPROD", Nothing, PATHP.Text, Nothing)
                     'Me.Close()
                     MsgBox("Configuración guardada exitosamente!", MsgBoxStyle.Information, "Aviso")
+                    FeAFIPLoad()
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
@@ -42,6 +44,7 @@ Public Class FeConf
             ComboBox1.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("FEAFIP")
             TCUIT.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("AFIPCUIT")
             TAFIPPTOVTA.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("AFIPPTOVTA")
+            TextIIBB.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NroInscrIIBB")
             TWSAAH.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("WSAAH")
             TWSAAP.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("WSAAP")
             TWSFEV1H.Text = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("WSFEV1H")

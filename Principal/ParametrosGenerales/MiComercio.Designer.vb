@@ -25,10 +25,12 @@ Partial Class MiComercio
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MiComercio))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextRazonSocial = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.texttelefono = New System.Windows.Forms.TextBox()
         Me.textdireccion = New System.Windows.Forms.TextBox()
@@ -102,10 +104,12 @@ Partial Class MiComercio
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TextRazonSocial)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.texttelefono)
         Me.GroupBox1.Controls.Add(Me.textdireccion)
@@ -115,10 +119,18 @@ Partial Class MiComercio
         Me.GroupBox1.Controls.Add(Me.ParametrosgeneralesDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(9, 44)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(657, 260)
+        Me.GroupBox1.Size = New System.Drawing.Size(657, 278)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de Mi Comercio"
+        '
+        'TextRazonSocial
+        '
+        Me.TextRazonSocial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextRazonSocial.Location = New System.Drawing.Point(6, 95)
+        Me.TextRazonSocial.Name = "TextRazonSocial"
+        Me.TextRazonSocial.Size = New System.Drawing.Size(357, 22)
+        Me.TextRazonSocial.TabIndex = 6
         '
         'Button1
         '
@@ -135,7 +147,7 @@ Partial Class MiComercio
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(6, 186)
+        Me.Label4.Location = New System.Drawing.Point(6, 220)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(74, 18)
         Me.Label4.TabIndex = 4
@@ -145,7 +157,7 @@ Partial Class MiComercio
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(6, 133)
+        Me.Label3.Location = New System.Drawing.Point(6, 171)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(80, 18)
         Me.Label3.TabIndex = 4
@@ -155,25 +167,35 @@ Partial Class MiComercio
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(6, 80)
+        Me.Label2.Location = New System.Drawing.Point(6, 122)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 18)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Cuit / Cuil"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(6, 74)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(109, 18)
+        Me.Label9.TabIndex = 4
+        Me.Label9.Text = "Razón Social"
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 27)
+        Me.Label1.Location = New System.Drawing.Point(6, 25)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(147, 18)
+        Me.Label1.Size = New System.Drawing.Size(314, 18)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Nombre Comercio"
+        Me.Label1.Text = "Nombre Comercio / Nombre de Fantasía"
         '
         'texttelefono
         '
-        Me.texttelefono.Location = New System.Drawing.Point(6, 210)
+        Me.texttelefono.Location = New System.Drawing.Point(6, 240)
         Me.texttelefono.Name = "texttelefono"
         Me.texttelefono.Size = New System.Drawing.Size(147, 22)
         Me.texttelefono.TabIndex = 3
@@ -181,14 +203,14 @@ Partial Class MiComercio
         'textdireccion
         '
         Me.textdireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.textdireccion.Location = New System.Drawing.Point(6, 157)
+        Me.textdireccion.Location = New System.Drawing.Point(6, 191)
         Me.textdireccion.Name = "textdireccion"
         Me.textdireccion.Size = New System.Drawing.Size(357, 22)
         Me.textdireccion.TabIndex = 2
         '
         'textcuitcuil
         '
-        Me.textcuitcuil.Location = New System.Drawing.Point(6, 104)
+        Me.textcuitcuil.Location = New System.Drawing.Point(6, 142)
         Me.textcuitcuil.Name = "textcuitcuil"
         Me.textcuitcuil.Size = New System.Drawing.Size(147, 22)
         Me.textcuitcuil.TabIndex = 1
@@ -196,7 +218,7 @@ Partial Class MiComercio
         'textnombrecomercio
         '
         Me.textnombrecomercio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.textnombrecomercio.Location = New System.Drawing.Point(6, 51)
+        Me.textnombrecomercio.Location = New System.Drawing.Point(6, 45)
         Me.textnombrecomercio.Name = "textnombrecomercio"
         Me.textnombrecomercio.Size = New System.Drawing.Size(357, 22)
         Me.textnombrecomercio.TabIndex = 0
@@ -358,7 +380,9 @@ Partial Class MiComercio
         Me.TableAdapterManager.synclogTableAdapter = Nothing
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
         Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
@@ -377,7 +401,7 @@ Partial Class MiComercio
         Me.GroupBox2.Controls.Add(Me.Radiopreguntar)
         Me.GroupBox2.Controls.Add(Me.Radiosiempre)
         Me.GroupBox2.Controls.Add(Me.Radionunca)
-        Me.GroupBox2.Location = New System.Drawing.Point(9, 313)
+        Me.GroupBox2.Location = New System.Drawing.Point(9, 328)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(657, 68)
         Me.GroupBox2.TabIndex = 2
@@ -422,7 +446,7 @@ Partial Class MiComercio
         Me.GroupBox3.Controls.Add(Me.CajaRBPreguntar)
         Me.GroupBox3.Controls.Add(Me.CajaRBSiempre)
         Me.GroupBox3.Controls.Add(Me.CajaRBNunca)
-        Me.GroupBox3.Location = New System.Drawing.Point(9, 387)
+        Me.GroupBox3.Location = New System.Drawing.Point(9, 402)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(657, 68)
         Me.GroupBox3.TabIndex = 3
@@ -587,7 +611,7 @@ Partial Class MiComercio
         '
         Me.GroupBox9.Controls.Add(Me.EmailCierreCajaTo)
         Me.GroupBox9.Controls.Add(Me.Label8)
-        Me.GroupBox9.Location = New System.Drawing.Point(9, 461)
+        Me.GroupBox9.Location = New System.Drawing.Point(9, 476)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(657, 65)
         Me.GroupBox9.TabIndex = 9
@@ -653,7 +677,7 @@ Partial Class MiComercio
         'GroupBoxFEAFIP
         '
         Me.GroupBoxFEAFIP.Controls.Add(Me.ComboFEAutoCAEAFIP)
-        Me.GroupBoxFEAFIP.Location = New System.Drawing.Point(9, 532)
+        Me.GroupBoxFEAFIP.Location = New System.Drawing.Point(9, 547)
         Me.GroupBoxFEAFIP.Name = "GroupBoxFEAFIP"
         Me.GroupBoxFEAFIP.Size = New System.Drawing.Size(657, 68)
         Me.GroupBoxFEAFIP.TabIndex = 12
@@ -782,4 +806,6 @@ Partial Class MiComercio
     Friend WithEvents ComboModPV As ComboBox
     Friend WithEvents GroupBoxFEAFIP As GroupBox
     Friend WithEvents ComboFEAutoCAEAFIP As ComboBox
+    Friend WithEvents TextRazonSocial As TextBox
+    Friend WithEvents Label9 As Label
 End Class

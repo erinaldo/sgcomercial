@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>22</ApplicationRevision>
-    <ApplicationVersion>4.0.9.22</ApplicationVersion>
+    <ApplicationRevision>25</ApplicationRevision>
+    <ApplicationVersion>4.0.9.25</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -941,6 +941,12 @@
     <Compile Include="Ventas\ReenvioCierresCaja.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\Reportes\ComprobantesEmitidos.Designer.vb">
+      <DependentUpon>ComprobantesEmitidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Reportes\ComprobantesEmitidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\Reportes\LibroVentasDetalladas.Designer.vb">
       <DependentUpon>LibroVentasDetalladas.vb</DependentUpon>
     </Compile>
@@ -1454,6 +1460,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\ReenvioCierresCaja.resx">
       <DependentUpon>ReenvioCierresCaja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Reportes\ComprobantesEmitidos.resx">
+      <DependentUpon>ComprobantesEmitidos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\RepComandera80.rdlc" />
     <EmbeddedResource Include="TransferenciaStock\EnviarStock.resx">

@@ -24,6 +24,8 @@ Partial Class FeConf
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TAFIPPTOVTA = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.TCUIT = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -51,8 +53,8 @@ Partial Class FeConf
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
         Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.TAFIPPTOVTA = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TextIIBB = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.TipocondicionivaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,6 +65,7 @@ Partial Class FeConf
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.TextIIBB)
         Me.GroupBox1.Controls.Add(Me.TAFIPPTOVTA)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.TCUIT)
@@ -84,13 +87,30 @@ Partial Class FeConf
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.TWSAAH)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(832, 383)
+        Me.GroupBox1.Size = New System.Drawing.Size(832, 412)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'TAFIPPTOVTA
+        '
+        Me.TAFIPPTOVTA.Location = New System.Drawing.Point(705, 36)
+        Me.TAFIPPTOVTA.Name = "TAFIPPTOVTA"
+        Me.TAFIPPTOVTA.Size = New System.Drawing.Size(63, 22)
+        Me.TAFIPPTOVTA.TabIndex = 14
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(627, 39)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(70, 17)
+        Me.Label10.TabIndex = 13
+        Me.Label10.Text = "PtoVta N°"
         '
         'TCUIT
         '
@@ -101,7 +121,7 @@ Partial Class FeConf
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(233, 286)
+        Me.Button3.Location = New System.Drawing.Point(227, 316)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(144, 26)
         Me.Button3.TabIndex = 11
@@ -112,7 +132,7 @@ Partial Class FeConf
         '
         Me.Button2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(368, 334)
+        Me.Button2.Location = New System.Drawing.Point(368, 353)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(141, 28)
         Me.Button2.TabIndex = 9
@@ -121,7 +141,7 @@ Partial Class FeConf
         '
         'PATHP
         '
-        Me.PATHP.Location = New System.Drawing.Point(384, 288)
+        Me.PATHP.Location = New System.Drawing.Point(384, 318)
         Me.PATHP.Name = "PATHP"
         Me.PATHP.Size = New System.Drawing.Size(384, 23)
         Me.PATHP.TabIndex = 8
@@ -130,7 +150,7 @@ Partial Class FeConf
         '
         'PATH
         '
-        Me.PATH.Location = New System.Drawing.Point(384, 252)
+        Me.PATH.Location = New System.Drawing.Point(384, 282)
         Me.PATH.Name = "PATH"
         Me.PATH.Size = New System.Drawing.Size(384, 23)
         Me.PATH.TabIndex = 8
@@ -139,7 +159,7 @@ Partial Class FeConf
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(233, 249)
+        Me.Button1.Location = New System.Drawing.Point(227, 279)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(144, 26)
         Me.Button1.TabIndex = 7
@@ -152,7 +172,7 @@ Partial Class FeConf
         Me.ComboBox2.DisplayMember = "descripcion"
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(227, 216)
+        Me.ComboBox2.Location = New System.Drawing.Point(227, 246)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(325, 24)
         Me.ComboBox2.TabIndex = 6
@@ -170,21 +190,21 @@ Partial Class FeConf
         '
         'TWSFEV1P
         '
-        Me.TWSFEV1P.Location = New System.Drawing.Point(227, 180)
+        Me.TWSFEV1P.Location = New System.Drawing.Point(227, 210)
         Me.TWSFEV1P.Name = "TWSFEV1P"
         Me.TWSFEV1P.Size = New System.Drawing.Size(541, 22)
         Me.TWSFEV1P.TabIndex = 5
         '
         'TWSFEV1H
         '
-        Me.TWSFEV1H.Location = New System.Drawing.Point(227, 144)
+        Me.TWSFEV1H.Location = New System.Drawing.Point(227, 174)
         Me.TWSFEV1H.Name = "TWSFEV1H"
         Me.TWSFEV1H.Size = New System.Drawing.Size(541, 22)
         Me.TWSFEV1H.TabIndex = 4
         '
         'TWSAAP
         '
-        Me.TWSAAP.Location = New System.Drawing.Point(227, 108)
+        Me.TWSAAP.Location = New System.Drawing.Point(227, 138)
         Me.TWSAAP.Name = "TWSAAP"
         Me.TWSAAP.Size = New System.Drawing.Size(541, 22)
         Me.TWSAAP.TabIndex = 3
@@ -202,7 +222,7 @@ Partial Class FeConf
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(47, 111)
+        Me.Label3.Location = New System.Drawing.Point(47, 141)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(167, 17)
         Me.Label3.TabIndex = 1
@@ -211,7 +231,7 @@ Partial Class FeConf
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(53, 183)
+        Me.Label5.Location = New System.Drawing.Point(53, 213)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(161, 17)
         Me.Label5.TabIndex = 1
@@ -220,7 +240,7 @@ Partial Class FeConf
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(34, 147)
+        Me.Label4.Location = New System.Drawing.Point(34, 177)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(180, 17)
         Me.Label4.TabIndex = 1
@@ -229,7 +249,7 @@ Partial Class FeConf
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(28, 75)
+        Me.Label2.Location = New System.Drawing.Point(28, 105)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(186, 17)
         Me.Label2.TabIndex = 1
@@ -238,7 +258,7 @@ Partial Class FeConf
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(64, 291)
+        Me.Label9.Location = New System.Drawing.Point(64, 321)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(150, 17)
         Me.Label9.TabIndex = 1
@@ -247,7 +267,7 @@ Partial Class FeConf
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(45, 252)
+        Me.Label7.Location = New System.Drawing.Point(45, 282)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(169, 17)
         Me.Label7.TabIndex = 1
@@ -256,7 +276,7 @@ Partial Class FeConf
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(77, 216)
+        Me.Label6.Location = New System.Drawing.Point(77, 246)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(137, 17)
         Me.Label6.TabIndex = 1
@@ -282,7 +302,7 @@ Partial Class FeConf
         '
         'TWSAAH
         '
-        Me.TWSAAH.Location = New System.Drawing.Point(227, 72)
+        Me.TWSAAH.Location = New System.Drawing.Point(227, 102)
         Me.TWSAAH.Name = "TWSAAH"
         Me.TWSAAH.Size = New System.Drawing.Size(540, 22)
         Me.TWSAAH.TabIndex = 0
@@ -295,27 +315,27 @@ Partial Class FeConf
         '
         Me.TipocondicionivaTableAdapter.ClearBeforeFill = True
         '
-        'Label10
+        'Label11
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(627, 39)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(70, 17)
-        Me.Label10.TabIndex = 13
-        Me.Label10.Text = "PtoVta N°"
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(91, 71)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(123, 17)
+        Me.Label11.TabIndex = 1
+        Me.Label11.Text = "N° Inscripción IIBB"
         '
-        'TAFIPPTOVTA
+        'TextIIBB
         '
-        Me.TAFIPPTOVTA.Location = New System.Drawing.Point(705, 36)
-        Me.TAFIPPTOVTA.Name = "TAFIPPTOVTA"
-        Me.TAFIPPTOVTA.Size = New System.Drawing.Size(63, 22)
-        Me.TAFIPPTOVTA.TabIndex = 14
+        Me.TextIIBB.Location = New System.Drawing.Point(227, 69)
+        Me.TextIIBB.Name = "TextIIBB"
+        Me.TextIIBB.Size = New System.Drawing.Size(209, 22)
+        Me.TextIIBB.TabIndex = 15
         '
         'FeConf
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(856, 407)
+        Me.ClientSize = New System.Drawing.Size(856, 469)
         Me.Controls.Add(Me.GroupBox1)
         Me.KeyPreview = True
         Me.Name = "FeConf"
@@ -360,4 +380,6 @@ Partial Class FeConf
     Friend WithEvents Label8 As Label
     Friend WithEvents TAFIPPTOVTA As TextBox
     Friend WithEvents Label10 As Label
+    Friend WithEvents TextIIBB As TextBox
+    Friend WithEvents Label11 As Label
 End Class

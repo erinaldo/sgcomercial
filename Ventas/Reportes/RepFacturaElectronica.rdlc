@@ -1508,10 +1508,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>NombreComercio</rd:DefaultName>
-          <Top>2.35001cm</Top>
-          <Left>1.22414cm</Left>
+          <Top>0.74489cm</Top>
+          <Left>2.38382cm</Left>
           <Height>0.49011cm</Height>
-          <Width>6.90117cm</Width>
+          <Width>6.32967cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1580,10 +1580,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Dirección</rd:DefaultName>
-          <Top>2.9142cm</Top>
-          <Left>1.22414cm</Left>
-          <Height>0.47625cm</Height>
-          <Width>6.90117cm</Width>
+          <Top>1.28301cm</Top>
+          <Left>2.38382cm</Left>
+          <Height>0.49011cm</Height>
+          <Width>6.32967cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -1620,10 +1620,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Teléfono</rd:DefaultName>
-          <Top>3.45395cm</Top>
-          <Left>1.22414cm</Left>
+          <Top>1.82114cm</Top>
+          <Left>2.38382cm</Left>
           <Height>0.49011cm</Height>
-          <Width>6.90117cm</Width>
+          <Width>6.32967cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -1640,8 +1640,8 @@
           <Value>=First(Fields!Logo.Value, "MiComercio")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>0.27945cm</Top>
-          <Left>3.32669cm</Left>
+          <Top>0.52239cm</Top>
+          <Left>0.20743cm</Left>
           <Height>2cm</Height>
           <Width>2cm</Width>
           <ZIndex>4</ZIndex>
@@ -1793,7 +1793,7 @@
           <rd:DefaultName>tipocomprobante</rd:DefaultName>
           <Top>0.3175cm</Top>
           <Left>11.8237cm</Left>
-          <Height>0.6cm</Height>
+          <Height>0.58236cm</Height>
           <Width>7.76659cm</Width>
           <ZIndex>8</ZIndex>
           <Style>
@@ -1864,18 +1864,6 @@
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
-                <TextRun>
-                  <Value> Nº: </Value>
-                  <Style>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-                <TextRun>
-                  <Value>=First(Fields!cae.Value, "libroventas")</Value>
-                  <Style>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
               </TextRuns>
               <Style>
                 <TextAlign>Center</TextAlign>
@@ -1883,10 +1871,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>idventa</rd:DefaultName>
-          <Top>1.07625cm</Top>
-          <Left>11.8237cm</Left>
-          <Height>0.6cm</Height>
-          <Width>7.76659cm</Width>
+          <Top>3.20628cm</Top>
+          <Left>0.20743cm</Left>
+          <Height>0.511cm</Height>
+          <Width>8.50606cm</Width>
           <ZIndex>10</ZIndex>
           <Style>
             <Border>
@@ -2056,7 +2044,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox11</rd:DefaultName>
-          <Top>2.81895cm</Top>
+          <Top>2.94595cm</Top>
           <Left>9.05086cm</Left>
           <Height>0.55767cm</Height>
           <Width>2.03175cm</Width>
@@ -2122,7 +2110,7 @@
                   </Style>
                 </TextRun>
                 <TextRun>
-                  <Value>=First(Fields!CuitCuil.Value, "MiComercio")</Value>
+                  <Value>=First(Fields!NroInscrIIBB.Value, "MiComercio")</Value>
                   <Style>
                     <FontSize>9pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -2178,6 +2166,98 @@
           <Height>0.6cm</Height>
           <Width>8.80688cm</Width>
           <ZIndex>21</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Teléfono2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Razón Social: </Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=First(Fields!RazonSocial.Value, "MiComercio")</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Teléfono</rd:DefaultName>
+          <Top>2.68089cm</Top>
+          <Left>0.20743cm</Left>
+          <Height>0.49011cm</Height>
+          <Width>8.50606cm</Width>
+          <ZIndex>22</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="idventa2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Pto. Vta.: </Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=First(Fields!ptovta.Value, "libroventas")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>  Nº: </Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=Sum(Fields!cbtnro.Value, "libroventas")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>idventa</rd:DefaultName>
+          <Top>0.97042cm</Top>
+          <Left>11.8237cm</Left>
+          <Height>0.56492cm</Height>
+          <Width>7.76659cm</Width>
+          <ZIndex>23</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2482,6 +2562,14 @@
         <Field Name="Logo">
           <DataField>Logo</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="RazonSocial">
+          <DataField>RazonSocial</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NroInscrIIBB">
+          <DataField>NroInscrIIBB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

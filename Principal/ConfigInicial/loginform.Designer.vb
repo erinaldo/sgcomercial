@@ -47,7 +47,6 @@ Partial Class loginform
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ParametrosgeneralesTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.version = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.UpdateAlert = New System.Windows.Forms.Label()
         Me.UpdateCheckBG = New System.ComponentModel.BackgroundWorker()
         Me.LabelDatosCliente = New System.Windows.Forms.Label()
@@ -311,18 +310,6 @@ Partial Class loginform
         Me.version.Text = "version"
         Me.version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.White
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Button3.Location = New System.Drawing.Point(193, 350)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(209, 24)
-        Me.Button3.TabIndex = 11
-        Me.Button3.Text = "Buscar Actualizaciones"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
         'UpdateAlert
         '
         Me.UpdateAlert.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -395,7 +382,6 @@ Partial Class loginform
         Me.Controls.Add(Me.UpdateAlert)
         Me.Controls.Add(Me.version)
         Me.Controls.Add(Me.PictureUpdateAlert)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.textpassword)
@@ -442,7 +428,6 @@ Partial Class loginform
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents ParametrosgeneralesTableAdapter1 As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
     Friend WithEvents version As Label
-    Friend WithEvents Button3 As Button
     Friend WithEvents PictureUpdateAlert As PictureBox
     Friend WithEvents UpdateAlert As Label
     Friend WithEvents UpdateCheckBG As System.ComponentModel.BackgroundWorker
