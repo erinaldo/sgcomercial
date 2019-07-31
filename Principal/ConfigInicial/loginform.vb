@@ -237,7 +237,7 @@ Public Class loginform
         GetCajaOperativa()
         BGWUpdateLicencia.RunWorkerAsync()
         textusuario.Select()
-        ShowPopUp("Hay algo que nos gustaría contarte! (click aquí)")
+        ShowPopUp("Hay algo que nos gustaría contarte! (click aquí)", 300)
     End Sub
     Private Sub GetCajaOperativa()
         gidcaja = 0

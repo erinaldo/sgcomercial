@@ -23,22 +23,22 @@ Partial Class ReenvioCierresCaja
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource17 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource18 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource19 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource20 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.CajaseventosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.librodiarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CajaseventosDataGridView = New System.Windows.Forms.DataGridView()
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.librodiarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.librodiarioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librodiarioTableAdapter()
-        Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
-        Me.cajaresumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cajaresumenTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaresumenTableAdapter()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -49,13 +49,39 @@ Partial Class ReenvioCierresCaja
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.enviar = New System.Windows.Forms.DataGridViewButtonColumn()
-        CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.emailed = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.librodiarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'librodiarioBindingSource
+        '
+        Me.librodiarioBindingSource.DataMember = "librodiario"
+        Me.librodiarioBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'MiComercioBindingSource
+        '
+        Me.MiComercioBindingSource.DataMember = "MiComercio"
+        Me.MiComercioBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'CajaseventosBindingSource
+        '
+        Me.CajaseventosBindingSource.DataMember = "cajaseventos"
+        Me.CajaseventosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'cajaresumenBindingSource
+        '
+        Me.cajaresumenBindingSource.DataMember = "cajaresumen"
+        Me.cajaresumenBindingSource.DataSource = Me.ComercialDataSet
         '
         'CajaseventosDataGridView
         '
@@ -67,7 +93,7 @@ Partial Class ReenvioCierresCaja
         Me.CajaseventosDataGridView.AutoGenerateColumns = False
         Me.CajaseventosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.CajaseventosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CajaseventosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.enviar})
+        Me.CajaseventosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.enviar, Me.emailed})
         Me.CajaseventosDataGridView.DataSource = Me.CajaseventosBindingSource
         Me.CajaseventosDataGridView.Location = New System.Drawing.Point(16, 16)
         Me.CajaseventosDataGridView.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -76,18 +102,8 @@ Partial Class ReenvioCierresCaja
         Me.CajaseventosDataGridView.ReadOnly = True
         Me.CajaseventosDataGridView.RowTemplate.Height = 24
         Me.CajaseventosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(809, 310)
+        Me.CajaseventosDataGridView.Size = New System.Drawing.Size(835, 310)
         Me.CajaseventosDataGridView.TabIndex = 1
-        '
-        'CajaseventosBindingSource
-        '
-        Me.CajaseventosBindingSource.DataMember = "cajaseventos"
-        Me.CajaseventosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CajaseventosTableAdapter
         '
@@ -167,46 +183,31 @@ Partial Class ReenvioCierresCaja
         '
         'ReportViewer1
         '
-        ReportDataSource17.Name = "librodiario"
-        ReportDataSource17.Value = Me.librodiarioBindingSource
-        ReportDataSource18.Name = "MiComercio"
-        ReportDataSource18.Value = Me.MiComercioBindingSource
-        ReportDataSource19.Name = "cajaseventos"
-        ReportDataSource19.Value = Me.CajaseventosBindingSource
-        ReportDataSource20.Name = "cajaresumen"
-        ReportDataSource20.Value = Me.cajaresumenBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource17)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource18)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource19)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource20)
+        ReportDataSource1.Name = "librodiario"
+        ReportDataSource1.Value = Me.librodiarioBindingSource
+        ReportDataSource2.Name = "MiComercio"
+        ReportDataSource2.Value = Me.MiComercioBindingSource
+        ReportDataSource3.Name = "cajaseventos"
+        ReportDataSource3.Value = Me.CajaseventosBindingSource
+        ReportDataSource4.Name = "cajaresumen"
+        ReportDataSource4.Value = Me.cajaresumenBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(835, 76)
+        Me.ReportViewer1.Location = New System.Drawing.Point(862, 76)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(396, 246)
         Me.ReportViewer1.TabIndex = 2
-        '
-        'librodiarioBindingSource
-        '
-        Me.librodiarioBindingSource.DataMember = "librodiario"
-        Me.librodiarioBindingSource.DataSource = Me.ComercialDataSet
         '
         'librodiarioTableAdapter
         '
         Me.librodiarioTableAdapter.ClearBeforeFill = True
         '
-        'MiComercioBindingSource
-        '
-        Me.MiComercioBindingSource.DataMember = "MiComercio"
-        Me.MiComercioBindingSource.DataSource = Me.ComercialDataSet
-        '
         'MiComercioTableAdapter
         '
         Me.MiComercioTableAdapter.ClearBeforeFill = True
-        '
-        'cajaresumenBindingSource
-        '
-        Me.cajaresumenBindingSource.DataMember = "cajaresumen"
-        Me.cajaresumenBindingSource.DataSource = Me.ComercialDataSet
         '
         'cajaresumenTableAdapter
         '
@@ -296,12 +297,24 @@ Partial Class ReenvioCierresCaja
         Me.enviar.UseColumnTextForButtonValue = True
         Me.enviar.Width = 76
         '
+        'emailed
+        '
+        Me.emailed.DataPropertyName = "emailed"
+        Me.emailed.FalseValue = "N"
+        Me.emailed.HeaderText = "Enviado"
+        Me.emailed.IndeterminateValue = "N"
+        Me.emailed.Name = "emailed"
+        Me.emailed.ReadOnly = True
+        Me.emailed.ToolTipText = "Si/No"
+        Me.emailed.TrueValue = "S"
+        Me.emailed.Width = 66
+        '
         'ReenvioCierresCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(839, 342)
+        Me.ClientSize = New System.Drawing.Size(865, 342)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.CajaseventosDataGridView)
         Me.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -314,12 +327,12 @@ Partial Class ReenvioCierresCaja
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ReenvioCierresCaja"
         Me.Text = "Reenvío de Cierres por E-mail"
-        CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.librodiarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cajaresumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -359,4 +372,5 @@ Partial Class ReenvioCierresCaja
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents enviar As DataGridViewButtonColumn
+    Friend WithEvents emailed As DataGridViewCheckBoxColumn
 End Class

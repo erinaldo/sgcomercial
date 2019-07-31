@@ -65,6 +65,11 @@ Public Class Principal
         '======================================
         Cursor.Current = Cursors.Default
         hi.Dispose()
+        Dim elast As Char
+        elast = CajaseventosTableAdapter.cajaseventos_emailedlast()
+        If elast = "N" Then
+            ShowPopUp("Recuerda enviar el ultimo CIERRE DE CAJA!", 400)
+        End If
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================

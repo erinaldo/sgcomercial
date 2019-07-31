@@ -54,6 +54,9 @@ Public Class ReenvioCierresCaja
 
                     Me.ReportViewer1.RefreshReport()
                     mail_cierrecaja()
+                    '***********************
+                    Me.CajaseventosTableAdapter.FillByCerradas(Me.ComercialDataSet.cajaseventos)
+                    CajaseventosDataGridView.Sort(CajaseventosDataGridView.Columns(0), ListSortDirection.Descending)
 
             End Select
         Catch ex As Exception
@@ -125,13 +128,16 @@ Public Class ReenvioCierresCaja
             If clsSendMail.SendEMail(EmailFrom, EmailCierreCajaTo, emailmessage.Subject, emailmessage.Body, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
                 Me.Cursor = Cursors.Default
                 MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                CajaseventosTableAdapter.cajaseventos_updateemailed("S", gidevento)
             Else
                 Me.Cursor = Cursors.Default
                 MessageBox.Show("El envío de mail falló! Verifíque su conexión a internet", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                CajaseventosTableAdapter.cajaseventos_updateemailed("N", gidevento)
             End If
         Catch ex As Exception
             Me.Cursor = Cursors.Default
             MessageBox.Show("El envío de mail falló: " + ex.Message, "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            CajaseventosTableAdapter.cajaseventos_updateemailed("N", gidevento)
         End Try
     End Sub
 End Class

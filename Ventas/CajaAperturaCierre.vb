@@ -236,14 +236,17 @@ Public Class CajaAperturaCierre
             If ModuloUtilidades.clsSendMail.SendEMail(EmailFrom, EmailCierreCajaTo, EmailSubject, EmailBody, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
                 Me.Cursor = Cursors.Default
                 MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                CajaseventosTableAdapter.cajaseventos_updateemailed("S", gidevento)
             Else
                 Me.Cursor = Cursors.Default
                 MessageBox.Show("El envío de mail falló! Verifíque su conexión a internet", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                CajaseventosTableAdapter.cajaseventos_updateemailed("N", gidevento)
             End If
             Me.Cursor = Cursors.Default
         Catch ex As Exception
             Me.Cursor = Cursors.Default
             MessageBox.Show("El envío de mail falló: " + ex.Message, "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            CajaseventosTableAdapter.cajaseventos_updateemailed("N", gidevento)
         End Try
     End Sub
 

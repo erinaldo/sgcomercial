@@ -277,6 +277,10 @@
                 Me.Close()
             End If
         End If
+        If e.KeyCode = Keys.F5 Then
+            filtrarcliente()
+        End If
+
     End Sub
 
     Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter

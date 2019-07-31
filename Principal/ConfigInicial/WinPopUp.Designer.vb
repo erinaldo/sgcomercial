@@ -39,12 +39,12 @@ Partial Class WinPopUp
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label.Font = New System.Drawing.Font("Segoe UI Semibold", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(121, Byte), Integer), CType(CType(254, Byte), Integer))
-        Me.Label.Location = New System.Drawing.Point(12, 30)
+        Me.Label.Location = New System.Drawing.Point(12, 9)
         Me.Label.Name = "Label"
-        Me.Label.Size = New System.Drawing.Size(387, 117)
+        Me.Label.Size = New System.Drawing.Size(387, 168)
         Me.Label.TabIndex = 0
         Me.Label.Text = "Label1"
-        Me.Label.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'WinPopUp
         '
@@ -57,6 +57,7 @@ Partial Class WinPopUp
         Me.Name = "WinPopUp"
         Me.ShowInTaskbar = False
         Me.Text = "WinPopUp"
+        Me.TopMost = True
         Me.ResumeLayout(False)
 
     End Sub
