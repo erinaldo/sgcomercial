@@ -775,6 +775,7 @@ Public Class ABMProductos
                     End If
                 End If
                 MsgBox("Actualización correcta!", MsgBoxStyle.Information, "Mensaje")
+                ProductosTableAdapter.productos_estadoproducto("A", ProductosTableAdapter.productos_existeproducto(codigoNUEVO))
             End If
         Catch ex As Exception
             MsgBox("No se pudo completar la operación: " + ex.Message, vbExclamation)
@@ -801,15 +802,13 @@ Public Class ABMProductos
 
         End Try
         '/*******************************************************************/
-
-
-        enableedit(False)
-        stockinicialtextbox.Enabled = False
-        enablefilter(True)
-        FormPrincipal.reloadstock()
-        '*************************
-        editbtn.Visible = True
-        BindingNavigatorAddNewItem.Visible = True
+        'enableedit(False)
+        'stockinicialtextbox.Enabled = False
+        'enablefilter(True)
+        'FormPrincipal.reloadstock()
+        ''*************************
+        'editbtn.Visible = True
+        'BindingNavigatorAddNewItem.Visible = True
 
         enableedit(False)
         stockinicialtextbox.Enabled = False
@@ -819,6 +818,7 @@ Public Class ABMProductos
         editbtn.Visible = True
         BindingNavigatorAddNewItem.Visible = True
         GuardarNuevo.Visible = False
+        Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
     End Sub
 
     Private Sub TextFiltro_KeyDown(sender As Object, e As KeyEventArgs) Handles TextFiltro.KeyDown
