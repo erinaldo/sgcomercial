@@ -683,7 +683,19 @@ Public Class RegistrarVenta
         unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(codigoproducto)
         If existeproducto > 0 Then ' existeproducto es el codigo de producto
             Labelproducto.Text = ProductosTableAdapter.productos_consultardescripcion(codigoproducto)
-            v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
+            glistapreferida = ComboBox1.SelectedValue
+            Select Case glistapreferida
+                Case 1 'Vta. Publico (empaque cerrado)
+                    v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
+                Case 2 'Vta. Granel
+                    v_precioventa = ProductosTableAdapter.productos_consultarpreciogranel(codigoproducto)
+                Case 3 ' Vta. Com./Mayorista
+                    v_precioventa = ProductosTableAdapter.productos_consultarpreciomayorista(codigoproducto)
+                Case 4 ' Vta. Distribuidor
+                    v_precioventa = ProductosTableAdapter.productos_precioventadistribuidor(codigoproducto)
+            End Select
+            glistaprecio = glistapreferida
+            'v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
             If VentasdetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
                 newrow = VentasdetalleDataGridView.Rows.Add()
                 VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = codigoproducto
@@ -707,7 +719,7 @@ Public Class RegistrarVenta
                 End If
                 VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = v_precioventa
                 VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
-                VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = 1 ' glistaprecio
+                VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio ' glistaprecio
                 codigotextbox.SelectAll()
                 codigotextbox.Select()
                 recuento()
@@ -729,7 +741,7 @@ Public Class RegistrarVenta
                             VentasdetalleDataGridView.Rows(i).Cells(2).Value = VentasdetalleDataGridView.Rows(i).Cells(2).Value + gcantidad '*******  cantidad
                         End If
                         VentasdetalleDataGridView.Rows(i).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(i).Cells(2).Value
-                        VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = 1 ' glistaprecio
+                        VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio ' glistaprecio
                         codigotextbox.SelectAll()
                         codigotextbox.Select()
                         recuento()
@@ -756,7 +768,7 @@ Public Class RegistrarVenta
                     End If
                     VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = v_precioventa
                     VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
-                    VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = 1 ' glistaprecio
+                    VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio ' glistaprecio
                     codigotextbox.SelectAll()
                     codigotextbox.Select()
                     recuento()
