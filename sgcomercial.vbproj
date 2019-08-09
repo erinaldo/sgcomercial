@@ -379,6 +379,36 @@
     <Compile Include="Estadisticas\Ventas\EstVentasProvincias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gastronomia\ABMMesas.Designer.vb">
+      <DependentUpon>ABMMesas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Gastronomia\ABMMesas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastronomia\ABMMozos.Designer.vb">
+      <DependentUpon>ABMMozos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Gastronomia\ABMMozos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastronomia\ABMSalones.Designer.vb">
+      <DependentUpon>ABMSalones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Gastronomia\ABMSalones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastronomia\AdmOrdenes.Designer.vb">
+      <DependentUpon>AdmOrdenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Gastronomia\AdmOrdenes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastronomia\GGAdmSalones.Designer.vb">
+      <DependentUpon>GGAdmSalones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Gastronomia\GGAdmSalones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1288,6 +1318,21 @@
     <EmbeddedResource Include="Estadisticas\Ventas\RepEstEnviosSucursales.rdlc" />
     <EmbeddedResource Include="Estadisticas\Ventas\RepRankingVentas.rdlc" />
     <EmbeddedResource Include="Estadisticas\Ventas\RepVentasProvincias.rdlc" />
+    <EmbeddedResource Include="Gastronomia\ABMMesas.resx">
+      <DependentUpon>ABMMesas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastronomia\ABMMozos.resx">
+      <DependentUpon>ABMMozos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastronomia\ABMSalones.resx">
+      <DependentUpon>ABMSalones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastronomia\AdmOrdenes.resx">
+      <DependentUpon>AdmOrdenes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastronomia\GGAdmSalones.resx">
+      <DependentUpon>GGAdmSalones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\ConfigInicial\BienvenidaEPOS.resx">
       <DependentUpon>BienvenidaEPOS.vb</DependentUpon>
     </EmbeddedResource>
@@ -1588,6 +1633,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\GraphIngresos.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepPresupuesto.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepPresupuesto80.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepVentasPorUsuario.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\VentasPorUsuario.resx">
       <DependentUpon>VentasPorUsuario.vb</DependentUpon>
@@ -1934,6 +1980,7 @@
     <None Include="My Project\img\FEAFIP_OFF.gif" />
     <None Include="My Project\img\Yes_check.png" />
     <None Include="My Project\img\epos_logo.gif" />
+    <None Include="My Project\img\edit_pencil.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

@@ -16,11 +16,26 @@
     Private Sub ViewerPresupuestos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
-        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.libropresupuestos' Puede moverla o quitarla según sea necesario.
         Me.libropresupuestosTableAdapter.FillByIDPresupuesto(Me.comercialDataSet.libropresupuestos, gidpresupuesto)
-        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.libropresupuestosdetalle' Puede moverla o quitarla según sea necesario.
         Me.libropresupuestosdetalleTableAdapter.FillByIDPresupuesto(Me.comercialDataSet.libropresupuestosdetalle, gidpresupuesto)
 
         Me.ReportViewer1.RefreshReport()
+    End Sub
+
+    Private Sub Comanda80mmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Comanda80mmToolStripMenuItem.Click
+        Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
+        Me.libropresupuestosTableAdapter.FillByIDPresupuesto(Me.comercialDataSet.libropresupuestos, gidpresupuesto)
+        Me.libropresupuestosdetalleTableAdapter.FillByIDPresupuesto(Me.comercialDataSet.libropresupuestosdetalle, gidpresupuesto)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepPresupuesto80.rdlc"
+        Me.ReportViewer1.RefreshReport()
+    End Sub
+
+    Private Sub A4ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles A4ToolStripMenuItem.Click
+        Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
+        Me.libropresupuestosTableAdapter.FillByIDPresupuesto(Me.comercialDataSet.libropresupuestos, gidpresupuesto)
+        Me.libropresupuestosdetalleTableAdapter.FillByIDPresupuesto(Me.comercialDataSet.libropresupuestosdetalle, gidpresupuesto)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepPresupuesto.rdlc"
+        Me.ReportViewer1.RefreshReport()
+
     End Sub
 End Class

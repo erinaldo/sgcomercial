@@ -1219,6 +1219,16 @@ Public Class Principal
                 MessageBox.Show("Módulo de Facturación Electrónica INACTIVO", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Select
     End Sub
+
+    Private Sub OrdenesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenesToolStripMenuItem.Click
+        AdmOrdenes.MdiParent = Me
+        AdmOrdenes.Visible = True
+    End Sub
+
+    Private Sub SalonesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalonesToolStripMenuItem.Click
+        GGAdmSalones.MdiParent = Me
+        GGAdmSalones.Visible = True
+    End Sub
     'Private Sub PrivateDownloadSGC()
 
     '    Dim ftpClient As New WebClient

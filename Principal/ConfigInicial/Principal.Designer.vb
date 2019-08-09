@@ -31,6 +31,7 @@ Partial Class Principal
         Me.CambioMultipleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComprobanesEmitidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasPorDiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroMayorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -47,6 +48,9 @@ Partial Class Principal
         Me.LotesDeEnvìosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntregasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestiónGastronómicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalonesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductoEstandarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -202,7 +206,6 @@ Partial Class Principal
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ComprobanesEmitidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -226,7 +229,7 @@ Partial Class Principal
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -284,6 +287,13 @@ Partial Class Principal
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.ReportesToolStripMenuItem.Tag = "ReportesParent"
         Me.ReportesToolStripMenuItem.Text = "Reportes"
+        '
+        'ComprobanesEmitidosToolStripMenuItem
+        '
+        Me.ComprobanesEmitidosToolStripMenuItem.Name = "ComprobanesEmitidosToolStripMenuItem"
+        Me.ComprobanesEmitidosToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.ComprobanesEmitidosToolStripMenuItem.Tag = "ComprobanesEmitidos"
+        Me.ComprobanesEmitidosToolStripMenuItem.Text = "Comprobanes Emitidos"
         '
         'LibroVentasToolStripMenuItem
         '
@@ -404,6 +414,28 @@ Partial Class Principal
         Me.LibroDePedidosToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
         Me.LibroDePedidosToolStripMenuItem.Tag = "LibroPedidos"
         Me.LibroDePedidosToolStripMenuItem.Text = "Libro de Pedidos"
+        '
+        'GestiónGastronómicaToolStripMenuItem
+        '
+        Me.GestiónGastronómicaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalonesToolStripMenuItem, Me.OrdenesToolStripMenuItem})
+        Me.GestiónGastronómicaToolStripMenuItem.Name = "GestiónGastronómicaToolStripMenuItem"
+        Me.GestiónGastronómicaToolStripMenuItem.Size = New System.Drawing.Size(120, 27)
+        Me.GestiónGastronómicaToolStripMenuItem.Tag = "ModuloGGastronomica"
+        Me.GestiónGastronómicaToolStripMenuItem.Text = "Gastronomía"
+        '
+        'SalonesToolStripMenuItem
+        '
+        Me.SalonesToolStripMenuItem.Name = "SalonesToolStripMenuItem"
+        Me.SalonesToolStripMenuItem.Size = New System.Drawing.Size(243, 28)
+        Me.SalonesToolStripMenuItem.Tag = "GGADMSalones"
+        Me.SalonesToolStripMenuItem.Text = "Gestión de Salones"
+        '
+        'OrdenesToolStripMenuItem
+        '
+        Me.OrdenesToolStripMenuItem.Name = "OrdenesToolStripMenuItem"
+        Me.OrdenesToolStripMenuItem.Size = New System.Drawing.Size(243, 28)
+        Me.OrdenesToolStripMenuItem.Tag = "GGOrdenes"
+        Me.OrdenesToolStripMenuItem.Text = "Administrar Ordenes"
         '
         'VentasToolStripMenuItem
         '
@@ -1413,7 +1445,9 @@ Partial Class Principal
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -1423,8 +1457,11 @@ Partial Class Principal
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Me.ParametrosgeneralesTableAdapter
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -1444,6 +1481,7 @@ Partial Class Principal
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -1589,13 +1627,6 @@ Partial Class Principal
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
-        '
-        'ComprobanesEmitidosToolStripMenuItem
-        '
-        Me.ComprobanesEmitidosToolStripMenuItem.Name = "ComprobanesEmitidosToolStripMenuItem"
-        Me.ComprobanesEmitidosToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
-        Me.ComprobanesEmitidosToolStripMenuItem.Tag = "ComprobanesEmitidos"
-        Me.ComprobanesEmitidosToolStripMenuItem.Text = "Comprobanes Emitidos"
         '
         'Principal
         '
@@ -1824,4 +1855,7 @@ Partial Class Principal
     Friend WithEvents MailServerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RecargarPermisosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ComprobanesEmitidosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GestiónGastronómicaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SalonesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OrdenesToolStripMenuItem As ToolStripMenuItem
 End Class
