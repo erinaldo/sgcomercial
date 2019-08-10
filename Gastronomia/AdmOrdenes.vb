@@ -17,6 +17,15 @@
     End Sub
 
     Private Sub AdmOrdenes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ComboBoxSalon.SelectedIndex = -1
+        Me.SalonesTableAdapter.FillByActivos(Me.ComercialDataSet.salones)
+    End Sub
 
+    Private Sub ComboBoxSalon_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSalon.SelectedIndexChanged
+        Try
+            Me.MesasTableAdapter.FillBySalon(Me.ComercialDataSet.mesas, ComboBoxSalon.SelectedValue)
+        Catch ex As Exception
+            MessageBox.Show("Aviso!", "Seleccione primero un salón", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
     End Sub
 End Class

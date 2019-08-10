@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.8353cm</Width>
+              <Width>1.90743cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.1915cm</Width>
+              <Width>1.26363cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.7732cm</Width>
+              <Width>2.84533cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -181,9 +181,8 @@
         </TablixRowHierarchy>
         <DataSetName>libroventas</DataSetName>
         <Top>2.57528cm</Top>
-        <Left>0cm</Left>
         <Height>1.24817cm</Height>
-        <Width>5.8cm</Width>
+        <Width>6.01639cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -195,16 +194,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.73343cm</Width>
+              <Width>1.79404cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.2673cm</Width>
+              <Width>1.32791cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.41385cm</Width>
+              <Width>1.47446cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.38542cm</Width>
+              <Width>1.44603cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -442,9 +441,8 @@
         </TablixRowHierarchy>
         <DataSetName>libroventasdetalle</DataSetName>
         <Top>4.58834cm</Top>
-        <Left>0.02607cm</Left>
         <Height>1.2cm</Height>
-        <Width>5.8cm</Width>
+        <Width>6.04246cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -457,16 +455,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.7595cm</Width>
+              <Width>1.8136cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.2673cm</Width>
+              <Width>1.3214cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.41385cm</Width>
+              <Width>1.46795cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.38542cm</Width>
+              <Width>1.43952cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -626,9 +624,8 @@
         </TablixRowHierarchy>
         <DataSetName>libroventasdetalle</DataSetName>
         <Top>3.96456cm</Top>
-        <Left>0cm</Left>
         <Height>0.6cm</Height>
-        <Width>5.82607cm</Width>
+        <Width>6.04246cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -655,7 +652,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreComercio</rd:DefaultName>
         <Top>0.12486cm</Top>
-        <Left>2.14846cm</Left>
+        <Left>2.36485cm</Left>
         <Height>0.43744cm</Height>
         <Width>3.67761cm</Width>
         <ZIndex>3</ZIndex>
@@ -695,7 +692,7 @@
         </Paragraphs>
         <rd:DefaultName>CuitCuil</rd:DefaultName>
         <Top>0.66814cm</Top>
-        <Left>2.14846cm</Left>
+        <Left>2.36485cm</Left>
         <Height>0.43744cm</Height>
         <Width>3.67761cm</Width>
         <ZIndex>4</ZIndex>
@@ -728,7 +725,7 @@
         </Paragraphs>
         <rd:DefaultName>Dirección</rd:DefaultName>
         <Top>1.21141cm</Top>
-        <Left>2.14846cm</Left>
+        <Left>2.36485cm</Left>
         <Height>0.43744cm</Height>
         <Width>3.67761cm</Width>
         <ZIndex>5</ZIndex>
@@ -768,7 +765,7 @@
         </Paragraphs>
         <rd:DefaultName>Teléfono</rd:DefaultName>
         <Top>1.75469cm</Top>
-        <Left>2.14846cm</Left>
+        <Left>2.36485cm</Left>
         <Height>0.43744cm</Height>
         <Width>3.67761cm</Width>
         <ZIndex>6</ZIndex>
@@ -788,7 +785,7 @@
         <MIMEType>image/jpeg</MIMEType>
         <Sizing>FitProportional</Sizing>
         <Top>0.15875cm</Top>
-        <Left>0.0635cm</Left>
+        <Left>0.27989cm</Left>
         <Height>2cm</Height>
         <Width>2cm</Width>
         <ZIndex>7</ZIndex>
@@ -805,7 +802,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>******************* SGComercial ******************</Value>
+                <Value>**************** SGComercial ***************</Value>
                 <Style>
                   <FontSize>7pt</FontSize>
                   <FontWeight>SemiBold</FontWeight>
@@ -832,9 +829,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
-        <Top>12.42134cm</Top>
+        <Top>12.99284cm</Top>
         <Height>0.81872cm</Height>
-        <Width>5.8cm</Width>
+        <Width>5.94443cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -874,6 +871,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox24</rd:DefaultName>
             <Top>1.3311cm</Top>
+            <Left>0.12114cm</Left>
             <Height>0.6cm</Height>
             <Width>5.72804cm</Width>
             <Style>
@@ -913,6 +911,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
             <Top>2.10749cm</Top>
+            <Left>0.12114cm</Left>
             <Height>0.6cm</Height>
             <Width>5.75411cm</Width>
             <ZIndex>1</ZIndex>
@@ -948,7 +947,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
             <Top>0.1905cm</Top>
-            <Left>3.51304cm</Left>
+            <Left>3.63418cm</Left>
             <Height>0.96421cm</Height>
             <Width>2.28696cm</Width>
             <ZIndex>2</ZIndex>
@@ -984,7 +983,7 @@
             </Paragraphs>
             <rd:DefaultName>tipocomprobante</rd:DefaultName>
             <Top>2.88388cm</Top>
-            <Left>0.0767cm</Left>
+            <Left>0.19784cm</Left>
             <Height>0.58236cm</Height>
             <Width>5.67741cm</Width>
             <ZIndex>3</ZIndex>
@@ -1036,7 +1035,7 @@
             </Paragraphs>
             <rd:DefaultName>idventa</rd:DefaultName>
             <Top>3.60735cm</Top>
-            <Left>0.05341cm</Left>
+            <Left>0.17455cm</Left>
             <Height>0.56492cm</Height>
             <Width>5.67741cm</Width>
             <ZIndex>4</ZIndex>
@@ -1076,7 +1075,7 @@
             </Paragraphs>
             <rd:DefaultName>fechaventa</rd:DefaultName>
             <Top>4.31338cm</Top>
-            <Left>0.05341cm</Left>
+            <Left>0.17455cm</Left>
             <Height>0.6cm</Height>
             <Width>5.67741cm</Width>
             <ZIndex>5</ZIndex>
@@ -1116,7 +1115,7 @@
             </Paragraphs>
             <rd:DefaultName>CuitCuil</rd:DefaultName>
             <Top>5.01568cm</Top>
-            <Left>0.05341cm</Left>
+            <Left>0.17455cm</Left>
             <Height>0.49011cm</Height>
             <Width>5.67741cm</Width>
             <ZIndex>6</ZIndex>
@@ -1156,7 +1155,7 @@
             </Paragraphs>
             <rd:DefaultName>CuitCuil</rd:DefaultName>
             <Top>5.61163cm</Top>
-            <Left>0.05341cm</Left>
+            <Left>0.17455cm</Left>
             <Height>0.49011cm</Height>
             <Width>5.67741cm</Width>
             <ZIndex>7</ZIndex>
@@ -1175,6 +1174,7 @@
             <Value>AFIP</Value>
             <Sizing>FitProportional</Sizing>
             <Top>0.15875cm</Top>
+            <Left>0.12114cm</Left>
             <Height>0.99596cm</Height>
             <Width>3.44248cm</Width>
             <ZIndex>8</ZIndex>
@@ -1188,9 +1188,8 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>5.8589cm</Top>
-        <Left>0cm</Left>
         <Height>6.25906cm</Height>
-        <Width>5.82607cm</Width>
+        <Width>6.04246cm</Width>
         <ZIndex>9</ZIndex>
         <Visibility>
           <Hidden>=Microsoft.VisualBasic.Interaction.IIf(Microsoft.VisualBasic.Strings.len(First(Fields!cae.Value, "libroventas")) &gt; 0, False, True)</Hidden>
@@ -1202,11 +1201,48 @@
           </Border>
         </Style>
       </Rectangle>
+      <Textbox Name="Textbox29">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Comprobante NO VÁLIDO COMO FACTURA</Value>
+                <Style>
+                  <FontSize>7pt</FontSize>
+                  <FontWeight>SemiBold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox27</rd:DefaultName>
+        <Top>12.34749cm</Top>
+        <Height>0.48006cm</Height>
+        <Width>5.94443cm</Width>
+        <ZIndex>10</ZIndex>
+        <Visibility>
+          <Hidden>=Microsoft.VisualBasic.Interaction.IIf(Microsoft.VisualBasic.Strings.len(First(Fields!cae.Value, "libroventas")) &gt; 0, true, false)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>5.31143in</Height>
+    <Height>5.6031in</Height>
     <Style />
   </Body>
-  <Width>2.29373in</Width>
+  <Width>2.37892in</Width>
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>8cm</PageWidth>

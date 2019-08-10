@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.71681cm</Width>
+              <Width>2.63567cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.92483cm</Width>
+              <Width>1.84369cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.50653cm</Width>
+              <Width>3.42539cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -31,6 +31,7 @@
                               <Value>=Fields!fechaventa.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -62,6 +63,7 @@
                               <Value>Vta. N°</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -95,6 +97,7 @@
                               <Value>=Fields!idventa.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -133,6 +136,7 @@
                               <Value>=Fields!nombre.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -183,7 +187,7 @@
         <Top>2.73403cm</Top>
         <Left>0.02166cm</Left>
         <Height>1.24817cm</Height>
-        <Width>8.14817cm</Width>
+        <Width>7.90475cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -195,16 +199,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.4316cm</Width>
+              <Width>2.37075cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.8173cm</Width>
+              <Width>1.75645cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.96385cm</Width>
+              <Width>1.903cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.93542cm</Width>
+              <Width>1.87457cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -222,7 +226,8 @@
                             <TextRun>
                               <Value>=Fields!descripcion.Value</Value>
                               <Style>
-                                <FontSize>6pt</FontSize>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -253,7 +258,8 @@
                             <TextRun>
                               <Value>=Fields!cantidad.Value</Value>
                               <Style>
-                                <FontSize>6pt</FontSize>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -286,7 +292,8 @@
                             <TextRun>
                               <Value>=Fields!precioventa.Value</Value>
                               <Style>
-                                <FontSize>6pt</FontSize>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -319,7 +326,8 @@
                             <TextRun>
                               <Value>=Fields!subtotal.Value</Value>
                               <Style>
-                                <FontSize>6pt</FontSize>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -357,7 +365,8 @@
                             <TextRun>
                               <Value>TOTAL</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -393,7 +402,8 @@
                             <TextRun>
                               <Value>=Sum(Fields!subtotal.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -444,7 +454,7 @@
         <Top>4.68359cm</Top>
         <Left>0.02166cm</Left>
         <Height>1.2cm</Height>
-        <Width>8.14817cm</Width>
+        <Width>7.90475cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -457,16 +467,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.45116cm</Width>
+              <Width>2.38752cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.81078cm</Width>
+              <Width>1.74714cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.95733cm</Width>
+              <Width>1.89369cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.9289cm</Width>
+              <Width>1.86526cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -628,7 +638,7 @@
         <Top>4.05981cm</Top>
         <Left>0.02166cm</Left>
         <Height>0.6cm</Height>
-        <Width>8.14817cm</Width>
+        <Width>7.89359cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -805,7 +815,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>**************************** SGComercial *****************************</Value>
+                <Value>************************ SGComercial *************************</Value>
                 <Style>
                   <FontSize>7pt</FontSize>
                   <FontWeight>SemiBold</FontWeight>
@@ -819,7 +829,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>********************  sistemascomerciales.net  **********************</Value>
+                <Value>***************  sistemascomerciales.net  *****************</Value>
                 <Style>
                   <FontSize>7pt</FontSize>
                   <FontWeight>SemiBold</FontWeight>
@@ -832,10 +842,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
-        <Top>12.94211cm</Top>
+        <Top>13.31253cm</Top>
         <Left>0.04773cm</Left>
         <Height>0.81872cm</Height>
-        <Width>8.1221cm</Width>
+        <Width>7.86752cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -876,7 +886,7 @@
             <Top>1.3311cm</Top>
             <Left>0.07196cm</Left>
             <Height>0.6cm</Height>
-            <Width>8.09787cm</Width>
+            <Width>7.84329cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -915,7 +925,7 @@
             <Top>2.10749cm</Top>
             <Left>0.07196cm</Left>
             <Height>0.6cm</Height>
-            <Width>8.09787cm</Width>
+            <Width>7.84329cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -965,8 +975,8 @@
             <rd:DefaultName>Textbox23</rd:DefaultName>
             <Top>0.1905cm</Top>
             <Left>3.65555cm</Left>
-            <Height>0.6cm</Height>
-            <Width>4.51428cm</Width>
+            <Height>0.96421cm</Height>
+            <Width>2.58538cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -1000,9 +1010,9 @@
             </Paragraphs>
             <rd:DefaultName>tipocomprobante</rd:DefaultName>
             <Top>2.88388cm</Top>
-            <Left>0.14866cm</Left>
+            <Left>0.07196cm</Left>
             <Height>0.58236cm</Height>
-            <Width>7.76659cm</Width>
+            <Width>7.84329cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -1052,9 +1062,9 @@
             </Paragraphs>
             <rd:DefaultName>idventa</rd:DefaultName>
             <Top>3.60735cm</Top>
-            <Left>0.14866cm</Left>
+            <Left>0.07196cm</Left>
             <Height>0.56492cm</Height>
-            <Width>7.76659cm</Width>
+            <Width>7.84329cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -1092,9 +1102,9 @@
             </Paragraphs>
             <rd:DefaultName>fechaventa</rd:DefaultName>
             <Top>4.31338cm</Top>
-            <Left>0.14866cm</Left>
+            <Left>0.07196cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.76659cm</Width>
+            <Width>7.84329cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -1132,9 +1142,9 @@
             </Paragraphs>
             <rd:DefaultName>CuitCuil</rd:DefaultName>
             <Top>5.01568cm</Top>
-            <Left>0.14866cm</Left>
+            <Left>0.07196cm</Left>
             <Height>0.49011cm</Height>
-            <Width>7.76659cm</Width>
+            <Width>7.84329cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -1172,9 +1182,9 @@
             </Paragraphs>
             <rd:DefaultName>CuitCuil</rd:DefaultName>
             <Top>5.61163cm</Top>
-            <Left>0.14866cm</Left>
+            <Left>0.07196cm</Left>
             <Height>0.49011cm</Height>
-            <Width>7.76659cm</Width>
+            <Width>7.84329cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -1190,7 +1200,7 @@
         <KeepTogether>true</KeepTogether>
         <Top>6.25266cm</Top>
         <Height>6.25906cm</Height>
-        <Width>8.16983cm</Width>
+        <Width>7.91525cm</Width>
         <ZIndex>9</ZIndex>
         <Visibility>
           <Hidden>=Microsoft.VisualBasic.Interaction.IIf(Microsoft.VisualBasic.Strings.len(First(Fields!cae.Value, "libroventas")) &gt; 0, False, True)</Hidden>
@@ -1202,11 +1212,49 @@
           </Border>
         </Style>
       </Rectangle>
+      <Textbox Name="Textbox29">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Comprobante NO VÁLIDO COMO FACTURA</Value>
+                <Style>
+                  <FontSize>7pt</FontSize>
+                  <FontWeight>SemiBold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox27</rd:DefaultName>
+        <Top>12.70464cm</Top>
+        <Left>0.04773cm</Left>
+        <Height>0.4315cm</Height>
+        <Width>7.86752cm</Width>
+        <ZIndex>10</ZIndex>
+        <Visibility>
+          <Hidden>=Microsoft.VisualBasic.Interaction.IIf(Microsoft.VisualBasic.Strings.len(First(Fields!cae.Value, "libroventas")) &gt; 0, true, false)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>5.54265in</Height>
+    <Height>6.22416in</Height>
     <Style />
   </Body>
-  <Width>81.69832mm</Width>
+  <Width>79.2641mm</Width>
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>8cm</PageWidth>

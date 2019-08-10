@@ -22,22 +22,32 @@ Partial Class AdmOrdenes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevaÓrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabSalones = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ComboBoxSalon = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.ComboBoxMesa = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxMesa = New System.Windows.Forms.ComboBox()
+        Me.MesasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ComboBoxSalon = New System.Windows.Forms.ComboBox()
+        Me.SalonesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SalonesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.salonesTableAdapter()
+        Me.MesasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.mesasTableAdapter()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MesasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SalonesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -89,6 +99,7 @@ Partial Class AdmOrdenes
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -102,39 +113,19 @@ Partial Class AdmOrdenes
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         '
-        'ComboBoxSalon
+        'DataGridView1
         '
-        Me.ComboBoxSalon.FormattingEnabled = True
-        Me.ComboBoxSalon.Location = New System.Drawing.Point(32, 38)
-        Me.ComboBoxSalon.Name = "ComboBoxSalon"
-        Me.ComboBoxSalon.Size = New System.Drawing.Size(162, 24)
-        Me.ComboBoxSalon.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(32, 18)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(48, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Salón:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(206, 18)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 17)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Mesa:"
-        '
-        'ComboBoxMesa
-        '
-        Me.ComboBoxMesa.FormattingEnabled = True
-        Me.ComboBoxMesa.Location = New System.Drawing.Point(206, 38)
-        Me.ComboBoxMesa.Name = "ComboBoxMesa"
-        Me.ComboBoxMesa.Size = New System.Drawing.Size(162, 24)
-        Me.ComboBoxMesa.TabIndex = 0
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(35, 119)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.Size = New System.Drawing.Size(507, 344)
+        Me.DataGridView1.TabIndex = 2
         '
         'Label3
         '
@@ -145,6 +136,24 @@ Partial Class AdmOrdenes
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "Mozo:"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(206, 18)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(46, 17)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Mesa:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(32, 18)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(48, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Salón:"
+        '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
@@ -153,19 +162,61 @@ Partial Class AdmOrdenes
         Me.ComboBox1.Size = New System.Drawing.Size(162, 24)
         Me.ComboBox1.TabIndex = 0
         '
-        'DataGridView1
+        'ComboBoxMesa
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(35, 85)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(507, 378)
-        Me.DataGridView1.TabIndex = 2
+        Me.ComboBoxMesa.DataSource = Me.MesasBindingSource
+        Me.ComboBoxMesa.DisplayMember = "idmesa"
+        Me.ComboBoxMesa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxMesa.FormattingEnabled = True
+        Me.ComboBoxMesa.Location = New System.Drawing.Point(206, 38)
+        Me.ComboBoxMesa.Name = "ComboBoxMesa"
+        Me.ComboBoxMesa.Size = New System.Drawing.Size(162, 24)
+        Me.ComboBoxMesa.TabIndex = 0
+        Me.ComboBoxMesa.ValueMember = "idmesa"
+        '
+        'MesasBindingSource
+        '
+        Me.MesasBindingSource.DataMember = "mesas"
+        Me.MesasBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ComboBoxSalon
+        '
+        Me.ComboBoxSalon.DataSource = Me.SalonesBindingSource
+        Me.ComboBoxSalon.DisplayMember = "descripcion"
+        Me.ComboBoxSalon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxSalon.FormattingEnabled = True
+        Me.ComboBoxSalon.Location = New System.Drawing.Point(32, 38)
+        Me.ComboBoxSalon.Name = "ComboBoxSalon"
+        Me.ComboBoxSalon.Size = New System.Drawing.Size(162, 24)
+        Me.ComboBoxSalon.TabIndex = 0
+        Me.ComboBoxSalon.ValueMember = "idsalon"
+        '
+        'SalonesBindingSource
+        '
+        Me.SalonesBindingSource.DataMember = "salones"
+        Me.SalonesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'SalonesTableAdapter
+        '
+        Me.SalonesTableAdapter.ClearBeforeFill = True
+        '
+        'MesasTableAdapter
+        '
+        Me.MesasTableAdapter.ClearBeforeFill = True
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(34, 80)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(507, 23)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "..............."
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'AdmOrdenes
         '
@@ -188,6 +239,9 @@ Partial Class AdmOrdenes
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MesasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SalonesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -205,4 +259,10 @@ Partial Class AdmOrdenes
     Friend WithEvents ComboBoxMesa As ComboBox
     Friend WithEvents ComboBoxSalon As ComboBox
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents ComercialDataSet As comercialDataSet
+    Friend WithEvents SalonesBindingSource As BindingSource
+    Friend WithEvents SalonesTableAdapter As comercialDataSetTableAdapters.salonesTableAdapter
+    Friend WithEvents MesasBindingSource As BindingSource
+    Friend WithEvents MesasTableAdapter As comercialDataSetTableAdapters.mesasTableAdapter
+    Friend WithEvents Label4 As Label
 End Class
