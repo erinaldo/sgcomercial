@@ -683,6 +683,7 @@ Public Class RegistrarVenta
         unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(codigoproducto)
         If existeproducto > 0 Then ' existeproducto es el codigo de producto
             Labelproducto.Text = ProductosTableAdapter.productos_consultardescripcion(codigoproducto)
+            '********   LISTA PRECIO PREFERIDA ************
             glistapreferida = ComboBox1.SelectedValue
             Select Case glistapreferida
                 Case 1 'Vta. Publico (empaque cerrado)
@@ -786,14 +787,26 @@ Public Class RegistrarVenta
     Private Sub buscaproductoauto()
         Dim addnewrow As Boolean = False
         Dim unidadmedida As Integer
-        glistaprecio = 1
+        '        glistaprecio = 1
         existeproducto = ProductosTableAdapter.productos_existeproducto(codigotextbox.Text)
         productodisponible = StockTableAdapter.stock_consultardisponible(existeproducto)
         productodisponibleenvasado = StockTableAdapter.stock_consultardisponibleenvasado(existeproducto)
         unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(codigotextbox.Text)
         If existeproducto > 0 Then ' existeproducto ------------- es el codigo de producto
             Labelproducto.Text = ProductosTableAdapter.productos_consultardescripcion(codigotextbox.Text)
-            v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigotextbox.Text)
+            '********   LISTA PRECIO PREFERIDA ************
+            glistapreferida = ComboBox1.SelectedValue
+            Select Case glistapreferida
+                Case 1 'Vta. Publico (empaque cerrado)
+                    v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigotextbox.Text)
+                Case 2 'Vta. Granel
+                    v_precioventa = ProductosTableAdapter.productos_consultarpreciogranel(codigotextbox.Text)
+                Case 3 ' Vta. Com./Mayorista
+                    v_precioventa = ProductosTableAdapter.productos_consultarpreciomayorista(codigotextbox.Text)
+                Case 4 ' Vta. Distribuidor
+                    v_precioventa = ProductosTableAdapter.productos_precioventadistribuidor(codigotextbox.Text)
+            End Select
+            'v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigotextbox.Text)
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             If VentasdetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
                 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''

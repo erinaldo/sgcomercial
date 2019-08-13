@@ -28,6 +28,7 @@
             Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
             enablefields(False)
             enableedit(False)
+            MsgBox("Operación exitosa!", MsgBoxStyle.Information)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

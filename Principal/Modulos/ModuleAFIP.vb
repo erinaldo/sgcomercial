@@ -162,13 +162,16 @@ Module ModuleAFIP
             If ticketaccesofeDataTable.Count > 0 Then
                 GTOKEN = ticketaccesofeDataTable.Rows(0).Item("token")
                 GSIGN = ticketaccesofeDataTable.Rows(0).Item("sign")
-                StrError.CodError = 1
-                StrError.MsgError = "Ultimo Ticket Vigente"
-                Return StrError
+                Dim expirationtime As DateTime = ticketaccesofeDataTable.Rows(0).Item("expirationtime")
+                If expirationtime >= Now() Then
+                    StrError.CodError = 1
+                    StrError.MsgError = "Ultimo Ticket Vigente"
+                    Return StrError
+                End If
             End If
         Catch ex As Exception
             StrError.CodError = 66
-            StrError.MsgError = ID_FNC + "***Error GENERANDO el LoginTicketRequest : " + ex.Message + ex.StackTrace
+            StrError.MsgError = ID_FNC + "***Error GENERANDO el LoginTicketRequest T1: " + ex.Message + ex.StackTrace
             Return StrError
         End Try
 

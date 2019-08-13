@@ -1,6 +1,4 @@
 ﻿Public Class ComprobantesEmitidos
-
-
     Private Sub ComprobantesEmitidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Dim fechadesde As Date
@@ -8,12 +6,25 @@
             fechadesde = Convert.ToDateTime(DateTimeDesde.Value)
             fechahasta = Convert.ToDateTime(DateTimeHasta.Value)
             'Me.LibroventasTableAdapter.FillByFechaDate(Me.ComercialDataSet.libroventas, fechadesde.ToString)
-            LibroventasTableAdapter.FillByRangoFechas(Me.ComercialDataSet.libroventas, fechadesde.ToString, fechahasta.ToString)
+            LibroventasTableAdapter.FillByRangoFechas(Me.ComercialDataSet.libroventas, fechadesde, fechahasta)
             '**************************************************************************************************
             Dim newColumn As DataGridViewColumn = LibroventasDataGridView.Columns("DataGridViewTextBoxColumn1")
             LibroventasDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
         Catch ex As Exception
-            MsgBox("Exception: " + ex.Message)
+            Try
+                'Dim fechadesde As Date
+                'Dim fechahasta As Date
+                'fechadesde = Convert.ToDateTime(DateTimeDesde.Value)
+                'fechahasta = Convert.ToDateTime(DateTimeHasta.Value)
+                'Me.LibroventasTableAdapter.FillByFechaDate(Me.ComercialDataSet.libroventas, fechadesde.ToString)
+                LibroventasTableAdapter.FillByRangoFechas2(Me.ComercialDataSet.libroventas, DateTimeDesde.Value, DateTimeHasta.Value)
+                ''**************************************************************************************************
+                Dim newColumn As DataGridViewColumn = LibroventasDataGridView.Columns("DataGridViewTextBoxColumn1")
+                LibroventasDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
+            Catch ex2 As Exception
+                MsgBox("Exception: " + ex2.Message + " " + ex2.StackTrace)
+            End Try
+            ''MsgBox("Exception: " + ex.Message + " " + ex.StackTrace)
         End Try
     End Sub
 
@@ -27,12 +38,25 @@
             fechadesde = Convert.ToDateTime(DateTimeDesde.Value)
             fechahasta = Convert.ToDateTime(DateTimeHasta.Value)
             'Me.LibroventasTableAdapter.FillByFechaDate(Me.ComercialDataSet.libroventas, fechadesde.ToString)
-            LibroventasTableAdapter.FillByRangoFechas(Me.ComercialDataSet.libroventas, fechadesde.ToString, fechahasta.ToString)
+            LibroventasTableAdapter.FillByRangoFechas(Me.ComercialDataSet.libroventas, fechadesde, fechahasta)
             '**************************************************************************************************
             Dim newColumn As DataGridViewColumn = LibroventasDataGridView.Columns("DataGridViewTextBoxColumn1")
             LibroventasDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
         Catch ex As Exception
-            MsgBox("Exception: " + ex.Message)
+            Try
+                'Dim fechadesde As Date
+                'Dim fechahasta As Date
+                'fechadesde = Convert.ToDateTime(DateTimeDesde.Value)
+                'fechahasta = Convert.ToDateTime(DateTimeHasta.Value)
+                'Me.LibroventasTableAdapter.FillByFechaDate(Me.ComercialDataSet.libroventas, fechadesde.ToString)
+                LibroventasTableAdapter.FillByRangoFechas2(Me.ComercialDataSet.libroventas, DateTimeDesde.Value, DateTimeHasta.Value)
+                ''**************************************************************************************************
+                Dim newColumn As DataGridViewColumn = LibroventasDataGridView.Columns("DataGridViewTextBoxColumn1")
+                LibroventasDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
+            Catch ex2 As Exception
+                MsgBox("Exception: " + ex2.Message + " " + ex2.StackTrace)
+            End Try
+            ''MsgBox("Exception: " + ex.Message + " " + ex.StackTrace)
         End Try
     End Sub
 
