@@ -159,6 +159,7 @@ Public Class RegistrarVenta
 
     Private Sub enablefields(ByRef status As Boolean)
         'IdventaTextBox.Enabled = status
+        FechavencimientoDateTimePicker.Enabled = status
         NrocomprobanteTextBox.Enabled = status
         IdclienteTextBox.Enabled = status
         FechaventaDateTimePicker.Enabled = False

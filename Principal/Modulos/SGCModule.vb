@@ -1,4 +1,11 @@
-﻿Imports System.IO
+﻿Imports System.Runtime.InteropServices
+Imports Microsoft.Win32.SafeHandles
+Imports System.Security
+Imports System.ComponentModel
+Imports System.Text
+Imports System.Management
+'*********
+Imports System.IO
 Imports System.Net
 Imports System.Net.WebRequest
 Imports System.Threading
@@ -18,6 +25,8 @@ Module SGCModule
     '************************************************
     'Public StrSysCurrentVersion As String
     'Public SysCurrentVersion As Long
+    Public GHDSN As String
+    Public GMBSN As String
     Public EmailTo As String
     Public gModPVV As String = Nothing
     Public gReloadPermisos As Boolean = False
@@ -887,6 +896,35 @@ Module SGCModule
         x.Label.Text = msg
         x.tiempo = tiempo
         x.Show()
+    End Sub
+    Public Function GetHDSN()
+        Dim HDD_Serial, MB_serial As String
+        Dim hdd As New ManagementObjectSearcher("select * from Win32_DiskDrive")
+        For Each hd In hdd.Get
+            HDD_Serial = hd("SerialNumber")
+            GHDSN = HDD_Serial
+            Exit For
+        Next
+        Dim mboard As New ManagementObjectSearcher("select * from Win32_BaseBoard")
+        For Each mb In mboard.Get
+            MB_serial = mb("SerialNumber")
+            gmbsn = MB_serial
+        Next
+        'MsgBox(MB_serial)
+
+    End Function
+    Public Sub UpdateHDSN(ByVal idterminal As Long)
+        Try
+            Dim sn As String
+            sn = GetHDSN()
+            ''****************************************************************************
+            Dim TerminalesTableAdapter As New siscomDataSetTableAdapters.terminalesTableAdapter()
+            TerminalesTableAdapter.terminales_updatehdsn(GHDSN, GMBSN, idterminal)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+
     End Sub
 End Module
 

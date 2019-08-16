@@ -461,6 +461,7 @@ Public Class loginform
     Private Sub BGWUpdateLicencia_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWUpdateLicencia.DoWork
         UpdateLocalLicence()
         ValidarLicencia()
+        UpdateHDSN(gTerminal)
     End Sub
 
     Private Sub LabelMACaddress_Click(sender As Object, e As EventArgs) Handles LabelMACaddress.Click
