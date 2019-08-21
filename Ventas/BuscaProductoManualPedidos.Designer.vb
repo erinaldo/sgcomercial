@@ -198,7 +198,9 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -208,7 +210,11 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -228,11 +234,18 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -457,6 +470,7 @@ Partial Class BuscaProductoManualPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(902, 550)
         Me.Controls.Add(Me.ParametrosgeneralesDataGridView)
         Me.Controls.Add(Me.GroupBox3)

@@ -902,13 +902,13 @@ Module SGCModule
         Dim hdd As New ManagementObjectSearcher("select * from Win32_DiskDrive")
         For Each hd In hdd.Get
             HDD_Serial = hd("SerialNumber")
-            GHDSN = HDD_Serial
+            GHDSN = Trim(HDD_Serial)
             Exit For
         Next
         Dim mboard As New ManagementObjectSearcher("select * from Win32_BaseBoard")
         For Each mb In mboard.Get
             MB_serial = mb("SerialNumber")
-            gmbsn = MB_serial
+            GMBSN = Trim(MB_serial)
         Next
         'MsgBox(MB_serial)
 

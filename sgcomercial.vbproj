@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>40</ApplicationRevision>
-    <ApplicationVersion>4.0.9.40</ApplicationVersion>
+    <ApplicationRevision>42</ApplicationRevision>
+    <ApplicationVersion>4.0.9.42</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>

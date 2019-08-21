@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class AdmOrdenes
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,12 @@ Partial Class AdmOrdenes
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevaÓrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBoxMesa = New System.Windows.Forms.ComboBox()
@@ -34,6 +33,7 @@ Partial Class AdmOrdenes
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ComboBoxSalon = New System.Windows.Forms.ComboBox()
         Me.SalonesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OrdenesmesasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MozosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SalonesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.salonesTableAdapter()
         Me.MesasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.mesasTableAdapter()
@@ -43,7 +43,7 @@ Partial Class AdmOrdenes
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LabelMESA = New System.Windows.Forms.Label()
         Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -53,23 +53,42 @@ Partial Class AdmOrdenes
         Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
         Me.CerrarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AnularMesaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.preciototal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
+        Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
+        Me.OrdenesmesasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ordenesmesasTableAdapter()
+        Me.ListaordenesmesaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ListaordenesmesaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaordenesmesaTableAdapter()
+        Me.ListaordenesmesaDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MesasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SalonesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.OrdenesmesasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MozosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaproductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip2.SuspendLayout()
+        CType(Me.ListaordenesmesaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListaordenesmesaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -80,7 +99,7 @@ Partial Class AdmOrdenes
         Me.MenuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaÓrdenToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(3, 489)
+        Me.MenuStrip1.Location = New System.Drawing.Point(3, 506)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(611, 56)
         Me.MenuStrip1.TabIndex = 0
@@ -101,34 +120,17 @@ Partial Class AdmOrdenes
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.ListaordenesmesaDataGridView)
         Me.GroupBox1.Controls.Add(Me.MenuStrip1)
-        Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboBoxMesa)
         Me.GroupBox1.Controls.Add(Me.ComboBoxSalon)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(617, 548)
+        Me.GroupBox1.Size = New System.Drawing.Size(617, 565)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.cantidad, Me.producto, Me.precioventa, Me.preciototal})
-        Me.DataGridView1.Location = New System.Drawing.Point(32, 82)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(553, 404)
-        Me.DataGridView1.TabIndex = 2
         '
         'Label2
         '
@@ -186,6 +188,11 @@ Partial Class AdmOrdenes
         '
         Me.SalonesBindingSource.DataMember = "salones"
         Me.SalonesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'OrdenesmesasBindingSource
+        '
+        Me.OrdenesmesasBindingSource.DataMember = "ordenesmesas"
+        Me.OrdenesmesasBindingSource.DataSource = Me.ComercialDataSet
         '
         'MozosBindingSource
         '
@@ -292,7 +299,7 @@ Partial Class AdmOrdenes
         Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.PictureBox1)
-        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.LabelMESA)
         Me.GroupBox2.Controls.Add(Me.PictureSeleccionarCliente)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Label6)
@@ -302,7 +309,7 @@ Partial Class AdmOrdenes
         Me.GroupBox2.Controls.Add(Me.MenuStrip2)
         Me.GroupBox2.Location = New System.Drawing.Point(635, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(403, 548)
+        Me.GroupBox2.Size = New System.Drawing.Size(403, 565)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         '
@@ -320,15 +327,15 @@ Partial Class AdmOrdenes
         Me.PictureBox1.TabIndex = 18
         Me.PictureBox1.TabStop = False
         '
-        'Label4
+        'LabelMESA
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.Label4.Location = New System.Drawing.Point(246, 18)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(39, 39)
-        Me.Label4.TabIndex = 17
-        Me.Label4.Text = "--"
+        Me.LabelMESA.AutoSize = True
+        Me.LabelMESA.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
+        Me.LabelMESA.Location = New System.Drawing.Point(246, 18)
+        Me.LabelMESA.Name = "LabelMESA"
+        Me.LabelMESA.Size = New System.Drawing.Size(39, 39)
+        Me.LabelMESA.TabIndex = 17
+        Me.LabelMESA.Text = "--"
         '
         'PictureSeleccionarCliente
         '
@@ -403,7 +410,7 @@ Partial Class AdmOrdenes
         Me.MenuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
         Me.MenuStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarToolStripMenuItem, Me.AnularMesaToolStripMenuItem})
-        Me.MenuStrip2.Location = New System.Drawing.Point(3, 497)
+        Me.MenuStrip2.Location = New System.Drawing.Point(3, 514)
         Me.MenuStrip2.Name = "MenuStrip2"
         Me.MenuStrip2.Size = New System.Drawing.Size(397, 48)
         Me.MenuStrip2.TabIndex = 0
@@ -425,47 +432,175 @@ Partial Class AdmOrdenes
         Me.AnularMesaToolStripMenuItem.Text = "Anular Mesa"
         Me.AnularMesaToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
-        'codigoproducto
+        'StockTableAdapter
         '
-        Me.codigoproducto.HeaderText = "Cod."
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.Width = 66
+        Me.StockTableAdapter.ClearBeforeFill = True
         '
-        'cantidad
+        'ProductosTableAdapter
         '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        Me.cantidad.Width = 93
+        Me.ProductosTableAdapter.ClearBeforeFill = True
         '
-        'producto
+        'OrdenesmesasTableAdapter
         '
-        Me.producto.HeaderText = "Producto"
-        Me.producto.Name = "producto"
-        Me.producto.ReadOnly = True
-        Me.producto.Width = 94
+        Me.OrdenesmesasTableAdapter.ClearBeforeFill = True
         '
-        'precioventa
+        'ListaordenesmesaBindingSource
         '
-        Me.precioventa.HeaderText = "P.Unit."
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        Me.precioventa.Width = 79
+        Me.ListaordenesmesaBindingSource.DataMember = "listaordenesmesa"
+        Me.ListaordenesmesaBindingSource.DataSource = Me.ComercialDataSet
         '
-        'preciototal
+        'ListaordenesmesaTableAdapter
         '
-        Me.preciototal.HeaderText = "Total"
-        Me.preciototal.Name = "preciototal"
-        Me.preciototal.ReadOnly = True
-        Me.preciototal.Width = 69
+        Me.ListaordenesmesaTableAdapter.ClearBeforeFill = True
+        '
+        'ListaordenesmesaDataGridView
+        '
+        Me.ListaordenesmesaDataGridView.AllowUserToAddRows = False
+        Me.ListaordenesmesaDataGridView.AllowUserToDeleteRows = False
+        Me.ListaordenesmesaDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ListaordenesmesaDataGridView.AutoGenerateColumns = False
+        Me.ListaordenesmesaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.ListaordenesmesaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ListaordenesmesaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16})
+        Me.ListaordenesmesaDataGridView.DataSource = Me.ListaordenesmesaBindingSource
+        Me.ListaordenesmesaDataGridView.Location = New System.Drawing.Point(6, 79)
+        Me.ListaordenesmesaDataGridView.Name = "ListaordenesmesaDataGridView"
+        Me.ListaordenesmesaDataGridView.ReadOnly = True
+        Me.ListaordenesmesaDataGridView.RowTemplate.Height = 24
+        Me.ListaordenesmesaDataGridView.Size = New System.Drawing.Size(605, 424)
+        Me.ListaordenesmesaDataGridView.TabIndex = 5
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idordenmesa"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idordenmesa"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idmesa"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "idmesa"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Visible = False
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "idproducto"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "idproducto"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Visible = False
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "codigoproducto"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Cod."
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "producto"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Producto"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "cantidad"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Cant."
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "estado"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Estado"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "fechaalta"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "fechaalta"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Visible = False
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "fechaentrega"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "fechaentrega"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Visible = False
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "fechabaja"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "fechabaja"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Visible = False
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "observaciones"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "observaciones"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.Visible = False
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "descuento"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "descuento"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        Me.DataGridViewTextBoxColumn12.Visible = False
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "idlistaprecio"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "idlistaprecio"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Visible = False
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "precioventa"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "Precio U."
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "recargo"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "recargo"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        Me.DataGridViewTextBoxColumn15.Visible = False
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "idventa"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "idventa"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        Me.DataGridViewTextBoxColumn16.Visible = False
         '
         'AdmOrdenes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1050, 553)
+        Me.ClientSize = New System.Drawing.Size(1050, 570)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -478,10 +613,10 @@ Partial Class AdmOrdenes
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MesasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SalonesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OrdenesmesasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MozosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaproductosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
@@ -490,6 +625,8 @@ Partial Class AdmOrdenes
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip2.ResumeLayout(False)
         Me.MenuStrip2.PerformLayout()
+        CType(Me.ListaordenesmesaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListaordenesmesaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -501,7 +638,6 @@ Partial Class AdmOrdenes
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBoxMesa As ComboBox
     Friend WithEvents ComboBoxSalon As ComboBox
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents ComercialDataSet As comercialDataSet
     Friend WithEvents SalonesBindingSource As BindingSource
     Friend WithEvents SalonesTableAdapter As comercialDataSetTableAdapters.salonesTableAdapter
@@ -523,10 +659,28 @@ Partial Class AdmOrdenes
     Friend WithEvents AnularMesaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureSeleccionarCliente As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
-    Friend WithEvents cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents producto As DataGridViewTextBoxColumn
-    Friend WithEvents precioventa As DataGridViewTextBoxColumn
-    Friend WithEvents preciototal As DataGridViewTextBoxColumn
+    Friend WithEvents LabelMESA As Label
+    Friend WithEvents StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
+    Friend WithEvents ProductosTableAdapter As comercialDataSetTableAdapters.productosTableAdapter
+    Friend WithEvents OrdenesmesasTableAdapter As comercialDataSetTableAdapters.ordenesmesasTableAdapter
+    Friend WithEvents OrdenesmesasBindingSource As BindingSource
+    Friend WithEvents ListaordenesmesaBindingSource As BindingSource
+    Friend WithEvents ListaordenesmesaTableAdapter As comercialDataSetTableAdapters.listaordenesmesaTableAdapter
+    Friend WithEvents ListaordenesmesaDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
 End Class
