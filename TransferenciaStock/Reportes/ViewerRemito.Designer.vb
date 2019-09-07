@@ -23,9 +23,9 @@ Partial Class ViewerRemito
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource8 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource9 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.listaremitosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -37,6 +37,7 @@ Partial Class ViewerRemito
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.OcultarCostosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MostrarCostosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MostrarTotalEnvasadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.listaremitosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,15 +68,15 @@ Partial Class ViewerRemito
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource7.Name = "MiComercio"
-        ReportDataSource7.Value = Me.MiComercioBindingSource
-        ReportDataSource8.Name = "listaremitos"
-        ReportDataSource8.Value = Me.listaremitosBindingSource
-        ReportDataSource9.Name = "listaremitosdetalle"
-        ReportDataSource9.Value = Me.listaremitosdetalleBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource8)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource9)
+        ReportDataSource4.Name = "MiComercio"
+        ReportDataSource4.Value = Me.MiComercioBindingSource
+        ReportDataSource5.Name = "listaremitos"
+        ReportDataSource5.Value = Me.listaremitosBindingSource
+        ReportDataSource6.Name = "listaremitosdetalle"
+        ReportDataSource6.Value = Me.listaremitosdetalleBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEnvioSucursal.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 28)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -97,7 +98,7 @@ Partial Class ViewerRemito
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OcultarCostosToolStripMenuItem, Me.MostrarCostosToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OcultarCostosToolStripMenuItem, Me.MostrarCostosToolStripMenuItem, Me.MostrarTotalEnvasadoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(970, 28)
@@ -115,6 +116,12 @@ Partial Class ViewerRemito
         Me.MostrarCostosToolStripMenuItem.Name = "MostrarCostosToolStripMenuItem"
         Me.MostrarCostosToolStripMenuItem.Size = New System.Drawing.Size(120, 24)
         Me.MostrarCostosToolStripMenuItem.Text = "Mostrar Costos"
+        '
+        'MostrarTotalEnvasadoToolStripMenuItem
+        '
+        Me.MostrarTotalEnvasadoToolStripMenuItem.Name = "MostrarTotalEnvasadoToolStripMenuItem"
+        Me.MostrarTotalEnvasadoToolStripMenuItem.Size = New System.Drawing.Size(176, 24)
+        Me.MostrarTotalEnvasadoToolStripMenuItem.Text = "Mostrar Total Envasado"
         '
         'ViewerRemito
         '
@@ -150,4 +157,5 @@ Partial Class ViewerRemito
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents OcultarCostosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MostrarCostosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MostrarTotalEnvasadoToolStripMenuItem As ToolStripMenuItem
 End Class

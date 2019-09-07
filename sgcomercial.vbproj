@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>42</ApplicationRevision>
-    <ApplicationVersion>4.0.9.42</ApplicationVersion>
+    <ApplicationRevision>43</ApplicationRevision>
+    <ApplicationVersion>4.0.9.43</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1495,6 +1495,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransferenciaStock\Reportes\RepEnviosRangoFechas.rdlc" />
     <EmbeddedResource Include="TransferenciaStock\Reportes\RepEnvioSucursalSinCostos.rdlc" />
+    <EmbeddedResource Include="TransferenciaStock\Reportes\RepEnvioSucursalTotEnvasado.rdlc" />
     <EmbeddedResource Include="TransferenciaStock\Reportes\ViewerReportesRemitos.resx">
       <DependentUpon>ViewerReportesRemitos.vb</DependentUpon>
     </EmbeddedResource>

@@ -8,9 +8,7 @@
     End Sub
 
     Private Sub CldStockGeneral_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stockgeneralremoto' Puede moverla o quitarla según sea necesario.
-        Me.StockgeneralremotoTableAdapter.Fill(Me.ComercialDataSet.stockgeneralremoto)
-        'TODO: esta línea de código carga datos en la tabla 'MySQLDataSet.stockgeneral' Puede moverla o quitarla según sea necesario.
+
         Me.StockgeneralTableAdapter.Fill(Me.MySQLDataSet.stockgeneral)
         Dim StockremotoTableAdapter As comercialDataSetTableAdapters.stockremotoTableAdapter
         StockremotoTableAdapter = New comercialDataSetTableAdapters.stockremotoTableAdapter()
@@ -24,6 +22,9 @@
                     StockremotoTableAdapter.stockremoto_update(StockgeneralDataGridView.Rows(i).Cells("disponible").Value, StockgeneralDataGridView.Rows(i).Cells("unidades").Value, StockgeneralDataGridView.Rows(i).Cells("idsucursal").Value, StockgeneralDataGridView.Rows(i).Cells("codigoproducto").Value)
                 End If
             Next
+
+            Me.StockgeneralremotoTableAdapter.Fill(Me.ComercialDataSet.stockgeneralremoto)
+
         Catch ex As Exception
             MsgBox("Excepción: " + ex.Message)
         End Try

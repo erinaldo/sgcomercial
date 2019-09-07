@@ -37,4 +37,12 @@
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEnvioSucursal.rdlc"
         Me.ReportViewer1.RefreshReport()
     End Sub
+
+    Private Sub MostrarTotalEnvasadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MostrarTotalEnvasadoToolStripMenuItem.Click
+        Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
+        Me.listaremitosTableAdapter.FillByIDRemito(Me.comercialDataSet.listaremitos, gidremito)
+        Me.listaremitosdetalleTableAdapter.FillByIDRemito(Me.comercialDataSet.listaremitosdetalle, gidremito)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEnvioSucursalTotEnvasado.rdlc"
+        Me.ReportViewer1.RefreshReport()
+    End Sub
 End Class
