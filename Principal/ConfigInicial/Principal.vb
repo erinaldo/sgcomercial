@@ -1221,8 +1221,26 @@ Public Class Principal
     End Sub
 
     Private Sub OrdenesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenesToolStripMenuItem.Click
-        AdmOrdenes.MdiParent = Me
-        AdmOrdenes.Visible = True
+        '***************    consultar el estado de caja *************
+        gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
+        If gidcaja = 0 Then
+            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
+
+        Dim idevento As Integer
+        'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
+        'lblCaja.Text = "Caja Nº: " + idcaja.ToString
+        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
+
+        If idevento = 0 Then
+            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+        Else
+            AdmOrdenes.MdiParent = Me
+            AdmOrdenes.Visible = True
+        End If
+        '***************    FIN consultar el estado de caja *************
+
     End Sub
 
     Private Sub SalonesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalonesToolStripMenuItem.Click
