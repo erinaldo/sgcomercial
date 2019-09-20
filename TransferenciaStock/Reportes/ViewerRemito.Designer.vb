@@ -23,9 +23,9 @@ Partial Class ViewerRemito
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.listaremitosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -68,15 +68,15 @@ Partial Class ViewerRemito
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource4.Name = "MiComercio"
-        ReportDataSource4.Value = Me.MiComercioBindingSource
-        ReportDataSource5.Name = "listaremitos"
-        ReportDataSource5.Value = Me.listaremitosBindingSource
-        ReportDataSource6.Name = "listaremitosdetalle"
-        ReportDataSource6.Value = Me.listaremitosdetalleBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "listaremitos"
+        ReportDataSource2.Value = Me.listaremitosBindingSource
+        ReportDataSource3.Name = "listaremitosdetalle"
+        ReportDataSource3.Value = Me.listaremitosdetalleBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEnvioSucursal.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 28)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -108,20 +108,20 @@ Partial Class ViewerRemito
         'OcultarCostosToolStripMenuItem
         '
         Me.OcultarCostosToolStripMenuItem.Name = "OcultarCostosToolStripMenuItem"
-        Me.OcultarCostosToolStripMenuItem.Size = New System.Drawing.Size(117, 24)
-        Me.OcultarCostosToolStripMenuItem.Text = "Ocultar Costos"
+        Me.OcultarCostosToolStripMenuItem.Size = New System.Drawing.Size(214, 24)
+        Me.OcultarCostosToolStripMenuItem.Text = "Mostrar Cantidad en Kg,Lt,Mt"
         '
         'MostrarCostosToolStripMenuItem
         '
         Me.MostrarCostosToolStripMenuItem.Name = "MostrarCostosToolStripMenuItem"
-        Me.MostrarCostosToolStripMenuItem.Size = New System.Drawing.Size(120, 24)
-        Me.MostrarCostosToolStripMenuItem.Text = "Mostrar Costos"
+        Me.MostrarCostosToolStripMenuItem.Size = New System.Drawing.Size(110, 24)
+        Me.MostrarCostosToolStripMenuItem.Text = "Mostrar Todo"
         '
         'MostrarTotalEnvasadoToolStripMenuItem
         '
         Me.MostrarTotalEnvasadoToolStripMenuItem.Name = "MostrarTotalEnvasadoToolStripMenuItem"
-        Me.MostrarTotalEnvasadoToolStripMenuItem.Size = New System.Drawing.Size(176, 24)
-        Me.MostrarTotalEnvasadoToolStripMenuItem.Text = "Mostrar Total Envasado"
+        Me.MostrarTotalEnvasadoToolStripMenuItem.Size = New System.Drawing.Size(203, 24)
+        Me.MostrarTotalEnvasadoToolStripMenuItem.Text = "Mostrar Cantidad Envasado"
         '
         'ViewerRemito
         '
