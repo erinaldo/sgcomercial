@@ -458,6 +458,12 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>libroventasdetalle</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!cantidad.Value</Value>
+            <Direction>Descending</Direction>
+          </SortExpression>
+        </SortExpressions>
         <Height>1.2381cm</Height>
         <Width>18.1445cm</Width>
         <Style>

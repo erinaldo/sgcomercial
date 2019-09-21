@@ -5,8 +5,8 @@
     End Sub
 
     Private Sub EstadisticasCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
+        'ComboBoxEstadistica.SelectedIndex = 1
+        ComboBoxEstadistica.Enabled = False
     End Sub
 
     Private Sub PictureSeleccionarCliente_Click(sender As Object, e As EventArgs) Handles PictureSeleccionarCliente.Click
@@ -19,7 +19,8 @@
             If gclienteseleccionado > 1 Then
                 Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, IdclienteTextBox.Text)
                 If ClientesDataGridView.RowCount = 1 Then
-                    ComboBoxEstadistica.Enabled = True
+                    'ComboBoxEstadistica.SelectedIndex = 1
+                    ComboBoxEstadistica.Enabled = False
                 Else
                     ComboBoxEstadistica.Enabled = False
                 End If
@@ -51,6 +52,74 @@
     End Sub
 
     Private Sub IdclienteTextBox_TextChanged(sender As Object, e As EventArgs) Handles IdclienteTextBox.TextChanged
+
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        Try
+            Dim desde As DateTime = Nothing
+            Dim hasta As DateTime = Nothing
+
+            desde = DateTimePicker1.Value
+            hasta = DateTimePicker2.Value
+
+            If desde <> Nothing And hasta <> Nothing Then
+                Me.estcantconsumoclienteTableAdapter.FillByRangoFechas(Me.ComercialDataSet.estcantconsumocliente, IdclienteTextBox.Text, desde, hasta)
+                Me.estClientefpagopreferidaTableAdapter.FillByidcliente(Me.ComercialDataSet.estClientefpagopreferida, IdclienteTextBox.Text)
+                Me.ReportViewer1.RefreshReport()
+            Else
+                MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+        Try
+            Dim desde As DateTime = Nothing
+            Dim hasta As DateTime = Nothing
+
+            desde = DateTimePicker1.Value
+            hasta = DateTimePicker2.Value
+
+            If desde <> Nothing And hasta <> Nothing Then
+                Me.estcantconsumoclienteTableAdapter.FillByRangoFechas(Me.ComercialDataSet.estcantconsumocliente, IdclienteTextBox.Text, desde, hasta)
+                Me.estClientefpagopreferidaTableAdapter.FillByidcliente(Me.ComercialDataSet.estClientefpagopreferida, IdclienteTextBox.Text)
+                Me.ReportViewer1.RefreshReport()
+            Else
+                MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            Dim desde As DateTime = Nothing
+            Dim hasta As DateTime = Nothing
+
+            desde = DateTimePicker1.Value
+            hasta = DateTimePicker2.Value
+
+            If desde <> Nothing And hasta <> Nothing Then
+                Me.estcantconsumoclienteTableAdapter.FillByRangoFechas(Me.ComercialDataSet.estcantconsumocliente, IdclienteTextBox.Text, desde, hasta)
+                Me.estClientefpagopreferidaTableAdapter.FillByidcliente(Me.ComercialDataSet.estClientefpagopreferida, IdclienteTextBox.Text)
+                Me.ReportViewer1.RefreshReport()
+            Else
+                MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 End Class

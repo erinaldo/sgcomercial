@@ -2028,4 +2028,8 @@ Public Class RegistrarVenta
         End Try
 
     End Sub
+
+    Private Sub idformapagocombo_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles idformapagocombo.SelectedIndexChanged
+        recuento()
+    End Sub
 End Class

@@ -77,6 +77,7 @@ Partial Class ABMClientes
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
         Me.ProvinciasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.provinciasTableAdapter()
         Me.TipodocumentosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipodocumentosTableAdapter()
+        Me.Button1 = New System.Windows.Forms.Button()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         RazonsocialLabel = New System.Windows.Forms.Label()
@@ -204,7 +205,7 @@ Partial Class ABMClientes
         Me.ClientesBindingNavigator.MovePreviousItem = Nothing
         Me.ClientesBindingNavigator.Name = "ClientesBindingNavigator"
         Me.ClientesBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ClientesBindingNavigator.Size = New System.Drawing.Size(975, 47)
+        Me.ClientesBindingNavigator.Size = New System.Drawing.Size(1036, 47)
         Me.ClientesBindingNavigator.TabIndex = 0
         Me.ClientesBindingNavigator.Text = "BindingNavigator1"
         '
@@ -358,7 +359,7 @@ Partial Class ABMClientes
         Me.ClientesDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.ClientesDataGridView.Name = "ClientesDataGridView"
         Me.ClientesDataGridView.ReadOnly = True
-        Me.ClientesDataGridView.Size = New System.Drawing.Size(914, 199)
+        Me.ClientesDataGridView.Size = New System.Drawing.Size(975, 199)
         Me.ClientesDataGridView.TabIndex = 13
         '
         'DataGridViewTextBoxColumn1
@@ -428,7 +429,7 @@ Partial Class ABMClientes
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(938, 228)
+        Me.GroupBox1.Size = New System.Drawing.Size(999, 228)
         Me.GroupBox1.TabIndex = 14
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del cliente"
@@ -539,7 +540,7 @@ Partial Class ABMClientes
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(938, 288)
+        Me.GroupBox2.Size = New System.Drawing.Size(999, 288)
         Me.GroupBox2.TabIndex = 15
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lista de clientes"
@@ -592,7 +593,9 @@ Partial Class ABMClientes
         Me.TableAdapterManager.clientesTableAdapter = Me.ClientesTableAdapter
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -602,8 +605,11 @@ Partial Class ABMClientes
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -623,6 +629,7 @@ Partial Class ABMClientes
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -657,11 +664,22 @@ Partial Class ABMClientes
         '
         Me.TipodocumentosTableAdapter.ClearBeforeFill = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(968, 151)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 16
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
+        '
         'ABMClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(975, 586)
+        Me.ClientSize = New System.Drawing.Size(1036, 586)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.ClientesBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
@@ -737,4 +755,5 @@ Partial Class ABMClientes
     Friend WithEvents ComboDocTipo As ComboBox
     Friend WithEvents TipodocumentosBindingSource As BindingSource
     Friend WithEvents TipodocumentosTableAdapter As comercialDataSetTableAdapters.tipodocumentosTableAdapter
+    Friend WithEvents Button1 As Button
 End Class

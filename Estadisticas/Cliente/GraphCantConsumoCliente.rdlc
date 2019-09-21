@@ -2,337 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Chart Name="Chart1">
-        <ChartCategoryHierarchy>
-          <ChartMembers>
-            <ChartMember>
-              <Group Name="Chart1_CategoryGroup">
-                <GroupExpressions>
-                  <GroupExpression>=Fields!producto.Value</GroupExpression>
-                </GroupExpressions>
-              </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!producto.Value</Value>
-                </SortExpression>
-              </SortExpressions>
-              <Label>=Fields!producto.Value</Label>
-            </ChartMember>
-          </ChartMembers>
-        </ChartCategoryHierarchy>
-        <ChartSeriesHierarchy>
-          <ChartMembers>
-            <ChartMember>
-              <Group Name="Chart1_SeriesGroup1">
-                <GroupExpressions>
-                  <GroupExpression>=Fields!anio.Value</GroupExpression>
-                </GroupExpressions>
-              </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!anio.Value</Value>
-                </SortExpression>
-              </SortExpressions>
-              <ChartMembers>
-                <ChartMember>
-                  <Group Name="Chart1_SeriesGroup">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!mesdescripcion.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!mesdescripcion.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <Label>=Fields!mesdescripcion.Value</Label>
-                </ChartMember>
-              </ChartMembers>
-              <Label>=Fields!anio.Value</Label>
-            </ChartMember>
-          </ChartMembers>
-        </ChartSeriesHierarchy>
-        <ChartData>
-          <ChartSeriesCollection>
-            <ChartSeries Name="frecuencia">
-              <ChartDataPoints>
-                <ChartDataPoint>
-                  <ChartDataPointValues>
-                    <X>=Fields!producto.Value</X>
-                    <Y>=Sum(Fields!cantidad.Value)</Y>
-                  </ChartDataPointValues>
-                  <ChartDataLabel>
-                    <Style />
-                    <UseValueAsLabel>true</UseValueAsLabel>
-                    <Visible>true</Visible>
-                  </ChartDataLabel>
-                  <ToolTip>=cstr(Sum(Fields!cantidad.Value)) + " Unidad/es"</ToolTip>
-                  <Style />
-                  <ChartMarker>
-                    <Style />
-                  </ChartMarker>
-                  <DataElementOutput>Output</DataElementOutput>
-                </ChartDataPoint>
-              </ChartDataPoints>
-              <Type>Bar</Type>
-              <Subtype>Stacked</Subtype>
-              <Style />
-              <ChartEmptyPoints>
-                <Style />
-                <ChartMarker>
-                  <Style />
-                </ChartMarker>
-                <ChartDataLabel>
-                  <Style />
-                </ChartDataLabel>
-              </ChartEmptyPoints>
-              <ValueAxisName>Primary</ValueAxisName>
-              <CategoryAxisName>Primary</CategoryAxisName>
-              <ChartSmartLabel>
-                <CalloutLineColor>Black</CalloutLineColor>
-                <MinMovingDistance>0pt</MinMovingDistance>
-              </ChartSmartLabel>
-            </ChartSeries>
-          </ChartSeriesCollection>
-        </ChartData>
-        <ChartAreas>
-          <ChartArea Name="Default">
-            <ChartCategoryAxes>
-              <ChartAxis Name="Primary">
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-                <ChartAxisTitle>
-                  <Caption>Productos</Caption>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                  </Style>
-                </ChartAxisTitle>
-                <ChartMajorGridLines>
-                  <Enabled>False</Enabled>
-                  <Style>
-                    <Border>
-                      <Color>Gainsboro</Color>
-                    </Border>
-                  </Style>
-                </ChartMajorGridLines>
-                <ChartMinorGridLines>
-                  <Style>
-                    <Border>
-                      <Color>Gainsboro</Color>
-                      <Style>Dotted</Style>
-                    </Border>
-                  </Style>
-                </ChartMinorGridLines>
-                <ChartMinorTickMarks>
-                  <Length>0.5</Length>
-                </ChartMinorTickMarks>
-                <CrossAt>NaN</CrossAt>
-                <Minimum>NaN</Minimum>
-                <Maximum>NaN</Maximum>
-                <ChartAxisScaleBreak>
-                  <Style />
-                </ChartAxisScaleBreak>
-              </ChartAxis>
-              <ChartAxis Name="Secondary">
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-                <ChartAxisTitle>
-                  <Caption>Título del eje</Caption>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                  </Style>
-                </ChartAxisTitle>
-                <ChartMajorGridLines>
-                  <Enabled>False</Enabled>
-                  <Style>
-                    <Border>
-                      <Color>Gainsboro</Color>
-                    </Border>
-                  </Style>
-                </ChartMajorGridLines>
-                <ChartMinorGridLines>
-                  <Style>
-                    <Border>
-                      <Color>Gainsboro</Color>
-                      <Style>Dotted</Style>
-                    </Border>
-                  </Style>
-                </ChartMinorGridLines>
-                <ChartMinorTickMarks>
-                  <Length>0.5</Length>
-                </ChartMinorTickMarks>
-                <CrossAt>NaN</CrossAt>
-                <Location>Opposite</Location>
-                <Minimum>NaN</Minimum>
-                <Maximum>NaN</Maximum>
-                <ChartAxisScaleBreak>
-                  <Style />
-                </ChartAxisScaleBreak>
-              </ChartAxis>
-            </ChartCategoryAxes>
-            <ChartValueAxes>
-              <ChartAxis Name="Primary">
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-                <ChartAxisTitle>
-                  <Caption>Cantidad comprada</Caption>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                  </Style>
-                </ChartAxisTitle>
-                <ChartMajorGridLines>
-                  <Style>
-                    <Border>
-                      <Color>Gainsboro</Color>
-                    </Border>
-                  </Style>
-                </ChartMajorGridLines>
-                <ChartMinorGridLines>
-                  <Style>
-                    <Border>
-                      <Color>Gainsboro</Color>
-                      <Style>Dotted</Style>
-                    </Border>
-                  </Style>
-                </ChartMinorGridLines>
-                <ChartMinorTickMarks>
-                  <Length>0.5</Length>
-                </ChartMinorTickMarks>
-                <CrossAt>NaN</CrossAt>
-                <Minimum>NaN</Minimum>
-                <Maximum>NaN</Maximum>
-                <ChartAxisScaleBreak>
-                  <Style />
-                </ChartAxisScaleBreak>
-              </ChartAxis>
-              <ChartAxis Name="Secondary">
-                <Style>
-                  <FontSize>8pt</FontSize>
-                </Style>
-                <ChartAxisTitle>
-                  <Caption>Título del eje</Caption>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                  </Style>
-                </ChartAxisTitle>
-                <ChartMajorGridLines>
-                  <Style>
-                    <Border>
-                      <Color>Gainsboro</Color>
-                    </Border>
-                  </Style>
-                </ChartMajorGridLines>
-                <ChartMinorGridLines>
-                  <Style>
-                    <Border>
-                      <Color>Gainsboro</Color>
-                      <Style>Dotted</Style>
-                    </Border>
-                  </Style>
-                </ChartMinorGridLines>
-                <ChartMinorTickMarks>
-                  <Length>0.5</Length>
-                </ChartMinorTickMarks>
-                <CrossAt>NaN</CrossAt>
-                <Location>Opposite</Location>
-                <Minimum>NaN</Minimum>
-                <Maximum>NaN</Maximum>
-                <ChartAxisScaleBreak>
-                  <Style />
-                </ChartAxisScaleBreak>
-              </ChartAxis>
-            </ChartValueAxes>
-            <ChartThreeDProperties>
-              <Enabled>true</Enabled>
-              <Rotation>44</Rotation>
-              <DepthRatio>10</DepthRatio>
-              <GapDepth>200</GapDepth>
-            </ChartThreeDProperties>
-            <Style>
-              <BackgroundGradientType>HorizontalCenter</BackgroundGradientType>
-            </Style>
-          </ChartArea>
-        </ChartAreas>
-        <ChartLegends>
-          <ChartLegend Name="Default">
-            <Style>
-              <BackgroundGradientType>None</BackgroundGradientType>
-              <FontSize>8pt</FontSize>
-            </Style>
-            <ChartLegendTitle>
-              <Caption />
-              <Style>
-                <FontSize>8pt</FontSize>
-                <FontWeight>Bold</FontWeight>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </ChartLegendTitle>
-            <HeaderSeparatorColor>Black</HeaderSeparatorColor>
-            <ColumnSeparatorColor>Black</ColumnSeparatorColor>
-          </ChartLegend>
-        </ChartLegends>
-        <ChartTitles>
-          <ChartTitle Name="Default">
-            <Caption>Consumo por Producto</Caption>
-            <Style>
-              <BackgroundGradientType>None</BackgroundGradientType>
-              <FontWeight>Bold</FontWeight>
-              <TextAlign>General</TextAlign>
-              <VerticalAlign>Top</VerticalAlign>
-            </Style>
-          </ChartTitle>
-        </ChartTitles>
-        <Palette>BrightPastel</Palette>
-        <ChartBorderSkin>
-          <Style>
-            <BackgroundColor>Gray</BackgroundColor>
-            <BackgroundGradientType>None</BackgroundGradientType>
-            <Color>White</Color>
-          </Style>
-        </ChartBorderSkin>
-        <ChartNoDataMessage Name="NoDataMessage">
-          <Caption>Sin datos disponibles</Caption>
-          <Style>
-            <BackgroundGradientType>None</BackgroundGradientType>
-            <TextAlign>General</TextAlign>
-            <VerticalAlign>Top</VerticalAlign>
-          </Style>
-        </ChartNoDataMessage>
-        <DataSetName>estcantconsumocliente</DataSetName>
-        <Top>1.5875cm</Top>
-        <Height>8.10303cm</Height>
-        <Width>17.76584cm</Width>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <TopBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </TopBorder>
-          <BottomBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </BottomBorder>
-          <LeftBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </LeftBorder>
-          <RightBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </RightBorder>
-          <BackgroundColor>White</BackgroundColor>
-          <BackgroundGradientType>None</BackgroundGradientType>
-        </Style>
-      </Chart>
       <Textbox Name="Textbox1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -340,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Muestra la cantidad comprada de cada producto mes a mes</Value>
+                <Value>Muestra la cantidad comprada de cada producto en un rango de tiempo</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -354,7 +23,6 @@
         <Left>3.37609cm</Left>
         <Height>0.56444cm</Height>
         <Width>11.28884cm</Width>
-        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -647,10 +315,10 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>estClientefpagopreferida</DataSetName>
-        <Top>9.76109cm</Top>
+        <Top>4.36359cm</Top>
         <Height>7.7305cm</Height>
         <Width>17.76584cm</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -679,8 +347,484 @@
           <BackgroundGradientType>None</BackgroundGradientType>
         </Style>
       </Chart>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>8.45631cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>4.74367cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.68533cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Producto</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightSteelBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Medida</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightSteelBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Cantidad</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightSteelBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="producto">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!producto.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>producto</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="medidadescripcion">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!medidadescripcion.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>medidadescripcion</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Chart Name="DataBar2">
+                      <ChartCategoryHierarchy>
+                        <ChartMembers>
+                          <ChartMember>
+                            <Label />
+                          </ChartMember>
+                        </ChartMembers>
+                      </ChartCategoryHierarchy>
+                      <ChartSeriesHierarchy>
+                        <ChartMembers>
+                          <ChartMember>
+                            <Label>cantidad</Label>
+                          </ChartMember>
+                        </ChartMembers>
+                      </ChartSeriesHierarchy>
+                      <ChartData>
+                        <ChartSeriesCollection>
+                          <ChartSeries Name="cantidad">
+                            <ChartDataPoints>
+                              <ChartDataPoint>
+                                <ChartDataPointValues>
+                                  <Y>=Fields!cantidad.Value</Y>
+                                </ChartDataPointValues>
+                                <ChartDataLabel>
+                                  <Style />
+                                  <UseValueAsLabel>true</UseValueAsLabel>
+                                  <Visible>true</Visible>
+                                </ChartDataLabel>
+                                <Style />
+                                <ChartMarker>
+                                  <Style />
+                                </ChartMarker>
+                                <DataElementOutput>Output</DataElementOutput>
+                              </ChartDataPoint>
+                            </ChartDataPoints>
+                            <Type>Bar</Type>
+                            <Style />
+                            <ChartEmptyPoints>
+                              <Style />
+                              <ChartMarker>
+                                <Style />
+                              </ChartMarker>
+                              <ChartDataLabel>
+                                <Style />
+                              </ChartDataLabel>
+                            </ChartEmptyPoints>
+                            <ValueAxisName>Primary</ValueAxisName>
+                            <CategoryAxisName>Primary</CategoryAxisName>
+                            <ChartSmartLabel>
+                              <CalloutLineColor>Black</CalloutLineColor>
+                              <MinMovingDistance>0pt</MinMovingDistance>
+                            </ChartSmartLabel>
+                          </ChartSeries>
+                        </ChartSeriesCollection>
+                      </ChartData>
+                      <ChartAreas>
+                        <ChartArea Name="Default">
+                          <ChartCategoryAxes>
+                            <ChartAxis Name="Primary">
+                              <Visible>False</Visible>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                              <ChartAxisTitle>
+                                <Caption>Título del eje</Caption>
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                </Style>
+                              </ChartAxisTitle>
+                              <Margin>False</Margin>
+                              <ChartMajorGridLines>
+                                <Enabled>False</Enabled>
+                                <Style>
+                                  <Border>
+                                    <Color>Gainsboro</Color>
+                                  </Border>
+                                </Style>
+                              </ChartMajorGridLines>
+                              <ChartMinorGridLines>
+                                <Style>
+                                  <Border>
+                                    <Color>Gainsboro</Color>
+                                    <Style>Dotted</Style>
+                                  </Border>
+                                </Style>
+                              </ChartMinorGridLines>
+                              <ChartMinorTickMarks>
+                                <Length>0.5</Length>
+                              </ChartMinorTickMarks>
+                              <CrossAt>NaN</CrossAt>
+                              <Minimum>NaN</Minimum>
+                              <Maximum>NaN</Maximum>
+                              <ChartAxisScaleBreak>
+                                <Style />
+                              </ChartAxisScaleBreak>
+                            </ChartAxis>
+                            <ChartAxis Name="Secondary">
+                              <Visible>False</Visible>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                              <ChartAxisTitle>
+                                <Caption>Título del eje</Caption>
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                </Style>
+                              </ChartAxisTitle>
+                              <Margin>False</Margin>
+                              <ChartMajorGridLines>
+                                <Enabled>False</Enabled>
+                                <Style>
+                                  <Border>
+                                    <Color>Gainsboro</Color>
+                                  </Border>
+                                </Style>
+                              </ChartMajorGridLines>
+                              <ChartMinorGridLines>
+                                <Style>
+                                  <Border>
+                                    <Color>Gainsboro</Color>
+                                    <Style>Dotted</Style>
+                                  </Border>
+                                </Style>
+                              </ChartMinorGridLines>
+                              <ChartMinorTickMarks>
+                                <Length>0.5</Length>
+                              </ChartMinorTickMarks>
+                              <CrossAt>NaN</CrossAt>
+                              <Location>Opposite</Location>
+                              <Minimum>NaN</Minimum>
+                              <Maximum>NaN</Maximum>
+                              <ChartAxisScaleBreak>
+                                <Style />
+                              </ChartAxisScaleBreak>
+                            </ChartAxis>
+                          </ChartCategoryAxes>
+                          <ChartValueAxes>
+                            <ChartAxis Name="Primary">
+                              <Visible>False</Visible>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                              <ChartAxisTitle>
+                                <Caption>Título del eje</Caption>
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                </Style>
+                              </ChartAxisTitle>
+                              <ChartMajorGridLines>
+                                <Style>
+                                  <Border>
+                                    <Color>Gainsboro</Color>
+                                  </Border>
+                                </Style>
+                              </ChartMajorGridLines>
+                              <ChartMinorGridLines>
+                                <Style>
+                                  <Border>
+                                    <Color>Gainsboro</Color>
+                                    <Style>Dotted</Style>
+                                  </Border>
+                                </Style>
+                              </ChartMinorGridLines>
+                              <ChartMinorTickMarks>
+                                <Length>0.5</Length>
+                              </ChartMinorTickMarks>
+                              <CrossAt>NaN</CrossAt>
+                              <Minimum>0</Minimum>
+                              <Maximum>=Max(Fields!cantidad.Value, "Tablix1")</Maximum>
+                              <ChartAxisScaleBreak>
+                                <Style />
+                              </ChartAxisScaleBreak>
+                              <rd:SyncScope>Tablix1</rd:SyncScope>
+                              <rd:SyncMaximum>true</rd:SyncMaximum>
+                            </ChartAxis>
+                            <ChartAxis Name="Secondary">
+                              <Visible>False</Visible>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                              <ChartAxisTitle>
+                                <Caption>Título del eje</Caption>
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                </Style>
+                              </ChartAxisTitle>
+                              <ChartMajorGridLines>
+                                <Style>
+                                  <Border>
+                                    <Color>Gainsboro</Color>
+                                  </Border>
+                                </Style>
+                              </ChartMajorGridLines>
+                              <ChartMinorGridLines>
+                                <Style>
+                                  <Border>
+                                    <Color>Gainsboro</Color>
+                                    <Style>Dotted</Style>
+                                  </Border>
+                                </Style>
+                              </ChartMinorGridLines>
+                              <ChartMinorTickMarks>
+                                <Length>0.5</Length>
+                              </ChartMinorTickMarks>
+                              <CrossAt>NaN</CrossAt>
+                              <Location>Opposite</Location>
+                              <Minimum>NaN</Minimum>
+                              <Maximum>NaN</Maximum>
+                              <ChartAxisScaleBreak>
+                                <Style />
+                              </ChartAxisScaleBreak>
+                            </ChartAxis>
+                          </ChartValueAxes>
+                          <Style>
+                            <BackgroundColor>#00ffffff</BackgroundColor>
+                            <BackgroundGradientType>None</BackgroundGradientType>
+                          </Style>
+                          <ChartElementPosition>
+                            <Top>10</Top>
+                            <Left>3</Left>
+                            <Height>80</Height>
+                            <Width>96</Width>
+                          </ChartElementPosition>
+                        </ChartArea>
+                      </ChartAreas>
+                      <Palette>BrightPastel</Palette>
+                      <ChartBorderSkin>
+                        <Style>
+                          <BackgroundColor>Gray</BackgroundColor>
+                          <BackgroundGradientType>None</BackgroundGradientType>
+                          <Color>White</Color>
+                        </Style>
+                      </ChartBorderSkin>
+                      <ChartNoDataMessage Name="NoDataMessage">
+                        <Caption>Sin datos disponibles</Caption>
+                        <Style>
+                          <BackgroundGradientType>None</BackgroundGradientType>
+                          <TextAlign>General</TextAlign>
+                          <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                      </ChartNoDataMessage>
+                      <rd:DesignerMode>DataBar</rd:DesignerMode>
+                      <DataSetName>estcantconsumocliente</DataSetName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>White</BackgroundColor>
+                        <BackgroundGradientType>None</BackgroundGradientType>
+                      </Style>
+                    </Chart>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Detalles" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>estcantconsumocliente</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!cantidad.Value</Value>
+            <Direction>Descending</Direction>
+          </SortExpression>
+        </SortExpressions>
+        <Top>2.34103cm</Top>
+        <Left>0.56303cm</Left>
+        <Height>1.2cm</Height>
+        <Width>16.88531cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
     </ReportItems>
-    <Height>7.03184in</Height>
+    <Height>4.89017in</Height>
     <Style />
   </Body>
   <Width>7.10276in</Width>
@@ -738,6 +882,18 @@
         <Field Name="cantidad">
           <DataField>cantidad</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="fechadesde">
+          <DataField>fechadesde</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="unidadmedida">
+          <DataField>unidadmedida</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="medidadescripcion">
+          <DataField>medidadescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

@@ -24,17 +24,23 @@ Partial Class EstadisticasCliente
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim IdclienteLabel As System.Windows.Forms.Label
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.estcantconsumoclienteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboBoxEstadistica = New System.Windows.Forms.ComboBox()
         Me.labelcliente = New System.Windows.Forms.Label()
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.ClientesDataGridView = New System.Windows.Forms.DataGridView()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.estcantconsumoclienteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.estClientefpagopreferidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,22 +49,21 @@ Partial Class EstadisticasCliente
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.estcantconsumoclienteTableAdapter = New sgcomercial.comercialDataSetTableAdapters.estcantconsumoclienteTableAdapter()
-        Me.estClientefpagopreferidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.estClientefpagopreferidaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.estClientefpagopreferidaTableAdapter()
+        Me.Button1 = New System.Windows.Forms.Button()
         IdclienteLabel = New System.Windows.Forms.Label()
-        CType(Me.estcantconsumoclienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.estcantconsumoclienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.estClientefpagopreferidaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -71,18 +76,13 @@ Partial Class EstadisticasCliente
         IdclienteLabel.TabIndex = 16
         IdclienteLabel.Text = "N° Cliente:"
         '
-        'estcantconsumoclienteBindingSource
-        '
-        Me.estcantconsumoclienteBindingSource.DataMember = "estcantconsumocliente"
-        Me.estcantconsumoclienteBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboBoxEstadistica)
         Me.GroupBox1.Controls.Add(Me.labelcliente)
         Me.GroupBox1.Controls.Add(Me.PictureSeleccionarCliente)
@@ -90,7 +90,7 @@ Partial Class EstadisticasCliente
         Me.GroupBox1.Controls.Add(IdclienteLabel)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(811, 65)
+        Me.GroupBox1.Size = New System.Drawing.Size(811, 124)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cliente"
@@ -117,11 +117,6 @@ Partial Class EstadisticasCliente
         Me.labelcliente.Name = "labelcliente"
         Me.labelcliente.Size = New System.Drawing.Size(2, 22)
         Me.labelcliente.TabIndex = 19
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "clientes"
-        Me.ClientesBindingSource.DataSource = Me.ComercialDataSet
         '
         'PictureSeleccionarCliente
         '
@@ -160,6 +155,81 @@ Partial Class EstadisticasCliente
         Me.ClientesDataGridView.Size = New System.Drawing.Size(20, 19)
         Me.ClientesDataGridView.TabIndex = 2
         Me.ClientesDataGridView.Visible = False
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.ReportViewer1)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 142)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(811, 508)
+        Me.GroupBox2.TabIndex = 3
+        Me.GroupBox2.TabStop = False
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        ReportDataSource3.Name = "estcantconsumocliente"
+        ReportDataSource3.Value = Me.estcantconsumoclienteBindingSource
+        ReportDataSource4.Name = "estClientefpagopreferida"
+        ReportDataSource4.Value = Me.estClientefpagopreferidaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphCantConsumoCliente.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(805, 487)
+        Me.ReportViewer1.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(168, 89)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(53, 17)
+        Me.Label1.TabIndex = 20
+        Me.Label1.Text = "Desde:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(356, 89)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(49, 17)
+        Me.Label2.TabIndex = 20
+        Me.Label2.Text = "Hasta:"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy"
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(237, 86)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(108, 22)
+        Me.DateTimePicker1.TabIndex = 21
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CustomFormat = "dd/MM/yyyy"
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker2.Location = New System.Drawing.Point(424, 86)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(108, 22)
+        Me.DateTimePicker2.TabIndex = 22
+        '
+        'estcantconsumoclienteBindingSource
+        '
+        Me.estcantconsumoclienteBindingSource.DataMember = "estcantconsumocliente"
+        Me.estcantconsumoclienteBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'estClientefpagopreferidaBindingSource
+        '
+        Me.estClientefpagopreferidaBindingSource.DataMember = "estClientefpagopreferida"
+        Me.estClientefpagopreferidaBindingSource.DataSource = Me.ComercialDataSet
         '
         'DataGridViewTextBoxColumn1
         '
@@ -217,29 +287,10 @@ Partial Class EstadisticasCliente
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.ReadOnly = True
         '
-        'GroupBox2
+        'ClientesBindingSource
         '
-        Me.GroupBox2.Controls.Add(Me.ReportViewer1)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 83)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(811, 508)
-        Me.GroupBox2.TabIndex = 3
-        Me.GroupBox2.TabStop = False
-        '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "estcantconsumocliente"
-        ReportDataSource1.Value = Me.estcantconsumoclienteBindingSource
-        ReportDataSource2.Name = "estClientefpagopreferida"
-        ReportDataSource2.Value = Me.estClientefpagopreferidaBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphCantConsumoCliente.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(805, 487)
-        Me.ReportViewer1.TabIndex = 0
+        Me.ClientesBindingSource.DataMember = "clientes"
+        Me.ClientesBindingSource.DataSource = Me.ComercialDataSet
         '
         'ClientesTableAdapter
         '
@@ -260,7 +311,9 @@ Partial Class EstadisticasCliente
         Me.TableAdapterManager.clientesTableAdapter = Me.ClientesTableAdapter
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -270,7 +323,11 @@ Partial Class EstadisticasCliente
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -290,11 +347,18 @@ Partial Class EstadisticasCliente
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -310,20 +374,24 @@ Partial Class EstadisticasCliente
         '
         Me.estcantconsumoclienteTableAdapter.ClearBeforeFill = True
         '
-        'estClientefpagopreferidaBindingSource
-        '
-        Me.estClientefpagopreferidaBindingSource.DataMember = "estClientefpagopreferida"
-        Me.estClientefpagopreferidaBindingSource.DataSource = Me.ComercialDataSet
-        '
         'estClientefpagopreferidaTableAdapter
         '
         Me.estClientefpagopreferidaTableAdapter.ClearBeforeFill = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(550, 86)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(93, 23)
+        Me.Button1.TabIndex = 23
+        Me.Button1.Text = "Consultar"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'EstadisticasCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(843, 603)
+        Me.ClientSize = New System.Drawing.Size(843, 661)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.ClientesDataGridView)
         Me.Controls.Add(Me.GroupBox1)
@@ -332,15 +400,15 @@ Partial Class EstadisticasCliente
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "EstadisticasCliente"
         Me.Text = "Estadisticas del Cliente"
-        CType(Me.estcantconsumoclienteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.estcantconsumoclienteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.estClientefpagopreferidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -370,4 +438,9 @@ Partial Class EstadisticasCliente
     Friend WithEvents estcantconsumoclienteTableAdapter As comercialDataSetTableAdapters.estcantconsumoclienteTableAdapter
     Friend WithEvents estClientefpagopreferidaBindingSource As BindingSource
     Friend WithEvents estClientefpagopreferidaTableAdapter As comercialDataSetTableAdapters.estClientefpagopreferidaTableAdapter
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Button1 As Button
 End Class
