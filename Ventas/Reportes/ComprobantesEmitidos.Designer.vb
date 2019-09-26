@@ -24,6 +24,7 @@ Partial Class ComprobantesEmitidos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.DateTimeHasta = New System.Windows.Forms.DateTimePicker()
         Me.TextClienteNombre = New System.Windows.Forms.TextBox()
         Me.DateTimeDesde = New System.Windows.Forms.DateTimePicker()
@@ -38,7 +39,7 @@ Partial Class ComprobantesEmitidos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.VistaPrevia = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.SolicitarCAE = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,7 +47,7 @@ Partial Class ComprobantesEmitidos
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn40 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cae = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn42 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -54,7 +55,8 @@ Partial Class ComprobantesEmitidos
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn41 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipocomprobanteletra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,6 +69,7 @@ Partial Class ComprobantesEmitidos
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.DateTimeHasta)
         Me.GroupBox1.Controls.Add(Me.TextClienteNombre)
         Me.GroupBox1.Controls.Add(Me.DateTimeDesde)
@@ -80,18 +83,27 @@ Partial Class ComprobantesEmitidos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(487, 41)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(124, 25)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Consultar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'DateTimeHasta
         '
         Me.DateTimeHasta.CustomFormat = "dd/MM/yyyy"
         Me.DateTimeHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimeHasta.Location = New System.Drawing.Point(234, 43)
+        Me.DateTimeHasta.Location = New System.Drawing.Point(351, 43)
         Me.DateTimeHasta.Name = "DateTimeHasta"
         Me.DateTimeHasta.Size = New System.Drawing.Size(124, 27)
         Me.DateTimeHasta.TabIndex = 3
         '
         'TextClienteNombre
         '
-        Me.TextClienteNombre.Location = New System.Drawing.Point(497, 43)
+        Me.TextClienteNombre.Location = New System.Drawing.Point(698, 43)
         Me.TextClienteNombre.Name = "TextClienteNombre"
         Me.TextClienteNombre.Size = New System.Drawing.Size(228, 27)
         Me.TextClienteNombre.TabIndex = 2
@@ -100,7 +112,7 @@ Partial Class ComprobantesEmitidos
         '
         Me.DateTimeDesde.CustomFormat = "dd/MM/yyyy"
         Me.DateTimeDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimeDesde.Location = New System.Drawing.Point(78, 43)
+        Me.DateTimeDesde.Location = New System.Drawing.Point(195, 43)
         Me.DateTimeDesde.Name = "DateTimeDesde"
         Me.DateTimeDesde.Size = New System.Drawing.Size(124, 27)
         Me.DateTimeDesde.TabIndex = 1
@@ -108,16 +120,16 @@ Partial Class ComprobantesEmitidos
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(497, 20)
+        Me.Label2.Location = New System.Drawing.Point(698, 20)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(114, 20)
+        Me.Label2.Size = New System.Drawing.Size(133, 20)
         Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Nombre Cliente"
+        Me.Label2.Text = "Filtrar por Nombre"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(234, 20)
+        Me.Label3.Location = New System.Drawing.Point(351, 20)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(93, 20)
         Me.Label3.TabIndex = 0
@@ -126,7 +138,7 @@ Partial Class ComprobantesEmitidos
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(78, 20)
+        Me.Label1.Location = New System.Drawing.Point(195, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(93, 20)
         Me.Label1.TabIndex = 0
@@ -157,15 +169,15 @@ Partial Class ComprobantesEmitidos
         Me.LibroventasDataGridView.AutoGenerateColumns = False
         Me.LibroventasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.LibroventasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VistaPrevia, Me.SolicitarCAE, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn40, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn41})
+        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VistaPrevia, Me.SolicitarCAE, Me.idventa, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn40, Me.cae, Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn15, Me.tipocomprobanteletra, Me.idcliente})
         Me.LibroventasDataGridView.DataSource = Me.LibroventasBindingSource
-        Me.LibroventasDataGridView.Location = New System.Drawing.Point(6, 26)
+        Me.LibroventasDataGridView.Location = New System.Drawing.Point(17, 26)
         Me.LibroventasDataGridView.MultiSelect = False
         Me.LibroventasDataGridView.Name = "LibroventasDataGridView"
         Me.LibroventasDataGridView.ReadOnly = True
         Me.LibroventasDataGridView.RowTemplate.Height = 24
         Me.LibroventasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LibroventasDataGridView.Size = New System.Drawing.Size(1046, 460)
+        Me.LibroventasDataGridView.Size = New System.Drawing.Size(1025, 460)
         Me.LibroventasDataGridView.TabIndex = 0
         '
         'LibroventasBindingSource
@@ -198,7 +210,9 @@ Partial Class ComprobantesEmitidos
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -208,8 +222,11 @@ Partial Class ComprobantesEmitidos
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -229,6 +246,7 @@ Partial Class ComprobantesEmitidos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -270,13 +288,13 @@ Partial Class ComprobantesEmitidos
         Me.SolicitarCAE.ToolTipText = "Solicitar CAE"
         Me.SolicitarCAE.UseColumnTextForButtonValue = True
         '
-        'DataGridViewTextBoxColumn5
+        'idventa
         '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "idventa"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Vta. N°"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 84
+        Me.idventa.DataPropertyName = "idventa"
+        Me.idventa.HeaderText = "Vta. N°"
+        Me.idventa.Name = "idventa"
+        Me.idventa.ReadOnly = True
+        Me.idventa.Width = 84
         '
         'DataGridViewTextBoxColumn1
         '
@@ -342,14 +360,14 @@ Partial Class ComprobantesEmitidos
         Me.DataGridViewTextBoxColumn40.ToolTipText = "AFIP N° Cbt."
         Me.DataGridViewTextBoxColumn40.Width = 118
         '
-        'DataGridViewTextBoxColumn30
+        'cae
         '
-        Me.DataGridViewTextBoxColumn30.DataPropertyName = "cae"
-        Me.DataGridViewTextBoxColumn30.HeaderText = "CAE"
-        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
-        Me.DataGridViewTextBoxColumn30.ReadOnly = True
-        Me.DataGridViewTextBoxColumn30.ToolTipText = "CAE"
-        Me.DataGridViewTextBoxColumn30.Width = 65
+        Me.cae.DataPropertyName = "cae"
+        Me.cae.HeaderText = "CAE"
+        Me.cae.Name = "cae"
+        Me.cae.ReadOnly = True
+        Me.cae.ToolTipText = "CAE"
+        Me.cae.Width = 65
         '
         'DataGridViewTextBoxColumn42
         '
@@ -414,14 +432,23 @@ Partial Class ComprobantesEmitidos
         Me.DataGridViewTextBoxColumn15.Visible = False
         Me.DataGridViewTextBoxColumn15.Width = 194
         '
-        'DataGridViewTextBoxColumn41
+        'tipocomprobanteletra
         '
-        Me.DataGridViewTextBoxColumn41.DataPropertyName = "tipocomprobanteletra"
-        Me.DataGridViewTextBoxColumn41.HeaderText = "tipocomprobanteletra"
-        Me.DataGridViewTextBoxColumn41.Name = "DataGridViewTextBoxColumn41"
-        Me.DataGridViewTextBoxColumn41.ReadOnly = True
-        Me.DataGridViewTextBoxColumn41.Visible = False
-        Me.DataGridViewTextBoxColumn41.Width = 185
+        Me.tipocomprobanteletra.DataPropertyName = "tipocomprobanteletra"
+        Me.tipocomprobanteletra.HeaderText = "tipocomprobanteletra"
+        Me.tipocomprobanteletra.Name = "tipocomprobanteletra"
+        Me.tipocomprobanteletra.ReadOnly = True
+        Me.tipocomprobanteletra.Visible = False
+        Me.tipocomprobanteletra.Width = 185
+        '
+        'idcliente
+        '
+        Me.idcliente.DataPropertyName = "idcliente"
+        Me.idcliente.HeaderText = "idcliente"
+        Me.idcliente.Name = "idcliente"
+        Me.idcliente.ReadOnly = True
+        Me.idcliente.Visible = False
+        Me.idcliente.Width = 95
         '
         'ComprobantesEmitidos
         '
@@ -459,9 +486,10 @@ Partial Class ComprobantesEmitidos
     Friend WithEvents TextClienteNombre As TextBox
     Friend WithEvents DateTimeHasta As DateTimePicker
     Friend WithEvents Label3 As Label
+    Friend WithEvents Button1 As Button
     Friend WithEvents VistaPrevia As DataGridViewButtonColumn
     Friend WithEvents SolicitarCAE As DataGridViewButtonColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents idventa As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
@@ -469,7 +497,7 @@ Partial Class ComprobantesEmitidos
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn40 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn30 As DataGridViewTextBoxColumn
+    Friend WithEvents cae As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn42 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
@@ -477,5 +505,6 @@ Partial Class ComprobantesEmitidos
     Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn41 As DataGridViewTextBoxColumn
+    Friend WithEvents tipocomprobanteletra As DataGridViewTextBoxColumn
+    Friend WithEvents idcliente As DataGridViewTextBoxColumn
 End Class

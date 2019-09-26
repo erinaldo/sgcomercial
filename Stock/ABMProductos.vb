@@ -24,6 +24,7 @@ Public Class ABMProductos
             Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet1.unidadesmedida)
             Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
             ErrorLog = New comercialDataSetTableAdapters.errorlogTableAdapter()
+            ActualizaCantidad()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -37,6 +38,10 @@ Public Class ABMProductos
         stockinicialtextbox.Enabled = False
         ComboBox2.SelectedIndex = 1
         TextFiltro.Select()
+
+    End Sub
+    Sub ActualizaCantidad()
+        ToolStripTextBoxCantidad.Text = "Productos: " + ProductosDataGridView.Rows.GetRowCount(DataGridViewElementStates.Visible).ToString
     End Sub
 
     Private Sub ProductosBindingNavigatorSaveItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -180,7 +185,7 @@ Public Class ABMProductos
         '*************************
         editbtn.Visible = True
         BindingNavigatorAddNewItem.Visible = True
-
+        ActualizaCantidad()
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -226,6 +231,7 @@ Public Class ABMProductos
                     MsgBox("Seleccione un criterio de filtrado!", MsgBoxStyle.Exclamation, "Advertencia")
                     'ComboBox2.Select()
             End Select
+            ActualizaCantidad()
         Catch ex As Exception
             MsgBox("Ocurrió un problema al leer el código de barras: " + ex.Message)
         End Try
@@ -748,12 +754,12 @@ Public Class ABMProductos
             Return
         End If
         If Len(Trim(PrecioventadistribuidorTextBox.Text)) = 0 Then
-            MsgBox("Ingrese un Precio Venta mayorista Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgBox("Ingrese un Precio Venta distribuidor Válido!", MsgBoxStyle.Exclamation, "Advertencia")
             PrecioventamayoristaTextBox.Select()
             Return
         End If
         If CDec(PrecioventadistribuidorTextBox.Text) <= 0 Then
-            MsgBox("Ingrese un Precio de Venta mayorista Válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgBox("Ingrese un Precio de Venta distribuidor Válido!", MsgBoxStyle.Exclamation, "Advertencia")
             PrecioventamayoristaTextBox.Select()
             Return
         End If
@@ -819,6 +825,7 @@ Public Class ABMProductos
         BindingNavigatorAddNewItem.Visible = True
         GuardarNuevo.Visible = False
         Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+        ActualizaCantidad()
     End Sub
 
     Private Sub TextFiltro_KeyDown(sender As Object, e As KeyEventArgs) Handles TextFiltro.KeyDown
@@ -939,5 +946,9 @@ Public Class ABMProductos
         Catch ex As Exception
             MessageBox.Show("No se pudo completar la operación: " + ex.Message, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
+    End Sub
+
+    Private Sub ProductosDataGridView_BindingContextChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.BindingContextChanged
+
     End Sub
 End Class

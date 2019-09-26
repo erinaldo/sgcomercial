@@ -206,6 +206,7 @@ Partial Class Principal
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1628,6 +1629,9 @@ Partial Class Principal
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
         '
+        'BGWClientes
+        '
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1858,4 +1862,5 @@ Partial Class Principal
     Friend WithEvents GestiónGastronómicaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalonesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OrdenesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BGWClientes As System.ComponentModel.BackgroundWorker
 End Class

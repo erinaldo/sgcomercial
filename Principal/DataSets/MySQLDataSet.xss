@@ -7,7 +7,7 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="-384" ViewPortY="-13" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:clientes" ZOrder="22" X="-370" Y="14" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="120" OldDataTableHeight="584" SplitterPosition="28" />
-    <Shape ID="DesignTable:clientesdomicilios" ZOrder="21" X="-368" Y="84" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="191" SplitterPosition="28" />
+    <Shape ID="DesignTable:clientesdomicilios" ZOrder="21" X="-368" Y="84" Height="365" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="191" SplitterPosition="260" />
     <Shape ID="DesignTable:formaspago" ZOrder="20" X="113" Y="20" Height="62" Width="253" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="76" SplitterPosition="28" />
     <Shape ID="DesignTable:pagos" ZOrder="19" X="680" Y="298" Height="62" Width="209" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="214" SplitterPosition="28" />
     <Shape ID="DesignTable:pedidosdelivery" ZOrder="18" X="683" Y="90" Height="62" Width="281" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="168" OldDataTableHeight="260" SplitterPosition="28" />

@@ -75,7 +75,6 @@ Public Class StockAlerta
 
     Private Sub ComboBoxFiltro_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxFiltro.SelectedIndexChanged
         TextBox1.Select()
-
     End Sub
 
     Private Sub StockAlerta_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown

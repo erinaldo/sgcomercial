@@ -14,8 +14,6 @@ Imports System.Text.RegularExpressions
 
 'Imports System.IO.Compression
 
-
-
 Module SGCModule
     Dim xi As LoadingForm
     '************************************************
@@ -68,6 +66,7 @@ Module SGCModule
     Public gusername As String
     Public gnombremodulo As String
     Public gReporteSeleccionado As String
+    Public gTipoCbtSeleccionado As Long
     '**************************************************
     Public gmontoapagar As Decimal
     Public gmontoinicial As Decimal

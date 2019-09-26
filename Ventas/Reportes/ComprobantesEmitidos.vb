@@ -29,10 +29,14 @@
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimeDesde.ValueChanged
-        refreshgrid()
+
     End Sub
     Sub refreshgrid()
+        If MessageBox.Show("La busqueda tardará unos segundos, Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = vbNo Then
+            Return
+        End If
         Try
+            Me.Cursor = Cursors.WaitCursor
             Dim fechadesde As Date
             Dim fechahasta As Date
             fechadesde = Convert.ToDateTime(DateTimeDesde.Value)
@@ -42,6 +46,7 @@
             '**************************************************************************************************
             Dim newColumn As DataGridViewColumn = LibroventasDataGridView.Columns("DataGridViewTextBoxColumn1")
             LibroventasDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
+            Me.Cursor = Cursors.Default
         Catch ex As Exception
             Try
                 'Dim fechadesde As Date
@@ -53,7 +58,9 @@
                 ''**************************************************************************************************
                 Dim newColumn As DataGridViewColumn = LibroventasDataGridView.Columns("DataGridViewTextBoxColumn1")
                 LibroventasDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
+                Me.Cursor = Cursors.Default
             Catch ex2 As Exception
+                Me.Cursor = Cursors.Default
                 MsgBox("Exception: " + ex2.Message + " " + ex2.StackTrace)
             End Try
             ''MsgBox("Exception: " + ex.Message + " " + ex.StackTrace)
@@ -66,15 +73,37 @@
             If Not e.RowIndex >= 0 Or Not e.ColumnIndex >= 0 Then Return
             Select Case LibroventasDataGridView.Columns(e.ColumnIndex).Name
                 Case "VistaPrevia"
-                    gidventa = LibroventasDataGridView.Rows(e.RowIndex).Cells("DataGridViewTextBoxColumn5").Value
+                    gidventa = LibroventasDataGridView.Rows(e.RowIndex).Cells("idventa").Value
                     Dim x As New ViewerFactura()
                     x.ShowDialog()
                 Case "SolicitarCAE"
-                    If LibroventasDataGridView.Rows(e.RowIndex).Cells("DataGridViewTextBoxColumn41").Value = "X" Then
-                        MessageBox.Show("No se puede registrar este tipo de comprobante", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    'Dim StrError As New StrError
+                    Dim idcliente As Long
+                    idcliente = LibroventasDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
+                    strerror = ValidarDatosClienteAFIP(idcliente)
+                    If StrError.CodError > 1 Then
+                        MessageBox.Show(StrError.MsgError, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         Return
                     End If
-                    If IsDBNull(LibroventasDataGridView.Rows(e.RowIndex).Cells("DataGridViewTextBoxColumn30").Value) Then
+                    If LibroventasDataGridView.Rows(e.RowIndex).Cells("tipocomprobanteletra").Value = "X" Then
+                        'MessageBox.Show("No se puede registrar este tipo de comprobante", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        Dim GetTipoCbt As New PopUpGetTipoCbt()
+                        gTipoCbtSeleccionado = Nothing
+                        GetTipoCbt.ShowDialog()
+                        If gTipoCbtSeleccionado = Nothing Then
+                            MessageBox.Show("Primero seleccione un tipo de comprobante", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            Return
+                        End If
+                        Try
+                            gidventa = LibroventasDataGridView.Rows(e.RowIndex).Cells("idventa").Value
+                            Dim VentasTableAdapter As New comercialDataSetTableAdapters.ventasTableAdapter()
+                            VentasTableAdapter.ventas_updateidtipocomprobante(gTipoCbtSeleccionado, gidventa)
+                        Catch ex As Exception
+                            MessageBox.Show("No se pudo completar la selección del tipo de comprobante", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        End Try
+                    End If
+
+                    If IsDBNull(LibroventasDataGridView.Rows(e.RowIndex).Cells("cae").Value) Then
                         If MessageBox.Show("Seguro desea Registrar el Comprobante en AFIP?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then Return
                         '-----------------  REGISTRAR FACTURA ELECTRÓNICA   ----------------------------------------
                         '********************************************************************************************
@@ -82,7 +111,7 @@
                         If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
                             Dim FECAERequest As New WSFEV1.FECAERequest()
                             Dim TRA As String = Nothing
-                            gidventa = LibroventasDataGridView.Rows(e.RowIndex).Cells("DataGridViewTextBoxColumn5").Value
+                            gidventa = LibroventasDataGridView.Rows(e.RowIndex).Cells("idventa").Value
                             '========================================================================================
                             '       generacion TRA
                             '========================================================================================
@@ -120,11 +149,16 @@
         Try
             LibroventasBindingSource.Filter = "nombre like '%" + TextClienteNombre.Text + "%'"
         Catch ex As Exception
+            LibroventasBindingSource.Filter = ""
             refreshgrid()
         End Try
     End Sub
 
     Private Sub DateTimeHasta_ValueChanged(sender As Object, e As EventArgs) Handles DateTimeHasta.ValueChanged
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         refreshgrid()
     End Sub
 End Class

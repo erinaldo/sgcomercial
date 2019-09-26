@@ -672,7 +672,6 @@ Partial Class ABMClientes
         Me.Button1.TabIndex = 16
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
-        Me.Button1.Visible = False
         '
         'ABMClientes
         '

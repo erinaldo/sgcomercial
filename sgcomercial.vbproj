@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>49</ApplicationRevision>
-    <ApplicationVersion>4.0.9.49</ApplicationVersion>
+    <ApplicationRevision>50</ApplicationRevision>
+    <ApplicationVersion>4.0.9.50</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -960,6 +960,12 @@
     <Compile Include="Ventas\IngresaPrecioVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\PopUpGetTipoCbt.Designer.vb">
+      <DependentUpon>PopUpGetTipoCbt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\PopUpGetTipoCbt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\PresupuestosGenerados.Designer.vb">
       <DependentUpon>PresupuestosGenerados.vb</DependentUpon>
     </Compile>
@@ -1502,6 +1508,9 @@
     <EmbeddedResource Include="Ventas\IngresaPrecioVenta.resx">
       <DependentUpon>IngresaPrecioVenta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\PopUpGetTipoCbt.resx">
+      <DependentUpon>PopUpGetTipoCbt.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\PresupuestosGenerados.resx">
       <DependentUpon>PresupuestosGenerados.vb</DependentUpon>
     </EmbeddedResource>
@@ -2004,42 +2013,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

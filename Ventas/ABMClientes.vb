@@ -180,37 +180,6 @@ Public Class ABMClientes
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Try
-        '    '****clientesweb********
-        '    Dim clienteswebtableadapter As MySQLDataSetTableAdapters.clientesTableAdapter
-        '    clienteswebtableadapter = New MySQLDataSetTableAdapters.clientesTableAdapter()
-        '    'Dim clienteswebtable As MySQLDataSet.clientesDataTable
-        '    'clienteswebtable = clienteswebtableadapter.GetDataBySync("N")
-        '    Dim idclienteweb As Long = Val(IdclienteTextBox.Text)
-        '    Dim nombre As String = NombreTextBox.Text
-        '    Dim cuit As String = CUITTextBox.Text
-        '    Dim email As String = EmailTextBox.Text
-        '    Dim telefono As String = TelefonoTextBox.Text
-        '    Dim sync As String = "S"
-        '    Dim condicioniva As Long = ComboCondicionIVA.SelectedValue
-        '    Dim diasvencimiento As Long = Val(DiasvencimientoTextBox.Text)
-        '    Dim porcentajedescuento As Decimal
-        '    Try
-        '        porcentajedescuento = porcentajedescuentoTextbox.Text
-        '    Catch ex As Exception
-        '        porcentajedescuento = 0
-        '    End Try
-
-        '    Dim idprovincia As Long = ComboBox2.SelectedValue
-        '    Dim idtipodocumento As Long = ComboDocTipo.SelectedValue
-
-        '    clienteswebtableadapter.clientes_update(idclienteweb, nombre, cuit, telefono, email, sync, condicioniva, diasvencimiento, porcentajedescuento, idprovincia, idtipodocumento)
-        '    '****   ----    ********
-        '    ClientesTableAdapter.clientes_updateidweblocal(idclienteweb, idclienteweb)
-        '    '****   ----    ********
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
 
     End Sub
 End Class

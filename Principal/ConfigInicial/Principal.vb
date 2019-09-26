@@ -58,9 +58,12 @@ Public Class Principal
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
         EjecutarAlertas()
         '================= BACKGROUND WORKERS   ==========================
+        BGWClientes.RunWorkerAsync()
+
         If gModuloClowd = 1 Then
             BackgroundSyncLibroventasClowd.RunWorkerAsync()
             BGWStock.RunWorkerAsync()
+            BGWClientes.RunWorkerAsync()
         End If
         '======================================
         Cursor.Current = Cursors.Default
@@ -1104,9 +1107,10 @@ Public Class Principal
         Dim StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
         StockTableAdapter = New comercialDataSetTableAdapters.stockTableAdapter
         Try
+            ' todos aquellos productos que se hayan vendido en negativo vuelven a cero
             StockTableAdapter.stock_resetproductosmasivo()
         Catch ex As Exception
-            MessageBox.Show("No se pudo completar una operación de rutina, contacte al proveedor de sistema: stock_resetproductosmasivo - notfound -", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("No se pudo completar una operación de rutina, contacte al proveedor de sistema: BGWStock - stock_resetproductosmasivo - notfound -", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
         '*******************************************************************************
         SynStockGeneral(coderror, msgerror)
@@ -1246,6 +1250,21 @@ Public Class Principal
     Private Sub SalonesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalonesToolStripMenuItem.Click
         GGAdmSalones.MdiParent = Me
         GGAdmSalones.Visible = True
+    End Sub
+
+    Private Sub BGWClientes_DoWork(sender As Object, e As DoWorkEventArgs) Handles BGWClientes.DoWork
+        'Dim coderror As Integer
+        'Dim msgerror As String = ""
+        '*************  clientes    **************************************
+        Try
+            'SynClientes()
+            'PushClientes()
+        Catch ex As Exception
+            MessageBox.Show("Ocurrio un problema al tratar de sincronizar Clientes en la nube", "Advertencia - BGWClientes: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+
+        '*******************************************************************************
+        'SynStockGeneral(coderror, msgerror)
     End Sub
     'Private Sub PrivateDownloadSGC()
 

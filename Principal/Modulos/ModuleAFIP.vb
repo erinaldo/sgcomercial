@@ -560,12 +560,12 @@ Module ModuleAFIP
                     Return StrError
                 Else
                     StrError.CodError = 1
-                    StrError.MsgError = "NO se registró la Factura Electrónica, intente nuevamente más tarde desde la pantalla de -Comprobantes Emitidos-"
+                    StrError.MsgError = "NO se registró la Factura Electrónica, ratifique los datos e intente nuevamente más tarde desde la pantalla de -Comprobantes Emitidos-"
                     Return StrError
                 End If
             Else
                 StrError.CodError = 1
-                StrError.MsgError = "NO se registró la Factura Electrónica, intente nuevamente más tarde desde la pantalla de -Comprobantes Emitidos-"
+                StrError.MsgError = "NO se registró la Factura Electrónica, ratifique los datos e intente nuevamente más tarde desde la pantalla de -Comprobantes Emitidos-"
                 Return StrError
             End If
         Catch ex As Exception

@@ -1406,5 +1406,105 @@ Module MySQLModule
             ErrorLogTableAdapter.errorlog_insertar("SynStockgeneral", "Al verificar conexion al servidor", "SynStockgeneral", "Mensaje: " + ex.Message)
         End Try
     End Sub
+    '''''''''''''''''
+    Sub PushClientes()
+        Try
+            '****clientes local********
+            Dim clientestableadapter As comercialDataSetTableAdapters.clientesTableAdapter
+            clientestableadapter = New comercialDataSetTableAdapters.clientesTableAdapter()
+            Dim clientestable As New comercialDataSet.clientesDataTable()
+            clientestable = clientestableadapter.GetData()
+            '****   ----    ********
+            '****clientesweb********
+            Dim clienteswebtableadapter As MySQLDataSetTableAdapters.clientesTableAdapter
+            clienteswebtableadapter = New MySQLDataSetTableAdapters.clientesTableAdapter()
+            '*********************
+            For i = 0 To clientestable.Count - 1
+                Dim webid As Long
+                If IsDBNull(clientestable.Rows(i).Item(clientestable.idclientewebColumn)) Then
+                    webid = clienteswebtableadapter.clientes_maxidcliente() + 1
+                Else
+                    webid = clientestable.Rows(i).Item(clientestable.idclientewebColumn)
+                End If
+
+
+                '**********************
+                Dim nuevoidclienteweb As Long = webid ' clientestable.Rows(i).Item(clientestable.idclienteColumn)
+                Dim idclientelocal As Long = clientestable.Rows(i).Item(clientestable.idclienteColumn)
+                '*******************************
+                Dim nombre As String
+                If IsDBNull(clientestable.Rows(i).Item(clientestable.nombreColumn)) Then
+                    nombre = Nothing
+                Else
+                    nombre = clientestable.Rows(i).Item(clientestable.nombreColumn)
+                End If
+                '*******************************
+                Dim cuit As String
+                If IsDBNull(clientestable.Rows(i).Item(clientestable.cuitColumn)) Then
+                    cuit = Nothing
+                Else
+                    cuit = clientestable.Rows(i).Item(clientestable.cuitColumn)
+                End If
+                '*******************************
+                Dim telefono As String
+                If IsDBNull(clientestable.Rows(i).Item(clientestable.telefonoColumn)) Then
+                    telefono = Nothing
+                Else
+                    telefono = clientestable.Rows(i).Item(clientestable.telefonoColumn)
+                End If
+                '*******************************
+                Dim email As String
+                Try
+                    email = clientestable.Rows(i).Item(clientestable.emailColumn)
+                Catch ex As Exception
+                    email = Nothing
+                End Try
+                '*******************************
+                Dim sync As String = "S"
+                Dim condicioniva As Long
+                Dim diasvencimiento As Long
+                Dim idprovincia As Long
+                Dim idtipodocumento As Long
+                Dim porcentajedescuento As Decimal
+                '*******************************
+                Try
+                    idtipodocumento = clientestable.Rows(i).Item(clientestable.idtipodocumentoColumn)
+                Catch ex As Exception
+                    idtipodocumento = Nothing
+                End Try
+                '*******************************
+                Try
+                    idprovincia = clientestable.Rows(i).Item(clientestable.idprovinciaColumn)
+                Catch ex As Exception
+                    idprovincia = Nothing
+                End Try
+                '*******************************
+                Try
+                    diasvencimiento = clientestable.Rows(i).Item(clientestable.diasvencimientoColumn)
+                Catch ex As Exception
+                    diasvencimiento = 0
+                End Try
+                '*******************************
+                Try
+                    porcentajedescuento = clientestable.Rows(i).Item(clientestable.porcentajedescuentoColumn)
+                Catch ex As Exception
+                    porcentajedescuento = 0
+                End Try
+                '*******************************
+                Try
+                    condicioniva = clientestable.Rows(i).Item(clientestable.condicionivaColumn)
+                Catch ex As Exception
+                    condicioniva = Nothing
+                End Try
+                '*******************************
+                clienteswebtableadapter.clientes_update(nuevoidclienteweb, nombre, cuit, telefono, email, sync, condicioniva, diasvencimiento, porcentajedescuento, idprovincia, idtipodocumento)
+                ''****   ----    ********
+                clientestableadapter.clientes_updateidweblocal(nuevoidclienteweb, idclientelocal)
+                ''****   ----    ********
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 End Module
