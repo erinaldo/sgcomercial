@@ -21,6 +21,8 @@
         Else
             '**************** todo bien! actualizo! *******************
             PedidosdeliveryTableAdapter.pedidosdelivery_updateiddomicilio(gdomicilioseleccionado, gidpedidodelivery)
+            gclienteseleccionado = Nothing
+            gdomicilioseleccionado = Nothing
             Me.ListapedidosdeliveryTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.listapedidosdelivery, gidpedidodelivery)
         End If
     End Sub

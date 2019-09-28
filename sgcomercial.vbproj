@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>50</ApplicationRevision>
-    <ApplicationVersion>4.0.9.50</ApplicationVersion>
+    <ApplicationRevision>52</ApplicationRevision>
+    <ApplicationVersion>4.0.9.52</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1763,7 +1763,6 @@
     <None Include="Principal\DataSets\comercialDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>comercialDataSet3.Designer.vb</LastGenOutput>
     </None>
     <None Include="Principal\DataSets\MySQLDataSet.xsc">
       <DependentUpon>MySQLDataSet.xsd</DependentUpon>
@@ -2013,42 +2012,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

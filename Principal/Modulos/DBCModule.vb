@@ -33,6 +33,7 @@ Module DBCModule
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             MySQLStrConn = "server=" + server + ";" + "user id=" + userid + ";" + "password=" + password + ";" + "database=" + database + ";persistsecurityinfo=True;Connect Timeout=17"
             SCStrConn = "server=" + dbserverauth + ";" + "user id=" + dbuserauth + ";" + "password=" + password + ";database=sistema1_siscom;persistsecurityinfo=True"
+            gClowdServer = server
         Catch ex As Exception
             MsgBox("No se pudo Construir el string de conexión al servidor remoto: " + ex.Message, MsgBoxStyle.Information, "DBWEB")
             status = False

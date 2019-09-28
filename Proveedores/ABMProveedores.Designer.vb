@@ -517,7 +517,8 @@ Partial Class ABMProveedores
         Me.MinimizeBox = False
         Me.Name = "ABMProveedores"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Agenda de Proveedores"
+        Me.Tag = "ABMProveedores"
+        Me.Text = "Agenda de Proveedores - Altas, Bajas y Modificación de Proveedores"
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProveedoresBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()

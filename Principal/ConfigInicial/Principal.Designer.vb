@@ -278,7 +278,7 @@ Partial Class Principal
         Me.ABMClientesToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
         Me.ABMClientesToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.ABMClientesToolStripMenuItem.Tag = "ABMClientes"
-        Me.ABMClientesToolStripMenuItem.Text = "ABM Clientes"
+        Me.ABMClientesToolStripMenuItem.Text = "Agenda de Clientes"
         Me.ABMClientesToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ReportesToolStripMenuItem
@@ -569,7 +569,7 @@ Partial Class Principal
         Me.ABMProveedoresToolStripMenuItem.Name = "ABMProveedoresToolStripMenuItem"
         Me.ABMProveedoresToolStripMenuItem.Size = New System.Drawing.Size(376, 28)
         Me.ABMProveedoresToolStripMenuItem.Tag = "ABMProveedores"
-        Me.ABMProveedoresToolStripMenuItem.Text = "ABM Proveedores"
+        Me.ABMProveedoresToolStripMenuItem.Text = "Agenda de Proveedores"
         '
         'ABMPedidosToolStripMenuItem
         '

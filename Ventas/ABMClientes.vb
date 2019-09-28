@@ -179,7 +179,46 @@ Public Class ABMClientes
         End Try
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub PictureBoxEditarDomicilios_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ClientesDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ClientesDataGridView.CellContentClick
+
+    End Sub
+
+    Private Sub ClientesDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ClientesDataGridView.CellClick
+        Try
+            Select Case ClientesDataGridView.Columns(e.ColumnIndex).Name
+                Case "EditarDomicilio"
+                    'If Val(IdclienteTextBox.Text) = 0 Then Return
+                    Dim P As ClientesNuevoDomicilio
+                    P = New ClientesNuevoDomicilio
+                    gdomicilioseleccionado = 0
+                    gclienteseleccionado = ClientesDataGridView.Rows(e.RowIndex).Cells("DataGridViewTextBoxColumn1").Value
+                    P.ToolStripButton1.Visible = False
+                    P.ShowDialog()
+
+                    gclienteseleccionado = Nothing
+                    gdomicilioseleccionado = Nothing
+
+                    'If gdomicilioseleccionado = 0 Then
+                    '    Return
+                    'Else
+                    '    '**************** todo bien! actualizo! *******************
+                    '    'PedidosdeliveryTableAdapter.pedidosdelivery_updateiddomicilio(gdomicilioseleccionado, gidpedidodelivery)
+                    '    gclienteseleccionado = Nothing
+                    '    gdomicilioseleccionado = Nothing
+                    '    'Me.ListapedidosdeliveryTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.listapedidosdelivery, gidpedidodelivery)
+                    'End If
+            End Select
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

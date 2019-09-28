@@ -235,9 +235,11 @@ Public Class loginform
         Cursor.Current = Cursors.Default
         hi.Dispose()
         GetCajaOperativa()
-        BGWUpdateLicencia.RunWorkerAsync()
+        If BGWUpdateLicencia.IsBusy = False Then
+            BGWUpdateLicencia.RunWorkerAsync()
+        End If
+        LabelClowdInfo.Text = gClowdServer
         textusuario.Select()
-        ShowPopUp("Hay algo que nos gustaría contarte! (click aquí)", 300)
     End Sub
     Private Sub GetCajaOperativa()
         gidcaja = 0
@@ -514,5 +516,12 @@ Public Class loginform
         End Try
         ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
         ftpClient.DownloadFileAsync(New Uri(path), trnsfrpth)
+    End Sub
+
+    Private Sub BGWFELoad_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWFELoad.DoWork
+        FeAFIPLoad()
+        If GFEAFIPENTORNO = "DESACTIVADO" Or GFEAFIPENTORNO = "" Then
+            ShowPopUp("Hay algo que nos gustaría contarte! (click aquí)", 300)
+        End If
     End Sub
 End Class

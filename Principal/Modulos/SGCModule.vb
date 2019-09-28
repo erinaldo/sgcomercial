@@ -49,6 +49,7 @@ Module SGCModule
     Public EmailPort As Integer
     Public gNombreComercio As String
     Public gPublicDocumentsPath As String
+    Public gClowdServer As String
     '************************************************
     Public FormPrincipal As Principal
     '************************************************

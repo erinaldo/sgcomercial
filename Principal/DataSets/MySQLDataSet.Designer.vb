@@ -14849,7 +14849,7 @@ Namespace MySQLDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(2) {}
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(4) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT idclientesdomiciliosweb, idclienteweb, direccion, referencias, idprovincia"& _ 
@@ -14857,17 +14857,103 @@ Namespace MySQLDataSetTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "update clientesdomicilios"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"set sync = @sync"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where idclientesdomiciliosweb = @idc"& _ 
-                "lientesdomiciliosweb"
+            Me._commandCollection(1).CommandText = "select max(idclientesdomiciliosweb)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"from clientesdomicilios"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where idclienteweb "& _ 
+                "= @idclienteweb"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@idclienteweb"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "idclienteweb"
+            Me._commandCollection(1).Parameters.Add(param)
+            Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "`sistema1_sgcaguadagrande`.`clientesdomicilios_update`"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.StoredProcedure
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "idclientesdomiciliosweb"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.Size = 2147483647
+            param.IsNullable = true
+            Me._commandCollection(2).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "idclienteweb"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.Size = 2147483647
+            param.IsNullable = true
+            Me._commandCollection(2).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "direccion"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 500
+            param.IsNullable = true
+            Me._commandCollection(2).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "referencias"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 500
+            param.IsNullable = true
+            Me._commandCollection(2).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "idprovincia"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.Size = 2147483647
+            param.IsNullable = true
+            Me._commandCollection(2).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "idlocalidad"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.Size = 2147483647
+            param.IsNullable = true
+            Me._commandCollection(2).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "cp"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 10
+            param.IsNullable = true
+            Me._commandCollection(2).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "sync"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 1
+            param.IsNullable = true
+            Me._commandCollection(2).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "latitud"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.Size = 2147483647
+            param.IsNullable = true
+            Me._commandCollection(2).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "longitud"
+            param.DbType = Global.System.Data.DbType.[Double]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Double]
+            param.Size = 2147483647
+            param.IsNullable = true
+            Me._commandCollection(2).Parameters.Add(param)
+            Me._commandCollection(3) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "update clientesdomicilios"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"set sync = @sync"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where idclientesdomiciliosweb = @idc"& _ 
+                "lientesdomiciliosweb"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@sync"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[String]
             param.Size = 1
             param.IsNullable = true
             param.SourceColumn = "sync"
-            Me._commandCollection(1).Parameters.Add(param)
+            Me._commandCollection(3).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@idclientesdomiciliosweb"
             param.DbType = Global.System.Data.DbType.Int32
@@ -14875,20 +14961,20 @@ Namespace MySQLDataSetTableAdapters
             param.IsNullable = true
             param.SourceColumn = "idclientesdomiciliosweb"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._commandCollection(1).Parameters.Add(param)
-            Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
-            Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT idclientesdomiciliosweb, idclienteweb, direccion, referencias, idprovincia"& _ 
+            Me._commandCollection(3).Parameters.Add(param)
+            Me._commandCollection(4) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "SELECT idclientesdomiciliosweb, idclienteweb, direccion, referencias, idprovincia"& _ 
                 ", idlocalidad, cp, sync, latitud, longitud FROM clientesdomicilios WHERE (idclie"& _ 
                 "nteweb = @idclienteweb) AND (sync = @sync)"
-            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@idclienteweb"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "idclienteweb"
-            Me._commandCollection(2).Parameters.Add(param)
+            Me._commandCollection(4).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@sync"
             param.DbType = Global.System.Data.DbType.[String]
@@ -14896,7 +14982,7 @@ Namespace MySQLDataSetTableAdapters
             param.Size = 1
             param.IsNullable = true
             param.SourceColumn = "sync"
-            Me._commandCollection(2).Parameters.Add(param)
+            Me._commandCollection(4).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14928,7 +15014,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBySync(ByVal dataTable As MySQLDataSet.clientesdomiciliosDataTable, ByVal idclienteweb As Global.System.Nullable(Of Integer), ByVal sync As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
             If (idclienteweb.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(idclienteweb.Value,Integer)
             Else
@@ -14951,7 +15037,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataBySync(ByVal idclienteweb As Global.System.Nullable(Of Integer), ByVal sync As String) As MySQLDataSet.clientesdomiciliosDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
             If (idclienteweb.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(idclienteweb.Value,Integer)
             Else
@@ -15294,10 +15380,112 @@ Namespace MySQLDataSetTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function clientesdomicilios_maxidclientesdomicilios(ByVal idclienteweb As Global.System.Nullable(Of Integer)) As Global.System.Nullable(Of Integer)
+            Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(1)
+            If (idclienteweb.HasValue = true) Then
+                command.Parameters(0).Value = CType(idclienteweb.Value,Integer)
+            Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Object
+            Try 
+                returnValue = command.ExecuteScalar
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            If ((returnValue Is Nothing)  _
+                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
+                Return New Global.System.Nullable(Of Integer)()
+            Else
+                Return New Global.System.Nullable(Of Integer)(CType(returnValue,Integer))
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function clientesdomicilios_update(ByVal idclientesdomiciliosweb As Global.System.Nullable(Of Integer), ByVal idclienteweb As Global.System.Nullable(Of Integer), ByVal direccion As String, ByVal referencias As String, ByVal idprovincia As Global.System.Nullable(Of Integer), ByVal idlocalidad As Global.System.Nullable(Of Integer), ByVal cp As String, ByVal sync As String, ByVal latitud As Global.System.Nullable(Of Double), ByVal longitud As Global.System.Nullable(Of Double)) As Integer
+            Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(2)
+            If (idclientesdomiciliosweb.HasValue = true) Then
+                command.Parameters(0).Value = CType(idclientesdomiciliosweb.Value,Integer)
+            Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (idclienteweb.HasValue = true) Then
+                command.Parameters(1).Value = CType(idclienteweb.Value,Integer)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (direccion Is Nothing) Then
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(2).Value = CType(direccion,String)
+            End If
+            If (referencias Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(referencias,String)
+            End If
+            If (idprovincia.HasValue = true) Then
+                command.Parameters(4).Value = CType(idprovincia.Value,Integer)
+            Else
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (idlocalidad.HasValue = true) Then
+                command.Parameters(5).Value = CType(idlocalidad.Value,Integer)
+            Else
+                command.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (cp Is Nothing) Then
+                command.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(6).Value = CType(cp,String)
+            End If
+            If (sync Is Nothing) Then
+                command.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(7).Value = CType(sync,String)
+            End If
+            If (latitud.HasValue = true) Then
+                command.Parameters(8).Value = CType(latitud.Value,Double)
+            Else
+                command.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (longitud.HasValue = true) Then
+                command.Parameters(9).Value = CType(longitud.Value,Double)
+            Else
+                command.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function clientesdomicilios_updatesync(ByVal sync As String, ByVal idclientesdomiciliosweb As Integer) As Integer
-            Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(1)
+            Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(3)
             If (sync Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else

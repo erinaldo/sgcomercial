@@ -58,8 +58,7 @@ Public Class Principal
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
         EjecutarAlertas()
         '================= BACKGROUND WORKERS   ==========================
-        BGWClientes.RunWorkerAsync()
-
+        'BGWClientes.RunWorkerAsync()
         If gModuloClowd = 1 Then
             BackgroundSyncLibroventasClowd.RunWorkerAsync()
             BGWStock.RunWorkerAsync()
@@ -1257,8 +1256,7 @@ Public Class Principal
         'Dim msgerror As String = ""
         '*************  clientes    **************************************
         Try
-            'SynClientes()
-            'PushClientes()
+            SynClientes()
         Catch ex As Exception
             MessageBox.Show("Ocurrio un problema al tratar de sincronizar Clientes en la nube", "Advertencia - BGWClientes: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try

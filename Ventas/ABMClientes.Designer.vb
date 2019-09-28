@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ABMClientes
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ABMClientes
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim IdclienteLabel As System.Windows.Forms.Label
@@ -51,11 +51,6 @@ Partial Class ABMClientes
         Me.TelefonoTextBox = New System.Windows.Forms.TextBox()
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.ClientesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cuit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboDocTipo = New System.Windows.Forms.ComboBox()
         Me.TipodocumentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -77,7 +72,12 @@ Partial Class ABMClientes
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
         Me.ProvinciasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.provinciasTableAdapter()
         Me.TipodocumentosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipodocumentosTableAdapter()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cuit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EditarDomicilio = New System.Windows.Forms.DataGridViewButtonColumn()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         RazonsocialLabel = New System.Windows.Forms.Label()
@@ -353,7 +353,7 @@ Partial Class ABMClientes
         Me.ClientesDataGridView.AutoGenerateColumns = False
         Me.ClientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
+        Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.EditarDomicilio})
         Me.ClientesDataGridView.DataSource = Me.ClientesBindingSource
         Me.ClientesDataGridView.Location = New System.Drawing.Point(12, 73)
         Me.ClientesDataGridView.Margin = New System.Windows.Forms.Padding(4)
@@ -361,44 +361,6 @@ Partial Class ABMClientes
         Me.ClientesDataGridView.ReadOnly = True
         Me.ClientesDataGridView.Size = New System.Drawing.Size(975, 199)
         Me.ClientesDataGridView.TabIndex = 13
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idcliente"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idcliente"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre / Razón Social"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 200
-        '
-        'cuit
-        '
-        Me.cuit.DataPropertyName = "cuit"
-        Me.cuit.HeaderText = "Cuit"
-        Me.cuit.Name = "cuit"
-        Me.cuit.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "telefono"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Teléfono"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "email"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Email"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
         'GroupBox1
         '
@@ -664,21 +626,61 @@ Partial Class ABMClientes
         '
         Me.TipodocumentosTableAdapter.ClearBeforeFill = True
         '
-        'Button1
+        'DataGridViewTextBoxColumn1
         '
-        Me.Button1.Location = New System.Drawing.Point(968, 151)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 16
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idcliente"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idcliente"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre / Razón Social"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 200
+        '
+        'cuit
+        '
+        Me.cuit.DataPropertyName = "cuit"
+        Me.cuit.HeaderText = "Cuit"
+        Me.cuit.Name = "cuit"
+        Me.cuit.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "telefono"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Teléfono"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "email"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Email"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'EditarDomicilio
+        '
+        Me.EditarDomicilio.DataPropertyName = "idcliente"
+        Me.EditarDomicilio.HeaderText = "Editar Domicilio"
+        Me.EditarDomicilio.Name = "EditarDomicilio"
+        Me.EditarDomicilio.ReadOnly = True
+        Me.EditarDomicilio.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.EditarDomicilio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.EditarDomicilio.Text = "Editar Domicilio"
+        Me.EditarDomicilio.ToolTipText = "Editar Domicilio"
+        Me.EditarDomicilio.UseColumnTextForButtonValue = True
         '
         'ABMClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1036, 586)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.ClientesBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
@@ -690,7 +692,7 @@ Partial Class ABMClientes
         Me.Name = "ABMClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ABMClientes"
-        Me.Text = "Altas, Bajas y Modificación de Clientes"
+        Me.Text = "Agenda de Clientes - Altas, Bajas y Modificación de Clientes"
         CType(Me.ClientesBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ClientesBindingNavigator.ResumeLayout(False)
         Me.ClientesBindingNavigator.PerformLayout()
@@ -734,11 +736,6 @@ Partial Class ABMClientes
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents filtrotextbox As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cuit As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ComboCondicionIVA As ComboBox
     Friend WithEvents TipocondicionivaBindingSource As BindingSource
@@ -754,5 +751,10 @@ Partial Class ABMClientes
     Friend WithEvents ComboDocTipo As ComboBox
     Friend WithEvents TipodocumentosBindingSource As BindingSource
     Friend WithEvents TipodocumentosTableAdapter As comercialDataSetTableAdapters.tipodocumentosTableAdapter
-    Friend WithEvents Button1 As Button
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents cuit As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents EditarDomicilio As DataGridViewButtonColumn
 End Class

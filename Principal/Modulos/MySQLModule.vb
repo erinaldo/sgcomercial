@@ -161,6 +161,10 @@ Module MySQLModule
         Catch ex As Exception
             MsgBox("Advertencia! " + ex.Message, MsgBoxStyle.Exclamation)
         End Try
+        '/*******************************************/
+        '           subir clientes a la nube
+        '/*******************************************/
+        PushClientes()
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SynPedidos()
@@ -1409,16 +1413,21 @@ Module MySQLModule
     '''''''''''''''''
     Sub PushClientes()
         Try
+            '*************  errorlog    **************************************
+            Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+            ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
             '****clientes local********
             Dim clientestableadapter As comercialDataSetTableAdapters.clientesTableAdapter
             clientestableadapter = New comercialDataSetTableAdapters.clientesTableAdapter()
             Dim clientestable As New comercialDataSet.clientesDataTable()
             clientestable = clientestableadapter.GetData()
             '****   ----    ********
+
             '****clientesweb********
             Dim clienteswebtableadapter As MySQLDataSetTableAdapters.clientesTableAdapter
             clienteswebtableadapter = New MySQLDataSetTableAdapters.clientesTableAdapter()
             '*********************
+
             For i = 0 To clientestable.Count - 1
                 Dim webid As Long
                 If IsDBNull(clientestable.Rows(i).Item(clientestable.idclientewebColumn)) Then
@@ -1426,8 +1435,6 @@ Module MySQLModule
                 Else
                     webid = clientestable.Rows(i).Item(clientestable.idclientewebColumn)
                 End If
-
-
                 '**********************
                 Dim nuevoidclienteweb As Long = webid ' clientestable.Rows(i).Item(clientestable.idclienteColumn)
                 Dim idclientelocal As Long = clientestable.Rows(i).Item(clientestable.idclienteColumn)
@@ -1501,10 +1508,100 @@ Module MySQLModule
                 ''****   ----    ********
                 clientestableadapter.clientes_updateidweblocal(nuevoidclienteweb, idclientelocal)
                 ''****   ----    ********
+
+                PushClientesDomicilios(idclientelocal, nuevoidclienteweb)
             Next
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MessageBox.Show("Advertencia - PushClientes: " + ex.Message, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            'coderror = 1
+            'msgerror = ex.Message
+            ErrorLogTableAdapter.errorlog_insertar("PushClientes", "Al tratar de sincronizar Clientes en la nube", "PushClientes", "Mensaje: " + ex.Message)
         End Try
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Public Sub PushClientesDomicilios(ByVal idclientelocal As Long, ByRef nuevoidclienteweb As Long)
+        '****clientesdomicilios local********
+        Dim clientesdomiciliostableadapter As comercialDataSetTableAdapters.clientesdomiciliosTableAdapter
+        clientesdomiciliostableadapter = New comercialDataSetTableAdapters.clientesdomiciliosTableAdapter()
+        Dim clientesdomiciliostable As New comercialDataSet.clientesdomiciliosDataTable()
+        '****   ----    ********
+        '****clientesdomiciliosweb********
+        Dim clientesdomicilioswebtableadapter As MySQLDataSetTableAdapters.clientesdomiciliosTableAdapter
+        clientesdomicilioswebtableadapter = New MySQLDataSetTableAdapters.clientesdomiciliosTableAdapter()
+        '*********************
+        Try
+            clientesdomiciliostable = clientesdomiciliostableadapter.GetDataByidcliente(idclientelocal)
+            Dim idclientedomiciliosweb As Long = 0
+            Dim inserted As Long = 0
+            Dim iddomicilio As Long = 0
+            '*********************
+            If clientesdomiciliostable.Rows.Count > 0 Then
+                Dim direccion As String
+                Dim referencias As String
+                Dim idprovinciadomicilio As Integer
+                Dim idlocalidaddomicilio As Integer
+                Dim cp As String
+                Dim latitud As String
+                Dim longitud As String
+                For k = 0 To clientesdomiciliostable.Count - 1
+                    iddomicilio = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.iddomicilioColumn)
+                    If IsDBNull(clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.idclientesdomicilioswebColumn)) Then
+                        idclientedomiciliosweb = 0
+                    Else
+                        idclientedomiciliosweb = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.idclientesdomicilioswebColumn)
+                    End If
+                    '---------------------------------------------------------------------------------------------------
+                    If IsDBNull(clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.direccionColumn)) Then
+                        direccion = Nothing
+                    Else
+                        direccion = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.direccionColumn)
+                    End If
+                    '---------------------------------------------------------------------------------------------------
+                    If IsDBNull(clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.referenciasColumn)) Then
+                        referencias = Nothing
+                    Else
+                        referencias = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.referenciasColumn)
+                    End If
+                    '---------------------------------------------------------------------------------------------------
+                    If IsDBNull(clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.idprovinciaColumn)) Then
+                        idprovinciadomicilio = Nothing
+                    Else
+                        idprovinciadomicilio = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.idprovinciaColumn)
+                    End If
+                    '---------------------------------------------------------------------------------------------------
+                    If IsDBNull(clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.idlocalidadColumn)) Then
+                        idlocalidaddomicilio = Nothing
+                    Else
+                        idlocalidaddomicilio = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.idlocalidadColumn)
+                    End If
+                    '---------------------------------------------------------------------------------------------------
+                    If IsDBNull(clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.cpColumn)) Then
+                        cp = Nothing
+                    Else
+                        cp = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.cpColumn)
+                    End If
+                    '---------------------------------------------------------------------------------------------------
+
+                    If IsDBNull(clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.latitudColumn)) Then
+                        latitud = Nothing
+                    Else
+                        latitud = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.latitudColumn)
+                    End If
+                    '---------------------------------------------------------------------------------------------------
+                    If IsDBNull(clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.longitudColumn)) Then
+                        longitud = Nothing
+                    Else
+                        longitud = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.cpColumn)
+                    End If
+                    '---------------------------------------------------------------------------------------------------
+                    clientesdomicilioswebtableadapter.clientesdomicilios_update(idclientedomiciliosweb, nuevoidclienteweb, direccion, referencias, idprovinciadomicilio, idlocalidaddomicilio, cp, "S", latitud, longitud)
+                    inserted = clientesdomicilioswebtableadapter.clientesdomicilios_maxidclientesdomicilios(nuevoidclienteweb)
+                    clientesdomiciliostableadapter.clientesdomicilios_updateidclientesdomiciliosweb(inserted, idclientelocal, iddomicilio)
+                Next
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Ocurrio un problema al tratar de sincronizar Clientes en la nube", "Advertencia - PushClientes: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End Try
+    End Sub
 End Module

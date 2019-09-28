@@ -53,6 +53,8 @@ Partial Class loginform
         Me.LabelMACaddress = New System.Windows.Forms.Label()
         Me.BGWUpdateLicencia = New System.ComponentModel.BackgroundWorker()
         Me.PictureUpdateAlert = New System.Windows.Forms.PictureBox()
+        Me.LabelClowdInfo = New System.Windows.Forms.Label()
+        Me.BGWFELoad = New System.ComponentModel.BackgroundWorker()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,7 +122,9 @@ Partial Class loginform
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -130,8 +134,11 @@ Partial Class loginform
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -151,6 +158,7 @@ Partial Class loginform
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -368,6 +376,21 @@ Partial Class loginform
         Me.PictureUpdateAlert.TabStop = False
         Me.PictureUpdateAlert.Visible = False
         '
+        'LabelClowdInfo
+        '
+        Me.LabelClowdInfo.BackColor = System.Drawing.Color.Transparent
+        Me.LabelClowdInfo.Font = New System.Drawing.Font("Segoe UI", 7.8!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelClowdInfo.ForeColor = System.Drawing.Color.White
+        Me.LabelClowdInfo.Location = New System.Drawing.Point(181, 356)
+        Me.LabelClowdInfo.Name = "LabelClowdInfo"
+        Me.LabelClowdInfo.Size = New System.Drawing.Size(225, 20)
+        Me.LabelClowdInfo.TabIndex = 16
+        Me.LabelClowdInfo.Text = "................................"
+        Me.LabelClowdInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'BGWFELoad
+        '
+        '
         'loginform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -377,6 +400,7 @@ Partial Class loginform
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(600, 600)
         Me.ControlBox = False
+        Me.Controls.Add(Me.LabelClowdInfo)
         Me.Controls.Add(Me.LabelDatosCliente)
         Me.Controls.Add(Me.LabelMACaddress)
         Me.Controls.Add(Me.UpdateAlert)
@@ -434,4 +458,6 @@ Partial Class loginform
     Friend WithEvents LabelDatosCliente As Label
     Friend WithEvents LabelMACaddress As Label
     Friend WithEvents BGWUpdateLicencia As System.ComponentModel.BackgroundWorker
+    Friend WithEvents LabelClowdInfo As Label
+    Friend WithEvents BGWFELoad As System.ComponentModel.BackgroundWorker
 End Class
