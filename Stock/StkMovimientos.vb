@@ -1,24 +1,32 @@
 ﻿Public Class StkMovimientos
     Private Sub StkMovimientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stkmovimientos' Puede moverla o quitarla según sea necesario.
-        StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
-
+        StkmovimientosTableAdapter.FillByRangoFechas(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString, DPHasta.Value.ToString)
+        ComboBoxFiltro.SelectedIndex = 0
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DPDesde.ValueChanged
-        Try
-            StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+
 
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        If TextBox1.Text = "" Or Len(Trim(TextBox1.Text)) = 0 Then
+            StkmovimientosBindingSource.Filter = ""
+        Else
+            Filtrar()
+        End If
+    End Sub
+    Private Sub Filtrar()
         Try
-            StkmovimientosBindingSource.Filter = "codigoproducto Like '%" + TextBox1.Text + "%'"
+            Select Case ComboBoxFiltro.SelectedIndex
+                Case 0
+                    StkmovimientosBindingSource.Filter = "codigoproducto Like '" + TextBox1.Text + "'"
+                Case 1
+                    StkmovimientosBindingSource.Filter = "producto Like '%" + TextBox1.Text + "%'"
+            End Select
         Catch ex As Exception
-            StkmovimientosBindingSource.Filter = "tipomovimiento Like ''"
+            StkmovimientosBindingSource.Filter = ""
         End Try
     End Sub
 
@@ -37,8 +45,9 @@
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
         If RadioButton1.Checked Then
             DPDesde.Enabled = False
+            DPHasta.Enabled = False
+            BtnConsultar.Enabled = False
             Try
-                'StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
                 StkmovimientosTableAdapter.Fill(Me.ComercialDataSet.stkmovimientos)
             Catch ex As Exception
                 MsgBox("Ocurrió una excepción durante la consulta:" + ex.Message)
@@ -50,8 +59,10 @@
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
         If RadioButton2.Checked Then
             DPDesde.Enabled = True
+            DPHasta.Enabled = True
+            BtnConsultar.Enabled = True
             Try
-                StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
+                StkmovimientosTableAdapter.FillByRangoFechas(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString, DPHasta.Value.ToString)
             Catch ex As Exception
                 MsgBox("Ocurrió una excepción durante la consulta:" + ex.Message)
             End Try
@@ -70,8 +81,14 @@
     Private Sub StkmovimientosDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles StkmovimientosDataGridView.CellClick
         Try
             If e.RowIndex = -1 And e.ColumnIndex = -1 Then
-                StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
+                StkmovimientosTableAdapter.FillByRangoFechas(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString, DPHasta.Value.ToString)
             End If
+            Select Case StkmovimientosDataGridView.Columns(e.ColumnIndex).Name
+                Case "codigoproducto"
+                    ComboBoxFiltro.SelectedIndex = 0
+                    TextBox1.Text = StkmovimientosDataGridView.Rows(e.RowIndex).Cells("codigoproducto").Value
+                    Filtrar()
+            End Select
         Catch ex As Exception
 
         End Try
@@ -108,7 +125,7 @@
 
     Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
         TextBox1.Text = Nothing
-        StkmovimientosTableAdapter.FillByFecha(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString)
+        StkmovimientosTableAdapter.FillByRangoFechas(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString, DPHasta.Value.ToString)
         RadioButton2.Checked = True
 
         MsgBox("Grilla Actualizada!", MsgBoxStyle.Information, "Aviso")
@@ -130,5 +147,17 @@
     Private Sub Imprimir_Click(sender As Object, e As EventArgs)
 
 
+    End Sub
+
+    Private Sub DPHasta_ValueChanged(sender As Object, e As EventArgs) Handles DPHasta.ValueChanged
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnConsultar.Click
+        Try
+            StkmovimientosTableAdapter.FillByRangoFechas(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString, DPHasta.Value.ToString)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class

@@ -31,18 +31,18 @@ Partial Class ControlStock
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.StockgeneralDataGridView = New System.Windows.Forms.DataGridView()
+        Me.StockgeneralBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.StockgeneralTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockgeneralTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.rubro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.disponible = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.unidades = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.stockminimo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StockgeneralBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.StockgeneralTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockgeneralTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox1.SuspendLayout()
         CType(Me.StockgeneralDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockgeneralBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -142,6 +142,95 @@ Partial Class ControlStock
         Me.StockgeneralDataGridView.Size = New System.Drawing.Size(972, 365)
         Me.StockgeneralDataGridView.TabIndex = 0
         '
+        'StockgeneralBindingSource
+        '
+        Me.StockgeneralBindingSource.DataMember = "stockgeneral"
+        Me.StockgeneralBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'StockgeneralTableAdapter
+        '
+        Me.StockgeneralTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
+        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
+        Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager.permisosTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "idproducto"
@@ -149,6 +238,7 @@ Partial Class ControlStock
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Visible = False
+        Me.DataGridViewTextBoxColumn1.Width = 116
         '
         'codigoproducto
         '
@@ -156,6 +246,9 @@ Partial Class ControlStock
         Me.codigoproducto.HeaderText = "Cod. Producto"
         Me.codigoproducto.Name = "codigoproducto"
         Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.codigoproducto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.codigoproducto.ToolTipText = "Click para copiar código al cuadro de filtrado"
         Me.codigoproducto.Width = 144
         '
         'rubro
@@ -207,86 +300,6 @@ Partial Class ControlStock
         Me.stockminimo.ReadOnly = True
         Me.stockminimo.Width = 139
         '
-        'StockgeneralBindingSource
-        '
-        Me.StockgeneralBindingSource.DataMember = "stockgeneral"
-        Me.StockgeneralBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'StockgeneralTableAdapter
-        '
-        Me.StockgeneralTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
-        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
-        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
-        Me.TableAdapterManager.cajasTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
-        Me.TableAdapterManager.errorlogTableAdapter = Nothing
-        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
-        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager.funcionesTableAdapter = Nothing
-        Me.TableAdapterManager.gastosTableAdapter = Nothing
-        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Nothing
-        Me.TableAdapterManager.motivostockTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosTableAdapter = Nothing
-        Me.TableAdapterManager.perfilesTableAdapter = Nothing
-        Me.TableAdapterManager.permisosTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
-        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
-        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.remitosTableAdapter = Nothing
-        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
-        Me.TableAdapterManager.stockTableAdapter = Nothing
-        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
-        Me.TableAdapterManager.synclogTableAdapter = Nothing
-        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
-        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
-        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
-        Me.TableAdapterManager.transportesTableAdapter = Nothing
-        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.valesTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
         'ControlStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -319,14 +332,14 @@ Partial Class ControlStock
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
+    Friend WithEvents codigoproducto As DataGridViewLinkColumn
     Friend WithEvents rubro As DataGridViewTextBoxColumn
     Friend WithEvents producto As DataGridViewTextBoxColumn
     Friend WithEvents medida As DataGridViewTextBoxColumn
     Friend WithEvents disponible As DataGridViewTextBoxColumn
     Friend WithEvents unidades As DataGridViewTextBoxColumn
     Friend WithEvents stockminimo As DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
 End Class

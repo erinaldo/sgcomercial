@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>52</ApplicationRevision>
-    <ApplicationVersion>4.0.9.52</ApplicationVersion>
+    <ApplicationRevision>53</ApplicationRevision>
+    <ApplicationVersion>4.0.9.53</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1763,6 +1763,7 @@
     <None Include="Principal\DataSets\comercialDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>comercialDataSet3.Designer.vb</LastGenOutput>
     </None>
     <None Include="Principal\DataSets\MySQLDataSet.xsc">
       <DependentUpon>MySQLDataSet.xsd</DependentUpon>

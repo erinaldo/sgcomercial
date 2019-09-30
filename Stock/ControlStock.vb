@@ -28,9 +28,12 @@
     End Sub
 
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
+        Filtrar()
+    End Sub
+    Private Sub filtrar()
         Select Case ComboBox1.Text
             Case "Código"
-                StockgeneralBindingSource.Filter = "codigoproducto like '%" + TextBox1.Text + "%'"
+                StockgeneralBindingSource.Filter = "codigoproducto like '" + TextBox1.Text + "'"
             Case "Rubro"
                 StockgeneralBindingSource.Filter = "rubro like '%" + TextBox1.Text + "%'"
             Case "Producto"
@@ -55,7 +58,16 @@
     End Sub
 
     Private Sub StockgeneralDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles StockgeneralDataGridView.CellClick
+        Try
+            Select Case StockgeneralDataGridView.Columns(e.ColumnIndex).Name
+                Case "codigoproducto"
+                    ComboBox1.SelectedIndex = 0
+                    TextBox1.Text = StockgeneralDataGridView.Rows(e.RowIndex).Cells("codigoproducto").Value
+                    filtrar()
+            End Select
+        Catch ex As Exception
 
+        End Try
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

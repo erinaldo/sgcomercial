@@ -1441,21 +1441,21 @@ Module MySQLModule
                 '*******************************
                 Dim nombre As String
                 If IsDBNull(clientestable.Rows(i).Item(clientestable.nombreColumn)) Then
-                    nombre = Nothing
+                    nombre = " "
                 Else
                     nombre = clientestable.Rows(i).Item(clientestable.nombreColumn)
                 End If
                 '*******************************
                 Dim cuit As String
                 If IsDBNull(clientestable.Rows(i).Item(clientestable.cuitColumn)) Then
-                    cuit = Nothing
+                    cuit = " "
                 Else
                     cuit = clientestable.Rows(i).Item(clientestable.cuitColumn)
                 End If
                 '*******************************
                 Dim telefono As String
                 If IsDBNull(clientestable.Rows(i).Item(clientestable.telefonoColumn)) Then
-                    telefono = Nothing
+                    telefono = " "
                 Else
                     telefono = clientestable.Rows(i).Item(clientestable.telefonoColumn)
                 End If
@@ -1464,7 +1464,7 @@ Module MySQLModule
                 Try
                     email = clientestable.Rows(i).Item(clientestable.emailColumn)
                 Catch ex As Exception
-                    email = Nothing
+                    email = " "
                 End Try
                 '*******************************
                 Dim sync As String = "S"
@@ -1591,7 +1591,7 @@ Module MySQLModule
                     If IsDBNull(clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.longitudColumn)) Then
                         longitud = Nothing
                     Else
-                        longitud = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.cpColumn)
+                        longitud = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.longitudColumn)
                     End If
                     '---------------------------------------------------------------------------------------------------
                     clientesdomicilioswebtableadapter.clientesdomicilios_update(idclientedomiciliosweb, nuevoidclienteweb, direccion, referencias, idprovinciadomicilio, idlocalidaddomicilio, cp, "S", latitud, longitud)
