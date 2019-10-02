@@ -15,6 +15,13 @@
         ComboBox1.SelectedIndex = 0
         TextBox1.Select()
 
+        Try
+            Dim newColumn As DataGridViewColumn = ListapedidosdeliveryDataGridView.Columns(1)
+            ListapedidosdeliveryDataGridView.Rows(0).Cells(1).Selected = True
+            ListapedidosdeliveryDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
@@ -44,15 +51,19 @@
     End Sub
 
     Private Sub ListapedidosdeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellClick
-        Select Case ListapedidosdeliveryDataGridView.Columns(e.ColumnIndex).Name
-            Case "Ver"
-                Dim p As ViewerComanda
-                p = New ViewerComanda
-                gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value
-                Dim idpedidoweb As Long
-                idpedidoweb = PedidosdeliveryTableAdapter.pedidosdelivery_consultarIDPedidoWeb(gidpedidodelivery)
-                p.ShowDialog()
-        End Select
+        Try
+            Select Case ListapedidosdeliveryDataGridView.Columns(e.ColumnIndex).Name
+                Case "Ver"
+                    Dim p As ViewerComanda
+                    p = New ViewerComanda
+                    gidpedidodelivery = ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value
+                    Dim idpedidoweb As Long
+                    idpedidoweb = PedidosdeliveryTableAdapter.pedidosdelivery_consultarIDPedidoWeb(gidpedidodelivery)
+                    p.ShowDialog()
+            End Select
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub PedidosDeliveryLibro_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown

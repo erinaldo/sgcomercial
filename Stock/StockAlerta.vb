@@ -8,9 +8,9 @@ Public Class StockAlerta
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productoscomponentes' Puede moverla o quitarla según sea necesario.
         'Me.ProductoscomponentesTableAdapter.Fill(Me.ComercialDataSet.productoscomponentes)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stockalerta' Puede moverla o quitarla según sea necesario.
-        Me.StockalertaTableAdapter.Fill(Me.ComercialDataSet.stockalerta)
+        'Me.StockalertaTableAdapter.Fill(Me.ComercialDataSet.stockalerta)
         'filtro = "producto"
-
+        reloadstock()
     End Sub
     Public Sub reloadstock()
         Me.StockalertaTableAdapter.Fill(Me.ComercialDataSet.stockalerta)
@@ -70,7 +70,7 @@ Public Class StockAlerta
     End Sub
 
     Private Sub StockAlerta_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-        reloadstock()
+        'reloadstock()
     End Sub
 
     Private Sub ComboBoxFiltro_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxFiltro.SelectedIndexChanged

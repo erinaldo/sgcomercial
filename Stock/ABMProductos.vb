@@ -15,6 +15,8 @@ Public Class ABMProductos
     End Sub
 
     Private Sub ABMProductos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.proveedores' Puede moverla o quitarla según sea necesario.
+        Me.ProveedoresTableAdapter.Fill(Me.ComercialDataSet.proveedores)
         Try
             ReparaProductosEstados()
             Me.TipoivaTableAdapter.Fill(Me.ComercialDataSet.tipoiva)
@@ -52,6 +54,10 @@ Public Class ABMProductos
     End Sub
 
     Private Sub ProductosBindingNavigatorSaveItem_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductosBindingNavigatorSaveItem.Click
+        Dim idproveedor As Long = 0
+        If ComboProveedores.SelectedIndex >= 0 Then
+            idproveedor = ComboProveedores.SelectedValue
+        End If
         Me.Validate()
         '*************  VALIDAR DATOS CARGADOS ************
         '****************   primero valido el codigo
@@ -155,6 +161,19 @@ Public Class ABMProductos
         Try
             Me.ProductosBindingSource.EndEdit()
             If Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) Then
+                ComercialDataSet.AcceptChanges()
+                '/*******************************************************************/
+                '/*******************   insertar PROVEEDOR ***************************/
+                '/*******************************************************************/
+                If idproveedor > 0 Then
+                    Try
+                        AsignarProveedor(idproveedor)
+                        SetProveedor()
+                    Catch ex As Exception
+                        MsgBox("Ocurrió un error al insertar el stock inicial: " + ex.Message)
+                    End Try
+                End If
+                '/*******************************************************************/
                 If gModuloClowd = 1 Then
                     PushProducto(codigoNUEVO, CODERROR, MSGERROR)
                     If CODERROR = 0 Then
@@ -267,7 +286,7 @@ Public Class ABMProductos
         BPC4.Enabled = status
         IvaComboBox.Enabled = status
         FabricanteTextBox.Enabled = status
-
+        ComboProveedores.Enabled = status
 
     End Sub
     Public Sub enablefilter(ByVal status As Boolean)
@@ -678,6 +697,10 @@ Public Class ABMProductos
     End Sub
 
     Private Sub GuardarNuevo_Click(sender As Object, e As EventArgs) Handles GuardarNuevo.Click
+        Dim idproveedor As Long = 0
+        If ComboProveedores.SelectedIndex >= 0 Then
+            idproveedor = ComboProveedores.SelectedValue
+        End If
         Me.Validate()
         '*************  VALIDAR DATOS CARGADOS ************
         '****************   primero valido el codigo
@@ -781,12 +804,16 @@ Public Class ABMProductos
                     End If
                 End If
                 MsgBox("Actualización correcta!", MsgBoxStyle.Information, "Mensaje")
+                Me.ComercialDataSet.AcceptChanges()
                 ProductosTableAdapter.productos_estadoproducto("A", ProductosTableAdapter.productos_existeproducto(codigoNUEVO))
             End If
         Catch ex As Exception
             MsgBox("No se pudo completar la operación: " + ex.Message, vbExclamation)
+            Return
         End Try
 
+        '/*******************************************************************/
+        '/*******************   insertar stock inicial ***************************/
         '/*******************************************************************/
         Try
             If Val(stockinicialtextbox.Text) > 0 Then
@@ -801,12 +828,27 @@ Public Class ABMProductos
                         MsgBox("Producto agregado correctamente!", MsgBoxStyle.Information, "Mensaje")
                     End If
                 Catch ex As Exception
-                    MsgBox("Ocurrioun error al insertar el stock inicial: " + ex.Message)
+                    MsgBox("Ocurrió un error al insertar el stock inicial: " + ex.Message)
                 End Try
             End If
         Catch ex As Exception
 
         End Try
+        '/*******************************************************************/
+        '/*******************   insertar PROVEEDOR ***************************/
+        '/*******************************************************************/
+        Try
+            If idproveedor >= 0 Then
+                Try
+                    AsignarProveedor(idproveedor)
+                Catch ex As Exception
+                    MsgBox("Ocurrió un error al insertar el stock inicial: " + ex.Message)
+                End Try
+            End If
+        Catch ex As Exception
+
+        End Try
+        '/*******************************************************************/
         '/*******************************************************************/
         'enableedit(False)
         'stockinicialtextbox.Enabled = False
@@ -950,5 +992,58 @@ Public Class ABMProductos
 
     Private Sub ProductosDataGridView_BindingContextChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.BindingContextChanged
 
+    End Sub
+
+    Private Sub ProductosDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.SelectionChanged
+        SetProveedor()
+
+    End Sub
+    Private Sub SetProveedor()
+        Try
+            Dim idproveedor As Long
+            idproveedor = ProductosTableAdapter.productos_getidproveedor(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells("idproducto").Value)
+            If idproveedor > 0 Then
+                ComboProveedores.SelectedValue = idproveedor
+            Else
+                ComboProveedores.SelectedIndex = -1
+            End If
+        Catch ex As Exception
+            ComboProveedores.SelectedIndex = -1
+            'MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub AsignarProveedor(ByRef idproveedor As Long)
+        Try
+            gidproveedor = idproveedor
+            Dim ProductosproveedoresTableAdapter As New comercialDataSetTableAdapters.productosproveedoresTableAdapter()
+            Dim existe As Long
+            existe = ProductosproveedoresTableAdapter.productosproveedores_existe(IdproductoTextBox.Text)
+            If Not existe = 0 Then
+                If MsgBox("Seguro desea actualizar este producto?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                    Try
+                        If ProductosproveedoresTableAdapter.productosproveedores_update(gidproveedor, PreciocostoTextBox.Text, Nothing, Nothing, Nothing, Nothing, IdproductoTextBox.Text) Then
+                            'MsgBox("Operación exitosa", MsgBoxStyle.Information, "Aviso")
+                            'Me.Close()
+                        End If
+                    Catch ex As Exception
+                        MsgBox("No se pudo completar la acción: AsignarProveedor " + ex.Message)
+                        Return
+                    End Try
+                End If
+            Else
+                'If MsgBox("Seguro desea vincular este producto?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                Try
+                    If ProductosproveedoresTableAdapter.productosproveedores_insertar(IdproductoTextBox.Text, gidproveedor, PreciocostoTextBox.Text, Nothing, Nothing, Nothing, Nothing) Then
+                        'MsgBox("Operación exitosa", MsgBoxStyle.Information, "Aviso")
+                        'Me.Close()
+                    End If
+                Catch ex As Exception
+                    MsgBox("No se pudo completar la acción: AsignarProveedor " + ex.Message)
+                End Try
+                'End If
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

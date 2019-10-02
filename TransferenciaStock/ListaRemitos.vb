@@ -10,6 +10,13 @@
 
     Private Sub ListaRemitos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ListaremitosTableAdapter.Fill(Me.ComercialDataSet.listaremitos)
+        Try
+            Dim newColumn As DataGridViewColumn = ListaremitosDataGridView.Columns(0)
+            ListaremitosDataGridView.Rows(0).Cells(0).Selected = True
+            ListaremitosDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub ListaremitosDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListaremitosDataGridView.CellClick
@@ -32,7 +39,7 @@
             p.ShowDialog()
             gidremito = Nothing
         Catch ex As Exception
-            MsgBox("Ocurrio el siguiente error: " + ex.Message)
+            'MsgBox("Ocurrio el siguiente error: " + ex.Message)
             gidremito = Nothing
         End Try
 

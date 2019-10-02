@@ -56,22 +56,18 @@ Public Class Principal
         hi.ProgressBar.PerformStep()
         hi.Refresh()
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
-        EjecutarAlertas()
+        If Not BGWAlertas.IsBusy Then
+            BGWAlertas.RunWorkerAsync()
+        End If
         '================= BACKGROUND WORKERS   ==========================
-        'BGWClientes.RunWorkerAsync()
         If gModuloClowd = 1 Then
-            BackgroundSyncLibroventasClowd.RunWorkerAsync()
-            BGWStock.RunWorkerAsync()
-            BGWClientes.RunWorkerAsync()
+            'BackgroundSyncLibroventasClowd.RunWorkerAsync()
+            'BGWClientes.RunWorkerAsync()
+            'BGWStock.RunWorkerAsync()
         End If
         '======================================
         Cursor.Current = Cursors.Default
         hi.Dispose()
-        Dim elast As Char
-        elast = CajaseventosTableAdapter.cajaseventos_emailedlast()
-        If elast = "N" Then
-            ShowPopUp("Recuerda enviar el ultimo CIERRE DE CAJA!", 400)
-        End If
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================
@@ -234,30 +230,38 @@ Public Class Principal
         End If
         '=========== SETEO ALERTA - LAS ALERTAS ESTAN APAGADAS
         If DataGridViewStockAlerta.RowCount > 0 Then
-            If Alerta1ToolStripMenuItem.Text = "Alerta1" Then
-                Alerta1ToolStripMenuItem.Visible = True
-                NotificacionesToolStripMenuItem.Visible = True
-                Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!"
-                Return
-            End If
-            If Alerta2ToolStripMenuItem.Text = "Alerta2" Then
-                NotificacionesToolStripMenuItem.Visible = True
-                Alerta2ToolStripMenuItem.Visible = True
-                Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!"
-                Return
-            End If
+            Try
+                If Alerta1ToolStripMenuItem.Text = "Alerta1" Then
+                    Alerta1ToolStripMenuItem.Visible = True
+                    NotificacionesToolStripMenuItem.Visible = True
+                    Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!"
+                    Return
+                End If
+                If Alerta2ToolStripMenuItem.Text = "Alerta2" Then
+                    NotificacionesToolStripMenuItem.Visible = True
+                    Alerta2ToolStripMenuItem.Visible = True
+                    Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!"
+                    Return
+                End If
+            Catch ex As Exception
+
+            End Try
+
         Else
-            If Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
-                Alerta1ToolStripMenuItem.Text = "Alerta1"
-                Alerta1ToolStripMenuItem.Visible = True
-                Return
-            End If
-            If Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
-                Alerta2ToolStripMenuItem.Text = "Alerta2"
-                Alerta2ToolStripMenuItem.Visible = True
-                Return
-            End If
-            'NotificacionesToolStripMenuItem.Visible = False
+            Try
+                If Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
+                    Alerta1ToolStripMenuItem.Text = "Alerta1"
+                    Alerta1ToolStripMenuItem.Visible = True
+                    Return
+                End If
+                If Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
+                    Alerta2ToolStripMenuItem.Text = "Alerta2"
+                    Alerta2ToolStripMenuItem.Visible = True
+                    Return
+                End If
+            Catch ex As Exception
+
+            End Try
         End If
     End Sub
     Public Sub AlertaCuentasCorrientes()
@@ -1263,6 +1267,15 @@ Public Class Principal
 
         '*******************************************************************************
         'SynStockGeneral(coderror, msgerror)
+    End Sub
+
+    Private Sub BGWAlertas_DoWork_1(sender As Object, e As DoWorkEventArgs) Handles BGWAlertas.DoWork
+        EjecutarAlertas()
+        Dim elast As Char
+        elast = CajaseventosTableAdapter.cajaseventos_emailedlast()
+        If elast = "N" Then
+            ShowPopUp("Recuerda enviar el ultimo CIERRE DE CAJA!", 400)
+        End If
     End Sub
     'Private Sub PrivateDownloadSGC()
 

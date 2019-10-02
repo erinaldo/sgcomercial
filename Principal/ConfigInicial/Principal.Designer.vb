@@ -207,6 +207,7 @@ Partial Class Principal
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
+        Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1632,6 +1633,9 @@ Partial Class Principal
         'BGWClientes
         '
         '
+        'BGWAlertas
+        '
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1863,4 +1867,5 @@ Partial Class Principal
     Friend WithEvents SalonesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OrdenesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BGWClientes As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BGWAlertas As System.ComponentModel.BackgroundWorker
 End Class

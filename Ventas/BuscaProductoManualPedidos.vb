@@ -61,8 +61,7 @@ Public Class BuscaProductoManualPedidos
                     gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
                     ProductosDataGridView.Rows(0).Selected = True
                     Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
-                    textboxEnvasado.Text = StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
-                    textboxUnidades.Text = StockTableAdapter.stock_consultardisponible(idproducto)
+                    ConsultarStockDisponible()
                     'cantidadtextbox.Select()
                 Else
                     gcodigoproducto = Nothing
@@ -82,8 +81,7 @@ Public Class BuscaProductoManualPedidos
                     ProductosDataGridView.Rows(0).Selected = True
                     'cantidadtextbox.Select()
                     Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
-                    textboxEnvasado.Text = StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
-                    textboxUnidades.Text = StockTableAdapter.stock_consultardisponible(idproducto)
+                    ConsultarStockDisponible()
                 Else
                     gcodigoproducto = Nothing
                     gprecioventa = Nothing
@@ -113,8 +111,7 @@ Public Class BuscaProductoManualPedidos
             cantidadtextbox.Text = Nothing
             montotextbox.Text = Nothing
             Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
-            textboxEnvasado.Text = StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
-            textboxUnidades.Text = StockTableAdapter.stock_consultardisponible(idproducto)
+            ConsultarStockDisponible()
             calculapreciolista()
         Catch ex As Exception
             ' MsgBox("LISTA VACIA" + ex.Message, MsgBoxStyle.Exclamation, "Advertencia")
@@ -402,12 +399,16 @@ Public Class BuscaProductoManualPedidos
     Private Sub ProductosDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.SelectionChanged
         Try
             CallClick()
-            textboxEnvasado.Text = StockTableAdapter.stock_consultardisponibleenvasado(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells(0).Value)
-            textboxUnidades.Text = StockTableAdapter.stock_consultardisponible(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells(0).Value)
+            ConsultarStockDisponible()
         Catch ex As Exception
 
         End Try
 
+    End Sub
+    Private Sub ConsultarStockDisponible()
+        Dim StockgeneralTableAdapter As New comercialDataSetTableAdapters.stockgeneralTableAdapter()
+        textboxEnvasado.Text = StockgeneralTableAdapter.stockgeneral_consultardisponible(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells("idproducto").Value)
+        textboxUnidades.Text = StockgeneralTableAdapter.stockgeneral_consultardisponible(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells("idproducto").Value)
     End Sub
 
     Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
