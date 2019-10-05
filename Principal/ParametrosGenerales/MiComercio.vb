@@ -95,6 +95,8 @@ Public Class MiComercio
         If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
             ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("FEAutoCAEAFIP", Nothing, ComboFEAutoCAEAFIP.Text, Nothing)
         End If
+        '***************    ValidarDatosNuevosClientes   ******************************************
+        ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("ValDatosNuevosClientes", Nothing, ComboValDatosNuevosClientes.Text, Nothing)
         '***************    -----------     FIN     ------------  ******************************************
     End Sub
 
@@ -193,6 +195,12 @@ Public Class MiComercio
         Else
             GroupBoxFEAFIP.Enabled = False
         End If
+        '**********
+        '********** ValidarDatosClientesNuevos
+        Dim v_valdatosnuevosclientes As String
+        v_valdatosnuevosclientes = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ValDatosNuevosClientes")
+        ComboValDatosNuevosClientes.Text = v_valdatosnuevosclientes
+        '**********
         '**********
         textnombrecomercio.Select()
     End Sub

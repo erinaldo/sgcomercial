@@ -4,7 +4,8 @@ Public Class CtasCtesPagar
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.
         Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.formaspago' Puede moverla o quitarla según sea necesario.
-        Me.FormaspagoTableAdapter.FillByPagosaCC(Me.ComercialDataSet.formaspago)
+        'Me.FormaspagoTableAdapter.FillByPagosaCC(Me.ComercialDataSet.formaspago)
+        Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocomprobantes' Puede moverla o quitarla según sea necesario.
         Me.TipocomprobantesTableAdapter.Fill(Me.ComercialDataSet.tipocomprobantes)
 

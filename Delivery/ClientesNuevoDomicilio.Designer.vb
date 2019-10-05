@@ -173,7 +173,9 @@ Partial Class ClientesNuevoDomicilio
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -183,7 +185,11 @@ Partial Class ClientesNuevoDomicilio
         Me.TableAdapterManager.localidadesTableAdapter = Me.LocalidadesTableAdapter
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -203,12 +209,18 @@ Partial Class ClientesNuevoDomicilio
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -243,7 +255,7 @@ Partial Class ClientesNuevoDomicilio
         Me.ClientesdomiciliosBindingNavigator.MovePreviousItem = Nothing
         Me.ClientesdomiciliosBindingNavigator.Name = "ClientesdomiciliosBindingNavigator"
         Me.ClientesdomiciliosBindingNavigator.PositionItem = Nothing
-        Me.ClientesdomiciliosBindingNavigator.Size = New System.Drawing.Size(470, 27)
+        Me.ClientesdomiciliosBindingNavigator.Size = New System.Drawing.Size(551, 27)
         Me.ClientesdomiciliosBindingNavigator.TabIndex = 0
         Me.ClientesdomiciliosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -307,7 +319,7 @@ Partial Class ClientesNuevoDomicilio
         Me.IdclienteTextBox.Enabled = False
         Me.IdclienteTextBox.Location = New System.Drawing.Point(171, 47)
         Me.IdclienteTextBox.Name = "IdclienteTextBox"
-        Me.IdclienteTextBox.Size = New System.Drawing.Size(56, 22)
+        Me.IdclienteTextBox.Size = New System.Drawing.Size(75, 22)
         Me.IdclienteTextBox.TabIndex = 0
         Me.IdclienteTextBox.TabStop = False
         '
@@ -316,7 +328,7 @@ Partial Class ClientesNuevoDomicilio
         Me.DireccionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesdomiciliosBindingSource, "direccion", True))
         Me.DireccionTextBox.Location = New System.Drawing.Point(171, 75)
         Me.DireccionTextBox.Name = "DireccionTextBox"
-        Me.DireccionTextBox.Size = New System.Drawing.Size(240, 22)
+        Me.DireccionTextBox.Size = New System.Drawing.Size(345, 22)
         Me.DireccionTextBox.TabIndex = 1
         '
         'ReferenciasTextBox
@@ -324,7 +336,7 @@ Partial Class ClientesNuevoDomicilio
         Me.ReferenciasTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesdomiciliosBindingSource, "referencias", True))
         Me.ReferenciasTextBox.Location = New System.Drawing.Point(171, 103)
         Me.ReferenciasTextBox.Name = "ReferenciasTextBox"
-        Me.ReferenciasTextBox.Size = New System.Drawing.Size(240, 22)
+        Me.ReferenciasTextBox.Size = New System.Drawing.Size(345, 22)
         Me.ReferenciasTextBox.TabIndex = 2
         '
         'CpTextBox
@@ -387,7 +399,7 @@ Partial Class ClientesNuevoDomicilio
         Me.BindingNavigator1.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Me.BindingNavigatorPositionItem
-        Me.BindingNavigator1.Size = New System.Drawing.Size(470, 27)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(551, 27)
         Me.BindingNavigator1.TabIndex = 17
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
@@ -462,7 +474,7 @@ Partial Class ClientesNuevoDomicilio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(470, 262)
+        Me.ClientSize = New System.Drawing.Size(551, 262)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.ComboBox1)
@@ -484,7 +496,8 @@ Partial Class ClientesNuevoDomicilio
         Me.MinimizeBox = False
         Me.Name = "ClientesNuevoDomicilio"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ClientesNuevoDomicilio"
+        Me.Tag = "ClientesNuevoDomicilio"
+        Me.Text = "Edición / Modificación de Domicilio"
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesdomiciliosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesdomiciliosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()

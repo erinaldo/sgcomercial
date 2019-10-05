@@ -177,8 +177,7 @@ Public Class loginform
     End Sub
 
     Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        gPublicDocumentsPath = Environment.GetFolderPath(System.Environment.SpecialFolder.CommonDocuments)
-
+        LoadDefaultDir()
         Dim hi As LoadingForm
         hi = New LoadingForm
         hi.Show()
@@ -298,6 +297,7 @@ Public Class loginform
         End If
         '====================   WEB CONFIG ==================
         If (e.KeyCode = Keys.K AndAlso e.Control AndAlso e.Shift) Then
+            LabelClowdInfo.Visible = True
             Dim su As SUAuth
             su = New SUAuth
             gSUToken = Nothing
@@ -310,6 +310,7 @@ Public Class loginform
                 Me.loginform_Load(e, e)
                 Me.Show()
             End If
+            LabelClowdInfo.Visible = False
         End If
 
         'If (e.KeyCode = Keys.L AndAlso e.Modifiers = Keys.Control) Then
@@ -477,17 +478,20 @@ Public Class loginform
     End Sub
     Sub BuscarActualizaciones()
         If UpdateAlertStatus = False Then Return
+
         Try
             '**********************************************
+            gSystemDrive = Environment.GetEnvironmentVariable("SystemDrive")
+            '**********************************************
             Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
-                IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
+                IO.Directory.Delete(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\", True)
             Catch ex As Exception
 
             End Try
             '**********************************************
             ' SI NO EXISTE LA CREA
-            If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
-                System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
+            If (Not System.IO.Directory.Exists(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\")) Then
+                System.IO.Directory.CreateDirectory(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\")
             End If
         Catch ex As Exception
             Cursor.Current = Cursors.Default
@@ -510,7 +514,7 @@ Public Class loginform
         xi.Show()
         'Try
         Try
-            FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.rar")
+            FileSystem.Kill(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\*.rar")
         Catch ex As Exception
 
         End Try
@@ -523,5 +527,9 @@ Public Class loginform
         If GFEAFIPENTORNO = "DESACTIVADO" Or GFEAFIPENTORNO = "" Then
             ShowPopUp("Hay algo que nos gustaría contarte! (click aquí)", 300)
         End If
+    End Sub
+
+    Private Sub UpdateAlert_DoubleClick(sender As Object, e As EventArgs) Handles UpdateAlert.DoubleClick
+        Return
     End Sub
 End Class

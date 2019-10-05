@@ -23,6 +23,7 @@ Module SGCModule
     '************************************************
     'Public StrSysCurrentVersion As String
     'Public SysCurrentVersion As Long
+    Public gSystemDrive As String
     Public GHDSN As String
     Public GMBSN As String
     Public EmailTo As String
@@ -116,6 +117,11 @@ Module SGCModule
     '**************************
     Public gFechaDesde As Date
     Public gFechaHasta As Date
+    '**************************
+    Public gUltimoProdBuscado As String
+    Public gUltimoCodBuscado As String
+    '**************************'**************************'**************************'**************************
+    '**************************'**************************'**************************'**************************
     '*******************************    GLOBAL FUNCTIONS        *********************************
     '***************************    NormalizarCodigo    ***************************************************
     ' convierte un codigo numerico de longitud menor a 12 caracteres a un codigo de longitud 13 (digito verificador incluido)

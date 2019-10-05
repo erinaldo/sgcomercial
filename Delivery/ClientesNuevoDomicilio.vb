@@ -21,10 +21,14 @@
             DireccionTextBox.Enabled = False
             ReferenciasTextBox.Enabled = False
             CpTextBox.Enabled = False
+            ComboBox1.Enabled = False
+            ComboBox2.Enabled = False
         Else
             DireccionTextBox.Enabled = True
             ReferenciasTextBox.Enabled = True
             CpTextBox.Enabled = True
+            ComboBox1.Enabled = True
+            ComboBox2.Enabled = True
         End If
 
     End Sub

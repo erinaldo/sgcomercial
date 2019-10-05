@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.ComponentModel
+Imports System.Text.RegularExpressions
 Public Class BuscaProductoManualPedidos
     Dim ValidarSTK As String
 
@@ -12,14 +13,14 @@ Public Class BuscaProductoManualPedidos
     Private Sub BuscaProductoManual_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.parametrosgenerales' Puede moverla o quitarla según sea necesario.
-            Me.ParametrosgeneralesTableAdapter.Fill(Me.ComercialDataSet.parametrosgenerales)
+            'Me.ParametrosgeneralesTableAdapter.Fill(Me.ComercialDataSet.parametrosgenerales)
             'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
             'Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
+
+
             Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
-            'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listaproductos' Puede moverla o quitarla según sea necesario.
             Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
-            'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-            Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+            'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
             ProductosDataGridView.Rows(0).Selected = False
 
             ComboBox1.SelectedIndex = 1
@@ -44,6 +45,8 @@ Public Class BuscaProductoManualPedidos
             Me.Close()
         End Try
         montotextbox.Enabled = True
+        CargaUltimaBusqueda()
+        'MsgBox(Environment.GetEnvironmentVariable("SystemDrive"))
     End Sub
 
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
@@ -61,8 +64,7 @@ Public Class BuscaProductoManualPedidos
                     gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
                     ProductosDataGridView.Rows(0).Selected = True
                     Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
-                    ConsultarStockDisponible()
-                    'cantidadtextbox.Select()
+
                 Else
                     gcodigoproducto = Nothing
                     gprecioventa = Nothing
@@ -81,7 +83,7 @@ Public Class BuscaProductoManualPedidos
                     ProductosDataGridView.Rows(0).Selected = True
                     'cantidadtextbox.Select()
                     Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
-                    ConsultarStockDisponible()
+
                 Else
                     gcodigoproducto = Nothing
                     gprecioventa = Nothing
@@ -104,13 +106,9 @@ Public Class BuscaProductoManualPedidos
     Sub CallClick()
         Try
             gcodigoproducto = ProductosDataGridView.CurrentRow.Cells(0).Value
-            gprecioventa = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
-            precioventatextbox.Text = gprecioventa
             gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
-            'ComboBox1.SelectedIndex = 1
             cantidadtextbox.Text = Nothing
             montotextbox.Text = Nothing
-            Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
             ConsultarStockDisponible()
             calculapreciolista()
         Catch ex As Exception
@@ -397,12 +395,12 @@ Public Class BuscaProductoManualPedidos
     End Sub
 
     Private Sub ProductosDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.SelectionChanged
-        Try
-            CallClick()
-            ConsultarStockDisponible()
-        Catch ex As Exception
+        '********* comentado temporalmente
+        'Try
+        '    CallClick()
+        'Catch ex As Exception
 
-        End Try
+        'End Try
 
     End Sub
     Private Sub ConsultarStockDisponible()
@@ -450,5 +448,29 @@ Public Class BuscaProductoManualPedidos
 
     Private Sub ProductosDataGridView_Layout(sender As Object, e As LayoutEventArgs) Handles ProductosDataGridView.Layout
 
+    End Sub
+
+    Private Sub BuscaProductoManualPedidos_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        GuardaUltimaBusqueda()
+    End Sub
+    Public Sub GuardaUltimaBusqueda()
+        Select Case ComboBox1.Text
+            Case "Código"
+                gUltimoProdBuscado = Nothing
+                gUltimoCodBuscado = TextBox1.Text
+            Case "Descripción"
+                gUltimoProdBuscado = TextBox1.Text
+                gUltimoCodBuscado = Nothing
+        End Select
+    End Sub
+    Public Sub CargaUltimaBusqueda()
+        If Len(gUltimoCodBuscado) > 0 Then
+            ComboBox1.SelectedIndex = 0
+            TextBox1.Text = gUltimoCodBuscado
+        End If
+        If Len(gUltimoProdBuscado) > 0 Then
+            ComboBox1.SelectedIndex = 1
+            TextBox1.Text = gUltimoProdBuscado
+        End If
     End Sub
 End Class

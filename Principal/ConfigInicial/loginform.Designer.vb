@@ -387,6 +387,7 @@ Partial Class loginform
         Me.LabelClowdInfo.TabIndex = 16
         Me.LabelClowdInfo.Text = "................................"
         Me.LabelClowdInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelClowdInfo.Visible = False
         '
         'BGWFELoad
         '

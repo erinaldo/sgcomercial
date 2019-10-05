@@ -82,6 +82,8 @@ Partial Class MiComercio
         Me.ComboModPV = New System.Windows.Forms.ComboBox()
         Me.GroupBoxFEAFIP = New System.Windows.Forms.GroupBox()
         Me.ComboFEAutoCAEAFIP = New System.Windows.Forms.ComboBox()
+        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.ComboValDatosNuevosClientes = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,6 +102,7 @@ Partial Class MiComercio
         Me.GroupBox10.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
         Me.GroupBoxFEAFIP.SuspendLayout()
+        Me.GroupBox12.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -343,7 +346,9 @@ Partial Class MiComercio
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -353,8 +358,11 @@ Partial Class MiComercio
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Me.ParametrosgeneralesTableAdapter
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -374,6 +382,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -613,7 +622,7 @@ Partial Class MiComercio
         Me.GroupBox9.Controls.Add(Me.Label8)
         Me.GroupBox9.Location = New System.Drawing.Point(9, 476)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(657, 65)
+        Me.GroupBox9.Size = New System.Drawing.Size(657, 77)
         Me.GroupBox9.TabIndex = 9
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "E-Mail Automatico al cerrar la Caja"
@@ -677,7 +686,7 @@ Partial Class MiComercio
         'GroupBoxFEAFIP
         '
         Me.GroupBoxFEAFIP.Controls.Add(Me.ComboFEAutoCAEAFIP)
-        Me.GroupBoxFEAFIP.Location = New System.Drawing.Point(9, 547)
+        Me.GroupBoxFEAFIP.Location = New System.Drawing.Point(9, 559)
         Me.GroupBoxFEAFIP.Name = "GroupBoxFEAFIP"
         Me.GroupBoxFEAFIP.Size = New System.Drawing.Size(657, 68)
         Me.GroupBoxFEAFIP.TabIndex = 12
@@ -694,11 +703,32 @@ Partial Class MiComercio
         Me.ComboFEAutoCAEAFIP.Size = New System.Drawing.Size(207, 24)
         Me.ComboFEAutoCAEAFIP.TabIndex = 2
         '
+        'GroupBox12
+        '
+        Me.GroupBox12.Controls.Add(Me.ComboValDatosNuevosClientes)
+        Me.GroupBox12.Location = New System.Drawing.Point(674, 559)
+        Me.GroupBox12.Name = "GroupBox12"
+        Me.GroupBox12.Size = New System.Drawing.Size(457, 68)
+        Me.GroupBox12.TabIndex = 13
+        Me.GroupBox12.TabStop = False
+        Me.GroupBox12.Text = "Validar Datos al cargar Clientes Nuevos"
+        '
+        'ComboValDatosNuevosClientes
+        '
+        Me.ComboValDatosNuevosClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboValDatosNuevosClientes.FormattingEnabled = True
+        Me.ComboValDatosNuevosClientes.Items.AddRange(New Object() {"SI", "NO"})
+        Me.ComboValDatosNuevosClientes.Location = New System.Drawing.Point(168, 28)
+        Me.ComboValDatosNuevosClientes.Name = "ComboValDatosNuevosClientes"
+        Me.ComboValDatosNuevosClientes.Size = New System.Drawing.Size(121, 24)
+        Me.ComboValDatosNuevosClientes.TabIndex = 0
+        '
         'MiComercio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1141, 622)
+        Me.ClientSize = New System.Drawing.Size(1141, 640)
+        Me.Controls.Add(Me.GroupBox12)
         Me.Controls.Add(Me.GroupBoxFEAFIP)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox10)
@@ -745,6 +775,7 @@ Partial Class MiComercio
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBoxFEAFIP.ResumeLayout(False)
+        Me.GroupBox12.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -808,4 +839,6 @@ Partial Class MiComercio
     Friend WithEvents ComboFEAutoCAEAFIP As ComboBox
     Friend WithEvents TextRazonSocial As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents GroupBox12 As GroupBox
+    Friend WithEvents ComboValDatosNuevosClientes As ComboBox
 End Class

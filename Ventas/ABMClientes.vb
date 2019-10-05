@@ -1,6 +1,7 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class ABMClientes
     Dim autoclose As Boolean = False
+    Dim v_valdatosnuevosclientes As String
     Public Sub enablefields(ByVal status As Boolean)
         NombreTextBox.Enabled = status
         CUITTextBox.Enabled = status
@@ -13,13 +14,36 @@ Public Class ABMClientes
         ComboDocTipo.Enabled = status
         'DireccionTextBox.Enabled = status
     End Sub
-
-
-    Private Sub ClientesBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClientesBindingNavigatorSaveItem.Click
+    Private Function ValidarCargaDatosCliente() As Boolean
+        Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        '********** ValidarDatosClientesNuevos
+        v_valdatosnuevosclientes = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ValDatosNuevosClientes")
+        '********** 
+        If Len(Trim(NombreTextBox.Text)) = 0 Then ' 
+            MessageBox.Show("Ingrese Nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+        End If
+        '*****************************************************
         If ComboDocTipo.SelectedValue = Nothing Then
             MessageBox.Show("Seleccione un tipo de documento válido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return
+            Return False
         End If
+        '*****************************************************
+        If Len(Trim(CUITTextBox.Text)) = 0 And v_valdatosnuevosclientes = "SI" Then ' If ComboDocTipo.SelectedValue = Nothing Then
+            MessageBox.Show("Ingrese CUIT", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+        End If
+        '*****************************************************
+        If ComboCondicionIVA.SelectedValue = Nothing And v_valdatosnuevosclientes = "SI" Then
+            MessageBox.Show("Seleccione un tipo de Condición Frente al IVA", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+        End If
+        '************************************
+        Return True
+    End Function
+
+    Private Sub ClientesBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClientesBindingNavigatorSaveItem.Click
+        If ValidarCargaDatosCliente() = False Then Return
         If MsgBox("Seguro desea guardar los cambios realizados?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
             Try
                 Me.Validate()
@@ -42,14 +66,15 @@ Public Class ABMClientes
     End Sub
 
     Private Sub ABMClientes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        '********** 
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipodocumentos' Puede moverla o quitarla según sea necesario.
         Me.TipodocumentosTableAdapter.Fill(Me.ComercialDataSet.tipodocumentos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.provincias' Puede moverla o quitarla según sea necesario.
         Me.ProvinciasTableAdapter.Fill(Me.ComercialDataSet.provincias)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocondicioniva' Puede moverla o quitarla según sea necesario.
         Me.TipocondicionivaTableAdapter.Fill(Me.ComercialDataSet.tipocondicioniva)
-
-
+        '********** 
         Me.ClientesTableAdapter.FillByClientesTodos(Me.ComercialDataSet.clientes)
         enablefields(False)
         If gclienteseleccionado = -1 Then

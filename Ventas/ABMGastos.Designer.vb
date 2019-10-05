@@ -27,6 +27,7 @@ Partial Class ABMGastos
         Dim MontoLabel As System.Windows.Forms.Label
         Dim FechagastoLabel As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMGastos))
         Me.CajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -67,10 +68,14 @@ Partial Class ABMGastos
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.TipogastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipogastosTableAdapter()
+        Me.ComboTipoComprobante = New System.Windows.Forms.ComboBox()
+        Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TipocomprobantesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocomprobantesTableAdapter()
         DescripcionLabel = New System.Windows.Forms.Label()
         MontoLabel = New System.Windows.Forms.Label()
         FechagastoLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,6 +88,7 @@ Partial Class ABMGastos
         Me.GroupBox1.SuspendLayout()
         CType(Me.TipogastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DescripcionLabel
@@ -288,11 +294,13 @@ Partial Class ABMGastos
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.ComboTipoComprobante)
         Me.GroupBox1.Controls.Add(Me.ComboTipoGasto)
         Me.GroupBox1.Controls.Add(DescripcionLabel)
         Me.GroupBox1.Controls.Add(Me.DescripcionTextBox)
         Me.GroupBox1.Controls.Add(MontoLabel)
         Me.GroupBox1.Controls.Add(Me.MontoTextBox)
+        Me.GroupBox1.Controls.Add(Label2)
         Me.GroupBox1.Controls.Add(Label1)
         Me.GroupBox1.Controls.Add(FechagastoLabel)
         Me.GroupBox1.Controls.Add(Me.FechagastoDateTimePicker)
@@ -412,7 +420,9 @@ Partial Class ABMGastos
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -422,7 +432,11 @@ Partial Class ABMGastos
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -442,12 +456,16 @@ Partial Class ABMGastos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
         Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
@@ -464,6 +482,37 @@ Partial Class ABMGastos
         'TipogastosTableAdapter
         '
         Me.TipogastosTableAdapter.ClearBeforeFill = True
+        '
+        'Label2
+        '
+        Label2.AutoSize = True
+        Label2.Location = New System.Drawing.Point(32, 178)
+        Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New System.Drawing.Size(129, 17)
+        Label2.TabIndex = 25
+        Label2.Text = "Tipo Comprobante:"
+        '
+        'ComboTipoComprobante
+        '
+        Me.ComboTipoComprobante.DataSource = Me.TipocomprobantesBindingSource
+        Me.ComboTipoComprobante.DisplayMember = "descripcion"
+        Me.ComboTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboTipoComprobante.FormattingEnabled = True
+        Me.ComboTipoComprobante.Location = New System.Drawing.Point(166, 174)
+        Me.ComboTipoComprobante.Name = "ComboTipoComprobante"
+        Me.ComboTipoComprobante.Size = New System.Drawing.Size(351, 24)
+        Me.ComboTipoComprobante.TabIndex = 28
+        Me.ComboTipoComprobante.ValueMember = "idtipocomprobante"
+        '
+        'TipocomprobantesBindingSource
+        '
+        Me.TipocomprobantesBindingSource.DataMember = "tipocomprobantes"
+        Me.TipocomprobantesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'TipocomprobantesTableAdapter
+        '
+        Me.TipocomprobantesTableAdapter.ClearBeforeFill = True
         '
         'ABMGastos
         '
@@ -497,6 +546,7 @@ Partial Class ABMGastos
         Me.GroupBox1.PerformLayout()
         CType(Me.TipogastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -539,4 +589,7 @@ Partial Class ABMGastos
     Friend WithEvents ComboTipoGasto As ComboBox
     Friend WithEvents TipogastosBindingSource As BindingSource
     Friend WithEvents TipogastosTableAdapter As comercialDataSetTableAdapters.tipogastosTableAdapter
+    Friend WithEvents ComboTipoComprobante As ComboBox
+    Friend WithEvents TipocomprobantesBindingSource As BindingSource
+    Friend WithEvents TipocomprobantesTableAdapter As comercialDataSetTableAdapters.tipocomprobantesTableAdapter
 End Class

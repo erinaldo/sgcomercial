@@ -4,27 +4,23 @@ Public Class AltaPedidoDelivery
     Dim productodisponibleenvasado As Decimal
     Dim v_precioventa As Decimal
     Dim rtn As Boolean
+    Dim v_valdatosnuevosclientes As String
 
     Private Sub AltaPedido_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.unidadesmedida' Puede moverla o quitarla según sea necesario.
+        Me.TipocondicionivaTableAdapter.Fill(Me.ComercialDataSet.tipocondicioniva)
+        Me.TipodocumentosTableAdapter.Fill(Me.ComercialDataSet.tipodocumentos)
         Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet.unidadesmedida)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
-        'Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
         Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
-        Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.transportes' Puede moverla o quitarla según sea necesario.
         Me.TransportesTableAdapter.Fill(Me.ComercialDataSet.transportes)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.localidades' Puede moverla o quitarla según sea necesario.
         Me.LocalidadesTableAdapter.Fill(Me.ComercialDataSet.localidades)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.provincias' Puede moverla o quitarla según sea necesario.
         Me.ProvinciasTableAdapter.Fill(Me.ComercialDataSet.provincias)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.clientesdomicilios' Puede moverla o quitarla según sea necesario.
-        Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.clientes' Puede moverla o quitarla según sea necesario.
-        Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
+        'Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
+        'Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
+        'Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
+        'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+        'Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
+
+
         ClientesBindingSource.Filter = "idcliente = 0"
         ClientesdomiciliosBindingSource.Filter = "idcliente = 0"
         LabelTotal.Text = Nothing
@@ -45,6 +41,8 @@ Public Class AltaPedidoDelivery
         TextBoxDireccion.Enabled = status
         TextBoxReferencias.Enabled = status
         TextBoxCP.Enabled = status
+        ComboDocTipo.Enabled = status
+        ComboCondicionIVA.Enabled = status
         'ComboBoxTransporte.Enabled = status
     End Sub
 
@@ -95,12 +93,14 @@ Public Class AltaPedidoDelivery
             enableedit(True)
             TextBoxNombreCliente.Select()
             ComboBoxTransporte.SelectedIndex = 0
+            PictureBoxEditarCliente.Enabled = False
         Else
             IdclienteTextBox.Text = Nothing
             PictureBoxEditarDomicilios.Enabled = True
             PictureSeleccionarCliente.Enabled = True
             enableedit(False)
             ComboBoxTransporte.SelectedIndex = 0
+            PictureBoxEditarCliente.Enabled = True
         End If
     End Sub
 
@@ -233,6 +233,24 @@ Public Class AltaPedidoDelivery
             rtn = False
             Return
         End If
+        If Not ComboDocTipo.SelectedValue > 0 Then
+            MsgBox("Cargar Tipo Documento", MsgBoxStyle.Exclamation)
+            ComboDocTipo.Select()
+            rtn = False
+            Return
+        End If
+        If Len(Trim(TextBoxCuit.Text)) = 0 Then
+            MsgBox("Cargar DNI/CUIL/CUIT", MsgBoxStyle.Exclamation)
+            TextBoxCuit.Select()
+            rtn = False
+            Return
+        End If
+        If Not ComboCondicionIVA.SelectedValue > 0 Then
+            MsgBox("Cargar Condición IVA", MsgBoxStyle.Exclamation)
+            ComboCondicionIVA.Select()
+            rtn = False
+            Return
+        End If
         'If Len(Trim(TextBoxTelefono.Text)) = 0 Then
         '    MsgBox("Cargar Teléfono", MsgBoxStyle.Exclamation)
         '    TextBoxTelefono.Select()
@@ -307,18 +325,38 @@ Public Class AltaPedidoDelivery
         Dim nvocliente As Long
         Dim nvodomicilio As Long
         Dim nvopedido As Long
-        If CheckBoxNuevoCliente.Checked Then
+        Dim idtipodocumento As Long
+        Dim condicioniva As Long
+        If CheckBoxNuevoCliente.Checked Then '***** es NUEVO CLIENTE
             Try
-                nvocliente = ClientesTableAdapter.clientes_insertar(Nothing, TextBoxNombreCliente.Text, TextBoxTelefono.Text, TextBoxEmail.Text, TextBoxCuit.Text)
+                idtipodocumento = ComboDocTipo.SelectedValue
+                condicioniva = ComboCondicionIVA.SelectedValue
+                nvocliente = ClientesTableAdapter.clientes_insertar(Nothing, TextBoxNombreCliente.Text, TextBoxTelefono.Text, TextBoxEmail.Text, TextBoxCuit.Text, idtipodocumento, condicioniva)
                 nvodomicilio = ClientesdomiciliosTableAdapter.clientesdomicilios_insertar(nvocliente, TextBoxDireccion.Text, TextBoxReferencias.Text, Val(ComboBoxProvincia.SelectedValue), Val(ComboBoxLocalidad.SelectedValue), TextBoxCP.Text, Nothing)
+                '*************************
             Catch ex As Exception
                 MsgBox("Ocurrio un error al tratar de guardar los datos del nuevo cliente: " + ex.Message)
                 Return
             End Try
-        Else
+        Else '***** es VIEJO CLIENTE
             nvocliente = Val(IdclienteTextBox.Text)
             nvodomicilio = ClientesdomiciliosDataGridView.Rows(0).Cells(0).Value
         End If
+        '*****************************************
+        '********** ValidarDatosClientesNuevos
+        Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        v_valdatosnuevosclientes = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ValDatosNuevosClientes")
+        If v_valdatosnuevosclientes = "SI" Then
+            Dim strerror As New StrError()
+            strerror = ValidarDatosClienteAFIP(nvocliente)
+            If strerror.CodError > 1 Then
+                MessageBox.Show(strerror.MsgError, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                CheckBoxNuevoCliente.Checked = False
+                IdclienteTextBox.Text = nvocliente.ToString
+                Return
+            End If
+        End If
+        '********** END ValidarDatosClientesNuevos END
         '*****************************************  INSERTAR PEDIDODELIVERY ***************************************************************
         Try
             nvopedido = PedidosdeliveryTableAdapter.pedidosdelivery_insertar(nvocliente, Nothing, ComboBoxTransporte.SelectedValue, nvodomicilio, Convert.ToDecimal(TextBoxPagaCon.Text), Today, gusername, Nothing, Nothing, TextBoxObs.Text)
@@ -542,5 +580,36 @@ Public Class AltaPedidoDelivery
         Dim msgerror As String = ""
         'gMiSucursal = 1
         SynLibroVentas(coderror, msgerror)
+    End Sub
+
+    Private Sub ComboDocTipo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboDocTipo.SelectedIndexChanged
+        If ComboDocTipo.SelectedValue = Nothing Then Return
+        Try
+            If TextBoxNombreCliente.Enabled = True Then
+                Select Case ComboDocTipo.SelectedValue
+                    Case 3
+                        TextBoxCuit.Text = "0"
+                        TextBoxCuit.Enabled = False
+                    Case Else
+                        TextBoxCuit.Text = ""
+                        TextBoxCuit.Enabled = True
+                End Select
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub PictureBoxEditarCliente_Click(sender As Object, e As EventArgs) Handles PictureBoxEditarCliente.Click
+        Dim p As ABMClientes
+        p = New ABMClientes
+        gclienteseleccionado = Val(IdclienteTextBox.Text)
+        p.ShowDialog()
+        If gclienteseleccionado > 0 Then
+            Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
+            ClientesBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
+            Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
+            ClientesdomiciliosBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
+        End If
     End Sub
 End Class

@@ -173,5 +173,12 @@ Module SCModule
             LicenceValidDate = Nothing
         End Try
     End Sub
+    Public Sub LoadDefaultDir()
+        '**********************************************
+        gPublicDocumentsPath = Environment.GetFolderPath(System.Environment.SpecialFolder.CommonDocuments)
+        '**********************************************
+        gSystemDrive = Environment.GetEnvironmentVariable("SystemDrive")
+        '**********************************************
+    End Sub
     '******************************-----------------------------------------------------------------------------------*****************************
 End Module

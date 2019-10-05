@@ -112,11 +112,13 @@ Module MySQLModule
                     Dim telefono As String = Convert.ToString(clienteswebtable.Rows(i).Item(clienteswebtable.telefonoColumn), Nothing)
                     Dim email As String = Convert.ToString(clienteswebtable.Rows(i).Item(clienteswebtable.emailColumn), Nothing)
                     Dim idclientelocal As Long = 0
+                    Dim condicioniva As Long = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.condicionivaColumn), Nothing)
+                    Dim idtipodocumento As Long = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.idtipodocumentoColumn), Nothing)
                     Try
                         idclientelocal = clientestableadapter.clientes_existeclienteweb(idclienteweb)
                         '****     ins/upd  CLIENTE     **********
                         If idclientelocal = 0 Then ' el cliente no esta registrado localmente
-                            idclientelocal = clientestableadapter.clientes_insertar(idclienteweb, nombre, telefono, email, cuit)
+                            idclientelocal = clientestableadapter.clientes_insertar(idclienteweb, nombre, telefono, email, cuit, idtipodocumento, condicioniva)
                         Else ' ESTA REGISTRADO LOCALMENTE - ACTUALIZO LA INFORMACION
                             clientestableadapter.clientes_updateclientefromweb(nombre, cuit, telefono, email, idclienteweb)
                         End If

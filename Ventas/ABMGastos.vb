@@ -12,6 +12,7 @@ Public Class ABMGastos
         DescripcionTextBox.Enabled = status
         MontoTextBox.Enabled = status
         ComboTipoGasto.Enabled = status
+        ComboTipoComprobante.Enabled = status
         'FechagastoDateTimePicker.Enabled = status
     End Sub
 
@@ -23,6 +24,8 @@ Public Class ABMGastos
     End Sub
 
     Private Sub ABMGastos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocomprobantes' Puede moverla o quitarla según sea necesario.
+        Me.TipocomprobantesTableAdapter.FillByTIpoComprobantesGastos(Me.ComercialDataSet.tipocomprobantes)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipogastos' Puede moverla o quitarla según sea necesario.
         Me.TipogastosTableAdapter.Fill(Me.ComercialDataSet.tipogastos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
@@ -62,22 +65,36 @@ Public Class ABMGastos
             MsgBox("Debe cargar una Monto", MsgBoxStyle.Information, "Aviso")
             Return
         End If
+        If Not ComboTipoGasto.SelectedValue > 0 Then
+            MsgBox("Indique tipo de gasto", MsgBoxStyle.Information, "Aviso")
+            Return
+        End If
+        If Not ComboTipoComprobante.SelectedValue > 0 Then
+            MsgBox("Indique tipo de gasto", MsgBoxStyle.Information, "Aviso")
+            Return
+        End If
 
         Dim idgasto As Long
 
         If MsgBox("Seguro desea Guardar " + DescripcionTextBox.Text + " por un monto de: " + MontoTextBox.Text + " ?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-
+            Try
+                Dim monto As Decimal = MontoTextBox.Text 'CDbl(MontoTextBox.Text)
+                Dim tipogasto As Int16 = ComboTipoGasto.SelectedValue
+                Dim tipocomprobante As Int16 = ComboTipoComprobante.SelectedValue
+                idgasto = GastosTableAdapter.gastos_insertar(DescripcionTextBox.Text, monto, Now(), tipogasto, tipocomprobante)
+                'MsgBox(gusername)
+                CajasoperacionesTableAdapter.cajasoperaciones_insertargasto(idevento, 1, monto, idgasto, gusername)
+                ''*******************************************************
+                MsgBox("Gasto cargado exitosamente!", MsgBoxStyle.Information)
+                enablebuttons(False)
+                DescripcionTextBox.Text = ""
+                MontoTextBox.Text = ""
+                FechagastoDateTimePicker.Value = Today
+                ComboTipoGasto.SelectedIndex = -1
+            Catch ex As Exception
+                MsgBox("Ha ocurrido una excepción: " + ex.Message, MsgBoxStyle.Information, "Aviso")
+            End Try
             ''*******************************************************
-            idgasto = GastosTableAdapter.gastos_insertar(DescripcionTextBox.Text, CDbl(MontoTextBox.Text), Now(), ComboTipoGasto.SelectedValue)
-            'MsgBox(gusername)
-            CajasoperacionesTableAdapter.cajasoperaciones_insertargasto(idevento, 1, CDbl(MontoTextBox.Text), idgasto, gusername)
-            ''*******************************************************
-            MsgBox("Gasto cargado exitosamente!", MsgBoxStyle.Information)
-            enablebuttons(False)
-            DescripcionTextBox.Text = ""
-            MontoTextBox.Text = ""
-            FechagastoDateTimePicker.Value = Today
-            ComboTipoGasto.SelectedIndex = -1
         Else
             MsgBox("Operacion Cancelada", MsgBoxStyle.Information, "Aviso")
         End If
