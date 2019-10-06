@@ -55,6 +55,8 @@ Partial Class ABMGastos
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GastosBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboTipoComprobante = New System.Windows.Forms.ComboBox()
+        Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComboTipoGasto = New System.Windows.Forms.ComboBox()
         Me.TipogastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DescripcionTextBox = New System.Windows.Forms.TextBox()
@@ -68,8 +70,6 @@ Partial Class ABMGastos
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.TipogastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipogastosTableAdapter()
-        Me.ComboTipoComprobante = New System.Windows.Forms.ComboBox()
-        Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipocomprobantesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocomprobantesTableAdapter()
         DescripcionLabel = New System.Windows.Forms.Label()
         MontoLabel = New System.Windows.Forms.Label()
@@ -86,9 +86,9 @@ Partial Class ABMGastos
         CType(Me.GastosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GastosBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipogastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DescripcionLabel
@@ -130,6 +130,16 @@ Partial Class ABMGastos
         Label1.Size = New System.Drawing.Size(82, 17)
         Label1.TabIndex = 25
         Label1.Text = "Tipo Gasto:"
+        '
+        'Label2
+        '
+        Label2.AutoSize = True
+        Label2.Location = New System.Drawing.Point(32, 178)
+        Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New System.Drawing.Size(129, 17)
+        Label2.TabIndex = 25
+        Label2.Text = "Tipo Comprobante:"
         '
         'CajaseventosDataGridView
         '
@@ -311,6 +321,23 @@ Partial Class ABMGastos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Gasto"
         '
+        'ComboTipoComprobante
+        '
+        Me.ComboTipoComprobante.DataSource = Me.TipocomprobantesBindingSource
+        Me.ComboTipoComprobante.DisplayMember = "descripcion"
+        Me.ComboTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboTipoComprobante.FormattingEnabled = True
+        Me.ComboTipoComprobante.Location = New System.Drawing.Point(166, 174)
+        Me.ComboTipoComprobante.Name = "ComboTipoComprobante"
+        Me.ComboTipoComprobante.Size = New System.Drawing.Size(351, 24)
+        Me.ComboTipoComprobante.TabIndex = 28
+        Me.ComboTipoComprobante.ValueMember = "idtipocomprobante"
+        '
+        'TipocomprobantesBindingSource
+        '
+        Me.TipocomprobantesBindingSource.DataMember = "tipocomprobantes"
+        Me.TipocomprobantesBindingSource.DataSource = Me.ComercialDataSet
+        '
         'ComboTipoGasto
         '
         Me.ComboTipoGasto.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.GastosBindingSource1, "idtipogasto", True))
@@ -483,33 +510,6 @@ Partial Class ABMGastos
         '
         Me.TipogastosTableAdapter.ClearBeforeFill = True
         '
-        'Label2
-        '
-        Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(32, 178)
-        Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label2.Name = "Label2"
-        Label2.Size = New System.Drawing.Size(129, 17)
-        Label2.TabIndex = 25
-        Label2.Text = "Tipo Comprobante:"
-        '
-        'ComboTipoComprobante
-        '
-        Me.ComboTipoComprobante.DataSource = Me.TipocomprobantesBindingSource
-        Me.ComboTipoComprobante.DisplayMember = "descripcion"
-        Me.ComboTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboTipoComprobante.FormattingEnabled = True
-        Me.ComboTipoComprobante.Location = New System.Drawing.Point(166, 174)
-        Me.ComboTipoComprobante.Name = "ComboTipoComprobante"
-        Me.ComboTipoComprobante.Size = New System.Drawing.Size(351, 24)
-        Me.ComboTipoComprobante.TabIndex = 28
-        Me.ComboTipoComprobante.ValueMember = "idtipocomprobante"
-        '
-        'TipocomprobantesBindingSource
-        '
-        Me.TipocomprobantesBindingSource.DataMember = "tipocomprobantes"
-        Me.TipocomprobantesBindingSource.DataSource = Me.ComercialDataSet
-        '
         'TipocomprobantesTableAdapter
         '
         Me.TipocomprobantesTableAdapter.ClearBeforeFill = True
@@ -544,9 +544,9 @@ Partial Class ABMGastos
         CType(Me.GastosBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipogastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
-        CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

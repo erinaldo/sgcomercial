@@ -786,12 +786,15 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub buscaproductoauto()
+        Dim StockGeneralTableAdapter As New comercialDataSetTableAdapters.stockgeneralTableAdapter()
         Dim addnewrow As Boolean = False
         Dim unidadmedida As Integer
         '        glistaprecio = 1
         existeproducto = ProductosTableAdapter.productos_existeproducto(codigotextbox.Text)
-        productodisponible = StockTableAdapter.stock_consultardisponible(existeproducto)
-        productodisponibleenvasado = StockTableAdapter.stock_consultardisponibleenvasado(existeproducto)
+        'productodisponible = StockTableAdapter.stock_consultardisponible(existeproducto)
+        'productodisponibleenvasado = StockTableAdapter.stock_consultardisponibleenvasado(existeproducto)
+        productodisponible = StockGeneralTableAdapter.stockgeneral_consultardisponible(existeproducto)
+        productodisponibleenvasado = StockGeneralTableAdapter.stockgeneral_consultardisponibleenvasado(existeproducto)
         unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(codigotextbox.Text)
         If existeproducto > 0 Then ' existeproducto ------------- es el codigo de producto
             Labelproducto.Text = ProductosTableAdapter.productos_consultardescripcion(codigotextbox.Text)

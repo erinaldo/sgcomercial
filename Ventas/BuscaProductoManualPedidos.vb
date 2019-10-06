@@ -133,6 +133,7 @@ Public Class BuscaProductoManualPedidos
             Return
         End If
         If e.KeyCode = Keys.Enter Then
+            ConsultarStockDisponible()
             '*************************************
             Dim cantidaddisponible As Decimal
             Dim cantidaddisponibleenv As Decimal
@@ -196,7 +197,6 @@ Public Class BuscaProductoManualPedidos
     End Sub
 
     Private Sub cantidadtextbox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cantidadtextbox.TextChanged
-
         If Len(Trim(cantidadtextbox.Text)) = 0 Then Return
         If IsNumeric(cantidadtextbox.Text) = False Then
             Return
@@ -396,11 +396,11 @@ Public Class BuscaProductoManualPedidos
 
     Private Sub ProductosDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.SelectionChanged
         '********* comentado temporalmente
-        'Try
-        '    CallClick()
-        'Catch ex As Exception
+        Try
+            CallClick()
+        Catch ex As Exception
 
-        'End Try
+        End Try
 
     End Sub
     Private Sub ConsultarStockDisponible()

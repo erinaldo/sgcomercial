@@ -81,7 +81,7 @@ Public Class ABMGastos
                 Dim monto As Decimal = MontoTextBox.Text 'CDbl(MontoTextBox.Text)
                 Dim tipogasto As Int16 = ComboTipoGasto.SelectedValue
                 Dim tipocomprobante As Int16 = ComboTipoComprobante.SelectedValue
-                idgasto = GastosTableAdapter.gastos_insertar(DescripcionTextBox.Text, monto, Now(), tipogasto, tipocomprobante)
+                idgasto = GastosTableAdapter.gastos_insertar(DescripcionTextBox.Text, monto, Now(), tipogasto, tipocomprobante, 1)
                 'MsgBox(gusername)
                 CajasoperacionesTableAdapter.cajasoperaciones_insertargasto(idevento, 1, monto, idgasto, gusername)
                 ''*******************************************************
@@ -142,5 +142,9 @@ Public Class ABMGastos
             End If
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs)
+
     End Sub
 End Class
