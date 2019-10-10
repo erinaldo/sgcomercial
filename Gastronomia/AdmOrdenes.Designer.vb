@@ -26,8 +26,8 @@ Partial Class AdmOrdenes
         Dim IdtipocomprobanteLabel As System.Windows.Forms.Label
         Dim IdformapagoLabel As System.Windows.Forms.Label
         Dim Label6 As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdmOrdenes))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevaÓrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -259,7 +259,7 @@ Partial Class AdmOrdenes
         Me.MenuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaÓrdenToolStripMenuItem, Me.AnularOrdenToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(3, 637)
+        Me.MenuStrip1.Location = New System.Drawing.Point(3, 576)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(636, 56)
         Me.MenuStrip1.TabIndex = 0
@@ -298,7 +298,7 @@ Partial Class AdmOrdenes
         Me.GroupBox1.Controls.Add(Me.ComboBoxSalon)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(642, 696)
+        Me.GroupBox1.Size = New System.Drawing.Size(642, 635)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         '
@@ -311,14 +311,14 @@ Partial Class AdmOrdenes
         Me.ListamesasestadosDataGridView.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListamesasestadosDataGridView.AutoGenerateColumns = False
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ListamesasestadosDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ListamesasestadosDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.ListamesasestadosDataGridView.ColumnHeadersHeight = 42
         Me.ListamesasestadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.ListamesasestadosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idsalon, Me.idmesa, Me.pendientes})
@@ -329,7 +329,7 @@ Partial Class AdmOrdenes
         Me.ListamesasestadosDataGridView.RowHeadersVisible = False
         Me.ListamesasestadosDataGridView.RowHeadersWidth = 55
         Me.ListamesasestadosDataGridView.RowTemplate.Height = 42
-        Me.ListamesasestadosDataGridView.Size = New System.Drawing.Size(74, 555)
+        Me.ListamesasestadosDataGridView.Size = New System.Drawing.Size(74, 494)
         Me.ListamesasestadosDataGridView.TabIndex = 6
         '
         'idsalon
@@ -343,8 +343,8 @@ Partial Class AdmOrdenes
         'idmesa
         '
         Me.idmesa.DataPropertyName = "idmesa"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.idmesa.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.idmesa.DefaultCellStyle = DataGridViewCellStyle2
         Me.idmesa.HeaderText = "Mesa"
         Me.idmesa.Name = "idmesa"
         Me.idmesa.ReadOnly = True
@@ -388,7 +388,7 @@ Partial Class AdmOrdenes
         Me.ListaordenesmesaDataGridView.ReadOnly = True
         Me.ListaordenesmesaDataGridView.RowTemplate.Height = 24
         Me.ListaordenesmesaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ListaordenesmesaDataGridView.Size = New System.Drawing.Size(542, 555)
+        Me.ListaordenesmesaDataGridView.Size = New System.Drawing.Size(542, 494)
         Me.ListaordenesmesaDataGridView.TabIndex = 5
         '
         'idordenmesa
@@ -714,7 +714,7 @@ Partial Class AdmOrdenes
         Me.GroupBox2.Controls.Add(Me.MenuStrip2)
         Me.GroupBox2.Location = New System.Drawing.Point(660, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(546, 696)
+        Me.GroupBox2.Size = New System.Drawing.Size(546, 635)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         '
@@ -1239,7 +1239,7 @@ Partial Class AdmOrdenes
         Me.TextBoxImporteTotal.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxImporteTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.TextBoxImporteTotal.Location = New System.Drawing.Point(161, 583)
+        Me.TextBoxImporteTotal.Location = New System.Drawing.Point(161, 522)
         Me.TextBoxImporteTotal.Name = "TextBoxImporteTotal"
         Me.TextBoxImporteTotal.Size = New System.Drawing.Size(379, 45)
         Me.TextBoxImporteTotal.TabIndex = 46
@@ -1250,7 +1250,7 @@ Partial Class AdmOrdenes
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.Label4.Location = New System.Drawing.Point(9, 586)
+        Me.Label4.Location = New System.Drawing.Point(9, 525)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(136, 39)
         Me.Label4.TabIndex = 45
@@ -1413,7 +1413,7 @@ Partial Class AdmOrdenes
         Me.MenuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
         Me.MenuStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarToolStripMenuItem, Me.AnularMesaToolStripMenuItem})
-        Me.MenuStrip2.Location = New System.Drawing.Point(3, 637)
+        Me.MenuStrip2.Location = New System.Drawing.Point(3, 576)
         Me.MenuStrip2.Name = "MenuStrip2"
         Me.MenuStrip2.Size = New System.Drawing.Size(540, 56)
         Me.MenuStrip2.TabIndex = 0
@@ -1502,7 +1502,7 @@ Partial Class AdmOrdenes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1218, 701)
+        Me.ClientSize = New System.Drawing.Size(1218, 640)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

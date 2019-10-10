@@ -180,7 +180,7 @@ Public Class Principal
                 otroItem.Visible = False
                 otroItem.Enabled = False
             End If
-            If otroItem.Name = "RegistrarVentaACuentaCorrienteToolStripMenuItem" Or otroItem.Name = "RegistrarPresupuestoToolStripMenuItem" Then
+            If otroItem.Name = "RegistrarVentaACuentaCorrienteToolStripMenuItem" Or otroItem.Name = "RegistrarPresupuestoToolStripMenuItem" Or otroItem.Name = "PedidosRecibidosVerTodosToolStripMenuItem" Then
                 otroItem.Visible = False
                 otroItem.Enabled = False
             End If

@@ -20,7 +20,6 @@ Public Class AdmOrdenes
             End If
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
-
         If e.KeyCode = Keys.Add Then
             NuevaÓrdenToolStripMenuItem.PerformClick()
         End If

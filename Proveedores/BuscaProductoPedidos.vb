@@ -70,16 +70,18 @@ Public Class BuscaProductoPedidos
     End Sub
 
     Private Sub ProductosDataGridView_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ProductosDataGridView.CellClick
-        gcodigoproducto = ProductosDataGridView.CurrentRow.Cells(0).Value
-        gpreciocosto = ProductosTableAdapter.productos_consultarpreciocosto(gcodigoproducto)
-        precioventatextbox.Text = gpreciocosto
-        gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
-        recalcular()
-        cantidadtextbox.Select()
-        cantidadtextbox.SelectionStart = 0
-        cantidadtextbox.SelectionLength = cantidadtextbox.Text.Length
+        Try
+            gcodigoproducto = ProductosDataGridView.CurrentRow.Cells(0).Value
+            gpreciocosto = ProductosTableAdapter.productos_consultarpreciocosto(gcodigoproducto)
+            precioventatextbox.Text = gpreciocosto
+            gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
+            recalcular()
+            cantidadtextbox.Select()
+            cantidadtextbox.SelectionStart = 0
+            cantidadtextbox.SelectionLength = cantidadtextbox.Text.Length
+        Catch ex As Exception
 
-
+        End Try
     End Sub
 
     Private Sub ProductosDataGridView_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ProductosDataGridView.CellContentClick

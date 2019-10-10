@@ -393,12 +393,17 @@ Public Class RecepcionSinPedido
     End Sub
 
     Private Sub PedidoDetalleDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles PedidoDetalleDataGridView.KeyDown
-        If e.KeyCode = Keys.Delete Then
-            PedidoDetalleDataGridView.Rows.Remove(PedidoDetalleDataGridView.CurrentRow)
-        End If
-        If e.KeyCode = Keys.Subtract Then
-            PedidoDetalleDataGridView.Rows.Remove(PedidoDetalleDataGridView.CurrentRow)
-        End If
+        Try
+            If e.KeyCode = Keys.Delete Then
+                PedidoDetalleDataGridView.Rows.Remove(PedidoDetalleDataGridView.CurrentRow)
+            End If
+            If e.KeyCode = Keys.Subtract Then
+                PedidoDetalleDataGridView.Rows.Remove(PedidoDetalleDataGridView.CurrentRow)
+            End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub PedidosBindingNavigatorSaveItem_Click_1(sender As Object, e As EventArgs)

@@ -3,8 +3,12 @@
 
     End Sub
     Sub reloadpedidos()
+        Dim permisos As New comercialDataSetTableAdapters.permisosTableAdapter()
+        Dim PedidosRecibidosVerTodosToolStripMenuItem As Integer = 0
+        PedidosRecibidosVerTodosToolStripMenuItem = permisos.permisos_consultabymenuname(guserprofile, "PedidosRecibidosVerTodos")
+        '******************************************************************************
         Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
-        If guserprofile = "ADMINISTRADOR" Then
+        If guserprofile = "ADMINISTRADOR" Or PedidosRecibidosVerTodosToolStripMenuItem > 0 Then
             Me.ListapedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.listapedidosdelivery)
         Else
             Me.ListapedidosdeliveryTableAdapter.FillByAptosPreparacion(Me.ComercialDataSet.listapedidosdelivery)

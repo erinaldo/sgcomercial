@@ -208,6 +208,7 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
+        Me.PedidosRecibidosVerTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -364,7 +365,7 @@ Partial Class Principal
         '
         'DeliveryToolStripMenuItem
         '
-        Me.DeliveryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaPedidoToolStripMenuItem, Me.RecibidosToolStripMenuItem, Me.DespachoToolStripMenuItem, Me.LotesDeEnvìosToolStripMenuItem, Me.EntregasToolStripMenuItem, Me.LibroDePedidosToolStripMenuItem})
+        Me.DeliveryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaPedidoToolStripMenuItem, Me.RecibidosToolStripMenuItem, Me.DespachoToolStripMenuItem, Me.LotesDeEnvìosToolStripMenuItem, Me.EntregasToolStripMenuItem, Me.LibroDePedidosToolStripMenuItem, Me.PedidosRecibidosVerTodosToolStripMenuItem})
         Me.DeliveryToolStripMenuItem.Name = "DeliveryToolStripMenuItem"
         Me.DeliveryToolStripMenuItem.Size = New System.Drawing.Size(82, 27)
         Me.DeliveryToolStripMenuItem.Tag = "ModuloDelivery"
@@ -374,7 +375,7 @@ Partial Class Principal
         '
         Me.AltaPedidoToolStripMenuItem.Name = "AltaPedidoToolStripMenuItem"
         Me.AltaPedidoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.AltaPedidoToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
+        Me.AltaPedidoToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
         Me.AltaPedidoToolStripMenuItem.Tag = "AltaPedidoDelivery"
         Me.AltaPedidoToolStripMenuItem.Text = "Nuevo Pedido"
         '
@@ -382,7 +383,7 @@ Partial Class Principal
         '
         Me.RecibidosToolStripMenuItem.Name = "RecibidosToolStripMenuItem"
         Me.RecibidosToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.RecibidosToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
+        Me.RecibidosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
         Me.RecibidosToolStripMenuItem.Tag = "PedidosDeliveryRecibidos"
         Me.RecibidosToolStripMenuItem.Text = "Recibidos"
         '
@@ -390,7 +391,7 @@ Partial Class Principal
         '
         Me.DespachoToolStripMenuItem.Name = "DespachoToolStripMenuItem"
         Me.DespachoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.DespachoToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
+        Me.DespachoToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
         Me.DespachoToolStripMenuItem.Tag = "PedidosDeliveryDespacho"
         Me.DespachoToolStripMenuItem.Text = "Despacho"
         '
@@ -398,7 +399,7 @@ Partial Class Principal
         '
         Me.LotesDeEnvìosToolStripMenuItem.Name = "LotesDeEnvìosToolStripMenuItem"
         Me.LotesDeEnvìosToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
-        Me.LotesDeEnvìosToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
+        Me.LotesDeEnvìosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
         Me.LotesDeEnvìosToolStripMenuItem.Tag = "LotesEnvios"
         Me.LotesDeEnvìosToolStripMenuItem.Text = "Lotes de Envìos"
         '
@@ -406,14 +407,14 @@ Partial Class Principal
         '
         Me.EntregasToolStripMenuItem.Name = "EntregasToolStripMenuItem"
         Me.EntregasToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
-        Me.EntregasToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
+        Me.EntregasToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
         Me.EntregasToolStripMenuItem.Tag = "RendirLotePedidosDelivery"
         Me.EntregasToolStripMenuItem.Text = "Entregas"
         '
         'LibroDePedidosToolStripMenuItem
         '
         Me.LibroDePedidosToolStripMenuItem.Name = "LibroDePedidosToolStripMenuItem"
-        Me.LibroDePedidosToolStripMenuItem.Size = New System.Drawing.Size(254, 28)
+        Me.LibroDePedidosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
         Me.LibroDePedidosToolStripMenuItem.Tag = "LibroPedidos"
         Me.LibroDePedidosToolStripMenuItem.Text = "Libro de Pedidos"
         '
@@ -1636,6 +1637,13 @@ Partial Class Principal
         'BGWAlertas
         '
         '
+        'PedidosRecibidosVerTodosToolStripMenuItem
+        '
+        Me.PedidosRecibidosVerTodosToolStripMenuItem.Name = "PedidosRecibidosVerTodosToolStripMenuItem"
+        Me.PedidosRecibidosVerTodosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
+        Me.PedidosRecibidosVerTodosToolStripMenuItem.Tag = "PedidosRecibidosVerTodos"
+        Me.PedidosRecibidosVerTodosToolStripMenuItem.Text = "PedidosRecibidosVerTodos"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1868,4 +1876,5 @@ Partial Class Principal
     Friend WithEvents OrdenesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BGWClientes As System.ComponentModel.BackgroundWorker
     Friend WithEvents BGWAlertas As System.ComponentModel.BackgroundWorker
+    Friend WithEvents PedidosRecibidosVerTodosToolStripMenuItem As ToolStripMenuItem
 End Class
