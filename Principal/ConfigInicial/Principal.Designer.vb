@@ -48,6 +48,7 @@ Partial Class Principal
         Me.LotesDeEnvìosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntregasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PedidosRecibidosVerTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónGastronómicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalonesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -105,6 +106,9 @@ Partial Class Principal
         Me.MisProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirPlantillasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MiFranquiciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguraciónesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MiComercioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FondoAplicaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -208,7 +212,6 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.PedidosRecibidosVerTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -232,7 +235,7 @@ Partial Class Principal
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.MiFranquiciaToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -417,6 +420,13 @@ Partial Class Principal
         Me.LibroDePedidosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
         Me.LibroDePedidosToolStripMenuItem.Tag = "LibroPedidos"
         Me.LibroDePedidosToolStripMenuItem.Text = "Libro de Pedidos"
+        '
+        'PedidosRecibidosVerTodosToolStripMenuItem
+        '
+        Me.PedidosRecibidosVerTodosToolStripMenuItem.Name = "PedidosRecibidosVerTodosToolStripMenuItem"
+        Me.PedidosRecibidosVerTodosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
+        Me.PedidosRecibidosVerTodosToolStripMenuItem.Tag = "PedidosRecibidosVerTodos"
+        Me.PedidosRecibidosVerTodosToolStripMenuItem.Text = "PedidosRecibidosVerTodos"
         '
         'GestiónGastronómicaToolStripMenuItem
         '
@@ -842,6 +852,28 @@ Partial Class Principal
         Me.ImprimirPlantillasToolStripMenuItem.Size = New System.Drawing.Size(223, 28)
         Me.ImprimirPlantillasToolStripMenuItem.Tag = "ImprimirPlantillas"
         Me.ImprimirPlantillasToolStripMenuItem.Text = "Imprimir Plantillas"
+        '
+        'MiFranquiciaToolStripMenuItem
+        '
+        Me.MiFranquiciaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfiguraciónesToolStripMenuItem, Me.ReporteDeVentasToolStripMenuItem})
+        Me.MiFranquiciaToolStripMenuItem.Name = "MiFranquiciaToolStripMenuItem"
+        Me.MiFranquiciaToolStripMenuItem.Size = New System.Drawing.Size(124, 27)
+        Me.MiFranquiciaToolStripMenuItem.Tag = "ModuloFranquicia"
+        Me.MiFranquiciaToolStripMenuItem.Text = "Mi Franquicia"
+        '
+        'ConfiguraciónesToolStripMenuItem
+        '
+        Me.ConfiguraciónesToolStripMenuItem.Name = "ConfiguraciónesToolStripMenuItem"
+        Me.ConfiguraciónesToolStripMenuItem.Size = New System.Drawing.Size(226, 28)
+        Me.ConfiguraciónesToolStripMenuItem.Tag = "ConfiguracionesMiFranquicia"
+        Me.ConfiguraciónesToolStripMenuItem.Text = "Configuraciónes"
+        '
+        'ReporteDeVentasToolStripMenuItem
+        '
+        Me.ReporteDeVentasToolStripMenuItem.Name = "ReporteDeVentasToolStripMenuItem"
+        Me.ReporteDeVentasToolStripMenuItem.Size = New System.Drawing.Size(226, 28)
+        Me.ReporteDeVentasToolStripMenuItem.Tag = "FranquiciaReporteVentas"
+        Me.ReporteDeVentasToolStripMenuItem.Text = "Reporte de Ventas"
         '
         'ConfiguracionesToolStripMenuItem
         '
@@ -1637,13 +1669,6 @@ Partial Class Principal
         'BGWAlertas
         '
         '
-        'PedidosRecibidosVerTodosToolStripMenuItem
-        '
-        Me.PedidosRecibidosVerTodosToolStripMenuItem.Name = "PedidosRecibidosVerTodosToolStripMenuItem"
-        Me.PedidosRecibidosVerTodosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
-        Me.PedidosRecibidosVerTodosToolStripMenuItem.Tag = "PedidosRecibidosVerTodos"
-        Me.PedidosRecibidosVerTodosToolStripMenuItem.Text = "PedidosRecibidosVerTodos"
-        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1877,4 +1902,7 @@ Partial Class Principal
     Friend WithEvents BGWClientes As System.ComponentModel.BackgroundWorker
     Friend WithEvents BGWAlertas As System.ComponentModel.BackgroundWorker
     Friend WithEvents PedidosRecibidosVerTodosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MiFranquiciaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteDeVentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfiguraciónesToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -1278,6 +1278,11 @@ Public Class Principal
     Private Sub BGWAlertas_DoWork_1(sender As Object, e As DoWorkEventArgs) Handles BGWAlertas.DoWork
         EjecutarAlertas()
     End Sub
+
+    Private Sub ConfiguraciónesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguraciónesToolStripMenuItem.Click
+        ConfiguracionesFranquicia.MdiParent = Me
+        ConfiguracionesFranquicia.Visible = True
+    End Sub
     'Private Sub PrivateDownloadSGC()
 
     '    Dim ftpClient As New WebClient
