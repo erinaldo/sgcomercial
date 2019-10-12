@@ -42,9 +42,11 @@ Partial Class ConfiguracionesFranquicia
         '
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboListasRefFranquicia)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 44)
+        Me.GroupBox1.Location = New System.Drawing.Point(9, 36)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(513, 90)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(385, 73)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lista de Referencia"
@@ -52,9 +54,10 @@ Partial Class ConfiguracionesFranquicia
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(42, 37)
+        Me.Label1.Location = New System.Drawing.Point(32, 30)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(208, 17)
+        Me.Label1.Size = New System.Drawing.Size(157, 13)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Seleccione una lista de precios:"
         '
@@ -64,9 +67,10 @@ Partial Class ConfiguracionesFranquicia
         Me.ComboListasRefFranquicia.DisplayMember = "descripcion"
         Me.ComboListasRefFranquicia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboListasRefFranquicia.FormattingEnabled = True
-        Me.ComboListasRefFranquicia.Location = New System.Drawing.Point(256, 33)
+        Me.ComboListasRefFranquicia.Location = New System.Drawing.Point(192, 27)
+        Me.ComboListasRefFranquicia.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ComboListasRefFranquicia.Name = "ComboListasRefFranquicia"
-        Me.ComboListasRefFranquicia.Size = New System.Drawing.Size(214, 24)
+        Me.ComboListasRefFranquicia.Size = New System.Drawing.Size(162, 21)
         Me.ComboListasRefFranquicia.TabIndex = 0
         Me.ComboListasRefFranquicia.ValueMember = "idlistaprecio"
         '
@@ -90,7 +94,7 @@ Partial Class ConfiguracionesFranquicia
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(540, 27)
+        Me.ToolStrip1.Size = New System.Drawing.Size(405, 27)
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -99,17 +103,22 @@ Partial Class ConfiguracionesFranquicia
         Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(148, 24)
+        Me.ToolStripButton1.Size = New System.Drawing.Size(123, 24)
         Me.ToolStripButton1.Text = "Guardar Cambios"
         '
         'ConfiguracionesFranquicia
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(540, 147)
+        Me.ClientSize = New System.Drawing.Size(405, 119)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ConfiguracionesFranquicia"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ConfiguracionesFranquicia"
         Me.Text = "Configuraciónes de Franquícia"
         Me.GroupBox1.ResumeLayout(False)

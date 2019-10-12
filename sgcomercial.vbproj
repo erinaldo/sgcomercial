@@ -440,6 +440,12 @@
     <Compile Include="MiFranquicia\ConfiguracionesFranquicia.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MiFranquicia\ReporteVentasFranquicia.Designer.vb">
+      <DependentUpon>ReporteVentasFranquicia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MiFranquicia\ReporteVentasFranquicia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1379,6 +1385,10 @@
     <EmbeddedResource Include="MiFranquicia\ConfiguracionesFranquicia.resx">
       <DependentUpon>ConfiguracionesFranquicia.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MiFranquicia\Reportes\RepVentasFramquiciaLista3.rdlc" />
+    <EmbeddedResource Include="MiFranquicia\ReporteVentasFranquicia.resx">
+      <DependentUpon>ReporteVentasFranquicia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\ConfigInicial\BienvenidaEPOS.resx">
       <DependentUpon>BienvenidaEPOS.vb</DependentUpon>
     </EmbeddedResource>
@@ -2112,6 +2122,7 @@
     <WCFMetadataStorage Include="Service References\WSAA\" />
     <WCFMetadataStorage Include="Service References\WSFEV1\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

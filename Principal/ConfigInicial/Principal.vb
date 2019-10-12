@@ -1283,6 +1283,11 @@ Public Class Principal
         ConfiguracionesFranquicia.MdiParent = Me
         ConfiguracionesFranquicia.Visible = True
     End Sub
+
+    Private Sub ReporteDeVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeVentasToolStripMenuItem.Click
+        ReporteVentasFranquicia.MdiParent = Me
+        ReporteVentasFranquicia.Visible = True
+    End Sub
     'Private Sub PrivateDownloadSGC()
 
     '    Dim ftpClient As New WebClient

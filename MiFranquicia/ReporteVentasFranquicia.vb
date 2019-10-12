@@ -1,0 +1,44 @@
+﻿Public Class ReporteVentasFranquicia
+    Private Sub ReporteVentasFranquicia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.MiComercio' Puede moverla o quitarla según sea necesario.
+        Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        '/******************************************************************/
+        '********** ValidarDatosClientesNuevos
+        Dim v_ListaRefFranquicia As Integer
+        v_ListaRefFranquicia = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("ListaRefFranquicia")
+        '**********
+        If v_ListaRefFranquicia = 3 Then
+            Try
+                Me.Cursor = Cursors.WaitCursor
+                Dim desde As DateTime = Nothing
+                Dim hasta As DateTime = Nothing
+
+                desde = DateTimePickerDesde.Value
+                hasta = DateTimePickerHasta.Value
+
+                If desde <> Nothing And hasta <> Nothing Then
+                    Me.libroventasTableAdapter.FillByRangoFechas(Me.comercialDataSet.libroventas, desde, hasta)
+                    Me.libroventasdetalleTableAdapter.FillByRangoFechas(Me.comercialDataSet.libroventasdetalle, desde, hasta)
+                    Me.ReportViewer1.RefreshReport()
+                    Me.Cursor = Cursors.Default
+                Else
+                    Me.Cursor = Cursors.Default
+                    MsgBox("Seleccione un rango de fechas!", "Advertencia", MsgBoxStyle.Exclamation)
+                End If
+            Catch ex As Exception
+                Me.Cursor = Cursors.Default
+                MsgBox("Ocurrió una excepción al consultar los datos: ", ex.Message)
+            End Try
+        End If
+        If v_ListaRefFranquicia = 4 Then
+            MessageBox.Show("Reporte no disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        End If
+    End Sub
+End Class

@@ -12,11 +12,15 @@
     End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        If MessageBox.Show("Seguro desea guardar los cambios?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then Return
         Try
             Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
             '***************    ValidarDatosNuevosClientes   ******************************************
             ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("ListaRefFranquicia", ComboListasRefFranquicia.SelectedValue, Nothing, Nothing)
-            '***************    -----------     FIN     ------------  ******************************************
+            '***************    -----------     FIN  ------------   
+            '-----------  ******************************************
+
+            Me.Close()
         Catch ex As Exception
             MsgBox("Ocurrió una excepción: ", ex.Message)
         End Try
