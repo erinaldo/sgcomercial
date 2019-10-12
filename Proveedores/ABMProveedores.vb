@@ -38,10 +38,13 @@
         'CondicionivaComboBox.Enabled = status
         PersonacontactoTextBox.Enabled = status
         ComboCondicionIVA.Enabled = status
+        DomicilioTextBox.Enabled = status
         If status = True Then
             ProveedoresDataGridView.Enabled = False
+            TextBoxFiltro.Enabled = False
         Else
             ProveedoresDataGridView.Enabled = True
+            TextBoxFiltro.Enabled = True
         End If
     End Sub
 
@@ -75,5 +78,13 @@
 
     Private Sub BindingNavigatorDeleteItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorDeleteItem.Click
 
+    End Sub
+
+    Private Sub TextBoxFiltro_TextChanged(sender As Object, e As EventArgs) Handles TextBoxFiltro.TextChanged
+        Try
+            ProveedoresBindingSource.Filter = "nombre like '%" + TextBoxFiltro.Text + "%'"
+        Catch ex As Exception
+            ProveedoresBindingSource.Filter = ""
+        End Try
     End Sub
 End Class

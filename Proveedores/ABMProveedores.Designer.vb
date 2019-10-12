@@ -31,6 +31,7 @@ Partial Class ABMProveedores
         Dim PersonacontactoLabel As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMProveedores))
+        Dim DomicilioLabel As System.Windows.Forms.Label
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.proveedoresTableAdapter()
@@ -53,6 +54,8 @@ Partial Class ABMProveedores
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.PersonacontactoTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxFiltro = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.ProveedoresDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -62,6 +65,7 @@ Partial Class ABMProveedores
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ComercialDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
+        Me.DomicilioTextBox = New System.Windows.Forms.TextBox()
         IdproveedorLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         CuitcuilLabel = New System.Windows.Forms.Label()
@@ -69,6 +73,7 @@ Partial Class ABMProveedores
         EmailLabel = New System.Windows.Forms.Label()
         PersonacontactoLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
+        DomicilioLabel = New System.Windows.Forms.Label()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProveedoresBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,17 +89,17 @@ Partial Class ABMProveedores
         'IdproveedorLabel
         '
         IdproveedorLabel.AutoSize = True
-        IdproveedorLabel.Location = New System.Drawing.Point(141, 30)
+        IdproveedorLabel.Location = New System.Drawing.Point(72, 30)
         IdproveedorLabel.Name = "IdproveedorLabel"
-        IdproveedorLabel.Size = New System.Drawing.Size(88, 17)
+        IdproveedorLabel.Size = New System.Drawing.Size(28, 17)
         IdproveedorLabel.TabIndex = 16
-        IdproveedorLabel.Text = "idproveedor:"
+        IdproveedorLabel.Text = "N°:"
         IdproveedorLabel.Visible = False
         '
         'NombreLabel
         '
         NombreLabel.AutoSize = True
-        NombreLabel.Location = New System.Drawing.Point(168, 58)
+        NombreLabel.Location = New System.Drawing.Point(34, 58)
         NombreLabel.Name = "NombreLabel"
         NombreLabel.Size = New System.Drawing.Size(62, 17)
         NombreLabel.TabIndex = 18
@@ -103,7 +108,7 @@ Partial Class ABMProveedores
         'CuitcuilLabel
         '
         CuitcuilLabel.AutoSize = True
-        CuitcuilLabel.Location = New System.Drawing.Point(167, 86)
+        CuitcuilLabel.Location = New System.Drawing.Point(33, 86)
         CuitcuilLabel.Name = "CuitcuilLabel"
         CuitcuilLabel.Size = New System.Drawing.Size(63, 17)
         CuitcuilLabel.TabIndex = 20
@@ -112,7 +117,7 @@ Partial Class ABMProveedores
         'TelefonoLabel
         '
         TelefonoLabel.AutoSize = True
-        TelefonoLabel.Location = New System.Drawing.Point(163, 114)
+        TelefonoLabel.Location = New System.Drawing.Point(29, 114)
         TelefonoLabel.Name = "TelefonoLabel"
         TelefonoLabel.Size = New System.Drawing.Size(68, 17)
         TelefonoLabel.TabIndex = 22
@@ -121,7 +126,7 @@ Partial Class ABMProveedores
         'EmailLabel
         '
         EmailLabel.AutoSize = True
-        EmailLabel.Location = New System.Drawing.Point(184, 142)
+        EmailLabel.Location = New System.Drawing.Point(50, 142)
         EmailLabel.Name = "EmailLabel"
         EmailLabel.Size = New System.Drawing.Size(46, 17)
         EmailLabel.TabIndex = 24
@@ -130,7 +135,7 @@ Partial Class ABMProveedores
         'PersonacontactoLabel
         '
         PersonacontactoLabel.AutoSize = True
-        PersonacontactoLabel.Location = New System.Drawing.Point(87, 172)
+        PersonacontactoLabel.Location = New System.Drawing.Point(379, 28)
         PersonacontactoLabel.Name = "PersonacontactoLabel"
         PersonacontactoLabel.Size = New System.Drawing.Size(143, 17)
         PersonacontactoLabel.TabIndex = 28
@@ -139,7 +144,7 @@ Partial Class ABMProveedores
         'Label1
         '
         Label1.AutoSize = True
-        Label1.Location = New System.Drawing.Point(133, 204)
+        Label1.Location = New System.Drawing.Point(425, 60)
         Label1.Name = "Label1"
         Label1.Size = New System.Drawing.Size(95, 17)
         Label1.TabIndex = 30
@@ -248,7 +253,7 @@ Partial Class ABMProveedores
         Me.ProveedoresBindingNavigator.MovePreviousItem = Nothing
         Me.ProveedoresBindingNavigator.Name = "ProveedoresBindingNavigator"
         Me.ProveedoresBindingNavigator.PositionItem = Nothing
-        Me.ProveedoresBindingNavigator.Size = New System.Drawing.Size(982, 27)
+        Me.ProveedoresBindingNavigator.Size = New System.Drawing.Size(788, 27)
         Me.ProveedoresBindingNavigator.TabIndex = 0
         Me.ProveedoresBindingNavigator.Text = "BindingNavigator1"
         '
@@ -305,6 +310,8 @@ Partial Class ABMProveedores
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(DomicilioLabel)
+        Me.GroupBox1.Controls.Add(Me.DomicilioTextBox)
         Me.GroupBox1.Controls.Add(Label1)
         Me.GroupBox1.Controls.Add(Me.ComboCondicionIVA)
         Me.GroupBox1.Controls.Add(IdproveedorLabel)
@@ -323,7 +330,7 @@ Partial Class ABMProveedores
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox1.Size = New System.Drawing.Size(958, 256)
+        Me.GroupBox1.Size = New System.Drawing.Size(764, 187)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Proveedor"
@@ -335,10 +342,10 @@ Partial Class ABMProveedores
         Me.ComboCondicionIVA.DisplayMember = "descripcion"
         Me.ComboCondicionIVA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboCondicionIVA.FormattingEnabled = True
-        Me.ComboCondicionIVA.Location = New System.Drawing.Point(237, 199)
+        Me.ComboCondicionIVA.Location = New System.Drawing.Point(529, 55)
         Me.ComboCondicionIVA.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboCondicionIVA.Name = "ComboCondicionIVA"
-        Me.ComboCondicionIVA.Size = New System.Drawing.Size(336, 24)
+        Me.ComboCondicionIVA.Size = New System.Drawing.Size(215, 24)
         Me.ComboCondicionIVA.TabIndex = 29
         Me.ComboCondicionIVA.ValueMember = "idtipocondicioniva"
         '
@@ -355,10 +362,10 @@ Partial Class ABMProveedores
         'IdproveedorTextBox
         '
         Me.IdproveedorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "idproveedor", True))
-        Me.IdproveedorTextBox.Location = New System.Drawing.Point(237, 27)
+        Me.IdproveedorTextBox.Location = New System.Drawing.Point(103, 27)
         Me.IdproveedorTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IdproveedorTextBox.Name = "IdproveedorTextBox"
-        Me.IdproveedorTextBox.Size = New System.Drawing.Size(175, 22)
+        Me.IdproveedorTextBox.Size = New System.Drawing.Size(68, 22)
         Me.IdproveedorTextBox.TabIndex = 0
         Me.IdproveedorTextBox.Visible = False
         '
@@ -366,16 +373,16 @@ Partial Class ABMProveedores
         '
         Me.NombreTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "nombre", True))
-        Me.NombreTextBox.Location = New System.Drawing.Point(237, 55)
+        Me.NombreTextBox.Location = New System.Drawing.Point(103, 55)
         Me.NombreTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.NombreTextBox.Name = "NombreTextBox"
-        Me.NombreTextBox.Size = New System.Drawing.Size(339, 22)
+        Me.NombreTextBox.Size = New System.Drawing.Size(264, 22)
         Me.NombreTextBox.TabIndex = 1
         '
         'CuitcuilTextBox
         '
         Me.CuitcuilTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "cuitcuil", True))
-        Me.CuitcuilTextBox.Location = New System.Drawing.Point(237, 82)
+        Me.CuitcuilTextBox.Location = New System.Drawing.Point(103, 82)
         Me.CuitcuilTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CuitcuilTextBox.Name = "CuitcuilTextBox"
         Me.CuitcuilTextBox.Size = New System.Drawing.Size(103, 22)
@@ -384,7 +391,7 @@ Partial Class ABMProveedores
         'TelefonoTextBox
         '
         Me.TelefonoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "telefono", True))
-        Me.TelefonoTextBox.Location = New System.Drawing.Point(237, 111)
+        Me.TelefonoTextBox.Location = New System.Drawing.Point(103, 111)
         Me.TelefonoTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TelefonoTextBox.Name = "TelefonoTextBox"
         Me.TelefonoTextBox.Size = New System.Drawing.Size(103, 22)
@@ -393,7 +400,7 @@ Partial Class ABMProveedores
         'EmailTextBox
         '
         Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "email", True))
-        Me.EmailTextBox.Location = New System.Drawing.Point(237, 139)
+        Me.EmailTextBox.Location = New System.Drawing.Point(103, 139)
         Me.EmailTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.EmailTextBox.Name = "EmailTextBox"
         Me.EmailTextBox.Size = New System.Drawing.Size(253, 22)
@@ -402,10 +409,10 @@ Partial Class ABMProveedores
         'PersonacontactoTextBox
         '
         Me.PersonacontactoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "personacontacto", True))
-        Me.PersonacontactoTextBox.Location = New System.Drawing.Point(237, 169)
+        Me.PersonacontactoTextBox.Location = New System.Drawing.Point(529, 25)
         Me.PersonacontactoTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PersonacontactoTextBox.Name = "PersonacontactoTextBox"
-        Me.PersonacontactoTextBox.Size = New System.Drawing.Size(339, 22)
+        Me.PersonacontactoTextBox.Size = New System.Drawing.Size(215, 22)
         Me.PersonacontactoTextBox.TabIndex = 6
         '
         'GroupBox2
@@ -413,15 +420,33 @@ Partial Class ABMProveedores
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.TextBoxFiltro)
+        Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.ProveedoresDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 295)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 227)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(958, 263)
+        Me.GroupBox2.Size = New System.Drawing.Size(764, 331)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lista de Proveedores"
+        '
+        'TextBoxFiltro
+        '
+        Me.TextBoxFiltro.Location = New System.Drawing.Point(311, 29)
+        Me.TextBoxFiltro.Name = "TextBoxFiltro"
+        Me.TextBoxFiltro.Size = New System.Drawing.Size(270, 22)
+        Me.TextBoxFiltro.TabIndex = 4
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(178, 32)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(127, 17)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Filtrar por Nombre:"
         '
         'ProveedoresDataGridView
         '
@@ -435,14 +460,14 @@ Partial Class ABMProveedores
         Me.ProveedoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ProveedoresDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn7})
         Me.ProveedoresDataGridView.DataSource = Me.ProveedoresBindingSource
-        Me.ProveedoresDataGridView.Location = New System.Drawing.Point(13, 30)
+        Me.ProveedoresDataGridView.Location = New System.Drawing.Point(13, 71)
         Me.ProveedoresDataGridView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ProveedoresDataGridView.MultiSelect = False
         Me.ProveedoresDataGridView.Name = "ProveedoresDataGridView"
         Me.ProveedoresDataGridView.ReadOnly = True
         Me.ProveedoresDataGridView.RowTemplate.Height = 24
         Me.ProveedoresDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ProveedoresDataGridView.Size = New System.Drawing.Size(931, 212)
+        Me.ProveedoresDataGridView.Size = New System.Drawing.Size(737, 239)
         Me.ProveedoresDataGridView.TabIndex = 2
         '
         'DataGridViewTextBoxColumn1
@@ -502,11 +527,29 @@ Partial Class ABMProveedores
         '
         Me.TipocondicionivaTableAdapter.ClearBeforeFill = True
         '
+        'DomicilioLabel
+        '
+        DomicilioLabel.AutoSize = True
+        DomicilioLabel.Location = New System.Drawing.Point(457, 92)
+        DomicilioLabel.Name = "DomicilioLabel"
+        DomicilioLabel.Size = New System.Drawing.Size(68, 17)
+        DomicilioLabel.TabIndex = 30
+        DomicilioLabel.Text = "Domicilio:"
+        '
+        'DomicilioTextBox
+        '
+        Me.DomicilioTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "domicilio", True))
+        Me.DomicilioTextBox.Location = New System.Drawing.Point(529, 89)
+        Me.DomicilioTextBox.Multiline = True
+        Me.DomicilioTextBox.Name = "DomicilioTextBox"
+        Me.DomicilioTextBox.Size = New System.Drawing.Size(215, 72)
+        Me.DomicilioTextBox.TabIndex = 31
+        '
         'ABMProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(982, 572)
+        Me.ClientSize = New System.Drawing.Size(788, 572)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ProveedoresBindingNavigator)
@@ -529,6 +572,7 @@ Partial Class ABMProveedores
         CType(Me.TipocondicionivaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         CType(Me.ProveedoresDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -567,4 +611,7 @@ Partial Class ABMProveedores
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents ComboCondicionIVA As ComboBox
+    Friend WithEvents TextBoxFiltro As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents DomicilioTextBox As TextBox
 End Class

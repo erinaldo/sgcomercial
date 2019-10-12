@@ -442,7 +442,7 @@ Public Class ImportarProductos
                                     idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
                                     If Not idproveedor > 0 Then
                                         '************ si no existe lo inserto
-                                        ProveedoresTableAdapter.Insert(proveedornombre, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                        ProveedoresTableAdapter.Insert(proveedornombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
                                         idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
                                     End If
                                     If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe) > 0 Then
@@ -616,7 +616,7 @@ Public Class ImportarProductos
                                     idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
                                     If Not idproveedor > 0 Then
                                         '************ si no existe lo inserto
-                                        ProveedoresTableAdapter.Insert(proveedornombre, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                        ProveedoresTableAdapter.Insert(proveedornombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
                                         idproveedor = ProveedoresTableAdapter.proveedores_GetIDbyNombre(proveedornombre)
                                     End If
                                     If Not ProductosproveedoresTableAdapter.productosproveedores_existe(existe) > 0 Then
