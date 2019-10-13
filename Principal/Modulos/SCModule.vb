@@ -122,6 +122,7 @@ Module SCModule
                     End Try
                     Return
                 Case "P"
+                    If WaitingLicence = True Then Return
                     CreateObject("WScript.Shell").Popup("Periodo de prueba ha finalizado. Conseguí tu licencia ya!", 5, "Advertencia! Licencia Caducada", vbExclamation)
                     System.Diagnostics.Process.Start("http://www.sistemascomerciales.net")
                     End
@@ -148,10 +149,21 @@ Module SCModule
             '*******************************************************************************
             '*************  terminalesTableAdapter    **************************************
             Try
+                GetHDSN()
                 Dim terminalesTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
                 terminalesTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
-                'LicenceValidDate = terminalesTableAdapter.terminales_validarlicencia(gmacadress)
+                '------------------------------------------
                 table = terminalesTableAdapter.GetDataByDatosLicencia(gmacadress)
+                If table.Rows.Count = 0 Then
+                    table = terminalesTableAdapter.GetDataByDatosLicenciaHDSN(GHDSN)
+                    If table.Rows.Count > 0 Then
+                        '******************************************************
+                        ' LA MAC CAMBIÓ... ACTUALIZA LA MAC EN LA NUBE
+                        Dim idterminal As Long
+                        idterminal = table.Rows(0).Item("idterminales")
+                        terminalesTableAdapter.terminales_updatemac(gmacadress, idterminal)
+                    End If
+                End If
                 LicenceValidDate = table.Rows(0).Item("fechabaja")
                 '******************************************************
                 If IsDBNull(table.Rows(0).Item("tipolicencia")) Then
@@ -160,17 +172,19 @@ Module SCModule
                     gTipoLicencia = table.Rows(0).Item("tipolicencia")
                 End If
                 '******************************************************
-                If parametrosgeneralesTableAdapter.parametrosgenerales_existeclave(MachineKey) > 0 Then
-                    parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave(MachineKey, Nothing, LicenceValidDate.ToString, Nothing) ' UPDATEA LOCAL
-                    parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("tipolicencia", Nothing, gTipoLicencia, Nothing)
-                End If
+                'If parametrosgeneralesTableAdapter.parametrosgenerales_existeclave(MachineKey) > 0 Then
+                parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave(MachineKey, Nothing, LicenceValidDate.ToString, Nothing) ' UPDATEA LOCAL
+                parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("tipolicencia", Nothing, gTipoLicencia, Nothing)
+                'End If
             Catch ex As Exception
                 Dim msg As String = ex.Message
                 LicenceValidDate = Nothing
+                parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("tipolicencia", Nothing, "P", Nothing)
             End Try
 
         Catch ex As Exception
             LicenceValidDate = Nothing
+            parametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("tipolicencia", Nothing, "P", Nothing)
         End Try
     End Sub
     Public Sub LoadDefaultDir()
@@ -179,6 +193,7 @@ Module SCModule
         '**********************************************
         gSystemDrive = Environment.GetEnvironmentVariable("SystemDrive")
         '**********************************************
+        WaitingLicence = False
     End Sub
     '******************************-----------------------------------------------------------------------------------*****************************
 End Module

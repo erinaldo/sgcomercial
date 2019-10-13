@@ -51,6 +51,7 @@ Module SGCModule
     Public gNombreComercio As String
     Public gPublicDocumentsPath As String
     Public gClowdServer As String
+    Public WaitingLicence As Boolean
     '************************************************
     Public FormPrincipal As Principal
     '************************************************
@@ -650,7 +651,7 @@ Module SGCModule
         '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
         '   *********************   DESCOMPRIMIR LA NUEVA VERSION
         Try
-            Module_unrar.UnRar("C:\SGComercial\UpdatePack\Ejecutable\", "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
+            Module_unrar.UnRar(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\", gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
             Threading.Thread.Sleep(8000)
         Catch ex As Exception
             MsgBox("Ocurrió un error al descomprimir la actualización: " + ex.Message, MsgBoxStyle.Exclamation)
@@ -685,7 +686,7 @@ Module SGCModule
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         'COMENZAR LA EJECUCION
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-        Process.Start("C:\SGComercial\UpdatePack\Ejecutable\setup.exe")
+        Process.Start(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\setup.exe")
         End
         'End Using
     End Sub
@@ -706,7 +707,7 @@ Module SGCModule
         '' Process the list of .txt files found in the directory. '
         'Dim fileName As String
 
-        Dim files() As String = IO.Directory.GetFiles("C:\SGComercial\UpdatePack\Ejecutable\BD\")
+        Dim files() As String = IO.Directory.GetFiles(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\BD\")
         '==== SI EXISTEN ARCHIVOS ===
         If files.Count > 0 Then
             myConn2.Open() '==== ABRO LA CONEXION A BD ===
@@ -818,7 +819,7 @@ Module SGCModule
         'Dim xi As LoadingForm
         Dim ftpClient As New WebClient
         Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar"
-        Dim trnsfrpth As String = "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
+        Dim trnsfrpth As String = gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
         'Dim UpdateAlertStatus As Boolean
         '***********************************************************
         'DESCARGA ACTUALIZACIÓN
@@ -827,14 +828,14 @@ Module SGCModule
         Try
             '**********************************************
             Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
-                IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
+                IO.Directory.Delete(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\", True)
             Catch ex As Exception
 
             End Try
             '**********************************************
             ' SI NO EXISTE LA CREA
-            If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
-                System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
+            If (Not System.IO.Directory.Exists(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\")) Then
+                System.IO.Directory.CreateDirectory(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\")
             End If
         Catch ex As Exception
             Cursor.Current = Cursors.Default
@@ -857,7 +858,7 @@ Module SGCModule
         xi.Show()
         'Try
         Try
-            FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.rar")
+            FileSystem.Kill(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\*.rar")
         Catch ex As Exception
 
         End Try
@@ -867,7 +868,7 @@ Module SGCModule
     Private Sub DownloadProgressChanged(ByVal sender As Object, ByVal e As Net.DownloadProgressChangedEventArgs)
         'counter = counter + 1
         'Dim xi As LoadingForm
-        Dim info As New IO.FileInfo("C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
+        Dim info As New IO.FileInfo(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
         Dim length As Long
         length = (info.Length) / 1000
         gDownloadProgress = e.ProgressPercentage
@@ -932,5 +933,160 @@ Module SGCModule
 
 
     End Sub
+    Public Sub ForceBDChange()
+        Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString) 'gActiveSQLConnectionString
+        'MsgBox(gActiveSQLConnectionString)
+        Dim mycommand As New SqlCommand
+
+        Try
+            mycommand = New SqlCommand("ALTER view [dbo].[libroventas]
+                            as
+                            select 
+                            v.idventa,
+                            fechaventa,
+                            convert(date,fechaventa) as fechadate,
+                            fechabaja,
+                            c.idcliente,
+                            c.nombre,
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            isnull(c.cuit,'0') as cuit
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,isnull((select doctipoafip from tipodocumentos where idtipodocumento = isnull(c.idtipodocumento,0)),'99') as doctipo
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select descripcion from tipocondicioniva where idtipocondicioniva = c.condicioniva) as condicionivadescripcion
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,tc.descripcion as tipocomprobante
+                            ,rtrim(ltrim(tc.letra)) as tipocomprobanteletra
+                            ,tc.idtipocomprobanteafip
+                            ,c.condicioniva
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa)  as importe,
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            (select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa) as ivaventas
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            , case
+	                            when tc.idtipocomprobanteafip = 0 then 0
+	                            when tc.idtipocomprobanteafip = 6 then 0
+	                            when tc.idtipocomprobanteafip = 11 then 0
+	                             else
+	                            (select isnull(sum(libroventasdetalle.subtotal),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = -1)  
+	                            end as  ImpTotConc
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            , case
+                            when tc.idtipocomprobanteafip = 0 then 0
+	                            when tc.idtipocomprobanteafip = 6 then 
+	                            (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+	                            when tc.idtipocomprobanteafip = 11 then 
+		                            (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+                            when tc.idtipocomprobanteafip = 13 then 
+		                            (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+	                             else
+		                            (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva > 0)
+	                            end as  ImpNeto
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            , case
+	                            when tc.idtipocomprobanteafip = 0 then 0
+	                            when tc.idtipocomprobanteafip = 6 then  0
+	                            when tc.idtipocomprobanteafip = 11 then 0 
+	                            when tc.idtipocomprobanteafip = 13 then 0 
+	                            else
+                            (select isnull(sum(libroventasdetalle.subtotal),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 0)  
+                            end as  ImpOpEx
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            , 0 as  ImpTrib
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            , case
+	                            when tc.idtipocomprobanteafip = 0 then 0
+	                            --when tc.idtipocomprobanteafip = 6 then 0
+	                            when tc.idtipocomprobanteafip = 11 then 0 
+	                            else
+		                            (select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa)  
+	                            end as   ImpIVA
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 27) 
+                             as IVA_27
+                             --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 27) 
+                             as BASEIVA_27
+                             --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 21) 
+                             as IVA_21
+                             --------------------------------------------------------------------------------------------------------------------------------
+                             ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 21) 
+                             as BASEIVA_21
+                             --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 10) 
+                             as IVA_10
+                              --------------------------------------------------------------------------------------------------------------------------------
+                             ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 10) 
+                             as BASEIVA_10
+                             --------------------------------------------------------------------------------------------------------------------------------
+                             ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 5) 
+                             as IVA_5
+                              --------------------------------------------------------------------------------------------------------------------------------
+                             ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 5) 
+                             as BASEIVA_5
+                             --------------------------------------------------------------------------------------------------------------------------------
+                             ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 2) 
+                             as IVA_2
+                              --------------------------------------------------------------------------------------------------------------------------------
+                             ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 2) 
+                             as BASEIVA_2
+                             --------------------------------------------------------------------------------------------------------------------------------
+                             ,0--(select isnull(sum(libroventasdetalle.subtotal),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva <= 0) 
+                             as IVA_0
+                             -------------------------------------------------------------------------------------------------------------------------------
+                             ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) <= 0) 
+                             as BASEIVA_0
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,case 
+	                            when (select count(idformapago) from pagos where idventa = v.idventa) = 1 then
+			                            (select descripcion from formaspago where idformapago = (select top 1 idformapago from pagos where idventa = v.idventa)) 
+	                            when (select count(idformapago) from pagos where idventa = v.idventa) = 0 then 'Cuenta Corriente'
+                            else 'Varias'
+                            end as formapago
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,v.usuariocarga
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select nombreprovincia from provincias where idprovincia = isnull(c.idprovincia,1) ) as provincia
+                            ,isnull(v.idconcepto,1) as idconcepto
+                            ,'PES' as MonId
+                            ,1 as MonCotiz
+                            ,v.cae
+                            ,v.caefchvto
+                            ,convert(date,v.caefchvto) as caefchvtodate
+                            ,v.ptovta
+                            ,v.cbtnro
+                            ,v.fechadesde
+                            ,v.fechahasta
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select isnull(sum(libroventasdetalle.frpreciocostomayorista),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa ) as frcostomayorista
+                             --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select isnull(sum(libroventasdetalle.frpreciocostodistribuidor),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa ) as frcostodistribuidor
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select isnull(sum(libroventasdetalle.frgananciamayorista),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa ) as frgananciamayorista
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            ,(select isnull(sum(libroventasdetalle.frgananciadistribuidor),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa ) as frgananciadistribuidor
+                            --------------------------------------------------------------------------------------------------------------------------------
+                            from ventas v,
+                            clientes c,
+                            tipocomprobantes tc
+                            where
+                            v.idcliente = c.idcliente
+                            and v.idtipocomprobante = tc.idtipocomprobante
+                            ", myConn2)
+            myConn2.Open()
+            mycommand.ExecuteNonQuery()
+            myConn2.Close()
+            myConn2.Dispose()
+        Catch ex As Exception
+            'ErrorLogTableAdapter.errorlog_insertar("Aplicación", "Actualización de versión", "ActualizarBD", sFile + " - " + ex.Message)
+            'status = False
+            'cod = 1
+            'msg = "Ocurrio un problema en: ActualizarBD() - " + sFile + " - " + ex.Message
+            ''Exit For
+        End Try
+    End Sub
+
 End Module
 

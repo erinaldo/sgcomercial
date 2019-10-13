@@ -15,7 +15,7 @@ Public Class loginform
     'Dim random As New Random
     Dim counter As Integer = 0
     Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar"
-    Dim trnsfrpth As String = "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
+    Dim trnsfrpth As String
     '===============================================================================
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -210,10 +210,11 @@ Public Class loginform
         Dim status As Boolean
         Dim cod As Integer
         Dim msg As String = Nothing
-        If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\BD")) Then
+        If (Not System.IO.Directory.Exists(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\BD")) Then
             'System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\") 'la crearia
         Else
             ActualizarBD(status, cod, msg)
+            ForceBDChange()
         End If
         ReparaProductosMedidas()
         '''''''''''''''''''''''''''''''''''''''''
@@ -234,12 +235,15 @@ Public Class loginform
         Cursor.Current = Cursors.Default
         hi.Dispose()
         GetCajaOperativa()
+        '-------------------------------
         If BGWUpdateLicencia.IsBusy = False Then
             BGWUpdateLicencia.RunWorkerAsync()
         End If
+        '--------------------------------
         LabelClowdInfo.Text = gClowdServer
         textusuario.Select()
     End Sub
+
     Private Sub GetCajaOperativa()
         gidcaja = 0
         gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
@@ -297,6 +301,7 @@ Public Class loginform
         End If
         '====================   WEB CONFIG ==================
         If (e.KeyCode = Keys.K AndAlso e.Control AndAlso e.Shift) Then
+            WaitingLicence = True
             LabelClowdInfo.Visible = True
             Dim su As SUAuth
             su = New SUAuth
@@ -309,15 +314,16 @@ Public Class loginform
                 Me.Hide()
                 Me.loginform_Load(e, e)
                 Me.Show()
+            Else
+                Me.loginform_Load(e, e)
             End If
             LabelClowdInfo.Visible = False
         End If
 
-        'If (e.KeyCode = Keys.L AndAlso e.Modifiers = Keys.Control) Then
-        '    Me.Dispose()
-        '    'loginform_Load(e, e)
-
-        'End If
+        If (e.KeyCode = Keys.L AndAlso e.Modifiers = Keys.Control) Then
+            'Me.Dispose()
+            loginform_Load(e, e)
+        End If
         ''''''''''***************************   POR DEFECTO **************************************
         'If (e.KeyCode = Keys.T AndAlso e.Control AndAlso e.Shift) Then
         '    Dim testwindows As POSTForm
@@ -477,6 +483,7 @@ Public Class loginform
 
     End Sub
     Sub BuscarActualizaciones()
+        trnsfrpth = gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
         If UpdateAlertStatus = False Then Return
 
         Try

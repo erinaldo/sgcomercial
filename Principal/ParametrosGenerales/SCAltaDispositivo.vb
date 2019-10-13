@@ -38,6 +38,8 @@
                 Catch ex As Exception
                     MsgBox("Ocurrio un problema al tratar de generar la licencia local: " + ex.Message)
                 End Try
+                gTerminal = TerminalesTableAdapter.terminales_GetID(gmacadress)
+                UpdateHDSN(gTerminal)
                 MsgBox("Operacion exitosa!", MsgBoxStyle.Information)
                 Me.Close()
             Else

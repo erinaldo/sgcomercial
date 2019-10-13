@@ -680,6 +680,10 @@ Public Class RegistrarVenta
         gcantidad = Convert.ToDecimal(stringcantidad)
         '***********************************************************
         existeproducto = ProductosTableAdapter.productos_existeproducto(codigoproducto)
+        If existeproducto = 0 Then
+            MsgBox("Producto no encontrado", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         productodisponible = StockTableAdapter.stock_consultardisponible(existeproducto)
         unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(codigoproducto)
         If existeproducto > 0 Then ' existeproducto es el codigo de producto
@@ -791,6 +795,10 @@ Public Class RegistrarVenta
         Dim unidadmedida As Integer
         '        glistaprecio = 1
         existeproducto = ProductosTableAdapter.productos_existeproducto(codigotextbox.Text)
+        If existeproducto = 0 Then
+            MsgBox("Producto no encontrado", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
         'productodisponible = StockTableAdapter.stock_consultardisponible(existeproducto)
         'productodisponibleenvasado = StockTableAdapter.stock_consultardisponibleenvasado(existeproducto)
         productodisponible = StockGeneralTableAdapter.stockgeneral_consultardisponible(existeproducto)

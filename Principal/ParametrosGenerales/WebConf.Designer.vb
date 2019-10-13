@@ -37,6 +37,7 @@ Partial Class WebConf
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -45,6 +46,7 @@ Partial Class WebConf
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.TextBox6)
         Me.GroupBox1.Controls.Add(Me.TextBox5)
@@ -174,14 +176,23 @@ Partial Class WebConf
         '
         Me.ParametrosgeneralesTableAdapter.ClearBeforeFill = True
         '
-        'FormWebConf
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(21, 188)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(139, 31)
+        Me.Button3.TabIndex = 9
+        Me.Button3.Text = "Alta Dispositivo"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'WebConf
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(532, 264)
         Me.Controls.Add(Me.GroupBox1)
         Me.KeyPreview = True
-        Me.Name = "FormWebConf"
+        Me.Name = "WebConf"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "FormWebConf"
         Me.Text = "WebConf"
@@ -206,4 +217,5 @@ Partial Class WebConf
     Friend WithEvents Label1 As Label
     Friend WithEvents ParametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button3 As Button
 End Class
