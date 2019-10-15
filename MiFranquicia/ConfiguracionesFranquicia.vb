@@ -4,7 +4,7 @@
         Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.ListaspreciosTableAdapter.FillByListasRefFranquicia(Me.ComercialDataSet.listasprecios)
         '/******************************************************************/
-        '********** ValidarDatosClientesNuevos
+        '********** lista de referencia franquicia
         Dim v_ListaRefFranquicia As Integer
         v_ListaRefFranquicia = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("ListaRefFranquicia")
         ComboListasRefFranquicia.SelectedValue = v_ListaRefFranquicia

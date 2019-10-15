@@ -115,7 +115,10 @@ Public Class loginform
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
         Try
             gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+            gMiFranquicia = ModulosTableAdapter.modulos_consultarestado("ModuloFranquicia")
         Catch ex As Exception
+            gModuloClowd = 0
+            gMiFranquicia = 0
             Return
         End Try
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''

@@ -9,6 +9,28 @@
     End Sub
 
     Private Sub ViewerRemito_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        '********** lista de referencia franquicia
+        Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Dim v_ListaRefFranquicia As Integer
+        v_ListaRefFranquicia = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("ListaRefFranquicia")
+        'ComboListasRefFranquicia.SelectedValue = v_ListaRefFranquicia
+        '**********
+        ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
+        Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
+        ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
+        Try
+            gMiFranquicia = ModulosTableAdapter.modulos_consultarestado("ModuloFranquicia")
+        Catch ex As Exception
+            gMiFranquicia = 0
+            Return
+        End Try
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        If gMiFranquicia = 1 Or v_ListaRefFranquicia = 3 Or v_ListaRefFranquicia = 4 Then
+            MostrarCostosToolStripMenuItem.Visible = False
+        Else
+            MostrarCostosToolStripMenuItem.Visible = True
+        End If
+        '*************************
 
         Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
         Me.listaremitosTableAdapter.FillByIDRemito(Me.comercialDataSet.listaremitos, gidremito)

@@ -903,7 +903,7 @@ Public Class Principal
 
     Private Sub ExportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarProductosToolStripMenuItem.Click
         ExportarProductos.MdiParent = Me
-        ExportarProductos.ShowDialog()
+        ExportarProductos.Visible = True
     End Sub
 
     'Private Sub Principal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing

@@ -94,6 +94,8 @@ Partial Class EnviarStock
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
@@ -136,6 +138,9 @@ Partial Class EnviarStock
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.RemitosdetalleDataGridView)
         Me.GroupBox2.Controls.Add(Me.DataGridViewProductos)
         Me.GroupBox2.Controls.Add(Me.RemitosDataGridView)
@@ -218,6 +223,10 @@ Partial Class EnviarStock
         '
         Me.DataGridViewProductos.AllowUserToAddRows = False
         Me.DataGridViewProductos.AllowUserToDeleteRows = False
+        Me.DataGridViewProductos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridViewProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewProductos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.cantidad, Me.unidadmedida, Me.medida, Me.preciocosto, Me.precioventa, Me.precioventamayorista, Me.precioventagranel})
         Me.DataGridViewProductos.Location = New System.Drawing.Point(6, 63)
@@ -239,14 +248,12 @@ Partial Class EnviarStock
         Me.codigoproducto.HeaderText = "Código"
         Me.codigoproducto.Name = "codigoproducto"
         Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.Width = 150
         '
         'descripcion
         '
         Me.descripcion.HeaderText = "Descripción"
         Me.descripcion.Name = "descripcion"
         Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 300
         '
         'cantidad
         '
@@ -264,6 +271,7 @@ Partial Class EnviarStock
         Me.unidadmedida.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.unidadmedida.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.unidadmedida.ValueMember = "idunidadmedida"
+        Me.unidadmedida.Visible = False
         '
         'UnidadesmedidaBindingSource
         '
@@ -275,30 +283,35 @@ Partial Class EnviarStock
         Me.medida.HeaderText = "Medida"
         Me.medida.Name = "medida"
         Me.medida.ReadOnly = True
+        Me.medida.Visible = False
         '
         'preciocosto
         '
         Me.preciocosto.HeaderText = "preciocosto"
         Me.preciocosto.Name = "preciocosto"
         Me.preciocosto.ReadOnly = True
+        Me.preciocosto.Visible = False
         '
         'precioventa
         '
         Me.precioventa.HeaderText = "precioventa"
         Me.precioventa.Name = "precioventa"
         Me.precioventa.ReadOnly = True
+        Me.precioventa.Visible = False
         '
         'precioventamayorista
         '
         Me.precioventamayorista.HeaderText = "precioventamayorista"
         Me.precioventamayorista.Name = "precioventamayorista"
         Me.precioventamayorista.ReadOnly = True
+        Me.precioventamayorista.Visible = False
         '
         'precioventagranel
         '
         Me.precioventagranel.HeaderText = "precioventagranel"
         Me.precioventagranel.Name = "precioventagranel"
         Me.precioventagranel.ReadOnly = True
+        Me.precioventagranel.Visible = False
         '
         'RemitosDataGridView
         '
@@ -360,6 +373,8 @@ Partial Class EnviarStock
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.Button2)
         Me.GroupBox3.Location = New System.Drawing.Point(12, 560)
         Me.GroupBox3.Name = "GroupBox3"
@@ -370,6 +385,7 @@ Partial Class EnviarStock
         '
         'Button2
         '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button2.Location = New System.Drawing.Point(316, 39)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(185, 30)
@@ -412,7 +428,9 @@ Partial Class EnviarStock
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -422,7 +440,11 @@ Partial Class EnviarStock
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -442,12 +464,18 @@ Partial Class EnviarStock
         Me.TableAdapterManager.remitosTableAdapter = Me.RemitosTableAdapter
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Me.StockTableAdapter
         Me.TableAdapterManager.sucursalesTableAdapter = Me.SucursalesTableAdapter
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -507,6 +535,8 @@ Partial Class EnviarStock
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "EnviarStock"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Enviar Stock a Sucursal"
@@ -564,6 +594,14 @@ Partial Class EnviarStock
     Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents MiComercioBindingSource As BindingSource
+    Friend WithEvents listaremitosBindingSource As BindingSource
+    Friend WithEvents listaremitosdetalleBindingSource As BindingSource
+    Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
+    Friend WithEvents listaremitosTableAdapter As comercialDataSetTableAdapters.listaremitosTableAdapter
+    Friend WithEvents listaremitosdetalleTableAdapter As comercialDataSetTableAdapters.listaremitosdetalleTableAdapter
+    Friend WithEvents StockgeneralTableAdapter As comercialDataSetTableAdapters.stockgeneralTableAdapter
+    Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents idproducto As DataGridViewTextBoxColumn
     Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
     Friend WithEvents descripcion As DataGridViewTextBoxColumn
@@ -574,12 +612,4 @@ Partial Class EnviarStock
     Friend WithEvents precioventa As DataGridViewTextBoxColumn
     Friend WithEvents precioventamayorista As DataGridViewTextBoxColumn
     Friend WithEvents precioventagranel As DataGridViewTextBoxColumn
-    Friend WithEvents MiComercioBindingSource As BindingSource
-    Friend WithEvents listaremitosBindingSource As BindingSource
-    Friend WithEvents listaremitosdetalleBindingSource As BindingSource
-    Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
-    Friend WithEvents listaremitosTableAdapter As comercialDataSetTableAdapters.listaremitosTableAdapter
-    Friend WithEvents listaremitosdetalleTableAdapter As comercialDataSetTableAdapters.listaremitosdetalleTableAdapter
-    Friend WithEvents StockgeneralTableAdapter As comercialDataSetTableAdapters.stockgeneralTableAdapter
-    Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
 End Class

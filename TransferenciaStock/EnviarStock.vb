@@ -82,16 +82,20 @@
         '*******************************************************************
         '************** validar existencia en stock **********************
         '*******************************************************************
-        For i = 0 To DataGridViewProductos.RowCount - 1
-            Dim cantidad As Decimal = DataGridViewProductos.Rows(i).Cells(3).Value
-            Dim medida As Decimal = DataGridViewProductos.Rows(i).Cells(5).Value
-            Dim productodisponible As Decimal = StockgeneralTableAdapter.stockgeneral_consultardisponible(DataGridViewProductos.Rows(i).Cells("idproducto").Value)
-            cantidad = cantidad * medida
-            If productodisponible < cantidad Then
-                MsgBox("Producto insuficiente!", MsgBoxStyle.Exclamation, DataGridViewProductos.Rows(i).Cells(2).Value.toupper)
-                Return
-            End If
-        Next
+        Try
+            For i = 0 To DataGridViewProductos.RowCount - 1
+                Dim cantidad As Decimal = DataGridViewProductos.Rows(i).Cells(3).Value
+                Dim medida As Decimal = DataGridViewProductos.Rows(i).Cells(5).Value
+                Dim productodisponible As Decimal = StockgeneralTableAdapter.stockgeneral_consultardisponible(DataGridViewProductos.Rows(i).Cells("idproducto").Value)
+                cantidad = cantidad * medida
+                If productodisponible < cantidad Then
+                    MsgBox(DataGridViewProductos.Rows(i).Cells(2).Value.toupper, MsgBoxStyle.Exclamation, "Producto insuficiente!")
+                    Return
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox("Ocurrió una excepcion al validar existencia en stock: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia!")
+        End Try
         '******************************         FIN VALIDACIONES        *************************************
         '*******************************************************************
 

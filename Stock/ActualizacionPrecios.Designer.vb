@@ -45,16 +45,6 @@ Partial Class ActualizacionPrecios
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ListaproductosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.fabricante = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.rubro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventadistribuidor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListaproductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -89,6 +79,17 @@ Partial Class ActualizacionPrecios
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         Me.RubrosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.rubrosTableAdapter()
         Me.ListaspreciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaspreciosTableAdapter()
+        Me.fabricante = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.rubro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventadistribuidor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -105,6 +106,8 @@ Partial Class ActualizacionPrecios
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.ComboListaPrecios)
         Me.GroupBox1.Controls.Add(Me.ListacriteriosactualizacionDataGridView)
         Me.GroupBox1.Controls.Add(Me.TextBox2)
@@ -120,17 +123,19 @@ Partial Class ActualizacionPrecios
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(486, 436)
+        Me.GroupBox1.Size = New System.Drawing.Size(486, 532)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
         'ComboListaPrecios
         '
+        Me.ComboListaPrecios.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboListaPrecios.DataSource = Me.ListaspreciosBindingSource
         Me.ComboListaPrecios.DisplayMember = "descripcion"
         Me.ComboListaPrecios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboListaPrecios.FormattingEnabled = True
-        Me.ComboListaPrecios.Location = New System.Drawing.Point(15, 349)
+        Me.ComboListaPrecios.Location = New System.Drawing.Point(15, 445)
         Me.ComboListaPrecios.Name = "ComboListaPrecios"
         Me.ComboListaPrecios.Size = New System.Drawing.Size(145, 24)
         Me.ComboListaPrecios.TabIndex = 14
@@ -152,6 +157,9 @@ Partial Class ActualizacionPrecios
         Me.ListacriteriosactualizacionDataGridView.AllowUserToDeleteRows = False
         Me.ListacriteriosactualizacionDataGridView.AllowUserToResizeColumns = False
         Me.ListacriteriosactualizacionDataGridView.AllowUserToResizeRows = False
+        Me.ListacriteriosactualizacionDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListacriteriosactualizacionDataGridView.AutoGenerateColumns = False
         Me.ListacriteriosactualizacionDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.ListacriteriosactualizacionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -161,7 +169,7 @@ Partial Class ActualizacionPrecios
         Me.ListacriteriosactualizacionDataGridView.Name = "ListacriteriosactualizacionDataGridView"
         Me.ListacriteriosactualizacionDataGridView.ReadOnly = True
         Me.ListacriteriosactualizacionDataGridView.RowTemplate.Height = 24
-        Me.ListacriteriosactualizacionDataGridView.Size = New System.Drawing.Size(459, 239)
+        Me.ListacriteriosactualizacionDataGridView.Size = New System.Drawing.Size(459, 335)
         Me.ListacriteriosactualizacionDataGridView.TabIndex = 9
         '
         'valor
@@ -204,9 +212,11 @@ Partial Class ActualizacionPrecios
         '
         'CheckBox1
         '
+        Me.CheckBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.CheckBox1.Location = New System.Drawing.Point(379, 349)
+        Me.CheckBox1.Location = New System.Drawing.Point(379, 445)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(104, 24)
         Me.CheckBox1.TabIndex = 7
@@ -215,7 +225,9 @@ Partial Class ActualizacionPrecios
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(153, 388)
+        Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(153, 484)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(155, 35)
         Me.Button1.TabIndex = 6
@@ -224,8 +236,10 @@ Partial Class ActualizacionPrecios
         '
         'TextBox1
         '
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(264, 348)
+        Me.TextBox1.Location = New System.Drawing.Point(264, 444)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(100, 27)
         Me.TextBox1.TabIndex = 5
@@ -234,7 +248,7 @@ Partial Class ActualizacionPrecios
         '
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Fabricante", "Marca", "Rubro"})
+        Me.ComboBox2.Items.AddRange(New Object() {"Fabricante", "Marca", "Rubro", "Proveedor"})
         Me.ComboBox2.Location = New System.Drawing.Point(15, 40)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(121, 24)
@@ -251,8 +265,10 @@ Partial Class ActualizacionPrecios
         '
         'Label5
         '
+        Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(261, 328)
+        Me.Label5.Location = New System.Drawing.Point(261, 424)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(41, 17)
         Me.Label5.TabIndex = 1
@@ -260,8 +276,10 @@ Partial Class ActualizacionPrecios
         '
         'Label4
         '
+        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(166, 328)
+        Me.Label4.Location = New System.Drawing.Point(166, 424)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 17)
         Me.Label4.TabIndex = 1
@@ -269,8 +287,10 @@ Partial Class ActualizacionPrecios
         '
         'Label1
         '
+        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 328)
+        Me.Label1.Location = New System.Drawing.Point(15, 424)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(101, 17)
         Me.Label1.TabIndex = 1
@@ -278,20 +298,25 @@ Partial Class ActualizacionPrecios
         '
         'ComboBox1
         '
+        Me.ComboBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Porcentaje", "Monto fijo"})
-        Me.ComboBox1.Location = New System.Drawing.Point(166, 349)
+        Me.ComboBox1.Location = New System.Drawing.Point(166, 445)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(92, 24)
         Me.ComboBox1.TabIndex = 0
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.ListaproductosDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(504, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(783, 436)
+        Me.GroupBox2.Size = New System.Drawing.Size(783, 532)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Productos"
@@ -305,103 +330,14 @@ Partial Class ActualizacionPrecios
         Me.ListaproductosDataGridView.AutoGenerateColumns = False
         Me.ListaproductosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.ListaproductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListaproductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.fabricante, Me.rubro, Me.marca, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.precioventa, Me.precioventagranel, Me.precioventamayorista, Me.precioventadistribuidor, Me.DataGridViewTextBoxColumn6})
+        Me.ListaproductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.fabricante, Me.rubro, Me.marca, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.precioventa, Me.precioventagranel, Me.precioventamayorista, Me.precioventadistribuidor, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn28})
         Me.ListaproductosDataGridView.DataSource = Me.ListaproductosBindingSource
         Me.ListaproductosDataGridView.Location = New System.Drawing.Point(17, 21)
         Me.ListaproductosDataGridView.Name = "ListaproductosDataGridView"
         Me.ListaproductosDataGridView.ReadOnly = True
         Me.ListaproductosDataGridView.RowTemplate.Height = 24
-        Me.ListaproductosDataGridView.Size = New System.Drawing.Size(747, 395)
+        Me.ListaproductosDataGridView.Size = New System.Drawing.Size(747, 498)
         Me.ListaproductosDataGridView.TabIndex = 0
-        '
-        'fabricante
-        '
-        Me.fabricante.DataPropertyName = "fabricante"
-        Me.fabricante.HeaderText = "Fabricante"
-        Me.fabricante.Name = "fabricante"
-        Me.fabricante.ReadOnly = True
-        Me.fabricante.ToolTipText = "Fabricante"
-        Me.fabricante.Visible = False
-        Me.fabricante.Width = 104
-        '
-        'rubro
-        '
-        Me.rubro.DataPropertyName = "rubro"
-        Me.rubro.HeaderText = "Rubro"
-        Me.rubro.Name = "rubro"
-        Me.rubro.ReadOnly = True
-        Me.rubro.Visible = False
-        Me.rubro.Width = 76
-        '
-        'marca
-        '
-        Me.marca.DataPropertyName = "marca"
-        Me.marca.HeaderText = "marca"
-        Me.marca.Name = "marca"
-        Me.marca.ReadOnly = True
-        Me.marca.Visible = False
-        Me.marca.Width = 76
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "codigoproducto"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Código"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 81
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "descripcion"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Descripción"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 111
-        '
-        'precioventa
-        '
-        Me.precioventa.DataPropertyName = "precioventa"
-        Me.precioventa.HeaderText = "Precio Vta. Público"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        Me.precioventa.ToolTipText = "Precio Vta. Público"
-        Me.precioventa.Width = 143
-        '
-        'precioventagranel
-        '
-        Me.precioventagranel.DataPropertyName = "precioventagranel"
-        Me.precioventagranel.HeaderText = "Precio Vta. Granel"
-        Me.precioventagranel.Name = "precioventagranel"
-        Me.precioventagranel.ReadOnly = True
-        Me.precioventagranel.ToolTipText = "Precio Vta. Granel"
-        Me.precioventagranel.Width = 140
-        '
-        'precioventamayorista
-        '
-        Me.precioventamayorista.DataPropertyName = "precioventamayorista"
-        Me.precioventamayorista.HeaderText = "Precio Vta. Mayorista"
-        Me.precioventamayorista.Name = "precioventamayorista"
-        Me.precioventamayorista.ReadOnly = True
-        Me.precioventamayorista.ToolTipText = "Precio Vta. Mayorista"
-        Me.precioventamayorista.Width = 156
-        '
-        'precioventadistribuidor
-        '
-        Me.precioventadistribuidor.DataPropertyName = "precioventadistribuidor"
-        Me.precioventadistribuidor.HeaderText = "Precio Vta. Distribuidor"
-        Me.precioventadistribuidor.Name = "precioventadistribuidor"
-        Me.precioventadistribuidor.ReadOnly = True
-        Me.precioventadistribuidor.ToolTipText = "Precio Vta. Distribuidor"
-        Me.precioventadistribuidor.Width = 166
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "productocompuesto"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "productocompuesto"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Visible = False
-        Me.DataGridViewTextBoxColumn6.Width = 162
         '
         'ListaproductosBindingSource
         '
@@ -604,7 +540,9 @@ Partial Class ActualizacionPrecios
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -614,7 +552,11 @@ Partial Class ActualizacionPrecios
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -634,11 +576,18 @@ Partial Class ActualizacionPrecios
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -666,11 +615,108 @@ Partial Class ActualizacionPrecios
         '
         Me.ListaspreciosTableAdapter.ClearBeforeFill = True
         '
+        'fabricante
+        '
+        Me.fabricante.DataPropertyName = "fabricante"
+        Me.fabricante.HeaderText = "Fabricante"
+        Me.fabricante.Name = "fabricante"
+        Me.fabricante.ReadOnly = True
+        Me.fabricante.ToolTipText = "Fabricante"
+        Me.fabricante.Visible = False
+        Me.fabricante.Width = 104
+        '
+        'rubro
+        '
+        Me.rubro.DataPropertyName = "rubro"
+        Me.rubro.HeaderText = "Rubro"
+        Me.rubro.Name = "rubro"
+        Me.rubro.ReadOnly = True
+        Me.rubro.Visible = False
+        Me.rubro.Width = 76
+        '
+        'marca
+        '
+        Me.marca.DataPropertyName = "marca"
+        Me.marca.HeaderText = "marca"
+        Me.marca.Name = "marca"
+        Me.marca.ReadOnly = True
+        Me.marca.Visible = False
+        Me.marca.Width = 76
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "codigoproducto"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Código"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 81
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Descripción"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 111
+        '
+        'precioventa
+        '
+        Me.precioventa.DataPropertyName = "precioventa"
+        Me.precioventa.HeaderText = "Precio Vta. Público"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.ToolTipText = "Precio Vta. Público"
+        Me.precioventa.Width = 117
+        '
+        'precioventagranel
+        '
+        Me.precioventagranel.DataPropertyName = "precioventagranel"
+        Me.precioventagranel.HeaderText = "Precio Vta. Granel"
+        Me.precioventagranel.Name = "precioventagranel"
+        Me.precioventagranel.ReadOnly = True
+        Me.precioventagranel.ToolTipText = "Precio Vta. Granel"
+        Me.precioventagranel.Width = 140
+        '
+        'precioventamayorista
+        '
+        Me.precioventamayorista.DataPropertyName = "precioventamayorista"
+        Me.precioventamayorista.HeaderText = "Precio Vta. Mayorista"
+        Me.precioventamayorista.Name = "precioventamayorista"
+        Me.precioventamayorista.ReadOnly = True
+        Me.precioventamayorista.ToolTipText = "Precio Vta. Mayorista"
+        Me.precioventamayorista.Width = 156
+        '
+        'precioventadistribuidor
+        '
+        Me.precioventadistribuidor.DataPropertyName = "precioventadistribuidor"
+        Me.precioventadistribuidor.HeaderText = "Precio Vta. Distribuidor"
+        Me.precioventadistribuidor.Name = "precioventadistribuidor"
+        Me.precioventadistribuidor.ReadOnly = True
+        Me.precioventadistribuidor.ToolTipText = "Precio Vta. Distribuidor"
+        Me.precioventadistribuidor.Width = 166
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "productocompuesto"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "productocompuesto"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Visible = False
+        Me.DataGridViewTextBoxColumn6.Width = 162
+        '
+        'DataGridViewTextBoxColumn28
+        '
+        Me.DataGridViewTextBoxColumn28.DataPropertyName = "nombreproveedor"
+        Me.DataGridViewTextBoxColumn28.HeaderText = "Proveedor"
+        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
+        Me.DataGridViewTextBoxColumn28.ReadOnly = True
+        Me.DataGridViewTextBoxColumn28.Width = 103
+        '
         'ActualizacionPrecios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1299, 457)
+        Me.ClientSize = New System.Drawing.Size(1299, 553)
         Me.Controls.Add(Me.RubrosDataGridView)
         Me.Controls.Add(Me.ProductosDataGridView)
         Me.Controls.Add(Me.GroupBox2)
@@ -751,6 +797,11 @@ Partial Class ActualizacionPrecios
     Friend WithEvents RubrosDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
+    Friend WithEvents ComboListaPrecios As ComboBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents ListaspreciosBindingSource As BindingSource
+    Friend WithEvents ListaspreciosTableAdapter As comercialDataSetTableAdapters.listaspreciosTableAdapter
     Friend WithEvents fabricante As DataGridViewTextBoxColumn
     Friend WithEvents rubro As DataGridViewTextBoxColumn
     Friend WithEvents marca As DataGridViewTextBoxColumn
@@ -761,9 +812,5 @@ Partial Class ActualizacionPrecios
     Friend WithEvents precioventamayorista As DataGridViewTextBoxColumn
     Friend WithEvents precioventadistribuidor As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents ComboListaPrecios As ComboBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents ListaspreciosBindingSource As BindingSource
-    Friend WithEvents ListaspreciosTableAdapter As comercialDataSetTableAdapters.listaspreciosTableAdapter
+    Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
 End Class

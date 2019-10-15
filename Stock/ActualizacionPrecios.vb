@@ -22,8 +22,12 @@ Public Class ActualizacionPrecios
                     ListacriteriosactualizacionBindingSource.Filter = "criterio like'marca'"
                 Case "Rubro"
                     ListacriteriosactualizacionBindingSource.Filter = "criterio like'rubro'"
+                Case "Proveedor"
+                    MsgBox("Temporalmente NO dispobible", MsgBoxStyle.Exclamation, "Advertencia")
+                    Return
+                    ListacriteriosactualizacionBindingSource.Filter = "criterio like'proveedor'"
                 Case Else
-
+                    MsgBox("Temporalmente NO dispobible", MsgBoxStyle.Exclamation, "Advertencia")
             End Select
         Catch ex As Exception
 
@@ -192,6 +196,8 @@ Public Class ActualizacionPrecios
                     ListaproductosBindingSource.Filter = "marca like '%" + ListacriteriosactualizacionDataGridView.Rows(e.RowIndex).Cells("valor").Value + "%'"
                 Case "Rubro"
                     ListaproductosBindingSource.Filter = "rubro like '%" + ListacriteriosactualizacionDataGridView.Rows(e.RowIndex).Cells("valor").Value + "%'"
+                Case "Proveedor"
+                    ListaproductosBindingSource.Filter = "nombreproveedor like '%" + ListacriteriosactualizacionDataGridView.Rows(e.RowIndex).Cells("valor").Value + "%'"
             End Select
             marcaseleccionada = ListacriteriosactualizacionDataGridView.Rows(e.RowIndex).Cells("valor").Value
         Catch ex As Exception

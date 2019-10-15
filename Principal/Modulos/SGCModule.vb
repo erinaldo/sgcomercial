@@ -40,6 +40,7 @@ Module SGCModule
     Public gFechaSeleccionada As DateTime
     Public gpagocombinadoconfirmado As Boolean
     Public gModuloClowd As Long
+    Public gMiFranquicia As Long
     Public gProgressBarCounter As Long
     Public gUserToken As String
     Public gSUToken As Boolean

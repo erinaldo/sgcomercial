@@ -154,7 +154,7 @@ Public Class ViewerFactura
             '*************************  ENVIO EMAIL **********************************************
             If ModuloUtilidades.clsSendMail.SendEMail(EmailFrom, EmailTo, EmailSubject, EmailBody, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
                 Me.Cursor = Cursors.Default
-                MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("El envío de mail ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 Me.Cursor = Cursors.Default
                 MessageBox.Show("El envío de mail falló! Verifíque su conexión a internet", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

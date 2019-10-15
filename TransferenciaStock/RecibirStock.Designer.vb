@@ -42,17 +42,7 @@ Partial Class RecibirStock
         Me.RemitosdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.DataGridViewProductos = New System.Windows.Forms.DataGridView()
-        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.unidadmedida = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.UnidadesmedidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.preciocosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RemitosDataGridView = New System.Windows.Forms.DataGridView()
         Me.IdremitoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TiporemitoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -73,6 +63,16 @@ Partial Class RecibirStock
         Me.UnidadesmedidaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.unidadesmedidaTableAdapter()
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.unidadmedida = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.preciocosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.RemitosdetalleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,6 +88,8 @@ Partial Class RecibirStock
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.Button2)
         Me.GroupBox3.Location = New System.Drawing.Point(14, 564)
         Me.GroupBox3.Name = "GroupBox3"
@@ -98,6 +100,7 @@ Partial Class RecibirStock
         '
         'Button2
         '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button2.Location = New System.Drawing.Point(316, 39)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(185, 30)
@@ -107,6 +110,9 @@ Partial Class RecibirStock
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.RemitosdetalleDataGridView)
         Me.GroupBox2.Controls.Add(Me.DataGridViewProductos)
         Me.GroupBox2.Controls.Add(Me.RemitosDataGridView)
@@ -232,6 +238,10 @@ Partial Class RecibirStock
         '
         Me.DataGridViewProductos.AllowUserToAddRows = False
         Me.DataGridViewProductos.AllowUserToDeleteRows = False
+        Me.DataGridViewProductos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridViewProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewProductos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.cantidad, Me.unidadmedida, Me.medida, Me.preciocosto, Me.precioventa, Me.precioventamayorista, Me.precioventagranel})
         Me.DataGridViewProductos.Location = New System.Drawing.Point(6, 63)
@@ -241,78 +251,10 @@ Partial Class RecibirStock
         Me.DataGridViewProductos.Size = New System.Drawing.Size(805, 367)
         Me.DataGridViewProductos.TabIndex = 1
         '
-        'idproducto
-        '
-        Me.idproducto.HeaderText = "ID"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.ReadOnly = True
-        Me.idproducto.Visible = False
-        '
-        'codigoproducto
-        '
-        Me.codigoproducto.HeaderText = "Código"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.Width = 150
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 300
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        '
-        'unidadmedida
-        '
-        Me.unidadmedida.DataSource = Me.UnidadesmedidaBindingSource
-        Me.unidadmedida.DisplayMember = "descripcion"
-        Me.unidadmedida.HeaderText = "Unidad Medida"
-        Me.unidadmedida.Name = "unidadmedida"
-        Me.unidadmedida.ReadOnly = True
-        Me.unidadmedida.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.unidadmedida.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.unidadmedida.ValueMember = "idunidadmedida"
-        '
         'UnidadesmedidaBindingSource
         '
         Me.UnidadesmedidaBindingSource.DataMember = "unidadesmedida"
         Me.UnidadesmedidaBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'medida
-        '
-        Me.medida.HeaderText = "Medida"
-        Me.medida.Name = "medida"
-        Me.medida.ReadOnly = True
-        '
-        'preciocosto
-        '
-        Me.preciocosto.HeaderText = "Precio Costo"
-        Me.preciocosto.Name = "preciocosto"
-        Me.preciocosto.ReadOnly = True
-        '
-        'precioventa
-        '
-        Me.precioventa.HeaderText = "Precio Vta. Pub."
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        '
-        'precioventamayorista
-        '
-        Me.precioventamayorista.HeaderText = "Precio Vta. mayorista"
-        Me.precioventamayorista.Name = "precioventamayorista"
-        Me.precioventamayorista.ReadOnly = True
-        '
-        'precioventagranel
-        '
-        Me.precioventagranel.HeaderText = "Precio Vta. granel"
-        Me.precioventagranel.Name = "precioventagranel"
-        Me.precioventagranel.ReadOnly = True
         '
         'RemitosDataGridView
         '
@@ -388,6 +330,8 @@ Partial Class RecibirStock
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 16)
@@ -450,6 +394,78 @@ Partial Class RecibirStock
         'BGWStockClowd
         '
         '
+        'idproducto
+        '
+        Me.idproducto.HeaderText = "ID"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        '
+        'codigoproducto
+        '
+        Me.codigoproducto.HeaderText = "Código"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        '
+        'unidadmedida
+        '
+        Me.unidadmedida.DataSource = Me.UnidadesmedidaBindingSource
+        Me.unidadmedida.DisplayMember = "descripcion"
+        Me.unidadmedida.HeaderText = "Unidad Medida"
+        Me.unidadmedida.Name = "unidadmedida"
+        Me.unidadmedida.ReadOnly = True
+        Me.unidadmedida.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.unidadmedida.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.unidadmedida.ValueMember = "idunidadmedida"
+        Me.unidadmedida.Visible = False
+        '
+        'medida
+        '
+        Me.medida.HeaderText = "Medida"
+        Me.medida.Name = "medida"
+        Me.medida.ReadOnly = True
+        Me.medida.Visible = False
+        '
+        'preciocosto
+        '
+        Me.preciocosto.HeaderText = "Precio Costo"
+        Me.preciocosto.Name = "preciocosto"
+        Me.preciocosto.ReadOnly = True
+        Me.preciocosto.Visible = False
+        '
+        'precioventa
+        '
+        Me.precioventa.HeaderText = "Precio Vta. Pub."
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.Visible = False
+        '
+        'precioventamayorista
+        '
+        Me.precioventamayorista.HeaderText = "Precio Vta. mayorista"
+        Me.precioventamayorista.Name = "precioventamayorista"
+        Me.precioventamayorista.ReadOnly = True
+        Me.precioventamayorista.Visible = False
+        '
+        'precioventagranel
+        '
+        Me.precioventagranel.HeaderText = "Precio Vta. granel"
+        Me.precioventagranel.Name = "precioventagranel"
+        Me.precioventagranel.ReadOnly = True
+        Me.precioventagranel.Visible = False
+        '
         'RecibirStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -461,7 +477,9 @@ Partial Class RecibirStock
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "RecibirStock"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "RecibirStock"
         Me.Text = "Recibir Stock"
         Me.GroupBox3.ResumeLayout(False)
@@ -518,6 +536,8 @@ Partial Class RecibirStock
     Friend WithEvents ProductosTableAdapter As comercialDataSetTableAdapters.productosTableAdapter
     Friend WithEvents UnidadesmedidaBindingSource As BindingSource
     Friend WithEvents UnidadesmedidaTableAdapter As comercialDataSetTableAdapters.unidadesmedidaTableAdapter
+    Friend WithEvents StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
+    Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents idproducto As DataGridViewTextBoxColumn
     Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
     Friend WithEvents descripcion As DataGridViewTextBoxColumn
@@ -528,6 +548,4 @@ Partial Class RecibirStock
     Friend WithEvents precioventa As DataGridViewTextBoxColumn
     Friend WithEvents precioventamayorista As DataGridViewTextBoxColumn
     Friend WithEvents precioventagranel As DataGridViewTextBoxColumn
-    Friend WithEvents StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
-    Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
 End Class

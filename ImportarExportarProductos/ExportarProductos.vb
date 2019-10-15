@@ -62,19 +62,25 @@ Public Class ExportarProductos
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim extensions As RenderingExtension() = ReportViewer1.LocalReport.ListRenderingExtensions()
-        For Each extension As RenderingExtension In extensions
-            If extension.Name = "EXCELOPENXML" Then
-                If MsgBox("Este proceso puede tardar unos minutos. Desea continuar?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
-                    'Dim rtn As Integer
-                    If ReportViewer1.ExportDialog(extension) Then
-                        MsgBox("Proceso finalizado correctamente!", MsgBoxStyle.Information, "Mensaje")
-                        Me.Close()
+        Try
+            Dim extensions As RenderingExtension() = ReportViewer1.LocalReport.ListRenderingExtensions()
+            For Each extension As RenderingExtension In extensions
+                If extension.Name = "EXCELOPENXML" Then
+                    If MsgBox("Este proceso puede tardar unos minutos. Desea continuar?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                        'Dim rtn As Integer
+                        If ReportViewer1.ExportDialog(extension) Then
+                            'MsgBox("Proceso finalizado correctamente!", MsgBoxStyle.Information, "Mensaje")
+                            MessageBox.Show("Proceso finalizado correctamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Me.Close()
+
+                        End If
 
                     End If
-
                 End If
-            End If
-        Next
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Ha ocurrido una excepción: " + ex.Message, "Excepción", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End Try
     End Sub
 End Class

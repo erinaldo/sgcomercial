@@ -23,27 +23,27 @@ Partial Class ViewerReporteControlStockGeneral
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.stockgeneralBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.stockgeneralTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockgeneralTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ListarubrosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.ListarubrosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listarubrosTableAdapter()
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.stockgeneralBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         CType(Me.ListarubrosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'MiComercioBindingSource
@@ -71,6 +71,8 @@ Partial Class ViewerReporteControlStockGeneral
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -80,40 +82,14 @@ Partial Class ViewerReporteControlStockGeneral
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
-        'GroupBox2
+        'Button1
         '
-        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.ReportViewer1)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 78)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1031, 516)
-        Me.GroupBox2.TabIndex = 2
-        Me.GroupBox2.TabStop = False
-        '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "MiComercio"
-        ReportDataSource1.Value = Me.MiComercioBindingSource
-        ReportDataSource2.Name = "stockgeneral"
-        ReportDataSource2.Value = Me.stockgeneralBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RptControlStockGeneral.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1025, 495)
-        Me.ReportViewer1.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(196, 23)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(107, 17)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Filtrar por rubro"
+        Me.Button1.Location = New System.Drawing.Point(705, 20)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(129, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Traer todos"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'ComboBox1
         '
@@ -132,18 +108,45 @@ Partial Class ViewerReporteControlStockGeneral
         Me.ListarubrosBindingSource.DataMember = "listarubros"
         Me.ListarubrosBindingSource.DataSource = Me.comercialDataSet
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(196, 23)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(107, 17)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Filtrar por rubro"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.ReportViewer1)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 78)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(1031, 516)
+        Me.GroupBox2.TabIndex = 2
+        Me.GroupBox2.TabStop = False
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        ReportDataSource3.Name = "MiComercio"
+        ReportDataSource3.Value = Me.MiComercioBindingSource
+        ReportDataSource4.Name = "stockgeneral"
+        ReportDataSource4.Value = Me.stockgeneralBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RptControlStockGeneral.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(1025, 495)
+        Me.ReportViewer1.TabIndex = 1
+        '
         'ListarubrosTableAdapter
         '
         Me.ListarubrosTableAdapter.ClearBeforeFill = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(705, 20)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(129, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Traer todos"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'ViewerReporteControlStockGeneral
         '
@@ -152,6 +155,7 @@ Partial Class ViewerReporteControlStockGeneral
         Me.ClientSize = New System.Drawing.Size(1055, 606)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "ViewerReporteControlStockGeneral"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -162,8 +166,8 @@ Partial Class ViewerReporteControlStockGeneral
         CType(Me.stockgeneralBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
         CType(Me.ListarubrosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
