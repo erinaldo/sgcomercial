@@ -240,6 +240,8 @@ Public Class ABMClientes
                     '    gdomicilioseleccionado = Nothing
                     '    'Me.ListapedidosdeliveryTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.listapedidosdelivery, gidpedidodelivery)
                     'End If
+                Case "eliminar"
+                    MsgBox("eliminar")
             End Select
 
         Catch ex As Exception

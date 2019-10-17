@@ -55,12 +55,6 @@ Partial Class ABMClientes
         Me.TelefonoTextBox = New System.Windows.Forms.TextBox()
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.ClientesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cuit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EditarDomicilio = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboDocTipo = New System.Windows.Forms.ComboBox()
         Me.TipodocumentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -82,6 +76,13 @@ Partial Class ABMClientes
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
         Me.ProvinciasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.provinciasTableAdapter()
         Me.TipodocumentosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipodocumentosTableAdapter()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cuit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EditarDomicilio = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         RazonsocialLabel = New System.Windows.Forms.Label()
@@ -409,7 +410,7 @@ Partial Class ABMClientes
         Me.ClientesDataGridView.AutoGenerateColumns = False
         Me.ClientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.EditarDomicilio})
+        Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.EditarDomicilio, Me.eliminar})
         Me.ClientesDataGridView.DataSource = Me.ClientesBindingSource
         Me.ClientesDataGridView.Location = New System.Drawing.Point(12, 73)
         Me.ClientesDataGridView.Margin = New System.Windows.Forms.Padding(4)
@@ -417,56 +418,6 @@ Partial Class ABMClientes
         Me.ClientesDataGridView.ReadOnly = True
         Me.ClientesDataGridView.Size = New System.Drawing.Size(975, 199)
         Me.ClientesDataGridView.TabIndex = 13
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idcliente"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idcliente"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre / Razón Social"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 200
-        '
-        'cuit
-        '
-        Me.cuit.DataPropertyName = "cuit"
-        Me.cuit.HeaderText = "Cuit"
-        Me.cuit.Name = "cuit"
-        Me.cuit.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "telefono"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Teléfono"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "email"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Email"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'EditarDomicilio
-        '
-        Me.EditarDomicilio.DataPropertyName = "idcliente"
-        Me.EditarDomicilio.HeaderText = "Editar Domicilio"
-        Me.EditarDomicilio.Name = "EditarDomicilio"
-        Me.EditarDomicilio.ReadOnly = True
-        Me.EditarDomicilio.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.EditarDomicilio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.EditarDomicilio.Text = "Editar Domicilio"
-        Me.EditarDomicilio.ToolTipText = "Editar Domicilio"
-        Me.EditarDomicilio.UseColumnTextForButtonValue = True
         '
         'GroupBox1
         '
@@ -736,6 +687,63 @@ Partial Class ABMClientes
         '
         Me.TipodocumentosTableAdapter.ClearBeforeFill = True
         '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idcliente"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idcliente"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre / Razón Social"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 200
+        '
+        'cuit
+        '
+        Me.cuit.DataPropertyName = "cuit"
+        Me.cuit.HeaderText = "Cuit"
+        Me.cuit.Name = "cuit"
+        Me.cuit.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "telefono"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Teléfono"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "email"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Email"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'EditarDomicilio
+        '
+        Me.EditarDomicilio.DataPropertyName = "idcliente"
+        Me.EditarDomicilio.HeaderText = "Editar Domicilio"
+        Me.EditarDomicilio.Name = "EditarDomicilio"
+        Me.EditarDomicilio.ReadOnly = True
+        Me.EditarDomicilio.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.EditarDomicilio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.EditarDomicilio.Text = "Editar Domicilio"
+        Me.EditarDomicilio.ToolTipText = "Editar Domicilio"
+        Me.EditarDomicilio.UseColumnTextForButtonValue = True
+        '
+        'eliminar
+        '
+        Me.eliminar.DataPropertyName = "idcliente"
+        Me.eliminar.HeaderText = "Eliminar"
+        Me.eliminar.Name = "eliminar"
+        Me.eliminar.ReadOnly = True
+        '
         'ABMClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -817,4 +825,5 @@ Partial Class ABMClientes
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents EditarDomicilio As DataGridViewButtonColumn
+    Friend WithEvents eliminar As DataGridViewButtonColumn
 End Class

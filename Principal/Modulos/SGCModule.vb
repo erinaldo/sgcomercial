@@ -1069,13 +1069,15 @@ Module SGCModule
                             --------------------------------------------------------------------------------------------------------------------------------
                             ,(select isnull(sum(libroventasdetalle.frgananciadistribuidor),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa ) as frgananciadistribuidor
                             --------------------------------------------------------------------------------------------------------------------------------
-                            from ventas v,
-                            clientes c,
-                            tipocomprobantes tc
-                            where
-                            v.idcliente = c.idcliente
-                            and v.idtipocomprobante = tc.idtipocomprobante
-                            ", myConn2)
+							,(select cast(isnull(sum(libroventasdetalle.kilogramos),0) as decimal(18,3)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.unidadmedida = 1 ) as kilogramos
+from ventas v,
+clientes c,
+tipocomprobantes tc
+where
+v.idcliente = c.idcliente
+and v.idtipocomprobante = tc.idtipocomprobante
+
+", myConn2)
             myConn2.Open()
             mycommand.ExecuteNonQuery()
             myConn2.Close()

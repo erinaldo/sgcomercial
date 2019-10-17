@@ -1476,7 +1476,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.87331in</Height>
+    <Height>2.43463in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -1486,7 +1486,7 @@
   <Width>7.97175in</Width>
   <Page>
     <PageHeader>
-      <Height>7.60942cm</Height>
+      <Height>7.08025cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2062,7 +2062,7 @@
         </Textbox>
         <Line Name="Line6">
           <Top>6.94267cm</Top>
-          <Left>0.03175cm</Left>
+          <Left>0.05261cm</Left>
           <Height>0cm</Height>
           <Width>20.07658cm</Width>
           <ZIndex>17</ZIndex>
@@ -2276,7 +2276,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>3.9084cm</Height>
+      <Height>4.71273cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2309,9 +2309,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>2.39889cm</Top>
-          <Left>0.03175cm</Left>
-          <Height>0.64167cm</Height>
+          <Top>2.93864cm</Top>
+          <Left>0.05261cm</Left>
+          <Height>0.53584cm</Height>
           <Width>20.10833cm</Width>
           <Style>
             <Border>
@@ -2491,13 +2491,58 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>3.21695cm</Top>
+          <Top>3.7567cm</Top>
           <Left>0.05261cm</Left>
           <Height>0.6cm</Height>
           <Width>20.10833cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox26">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Kilogramos: </Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=Sum(Fields!kilogramos.Value, "libroventas")</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox24</rd:DefaultName>
+          <Top>2.21153cm</Top>
+          <Left>0.03175cm</Left>
+          <Height>0.55072cm</Height>
+          <Width>20.10833cm</Width>
+          <ZIndex>3</ZIndex>
+          <Visibility>
+            <Hidden>=iif(Sum(Fields!kilogramos.Value, "libroventas") &gt; 0 ,false,true)</Hidden>
+          </Visibility>
+          <Style>
+            <Border>
+              <Color>LightGrey</Color>
               <Style>None</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
@@ -2755,6 +2800,38 @@
           <DataField>caefchvtodate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="fechadesde">
+          <DataField>fechadesde</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="fechahasta">
+          <DataField>fechahasta</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="idcliente">
+          <DataField>idcliente</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="frcostomayorista">
+          <DataField>frcostomayorista</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="frcostodistribuidor">
+          <DataField>frcostodistribuidor</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="frgananciamayorista">
+          <DataField>frgananciamayorista</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="frgananciadistribuidor">
+          <DataField>frgananciadistribuidor</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="kilogramos">
+          <DataField>kilogramos</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>comercialDataSet</rd:DataSetName>
@@ -2829,6 +2906,26 @@
         </Field>
         <Field Name="letra">
           <DataField>letra</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="frpreciocostomayorista">
+          <DataField>frpreciocostomayorista</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="frpreciocostodistribuidor">
+          <DataField>frpreciocostodistribuidor</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="frgananciamayorista">
+          <DataField>frgananciamayorista</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="frgananciadistribuidor">
+          <DataField>frgananciadistribuidor</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="unidadmedida">
+          <DataField>unidadmedida</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

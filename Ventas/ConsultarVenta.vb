@@ -1,11 +1,17 @@
 ﻿Public Class ConsultarVenta
 
     Private Sub ConsultarVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.LibroventasdetalleTableAdapter.FillByIdventa(Me.ComercialDataSet.libroventasdetalle, gidventa)
-        Me.LibroventasTableAdapter.FillByIdventa(Me.ComercialDataSet.libroventas, gidventa)
-        Me.PagosTableAdapter.FillByidventa(Me.ComercialDataSet.pagos, gidventa)
+        Try
+            Me.LibroventasdetalleTableAdapter.FillByIdventa(Me.ComercialDataSet.libroventasdetalle, gidventa)
+            Me.LibroventasTableAdapter.FillByIdventa(Me.ComercialDataSet.libroventas, gidventa)
+            Me.PagosTableAdapter.FillByidventa(Me.ComercialDataSet.pagos, gidventa)
 
-        calcular()
+            calcular()
+        Catch ex As Exception
+            MessageBox.Show("Se encontró una excepción al cargar el reporte: " + ex.Message, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End Try
+
 
     End Sub
 
