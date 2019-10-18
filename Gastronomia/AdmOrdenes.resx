@@ -150,6 +150,21 @@
   <metadata name="SalonesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>331, 17</value>
   </metadata>
+  <metadata name="ComercialDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>153, 17</value>
+  </metadata>
+  <metadata name="subtotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ListaordenesmesaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>272, 103</value>
+  </metadata>
+  <metadata name="MesasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>738, 17</value>
+  </metadata>
+  <metadata name="SalonesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>331, 17</value>
+  </metadata>
   <metadata name="OrdenesmesasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 103</value>
   </metadata>
@@ -174,8 +189,17 @@
   <metadata name="TableAdapterManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>714, 60</value>
   </metadata>
+  <metadata name="MenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>923, 60</value>
+  </metadata>
   <metadata name="ParametrosgeneralesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1422, 178</value>
+  </metadata>
+  <metadata name="ParametrosgeneralesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1422, 178</value>
+  </metadata>
+  <metadata name="CajaseventosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>941, 178</value>
   </metadata>
   <metadata name="CajaseventosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>941, 178</value>
@@ -183,8 +207,17 @@
   <metadata name="CajasoperacionesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>402, 178</value>
   </metadata>
+  <metadata name="CajasoperacionesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>402, 178</value>
+  </metadata>
   <metadata name="PagosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 178</value>
+  </metadata>
+  <metadata name="PagosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 178</value>
+  </metadata>
+  <metadata name="VentasdetalleBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1162, 146</value>
   </metadata>
   <metadata name="VentasdetalleBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1162, 146</value>
@@ -192,8 +225,17 @@
   <metadata name="VentasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>767, 146</value>
   </metadata>
+  <metadata name="VentasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>767, 146</value>
+  </metadata>
   <metadata name="FormaspagoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>294, 146</value>
+  </metadata>
+  <metadata name="FormaspagoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>294, 146</value>
+  </metadata>
+  <metadata name="TipocomprobantesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1285, 103</value>
   </metadata>
   <metadata name="TipocomprobantesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1285, 103</value>
@@ -455,6 +497,9 @@
   <metadata name="ListaclientesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1048, 103</value>
   </metadata>
+  <metadata name="ListaclientesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1048, 103</value>
+  </metadata>
   <metadata name="MenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>923, 60</value>
   </metadata>
@@ -506,4 +551,53 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>161</value>
   </metadata>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAGRkAAAEAIABQCgAAFgAAACgAAAAZAAAAMgAAAAEAIAAAAAAAxAkAABMLAAATCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAsAAAB+AAAA5gAAAP4AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/gAAAOUAAAB+AAAACwAAAAAAAAAAAAAAAAAAAAAAAAB2AAAA+gAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA+gAAAHYAAAAAAAAAAAAAAAAAAAAbAAAA2QAAAPwAAACpAAAAgQAAAIIAAACCAAAAuwAA
+        APoAAACsAAAAgQAAAIIAAACBAAAAuAAAAPoAAACvAAAAgAAAAIEAAACBAAAAswAAAP8AAADYAAAAGgAA
+        AAAAAAAAAAAAMAAAAPEAAADaAAAAGQAAAAAAAAAAAAAAAAAAADgAAADOAAAAHwAAAAAAAAAAAAAAAAAA
+        ADIAAADQAAAAJAAAAAAAAAAAAAAAAAAAACoAAADpAAAA8AAAADAAAAAAAAAAAAAAADIAAADyAAAA1wAA
+        ABQAAAAAAAAAAAAAAAAAAAAzAAAAygAAABoAAAAAAAAAAAAAAAAAAAAtAAAAzAAAAB8AAAAAAAAAAAAA
+        AAAAAAAlAAAA5wAAAPEAAAAyAAAAAAAAAAAAAAAyAAAA8AAAAPcAAACSAAAAZwAAAGgAAABoAAAAqAAA
+        APYAAACWAAAAZwAAAGgAAABoAAAApAAAAPcAAACaAAAAZwAAAGgAAABnAAAAnwAAAPwAAADvAAAAMQAA
+        AAAAAAAAAAAAMgAAAO8AAAD/AAAA9gAAAOgAAADoAAAA6QAAAPoAAAD/AAAA9wAAAOgAAADoAAAA6QAA
+        APkAAAD/AAAA9wAAAOgAAADoAAAA6QAAAPgAAAD/AAAA7wAAADEAAAAAAAAAAAAAADIAAADxAAAA7AAA
+        AFQAAAAmAAAAKAAAACYAAAByAAAA6AAAAFoAAAAmAAAAKAAAACYAAABsAAAA6QAAAF8AAAAmAAAAKAAA
+        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
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</value>
+  </data>
 </root>

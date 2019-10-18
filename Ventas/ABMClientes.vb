@@ -241,11 +241,16 @@ Public Class ABMClientes
                     '    'Me.ListapedidosdeliveryTableAdapter.FillByIdpedidodelivery(Me.ComercialDataSet.listapedidosdelivery, gidpedidodelivery)
                     'End If
                 Case "eliminar"
-                    MsgBox("eliminar")
+                    If MessageBox.Show("Seguro desea eliminar el cliente?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+                        ClientesTableAdapter.clientes_baja(ClientesDataGridView.Rows(e.RowIndex).Cells("idcliente").Value)
+                        Me.ClientesTableAdapter.FillByClientesTodos(Me.ComercialDataSet.clientes)
+                        MessageBox.Show("Operación exitosa!", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    End If
+
             End Select
 
         Catch ex As Exception
-
+            'MessageBox.Show("Operación exitosa!", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         End Try
     End Sub
 End Class

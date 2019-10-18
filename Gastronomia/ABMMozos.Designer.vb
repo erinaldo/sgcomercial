@@ -23,32 +23,32 @@ Partial Class ABMMozos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMMozos))
         Dim IdmozoLabel As System.Windows.Forms.Label
         Dim NombreLabel As System.Windows.Forms.Label
         Dim EstadoLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMMozos))
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.MozosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MozosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.mozosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.EstadosaiTableAdapter = New sgcomercial.comercialDataSetTableAdapters.estadosaiTableAdapter()
         Me.MozosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.MozosBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripEditar = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.IdmozoTextBox = New System.Windows.Forms.TextBox()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
         Me.EstadoComboBox = New System.Windows.Forms.ComboBox()
         Me.EstadosaiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EstadosaiTableAdapter = New sgcomercial.comercialDataSetTableAdapters.estadosaiTableAdapter()
-        Me.ToolStripEditar = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         IdmozoLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         EstadoLabel = New System.Windows.Forms.Label()
@@ -58,6 +58,33 @@ Partial Class ABMMozos
         Me.MozosBindingNavigator.SuspendLayout()
         CType(Me.EstadosaiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'IdmozoLabel
+        '
+        IdmozoLabel.AutoSize = True
+        IdmozoLabel.Location = New System.Drawing.Point(246, 57)
+        IdmozoLabel.Name = "IdmozoLabel"
+        IdmozoLabel.Size = New System.Drawing.Size(45, 17)
+        IdmozoLabel.TabIndex = 1
+        IdmozoLabel.Text = "ID N°:"
+        '
+        'NombreLabel
+        '
+        NombreLabel.AutoSize = True
+        NombreLabel.Location = New System.Drawing.Point(172, 85)
+        NombreLabel.Name = "NombreLabel"
+        NombreLabel.Size = New System.Drawing.Size(62, 17)
+        NombreLabel.TabIndex = 3
+        NombreLabel.Text = "Nombre:"
+        '
+        'EstadoLabel
+        '
+        EstadoLabel.AutoSize = True
+        EstadoLabel.Location = New System.Drawing.Point(246, 113)
+        EstadoLabel.Name = "EstadoLabel"
+        EstadoLabel.Size = New System.Drawing.Size(56, 17)
+        EstadoLabel.TabIndex = 5
+        EstadoLabel.Text = "Estado:"
         '
         'ComercialDataSet
         '
@@ -147,6 +174,10 @@ Partial Class ABMMozos
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
+        'EstadosaiTableAdapter
+        '
+        Me.EstadosaiTableAdapter.ClearBeforeFill = True
+        '
         'MozosBindingNavigator
         '
         Me.MozosBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
@@ -165,6 +196,32 @@ Partial Class ABMMozos
         Me.MozosBindingNavigator.Size = New System.Drawing.Size(679, 47)
         Me.MozosBindingNavigator.TabIndex = 0
         Me.MozosBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(111, 44)
+        Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
+        Me.BindingNavigatorAddNewItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 44)
+        Me.BindingNavigatorCountItem.Text = "de {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Número total de elementos"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(24, 44)
+        Me.BindingNavigatorDeleteItem.Text = "Eliminar"
+        Me.BindingNavigatorDeleteItem.Visible = False
         '
         'BindingNavigatorMovePreviousItem
         '
@@ -189,16 +246,9 @@ Partial Class ABMMozos
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Posición actual"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 44)
-        Me.BindingNavigatorCountItem.Text = "de {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Número total de elementos"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
         Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 47)
         '
         'BindingNavigatorMoveNextItem
@@ -211,27 +261,8 @@ Partial Class ABMMozos
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 47)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(111, 44)
-        Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
-        Me.BindingNavigatorAddNewItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(24, 24)
-        Me.BindingNavigatorDeleteItem.Text = "Eliminar"
-        Me.BindingNavigatorDeleteItem.Visible = False
         '
         'MozosBindingNavigatorSaveItem
         '
@@ -240,73 +271,6 @@ Partial Class ABMMozos
         Me.MozosBindingNavigatorSaveItem.Size = New System.Drawing.Size(107, 44)
         Me.MozosBindingNavigatorSaveItem.Text = "Guardar datos"
         Me.MozosBindingNavigatorSaveItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'IdmozoLabel
-        '
-        IdmozoLabel.AutoSize = True
-        IdmozoLabel.Location = New System.Drawing.Point(246, 57)
-        IdmozoLabel.Name = "IdmozoLabel"
-        IdmozoLabel.Size = New System.Drawing.Size(45, 17)
-        IdmozoLabel.TabIndex = 1
-        IdmozoLabel.Text = "ID N°:"
-        '
-        'IdmozoTextBox
-        '
-        Me.IdmozoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MozosBindingSource, "idmozo", True))
-        Me.IdmozoTextBox.Enabled = False
-        Me.IdmozoTextBox.Location = New System.Drawing.Point(312, 54)
-        Me.IdmozoTextBox.Name = "IdmozoTextBox"
-        Me.IdmozoTextBox.Size = New System.Drawing.Size(121, 22)
-        Me.IdmozoTextBox.TabIndex = 2
-        Me.IdmozoTextBox.TabStop = False
-        '
-        'NombreLabel
-        '
-        NombreLabel.AutoSize = True
-        NombreLabel.Location = New System.Drawing.Point(172, 85)
-        NombreLabel.Name = "NombreLabel"
-        NombreLabel.Size = New System.Drawing.Size(62, 17)
-        NombreLabel.TabIndex = 3
-        NombreLabel.Text = "Nombre:"
-        '
-        'NombreTextBox
-        '
-        Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MozosBindingSource, "nombre", True))
-        Me.NombreTextBox.Location = New System.Drawing.Point(238, 82)
-        Me.NombreTextBox.Name = "NombreTextBox"
-        Me.NombreTextBox.Size = New System.Drawing.Size(268, 22)
-        Me.NombreTextBox.TabIndex = 4
-        '
-        'EstadoLabel
-        '
-        EstadoLabel.AutoSize = True
-        EstadoLabel.Location = New System.Drawing.Point(246, 113)
-        EstadoLabel.Name = "EstadoLabel"
-        EstadoLabel.Size = New System.Drawing.Size(56, 17)
-        EstadoLabel.TabIndex = 5
-        EstadoLabel.Text = "Estado:"
-        '
-        'EstadoComboBox
-        '
-        Me.EstadoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.MozosBindingSource, "estado", True))
-        Me.EstadoComboBox.DataSource = Me.EstadosaiBindingSource
-        Me.EstadoComboBox.DisplayMember = "descripcion"
-        Me.EstadoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.EstadoComboBox.FormattingEnabled = True
-        Me.EstadoComboBox.Location = New System.Drawing.Point(312, 110)
-        Me.EstadoComboBox.Name = "EstadoComboBox"
-        Me.EstadoComboBox.Size = New System.Drawing.Size(121, 24)
-        Me.EstadoComboBox.TabIndex = 6
-        Me.EstadoComboBox.ValueMember = "idestadoai"
-        '
-        'EstadosaiBindingSource
-        '
-        Me.EstadosaiBindingSource.DataMember = "estadosai"
-        Me.EstadosaiBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'EstadosaiTableAdapter
-        '
-        Me.EstadosaiTableAdapter.ClearBeforeFill = True
         '
         'ToolStripEditar
         '
@@ -326,6 +290,42 @@ Partial Class ABMMozos
         Me.ToolStripButton1.Text = "Cancelar"
         Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'IdmozoTextBox
+        '
+        Me.IdmozoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MozosBindingSource, "idmozo", True))
+        Me.IdmozoTextBox.Enabled = False
+        Me.IdmozoTextBox.Location = New System.Drawing.Point(312, 54)
+        Me.IdmozoTextBox.Name = "IdmozoTextBox"
+        Me.IdmozoTextBox.Size = New System.Drawing.Size(121, 22)
+        Me.IdmozoTextBox.TabIndex = 2
+        Me.IdmozoTextBox.TabStop = False
+        '
+        'NombreTextBox
+        '
+        Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MozosBindingSource, "nombre", True))
+        Me.NombreTextBox.Location = New System.Drawing.Point(238, 82)
+        Me.NombreTextBox.Name = "NombreTextBox"
+        Me.NombreTextBox.Size = New System.Drawing.Size(268, 22)
+        Me.NombreTextBox.TabIndex = 4
+        '
+        'EstadoComboBox
+        '
+        Me.EstadoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.MozosBindingSource, "estado", True))
+        Me.EstadoComboBox.DataSource = Me.EstadosaiBindingSource
+        Me.EstadoComboBox.DisplayMember = "descripcion"
+        Me.EstadoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.EstadoComboBox.FormattingEnabled = True
+        Me.EstadoComboBox.Location = New System.Drawing.Point(312, 110)
+        Me.EstadoComboBox.Name = "EstadoComboBox"
+        Me.EstadoComboBox.Size = New System.Drawing.Size(121, 24)
+        Me.EstadoComboBox.TabIndex = 6
+        Me.EstadoComboBox.ValueMember = "idestadoai"
+        '
+        'EstadosaiBindingSource
+        '
+        Me.EstadosaiBindingSource.DataMember = "estadosai"
+        Me.EstadosaiBindingSource.DataSource = Me.ComercialDataSet
+        '
         'ABMMozos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -339,6 +339,8 @@ Partial Class ABMMozos
         Me.Controls.Add(Me.EstadoComboBox)
         Me.Controls.Add(Me.MozosBindingNavigator)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ABMMozos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Alta, Baja y Modificación de Mozos"

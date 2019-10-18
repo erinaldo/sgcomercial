@@ -26,8 +26,8 @@ Partial Class ABMMesas
         Dim IdmesaLabel As System.Windows.Forms.Label
         Dim IdsalonLabel As System.Windows.Forms.Label
         Dim CapacidadLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMMesas))
         Dim EstadoLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMMesas))
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.MesasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MesasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.mesasTableAdapter()
@@ -51,8 +51,8 @@ Partial Class ABMMesas
         Me.SalonesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CapacidadComboBox = New System.Windows.Forms.ComboBox()
         Me.EstadoComboBox = New System.Windows.Forms.ComboBox()
-        Me.ComercialDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EstadosaiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EstadosaiTableAdapter = New sgcomercial.comercialDataSetTableAdapters.estadosaiTableAdapter()
         IdmesaLabel = New System.Windows.Forms.Label()
         IdsalonLabel = New System.Windows.Forms.Label()
@@ -63,8 +63,8 @@ Partial Class ABMMesas
         CType(Me.MesasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MesasBindingNavigator.SuspendLayout()
         CType(Me.SalonesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstadosaiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdmesaLabel
@@ -93,6 +93,15 @@ Partial Class ABMMesas
         CapacidadLabel.Size = New System.Drawing.Size(163, 17)
         CapacidadLabel.TabIndex = 5
         CapacidadLabel.Text = "Capacidad de Personas:"
+        '
+        'EstadoLabel
+        '
+        EstadoLabel.AutoSize = True
+        EstadoLabel.Location = New System.Drawing.Point(192, 154)
+        EstadoLabel.Name = "EstadoLabel"
+        EstadoLabel.Size = New System.Drawing.Size(56, 17)
+        EstadoLabel.TabIndex = 7
+        EstadoLabel.Text = "Estado:"
         '
         'ComercialDataSet
         '
@@ -138,6 +147,7 @@ Partial Class ABMMesas
         Me.TableAdapterManager.mesasTableAdapter = Me.MesasTableAdapter
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
@@ -337,15 +347,6 @@ Partial Class ABMMesas
         Me.CapacidadComboBox.Size = New System.Drawing.Size(87, 24)
         Me.CapacidadComboBox.TabIndex = 6
         '
-        'EstadoLabel
-        '
-        EstadoLabel.AutoSize = True
-        EstadoLabel.Location = New System.Drawing.Point(192, 154)
-        EstadoLabel.Name = "EstadoLabel"
-        EstadoLabel.Size = New System.Drawing.Size(56, 17)
-        EstadoLabel.TabIndex = 7
-        EstadoLabel.Text = "Estado:"
-        '
         'EstadoComboBox
         '
         Me.EstadoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.MesasBindingSource, "estado", True))
@@ -359,15 +360,15 @@ Partial Class ABMMesas
         Me.EstadoComboBox.TabIndex = 8
         Me.EstadoComboBox.ValueMember = "idestadoai"
         '
-        'ComercialDataSetBindingSource
-        '
-        Me.ComercialDataSetBindingSource.DataSource = Me.ComercialDataSet
-        Me.ComercialDataSetBindingSource.Position = 0
-        '
         'EstadosaiBindingSource
         '
         Me.EstadosaiBindingSource.DataMember = "estadosai"
         Me.EstadosaiBindingSource.DataSource = Me.ComercialDataSetBindingSource
+        '
+        'ComercialDataSetBindingSource
+        '
+        Me.ComercialDataSetBindingSource.DataSource = Me.ComercialDataSet
+        Me.ComercialDataSetBindingSource.Position = 0
         '
         'EstadosaiTableAdapter
         '
@@ -388,6 +389,8 @@ Partial Class ABMMesas
         Me.Controls.Add(Me.CapacidadComboBox)
         Me.Controls.Add(Me.MesasBindingNavigator)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ABMMesas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ABMMesas"
@@ -398,8 +401,8 @@ Partial Class ABMMesas
         Me.MesasBindingNavigator.ResumeLayout(False)
         Me.MesasBindingNavigator.PerformLayout()
         CType(Me.SalonesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EstadosaiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

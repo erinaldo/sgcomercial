@@ -334,6 +334,8 @@ Partial Class ABMSalones
         Me.ClientSize = New System.Drawing.Size(539, 199)
         Me.Controls.Add(Me.SalonesBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ABMSalones"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ABMSalones"

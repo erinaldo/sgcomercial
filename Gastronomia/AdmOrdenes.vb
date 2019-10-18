@@ -40,23 +40,36 @@ Public Class AdmOrdenes
         'Me.VentasdetalleTableAdapter.Fill(Me.ComercialDataSet.ventasdetalle)
         'Me.VentasTableAdapter.Fill(Me.ComercialDataSet.ventas)
         '**********************************************************************
-        Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
-        Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
-        Me.MozosTableAdapter.Fill(Me.ComercialDataSet.mozos)
-        Me.SalonesTableAdapter.FillByActivos(Me.ComercialDataSet.salones)
-        Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
-        '**********************************************************************
-        ComboBoxMesa.SelectedIndex = -1
-        ComboBoxSalon.SelectedIndex = 0
-        NuevaÓrdenToolStripMenuItem.Enabled = False
-        AnularOrdenToolStripMenuItem.Enabled = False
         Try
+            Me.MozosTableAdapter.Fill(Me.ComercialDataSet.mozos)
+            Me.SalonesTableAdapter.FillByActivos(Me.ComercialDataSet.salones)
             Me.MesasTableAdapter.FillBySalon(Me.ComercialDataSet.mesas, ComboBoxSalon.SelectedValue)
+            ComboBoxSalon.SelectedIndex = 0
             ComboBoxMesa.SelectedIndex = -1
-            ColorearGridMesas()
+            '**********************************************************************
+            Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
+            Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
+            Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
+            '**********************************************************************
+            NuevaÓrdenToolStripMenuItem.Enabled = False
+            AnularOrdenToolStripMenuItem.Enabled = False
+            Try
+                Idtipocomprobantecombo.SelectedValue = 1
+                idformapagocombo.SelectedValue = 1
+                ColorearGridMesas()
+            Catch ex As Exception
+                'MessageBox.Show("Aviso!", "Seleccione primero un salón", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
         Catch ex As Exception
-            'MessageBox.Show("Aviso!", "Seleccione primero un salón", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Primero debe cargar la configuración de mesas y mozos", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            'Me.Close()
+            GroupBox1.Enabled = False
+            GroupBox2.Enabled = False
+            NuevaÓrdenToolStripMenuItem.Enabled = False
+            AnularOrdenToolStripMenuItem.Enabled = False
+            Return
         End Try
+
     End Sub
 
     Private Sub ComboBoxSalon_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSalon.SelectedIndexChanged
@@ -201,8 +214,8 @@ Public Class AdmOrdenes
     Private Sub ResetearOpciones()
         Try
             IdclienteTextBox.Text = Nothing
-            Idtipocomprobantecombo.SelectedIndex = -1
-            idformapagocombo.SelectedIndex = 0
+            Idtipocomprobantecombo.SelectedValue = 1
+            idformapagocombo.SelectedValue = 1
             TextBoxImporteTotal.Text = Nothing
         Catch ex As Exception
 
@@ -604,5 +617,9 @@ Public Class AdmOrdenes
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
     End Sub
 End Class

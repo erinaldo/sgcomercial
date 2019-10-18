@@ -26,8 +26,8 @@ Partial Class AdmOrdenes
         Dim IdtipocomprobanteLabel As System.Windows.Forms.Label
         Dim IdformapagoLabel As System.Windows.Forms.Label
         Dim Label6 As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdmOrdenes))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevaÓrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -185,6 +185,7 @@ Partial Class AdmOrdenes
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.ListamesasestadosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listamesasestadosTableAdapter()
+        Me.Label9 = New System.Windows.Forms.Label()
         IdtipocomprobanteLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
         Label6 = New System.Windows.Forms.Label()
@@ -292,6 +293,7 @@ Partial Class AdmOrdenes
         Me.GroupBox1.Controls.Add(Me.ListamesasestadosDataGridView)
         Me.GroupBox1.Controls.Add(Me.ListaordenesmesaDataGridView)
         Me.GroupBox1.Controls.Add(Me.MenuStrip1)
+        Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboBoxMesa)
@@ -311,14 +313,14 @@ Partial Class AdmOrdenes
         Me.ListamesasestadosDataGridView.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListamesasestadosDataGridView.AutoGenerateColumns = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ListamesasestadosDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ListamesasestadosDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.ListamesasestadosDataGridView.ColumnHeadersHeight = 42
         Me.ListamesasestadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.ListamesasestadosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idsalon, Me.idmesa, Me.pendientes})
@@ -343,8 +345,8 @@ Partial Class AdmOrdenes
         'idmesa
         '
         Me.idmesa.DataPropertyName = "idmesa"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.idmesa.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.idmesa.DefaultCellStyle = DataGridViewCellStyle6
         Me.idmesa.HeaderText = "Mesa"
         Me.idmesa.Name = "idmesa"
         Me.idmesa.ReadOnly = True
@@ -1497,6 +1499,17 @@ Partial Class AdmOrdenes
         '
         Me.ListamesasestadosTableAdapter.ClearBeforeFill = True
         '
+        'Label9
+        '
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(446, 18)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(187, 17)
+        Me.Label9.TabIndex = 1
+        Me.Label9.Text = "[F12] -Pantalla Completa"
+        '
         'AdmOrdenes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1505,9 +1518,12 @@ Partial Class AdmOrdenes
         Me.ClientSize = New System.Drawing.Size(1218, 640)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "AdmOrdenes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Administración de Ordenes de Mesa"
@@ -1706,4 +1722,5 @@ Partial Class AdmOrdenes
     Friend WithEvents idsalon As DataGridViewTextBoxColumn
     Friend WithEvents idmesa As DataGridViewTextBoxColumn
     Friend WithEvents pendientes As DataGridViewTextBoxColumn
+    Friend WithEvents Label9 As Label
 End Class

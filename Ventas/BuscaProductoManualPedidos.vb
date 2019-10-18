@@ -52,7 +52,7 @@ Public Class BuscaProductoManualPedidos
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
         Select Case ComboBox1.Text
             Case "Código"
-                ListaproductosBindingSource.Filter = "codigoproducto like'%" + TextBox1.Text + "%'"
+                ListaproductosBindingSource.Filter = "codigoproducto like'" + TextBox1.Text + "'"
                 'If ProductosDataGridView.RowCount = 0 Then
                 '    ProductosDataGridView.Rows(0).Selected = False
                 'End If

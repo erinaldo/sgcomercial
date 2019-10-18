@@ -76,7 +76,7 @@ Partial Class ABMClientes
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
         Me.ProvinciasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.provinciasTableAdapter()
         Me.TipodocumentosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipodocumentosTableAdapter()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cuit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -410,7 +410,7 @@ Partial Class ABMClientes
         Me.ClientesDataGridView.AutoGenerateColumns = False
         Me.ClientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.EditarDomicilio, Me.eliminar})
+        Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcliente, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.EditarDomicilio, Me.eliminar})
         Me.ClientesDataGridView.DataSource = Me.ClientesBindingSource
         Me.ClientesDataGridView.Location = New System.Drawing.Point(12, 73)
         Me.ClientesDataGridView.Margin = New System.Windows.Forms.Padding(4)
@@ -687,13 +687,13 @@ Partial Class ABMClientes
         '
         Me.TipodocumentosTableAdapter.ClearBeforeFill = True
         '
-        'DataGridViewTextBoxColumn1
+        'idcliente
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idcliente"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idcliente"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
+        Me.idcliente.DataPropertyName = "idcliente"
+        Me.idcliente.HeaderText = "idcliente"
+        Me.idcliente.Name = "idcliente"
+        Me.idcliente.ReadOnly = True
+        Me.idcliente.Visible = False
         '
         'DataGridViewTextBoxColumn2
         '
@@ -743,6 +743,9 @@ Partial Class ABMClientes
         Me.eliminar.HeaderText = "Eliminar"
         Me.eliminar.Name = "eliminar"
         Me.eliminar.ReadOnly = True
+        Me.eliminar.Text = "Eliminar"
+        Me.eliminar.ToolTipText = "Eliminar"
+        Me.eliminar.UseColumnTextForButtonValue = True
         '
         'ABMClientes
         '
@@ -819,7 +822,7 @@ Partial Class ABMClientes
     Friend WithEvents ComboDocTipo As ComboBox
     Friend WithEvents TipodocumentosBindingSource As BindingSource
     Friend WithEvents TipodocumentosTableAdapter As comercialDataSetTableAdapters.tipodocumentosTableAdapter
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents idcliente As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents cuit As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn

@@ -946,7 +946,7 @@ Module SGCModule
                             v.idventa,
                             fechaventa,
                             convert(date,fechaventa) as fechadate,
-                            fechabaja,
+                            v.fechabaja,
                             c.idcliente,
                             c.nombre,
                             --------------------------------------------------------------------------------------------------------------------------------
@@ -966,43 +966,43 @@ Module SGCModule
                             (select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa) as ivaventas
                             --------------------------------------------------------------------------------------------------------------------------------
                             , case
-	                            when tc.idtipocomprobanteafip = 0 then 0
-	                            when tc.idtipocomprobanteafip = 6 then 0
-	                            when tc.idtipocomprobanteafip = 11 then 0
-	                             else
-	                            (select isnull(sum(libroventasdetalle.subtotal),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = -1)  
-	                            end as  ImpTotConc
+                                when tc.idtipocomprobanteafip = 0 then 0
+                                when tc.idtipocomprobanteafip = 6 then 0
+                                when tc.idtipocomprobanteafip = 11 then 0
+                                 else
+                                (select isnull(sum(libroventasdetalle.subtotal),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = -1)  
+                                end as  ImpTotConc
                             --------------------------------------------------------------------------------------------------------------------------------
                             , case
                             when tc.idtipocomprobanteafip = 0 then 0
-	                            when tc.idtipocomprobanteafip = 6 then 
-	                            (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
-	                            when tc.idtipocomprobanteafip = 11 then 
-		                            (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+                                when tc.idtipocomprobanteafip = 6 then 
+                                (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+                                when tc.idtipocomprobanteafip = 11 then 
+                                    (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
                             when tc.idtipocomprobanteafip = 13 then 
-		                            (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
-	                             else
-		                            (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva > 0)
-	                            end as  ImpNeto
+                                    (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+                                 else
+                                    (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva > 0)
+                                end as  ImpNeto
                             --------------------------------------------------------------------------------------------------------------------------------
                             , case
-	                            when tc.idtipocomprobanteafip = 0 then 0
-	                            when tc.idtipocomprobanteafip = 6 then  0
-	                            when tc.idtipocomprobanteafip = 11 then 0 
-	                            when tc.idtipocomprobanteafip = 13 then 0 
-	                            else
+                                when tc.idtipocomprobanteafip = 0 then 0
+                                when tc.idtipocomprobanteafip = 6 then  0
+                                when tc.idtipocomprobanteafip = 11 then 0 
+                                when tc.idtipocomprobanteafip = 13 then 0 
+                                else
                             (select isnull(sum(libroventasdetalle.subtotal),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 0)  
                             end as  ImpOpEx
                             --------------------------------------------------------------------------------------------------------------------------------
                             , 0 as  ImpTrib
                             --------------------------------------------------------------------------------------------------------------------------------
                             , case
-	                            when tc.idtipocomprobanteafip = 0 then 0
-	                            --when tc.idtipocomprobanteafip = 6 then 0
-	                            when tc.idtipocomprobanteafip = 11 then 0 
-	                            else
-		                            (select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa)  
-	                            end as   ImpIVA
+                                when tc.idtipocomprobanteafip = 0 then 0
+                                --when tc.idtipocomprobanteafip = 6 then 0
+                                when tc.idtipocomprobanteafip = 11 then 0 
+                                else
+                                    (select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa)  
+                                end as   ImpIVA
                             --------------------------------------------------------------------------------------------------------------------------------
                             ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 27) 
                              as IVA_27
@@ -1041,9 +1041,9 @@ Module SGCModule
                              as BASEIVA_0
                             --------------------------------------------------------------------------------------------------------------------------------
                             ,case 
-	                            when (select count(idformapago) from pagos where idventa = v.idventa) = 1 then
-			                            (select descripcion from formaspago where idformapago = (select top 1 idformapago from pagos where idventa = v.idventa)) 
-	                            when (select count(idformapago) from pagos where idventa = v.idventa) = 0 then 'Cuenta Corriente'
+                                when (select count(idformapago) from pagos where idventa = v.idventa) = 1 then
+                                        (select descripcion from formaspago where idformapago = (select top 1 idformapago from pagos where idventa = v.idventa)) 
+                                when (select count(idformapago) from pagos where idventa = v.idventa) = 0 then 'Cuenta Corriente'
                             else 'Varias'
                             end as formapago
                             --------------------------------------------------------------------------------------------------------------------------------
@@ -1069,15 +1069,13 @@ Module SGCModule
                             --------------------------------------------------------------------------------------------------------------------------------
                             ,(select isnull(sum(libroventasdetalle.frgananciadistribuidor),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa ) as frgananciadistribuidor
                             --------------------------------------------------------------------------------------------------------------------------------
-							,(select cast(isnull(sum(libroventasdetalle.kilogramos),0) as decimal(18,3)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.unidadmedida = 1 ) as kilogramos
+                            ,(select cast(isnull(sum(libroventasdetalle.kilogramos),0) as decimal(18,3)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.unidadmedida = 1 ) as kilogramos
 from ventas v,
 clientes c,
 tipocomprobantes tc
 where
 v.idcliente = c.idcliente
-and v.idtipocomprobante = tc.idtipocomprobante
-
-", myConn2)
+and v.idtipocomprobante = tc.idtipocomprobante", myConn2)
             myConn2.Open()
             mycommand.ExecuteNonQuery()
             myConn2.Close()

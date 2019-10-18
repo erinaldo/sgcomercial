@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:cajaseventos" ZOrder="35" X="-1753" Y="542" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="236" OldDataTableHeight="140" SplitterPosition="28" />
     <Shape ID="DesignTable:cajasoperaciones" ZOrder="34" X="-1757" Y="341" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="121" OldDataTableHeight="140" SplitterPosition="28" />
-    <Shape ID="DesignTable:clientes" ZOrder="1" X="-1757" Y="55" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="398" OldDataTableHeight="306" SplitterPosition="28" />
+    <Shape ID="DesignTable:clientes" ZOrder="1" X="-1757" Y="55" Height="63" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="397" OldDataTableHeight="306" SplitterPosition="29" />
     <Shape ID="DesignTable:formaspago" ZOrder="72" X="-1112" Y="-96" Height="63" Width="253" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="98" OldDataTableHeight="158" SplitterPosition="29" />
     <Shape ID="DesignTable:gastos" ZOrder="91" X="-834" Y="-98" Height="319" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="64" OldDataTableHeight="102" SplitterPosition="214" />
     <Shape ID="DesignTable:perfiles" ZOrder="48" X="155" Y="747" Height="62" Width="238" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="44" OldDataTableHeight="46" SplitterPosition="28" />
