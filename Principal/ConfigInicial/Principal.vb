@@ -62,7 +62,6 @@ Public Class Principal
         '================= BACKGROUND WORKERS   ==========================
         If gModuloClowd = 1 Then
             'BackgroundSyncLibroventasClowd.RunWorkerAsync()
-            'BGWClientes.RunWorkerAsync()
             'BGWStock.RunWorkerAsync()
         End If
         '======================================
@@ -1268,7 +1267,7 @@ Public Class Principal
         Try
             SynClientes()
         Catch ex As Exception
-            MessageBox.Show("Ocurrio un problema al tratar de sincronizar Clientes en la nube", "Advertencia - BGWClientes: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Ocurrio un problema al tratar de sincronizar Clientes en la nube: " + ex.Message, "Advertencia - BGWClientes ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
 
         '*******************************************************************************
@@ -1287,6 +1286,16 @@ Public Class Principal
     Private Sub ReporteDeVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeVentasToolStripMenuItem.Click
         ReporteVentasFranquicia.MdiParent = Me
         ReporteVentasFranquicia.Visible = True
+    End Sub
+
+    Private Sub SincronizarClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SincronizarClientesToolStripMenuItem.Click
+        If gModuloClowd = 1 Then
+            BGWClientes.RunWorkerAsync()
+        End If
+    End Sub
+
+    Private Sub BGWClientes_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BGWClientes.RunWorkerCompleted
+        MessageBox.Show("Sincronizacion de Clientes en la Nube Completa!", "BGWClientes", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
     'Private Sub PrivateDownloadSGC()
 

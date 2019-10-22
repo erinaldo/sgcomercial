@@ -15,7 +15,7 @@
 
     Private Sub PopUpGetTipoCbt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocomprobantes' Puede moverla o quitarla según sea necesario.
-        Me.TipocomprobantesTableAdapter.Fill(Me.ComercialDataSet.tipocomprobantes)
+        Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
 
     End Sub
 End Class

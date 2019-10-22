@@ -1418,13 +1418,13 @@ Module MySQLModule
             '*************  errorlog    **************************************
             Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
             ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
+            '****   ----    ********
             '****clientes local********
             Dim clientestableadapter As comercialDataSetTableAdapters.clientesTableAdapter
             clientestableadapter = New comercialDataSetTableAdapters.clientesTableAdapter()
             Dim clientestable As New comercialDataSet.clientesDataTable()
             clientestable = clientestableadapter.GetData()
             '****   ----    ********
-
             '****clientesweb********
             Dim clienteswebtableadapter As MySQLDataSetTableAdapters.clientesTableAdapter
             clienteswebtableadapter = New MySQLDataSetTableAdapters.clientesTableAdapter()
@@ -1510,7 +1510,6 @@ Module MySQLModule
                 ''****   ----    ********
                 clientestableadapter.clientes_updateidweblocal(nuevoidclienteweb, idclientelocal)
                 ''****   ----    ********
-
                 PushClientesDomicilios(idclientelocal, nuevoidclienteweb)
             Next
         Catch ex As Exception
@@ -1596,13 +1595,18 @@ Module MySQLModule
                         longitud = clientesdomiciliostable.Rows(k).Item(clientesdomiciliostable.longitudColumn)
                     End If
                     '---------------------------------------------------------------------------------------------------
-                    clientesdomicilioswebtableadapter.clientesdomicilios_update(idclientedomiciliosweb, nuevoidclienteweb, direccion, referencias, idprovinciadomicilio, idlocalidaddomicilio, cp, "S", latitud, longitud)
-                    inserted = clientesdomicilioswebtableadapter.clientesdomicilios_maxidclientesdomicilios(nuevoidclienteweb)
-                    clientesdomiciliostableadapter.clientesdomicilios_updateidclientesdomiciliosweb(inserted, idclientelocal, iddomicilio)
+                    If idprovinciadomicilio = 0 Or idlocalidaddomicilio = 0 Or direccion = Nothing Then
+                        Continue For
+                    Else
+                        clientesdomicilioswebtableadapter.clientesdomicilios_update(idclientedomiciliosweb, nuevoidclienteweb, direccion, referencias, idprovinciadomicilio, idlocalidaddomicilio, cp, "S", latitud, longitud)
+                        inserted = clientesdomicilioswebtableadapter.clientesdomicilios_maxidclientesdomicilios(nuevoidclienteweb)
+                        clientesdomiciliostableadapter.clientesdomicilios_updateidclientesdomiciliosweb(inserted, idclientelocal, iddomicilio)
+                    End If
+
                 Next
             End If
         Catch ex As Exception
-            MessageBox.Show("Ocurrio un problema al tratar de sincronizar Clientes en la nube", "Advertencia - PushClientes: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Ocurrio un problema al tratar de sincronizar Clientes en la nube", "Advertencia - PushDomicilios: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         End Try
     End Sub

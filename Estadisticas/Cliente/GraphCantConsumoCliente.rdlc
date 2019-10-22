@@ -496,6 +496,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -802,6 +803,12 @@
             </TablixMember>
             <TablixMember>
               <Group Name="Detalles" />
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!cantidad.Value</Value>
+                  <Direction>Descending</Direction>
+                </SortExpression>
+              </SortExpressions>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>

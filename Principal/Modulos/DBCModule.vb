@@ -2,7 +2,7 @@
 Imports System
 Module DBCModule
     '/************  BASE DE DATOS LOCAL  *******************************/
-    Public comercialStrConn As String = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=1" 'LOCALHOST'
+    Public comercialStrConn As String = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=10" 'LOCALHOST'
     Public comercialStrConn2 As String = "Data Source=SERVIDOR\SERVIDOR;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=10" 'de terminal a SERVIDOR'
     '/************  BASE DE DATOS REMOTA    *******************************/
     Public MySQLStrConn As String = ""
@@ -31,8 +31,8 @@ Module DBCModule
             dbserverauth = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("dbserverauth")
             dbuserauth = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("dbuserauth")
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            MySQLStrConn = "server=" + server + ";" + "user id=" + userid + ";" + "password=" + password + ";" + "database=" + database + ";persistsecurityinfo=True;Connect Timeout=17"
-            SCStrConn = "server=" + dbserverauth + ";" + "user id=" + dbuserauth + ";" + "password=" + password + ";database=sistema1_siscom;persistsecurityinfo=True"
+            MySQLStrConn = "server=" + server + ";" + "user id=" + userid + ";" + "password=" + password + ";" + "database=" + database + ";persistsecurityinfo=True;Connect Timeout=25"
+            SCStrConn = "server=" + dbserverauth + ";" + "user id=" + dbuserauth + ";" + "password=" + password + ";database=sistema1_siscom;persistsecurityinfo=True;Connect Timeout=25"
             gClowdServer = server
         Catch ex As Exception
             MsgBox("No se pudo Construir el string de conexión al servidor remoto: " + ex.Message, MsgBoxStyle.Information, "DBWEB")

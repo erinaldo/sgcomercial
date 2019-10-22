@@ -403,11 +403,6 @@
                   <GroupExpression>=Fields!idproducto.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!idproducto.Value</Value>
-                </SortExpression>
-              </SortExpressions>
               <TablixMembers>
                 <TablixMember>
                   <Group Name="descripcion">
@@ -417,7 +412,8 @@
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!descripcion.Value</Value>
+                      <Value>=Fields!cantidad.Value</Value>
+                      <Direction>Descending</Direction>
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
@@ -450,6 +446,7 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
+                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                 </TablixMember>
