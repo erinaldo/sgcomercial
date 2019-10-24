@@ -42,4 +42,38 @@
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
     End Sub
+
+    Private Sub ListaprecioscajaDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListaprecioscajaDataGridView.CellContentClick
+
+    End Sub
+
+    Private Sub ListaprecioscajaDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListaprecioscajaDataGridView.CellClick
+
+        Try
+            Dim ProductosTableAdapter As New comercialDataSetTableAdapters.productosTableAdapter()
+            Select Case ListaprecioscajaDataGridView.Columns(e.ColumnIndex).Name
+                Case "ConsultarSucursales"
+                    If gModuloClowd = 0 Then
+                        MessageBox.Show("Función deshabilitada!", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        Return
+                    End If
+                    Cursor.Current = Cursors.WaitCursor
+                    Try
+                        Dim idproducto As Long = 0
+                        idproducto = ProductosTableAdapter.productos_existeproducto(ListaprecioscajaDataGridView.Rows(e.RowIndex).Cells("codigoproducto").Value)
+                        If Not idproducto > 0 Then Return
+                        Dim stkr As ConsultaStockRemotoProducto
+                        stkr = New ConsultaStockRemotoProducto
+                        gcodigoproducto = ListaprecioscajaDataGridView.Rows(e.RowIndex).Cells("codigoproducto").Value
+                        Cursor.Current = Cursors.Default
+                        stkr.ShowDialog()
+                    Catch ex As Exception
+                        Cursor.Current = Cursors.Default
+                    End Try
+            End Select
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

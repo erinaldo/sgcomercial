@@ -30,6 +30,10 @@ Partial Class ConsultarPrecios
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ListaprecioscajaDataGridView = New System.Windows.Forms.DataGridView()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -37,10 +41,7 @@ Partial Class ConsultarPrecios
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.disponible = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.unidades = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ConsultarSucursales = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaprecioscajaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -78,7 +79,9 @@ Partial Class ConsultarPrecios
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -88,7 +91,11 @@ Partial Class ConsultarPrecios
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -108,11 +115,18 @@ Partial Class ConsultarPrecios
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -147,9 +161,9 @@ Partial Class ConsultarPrecios
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListaprecioscajaDataGridView.AutoGenerateColumns = False
-        Me.ListaprecioscajaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.ListaprecioscajaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ListaprecioscajaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListaprecioscajaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.descripcion, Me.medida, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.disponible, Me.unidades})
+        Me.ListaprecioscajaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.descripcion, Me.medida, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.disponible, Me.unidades, Me.ConsultarSucursales})
         Me.ListaprecioscajaDataGridView.DataSource = Me.ListaprecioscajaBindingSource
         Me.ListaprecioscajaDataGridView.Location = New System.Drawing.Point(14, 25)
         Me.ListaprecioscajaDataGridView.MultiSelect = False
@@ -159,63 +173,6 @@ Partial Class ConsultarPrecios
         Me.ListaprecioscajaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ListaprecioscajaDataGridView.Size = New System.Drawing.Size(1119, 330)
         Me.ListaprecioscajaDataGridView.TabIndex = 2
-        '
-        'codigoproducto
-        '
-        Me.codigoproducto.DataPropertyName = "codigoproducto"
-        Me.codigoproducto.HeaderText = "Código"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.ToolTipText = "Código"
-        Me.codigoproducto.Width = 81
-        '
-        'descripcion
-        '
-        Me.descripcion.DataPropertyName = "descripcion"
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 111
-        '
-        'medida
-        '
-        Me.medida.DataPropertyName = "medida"
-        Me.medida.HeaderText = "Medida"
-        Me.medida.Name = "medida"
-        Me.medida.ReadOnly = True
-        Me.medida.Width = 83
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "precioventa"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Precio Vta. Publico"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 143
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "preciokilo"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Precio x Unidad"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 125
-        '
-        'disponible
-        '
-        Me.disponible.DataPropertyName = "disponible"
-        Me.disponible.HeaderText = "Disponible"
-        Me.disponible.Name = "disponible"
-        Me.disponible.ReadOnly = True
-        Me.disponible.Width = 103
-        '
-        'unidades
-        '
-        Me.unidades.DataPropertyName = "unidades"
-        Me.unidades.HeaderText = "Envasado"
-        Me.unidades.Name = "unidades"
-        Me.unidades.ReadOnly = True
-        Me.unidades.ToolTipText = "Cerrado en envase original"
         '
         'GroupBox2
         '
@@ -258,6 +215,66 @@ Partial Class ConsultarPrecios
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(186, 22)
         Me.TextBox1.TabIndex = 0
+        '
+        'codigoproducto
+        '
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Código"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.ToolTipText = "Código"
+        '
+        'descripcion
+        '
+        Me.descripcion.DataPropertyName = "descripcion"
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        '
+        'medida
+        '
+        Me.medida.DataPropertyName = "medida"
+        Me.medida.HeaderText = "Medida"
+        Me.medida.Name = "medida"
+        Me.medida.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "precioventa"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Precio Vta. Publico"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "preciokilo"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Precio a Granel (Kg,Lt,Mt)"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'disponible
+        '
+        Me.disponible.DataPropertyName = "disponible"
+        Me.disponible.HeaderText = "Disponible"
+        Me.disponible.Name = "disponible"
+        Me.disponible.ReadOnly = True
+        '
+        'unidades
+        '
+        Me.unidades.DataPropertyName = "unidades"
+        Me.unidades.HeaderText = "Envasado"
+        Me.unidades.Name = "unidades"
+        Me.unidades.ReadOnly = True
+        Me.unidades.ToolTipText = "Cerrado en envase original"
+        '
+        'ConsultarSucursales
+        '
+        Me.ConsultarSucursales.HeaderText = "Consultar Stock en Sucursales"
+        Me.ConsultarSucursales.Name = "ConsultarSucursales"
+        Me.ConsultarSucursales.ReadOnly = True
+        Me.ConsultarSucursales.Text = "Consultar"
+        Me.ConsultarSucursales.ToolTipText = "Consultar Stock en Sucursales"
+        Me.ConsultarSucursales.UseColumnTextForButtonValue = True
         '
         'ConsultarPrecios
         '
@@ -304,4 +321,5 @@ Partial Class ConsultarPrecios
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents disponible As DataGridViewTextBoxColumn
     Friend WithEvents unidades As DataGridViewTextBoxColumn
+    Friend WithEvents ConsultarSucursales As DataGridViewButtonColumn
 End Class
