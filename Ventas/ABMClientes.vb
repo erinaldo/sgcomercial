@@ -85,6 +85,7 @@ Public Class ABMClientes
             Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
             ToolStripButtonEditar.PerformClick()
         End If
+        ComboBox1.SelectedIndex = 0
     End Sub
 
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButtonEditar.Click
@@ -224,7 +225,7 @@ Public Class ABMClientes
                     Dim P As ClientesNuevoDomicilio
                     P = New ClientesNuevoDomicilio
                     gdomicilioseleccionado = 0
-                    gclienteseleccionado = ClientesDataGridView.Rows(e.RowIndex).Cells("DataGridViewTextBoxColumn1").Value
+                    gclienteseleccionado = ClientesDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
                     P.ToolStripButton1.Visible = False
                     P.ShowDialog()
 

@@ -23,17 +23,23 @@
             CpTextBox.Enabled = False
             ComboBox1.Enabled = False
             ComboBox2.Enabled = False
+            ClientesdomiciliosBindingNavigatorSaveItem.Enabled = False
         Else
             DireccionTextBox.Enabled = True
             ReferenciasTextBox.Enabled = True
             CpTextBox.Enabled = True
             ComboBox1.Enabled = True
             ComboBox2.Enabled = True
+            ClientesdomiciliosBindingNavigatorSaveItem.Enabled = True
         End If
 
     End Sub
 
     Private Sub ClientesdomiciliosBindingNavigatorSaveItem_Click_1(sender As Object, e As EventArgs) Handles ClientesdomiciliosBindingNavigatorSaveItem.Click
+        If ComboBox1.SelectedIndex = -1 Or ComboBox2.SelectedIndex = -1 Then
+            MessageBox.Show("Seleccione Provincia y Localidad!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End If
 
         IdclienteTextBox.Text = gclienteseleccionado.ToString
         If MsgBox("Seguro desea guardar los cambios? ", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
@@ -55,7 +61,9 @@
         DireccionTextBox.Enabled = True
         ReferenciasTextBox.Enabled = True
         CpTextBox.Enabled = True
-
+        ComboBox1.Enabled = True
+        ComboBox2.Enabled = True
+        ClientesdomiciliosBindingNavigatorSaveItem.Enabled = True
     End Sub
 
     Private Sub IdprovinciaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs)

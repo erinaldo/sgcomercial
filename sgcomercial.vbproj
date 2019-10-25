@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>78</ApplicationRevision>
-    <ApplicationVersion>4.0.9.78</ApplicationVersion>
+    <ApplicationRevision>79</ApplicationRevision>
+    <ApplicationVersion>4.0.9.79</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -996,6 +996,12 @@
     <Compile Include="Ventas\EditarCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\EditarVenta.Designer.vb">
+      <DependentUpon>EditarVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\EditarVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\IngresaPrecioVenta.Designer.vb">
       <DependentUpon>IngresaPrecioVenta.vb</DependentUpon>
     </Compile>
@@ -1557,6 +1563,9 @@
     <EmbeddedResource Include="TransferenciaStock\Reportes\ViewerReportesRemitos.resx">
       <DependentUpon>ViewerReportesRemitos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\EditarVenta.resx">
+      <DependentUpon>EditarVenta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\IngresaPrecioVenta.resx">
       <DependentUpon>IngresaPrecioVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -2044,6 +2053,7 @@
     <None Include="My Project\img\Yes_check.png" />
     <None Include="My Project\img\epos_logo.gif" />
     <None Include="My Project\img\edit_pencil.png" />
+    <None Include="My Project\img\save_image_floppy.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

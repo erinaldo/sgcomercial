@@ -124,9 +124,6 @@
   <data name="Alerta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alerta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="reload-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\reload-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -147,6 +144,9 @@
   </data>
   <data name="FEAFIP_OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\FEAFIP_OFF.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="22-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\22-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Exo2_0_MediumItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exo2.0-MediumItalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -181,6 +181,9 @@
   <data name="green-plus-icon-13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\green-plus-icon-13.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BG 1X1 (1080X1080) FACE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG 1X1 (1080X1080) FACE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="I-redes-1-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\I-redes-1-1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,8 +196,8 @@
   <data name="refresh-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\refresh-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BG 1X1 (1080X1080) FACE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BG 1X1 (1080X1080) FACE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Bienvenidaepos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bienvenidaepos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -202,7 +205,7 @@
   <data name="epos_logo_B_sub" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\epos_logo_B_sub.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="22-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\22-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="save_image_floppy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\save_image_floppy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

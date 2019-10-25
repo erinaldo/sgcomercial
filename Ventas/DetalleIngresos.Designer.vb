@@ -23,20 +23,12 @@ Partial Class DetalleIngresos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ingresosGraphBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.CajasmovimientosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.idoperacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.anular = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.CajasmovimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,6 +49,17 @@ Partial Class DetalleIngresos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
         Me.ingresosGraphTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ingresosGraphTableAdapter()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LabelTotal = New System.Windows.Forms.Label()
+        Me.idoperacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.anular = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.editar = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.ingresosGraphBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -64,6 +67,7 @@ Partial Class DetalleIngresos
         CType(Me.CajasmovimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ingresosGraphBindingSource
@@ -81,12 +85,13 @@ Partial Class DetalleIngresos
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.GroupBox1)
         Me.GroupBox2.Controls.Add(Me.ReportViewer1)
         Me.GroupBox2.Controls.Add(Me.CajasmovimientosDataGridView)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(973, 496)
+        Me.GroupBox2.Size = New System.Drawing.Size(981, 496)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ingresos"
@@ -97,15 +102,17 @@ Partial Class DetalleIngresos
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReportViewer1.BackColor = System.Drawing.SystemColors.ButtonFace
-        ReportDataSource1.Name = "ingresosgraph"
-        ReportDataSource1.Value = Me.ingresosGraphBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.DocumentMapWidth = 37
+        ReportDataSource3.Name = "ingresosgraph"
+        ReportDataSource3.Value = Me.ingresosGraphBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphIngresos.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(650, 28)
+        Me.ReportViewer1.Location = New System.Drawing.Point(926, 28)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ShowToolBar = False
-        Me.ReportViewer1.Size = New System.Drawing.Size(307, 448)
+        Me.ReportViewer1.Size = New System.Drawing.Size(39, 22)
         Me.ReportViewer1.TabIndex = 3
+        Me.ReportViewer1.Visible = False
         '
         'CajasmovimientosDataGridView
         '
@@ -113,86 +120,19 @@ Partial Class DetalleIngresos
         Me.CajasmovimientosDataGridView.AllowUserToDeleteRows = False
         Me.CajasmovimientosDataGridView.AllowUserToResizeColumns = False
         Me.CajasmovimientosDataGridView.AllowUserToResizeRows = False
-        Me.CajasmovimientosDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CajasmovimientosDataGridView.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CajasmovimientosDataGridView.AutoGenerateColumns = False
         Me.CajasmovimientosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.CajasmovimientosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CajasmovimientosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idoperacion, Me.idventa, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.nombre, Me.DataGridViewTextBoxColumn5, Me.anular})
+        Me.CajasmovimientosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idoperacion, Me.idventa, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.nombre, Me.monto, Me.anular, Me.editar})
         Me.CajasmovimientosDataGridView.DataSource = Me.CajasmovimientosBindingSource
-        Me.CajasmovimientosDataGridView.Location = New System.Drawing.Point(13, 28)
+        Me.CajasmovimientosDataGridView.Location = New System.Drawing.Point(6, 28)
         Me.CajasmovimientosDataGridView.Name = "CajasmovimientosDataGridView"
         Me.CajasmovimientosDataGridView.ReadOnly = True
         Me.CajasmovimientosDataGridView.RowTemplate.Height = 24
-        Me.CajasmovimientosDataGridView.Size = New System.Drawing.Size(625, 448)
+        Me.CajasmovimientosDataGridView.Size = New System.Drawing.Size(959, 406)
         Me.CajasmovimientosDataGridView.TabIndex = 2
-        '
-        'idoperacion
-        '
-        Me.idoperacion.DataPropertyName = "idoperacion"
-        Me.idoperacion.HeaderText = "Operación N°"
-        Me.idoperacion.Name = "idoperacion"
-        Me.idoperacion.ReadOnly = True
-        Me.idoperacion.ToolTipText = "Operación N°"
-        Me.idoperacion.Visible = False
-        '
-        'idventa
-        '
-        Me.idventa.DataPropertyName = "idventa"
-        Me.idventa.HeaderText = "Venta N°"
-        Me.idventa.Name = "idventa"
-        Me.idventa.ReadOnly = True
-        Me.idventa.ToolTipText = "Venta N°"
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idevento"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idevento"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idpagos"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "idpagos"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Visible = False
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "idcliente"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "idcliente"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Visible = False
-        '
-        'nombre
-        '
-        Me.nombre.DataPropertyName = "nombre"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        Me.nombre.ToolTipText = "Nombre"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "monto"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Monto"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.ToolTipText = "Monto"
-        '
-        'anular
-        '
-        Me.anular.HeaderText = "Anular"
-        Me.anular.Name = "anular"
-        Me.anular.ReadOnly = True
-        Me.anular.Text = "Anular"
-        Me.anular.ToolTipText = "Anular"
-        Me.anular.UseColumnTextForButtonValue = True
         '
         'CajasmovimientosBindingSource
         '
@@ -316,7 +256,9 @@ Partial Class DetalleIngresos
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -326,7 +268,11 @@ Partial Class DetalleIngresos
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -346,12 +292,18 @@ Partial Class DetalleIngresos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -371,11 +323,108 @@ Partial Class DetalleIngresos
         '
         Me.ingresosGraphTableAdapter.ClearBeforeFill = True
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.LabelTotal)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 440)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(981, 56)
+        Me.GroupBox1.TabIndex = 4
+        Me.GroupBox1.TabStop = False
+        '
+        'LabelTotal
+        '
+        Me.LabelTotal.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelTotal.Location = New System.Drawing.Point(251, 19)
+        Me.LabelTotal.Name = "LabelTotal"
+        Me.LabelTotal.Size = New System.Drawing.Size(478, 21)
+        Me.LabelTotal.TabIndex = 0
+        Me.LabelTotal.Text = "TOTAL:"
+        Me.LabelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'idoperacion
+        '
+        Me.idoperacion.DataPropertyName = "idoperacion"
+        Me.idoperacion.HeaderText = "Operación N°"
+        Me.idoperacion.Name = "idoperacion"
+        Me.idoperacion.ReadOnly = True
+        Me.idoperacion.ToolTipText = "Operación N°"
+        Me.idoperacion.Visible = False
+        '
+        'idventa
+        '
+        Me.idventa.DataPropertyName = "idventa"
+        Me.idventa.HeaderText = "Venta N°"
+        Me.idventa.Name = "idventa"
+        Me.idventa.ReadOnly = True
+        Me.idventa.ToolTipText = "Venta N°"
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idevento"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idevento"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idpagos"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "idpagos"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Visible = False
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "idcliente"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "idcliente"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Visible = False
+        '
+        'nombre
+        '
+        Me.nombre.DataPropertyName = "nombre"
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        Me.nombre.ToolTipText = "Nombre"
+        '
+        'monto
+        '
+        Me.monto.DataPropertyName = "monto"
+        Me.monto.HeaderText = "Monto"
+        Me.monto.Name = "monto"
+        Me.monto.ReadOnly = True
+        Me.monto.ToolTipText = "Monto"
+        '
+        'anular
+        '
+        Me.anular.HeaderText = "Anular"
+        Me.anular.Name = "anular"
+        Me.anular.ReadOnly = True
+        Me.anular.Text = "Anular"
+        Me.anular.ToolTipText = "Anular"
+        Me.anular.UseColumnTextForButtonValue = True
+        '
+        'editar
+        '
+        Me.editar.DataPropertyName = "idevento"
+        Me.editar.HeaderText = "Editar"
+        Me.editar.Name = "editar"
+        Me.editar.ReadOnly = True
+        Me.editar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.editar.Text = "Editar"
+        Me.editar.ToolTipText = "Editar"
+        Me.editar.UseColumnTextForButtonValue = True
+        '
         'DetalleIngresos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(997, 520)
+        Me.ClientSize = New System.Drawing.Size(1005, 520)
         Me.Controls.Add(Me.CajasoperacionesDataGridView)
         Me.Controls.Add(Me.GroupBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -392,6 +441,7 @@ Partial Class DetalleIngresos
         CType(Me.CajasmovimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -418,15 +468,18 @@ Partial Class DetalleIngresos
     Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
+    Friend WithEvents ReportViewer1 As ReportViewer
+    Friend WithEvents ingresosGraphBindingSource As BindingSource
+    Friend WithEvents ingresosGraphTableAdapter As comercialDataSetTableAdapters.ingresosGraphTableAdapter
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents LabelTotal As Label
     Friend WithEvents idoperacion As DataGridViewTextBoxColumn
     Friend WithEvents idventa As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents nombre As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents monto As DataGridViewTextBoxColumn
     Friend WithEvents anular As DataGridViewButtonColumn
-    Friend WithEvents ReportViewer1 As ReportViewer
-    Friend WithEvents ingresosGraphBindingSource As BindingSource
-    Friend WithEvents ingresosGraphTableAdapter As comercialDataSetTableAdapters.ingresosGraphTableAdapter
+    Friend WithEvents editar As DataGridViewButtonColumn
 End Class

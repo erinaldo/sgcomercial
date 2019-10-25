@@ -8,11 +8,13 @@ Public Class Cajasmovimientos
     Public FechaCierre As String
     Private Sub Cajasmovimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.v_gastos' Puede moverla o quitarla según sea necesario.
-
-        'Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
-        'Me.PerfilesTableAdapter.Fill(Me.ComercialDataSet.perfiles)
-        Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
-        CajaseventosDataGridView.Sort(CajaseventosDataGridView.Columns(0), ListSortDirection.Descending)
+        Try
+            Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
+            'Me.CajaseventosTableAdapter.FillByfecha(Me.ComercialDataSet.cajaseventos, DateTimePicker1.Text)
+            CajaseventosDataGridView.Sort(CajaseventosDataGridView.Columns(0), ListSortDirection.Descending)
+        Catch ex As Exception
+            MessageBox.Show("No se pudo recuperar los ultimos eventos de caja, contacte al proveedor de sistema", "Ha ocurrido una excepción", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
         ''*****************************
     End Sub
 
@@ -20,12 +22,14 @@ Public Class Cajasmovimientos
 
         'MsgBox("fechaapertura = '" + DateTimePicker1.Text + "'")
         'CajaseventosBindingSource.Filter = "fechaapertura > " + DateTimePicker1.Value.ToString + ""
-        CajaseventosTableAdapter.FillByfecha(Me.ComercialDataSet.cajaseventos, DateTimePicker1.Text)
+        Try
+            CajaseventosTableAdapter.FillByfecha(Me.ComercialDataSet.cajaseventos, DateTimePicker1.Text)
+            CajasmovimientosBindingSource.Filter = "idevento = 0"
+            VgastosBindingSource.Filter = "idevento = 0"
+        Catch ex As Exception
+            MessageBox.Show("No se pudo recuperar los ultimos eventos de caja, contacte al proveedor de sistema", "Ha ocurrido una excepción", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
 
-
-        CajasmovimientosBindingSource.Filter = "idevento = 0"
-
-        VgastosBindingSource.Filter = "idevento = 0"
     End Sub
 
     Private Sub CajaseventosDataGridView_BindingContextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CajaseventosDataGridView.BindingContextChanged

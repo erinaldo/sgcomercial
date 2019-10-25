@@ -8,7 +8,8 @@
         CajasmovimientosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajasmovimientos, gideventoseleccionado)
         Try
             Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, gideventoseleccionado)
-            Me.ReportViewer1.RefreshReport()
+            'Me.ReportViewer1.RefreshReport()
+            recuento()
         Catch ex As Exception
 
         End Try
@@ -16,6 +17,18 @@
     End Sub
 
     Private Sub CajasmovimientosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles CajasmovimientosDataGridView.CellContentClick
+
+    End Sub
+    Private Sub recuento()
+        Try
+            Dim sum As Decimal
+            For i = 0 To CajasmovimientosDataGridView.RowCount - 1
+                sum = sum + CajasmovimientosDataGridView.Rows(i).Cells("monto").Value
+            Next
+            LabelTotal.Text = "TOTAL: " + sum.ToString
+        Catch ex As Exception
+            LabelTotal.Text = ""
+        End Try
 
     End Sub
 
@@ -45,7 +58,14 @@
                         Else
                             MsgBox("Operacion cancelada")
                         End If
+                        recuento()
                     End If
+                Case "editar"
+                    Dim p As New EditarVenta()
+                    gidventa = CajasmovimientosDataGridView.CurrentRow.Cells("idventa").Value
+                    p.ShowDialog()
+                    CajasmovimientosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajasmovimientos, gideventoseleccionado)
+                    recuento()
             End Select
         End If
     End Sub
