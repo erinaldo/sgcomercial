@@ -1088,6 +1088,24 @@ and v.idtipocomprobante = tc.idtipocomprobante", myConn2)
             ''Exit For
         End Try
     End Sub
+    Public Sub QueryBDChange(ByVal query As String)
+        Dim myConn2 As SqlConnection = New SqlConnection(gActiveSQLConnectionString) 'gActiveSQLConnectionString
+        'MsgBox(gActiveSQLConnectionString)
+        Dim mycommand As New SqlCommand
 
+        Try
+            mycommand = New SqlCommand(query, myConn2)
+            myConn2.Open()
+            mycommand.ExecuteNonQuery()
+            myConn2.Close()
+            myConn2.Dispose()
+        Catch ex As Exception
+            'ErrorLogTableAdapter.errorlog_insertar("Aplicación", "Actualización de versión", "ActualizarBD", sFile + " - " + ex.Message)
+            'status = False
+            'cod = 1
+            'msg = "Ocurrio un problema en: ActualizarBD() - " + sFile + " - " + ex.Message
+            ''Exit For
+        End Try
+    End Sub
 End Module
 

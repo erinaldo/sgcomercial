@@ -84,6 +84,9 @@ Partial Class MiComercio
         Me.ComboFEAutoCAEAFIP = New System.Windows.Forms.ComboBox()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
         Me.ComboValDatosNuevosClientes = New System.Windows.Forms.ComboBox()
+        Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.AToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -304,7 +307,7 @@ Partial Class MiComercio
         Me.ParametrosgeneralesBindingNavigator.CountItem = Nothing
         Me.ParametrosgeneralesBindingNavigator.DeleteItem = Nothing
         Me.ParametrosgeneralesBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ParametrosgeneralesBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ParametrosgeneralesBindingNavigatorSaveItem})
+        Me.ParametrosgeneralesBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ParametrosgeneralesBindingNavigatorSaveItem, Me.ToolStripDropDownButton1})
         Me.ParametrosgeneralesBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.ParametrosgeneralesBindingNavigator.MoveFirstItem = Nothing
         Me.ParametrosgeneralesBindingNavigator.MoveLastItem = Nothing
@@ -723,6 +726,27 @@ Partial Class MiComercio
         Me.ComboValDatosNuevosClientes.Size = New System.Drawing.Size(121, 24)
         Me.ComboValDatosNuevosClientes.TabIndex = 0
         '
+        'ToolStripDropDownButton1
+        '
+        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AToolStripMenuItem, Me.BToolStripMenuItem})
+        Me.ToolStripDropDownButton1.Image = Global.sgcomercial.My.Resources.Resources.editar
+        Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(189, 24)
+        Me.ToolStripDropDownButton1.Text = "Ver Lista de Productos"
+        '
+        'AToolStripMenuItem
+        '
+        Me.AToolStripMenuItem.Name = "AToolStripMenuItem"
+        Me.AToolStripMenuItem.Size = New System.Drawing.Size(365, 26)
+        Me.AToolStripMenuItem.Text = "Lista Tipo A (Marca/Modelo/Presentación)"
+        '
+        'BToolStripMenuItem
+        '
+        Me.BToolStripMenuItem.Name = "BToolStripMenuItem"
+        Me.BToolStripMenuItem.Size = New System.Drawing.Size(365, 26)
+        Me.BToolStripMenuItem.Text = "Lista Tipo B (Modelo/Marca/Presentación)"
+        '
         'MiComercio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -841,4 +865,7 @@ Partial Class MiComercio
     Friend WithEvents Label9 As Label
     Friend WithEvents GroupBox12 As GroupBox
     Friend WithEvents ComboValDatosNuevosClientes As ComboBox
+    Friend WithEvents ToolStripDropDownButton1 As ToolStripDropDownButton
+    Friend WithEvents AToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BToolStripMenuItem As ToolStripMenuItem
 End Class

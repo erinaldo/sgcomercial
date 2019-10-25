@@ -310,4 +310,71 @@ Public Class MiComercio
             e.KeyChar = ""
         End If
     End Sub
+
+    Private Sub ListaTipoAToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ListaTipoBToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub AToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AToolStripMenuItem.Click
+        Try
+
+
+            QueryBDChange("ALTER view [dbo].[listaproductos] as
+SELECT 
+idproducto,
+ISNULL(fabricante,'-SIN ASIGNAR-') as fabricante,
+(select descripcion from rubros where rubros.idrubro = productos.idrubro) as rubro,
+codigoproducto,
+rtrim(ltrim(marca)) as marca,
+marca  + ' '+
+modelo + ' '+ 
+presentacion as descripcion,
+precioventa,
+precioventagranel,
+precioventamayorista,
+precioventadistribuidor,
+productos.productocompuesto
+,(select isnull(idproveedor,0) from listaproductosproveedores lpp where lpp.idproducto = productos.idproducto) as idproveedor
+,(select isnull(nombre,'') from proveedores where idproveedor = (select isnull(idproveedor,0) from listaproductosproveedores lpp where lpp.idproducto = productos.idproducto)) as nombreproveedor
+FROM productos
+where productos.estado = 'A'
+")
+            MessageBox.Show("Operación Exitosa!", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("No se pudo completar la Operación", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+    End Sub
+
+    Private Sub BToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BToolStripMenuItem.Click
+        Try
+            QueryBDChange("ALTER view [dbo].[listaproductos] as
+SELECT 
+idproducto,
+ISNULL(fabricante,'-SIN ASIGNAR-') as fabricante,
+(select descripcion from rubros where rubros.idrubro = productos.idrubro) as rubro,
+codigoproducto,
+rtrim(ltrim(marca)) as marca,
+modelo  + ' '+
+marca + ' '+ 
+presentacion as descripcion,
+precioventa,
+precioventagranel,
+precioventamayorista,
+precioventadistribuidor,
+productos.productocompuesto
+,(select isnull(idproveedor,0) from listaproductosproveedores lpp where lpp.idproducto = productos.idproducto) as idproveedor
+,(select isnull(nombre,'') from proveedores where idproveedor = (select isnull(idproveedor,0) from listaproductosproveedores lpp where lpp.idproducto = productos.idproducto)) as nombreproveedor
+FROM productos
+where productos.estado = 'A'
+")
+            MessageBox.Show("Operación Exitosa!", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("No se pudo completar la Operación", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+
+    End Sub
 End Class
