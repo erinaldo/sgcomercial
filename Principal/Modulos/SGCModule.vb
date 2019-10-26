@@ -16,6 +16,7 @@ Imports System.Text.RegularExpressions
 
 Module SGCModule
     Dim xi As LoadingForm
+    Public gIsOnline As Boolean
     '************************************************
     Public gActiveSQLConnectionString As String
     Public gstrSheetName As New List(Of String)

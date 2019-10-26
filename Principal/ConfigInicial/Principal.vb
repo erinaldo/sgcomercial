@@ -17,6 +17,9 @@ Public Class Principal
         Try
             gNombreComercio = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio")
             Me.Text = " EPOS " + " - [" + gNombreComercio + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]" + " - Facturación Electrónica: [" + GFEAFIPENTORNO + "]"
+            If gIsOnline = False Then
+                Me.Text = Me.Text + " - [SIN INTERNET]"
+            End If
         Catch ex As Exception
 
         End Try
@@ -73,6 +76,7 @@ Public Class Principal
         If elast = "N" Then
             ShowPopUp("Recuerda enviar el ultimo CIERRE DE CAJA!", 400)
         End If
+        NeedSyncProductos()
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================

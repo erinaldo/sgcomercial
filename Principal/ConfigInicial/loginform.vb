@@ -75,9 +75,15 @@ Public Class loginform
         gPublicDocumentsPath = Environment.GetFolderPath(System.Environment.SpecialFolder.CommonDocuments)
     End Sub
     Private Sub identificarterminal()
+        gMiSucursal = 0
+        '/////////////////////////////////////////////////////////////////////////////////////
+        Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        gMiSucursal = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("gMiSucursal")
+        '/////////////////////////////////////////////////////////////////////////////////////
         gmacadress = getMacAddress()
         MachineKey = "LLAuth" + gmacadress
         LabelMACaddress.Text = gmacadress
+        '/////////////////////////////////////////////////////////////////////////////////////
     End Sub
     Private Sub connectdblocal()
         Try 'CONNECT DB LOCAL
@@ -140,18 +146,21 @@ Public Class loginform
                 Dim misclientesdatatable As siscomDataSet.misclientesDataTable
                 misclientesdatatable = misclientesTableAdapter.GetDataByMac(gmacadress)
                 If misclientesdatatable.Rows.Count = 1 Then
-                    gMiSucursal = misclientesdatatable.Rows(0).Item(misclientesdatatable.idsucursalColumn)
+                    If gMiSucursal = 0 Then
+                        Dim ParametrosGeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+                        gMiSucursal = misclientesdatatable.Rows(0).Item(misclientesdatatable.idsucursalColumn)
+                        ParametrosGeneralesTableAdapter.parametrosgenerales_updatebyprgclave("gMiSucursal", gMiSucursal, Nothing, Nothing)
+                    End If
                     gMiIDCliente = misclientesdatatable.Rows(0).Item(misclientesdatatable.idclientesColumn)
                     gNombreCliente = misclientesdatatable.Rows(0).Item(misclientesdatatable.nombreColumn)
                     gNombreTerminal = misclientesdatatable.Rows(0).Item(misclientesdatatable.equipoColumn)
                     LabelDatosCliente.Text = "" + gNombreCliente + " - Terminal: [" + gNombreTerminal + "] - Sucursal N°: " + gMiSucursal.ToString + ""
                 End If
-                'gMiSucursal = TerminalesTableAdapter.terminales_consultarsucursal(gmacadress)
-                'gMiIDCliente = TerminalesTableAdapter.terminales_consultarIDCliente(gmacadress)
-                'CheckConnection.Close()
-                'CheckConnection.Dispose()
+                gIsOnline = True
             Catch ex As Exception
                 ErrorLogTableAdapter.errorlog_insertar("Login", "CONEXIÓN", "Load", "No se pudo Conectar al servidor SC " + ex.Message)
+                gIsOnline = False
+                Return
             End Try
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             If gModuloClowd = 1 Then
@@ -165,6 +174,7 @@ Public Class loginform
                     'CheckConnection.Dispose()
                 Catch ex As Exception
                     ErrorLogTableAdapter.errorlog_insertar("Login", "CONEXIÓN", "Load", "No se pudo Conectar a la Nube " + ex.Message)
+                    gIsOnline = False
                 End Try
             End If
         Catch ex As Exception
@@ -199,17 +209,18 @@ Public Class loginform
         hi.Refresh()
         formatos()
         '''''''''''''''''''''''''''''''''''''''''
+        hi.mensaje.Text = "Conectando a tu base de datos local.."
+        'hi.ProgressBar.Value = 4
+        hi.ProgressBar.PerformStep()
+        hi.Refresh()
+        connectdblocal()
+        '''''''''''''''''''''''''''''''''''''''''
         hi.mensaje.Text = "Identificando terminal"
         'hi.ProgressBar.Value = 3
         hi.ProgressBar.PerformStep()
         hi.Refresh()
         identificarterminal()
         '''''''''''''''''''''''''''''''''''''''''
-        hi.mensaje.Text = "Conectando a tu base de datos local.."
-        'hi.ProgressBar.Value = 4
-        hi.ProgressBar.PerformStep()
-        hi.Refresh()
-        connectdblocal()
         Dim status As Boolean
         Dim cod As Integer
         Dim msg As String = Nothing
@@ -227,23 +238,33 @@ Public Class loginform
         hi.Refresh()
         connectdbremote()
         '********************************
-        '********************************  
-        hi.mensaje.Text = "Ya casi estamos!"
-        'hi.ProgressBar.Value = 6
-        hi.ProgressBar.PerformStep()
-        hi.Refresh()
         GetSoftwareVersion()
-        UpdateCheckBG.RunWorkerAsync()
+        '********************************  
+        If gIsOnline = True Then
+            '********************************
+            hi.mensaje.Text = "Ya casi estamos!"
+            hi.ProgressBar.PerformStep()
+            hi.Refresh()
+            UpdateCheckBG.RunWorkerAsync()
+            '-------------------------------
+            If BGWUpdateLicencia.IsBusy = False Then
+                BGWUpdateLicencia.RunWorkerAsync()
+            End If
+            '--------------------------------
+            LabelClowdInfo.Text = gClowdServer
+            '********************************
+        Else
+            '********************************
+            hi.mensaje.Text = "SIN CONEXIÓN A INTERNET"
+            hi.ProgressBar.PerformStep()
+            hi.Refresh()
+            LabelDatosCliente.Text = "SIN CONEXIÓN A INTERNET"
+        End If
         '************************************
         Cursor.Current = Cursors.Default
         hi.Dispose()
         GetCajaOperativa()
-        '-------------------------------
-        If BGWUpdateLicencia.IsBusy = False Then
-            BGWUpdateLicencia.RunWorkerAsync()
-        End If
-        '--------------------------------
-        LabelClowdInfo.Text = gClowdServer
+        '----------------------------------
         textusuario.Select()
     End Sub
 
@@ -400,8 +421,10 @@ Public Class loginform
     End Sub
 
     Private Sub UpdateCheckBG_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles UpdateCheckBG.DoWork
-        UpdateCheckPasivo(UpdateAlertStatus, Val(SoftwareVersion), newversion)
-        UpdateRemoteVersion(SoftwareVersion, gTerminal)
+        If gIsOnline = True Then
+            UpdateCheckPasivo(UpdateAlertStatus, Val(SoftwareVersion), newversion)
+            UpdateRemoteVersion(SoftwareVersion, gTerminal)
+        End If
     End Sub
 
     Private Sub UpdateCheckBG_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles UpdateCheckBG.RunWorkerCompleted

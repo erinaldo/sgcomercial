@@ -1074,7 +1074,13 @@ Module MySQLModule
                 End If
             End If
         Catch ex As Exception
-            MsgBox("Ocurrió un problema al consultar SyncLog productos: " + ex.Message)
+            If gIsOnline = False Then
+                MessageBox.Show("No se puede Sincronizar productos." + vbCr + " No hay conexión a internet!", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                MessageBox.Show("No se puede Sincronizar productos. Se ha perdido la conexion a internet!" + vbCr + ex.Message + vbCr + ex.StackTrace, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
+
+            'MsgBox("Ocurrió un problema al consultar SyncLog productos: " + ex.Message)
         End Try
         Cursor.Current = Cursors.Default
     End Sub
@@ -1602,7 +1608,6 @@ Module MySQLModule
                         inserted = clientesdomicilioswebtableadapter.clientesdomicilios_maxidclientesdomicilios(nuevoidclienteweb)
                         clientesdomiciliostableadapter.clientesdomicilios_updateidclientesdomiciliosweb(inserted, idclientelocal, iddomicilio)
                     End If
-
                 Next
             End If
         Catch ex As Exception
