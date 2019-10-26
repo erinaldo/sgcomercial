@@ -438,7 +438,9 @@ Public Class loginform
                 UpdateAlert.ForeColor = Color.Orange
                 PictureUpdateAlert.Image = My.Resources.UpdateAlert
                 PictureUpdateAlert.Visible = True
-
+                If MessageBox.Show("Hay una nueva versión disponible! Desea actualizar ahora?", "Descargar nueva versión!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+                    BuscarActualizaciones()
+                End If
             Else
                 If newversion = 0 Then Return
                 UpdateAlert.Visible = True
@@ -446,7 +448,6 @@ Public Class loginform
                 UpdateAlert.ForeColor = Color.White
                 PictureUpdateAlert.Image = My.Resources.checked ' My.Resources.Resources.Yes_check
                 PictureUpdateAlert.Visible = True
-
             End If
         End If
     End Sub
@@ -485,6 +486,7 @@ Public Class loginform
     Private Sub DownloadComplete(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
         'MsgBox("Descarga completa! " + gDownloadProgress.ToString)
         xi.Dispose()
+        Me.Cursor = Cursors.Default
         'UpdateSGC(newversion)
         UpdateSGC()
     End Sub
@@ -511,7 +513,7 @@ Public Class loginform
     Sub BuscarActualizaciones()
         trnsfrpth = gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
         If UpdateAlertStatus = False Then Return
-
+        Me.Cursor = Cursors.WaitCursor
         Try
             '**********************************************
             gSystemDrive = Environment.GetEnvironmentVariable("SystemDrive")

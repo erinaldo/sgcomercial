@@ -1,4 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Net.NetworkInformation
+Imports System.Data.SqlClient
+Imports System.Net
 Imports System
 
 Module SCModule
@@ -196,4 +199,55 @@ Module SCModule
         WaitingLicence = False
     End Sub
     '******************************-----------------------------------------------------------------------------------*****************************
+    'Public Sub gBuscarActualizaciones()
+    '    Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar"
+    '    Dim trnsfrpth As String
+    '    Dim ftpClient As New WebClient
+    '    'Dim xi As LoadingForm
+    '    trnsfrpth = gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
+    '    'If UpdateAlertStatus = False Then Return
+
+    '    Try
+    '        '**********************************************
+    '        gSystemDrive = Environment.GetEnvironmentVariable("SystemDrive")
+    '        '**********************************************
+    '        Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
+    '            IO.Directory.Delete(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\", True)
+    '        Catch ex As Exception
+
+    '        End Try
+    '        '**********************************************
+    '        ' SI NO EXISTE LA CREA
+    '        If (Not System.IO.Directory.Exists(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\")) Then
+    '            System.IO.Directory.CreateDirectory(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\")
+    '        End If
+    '    Catch ex As Exception
+    '        Cursor.Current = Cursors.Default
+    '        MsgBox("Borrando archivos " + ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
+    '        Return
+    '    End Try
+    '    '======================================
+    '    gDownloadProgress = 0
+    '    '=====================================
+    '    'BackgroundWorker.RunWorkerAsync()
+    '    '===========================
+    '    'AddHandler ftpClient.DownloadProgressChanged, AddressOf DownloadProgressChanged
+    '    'AddHandler ftpClient.DownloadFileCompleted, AddressOf DownloadComplete
+    '    'xi = New LoadingForm
+    '    'xi.Text = "Descargando última versión"
+    '    'xi.ProgressBar.Maximum = 100
+    '    'xi.ProgressBar.MarqueeAnimationSpeed = 100
+    '    ''xi.mensaje.TextAlign = ContentAlignment.MiddleLeft
+    '    'xi.mensaje.Text = "Descargando"
+    '    'xi.Show()
+    '    'Try
+    '    Try
+    '        FileSystem.Kill(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\*.rar")
+    '    Catch ex As Exception
+
+    '    End Try
+    '    ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
+    '    ftpClient.DownloadFileAsync(New Uri(path), trnsfrpth)
+    '    UpdateSGC()
+    'End Sub
 End Module

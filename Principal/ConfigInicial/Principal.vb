@@ -76,7 +76,6 @@ Public Class Principal
         If elast = "N" Then
             ShowPopUp("Recuerda enviar el ultimo CIERRE DE CAJA!", 400)
         End If
-        NeedSyncProductos()
     End Sub
     Private Sub EjecutarAlertas()
         '====================================================================
