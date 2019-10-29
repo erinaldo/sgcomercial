@@ -482,12 +482,19 @@ Module MySQLModule
                 Else
                     productocompuesto = ProductosTable.Rows(i).Item(ProductosTable.Columns("productocompuesto"))
                 End If
+                '-----------------------------------------------------------------------------------
+                Dim estado As String
+                If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("estado"))) Then
+                    estado = "I"
+                Else
+                    estado = ProductosTable.Rows(i).Item(ProductosTable.Columns("estado"))
+                End If
                 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 ' SI EXISTE UPDATE
                 If idproductoweb > 0 Then
-                    ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
+                    ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, estado, precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
                 Else ' NO EXISTE INSERT
-                    ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
+                    ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, estado, precioventadistribuidor, idrubro, iva, fabricante)
                 End If
                 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 SyncLogWEBTableAdapter.synclog_update(1, Now, gmacadress, gusername, "productos")
@@ -1006,11 +1013,18 @@ Module MySQLModule
                         productocompuesto = ProductosTable.Rows(i).Item(ProductosTable.Columns("productocompuesto"))
                     End If
                     '-----------------------------------------------------------------------------------
+                    Dim estado As String
+                    If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("estado"))) Then
+                        estado = "I"
+                    Else
+                        estado = ProductosTable.Rows(i).Item(ProductosTable.Columns("estado"))
+                    End If
+                    '-----------------------------------------------------------------------------------
                     ' SI EXISTE UPDATE
                     If idproductoweb > 0 Then
-                        ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
+                        ProductosWEBTableAdapter.productosweb_update(marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, estado, precioventadistribuidor, idrubro, iva, fabricante, codigoproducto)
                     Else ' NO EXISTE INSERT
-                        ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, "A", precioventadistribuidor, idrubro, iva, fabricante)
+                        ProductosWEBTableAdapter.productosweb_insertar(codigoproducto, marca, modelo, presentacion, unidadmedida, medida, descripcion, preciocosto, precioventa, Nothing, stockminimo, productocompuesto, Nothing, precioventamayorista, precioventagranel, estado, precioventadistribuidor, idrubro, iva, fabricante)
                     End If
                     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                     Cursor.Current = Cursors.Default
@@ -1077,7 +1091,7 @@ Module MySQLModule
             If gIsOnline = False Then
                 MessageBox.Show("No se puede Sincronizar productos." + vbCr + " No hay conexión a internet!", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
-                MessageBox.Show("No se puede Sincronizar productos. Se ha perdido la conexion a internet!" + vbCr + ex.Message + vbCr + ex.StackTrace, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("No se puede Sincronizar productos. Se ha perdido la conexion a internet!" + vbCr + vbCr + ex.Message + vbCr + vbCr + ex.StackTrace, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
 
             'MsgBox("Ocurrió un problema al consultar SyncLog productos: " + ex.Message)

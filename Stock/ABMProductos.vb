@@ -180,7 +180,7 @@ Public Class ABMProductos
                         Dim ProductosWEBTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
                         ProductosWEBTableAdapter = New MySQLDataSetTableAdapters.productosTableAdapter()
                         If codigoORIGINAL <> codigoNUEVO Then
-                            ProductosWEBTableAdapter.productos_updateestado("N", codigoORIGINAL)
+                            ProductosWEBTableAdapter.productos_updateestado("I", codigoORIGINAL)
                         End If
                         MsgBox("Actualización correcta!", MsgBoxStyle.Information)
                     Else
@@ -928,8 +928,10 @@ Public Class ABMProductos
             Try
                 Dim idproducto As Long
                 Dim fdsp As Long
+                Dim codigoproducto As String
+                codigoproducto = ProductosDataGridView.Rows(e.RowIndex).Cells("codigoproducto").Value
                 fdsp = ProductosDataGridView.FirstDisplayedScrollingRowIndex
-                idproducto = ProductosTableAdapter.productos_existeproducto(ProductosDataGridView.Rows(e.RowIndex).Cells("codigoproducto").Value)
+                idproducto = ProductosTableAdapter.productos_existeproducto(codigoproducto)
                 Select Case ProductosDataGridView.Columns(e.ColumnIndex).Name
                     Case "estado"
                         If MessageBox.Show("Seguro desea cambiar la visibilidad del producto?", "Activar / Desactivar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
@@ -948,6 +950,12 @@ Public Class ABMProductos
                             Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
                             ProductosDataGridView.FirstDisplayedScrollingRowIndex = fdsp
                             ProductosDataGridView.Rows(e.RowIndex).Selected = True
+                            '/**************************    UPDATE EN LA NUBE *****************************************/
+                            If gModuloClowd = 1 And gIsOnline = True Then
+                                Dim ProductosWEBTableAdapter As New MySQLDataSetTableAdapters.productosTableAdapter()
+                                ProductosWEBTableAdapter.productos_updateestado(ProductosDataGridView.Rows(e.RowIndex).Cells("estado").Value, codigoproducto)
+                            End If
+                            '/*******************************************************************/
                         End If
                     Case Else
                         'MsgBox("es cualquier otra")

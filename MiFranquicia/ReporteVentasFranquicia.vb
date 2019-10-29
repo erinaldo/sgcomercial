@@ -20,16 +20,16 @@
                     Me.Cursor = Cursors.WaitCursor
                     Dim desde As Date '= Nothing
                     Dim hasta As Date '= Nothing
-                    msg = "Point A"
+                    msg = " Point A"
 
                     desde = Convert.ToDateTime(DateTimePickerDesde.Value)
                     hasta = Convert.ToDateTime(DateTimePickerHasta.Value)
-                    msg = "Point B "
+                    msg = " Point B "
                     If desde <> Nothing And hasta <> Nothing Then
                         Me.libroventasTableAdapter.FillByRangoFechas(Me.comercialDataSet.libroventas, desde.ToString, hasta.ToString)
-                        msg = "Point LV"
+                        msg = " Point LV "
                         Me.libroventasdetalleTableAdapter.FillByRangoFechas(Me.comercialDataSet.libroventasdetalle, desde.ToString, hasta.ToString)
-                        msg = "Point LVD"
+                        msg = " Point LVD "
                         Me.ReportViewer1.RefreshReport()
                         Me.Cursor = Cursors.Default
                     Else
@@ -42,10 +42,10 @@
                 End Try
             End If
             If v_ListaRefFranquicia = 4 Then
-                MessageBox.Show("Reporte no disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("La lista de precios configurada no esta habilitada para esta Franquicia: Reporte no disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         Catch ex As Exception
-            MessageBox.Show("Reporte no disponible: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Ocurrió una excepción: el reporte no esta disponible -> " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
 
     End Sub

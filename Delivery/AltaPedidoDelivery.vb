@@ -425,6 +425,7 @@ Public Class AltaPedidoDelivery
         TextBoxReferencias.Text = Nothing
         TextBoxCP.Text = Nothing
         VentasdetalleDataGridView.Rows.Clear()
+        TextBoxObs.Text = Nothing
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBoxEditarDomicilios.Click

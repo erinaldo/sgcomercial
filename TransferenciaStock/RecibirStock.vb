@@ -45,6 +45,11 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         '**************** validar carga de datos ************************
+        If gMiSucursal = ComboBox1.SelectedValue Then
+            MsgBox("No puede seleccionar sucursal de origen [" + gMiSucursal.ToString() + "] igual a la de destino [" + ComboBox1.SelectedValue.ToString + "]", MsgBoxStyle.Exclamation, "Advertencia")
+            ComboBox1.SelectedIndex = -1
+            Return
+        End If
         If ComboBox1.SelectedIndex < 0 Then
             MsgBox("Seleccione una sucursal válida!", MsgBoxStyle.Exclamation)
             Return
@@ -125,11 +130,7 @@
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        If gMiSucursal = ComboBox1.SelectedValue Then
-            MsgBox("No puede seleccionar sucursal de origen igual a la de destino!", MsgBoxStyle.Exclamation, "Advertencia")
-            ComboBox1.SelectedIndex = -1
-            Return
-        End If
+
     End Sub
 
     Private Sub DataGridViewProductos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewProductos.CellContentClick
