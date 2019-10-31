@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>83</ApplicationRevision>
-    <ApplicationVersion>4.0.9.83</ApplicationVersion>
+    <ApplicationRevision>84</ApplicationRevision>
+    <ApplicationVersion>4.0.9.84</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1391,7 +1391,8 @@
     <EmbeddedResource Include="MiFranquicia\ConfiguracionesFranquicia.resx">
       <DependentUpon>ConfiguracionesFranquicia.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MiFranquicia\Reportes\RepVentasFramquiciaLista3.rdlc" />
+    <EmbeddedResource Include="MiFranquicia\Reportes\RepVentasFranquiciaLista3.rdlc" />
+    <EmbeddedResource Include="MiFranquicia\Reportes\RepVentasFranquiciaLista4.rdlc" />
     <EmbeddedResource Include="MiFranquicia\ReporteVentasFranquicia.resx">
       <DependentUpon>ReporteVentasFranquicia.vb</DependentUpon>
     </EmbeddedResource>
@@ -2075,42 +2076,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
