@@ -1148,7 +1148,7 @@ Public Class RegistrarVenta
 
                         Else
                             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
-
+                            Return
                         End If
                     Case "cantidad"
                         If VentasdetalleDataGridView.RowCount = 0 Then Return
@@ -1156,6 +1156,13 @@ Public Class RegistrarVenta
                         p = New SeleccionarCantidad
                         gcodigoproducto = 0
                         p.ShowDialog()
+                        If gcantidad = 0 Then
+                            VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+                            recuento()
+                            gcantidad = Nothing
+                            gprecioventa = Nothing
+                            Return
+                        End If
                         'p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
                         VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
                         gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
