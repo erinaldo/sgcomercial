@@ -8,7 +8,8 @@
                 Case "Débito"
                     idformapago = 2
                 Case Else
-                    idformapago = 0
+                    Return
+                    'idformapago = 0
             End Select
             If idformapago = 0 Then
                 MessageBox.Show("Primero seleccione una forma de pago", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -23,7 +24,7 @@
                 Me.Close()
             End If
         Catch ex As Exception
-
+            MessageBox.Show("No se pudo completar la operación: " + ex.Message, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
 
 

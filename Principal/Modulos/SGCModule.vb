@@ -941,7 +941,8 @@ Module SGCModule
         Dim mycommand As New SqlCommand
 
         Try
-            mycommand = New SqlCommand("ALTER view [dbo].[libroventas]
+            mycommand = New SqlCommand("
+ALTER view [dbo].[libroventas]
                             as
                             select 
                             v.idventa,
@@ -962,7 +963,24 @@ Module SGCModule
                             ,tc.idtipocomprobanteafip
                             ,c.condicioniva
                             --------------------------------------------------------------------------------------------------------------------------------
-                            ,(select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa)  as importe,
+                            ,case
+                                when tc.idtipocomprobanteafip = 0 then 
+										(select cast(sum(libroventasdetalle.subtotal) as decimal(18,2)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa) 
+								else
+								 (select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa) +
+								 (case
+                            when tc.idtipocomprobanteafip = 0 then 0
+                                when tc.idtipocomprobanteafip = 6 then 
+                                (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+                                when tc.idtipocomprobanteafip = 11 then 
+                                    (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+                            when tc.idtipocomprobanteafip = 13 then 
+                                    (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+                                 else
+                                    (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva > 0)
+                                end)
+								 end
+							as importe,
                             --------------------------------------------------------------------------------------------------------------------------------
                             (select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa) as ivaventas
                             --------------------------------------------------------------------------------------------------------------------------------
@@ -1008,37 +1026,37 @@ Module SGCModule
                             ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 27) 
                              as IVA_27
                              --------------------------------------------------------------------------------------------------------------------------------
-                            ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 27) 
+                            ,(select cast(isnull(sum(libroventasdetalle.neto),0) as decimal(18,2)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 27) 
                              as BASEIVA_27
                              --------------------------------------------------------------------------------------------------------------------------------
-                            ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 21) 
+                            ,(select cast(isnull(sum(libroventasdetalle.ivaventasdetalle),0) as decimal(18,2)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 21) 
                              as IVA_21
                              --------------------------------------------------------------------------------------------------------------------------------
-                             ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 21) 
+                             ,(select cast(isnull(sum(libroventasdetalle.neto),0) as decimal(18,2)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 21) 
                              as BASEIVA_21
                              --------------------------------------------------------------------------------------------------------------------------------
                             ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 10) 
                              as IVA_10
                               --------------------------------------------------------------------------------------------------------------------------------
-                             ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 10) 
+                             ,(select cast(isnull(sum(libroventasdetalle.neto),0) as decimal(18,2)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 10) 
                              as BASEIVA_10
                              --------------------------------------------------------------------------------------------------------------------------------
                              ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 5) 
                              as IVA_5
                               --------------------------------------------------------------------------------------------------------------------------------
-                             ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 5) 
+                             ,(select cast(isnull(sum(libroventasdetalle.neto),0) as decimal(18,2)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 5) 
                              as BASEIVA_5
                              --------------------------------------------------------------------------------------------------------------------------------
                              ,(select isnull(sum(libroventasdetalle.ivaventasdetalle),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 2) 
                              as IVA_2
                               --------------------------------------------------------------------------------------------------------------------------------
-                             ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 2) 
+                             ,(select cast(isnull(sum(libroventasdetalle.neto),0) as decimal(18,2)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) = 2) 
                              as BASEIVA_2
                              --------------------------------------------------------------------------------------------------------------------------------
                              ,0--(select isnull(sum(libroventasdetalle.subtotal),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva <= 0) 
                              as IVA_0
                              -------------------------------------------------------------------------------------------------------------------------------
-                             ,(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) <= 0) 
+                             ,(select cast(isnull(sum(libroventasdetalle.neto),0) as decimal(18,2)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and floor(libroventasdetalle.iva) <= 0) 
                              as BASEIVA_0
                             --------------------------------------------------------------------------------------------------------------------------------
                             ,case 
@@ -1076,7 +1094,10 @@ clientes c,
 tipocomprobantes tc
 where
 v.idcliente = c.idcliente
-and v.idtipocomprobante = tc.idtipocomprobante", myConn2)
+and v.idtipocomprobante = tc.idtipocomprobante
+
+
+", myConn2)
             myConn2.Open()
             mycommand.ExecuteNonQuery()
             myConn2.Close()
