@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>87</ApplicationRevision>
-    <ApplicationVersion>4.0.9.87</ApplicationVersion>
+    <ApplicationRevision>88</ApplicationRevision>
+    <ApplicationVersion>4.0.9.88</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -505,6 +505,18 @@
       <DependentUpon>WebConf.vb</DependentUpon>
     </Compile>
     <Compile Include="Principal\ParametrosGenerales\WebConf.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\Siscom\SCListaProductos.Designer.vb">
+      <DependentUpon>SCListaProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\Siscom\SCListaProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\Siscom\SCRegistrarVenta.Designer.vb">
+      <DependentUpon>SCRegistrarVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\Siscom\SCRegistrarVenta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal\Siscom\SCVentas.Designer.vb">
@@ -1424,6 +1436,12 @@
       <DependentUpon>WebConf.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\Siscom\RepFacturaSC.rdlc" />
+    <EmbeddedResource Include="Principal\Siscom\SCListaProductos.resx">
+      <DependentUpon>SCListaProductos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\Siscom\SCRegistrarVenta.resx">
+      <DependentUpon>SCRegistrarVenta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\Siscom\SCventas.resx">
       <DependentUpon>SCVentas.vb</DependentUpon>
     </EmbeddedResource>

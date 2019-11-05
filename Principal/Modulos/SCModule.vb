@@ -19,6 +19,8 @@ Module SCModule
     Public gTipoLicencia As String
     Public SCConn As MySqlConnection
     Public gidventaSC
+    Public SCIdproducto As String
+    Public SCProductoDescripcion As String
 
     Sub conectarSCConn(ByRef status As Boolean)
         Try

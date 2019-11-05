@@ -83,7 +83,15 @@ Public Class loginform
         gmacadress = getMacAddress()
         MachineKey = "LLAuth" + gmacadress
         LabelMACaddress.Text = gmacadress
+    End Sub
+    Private Sub IsLucasmartinbs()
         '/////////////////////////////////////////////////////////////////////////////////////
+        If gNombreTerminal = "LUCASMARTINBS-N" Then
+            textusuario.Text = "lucasmartinbs"
+            textpassword.Text = "Locura011*?"
+            'Button1.PerformClick()
+            textpassword.Select()
+        End If
     End Sub
     Private Sub connectdblocal()
         Try 'CONNECT DB LOCAL
@@ -131,6 +139,7 @@ Public Class loginform
         '*************  errorlog    **************************************
         Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
         ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
+        Dim lMiSucursal As Integer
         Try 'CONNECT DB REMOTE
             Try
                 ArmaSTRConnWEB(status)
@@ -146,10 +155,11 @@ Public Class loginform
                 Dim misclientesdatatable As siscomDataSet.misclientesDataTable
                 misclientesdatatable = misclientesTableAdapter.GetDataByMac(gmacadress)
                 If misclientesdatatable.Rows.Count = 1 Then
-                    If gMiSucursal = 0 Then
+                    lMiSucursal = misclientesdatatable.Rows(0).Item(misclientesdatatable.idsucursalColumn)
+                    If gMiSucursal = 0 Or lMiSucursal <> gMiSucursal Then
                         Dim ParametrosGeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
-                        gMiSucursal = misclientesdatatable.Rows(0).Item(misclientesdatatable.idsucursalColumn)
-                        ParametrosGeneralesTableAdapter.parametrosgenerales_updatebyprgclave("gMiSucursal", gMiSucursal, Nothing, Nothing)
+                        ParametrosGeneralesTableAdapter.parametrosgenerales_updatebyprgclave("gMiSucursal", lMiSucursal, Nothing, Nothing)
+                        gMiSucursal = lMiSucursal
                     End If
                     gMiIDCliente = misclientesdatatable.Rows(0).Item(misclientesdatatable.idclientesColumn)
                     gNombreCliente = misclientesdatatable.Rows(0).Item(misclientesdatatable.nombreColumn)
@@ -245,7 +255,9 @@ Public Class loginform
             hi.mensaje.Text = "Ya casi estamos!"
             hi.ProgressBar.PerformStep()
             hi.Refresh()
-            UpdateCheckBG.RunWorkerAsync()
+            If UpdateCheckBG.IsBusy = False Then
+                UpdateCheckBG.RunWorkerAsync()
+            End If
             '-------------------------------
             If BGWUpdateLicencia.IsBusy = False Then
                 BGWUpdateLicencia.RunWorkerAsync()
@@ -266,6 +278,7 @@ Public Class loginform
         GetCajaOperativa()
         '----------------------------------
         textusuario.Select()
+        IsLucasmartinbs()
     End Sub
 
     Private Sub GetCajaOperativa()

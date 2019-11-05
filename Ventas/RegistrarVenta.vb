@@ -1145,9 +1145,11 @@ Public Class RegistrarVenta
                             VentasdetalleDataGridView.CurrentRow.Cells(2).Value = VentasdetalleDataGridView.CurrentRow.Cells(2).Value - 1
                             VentasdetalleDataGridView.Rows(e.RowIndex).Cells("descuento").Value = 0
                             VentasdetalleDataGridView.CurrentRow.Cells("subtotal").Value = VentasdetalleDataGridView.CurrentRow.Cells(2).Value * VentasdetalleDataGridView.CurrentRow.Cells(3).Value
-
+                            recuento()
+                            Return
                         Else
                             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+                            recuento()
                             Return
                         End If
                     Case "cantidad"

@@ -1773,11 +1773,13 @@ Partial Class RegistrarVenta
         Me.DataGridViewOT.AllowUserToDeleteRows = False
         Me.DataGridViewOT.AllowUserToResizeColumns = False
         Me.DataGridViewOT.AllowUserToResizeRows = False
+        Me.DataGridViewOT.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewOT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridViewOT.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridViewOT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewOT.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.otdescripcion, Me.otdetalle, Me.otbaseimponible, Me.otalicuota, Me.otimporta, Me.oteliminar})
-        Me.DataGridViewOT.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridViewOT.Location = New System.Drawing.Point(3, 22)
         Me.DataGridViewOT.Name = "DataGridViewOT"
         Me.DataGridViewOT.RowTemplate.Height = 24

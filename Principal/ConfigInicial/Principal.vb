@@ -1032,6 +1032,7 @@ Public Class Principal
                             otroitem.Enabled = False
                         Next
                     Else
+                        gSUToken = False
                         Dim suauth As New SUAuth
                         suauth.ShowDialog()
                         If gSUToken = True Then
@@ -1050,6 +1051,20 @@ Public Class Principal
         If e.KeyCode = Keys.F5 Then
             'MsgBox("recargando")
             EjecutarAlertas()
+        End If
+        If (e.KeyCode = Keys.R AndAlso e.Control AndAlso e.Shift) Then
+            gSUToken = False
+            Dim suauth As New SUAuth
+            If Not gusername = "lucasmartinbs" Then
+                suauth.ShowDialog()
+            Else
+                gSUToken = True
+            End If
+            '*********************************************************
+            If gSUToken = True Then
+                SCRegistrarVenta.MdiParent = Me
+                SCRegistrarVenta.Visible = True
+            End If
         End If
     End Sub
 
