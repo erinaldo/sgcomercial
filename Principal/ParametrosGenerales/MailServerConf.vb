@@ -22,7 +22,7 @@
                     EmailPort = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("EmailPort")
                     '*************************  ENVIO EMAIL **********************************************
                     Me.Cursor = Cursors.WaitCursor
-                    If ModuloUtilidades.clsSendMail.SendEMail(EmailFrom, "lucasmartinbs@gmail.com", "Email de Prueba", "Cuerpo del mail de Prueba", EmailFrom, EmailFromPwd, SmtpClient, Nothing) = True Then
+                    If ModuloUtilidades.clsSendMail.SendEMail("SC MAIL TEST", EmailFrom, "lucasmartinbs@gmail.com", "Email de Prueba", "Cuerpo del mail de Prueba", EmailFrom, EmailFromPwd, SmtpClient, Nothing) = True Then
                         Me.Cursor = Cursors.Default
                         MsgBox("Enviado!", MsgBoxStyle.Information)
                     Else

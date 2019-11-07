@@ -21,12 +21,18 @@ Public Class GetMailCliente
     End Sub
 
     Private Sub GetMailCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Try
-            TextBox1.Text = ClientesTableAdapter.GetEmailCliente(gidcliente)
-            EmailTo = TextBox1.Text
+            If EmailTo = Nothing Then
+                TextBox1.Text = ClientesTableAdapter.GetEmailCliente(gidcliente)
+                EmailTo = TextBox1.Text
+            Else
+                TextBox1.Text = EmailTo
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
-        End Try
+            End Try
+
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged

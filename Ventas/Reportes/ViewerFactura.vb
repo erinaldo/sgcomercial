@@ -105,6 +105,7 @@ Public Class ViewerFactura
 
     Private Sub EnviarPorEMailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnviarPorEMailToolStripMenuItem.Click
         Dim p As New GetMailCliente
+        EmailTo = Nothing
         p.ShowDialog()
         If IsValidEmailFormat(EmailTo) Then
             EmailTicketComprobante()
@@ -152,7 +153,7 @@ Public Class ViewerFactura
             EmailFromPwd = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("EmailFromPwd")
             EmailPort = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("EmailPort")
             '*************************  ENVIO EMAIL **********************************************
-            If ModuloUtilidades.clsSendMail.SendEMail(EmailFrom, EmailTo, EmailSubject, EmailBody, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
+            If ModuloUtilidades.clsSendMail.SendEMail(gNombreComercio, EmailFrom, EmailTo, EmailSubject, EmailBody, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
                 Me.Cursor = Cursors.Default
                 MessageBox.Show("El envío de mail ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else

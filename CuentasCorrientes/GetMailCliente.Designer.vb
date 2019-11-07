@@ -66,6 +66,7 @@ Partial Class GetMailCliente
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "GetMailCliente"
         Me.Text = "Dirección E-Mail Destino"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

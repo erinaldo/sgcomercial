@@ -28,6 +28,12 @@ Partial Class SCRegistrarVenta
         Me.SiscomDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SiscomDataSet = New sgcomercial.siscomDataSet()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RichTextBoxMensaje = New System.Windows.Forms.RichTextBox()
+        Me.LabelEmail = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.DateTimePickerVencimiento = New System.Windows.Forms.DateTimePicker()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ClientesTableAdapter = New sgcomercial.siscomDataSetTableAdapters.clientesTableAdapter()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -45,8 +51,6 @@ Partial Class SCRegistrarVenta
         Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.DateTimePickerVencimiento = New System.Windows.Forms.DateTimePicker()
-        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SiscomDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SiscomDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,7 +66,7 @@ Partial Class SCRegistrarVenta
         Me.ComboBox1.DisplayMember = "nombre"
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(67, 15)
+        Me.ComboBox1.Location = New System.Drawing.Point(67, 33)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(256, 24)
         Me.ComboBox1.TabIndex = 0
@@ -85,20 +89,78 @@ Partial Class SCRegistrarVenta
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.RichTextBoxMensaje)
+        Me.GroupBox1.Controls.Add(Me.LabelEmail)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.DateTimePickerVencimiento)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(964, 60)
+        Me.GroupBox1.Size = New System.Drawing.Size(964, 132)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'RichTextBoxMensaje
+        '
+        Me.RichTextBoxMensaje.Location = New System.Drawing.Point(83, 69)
+        Me.RichTextBoxMensaje.Name = "RichTextBoxMensaje"
+        Me.RichTextBoxMensaje.Size = New System.Drawing.Size(592, 57)
+        Me.RichTextBoxMensaje.TabIndex = 5
+        Me.RichTextBoxMensaje.Text = ""
+        '
+        'LabelEmail
+        '
+        Me.LabelEmail.AutoSize = True
+        Me.LabelEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "email", True))
+        Me.LabelEmail.Location = New System.Drawing.Point(394, 34)
+        Me.LabelEmail.Name = "LabelEmail"
+        Me.LabelEmail.Size = New System.Drawing.Size(156, 17)
+        Me.LabelEmail.TabIndex = 4
+        Me.LabelEmail.Text = "....................................."
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(15, 72)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(65, 17)
+        Me.Label5.TabIndex = 3
+        Me.Label5.Text = "Mensaje:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(342, 34)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(46, 17)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Email:"
+        '
+        'DateTimePickerVencimiento
+        '
+        Me.DateTimePickerVencimiento.CustomFormat = "dd/MM/yyyy"
+        Me.DateTimePickerVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePickerVencimiento.Location = New System.Drawing.Point(835, 34)
+        Me.DateTimePickerVencimiento.Name = "DateTimePickerVencimiento"
+        Me.DateTimePickerVencimiento.Size = New System.Drawing.Size(113, 22)
+        Me.DateTimePickerVencimiento.TabIndex = 2
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(744, 37)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(81, 17)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Vecimiento:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 18)
+        Me.Label1.Location = New System.Drawing.Point(6, 36)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 17)
         Me.Label1.TabIndex = 1
@@ -113,7 +175,7 @@ Partial Class SCRegistrarVenta
         Me.GroupBox2.Controls.Add(Me.TextBoxTotal)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.DataGridViewDetalle)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 93)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 150)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(964, 274)
         Me.GroupBox2.TabIndex = 2
@@ -211,10 +273,12 @@ Partial Class SCRegistrarVenta
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.Button1)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 373)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 429)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(958, 78)
+        Me.GroupBox3.Size = New System.Drawing.Size(964, 78)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         '
@@ -227,37 +291,22 @@ Partial Class SCRegistrarVenta
         Me.Button1.Text = "Confirmar"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'DateTimePickerVencimiento
-        '
-        Me.DateTimePickerVencimiento.CustomFormat = "dd/MM/yyyy"
-        Me.DateTimePickerVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePickerVencimiento.Location = New System.Drawing.Point(835, 16)
-        Me.DateTimePickerVencimiento.Name = "DateTimePickerVencimiento"
-        Me.DateTimePickerVencimiento.Size = New System.Drawing.Size(113, 22)
-        Me.DateTimePickerVencimiento.TabIndex = 2
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(744, 19)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(81, 17)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Vecimiento:"
-        '
         'SCRegistrarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(989, 473)
+        Me.ClientSize = New System.Drawing.Size(989, 520)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "SCRegistrarVenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "SCRegistrarVenta"
+        Me.Tag = "SCRegistrarVenta"
+        Me.Text = "Sistemas Comerciales - RegistrarVenta"
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SiscomDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SiscomDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -295,4 +344,8 @@ Partial Class SCRegistrarVenta
     Friend WithEvents subtotal As DataGridViewTextBoxColumn
     Friend WithEvents DateTimePickerVencimiento As DateTimePicker
     Friend WithEvents Label3 As Label
+    Friend WithEvents LabelEmail As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents RichTextBoxMensaje As RichTextBox
+    Friend WithEvents Label5 As Label
 End Class

@@ -1052,6 +1052,8 @@ Public Class Principal
             'MsgBox("recargando")
             EjecutarAlertas()
         End If
+        '*********************************************************
+        '*********************************************************
         If (e.KeyCode = Keys.R AndAlso e.Control AndAlso e.Shift) Then
             gSUToken = False
             Dim suauth As New SUAuth
@@ -1062,8 +1064,8 @@ Public Class Principal
             End If
             '*********************************************************
             If gSUToken = True Then
-                SCRegistrarVenta.MdiParent = Me
-                SCRegistrarVenta.Visible = True
+                SCventas.MdiParent = Me
+                SCventas.Visible = True
             End If
         End If
     End Sub

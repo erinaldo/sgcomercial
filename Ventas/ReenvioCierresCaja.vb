@@ -125,7 +125,7 @@ Public Class ReenvioCierresCaja
             emailmessage.Subject = "Cierre de caja " + FechaCierre 'Today.ToShortDateString
             emailmessage.Body = "Sistema de Gestión Comercial te envió el reporte Cierre de caja correspondiente a la fecha " + FechaCierre
 
-            If clsSendMail.SendEMail(EmailFrom, EmailCierreCajaTo, emailmessage.Subject, emailmessage.Body, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
+            If clsSendMail.SendEMail(gNombreComercio, EmailFrom, EmailCierreCajaTo, emailmessage.Subject, emailmessage.Body, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
                 Me.Cursor = Cursors.Default
                 MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 CajaseventosTableAdapter.cajaseventos_updateemailed("S", gidevento)

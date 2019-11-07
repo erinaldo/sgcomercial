@@ -5,10 +5,10 @@ Imports System.Text
 Imports System.Net.Mail
 Module ModuloUtilidades
     Public Class clsSendMail
-        Public Shared Function SendEMail(ByVal strOrigen As String, ByVal strDestinatario As String, ByVal strAsunto As String, ByVal strMsg As String, ByVal usuario As String, ByVal Clave As String, ByVal smtp As String, ByVal Adjunto As String) As Boolean
+        Public Shared Function SendEMail(ByVal strRtte As String, ByVal strOrigen As String, ByVal strDestinatario As String, ByVal strAsunto As String, ByVal strMsg As String, ByVal usuario As String, ByVal Clave As String, ByVal smtp As String, ByVal Adjunto As String) As Boolean
             Dim msg As New MailMessage()
             msg.[To].Add(New MailAddress(strDestinatario))
-            msg.From = New MailAddress("no-reply@sistemascomerciales.net", "EPOS - " + gNombreComercio)
+            msg.From = New MailAddress("no-reply@sistemascomerciales.net", strRtte)
             'msg.Headers.Add("Reply-to", "no-reply@sistemascomerciales.net")
             msg.ReplyToList.Add("no-reply@sistemascomerciales.net")
             msg.Subject = strAsunto

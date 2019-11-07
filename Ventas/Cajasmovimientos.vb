@@ -249,7 +249,7 @@ Public Class Cajasmovimientos
             '***************************************************************
             '***********************    ENVIO DE EMAIL  ****************************************
             '***************************************************************
-            If clsSendMail.SendEMail(EmailFrom, EmailCierreCajaTo, emailmessage.Subject, emailmessage.Body, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
+            If clsSendMail.SendEMail(gNombreComercio, EmailFrom, EmailCierreCajaTo, emailmessage.Subject, emailmessage.Body, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
                 Me.Cursor = Cursors.Default
                 MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else

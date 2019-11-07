@@ -66,6 +66,7 @@
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        SCventas.ShowDialog()
+        SCMisComprobantes.ShowDialog()
+
     End Sub
 End Class
