@@ -26,10 +26,6 @@ Partial Class SCMisComprobantes
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LibroventasDataGridView = New System.Windows.Forms.DataGridView()
-        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SiscomDataSet = New sgcomercial.siscomDataSet()
-        Me.LibroventasTableAdapter = New sgcomercial.siscomDataSetTableAdapters.libroventasTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.siscomDataSetTableAdapters.TableAdapterManager()
         Me.idventas = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -41,6 +37,10 @@ Partial Class SCMisComprobantes
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VER = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SiscomDataSet = New sgcomercial.siscomDataSet()
+        Me.LibroventasTableAdapter = New sgcomercial.siscomDataSetTableAdapters.libroventasTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.siscomDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox1.SuspendLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,37 +77,6 @@ Partial Class SCMisComprobantes
         Me.LibroventasDataGridView.RowTemplate.Height = 24
         Me.LibroventasDataGridView.Size = New System.Drawing.Size(738, 405)
         Me.LibroventasDataGridView.TabIndex = 0
-        '
-        'LibroventasBindingSource
-        '
-        Me.LibroventasBindingSource.DataMember = "libroventas"
-        Me.LibroventasBindingSource.DataSource = Me.SiscomDataSet
-        '
-        'SiscomDataSet
-        '
-        Me.SiscomDataSet.DataSetName = "siscomDataSet"
-        Me.SiscomDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LibroventasTableAdapter
-        '
-        Me.LibroventasTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.clientessucursalesTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.licenciasTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.terminalesmodulosTableAdapter = Nothing
-        Me.TableAdapterManager.terminalesTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.siscomDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
         'idventas
         '
@@ -205,6 +174,37 @@ Partial Class SCMisComprobantes
         Me.VER.ToolTipText = "VER"
         Me.VER.UseColumnTextForButtonValue = True
         '
+        'LibroventasBindingSource
+        '
+        Me.LibroventasBindingSource.DataMember = "libroventas"
+        Me.LibroventasBindingSource.DataSource = Me.SiscomDataSet
+        '
+        'SiscomDataSet
+        '
+        Me.SiscomDataSet.DataSetName = "siscomDataSet"
+        Me.SiscomDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LibroventasTableAdapter
+        '
+        Me.LibroventasTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.clientessucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.licenciasTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.terminalesmodulosTableAdapter = Nothing
+        Me.TableAdapterManager.terminalesTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.siscomDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
         'SCMisComprobantes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -212,6 +212,7 @@ Partial Class SCMisComprobantes
         Me.ClientSize = New System.Drawing.Size(801, 469)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "SCMisComprobantes"

@@ -23,7 +23,7 @@ Partial Class SCventas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LibroventasDataGridView = New System.Windows.Forms.DataGridView()
         Me.idventas = New System.Windows.Forms.DataGridViewLinkColumn()
@@ -80,8 +80,8 @@ Partial Class SCventas
         'idventas
         '
         Me.idventas.DataPropertyName = "idventas"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.idventas.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.idventas.DefaultCellStyle = DataGridViewCellStyle1
         Me.idventas.HeaderText = "N°"
         Me.idventas.Name = "idventas"
         Me.idventas.ReadOnly = True
@@ -187,6 +187,7 @@ Partial Class SCventas
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
         Me.MinimizeBox = False

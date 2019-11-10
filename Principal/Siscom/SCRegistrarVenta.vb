@@ -1,11 +1,9 @@
 ﻿Public Class SCRegistrarVenta
     Private Sub SCRegistrarVenta_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        '**********************************************
+        ''''''''''***************************   POR DEFECTO **************************************
         If e.KeyCode = Keys.Escape Then
-            If e.KeyCode.ToString = "Escape" Then
-                If MsgBox("Seguro desea salir del sistema?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                    End
-                End If
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
             End If
         End If
         '***************************************************
@@ -58,6 +56,37 @@
                 recuento()
             Catch ex As Exception
 
+            End Try
+        End If
+        If e.KeyCode = Keys.Add Then
+            DataGridViewDetalle.Select()
+            Try
+                Dim row As Integer
+                Dim x As New SCListaProductos()
+                SCIdproducto = Nothing
+                SCProductoDescripcion = Nothing
+                x.ShowDialog()
+                Try
+                    row = DataGridViewDetalle.Rows.Add()
+                    DataGridViewDetalle.Rows(row).Cells("idproducto").Value = SCIdproducto
+                    DataGridViewDetalle.Rows(row).Cells("idlistaprecio").Value = 1
+                    DataGridViewDetalle.Rows(row).Cells("precioventa").Value = 0
+                    DataGridViewDetalle.Rows(row).Cells("cantidad").Value = 1
+                    DataGridViewDetalle.Rows(row).Cells("descuento").Value = 0
+                    DataGridViewDetalle.Rows(row).Cells("recargo").Value = 0
+                    DataGridViewDetalle.Rows(row).Cells("fechadesde").Value = Today
+                    DataGridViewDetalle.Rows(row).Cells("fechahasta").Value = Today
+                    SCIdproducto = Nothing
+                    SCProductoDescripcion = Nothing
+                    recuento()
+                    DataGridViewDetalle.Select()
+                Catch ex As Exception
+                    SCIdproducto = Nothing
+                    SCProductoDescripcion = Nothing
+                    MsgBox(ex.Message)
+                End Try
+            Catch ex As Exception
+                MsgBox(ex.Message)
             End Try
         End If
     End Sub

@@ -438,8 +438,8 @@ Public Class Principal
     Private Sub AcercaDeSGComercialToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AcercaDeSGComercialToolStripMenuItem.Click
         'Dim p As AcercaDe
         'p = New AcercaDe
-        AcercaDe.TopMost = True
-        AcercaDe.ShowDialog()
+        AcercaDe.MdiParent = Me
+        AcercaDe.Visible = True
     End Sub
 
     Private Sub MiComercioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MiComercioToolStripMenuItem.Click

@@ -692,16 +692,17 @@ Public Class RegistrarVenta
             glistapreferida = ComboBox1.SelectedValue
             Select Case glistapreferida
                 Case 1 'Vta. Publico (empaque cerrado)
-                    v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
+                    v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigotextbox.Text)
                 Case 2 'Vta. Granel
-                    v_precioventa = ProductosTableAdapter.productos_consultarpreciogranel(codigoproducto)
+                    v_precioventa = ProductosTableAdapter.productos_consultarpreciogranel(codigotextbox.Text)
                 Case 3 ' Vta. Com./Mayorista
-                    v_precioventa = ProductosTableAdapter.productos_consultarpreciomayorista(codigoproducto)
+                    v_precioventa = ProductosTableAdapter.productos_consultarpreciomayorista(codigotextbox.Text)
                 Case 4 ' Vta. Distribuidor
-                    v_precioventa = ProductosTableAdapter.productos_precioventadistribuidor(codigoproducto)
+                    v_precioventa = ProductosTableAdapter.productos_precioventadistribuidor(codigotextbox.Text)
             End Select
             glistaprecio = glistapreferida
-            'v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
+            'v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigotextbox.Text)
+            ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             If VentasdetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
                 newrow = VentasdetalleDataGridView.Rows.Add()
                 VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = codigoproducto
@@ -818,6 +819,7 @@ Public Class RegistrarVenta
                 Case 4 ' Vta. Distribuidor
                     v_precioventa = ProductosTableAdapter.productos_precioventadistribuidor(codigotextbox.Text)
             End Select
+            glistaprecio = glistapreferida
             'v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigotextbox.Text)
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             If VentasdetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
@@ -1457,38 +1459,7 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDescuento.Click
-        'Dim p As AplicarDescuento
-        'p = New AplicarDescuento
-        'gdescuentopc = 0
-        'p.ShowDialog()
-        'If gdescuentopc > 0 Then
-        '    recuento()
-        '    'MsgBox(gdescuentopc.ToString, MsgBoxStyle.Information, "hola")
-        '    newrow = VentasdetalleDataGridView.Rows.Add()
-        '    VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = 0   'codigoproducto
-        '    VentasdetalleDataGridView.Rows(newrow).Cells(1).Value = "Descuento" 'descripcion
-        '    VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = 1   'cantidad
-        '    VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = -1 * (total * gdescuentopc / 100) 'precioventa
-        '    VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = -1 * (total * gdescuentopc / 100) 'subtotal
-        '    codigotextbox.SelectAll()
-        '    codigotextbox.Select()
-        '    gdescuentopc = 0
-        '    recuento()
-        'End If
-        'If gdescuentoef > 0 Then
-        '    recuento()
-        '    'MsgBox(gdescuentopc.ToString, MsgBoxStyle.Information, "hola")
-        '    newrow = VentasdetalleDataGridView.Rows.Add()
-        '    VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = 0   'codigoproducto
-        '    VentasdetalleDataGridView.Rows(newrow).Cells(1).Value = "Descuento" 'descripcion
-        '    VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = 1   'cantidad
-        '    VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = -1 * gdescuentoef 'precioventa
-        '    VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = -1 * gdescuentoef 'subtotal
-        '    codigotextbox.SelectAll()
-        '    codigotextbox.Select()
-        '    gdescuentoef = 0
-        '    recuento()
-        'End If
+
     End Sub
 
     Private Sub codigotextbox_KeyDown(sender As Object, e As KeyEventArgs) Handles codigotextbox.KeyDown

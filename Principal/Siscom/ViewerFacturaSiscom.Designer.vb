@@ -101,13 +101,14 @@ Partial Class ViewerFacturaSiscom
         Me.ClientSize = New System.Drawing.Size(1028, 642)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ViewerFacturaSiscom"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ViewerFacturaSiscom"
-        Me.Text = "Vista Previa"
+        Me.Text = "Ticket Factura - Vista Previa"
         Me.TopMost = True
         CType(Me.libroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.siscomDataSet, System.ComponentModel.ISupportInitialize).EndInit()
