@@ -692,13 +692,13 @@ Public Class RegistrarVenta
             glistapreferida = ComboBox1.SelectedValue
             Select Case glistapreferida
                 Case 1 'Vta. Publico (empaque cerrado)
-                    v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigotextbox.Text)
+                    v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
                 Case 2 'Vta. Granel
-                    v_precioventa = ProductosTableAdapter.productos_consultarpreciogranel(codigotextbox.Text)
+                    v_precioventa = ProductosTableAdapter.productos_consultarpreciogranel(codigoproducto)
                 Case 3 ' Vta. Com./Mayorista
-                    v_precioventa = ProductosTableAdapter.productos_consultarpreciomayorista(codigotextbox.Text)
+                    v_precioventa = ProductosTableAdapter.productos_consultarpreciomayorista(codigoproducto)
                 Case 4 ' Vta. Distribuidor
-                    v_precioventa = ProductosTableAdapter.productos_precioventadistribuidor(codigotextbox.Text)
+                    v_precioventa = ProductosTableAdapter.productos_precioventadistribuidor(codigoproducto)
             End Select
             glistaprecio = glistapreferida
             'v_precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigotextbox.Text)
