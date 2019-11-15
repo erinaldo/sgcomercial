@@ -91,6 +91,7 @@ Public Class BuscaProductoManualPedidos
                     gproductodescripcion = Nothing
                     Try
                         ProductosDataGridView.Rows(0).Selected = False
+                        CallClick()
                     Catch ex As Exception
 
                     End Try
@@ -394,15 +395,14 @@ Public Class BuscaProductoManualPedidos
 
     End Sub
 
-    Private Sub ProductosDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.SelectionChanged
-        '********* comentado temporalmente
-        Try
-            CallClick()
-        Catch ex As Exception
+    'Private Sub ProductosDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.SelectionChanged
+    '    '********* comentado temporalmente
+    '    'Try
+    '    '    CallClick()
+    '    'Catch ex As Exception
 
-        End Try
-
-    End Sub
+    '    'End Try
+    'End Sub
     Private Sub ConsultarStockDisponible()
         Dim StockgeneralTableAdapter As New comercialDataSetTableAdapters.stockgeneralTableAdapter()
         textboxEnvasado.Text = StockgeneralTableAdapter.stockgeneral_consultardisponible(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells("idproducto").Value)
@@ -430,17 +430,17 @@ Public Class BuscaProductoManualPedidos
         End If
     End Sub
 
-    Private Sub ProductosDataGridView_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.RowEnter
+    'Private Sub ProductosDataGridView_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.RowEnter
 
-    End Sub
+    'End Sub
 
     Private Sub ProductosDataGridView_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ProductosDataGridView.KeyPress
 
     End Sub
 
-    Private Sub ProductosDataGridView_RowLeave(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.RowLeave
+    'Private Sub ProductosDataGridView_RowLeave(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.RowLeave
 
-    End Sub
+    'End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         TextBox1.Select()
@@ -473,4 +473,6 @@ Public Class BuscaProductoManualPedidos
             TextBox1.Text = gUltimoProdBuscado
         End If
     End Sub
+
+
 End Class

@@ -45,6 +45,7 @@
         End Try
         '*****************************************************************************
         ComboBox1.SelectedIndex = 1
+        Button2.Visible = False
     End Sub
 
     Private Sub ListapedidosdeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellContentClick
@@ -168,7 +169,13 @@
     End Sub
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
-        SynPedidos()
+        If MessageBox.Show("Esta Operación puede tomar unos minutos. Desea continuar?", "Advertebcia!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+            Me.Cursor = Cursors.WaitCursor
+            SynPedidos()
+            reloadpedidos()
+            colorear()
+            Me.Cursor = Cursors.Default
+        End If
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs)

@@ -169,6 +169,106 @@ Module MySQLModule
         PushClientes()
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Public Sub PullClienteWeb(ByRef idclienteweb As Long)
+        '***************************************
+        '********************** verificar conexion al servidor ************************
+        '***************************************
+        Dim status As Boolean
+        conectarMySQL(status)
+        If status = False Then
+            Return
+        End If
+        Try
+            '***********************
+            ds = New MySQLDataSet
+            '*************  errorlog    **************************************
+            Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+            ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
+            '*************  --------    **************************************
+            '****clientesweb********
+            Dim clienteswebtableadapter As MySQLDataSetTableAdapters.clientesTableAdapter
+            clienteswebtableadapter = New MySQLDataSetTableAdapters.clientesTableAdapter()
+            Dim clienteswebtable As MySQLDataSet.clientesDataTable
+            clienteswebtable = clienteswebtableadapter.GetDataByidclienteweb(idclienteweb)
+            '****   ----    ********
+            '****clientesdomiciliosweb********
+            Dim clientesdomicilioswebTableAdapter As MySQLDataSetTableAdapters.clientesdomiciliosTableAdapter
+            clientesdomicilioswebTableAdapter = New MySQLDataSetTableAdapters.clientesdomiciliosTableAdapter()
+            Dim clientesdomicilioswebtable As MySQLDataSet.clientesdomiciliosDataTable
+            '****   ----    ********
+            '****clientes local********
+            Dim clientestableadapter As comercialDataSetTableAdapters.clientesTableAdapter
+            clientestableadapter = New comercialDataSetTableAdapters.clientesTableAdapter()
+            '****   ----    ********
+            '****clientesdomicilios local********
+            Dim clientesdomiciliostableadapter As comercialDataSetTableAdapters.clientesdomiciliosTableAdapter
+            clientesdomiciliostableadapter = New comercialDataSetTableAdapters.clientesdomiciliosTableAdapter()
+            '****   ----    ********
+
+            '*****  RECORRER CLIENTES PENDIENTES DE SYNC    *****
+            If clienteswebtable.Rows.Count > 0 Then
+                Dim i As Long = 0
+                For i = 0 To clienteswebtable.Rows.Count - 1
+                    'Dim idclienteweb As Long = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.idclientewebColumn), Nothing)
+                    Dim nombre As String = Convert.ToString(clienteswebtable.Rows(i).Item(clienteswebtable.nombreColumn), Nothing)
+                    Dim cuit As String = Convert.ToString(clienteswebtable.Rows(i).Item(clienteswebtable.cuitColumn), Nothing)
+                    Dim telefono As String = Convert.ToString(clienteswebtable.Rows(i).Item(clienteswebtable.telefonoColumn), Nothing)
+                    Dim email As String = Convert.ToString(clienteswebtable.Rows(i).Item(clienteswebtable.emailColumn), Nothing)
+                    Dim idclientelocal As Long = 0
+                    Dim condicioniva As Long = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.condicionivaColumn), Nothing)
+                    Dim idtipodocumento As Long = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.idtipodocumentoColumn), Nothing)
+                    Try
+                        'idclientelocal = clientestableadapter.clientes_existeclienteweb(idclienteweb)
+                        ''****     ins/upd  CLIENTE     **********
+                        'If idclientelocal = 0 Then ' el cliente no esta registrado localmente
+                        idclientelocal = clientestableadapter.clientes_insertar(idclienteweb, nombre, telefono, email, cuit, idtipodocumento, condicioniva)
+                        'Else ' ESTA REGISTRADO LOCALMENTE - ACTUALIZO LA INFORMACION
+                        '    clientestableadapter.clientes_updateclientefromweb(nombre, cuit, telefono, email, idclienteweb)
+                        'End If
+                        '***    OBTENGO DOMICILIOS WEB  **********
+                        clientesdomicilioswebtable = clientesdomicilioswebTableAdapter.GetDataByidclientesdomiciliosweb(idclienteweb)
+                        'MsgBox(clientesdomicilioswebtable.Rows.Count.ToString)
+                        Try
+                            Dim j As Long = 0
+                            For j = 0 To clientesdomicilioswebtable.Rows.Count - 1
+                                Dim idclientesdomiciliosweb As Long = clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.idclientesdomicilioswebColumn)
+                                Dim direccion As String = Convert.ToString(clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.direccionColumn), Nothing)
+                                Dim referencias As String = Convert.ToString(clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.referenciasColumn), Nothing)
+                                If IsDBNull(clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.idprovinciaColumn)) Or IsDBNull(clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.idlocalidadColumn)) Then
+                                    Throw New Exception("No se puede sincronizar datos inconsistentes: clienteweb -> " + idclienteweb.ToString)
+                                End If
+                                Dim idprovincia As Long = clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.idprovinciaColumn)
+                                Dim idlocalidad As Long = clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.idlocalidadColumn)
+                                Dim cp As String = Convert.ToString(clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.cpColumn), Nothing)
+                                Dim rtn2 As Long = 0
+                                rtn2 = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(idclientesdomiciliosweb)
+                                If rtn2 = 0 Then ' el domicilio no esta registrado localmente
+                                    clientesdomiciliostableadapter.clientesdomicilios_insertar(idclientelocal, direccion, referencias, idprovincia, idlocalidad, cp, idclientesdomiciliosweb)
+                                Else
+                                    clientesdomiciliostableadapter.clientesdomicilios_updatedomiciliosfromweb(direccion, referencias, idprovincia, idlocalidad, cp, idclientesdomiciliosweb)
+                                End If
+                                clientesdomicilioswebTableAdapter.clientesdomicilios_updatesync("S", idclientesdomiciliosweb) ' ACTUALIZO VALOR SYNC WEB
+                            Next
+                            If clientesdomicilioswebtable.Rows.Count > 0 Then
+                                clienteswebtableadapter.clientes_updatesync("S", idclienteweb) ' ACTUALIZO VALOR SYNC WEB
+                            End If
+                        Catch ex As Exception
+                            ErrorLogTableAdapter.errorlog_insertar("SynClientes", "DATOS", "SynClientes", "No se pudo completar la Sincronización de CLIENTES: " + ex.Message)
+                            MsgBox("No se pudo completar la Sincronización de CLIENTES: " + ex.Message)
+                        End Try
+                    Catch ex As Exception
+                        ErrorLogTableAdapter.errorlog_insertar("SynClientes", "DATOS", "SynClientes", "No se pudo completar la Sincronización de CLIENTES: " + ex.Message)
+                        MsgBox("No se pudo completar la Sincronización de CLIENTES: " + ex.Message)
+                    End Try
+                    '*********************************
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox("Advertencia! " + ex.Message, MsgBoxStyle.Exclamation)
+        End Try
+
+    End Sub
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SynPedidos()
         '***************************************
         '********************** verificar conexion al servidor ************************
@@ -259,15 +359,22 @@ Module MySQLModule
                         idclientelocal = clientestableadapter.clientes_existeclienteweb(idclienteweb)
                         idclientedomiciliolocal = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(iddomicilioweb)
                         If idclientelocal = 0 Or idclientedomiciliolocal = 0 Then
-                            ErrorLogTableAdapter.errorlog_insertar("SynPedidos", "DATOS", "SynPedidos", "No se pudo sincronizar el pedido WEB: " + idpedidosdeliveryweb.ToString + " (información de cliente inválida)")
-                            MsgBox("No se pudo sincronizar el pedido WEB: " + idpedidosdeliveryweb.ToString + " (información de cliente inválida)", MsgBoxStyle.Exclamation)
-                            Continue For
+                            PullClienteWeb(idclienteweb)
+                            idclientelocal = clientestableadapter.clientes_existeclienteweb(idclienteweb)
+                            idclientedomiciliolocal = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(iddomicilioweb)
+                            If idclientelocal = 0 Or idclientedomiciliolocal = 0 Then
+                                ErrorLogTableAdapter.errorlog_insertar("SynPedidos", "DATOS", "SynPedidos", "No se pudo sincronizar el pedido WEB: " + idpedidosdeliveryweb.ToString + " (información de cliente inválida)")
+                                MsgBox("No se pudo sincronizar el pedido WEB: " + idpedidosdeliveryweb.ToString + " (información de cliente inválida)", MsgBoxStyle.Exclamation)
+                                Continue For
+                            End If
                         End If
-                    Else    ' SI EXISTE LO CANCELA OPERACION
+                    Else    ' SI YA EXISTE LO SALTO
                         Continue For
                     End If
                     'obtengo el detalle del pedido web
                     PedidosDeliveryDetalleWEBTable = PedidosDeliveryDetalleWEBTableAdapter.GetDataByIdpedidodeliveryweb(idpedidosdeliveryweb)
+                    Dim NvoPedido
+                    NvoPedido = PedidosDeliveryTableAdapter.pedidosdelivery_insertfromweb(idclientelocal, Nothing, idtransporte, idclientedomiciliolocal, pagoesperado, fechaalta, "usuarioweb", "RECIBIDO", idpedidosdeliveryweb)
                     '****************   REGISTRO EL DETALLE DEL PEDIDO  **************
                     For j = 0 To PedidosDeliveryDetalleWEBTable.Rows.Count - 1
                         Dim idpedidodeliverydetalleweb As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idpedidosdeliverydetallewebColumn)
@@ -278,15 +385,14 @@ Module MySQLModule
                         Dim recargo As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.recargoColumn)
                         Dim idlistaprecio As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idlistaprecioColumn)
                         Try
-                            PedidosDeliveryDetalleTableAdapter.pedidosdeliverydetalle_insertar(idpedidosdeliveryweb, idproducto, cantidad, precioventa, recargo, idlistaprecio)
+                            PedidosDeliveryDetalleTableAdapter.pedidosdeliverydetalle_insertar(NvoPedido, idproducto, cantidad, precioventa, recargo, idlistaprecio)
                             PedidosDeliveryWEBTableAdapter.pedidosdelivery_updatesync("S", idpedidosdeliveryweb)
                         Catch ex As Exception
                             ErrorLogTableAdapter.errorlog_insertar("SynPedidos", "DATOS", "SynPedidos", "No se pudo completar la Sincronización de PEDIDOS: " + ex.Message)
                             MsgBox("No se pudo completar la Sincronización de PEDIDOS: " + ex.Message)
                         End Try
                     Next
-                    Dim NvoPedido
-                    NvoPedido = PedidosDeliveryTableAdapter.pedidosdelivery_insertfromweb(idclientelocal, Nothing, idtransporte, idclientedomiciliolocal, pagoesperado, fechaalta, "usuarioweb", "RECIBIDO", idpedidosdeliveryweb)
+                    '**************** 
                     Dim nvavta As Int64
                     '***************** REGISTRO LA VENTA    *******************************
                     nvavta = VentasTableAdapter.ventas_insertarventa(idclientelocal, Now(), Nothing, 1, "usuarioweb", Nothing, Nothing, 1)
@@ -303,6 +409,7 @@ Module MySQLModule
                     Next
                 Next
             End If
+            MessageBox.Show("Se han sincronizado [" + PedidosDeliveryWEBTable.Rows.Count.ToString + "] pedidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             ErrorLogTableAdapter.errorlog_insertar("SynPedidos", "DATOS", "SynPedidos", "No se pudo completar la Sincronización de PEDIDOS: " + ex.Message)
             MsgBox("Advertencia! " + ex.Message, MsgBoxStyle.Exclamation)

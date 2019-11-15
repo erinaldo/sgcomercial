@@ -13553,7 +13553,7 @@ Namespace MySQLDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(4) {}
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(5) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT idclienteweb, nombre, cuit, telefono, email, sync, condicioniva, diasvenci"& _ 
@@ -13664,9 +13664,22 @@ Namespace MySQLDataSetTableAdapters
             Me._commandCollection(4) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT idclienteweb, nombre, cuit, telefono, email, sync, condicioniva, diasvenci"& _ 
+                "miento, idprovincia, idtipodocumento, porcentajedescuento FROM clientes"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where i"& _ 
+                "dclienteweb = @idclienteweb"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@idclienteweb"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "idclienteweb"
+            Me._commandCollection(4).Parameters.Add(param)
+            Me._commandCollection(5) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "SELECT idclienteweb, nombre, cuit, telefono, email, sync, condicioniva, diasvenci"& _ 
                 "miento, idprovincia, idtipodocumento, porcentajedescuento FROM clientes WHERE (s"& _ 
                 "ync = @sync)"
-            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@sync"
             param.DbType = Global.System.Data.DbType.[String]
@@ -13674,7 +13687,7 @@ Namespace MySQLDataSetTableAdapters
             param.Size = 1
             param.IsNullable = true
             param.SourceColumn = "sync"
-            Me._commandCollection(4).Parameters.Add(param)
+            Me._commandCollection(5).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13705,8 +13718,34 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBySync(ByVal dataTable As MySQLDataSet.clientesDataTable, ByVal sync As String) As Integer
+        Public Overloads Overridable Function FillByidclienteweb(ByVal dataTable As MySQLDataSet.clientesDataTable, ByVal idclienteweb As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(idclienteweb,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByidclienteweb(ByVal idclienteweb As Integer) As MySQLDataSet.clientesDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(idclienteweb,Integer)
+            Dim dataTable As MySQLDataSet.clientesDataTable = New MySQLDataSet.clientesDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBySync(ByVal dataTable As MySQLDataSet.clientesDataTable, ByVal sync As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             If (sync Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -13724,7 +13763,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataBySync(ByVal sync As String) As MySQLDataSet.clientesDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             If (sync Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -14822,7 +14861,7 @@ Namespace MySQLDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(4) {}
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(5) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT idclientesdomiciliosweb, idclienteweb, direccion, referencias, idprovincia"& _ 
@@ -14938,8 +14977,8 @@ Namespace MySQLDataSetTableAdapters
             Me._commandCollection(4) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT idclientesdomiciliosweb, idclienteweb, direccion, referencias, idprovincia"& _ 
-                ", idlocalidad, cp, sync, latitud, longitud FROM clientesdomicilios WHERE (idclie"& _ 
-                "nteweb = @idclienteweb) AND (sync = @sync)"
+                ", idlocalidad, cp, sync, latitud, longitud FROM clientesdomicilios"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where idclie"& _ 
+                "nteweb= @idclienteweb"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@idclienteweb"
@@ -14948,6 +14987,19 @@ Namespace MySQLDataSetTableAdapters
             param.IsNullable = true
             param.SourceColumn = "idclienteweb"
             Me._commandCollection(4).Parameters.Add(param)
+            Me._commandCollection(5) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "SELECT idclientesdomiciliosweb, idclienteweb, direccion, referencias, idprovincia"& _ 
+                ", idlocalidad, cp, sync, latitud, longitud FROM clientesdomicilios WHERE (idclie"& _ 
+                "nteweb = @idclienteweb) AND (sync = @sync)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@idclienteweb"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "idclienteweb"
+            Me._commandCollection(5).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@sync"
             param.DbType = Global.System.Data.DbType.[String]
@@ -14955,7 +15007,7 @@ Namespace MySQLDataSetTableAdapters
             param.Size = 1
             param.IsNullable = true
             param.SourceColumn = "sync"
-            Me._commandCollection(4).Parameters.Add(param)
+            Me._commandCollection(5).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14986,8 +15038,42 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBySync(ByVal dataTable As MySQLDataSet.clientesdomiciliosDataTable, ByVal idclienteweb As Global.System.Nullable(Of Integer), ByVal sync As String) As Integer
+        Public Overloads Overridable Function FillByidclientesdomiciliosweb(ByVal dataTable As MySQLDataSet.clientesdomiciliosDataTable, ByVal idclienteweb As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            If (idclienteweb.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(idclienteweb.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByidclientesdomiciliosweb(ByVal idclienteweb As Global.System.Nullable(Of Integer)) As MySQLDataSet.clientesdomiciliosDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            If (idclienteweb.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(idclienteweb.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As MySQLDataSet.clientesdomiciliosDataTable = New MySQLDataSet.clientesdomiciliosDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBySync(ByVal dataTable As MySQLDataSet.clientesdomiciliosDataTable, ByVal idclienteweb As Global.System.Nullable(Of Integer), ByVal sync As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             If (idclienteweb.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(idclienteweb.Value,Integer)
             Else
@@ -15010,7 +15096,7 @@ Namespace MySQLDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataBySync(ByVal idclienteweb As Global.System.Nullable(Of Integer), ByVal sync As String) As MySQLDataSet.clientesdomiciliosDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             If (idclienteweb.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(idclienteweb.Value,Integer)
             Else

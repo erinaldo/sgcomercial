@@ -104,9 +104,11 @@ Partial Class PedidosDeliveryRecibidos
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(918, 25)
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Location = New System.Drawing.Point(918, 22)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(174, 34)
+        Me.Button3.Size = New System.Drawing.Size(174, 44)
         Me.Button3.TabIndex = 9
         Me.Button3.Text = "Lista de Producción"
         Me.Button3.UseVisualStyleBackColor = True
@@ -114,7 +116,7 @@ Partial Class PedidosDeliveryRecibidos
         'TextBox1
         '
         Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(513, 31)
+        Me.TextBox1.Location = New System.Drawing.Point(233, 31)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(216, 22)
         Me.TextBox1.TabIndex = 8
@@ -125,7 +127,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Pedido N°", "Cliente"})
-        Me.ComboBox1.Location = New System.Drawing.Point(384, 30)
+        Me.ComboBox1.Location = New System.Drawing.Point(104, 30)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 24)
         Me.ComboBox1.TabIndex = 7
@@ -134,7 +136,7 @@ Partial Class PedidosDeliveryRecibidos
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(296, 34)
+        Me.Label1.Location = New System.Drawing.Point(16, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(73, 17)
         Me.Label1.TabIndex = 6
@@ -142,7 +144,7 @@ Partial Class PedidosDeliveryRecibidos
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(796, -16)
+        Me.Button1.Location = New System.Drawing.Point(488, 24)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(102, 34)
         Me.Button1.TabIndex = 4
@@ -152,11 +154,15 @@ Partial Class PedidosDeliveryRecibidos
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(903, -16)
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon30x30
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button2.Location = New System.Drawing.Point(680, 22)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 34)
+        Me.Button2.Size = New System.Drawing.Size(223, 44)
         Me.Button2.TabIndex = 5
-        Me.Button2.Text = "SynPedidos"
+        Me.Button2.Text = "Descargar de la Nube"
         Me.Button2.UseVisualStyleBackColor = True
         Me.Button2.Visible = False
         '
@@ -267,6 +273,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.ListapedidosdeliveryDataGridView.MultiSelect = False
         Me.ListapedidosdeliveryDataGridView.Name = "ListapedidosdeliveryDataGridView"
         Me.ListapedidosdeliveryDataGridView.ReadOnly = True
+        Me.ListapedidosdeliveryDataGridView.RowHeadersVisible = False
         Me.ListapedidosdeliveryDataGridView.RowTemplate.Height = 24
         Me.ListapedidosdeliveryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1076, 515)
@@ -496,7 +503,9 @@ Partial Class PedidosDeliveryRecibidos
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
@@ -506,7 +515,11 @@ Partial Class PedidosDeliveryRecibidos
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -526,13 +539,18 @@ Partial Class PedidosDeliveryRecibidos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing

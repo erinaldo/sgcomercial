@@ -2082,6 +2082,9 @@
     <None Include="My Project\img\epos_logo.gif" />
     <None Include="My Project\img\edit_pencil.png" />
     <None Include="My Project\img\save_image_floppy.png" />
+    <None Include="My Project\img\Cloud-icon32x32.ico" />
+    <None Include="My Project\img\Cloud-icon25x25.ico" />
+    <None Include="My Project\img\Cloud-icon30x30.ico" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />
