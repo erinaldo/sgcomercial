@@ -56,6 +56,7 @@ Partial Class ABMAlumnos
         Me.AlumnosBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonEditar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButtonCancelar = New System.Windows.Forms.ToolStripButton()
         IdalumnoLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         FechanacimientoLabel = New System.Windows.Forms.Label()
@@ -131,7 +132,7 @@ Partial Class ABMAlumnos
         Me.GroupBox1.Controls.Add(Me.DocumentoTextBox)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 53)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(615, 203)
+        Me.GroupBox1.Size = New System.Drawing.Size(716, 203)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del Alumno"
@@ -295,7 +296,7 @@ Partial Class ABMAlumnos
         Me.AlumnosBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.AlumnosBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.AlumnosBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.AlumnosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.AlumnosBindingNavigatorSaveItem, Me.ToolStripButtonEditar, Me.ToolStripButtonEliminar})
+        Me.AlumnosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.AlumnosBindingNavigatorSaveItem, Me.ToolStripButtonEditar, Me.ToolStripButtonEliminar, Me.ToolStripButtonCancelar})
         Me.AlumnosBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.AlumnosBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.AlumnosBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -303,7 +304,7 @@ Partial Class ABMAlumnos
         Me.AlumnosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.AlumnosBindingNavigator.Name = "AlumnosBindingNavigator"
         Me.AlumnosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.AlumnosBindingNavigator.Size = New System.Drawing.Size(639, 47)
+        Me.AlumnosBindingNavigator.Size = New System.Drawing.Size(740, 47)
         Me.AlumnosBindingNavigator.TabIndex = 1
         Me.AlumnosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -419,11 +420,20 @@ Partial Class ABMAlumnos
         Me.ToolStripButtonEliminar.Text = "Eliminar"
         Me.ToolStripButtonEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'ToolStripButtonCancelar
+        '
+        Me.ToolStripButtonCancelar.Image = Global.sgcomercial.My.Resources.Resources.reload_512
+        Me.ToolStripButtonCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonCancelar.Name = "ToolStripButtonCancelar"
+        Me.ToolStripButtonCancelar.Size = New System.Drawing.Size(70, 44)
+        Me.ToolStripButtonCancelar.Text = "Cancelar"
+        Me.ToolStripButtonCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'ABMAlumnos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(639, 268)
+        Me.ClientSize = New System.Drawing.Size(740, 268)
         Me.Controls.Add(Me.AlumnosBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -473,4 +483,5 @@ Partial Class ABMAlumnos
     Friend WithEvents TipodocumentosBindingSource As BindingSource
     Friend WithEvents ToolStripButtonEditar As ToolStripButton
     Friend WithEvents ToolStripButtonEliminar As ToolStripButton
+    Friend WithEvents ToolStripButtonCancelar As ToolStripButton
 End Class

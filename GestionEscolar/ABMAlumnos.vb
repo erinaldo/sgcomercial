@@ -20,10 +20,12 @@
             AlumnosBindingNavigatorSaveItem.Enabled = True
             BindingNavigatorAddNewItem.Enabled = False
             ToolStripButtonEditar.Enabled = False
+            ToolStripButtonCancelar.Enabled = True
         Else
             AlumnosBindingNavigatorSaveItem.Enabled = False
             BindingNavigatorAddNewItem.Enabled = True
             ToolStripButtonEditar.Enabled = True
+            ToolStripButtonCancelar.Enabled = False
         End If
 
     End Sub
@@ -46,5 +48,10 @@
     Private Sub ToolStripButtonEditar_Click(sender As Object, e As EventArgs) Handles ToolStripButtonEditar.Click
         enablefields(True)
         enabledit(True)
+    End Sub
+
+    Private Sub ToolStripButtonCancelar_Click(sender As Object, e As EventArgs) Handles ToolStripButtonCancelar.Click
+        enablefields(False)
+        enabledit(False)
     End Sub
 End Class
