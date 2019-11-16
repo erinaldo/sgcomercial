@@ -57,6 +57,7 @@ Partial Class ABMAlumnos
         Me.ToolStripButtonEditar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonEliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonCancelar = New System.Windows.Forms.ToolStripButton()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         IdalumnoLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         FechanacimientoLabel = New System.Windows.Forms.Label()
@@ -132,7 +133,7 @@ Partial Class ABMAlumnos
         Me.GroupBox1.Controls.Add(Me.DocumentoTextBox)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 53)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(716, 203)
+        Me.GroupBox1.Size = New System.Drawing.Size(716, 196)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del Alumno"
@@ -162,7 +163,7 @@ Partial Class ABMAlumnos
         Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AlumnosBindingSource, "nombre", True))
         Me.NombreTextBox.Location = New System.Drawing.Point(244, 60)
         Me.NombreTextBox.Name = "NombreTextBox"
-        Me.NombreTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.NombreTextBox.Size = New System.Drawing.Size(445, 22)
         Me.NombreTextBox.TabIndex = 1
         '
         'FechanacimientoDateTimePicker
@@ -429,11 +430,20 @@ Partial Class ABMAlumnos
         Me.ToolStripButtonCancelar.Text = "Cancelar"
         Me.ToolStripButtonCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 255)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(716, 284)
+        Me.GroupBox2.TabIndex = 2
+        Me.GroupBox2.TabStop = False
+        '
         'ABMAlumnos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(740, 268)
+        Me.ClientSize = New System.Drawing.Size(740, 551)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.AlumnosBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -484,4 +494,5 @@ Partial Class ABMAlumnos
     Friend WithEvents ToolStripButtonEditar As ToolStripButton
     Friend WithEvents ToolStripButtonEliminar As ToolStripButton
     Friend WithEvents ToolStripButtonCancelar As ToolStripButton
+    Friend WithEvents GroupBox2 As GroupBox
 End Class

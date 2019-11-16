@@ -7,6 +7,10 @@
     End Sub
 
     Private Sub AltaInscripcion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.clientesdomicilios' Puede moverla o quitarla según sea necesario.
+        'Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.libroalumnos' Puede moverla o quitarla según sea necesario.
+        'Me.LibroalumnosTableAdapter.Fill(Me.ComercialDataSet.libroalumnos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listaclientes' Puede moverla o quitarla según sea necesario.
         'Me.ListaclientesTableAdapter.Fill(Me.ComercialDataSet.listaclientes)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.clientes' Puede moverla o quitarla según sea necesario.
@@ -49,29 +53,53 @@
     End Sub
 
     Private Sub PictureSeleccionarAlumno_Click(sender As Object, e As EventArgs) Handles PictureSeleccionarAlumno.Click
-        gclienteseleccionado = 0
+        galumnoseleccionado = 0
         Dim p As SeleccionarAlumno
         p = New SeleccionarAlumno
         p.ShowDialog()
-        IdclienteTextBox.Text = gclienteseleccionado.ToString
-        If gclienteseleccionado > 0 Then
-            Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
-            Me.ListaclientesTableAdapter.FillByIdCliente(Me.ComercialDataSet.listaclientes, gclienteseleccionado)
-            If gclienteseleccionado > 1 Then
-                PictureBoxEditarCliente.Visible = True
+        TextBoxIDAlumno.Text = galumnoseleccionado.ToString
+        If galumnoseleccionado > 0 Then
+            'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, galumnoseleccionado)
+            Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, galumnoseleccionado)
+            If galumnoseleccionado > 1 Then
+                PictureEditarAlumno.Visible = True
                 'calculafechavencimiento()
                 'ButtonDescuentoDefecto.Visible = True
             Else
-                PictureBoxEditarCliente.Visible = False
+                PictureEditarAlumno.Visible = False
                 'ButtonDescuentoDefecto.Visible = False
+                TextBoxIDAlumno.Text = Nothing
             End If
         Else
-            Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
-            Me.ListaclientesTableAdapter.FillByIdCliente(Me.ComercialDataSet.listaclientes, 0)
-            PictureBoxEditarCliente.Visible = False
+            'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
+            Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, galumnoseleccionado)
+            PictureEditarAlumno.Visible = False
+            TextBoxIDAlumno.Text = Nothing
         End If
-        gclienteseleccionado = Nothing
-        PictureEditarAlumno.Visible = True
-        gclienteseleccionado = 0
+        galumnoseleccionado = Nothing
+        'PictureEditarAlumno.Visible = True
+        'galumnoseleccionado = 0
+    End Sub
+
+    Private Sub PictureEditarAlumno_Click(sender As Object, e As EventArgs) Handles PictureEditarAlumno.Click
+        Dim p As ABMAlumnos
+        p = New ABMAlumnos
+        galumnoseleccionado = Val(TextBoxIDAlumno.Text)
+        p.ShowDialog()
+        'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
+        Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, galumnoseleccionado)
+    End Sub
+
+    Private Sub PictureBoxEditarDomicilios_Click(sender As Object, e As EventArgs) Handles PictureBoxEditarDomicilios.Click
+        If Val(IdclienteTextBox.Text) = 0 Then Return
+        Dim P As ClientesNuevoDomicilio
+        P = New ClientesNuevoDomicilio
+        gdomicilioseleccionado = 0
+        gclienteseleccionado = Val(IdclienteTextBox.Text)
+        P.ShowDialog()
+        If gdomicilioseleccionado = 0 Then Return
+        ' MsgBox("paso")
+        Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
+        ClientesdomiciliosBindingSource.Filter = "iddomicilio = " + gdomicilioseleccionado.ToString
     End Sub
 End Class

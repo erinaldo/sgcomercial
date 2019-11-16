@@ -8,11 +8,11 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim p As ABMAlumnos
         p = New ABMAlumnos
-        gclienteseleccionado = -1
+        galumnoseleccionado = -1
         p.ShowDialog()
         Me.LibroalumnosTableAdapter.Fill(Me.ComercialDataSet.libroalumnos)
-        If gclienteseleccionado > 0 Then
-            'gclienteseleccionado = ClientesDataGridView.CurrentRow.Cells(0).Value
+        If galumnoseleccionado > 0 Then
+            'galumnoseleccionado = ClientesDataGridView.CurrentRow.Cells(0).Value
             Me.Close()
         End If
     End Sub
@@ -33,7 +33,7 @@
     End Sub
 
     Private Sub LibroalumnosDataGridView_DoubleClick(sender As Object, e As EventArgs) Handles LibroalumnosDataGridView.DoubleClick
-        gclienteseleccionado = LibroalumnosDataGridView.CurrentRow.Cells("idalumno").Value
+        galumnoseleccionado = LibroalumnosDataGridView.CurrentRow.Cells("idalumno").Value
         Me.Close()
     End Sub
 End Class
