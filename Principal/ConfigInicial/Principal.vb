@@ -1317,6 +1317,16 @@ Public Class Principal
     Private Sub BGWClientes_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BGWClientes.RunWorkerCompleted
         MessageBox.Show("Sincronizacion de Clientes en la Nube Completa!", "BGWClientes", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
+    Private Sub ConfiguraciónDeGradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguraciónDeGradosToolStripMenuItem.Click
+        ABMGrados.MdiParent = Me
+        ABMGrados.Visible = True
+    End Sub
+
+    Private Sub AltaInscripciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaInscripciónToolStripMenuItem.Click
+        AltaInscripcion.MdiParent = Me
+        AltaInscripcion.Visible = True
+    End Sub
     'Private Sub PrivateDownloadSGC()
 
     '    Dim ftpClient As New WebClient

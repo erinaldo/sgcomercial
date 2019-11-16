@@ -434,6 +434,36 @@
     <Compile Include="Gastronomia\GGAdmSalones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GestionEscolar\ABMAlumnos.Designer.vb">
+      <DependentUpon>ABMAlumnos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEscolar\ABMAlumnos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionEscolar\ABMGrados.Designer.vb">
+      <DependentUpon>ABMGrados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEscolar\ABMGrados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionEscolar\ABMServicios.Designer.vb">
+      <DependentUpon>ABMServicios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEscolar\ABMServicios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionEscolar\AltaInscripcion.Designer.vb">
+      <DependentUpon>AltaInscripcion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEscolar\AltaInscripcion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionEscolar\SeleccionarAlumno.Designer.vb">
+      <DependentUpon>SeleccionarAlumno.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEscolar\SeleccionarAlumno.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MiFranquicia\ConfiguracionesFranquicia.Designer.vb">
       <DependentUpon>ConfiguracionesFranquicia.vb</DependentUpon>
     </Compile>
@@ -616,11 +646,6 @@
     </Compile>
     <Compile Include="Principal\ConfigInicial\UpdaterForm.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Principal\DataSets\comercialDataSet3.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>comercialDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Principal\DataSets\MySQLDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -855,6 +880,11 @@
     </Compile>
     <Compile Include="Usuarios\CambiarClaveAcceso.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\DataSets\comercialDataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>comercialDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Principal\DataSets\comercialDataSet.Designer.vb">
       <DependentUpon>comercialDataSet.xsd</DependentUpon>
@@ -1405,6 +1435,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gastronomia\GGAdmSalones.resx">
       <DependentUpon>GGAdmSalones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionEscolar\ABMAlumnos.resx">
+      <DependentUpon>ABMAlumnos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionEscolar\ABMGrados.resx">
+      <DependentUpon>ABMGrados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionEscolar\AltaInscripcion.resx">
+      <DependentUpon>AltaInscripcion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionEscolar\SeleccionarAlumno.resx">
+      <DependentUpon>SeleccionarAlumno.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MiFranquicia\ConfiguracionesFranquicia.resx">
       <DependentUpon>ConfiguracionesFranquicia.vb</DependentUpon>

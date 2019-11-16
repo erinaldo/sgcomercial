@@ -49,6 +49,8 @@ Partial Class Principal
         Me.EntregasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosRecibidosVerTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PreventaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SincronizarClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónGastronómicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalonesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -147,6 +149,9 @@ Partial Class Principal
         Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescargarPedidosWEBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestiónEscolarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguraciónDeGradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AltaInscripciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -212,8 +217,6 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.PreventaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SincronizarClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -237,7 +240,7 @@ Partial Class Principal
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.PreventaToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.MiFranquiciaToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.PreventaToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.MiFranquiciaToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem, Me.GestiónEscolarToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -429,6 +432,21 @@ Partial Class Principal
         Me.PedidosRecibidosVerTodosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
         Me.PedidosRecibidosVerTodosToolStripMenuItem.Tag = "PedidosRecibidosVerTodos"
         Me.PedidosRecibidosVerTodosToolStripMenuItem.Text = "PedidosRecibidosVerTodos"
+        '
+        'PreventaToolStripMenuItem
+        '
+        Me.PreventaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SincronizarClientesToolStripMenuItem})
+        Me.PreventaToolStripMenuItem.Name = "PreventaToolStripMenuItem"
+        Me.PreventaToolStripMenuItem.Size = New System.Drawing.Size(89, 27)
+        Me.PreventaToolStripMenuItem.Tag = "ModuloPreventa"
+        Me.PreventaToolStripMenuItem.Text = "Preventa"
+        '
+        'SincronizarClientesToolStripMenuItem
+        '
+        Me.SincronizarClientesToolStripMenuItem.Name = "SincronizarClientesToolStripMenuItem"
+        Me.SincronizarClientesToolStripMenuItem.Size = New System.Drawing.Size(235, 28)
+        Me.SincronizarClientesToolStripMenuItem.Tag = "SincronizarClientes"
+        Me.SincronizarClientesToolStripMenuItem.Text = "Sincronizar Clientes"
         '
         'GestiónGastronómicaToolStripMenuItem
         '
@@ -1160,6 +1178,28 @@ Partial Class Principal
         Me.MisSucursalesToolStripMenuItem.Tag = "MisSucursales"
         Me.MisSucursalesToolStripMenuItem.Text = "Mis Sucursales"
         '
+        'GestiónEscolarToolStripMenuItem
+        '
+        Me.GestiónEscolarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfiguraciónDeGradosToolStripMenuItem, Me.AltaInscripciónToolStripMenuItem})
+        Me.GestiónEscolarToolStripMenuItem.Name = "GestiónEscolarToolStripMenuItem"
+        Me.GestiónEscolarToolStripMenuItem.Size = New System.Drawing.Size(138, 27)
+        Me.GestiónEscolarToolStripMenuItem.Tag = "ModuloGestionEscolar"
+        Me.GestiónEscolarToolStripMenuItem.Text = "Gestión Escolar"
+        '
+        'ConfiguraciónDeGradosToolStripMenuItem
+        '
+        Me.ConfiguraciónDeGradosToolStripMenuItem.Name = "ConfiguraciónDeGradosToolStripMenuItem"
+        Me.ConfiguraciónDeGradosToolStripMenuItem.Size = New System.Drawing.Size(276, 28)
+        Me.ConfiguraciónDeGradosToolStripMenuItem.Tag = "ConfiguracionGrados"
+        Me.ConfiguraciónDeGradosToolStripMenuItem.Text = "Configuración de Grados"
+        '
+        'AltaInscripciónToolStripMenuItem
+        '
+        Me.AltaInscripciónToolStripMenuItem.Name = "AltaInscripciónToolStripMenuItem"
+        Me.AltaInscripciónToolStripMenuItem.Size = New System.Drawing.Size(276, 28)
+        Me.AltaInscripciónToolStripMenuItem.Tag = "AltaInscripcion"
+        Me.AltaInscripciónToolStripMenuItem.Text = "Alta Inscripción"
+        '
         'ParametrosgeneralesDataGridView
         '
         Me.ParametrosgeneralesDataGridView.AutoGenerateColumns = False
@@ -1469,6 +1509,7 @@ Partial Class Principal
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -1478,7 +1519,9 @@ Partial Class Principal
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesalumnosTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
@@ -1490,6 +1533,8 @@ Partial Class Principal
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -1519,6 +1564,7 @@ Partial Class Principal
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -1670,21 +1716,6 @@ Partial Class Principal
         '
         'BGWAlertas
         '
-        '
-        'PreventaToolStripMenuItem
-        '
-        Me.PreventaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SincronizarClientesToolStripMenuItem})
-        Me.PreventaToolStripMenuItem.Name = "PreventaToolStripMenuItem"
-        Me.PreventaToolStripMenuItem.Size = New System.Drawing.Size(89, 27)
-        Me.PreventaToolStripMenuItem.Tag = "ModuloPreventa"
-        Me.PreventaToolStripMenuItem.Text = "Preventa"
-        '
-        'SincronizarClientesToolStripMenuItem
-        '
-        Me.SincronizarClientesToolStripMenuItem.Name = "SincronizarClientesToolStripMenuItem"
-        Me.SincronizarClientesToolStripMenuItem.Size = New System.Drawing.Size(235, 28)
-        Me.SincronizarClientesToolStripMenuItem.Tag = "SincronizarClientes"
-        Me.SincronizarClientesToolStripMenuItem.Text = "Sincronizar Clientes"
         '
         'Principal
         '
@@ -1924,4 +1955,7 @@ Partial Class Principal
     Friend WithEvents ConfiguraciónesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PreventaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SincronizarClientesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GestiónEscolarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfiguraciónDeGradosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AltaInscripciónToolStripMenuItem As ToolStripMenuItem
 End Class
