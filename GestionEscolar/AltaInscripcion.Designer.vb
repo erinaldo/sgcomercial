@@ -65,8 +65,8 @@ Partial Class AltaInscripcion
         Me.PictureBoxEditarDomicilios = New System.Windows.Forms.PictureBox()
         Me.ClientesdomiciliosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesdomiciliosTableAdapter()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.PictureServicio = New System.Windows.Forms.PictureBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         TelefonoLabel = New System.Windows.Forms.Label()
@@ -564,13 +564,6 @@ Partial Class AltaInscripcion
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Tarifa / Servicio"
         '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(102, 39)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(54, 22)
-        Me.TextBox1.TabIndex = 0
-        '
         'PictureServicio
         '
         Me.PictureServicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
@@ -584,6 +577,14 @@ Partial Class AltaInscripcion
         Me.PictureServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureServicio.TabIndex = 41
         Me.PictureServicio.TabStop = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Enabled = False
+        Me.TextBox1.Location = New System.Drawing.Point(102, 39)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(54, 22)
+        Me.TextBox1.TabIndex = 0
         '
         'AltaInscripcion
         '
