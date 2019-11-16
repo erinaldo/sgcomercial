@@ -102,4 +102,31 @@
         Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
         ClientesdomiciliosBindingSource.Filter = "iddomicilio = " + gdomicilioseleccionado.ToString
     End Sub
+
+    Private Sub PictureServicio_Click(sender As Object, e As EventArgs) Handles PictureServicio.Click
+        gservicioseleccionado = 0
+        Dim p As ABMServicios
+        p = New ABMServicios
+        p.ShowDialog()
+        TextBoxIDAlumno.Text = gservicioseleccionado.ToString
+        If gservicioseleccionado > 0 Then
+            'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, galumnoseleccionado)
+            Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, gservicioseleccionado)
+            If gservicioseleccionado > 1 Then
+                PictureEditarAlumno.Visible = True
+                'calculafechavencimiento()
+                'ButtonDescuentoDefecto.Visible = True
+            Else
+                PictureEditarAlumno.Visible = False
+                'ButtonDescuentoDefecto.Visible = False
+                TextBoxIDAlumno.Text = Nothing
+            End If
+        Else
+            'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
+            Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, gservicioseleccionado)
+            PictureEditarAlumno.Visible = False
+            TextBoxIDAlumno.Text = Nothing
+        End If
+        gservicioseleccionado = Nothing
+    End Sub
 End Class

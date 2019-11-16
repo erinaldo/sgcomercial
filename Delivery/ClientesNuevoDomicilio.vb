@@ -36,11 +36,14 @@
     End Sub
 
     Private Sub ClientesdomiciliosBindingNavigatorSaveItem_Click_1(sender As Object, e As EventArgs) Handles ClientesdomiciliosBindingNavigatorSaveItem.Click
+        If DireccionTextBox.Text = "" Or Len(Trim(DireccionTextBox.Text)) = 0 Then
+            MessageBox.Show("Debe indicar una dirección", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End If
         If ComboBox1.SelectedIndex = -1 Or ComboBox2.SelectedIndex = -1 Then
             MessageBox.Show("Seleccione Provincia y Localidad!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         End If
-
         IdclienteTextBox.Text = gclienteseleccionado.ToString
         If MsgBox("Seguro desea guardar los cambios? ", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             Try
@@ -52,9 +55,6 @@
 
             End Try
         End If
-
-
-
     End Sub
 
     Private Sub BindingNavigatorAddNewItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorAddNewItem.Click

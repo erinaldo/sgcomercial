@@ -82,6 +82,7 @@ Module SGCModule
     Public gmontototal As Decimal
     Public gclienteseleccionado As Long
     Public galumnoseleccionado As Long
+    Public gservicioseleccionado As Long
     Public gdomicilioseleccionado As Long
     Public gmontovale As Decimal
     Public gidpresupuesto As Long

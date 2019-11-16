@@ -446,12 +446,6 @@
     <Compile Include="GestionEscolar\ABMGrados.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionEscolar\ABMServicios.Designer.vb">
-      <DependentUpon>ABMServicios.vb</DependentUpon>
-    </Compile>
-    <Compile Include="GestionEscolar\ABMServicios.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="GestionEscolar\AltaInscripcion.Designer.vb">
       <DependentUpon>AltaInscripcion.vb</DependentUpon>
     </Compile>
@@ -1006,6 +1000,12 @@
       <DependentUpon>ABMExtracciones.vb</DependentUpon>
     </Compile>
     <Compile Include="Ventas\ABMExtracciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\ABMServicios.Designer.vb">
+      <DependentUpon>ABMServicios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\ABMServicios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventas\CambioMercaderiaVendida.Designer.vb">
@@ -1632,6 +1632,9 @@
     <EmbeddedResource Include="TransferenciaStock\Reportes\RepEnvioSucursalTotEnvasado.rdlc" />
     <EmbeddedResource Include="TransferenciaStock\Reportes\ViewerReportesRemitos.resx">
       <DependentUpon>ViewerReportesRemitos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\ABMServicios.resx">
+      <DependentUpon>ABMServicios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\EditarVenta.resx">
       <DependentUpon>EditarVenta.vb</DependentUpon>
