@@ -54,4 +54,15 @@
         enablefields(False)
         enabledit(False)
     End Sub
+
+    Private Sub ToolStripButtonEliminar_Click(sender As Object, e As EventArgs) Handles ToolStripButtonEliminar.Click
+        If MessageBox.Show("Seguro desea dar de baja el alumno?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+            Try
+                AlumnosTableAdapter.alumnos_baja(Today, gusername, Val(IdalumnoTextBox.Text))
+                Me.AlumnosTableAdapter.Fill(Me.ComercialDataSet.alumnos)
+            Catch ex As Exception
+                MessageBox.Show("Ocurrió un problema al tratar de eliminar el alumno: " + ex.Message, "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            End Try
+        End If
+    End Sub
 End Class

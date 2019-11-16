@@ -27,4 +27,13 @@
                 MsgBox("Seleccione el campo por el cual desea filtrar", MsgBoxStyle.Exclamation, "Advertencia")
         End Select
     End Sub
+
+    Private Sub LibroalumnosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles LibroalumnosDataGridView.CellContentClick
+
+    End Sub
+
+    Private Sub LibroalumnosDataGridView_DoubleClick(sender As Object, e As EventArgs) Handles LibroalumnosDataGridView.DoubleClick
+        gclienteseleccionado = LibroalumnosDataGridView.CurrentRow.Cells("idalumno").Value
+        Me.Close()
+    End Sub
 End Class
