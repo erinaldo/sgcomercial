@@ -58,6 +58,16 @@ Partial Class ABMAlumnos
         Me.ToolStripButtonEliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonCancelar = New System.Windows.Forms.ToolStripButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.AlumnosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.filtrotextbox = New System.Windows.Forms.TextBox()
         IdalumnoLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         FechanacimientoLabel = New System.Windows.Forms.Label()
@@ -69,6 +79,8 @@ Partial Class ABMAlumnos
         CType(Me.TipodocumentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AlumnosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AlumnosBindingNavigator.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.AlumnosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdalumnoLabel
@@ -133,7 +145,7 @@ Partial Class ABMAlumnos
         Me.GroupBox1.Controls.Add(Me.DocumentoTextBox)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 53)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(716, 196)
+        Me.GroupBox1.Size = New System.Drawing.Size(716, 220)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del Alumno"
@@ -432,17 +444,108 @@ Partial Class ABMAlumnos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.filtrotextbox)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.AlumnosDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 255)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(716, 284)
+        Me.GroupBox2.Size = New System.Drawing.Size(716, 320)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
+        '
+        'AlumnosDataGridView
+        '
+        Me.AlumnosDataGridView.AllowUserToAddRows = False
+        Me.AlumnosDataGridView.AllowUserToDeleteRows = False
+        Me.AlumnosDataGridView.AutoGenerateColumns = False
+        Me.AlumnosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.AlumnosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.AlumnosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.AlumnosDataGridView.DataSource = Me.AlumnosBindingSource
+        Me.AlumnosDataGridView.Location = New System.Drawing.Point(24, 72)
+        Me.AlumnosDataGridView.Name = "AlumnosDataGridView"
+        Me.AlumnosDataGridView.ReadOnly = True
+        Me.AlumnosDataGridView.RowTemplate.Height = 24
+        Me.AlumnosDataGridView.Size = New System.Drawing.Size(673, 228)
+        Me.AlumnosDataGridView.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idalumno"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idalumno"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 87
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechanacimiento"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "fechanacimiento"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Visible = False
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "idtipodocumento"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "idtipodocumento"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "documento"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Documento"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 109
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "fechabaja"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "fechabaja"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Visible = False
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "usuariobaja"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "usuariobaja"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(157, 37)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(127, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Filtrar por Nombre:"
+        '
+        'filtrotextbox
+        '
+        Me.filtrotextbox.Location = New System.Drawing.Point(290, 34)
+        Me.filtrotextbox.Name = "filtrotextbox"
+        Me.filtrotextbox.Size = New System.Drawing.Size(294, 22)
+        Me.filtrotextbox.TabIndex = 2
         '
         'ABMAlumnos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(740, 551)
+        Me.ClientSize = New System.Drawing.Size(740, 575)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.AlumnosBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
@@ -461,6 +564,9 @@ Partial Class ABMAlumnos
         CType(Me.AlumnosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AlumnosBindingNavigator.ResumeLayout(False)
         Me.AlumnosBindingNavigator.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        CType(Me.AlumnosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -495,4 +601,14 @@ Partial Class ABMAlumnos
     Friend WithEvents ToolStripButtonEliminar As ToolStripButton
     Friend WithEvents ToolStripButtonCancelar As ToolStripButton
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents filtrotextbox As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents AlumnosDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
 End Class

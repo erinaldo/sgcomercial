@@ -66,7 +66,12 @@ Partial Class AltaInscripcion
         Me.ClientesdomiciliosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesdomiciliosTableAdapter()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.PictureServicio = New System.Windows.Forms.PictureBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBoxIdServicio = New System.Windows.Forms.TextBox()
+        Me.ServiciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ServiciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.serviciosTableAdapter()
+        Me.LabelServicio = New System.Windows.Forms.Label()
+        Me.LabelPrecioventa = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         TelefonoLabel = New System.Windows.Forms.Label()
@@ -96,6 +101,7 @@ Partial Class AltaInscripcion
         CType(Me.PictureBoxEditarDomicilios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         CType(Me.PictureServicio, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ServiciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -555,8 +561,10 @@ Partial Class AltaInscripcion
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.LabelPrecioventa)
+        Me.GroupBox4.Controls.Add(Me.LabelServicio)
         Me.GroupBox4.Controls.Add(Me.PictureServicio)
-        Me.GroupBox4.Controls.Add(Me.TextBox1)
+        Me.GroupBox4.Controls.Add(Me.TextBoxIdServicio)
         Me.GroupBox4.Location = New System.Drawing.Point(12, 385)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(826, 75)
@@ -570,7 +578,7 @@ Partial Class AltaInscripcion
         Me.PictureServicio.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureServicio.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureServicio.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureServicio.Location = New System.Drawing.Point(163, 37)
+        Me.PictureServicio.Location = New System.Drawing.Point(163, 28)
         Me.PictureServicio.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureServicio.Name = "PictureServicio"
         Me.PictureServicio.Size = New System.Drawing.Size(27, 27)
@@ -578,19 +586,61 @@ Partial Class AltaInscripcion
         Me.PictureServicio.TabIndex = 41
         Me.PictureServicio.TabStop = False
         '
-        'TextBox1
+        'TextBoxIdServicio
         '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(102, 39)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(54, 22)
-        Me.TextBox1.TabIndex = 0
+        Me.TextBoxIdServicio.Enabled = False
+        Me.TextBoxIdServicio.Location = New System.Drawing.Point(102, 30)
+        Me.TextBoxIdServicio.Name = "TextBoxIdServicio"
+        Me.TextBoxIdServicio.Size = New System.Drawing.Size(54, 22)
+        Me.TextBoxIdServicio.TabIndex = 0
+        '
+        'ServiciosBindingSource
+        '
+        Me.ServiciosBindingSource.DataMember = "servicios"
+        Me.ServiciosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ServiciosTableAdapter
+        '
+        Me.ServiciosTableAdapter.ClearBeforeFill = True
+        '
+        'LabelServicio
+        '
+        Me.LabelServicio.AutoSize = True
+        Me.LabelServicio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "descripcion", True))
+        Me.LabelServicio.Location = New System.Drawing.Point(245, 33)
+        Me.LabelServicio.Name = "LabelServicio"
+        Me.LabelServicio.Size = New System.Drawing.Size(320, 17)
+        Me.LabelServicio.TabIndex = 42
+        Me.LabelServicio.Text = "_______________________________________"
+        '
+        'LabelPrecioventa
+        '
+        Me.LabelPrecioventa.AutoSize = True
+        Me.LabelPrecioventa.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "precioventa", True))
+        Me.LabelPrecioventa.Location = New System.Drawing.Point(663, 33)
+        Me.LabelPrecioventa.Name = "LabelPrecioventa"
+        Me.LabelPrecioventa.Size = New System.Drawing.Size(128, 17)
+        Me.LabelPrecioventa.TabIndex = 43
+        Me.LabelPrecioventa.Text = "_______________"
+        '
+        'Button1
+        '
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(331, 470)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(197, 46)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Confirmar"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'AltaInscripcion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(858, 471)
+        Me.ClientSize = New System.Drawing.Size(858, 528)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -619,6 +669,7 @@ Partial Class AltaInscripcion
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.PictureServicio, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ServiciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -651,5 +702,10 @@ Partial Class AltaInscripcion
     Friend WithEvents ClientesdomiciliosTableAdapter As comercialDataSetTableAdapters.clientesdomiciliosTableAdapter
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents PictureServicio As PictureBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBoxIdServicio As TextBox
+    Friend WithEvents ServiciosBindingSource As BindingSource
+    Friend WithEvents ServiciosTableAdapter As comercialDataSetTableAdapters.serviciosTableAdapter
+    Friend WithEvents LabelPrecioventa As Label
+    Friend WithEvents LabelServicio As Label
+    Friend WithEvents Button1 As Button
 End Class

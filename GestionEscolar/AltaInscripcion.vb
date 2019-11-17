@@ -7,6 +7,8 @@
     End Sub
 
     Private Sub AltaInscripcion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.servicios' Puede moverla o quitarla según sea necesario.
+        'Me.ServiciosTableAdapter.Fill(Me.ComercialDataSet.servicios)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.clientesdomicilios' Puede moverla o quitarla según sea necesario.
         'Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.libroalumnos' Puede moverla o quitarla según sea necesario.
@@ -105,13 +107,13 @@
 
     Private Sub PictureServicio_Click(sender As Object, e As EventArgs) Handles PictureServicio.Click
         gservicioseleccionado = 0
-        Dim p As ABMServicios
-        p = New ABMServicios
+        Dim p As SeleccionarServicio
+        p = New SeleccionarServicio
         p.ShowDialog()
-        TextBoxIDAlumno.Text = gservicioseleccionado.ToString
+        TextBoxIdServicio.Text = gservicioseleccionado.ToString
         If gservicioseleccionado > 0 Then
             'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, galumnoseleccionado)
-            Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, gservicioseleccionado)
+            Me.ServiciosTableAdapter.FillByIDservicio(Me.ComercialDataSet.servicios, gservicioseleccionado)
             If gservicioseleccionado > 1 Then
                 PictureEditarAlumno.Visible = True
                 'calculafechavencimiento()
@@ -119,14 +121,47 @@
             Else
                 PictureEditarAlumno.Visible = False
                 'ButtonDescuentoDefecto.Visible = False
-                TextBoxIDAlumno.Text = Nothing
+                TextBoxIdServicio.Text = Nothing
             End If
         Else
             'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
-            Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, gservicioseleccionado)
+            Me.ServiciosTableAdapter.FillByIDservicio(Me.ComercialDataSet.servicios, gservicioseleccionado)
             PictureEditarAlumno.Visible = False
-            TextBoxIDAlumno.Text = Nothing
+            TextBoxIdServicio.Text = Nothing
         End If
         gservicioseleccionado = Nothing
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            If Not Val(IdclienteTextBox.Text) > 0 Then
+                MessageBox.Show("Seleccione un Tutor", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Return
+            End If
+            If Not Val(TextBoxIDAlumno.Text) > 0 Then
+                MessageBox.Show("Seleccione un Alumno", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Return
+            End If
+            If Not gdomicilioseleccionado > 0 Then
+                MessageBox.Show("Seleccione un Domicilio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Return
+            End If
+            If Not Val(TextBoxIdServicio.Text) > 0 Then
+                MessageBox.Show("Seleccione una Tarifa/servicio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Return
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió una excepción: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End Try
+
+        Try
+            If MsgBox("Seguro desea Confirmar la Inscripción?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                MsgBox("confirmaria")
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió una excepción: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End Try
     End Sub
 End Class

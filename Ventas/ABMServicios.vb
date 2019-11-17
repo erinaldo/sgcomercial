@@ -1,5 +1,36 @@
 ﻿Public Class ABMServicios
+    Dim autoclose As Boolean
     Private Sub ServiciosBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles ServiciosBindingNavigatorSaveItem.Click
+        If DescripcionTextBox.Text = "" Or Len(Trim(DescripcionTextBox.Text)) = 0 Then
+            MessageBox.Show("Ingrese la descripción", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            DescripcionTextBox.Select()
+            Return
+        End If
+        If PrecioventaTextBox.Text = "" Or Len(Trim(PrecioventaTextBox.Text)) = 0 Then
+            MessageBox.Show("Ingrese el precio de venta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            PrecioventaTextBox.Select()
+            Return
+        End If
+        If MsgBox("Seguro desea guardar los cambios realizados?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+            Try
+                Me.Validate()
+                Me.ServiciosBindingSource.EndEdit()
+                If Not Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) = 1 Then
+                    MessageBox.Show("Ocurrió un error Verifíque los datos ingresados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Return
+                End If
+                enablefields(False)
+                enabledit(False)
+                If gservicioseleccionado = -1 Then
+                    gservicioseleccionado = Val(IdservicioTextBox.Text)
+                    Me.Close()
+                End If
+                If autoclose = True Then Me.Close()
+            Catch ex As Exception
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+        End If
+
         Try
             Me.Validate()
             Me.ServiciosBindingSource.EndEdit()
@@ -18,6 +49,15 @@
         Me.ServiciosTableAdapter.Fill(Me.ComercialDataSet.servicios)
         enablefields(False)
         enabledit(False)
+        '--/**********************************************/
+        If gservicioseleccionado = -1 Then
+            BindingNavigatorAddNewItem.PerformClick()
+        End If
+        If gservicioseleccionado > 1 Then
+            autoclose = True
+            ServiciosTableAdapter.FillByIDServicio(Me.ComercialDataSet.servicios, gservicioseleccionado)
+            ToolStripButtonEditar.PerformClick()
+        End If
     End Sub
     Private Sub enablefields(ByRef status As Boolean)
         DescripcionTextBox.Enabled = status

@@ -132,12 +132,17 @@ Public Class ABMClientes
     End Sub
 
     Private Sub filtrotextbox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles filtrotextbox.TextChanged
-        Select Case ComboBox1.Text
-            Case "Nombre"
-                ClientesBindingSource.Filter = "nombre like '%" + filtrotextbox.Text + "%'"
-            Case "Cuit"
-                ClientesBindingSource.Filter = "cuit like '%" + filtrotextbox.Text + "%'"
-        End Select
+        Try
+            Select Case ComboBox1.Text
+                Case "Nombre"
+                    ClientesBindingSource.Filter = "nombre like '%" + filtrotextbox.Text + "%'"
+                Case "Cuit"
+                    ClientesBindingSource.Filter = "cuit like '%" + filtrotextbox.Text + "%'"
+            End Select
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub ABMClientes_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown

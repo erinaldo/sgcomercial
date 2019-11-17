@@ -36,4 +36,24 @@
         galumnoseleccionado = LibroalumnosDataGridView.CurrentRow.Cells("idalumno").Value
         Me.Close()
     End Sub
+
+    Private Sub TextBoxfiltro_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxfiltro.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            LibroalumnosDataGridView.Select()
+            Try
+                LibroalumnosDataGridView.Rows(0).Selected = True
+            Catch ex As Exception
+                MsgBox("Debe seleccionar al menos un item de la lista", MsgBoxStyle.Exclamation, "Advertencia!")
+            End Try
+        End If
+    End Sub
+
+    Private Sub LibroalumnosDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles LibroalumnosDataGridView.KeyDown
+        If e.KeyCode = Keys.Enter Then
+
+            e.SuppressKeyPress = True
+            galumnoseleccionado = LibroalumnosDataGridView.CurrentRow.Cells("idalumno").Value
+            Me.Close()
+        End If
+    End Sub
 End Class

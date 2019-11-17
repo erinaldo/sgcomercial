@@ -31,7 +31,10 @@
             Try
                 Me.Validate()
                 Me.AlumnosBindingSource.EndEdit()
-                Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
+                If Not Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) = 1 Then
+                    MessageBox.Show("Ocurrió un error Verifíque los datos ingresados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Return
+                End If
                 enablefields(False)
                 enabledit(False)
                 'ClientesDataGridView.Enabled = True
@@ -72,12 +75,14 @@
             ToolStripButtonEditar.Enabled = False
             ToolStripButtonCancelar.Enabled = True
             ToolStripButtonEliminar.Enabled = False
+            GroupBox2.Enabled = False
         Else
             AlumnosBindingNavigatorSaveItem.Enabled = False
             BindingNavigatorAddNewItem.Enabled = True
             ToolStripButtonEditar.Enabled = True
             ToolStripButtonCancelar.Enabled = False
             ToolStripButtonEliminar.Enabled = True
+            GroupBox2.Enabled = True
         End If
 
     End Sub
@@ -119,5 +124,13 @@
                 MessageBox.Show("Ocurrió un problema al tratar de eliminar el alumno: " + ex.Message, "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             End Try
         End If
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles filtrotextbox.TextChanged
+        Try
+            AlumnosBindingSource.Filter = "nombre like '%" + filtrotextbox.Text + "%'"
+        Catch ex As Exception
+            AlumnosBindingSource.Filter = ""
+        End Try
     End Sub
 End Class
