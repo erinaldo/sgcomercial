@@ -157,7 +157,7 @@
 
         Try
             If MsgBox("Seguro desea Confirmar la Inscripción?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                MsgBox("confirmaria")
+                Dim ClientesserviciosTableAdapter As New comercialDataSetTableAdapters.clientesserviciosTableAdapter()
             End If
         Catch ex As Exception
             MessageBox.Show("Ocurrió una excepción: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
