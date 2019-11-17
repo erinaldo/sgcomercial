@@ -38,40 +38,45 @@ Partial Class AltaInscripcion
         Dim Label3 As System.Windows.Forms.Label
         Dim Label4 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AltaInscripcion))
-        Me.ListaclientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxEditarCliente = New System.Windows.Forms.PictureBox()
         Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LabelAFechaNacimiento = New System.Windows.Forms.Label()
-        Me.LibroalumnosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LabelADocumento = New System.Windows.Forms.Label()
         Me.LabelADocTipo = New System.Windows.Forms.Label()
         Me.LabelAnombre = New System.Windows.Forms.Label()
         Me.TextBoxIDAlumno = New System.Windows.Forms.TextBox()
         Me.PictureEditarAlumno = New System.Windows.Forms.PictureBox()
         Me.PictureSeleccionarAlumno = New System.Windows.Forms.PictureBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.PictureBoxEditarDomicilios = New System.Windows.Forms.PictureBox()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.LabelPrecioventa = New System.Windows.Forms.Label()
+        Me.LabelServicio = New System.Windows.Forms.Label()
+        Me.PictureServicio = New System.Windows.Forms.PictureBox()
+        Me.TextBoxIdServicio = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ServiciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ClientesdomiciliosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LibroalumnosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ListaclientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.ListaclientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaclientesTableAdapter()
         Me.LibroalumnosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroalumnosTableAdapter()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.ClientesdomiciliosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.PictureBoxEditarDomicilios = New System.Windows.Forms.PictureBox()
         Me.ClientesdomiciliosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesdomiciliosTableAdapter()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.PictureServicio = New System.Windows.Forms.PictureBox()
-        Me.TextBoxIdServicio = New System.Windows.Forms.TextBox()
-        Me.ServiciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ServiciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.serviciosTableAdapter()
-        Me.LabelServicio = New System.Windows.Forms.Label()
-        Me.LabelPrecioventa = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.ComboBoxCuatrimestre = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.ComboBoxCicloLectivo = New System.Windows.Forms.ComboBox()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         TelefonoLabel = New System.Windows.Forms.Label()
@@ -86,22 +91,23 @@ Partial Class AltaInscripcion
         Label2 = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
         Label4 = New System.Windows.Forms.Label()
-        CType(Me.ListaclientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBoxEditarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.LibroalumnosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureEditarAlumno, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureSeleccionarAlumno, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.ClientesdomiciliosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxEditarDomicilios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         CType(Me.PictureServicio, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServiciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientesdomiciliosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LibroalumnosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListaclientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -159,16 +165,6 @@ Partial Class AltaInscripcion
         LabelNombre.TabIndex = 2
         LabelNombre.Text = "___________________________"
         '
-        'ListaclientesBindingSource
-        '
-        Me.ListaclientesBindingSource.DataMember = "listaclientes"
-        Me.ListaclientesBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'LabelTelefono
         '
         LabelTelefono.AutoSize = True
@@ -198,11 +194,6 @@ Partial Class AltaInscripcion
         LabelEmail.Size = New System.Drawing.Size(224, 17)
         LabelEmail.TabIndex = 6
         LabelEmail.Text = "___________________________"
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "clientes"
-        Me.ClientesBindingSource.DataSource = Me.ComercialDataSet
         '
         'LabelDocTipo
         '
@@ -341,11 +332,6 @@ Partial Class AltaInscripcion
         Me.LabelAFechaNacimiento.TabIndex = 47
         Me.LabelAFechaNacimiento.Text = "________"
         '
-        'LibroalumnosBindingSource
-        '
-        Me.LibroalumnosBindingSource.DataMember = "libroalumnos"
-        Me.LibroalumnosBindingSource.DataSource = Me.ComercialDataSet
-        '
         'LabelADocumento
         '
         Me.LabelADocumento.AutoSize = True
@@ -413,6 +399,148 @@ Partial Class AltaInscripcion
         Me.PictureSeleccionarAlumno.TabIndex = 42
         Me.PictureSeleccionarAlumno.TabStop = False
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.PictureBoxEditarDomicilios)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 149)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(826, 75)
+        Me.GroupBox3.TabIndex = 2
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Domicilio"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesdomiciliosBindingSource, "direccion", True))
+        Me.Label6.Location = New System.Drawing.Point(203, 34)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(312, 17)
+        Me.Label6.TabIndex = 41
+        Me.Label6.Text = "______________________________________"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(124, 34)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(71, 17)
+        Me.Label5.TabIndex = 40
+        Me.Label5.Text = "Dirección:"
+        '
+        'PictureBoxEditarDomicilios
+        '
+        Me.PictureBoxEditarDomicilios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBoxEditarDomicilios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxEditarDomicilios.Image = CType(resources.GetObject("PictureBoxEditarDomicilios.Image"), System.Drawing.Image)
+        Me.PictureBoxEditarDomicilios.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureBoxEditarDomicilios.Location = New System.Drawing.Point(74, 27)
+        Me.PictureBoxEditarDomicilios.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBoxEditarDomicilios.Name = "PictureBoxEditarDomicilios"
+        Me.PictureBoxEditarDomicilios.Size = New System.Drawing.Size(31, 30)
+        Me.PictureBoxEditarDomicilios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxEditarDomicilios.TabIndex = 39
+        Me.PictureBoxEditarDomicilios.TabStop = False
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.LabelPrecioventa)
+        Me.GroupBox4.Controls.Add(Me.LabelServicio)
+        Me.GroupBox4.Controls.Add(Me.PictureServicio)
+        Me.GroupBox4.Controls.Add(Me.TextBoxIdServicio)
+        Me.GroupBox4.Location = New System.Drawing.Point(12, 385)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(826, 75)
+        Me.GroupBox4.TabIndex = 3
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Tarifa / Servicio"
+        '
+        'LabelPrecioventa
+        '
+        Me.LabelPrecioventa.AutoSize = True
+        Me.LabelPrecioventa.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "precioventa", True))
+        Me.LabelPrecioventa.Location = New System.Drawing.Point(663, 33)
+        Me.LabelPrecioventa.Name = "LabelPrecioventa"
+        Me.LabelPrecioventa.Size = New System.Drawing.Size(128, 17)
+        Me.LabelPrecioventa.TabIndex = 43
+        Me.LabelPrecioventa.Text = "_______________"
+        '
+        'LabelServicio
+        '
+        Me.LabelServicio.AutoSize = True
+        Me.LabelServicio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "descripcion", True))
+        Me.LabelServicio.Location = New System.Drawing.Point(245, 33)
+        Me.LabelServicio.Name = "LabelServicio"
+        Me.LabelServicio.Size = New System.Drawing.Size(320, 17)
+        Me.LabelServicio.TabIndex = 42
+        Me.LabelServicio.Text = "_______________________________________"
+        '
+        'PictureServicio
+        '
+        Me.PictureServicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureServicio.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureServicio.Image = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureServicio.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureServicio.Location = New System.Drawing.Point(163, 28)
+        Me.PictureServicio.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureServicio.Name = "PictureServicio"
+        Me.PictureServicio.Size = New System.Drawing.Size(27, 27)
+        Me.PictureServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureServicio.TabIndex = 41
+        Me.PictureServicio.TabStop = False
+        '
+        'TextBoxIdServicio
+        '
+        Me.TextBoxIdServicio.Enabled = False
+        Me.TextBoxIdServicio.Location = New System.Drawing.Point(102, 30)
+        Me.TextBoxIdServicio.Name = "TextBoxIdServicio"
+        Me.TextBoxIdServicio.Size = New System.Drawing.Size(54, 22)
+        Me.TextBoxIdServicio.TabIndex = 0
+        '
+        'Button1
+        '
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(319, 546)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(216, 46)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Confirmar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ServiciosBindingSource
+        '
+        Me.ServiciosBindingSource.DataMember = "servicios"
+        Me.ServiciosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ClientesdomiciliosBindingSource
+        '
+        Me.ClientesdomiciliosBindingSource.DataMember = "clientesdomicilios"
+        Me.ClientesdomiciliosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'LibroalumnosBindingSource
+        '
+        Me.LibroalumnosBindingSource.DataMember = "libroalumnos"
+        Me.LibroalumnosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ListaclientesBindingSource
+        '
+        Me.ListaclientesBindingSource.DataMember = "listaclientes"
+        Me.ListaclientesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "clientes"
+        Me.ClientesBindingSource.DataSource = Me.ComercialDataSet
+        '
         'ClientesTableAdapter
         '
         Me.ClientesTableAdapter.ClearBeforeFill = True
@@ -429,7 +557,6 @@ Partial Class AltaInscripcion
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        'Me.TableAdapterManager.clientesalumnosTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Me.ClientesTableAdapter
@@ -505,141 +632,70 @@ Partial Class AltaInscripcion
         '
         Me.LibroalumnosTableAdapter.ClearBeforeFill = True
         '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Label6)
-        Me.GroupBox3.Controls.Add(Me.Label5)
-        Me.GroupBox3.Controls.Add(Me.PictureBoxEditarDomicilios)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 149)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(826, 75)
-        Me.GroupBox3.TabIndex = 2
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Domicilio"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesdomiciliosBindingSource, "direccion", True))
-        Me.Label6.Location = New System.Drawing.Point(203, 34)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(312, 17)
-        Me.Label6.TabIndex = 41
-        Me.Label6.Text = "______________________________________"
-        '
-        'ClientesdomiciliosBindingSource
-        '
-        Me.ClientesdomiciliosBindingSource.DataMember = "clientesdomicilios"
-        Me.ClientesdomiciliosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(124, 34)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(71, 17)
-        Me.Label5.TabIndex = 40
-        Me.Label5.Text = "Dirección:"
-        '
-        'PictureBoxEditarDomicilios
-        '
-        Me.PictureBoxEditarDomicilios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBoxEditarDomicilios.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBoxEditarDomicilios.Image = CType(resources.GetObject("PictureBoxEditarDomicilios.Image"), System.Drawing.Image)
-        Me.PictureBoxEditarDomicilios.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureBoxEditarDomicilios.Location = New System.Drawing.Point(74, 27)
-        Me.PictureBoxEditarDomicilios.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBoxEditarDomicilios.Name = "PictureBoxEditarDomicilios"
-        Me.PictureBoxEditarDomicilios.Size = New System.Drawing.Size(31, 30)
-        Me.PictureBoxEditarDomicilios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBoxEditarDomicilios.TabIndex = 39
-        Me.PictureBoxEditarDomicilios.TabStop = False
-        '
         'ClientesdomiciliosTableAdapter
         '
         Me.ClientesdomiciliosTableAdapter.ClearBeforeFill = True
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.LabelPrecioventa)
-        Me.GroupBox4.Controls.Add(Me.LabelServicio)
-        Me.GroupBox4.Controls.Add(Me.PictureServicio)
-        Me.GroupBox4.Controls.Add(Me.TextBoxIdServicio)
-        Me.GroupBox4.Location = New System.Drawing.Point(12, 385)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(826, 75)
-        Me.GroupBox4.TabIndex = 3
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Tarifa / Servicio"
-        '
-        'PictureServicio
-        '
-        Me.PictureServicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureServicio.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureServicio.Image = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureServicio.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureServicio.Location = New System.Drawing.Point(163, 28)
-        Me.PictureServicio.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureServicio.Name = "PictureServicio"
-        Me.PictureServicio.Size = New System.Drawing.Size(27, 27)
-        Me.PictureServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureServicio.TabIndex = 41
-        Me.PictureServicio.TabStop = False
-        '
-        'TextBoxIdServicio
-        '
-        Me.TextBoxIdServicio.Enabled = False
-        Me.TextBoxIdServicio.Location = New System.Drawing.Point(102, 30)
-        Me.TextBoxIdServicio.Name = "TextBoxIdServicio"
-        Me.TextBoxIdServicio.Size = New System.Drawing.Size(54, 22)
-        Me.TextBoxIdServicio.TabIndex = 0
-        '
-        'ServiciosBindingSource
-        '
-        Me.ServiciosBindingSource.DataMember = "servicios"
-        Me.ServiciosBindingSource.DataSource = Me.ComercialDataSet
         '
         'ServiciosTableAdapter
         '
         Me.ServiciosTableAdapter.ClearBeforeFill = True
         '
-        'LabelServicio
+        'GroupBox5
         '
-        Me.LabelServicio.AutoSize = True
-        Me.LabelServicio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "descripcion", True))
-        Me.LabelServicio.Location = New System.Drawing.Point(245, 33)
-        Me.LabelServicio.Name = "LabelServicio"
-        Me.LabelServicio.Size = New System.Drawing.Size(320, 17)
-        Me.LabelServicio.TabIndex = 42
-        Me.LabelServicio.Text = "_______________________________________"
+        Me.GroupBox5.Controls.Add(Me.ComboBoxCicloLectivo)
+        Me.GroupBox5.Controls.Add(Me.ComboBoxCuatrimestre)
+        Me.GroupBox5.Controls.Add(Me.Label8)
+        Me.GroupBox5.Controls.Add(Me.Label7)
+        Me.GroupBox5.Location = New System.Drawing.Point(12, 466)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(826, 69)
+        Me.GroupBox5.TabIndex = 5
+        Me.GroupBox5.TabStop = False
         '
-        'LabelPrecioventa
+        'Label7
         '
-        Me.LabelPrecioventa.AutoSize = True
-        Me.LabelPrecioventa.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "precioventa", True))
-        Me.LabelPrecioventa.Location = New System.Drawing.Point(663, 33)
-        Me.LabelPrecioventa.Name = "LabelPrecioventa"
-        Me.LabelPrecioventa.Size = New System.Drawing.Size(128, 17)
-        Me.LabelPrecioventa.TabIndex = 43
-        Me.LabelPrecioventa.Text = "_______________"
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(420, 26)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(92, 17)
+        Me.Label7.TabIndex = 0
+        Me.Label7.Text = "Cuatrimestre:"
         '
-        'Button1
+        'ComboBoxCuatrimestre
         '
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(331, 470)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(197, 46)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Confirmar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ComboBoxCuatrimestre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxCuatrimestre.FormattingEnabled = True
+        Me.ComboBoxCuatrimestre.Items.AddRange(New Object() {"Primero", "Segundo", "Tercero"})
+        Me.ComboBoxCuatrimestre.Location = New System.Drawing.Point(518, 22)
+        Me.ComboBoxCuatrimestre.Name = "ComboBoxCuatrimestre"
+        Me.ComboBoxCuatrimestre.Size = New System.Drawing.Size(121, 24)
+        Me.ComboBoxCuatrimestre.TabIndex = 1
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(188, 26)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(91, 17)
+        Me.Label8.TabIndex = 0
+        Me.Label8.Text = "Ciclo Lectivo:"
+        '
+        'ComboBoxCicloLectivo
+        '
+        Me.ComboBoxCicloLectivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxCicloLectivo.FormattingEnabled = True
+        Me.ComboBoxCicloLectivo.Items.AddRange(New Object() {"2020"})
+        Me.ComboBoxCicloLectivo.Location = New System.Drawing.Point(284, 22)
+        Me.ComboBoxCicloLectivo.Name = "ComboBoxCicloLectivo"
+        Me.ComboBoxCicloLectivo.Size = New System.Drawing.Size(121, 24)
+        Me.ComboBoxCicloLectivo.TabIndex = 2
         '
         'AltaInscripcion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(858, 528)
+        Me.ClientSize = New System.Drawing.Size(858, 604)
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -650,26 +706,28 @@ Partial Class AltaInscripcion
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "AltaInscripcion"
         Me.Text = "Alta Inscripcion"
-        CType(Me.ListaclientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureBoxEditarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.LibroalumnosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureEditarAlumno, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureSeleccionarAlumno, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.ClientesdomiciliosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxEditarDomicilios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.PictureServicio, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServiciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientesdomiciliosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LibroalumnosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListaclientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -708,4 +766,9 @@ Partial Class AltaInscripcion
     Friend WithEvents LabelPrecioventa As Label
     Friend WithEvents LabelServicio As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents ComboBoxCuatrimestre As ComboBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents ComboBoxCicloLectivo As ComboBox
+    Friend WithEvents Label8 As Label
 End Class

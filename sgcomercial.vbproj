@@ -452,6 +452,12 @@
     <Compile Include="GestionEscolar\AltaInscripcion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GestionEscolar\Reportes\VistaPreviaInscripcion.Designer.vb">
+      <DependentUpon>VistaPreviaInscripcion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEscolar\Reportes\VistaPreviaInscripcion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GestionEscolar\SeleccionarAlumno.Designer.vb">
       <DependentUpon>SeleccionarAlumno.vb</DependentUpon>
     </Compile>
@@ -1450,6 +1456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionEscolar\AltaInscripcion.resx">
       <DependentUpon>AltaInscripcion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionEscolar\Reportes\VistaPreviaInscripcion.resx">
+      <DependentUpon>VistaPreviaInscripcion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionEscolar\SeleccionarAlumno.resx">
       <DependentUpon>SeleccionarAlumno.vb</DependentUpon>

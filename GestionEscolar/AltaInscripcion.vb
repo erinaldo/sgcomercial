@@ -150,18 +150,53 @@
                 MessageBox.Show("Seleccione una Tarifa/servicio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Return
             End If
+            If Not Val(ComboBoxCicloLectivo.Text) > 0 Then
+                MessageBox.Show("Seleccione un Ciclo Lectivo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Return
+            End If
+            If Not ComboBoxCuatrimestre.SelectedIndex >= 0 Then
+                MessageBox.Show("Seleccione un Cuatrimestre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Return
+            End If
         Catch ex As Exception
-            MessageBox.Show("Ocurrió una excepción: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Verifíque los datos ingresados: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         End Try
 
         Try
             If MsgBox("Seguro desea Confirmar la Inscripción?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
                 Dim ClientesserviciosTableAdapter As New comercialDataSetTableAdapters.clientesserviciosTableAdapter()
+                Dim idcliente As Long = Val(IdclienteTextBox.Text)
+                Dim idclientedomicilio As Long = gdomicilioseleccionado
+                Dim idalumno As Long = Val(TextBoxIDAlumno.Text)
+                Dim idservicio As Long = Val(TextBoxIdServicio.Text)
+                Dim fechadesde As Date
+                Dim fechahasta As Date
+                Select Case ComboBoxCuatrimestre.Text
+                    Case "Primero"
+
+                        fechadesde = DateTime.Parse("01/01/" + ComboBoxCicloLectivo.Text)
+                        fechahasta = DateTime.Parse("30/04/" + ComboBoxCicloLectivo.Text)
+                    Case "Segundo"
+                        fechadesde = DateTime.Parse("01/05/" + ComboBoxCicloLectivo.Text)
+                        fechahasta = DateTime.Parse("31/08/" + ComboBoxCicloLectivo.Text)
+                    Case "Tercero"
+                        fechadesde = DateTime.Parse("01/09/" + ComboBoxCicloLectivo.Text)
+                        fechahasta = DateTime.Parse("31/12/" + ComboBoxCicloLectivo.Text)
+                End Select
+                ClientesserviciosTableAdapter.clientesservicios_alta(idcliente, idclientedomicilio, idalumno, idservicio, fechadesde, fechahasta, gusername)
+                MessageBox.Show("Operación Exitosa!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim x As New VistaPreviaInscripcion()
+                x.ShowDialog()
+                Me.Close()
             End If
         Catch ex As Exception
             MessageBox.Show("Ocurrió una excepción: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class
