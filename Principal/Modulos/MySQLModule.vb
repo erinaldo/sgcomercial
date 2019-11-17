@@ -1485,7 +1485,7 @@ Module MySQLModule
             Dim stockgeneralTableAdapter As comercialDataSetTableAdapters.stockgeneralTableAdapter
             stockgeneralTableAdapter = New comercialDataSetTableAdapters.stockgeneralTableAdapter()
             '-----------------------------------------------------
-            Dim stockgeneral As comercialDataSet.stockgeneralDataTable
+            Dim stockgeneral As New comercialDataSet.stockgeneralDataTable()
             Select Case origen
                 Case "V"
                     stockgeneral = stockgeneralTableAdapter.GetDataByVenta(idventa)

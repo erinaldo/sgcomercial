@@ -922,7 +922,7 @@ Module SGCModule
             GMBSN = Trim(MB_serial)
         Next
         'MsgBox(MB_serial)
-
+        Return GHDSN
     End Function
     Public Sub UpdateHDSN(ByVal idterminal As Long)
         Try
