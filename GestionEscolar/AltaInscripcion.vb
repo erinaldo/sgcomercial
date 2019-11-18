@@ -196,7 +196,15 @@
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
+    'Private Sub Button2_Click(sender As Object, e As EventArgs)
+    '    Dim x As New VistaPreviaInscripcion()
+    '    x.ShowDialog()
+    '    Me.Close()
+    'End Sub
 
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim x As New VistaPreviaInscripcion()
+        x.ShowDialog()
+        Me.Close()
     End Sub
 End Class
