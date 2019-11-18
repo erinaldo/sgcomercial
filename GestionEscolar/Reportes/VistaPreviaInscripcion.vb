@@ -6,7 +6,7 @@
     Private Sub VistaPreviaInscripcion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim RegistroInscripcionesTableAdapter As New comercialDataSetTableAdapters.RegistroInscripcionesTableAdapter()
         Dim RegistroInscripcionesDataTable As New comercialDataSet.RegistroInscripcionesDataTable()
-        RegistroInscripcionesDataTable = RegistroInscripcionesTableAdapter.GetDataByidclientesservicios(10)
+        RegistroInscripcionesDataTable = RegistroInscripcionesTableAdapter.GetDataByidclientesservicios(gidoperacion)
         Dim texto As String = My.Resources.contrato.ToString
         Dim NombreCliente As String
         Dim DocumentoCliente As String

@@ -24,24 +24,24 @@ Partial Class SeleccionarGrado
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBoxfiltro = New System.Windows.Forms.TextBox()
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.GradosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GradosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gradosTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.GradosDataGridView = New System.Windows.Forms.DataGridView()
         Me.idgrado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GradosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TextBoxfiltro = New System.Windows.Forms.TextBox()
+        Me.GradosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gradosTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox2.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GradosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GradosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GradosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -55,6 +55,61 @@ Partial Class SeleccionarGrado
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado de Grados"
+        '
+        'GradosDataGridView
+        '
+        Me.GradosDataGridView.AllowUserToAddRows = False
+        Me.GradosDataGridView.AllowUserToDeleteRows = False
+        Me.GradosDataGridView.AutoGenerateColumns = False
+        Me.GradosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.GradosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.GradosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idgrado, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.GradosDataGridView.DataSource = Me.GradosBindingSource
+        Me.GradosDataGridView.Location = New System.Drawing.Point(19, 22)
+        Me.GradosDataGridView.Name = "GradosDataGridView"
+        Me.GradosDataGridView.ReadOnly = True
+        Me.GradosDataGridView.RowTemplate.Height = 24
+        Me.GradosDataGridView.Size = New System.Drawing.Size(588, 318)
+        Me.GradosDataGridView.TabIndex = 0
+        '
+        'idgrado
+        '
+        Me.idgrado.DataPropertyName = "idgrado"
+        Me.idgrado.HeaderText = "idgrado"
+        Me.idgrado.Name = "idgrado"
+        Me.idgrado.ReadOnly = True
+        Me.idgrado.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "grado"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Grado"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "division"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "División"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "turno"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Turno"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'GradosBindingSource
+        '
+        Me.GradosBindingSource.DataMember = "grados"
+        Me.GradosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox1
         '
@@ -83,7 +138,7 @@ Partial Class SeleccionarGrado
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Nombre", "Documento"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Grado", "División", "Turno"})
         Me.ComboBox1.Location = New System.Drawing.Point(79, 27)
         Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox1.Name = "ComboBox1"
@@ -98,16 +153,6 @@ Partial Class SeleccionarGrado
         Me.TextBoxfiltro.Name = "TextBoxfiltro"
         Me.TextBoxfiltro.Size = New System.Drawing.Size(204, 22)
         Me.TextBoxfiltro.TabIndex = 0
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'GradosBindingSource
-        '
-        Me.GradosBindingSource.DataMember = "grados"
-        Me.GradosBindingSource.DataSource = Me.ComercialDataSet
         '
         'GradosTableAdapter
         '
@@ -192,51 +237,6 @@ Partial Class SeleccionarGrado
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'GradosDataGridView
-        '
-        Me.GradosDataGridView.AllowUserToAddRows = False
-        Me.GradosDataGridView.AllowUserToDeleteRows = False
-        Me.GradosDataGridView.AutoGenerateColumns = False
-        Me.GradosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.GradosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.GradosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idgrado, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
-        Me.GradosDataGridView.DataSource = Me.GradosBindingSource
-        Me.GradosDataGridView.Location = New System.Drawing.Point(19, 22)
-        Me.GradosDataGridView.Name = "GradosDataGridView"
-        Me.GradosDataGridView.ReadOnly = True
-        Me.GradosDataGridView.RowTemplate.Height = 24
-        Me.GradosDataGridView.Size = New System.Drawing.Size(588, 318)
-        Me.GradosDataGridView.TabIndex = 0
-        '
-        'idgrado
-        '
-        Me.idgrado.DataPropertyName = "idgrado"
-        Me.idgrado.HeaderText = "idgrado"
-        Me.idgrado.Name = "idgrado"
-        Me.idgrado.ReadOnly = True
-        Me.idgrado.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "grado"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Grado"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "division"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "División"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "turno"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Turno"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
         'SeleccionarGrado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -252,11 +252,11 @@ Partial Class SeleccionarGrado
         Me.Tag = "SeleccionarGrado"
         Me.Text = "Seleccionar Grado"
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.GradosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GradosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GradosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GradosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

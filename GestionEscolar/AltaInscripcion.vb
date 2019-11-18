@@ -165,11 +165,12 @@
 
         Try
             If MsgBox("Seguro desea Confirmar la Inscripción?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                Dim ClientesserviciosTableAdapter As New comercialDataSetTableAdapters.clientesserviciosTableAdapter()
+                Dim ClientesserviciosTableAdapter As New comercialDataSetTableAdapters.clientesserviciosTableAdapter
                 Dim idcliente As Long = Val(IdclienteTextBox.Text)
                 Dim idclientedomicilio As Long = gdomicilioseleccionado
                 Dim idalumno As Long = Val(TextBoxIDAlumno.Text)
                 Dim idservicio As Long = Val(TextBoxIdServicio.Text)
+                Dim idgrado As Long = Val(TextBoxGrado.Text)
                 Dim fechadesde As Date
                 Dim fechahasta As Date
                 Select Case ComboBoxCuatrimestre.Text
@@ -184,7 +185,7 @@
                         fechadesde = DateTime.Parse("01/09/" + ComboBoxCicloLectivo.Text)
                         fechahasta = DateTime.Parse("31/12/" + ComboBoxCicloLectivo.Text)
                 End Select
-                ClientesserviciosTableAdapter.clientesservicios_alta(idcliente, idclientedomicilio, idalumno, idservicio, fechadesde, fechahasta, gusername)
+                gidoperacion = ClientesserviciosTableAdapter.clientesservicios_insertar(idcliente, idclientedomicilio, idalumno, idservicio, idgrado, fechadesde, fechahasta, gusername)
                 MessageBox.Show("Operación Exitosa!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Dim x As New VistaPreviaInscripcion()
                 x.ShowDialog()

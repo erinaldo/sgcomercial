@@ -25,6 +25,7 @@
                 LibroalumnosBindingSource.Filter = "documento like '%" + String.Format("{0}%'", TextBoxfiltro.Text)
             Case Else
                 MsgBox("Seleccione el campo por el cual desea filtrar", MsgBoxStyle.Exclamation, "Advertencia")
+                LibroalumnosBindingSource.Filter = ""
         End Select
     End Sub
 

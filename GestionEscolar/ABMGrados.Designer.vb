@@ -45,12 +45,12 @@ Partial Class ABMGrados
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.GradosBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButtonEditar = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButtonCancelar = New System.Windows.Forms.ToolStripButton()
         Me.IdgradoTextBox = New System.Windows.Forms.TextBox()
         Me.GradoTextBox = New System.Windows.Forms.TextBox()
         Me.DivisionTextBox = New System.Windows.Forms.TextBox()
         Me.TurnoComboBox = New System.Windows.Forms.ComboBox()
-        Me.ToolStripButtonEditar = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButtonCancelar = New System.Windows.Forms.ToolStripButton()
         IdgradoLabel = New System.Windows.Forms.Label()
         GradoLabel = New System.Windows.Forms.Label()
         DivisionLabel = New System.Windows.Forms.Label()
@@ -303,6 +303,24 @@ Partial Class ABMGrados
         Me.GradosBindingNavigatorSaveItem.Text = "Guardar datos"
         Me.GradosBindingNavigatorSaveItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'ToolStripButtonEditar
+        '
+        Me.ToolStripButtonEditar.Image = Global.sgcomercial.My.Resources.Resources.editar
+        Me.ToolStripButtonEditar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonEditar.Name = "ToolStripButtonEditar"
+        Me.ToolStripButtonEditar.Size = New System.Drawing.Size(52, 44)
+        Me.ToolStripButtonEditar.Text = "Editar"
+        Me.ToolStripButtonEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'ToolStripButtonCancelar
+        '
+        Me.ToolStripButtonCancelar.Image = Global.sgcomercial.My.Resources.Resources.reload_512
+        Me.ToolStripButtonCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonCancelar.Name = "ToolStripButtonCancelar"
+        Me.ToolStripButtonCancelar.Size = New System.Drawing.Size(70, 44)
+        Me.ToolStripButtonCancelar.Text = "Cancelar"
+        Me.ToolStripButtonCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'IdgradoTextBox
         '
         Me.IdgradoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GradosBindingSource, "idgrado", True))
@@ -341,29 +359,11 @@ Partial Class ABMGrados
         Me.TurnoComboBox.Size = New System.Drawing.Size(121, 24)
         Me.TurnoComboBox.TabIndex = 8
         '
-        'ToolStripButtonEditar
-        '
-        Me.ToolStripButtonEditar.Image = Global.sgcomercial.My.Resources.Resources.editar
-        Me.ToolStripButtonEditar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButtonEditar.Name = "ToolStripButtonEditar"
-        Me.ToolStripButtonEditar.Size = New System.Drawing.Size(52, 44)
-        Me.ToolStripButtonEditar.Text = "Editar"
-        Me.ToolStripButtonEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'ToolStripButtonCancelar
-        '
-        Me.ToolStripButtonCancelar.Image = Global.sgcomercial.My.Resources.Resources.reload_512
-        Me.ToolStripButtonCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButtonCancelar.Name = "ToolStripButtonCancelar"
-        Me.ToolStripButtonCancelar.Size = New System.Drawing.Size(70, 44)
-        Me.ToolStripButtonCancelar.Text = "Cancelar"
-        Me.ToolStripButtonCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
         'ABMGrados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(643, 291)
+        Me.ClientSize = New System.Drawing.Size(643, 224)
         Me.Controls.Add(IdgradoLabel)
         Me.Controls.Add(Me.IdgradoTextBox)
         Me.Controls.Add(GradoLabel)
