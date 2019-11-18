@@ -23,10 +23,12 @@
         NombreAlumno = RegistroInscripcionesDataTable.Rows(0).Item(RegistroInscripcionesDataTable.NombreAlumnoColumn)
         ServicioDescripcion = RegistroInscripcionesDataTable.Rows(0).Item(RegistroInscripcionesDataTable.descripcionColumn)
         PrecioVenta = RegistroInscripcionesDataTable.Rows(0).Item(RegistroInscripcionesDataTable.precioventaColumn)
+        Cursado = RegistroInscripcionesDataTable.Rows(0).Item(RegistroInscripcionesDataTable.cursadoColumn)
         '/****************************************************/
         texto = texto.Replace("&NombreCliente", NombreCliente)
         texto = texto.Replace("&DocumentoCliente", DocumentoCliente)
         texto = texto.Replace("&NombreAlumno", NombreAlumno)
+        texto = texto.Replace("&Cursado", Cursado)
         texto = texto.Replace("&CicloLectivo", CicloLectivo)
         texto = texto.Replace("&ServicioDescripcion", ServicioDescripcion)
         texto = texto.Replace("&PrecioVenta", PrecioVenta)

@@ -136,6 +136,7 @@ Partial Class ABMServicios
         '
         'DescripcionTextBox
         '
+        Me.DescripcionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.DescripcionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "descripcion", True))
         Me.DescripcionTextBox.Location = New System.Drawing.Point(167, 68)
         Me.DescripcionTextBox.Name = "DescripcionTextBox"

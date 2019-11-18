@@ -7,6 +7,8 @@
     End Sub
 
     Private Sub AltaInscripcion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.grados' Puede moverla o quitarla según sea necesario.
+        Me.GradosTableAdapter.Fill(Me.ComercialDataSet.grados)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.servicios' Puede moverla o quitarla según sea necesario.
         'Me.ServiciosTableAdapter.Fill(Me.ComercialDataSet.servicios)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.clientesdomicilios' Puede moverla o quitarla según sea necesario.
@@ -63,15 +65,8 @@
         If galumnoseleccionado > 0 Then
             'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, galumnoseleccionado)
             Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, galumnoseleccionado)
-            If galumnoseleccionado > 1 Then
-                PictureEditarAlumno.Visible = True
-                'calculafechavencimiento()
-                'ButtonDescuentoDefecto.Visible = True
-            Else
-                PictureEditarAlumno.Visible = False
-                'ButtonDescuentoDefecto.Visible = False
-                TextBoxIDAlumno.Text = Nothing
-            End If
+            PictureEditarAlumno.Visible = False
+            TextBoxIDAlumno.Text = Nothing
         Else
             'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
             Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, galumnoseleccionado)
@@ -203,7 +198,7 @@
     '    Me.Close()
     'End Sub
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs)
         Dim x As New VistaPreviaInscripcion()
         x.ShowDialog()
         Me.Close()

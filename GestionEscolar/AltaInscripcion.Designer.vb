@@ -73,14 +73,15 @@ Partial Class AltaInscripcion
         Me.ClientesdomiciliosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.clientesdomiciliosTableAdapter()
         Me.ServiciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.serviciosTableAdapter()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.LabelCursado = New System.Windows.Forms.Label()
+        Me.PictureBoxCursado = New System.Windows.Forms.PictureBox()
+        Me.TextBoxGrado = New System.Windows.Forms.TextBox()
         Me.ComboBoxCicloLectivo = New System.Windows.Forms.ComboBox()
         Me.ComboBoxCuatrimestre = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBoxGrado = New System.Windows.Forms.TextBox()
-        Me.PictureBoxCursado = New System.Windows.Forms.PictureBox()
-        Me.LabelCursado = New System.Windows.Forms.Label()
+        Me.GradosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GradosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gradosTableAdapter()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         TelefonoLabel = New System.Windows.Forms.Label()
@@ -113,6 +114,7 @@ Partial Class AltaInscripcion
         CType(Me.PictureServicio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         CType(Me.PictureBoxCursado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GradosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -661,6 +663,37 @@ Partial Class AltaInscripcion
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Cursado"
         '
+        'LabelCursado
+        '
+        Me.LabelCursado.AutoSize = True
+        Me.LabelCursado.Location = New System.Drawing.Point(261, 31)
+        Me.LabelCursado.Name = "LabelCursado"
+        Me.LabelCursado.Size = New System.Drawing.Size(136, 17)
+        Me.LabelCursado.TabIndex = 43
+        Me.LabelCursado.Text = "________________"
+        '
+        'PictureBoxCursado
+        '
+        Me.PictureBoxCursado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBoxCursado.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxCursado.Image = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureBoxCursado.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureBoxCursado.Location = New System.Drawing.Point(182, 26)
+        Me.PictureBoxCursado.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBoxCursado.Name = "PictureBoxCursado"
+        Me.PictureBoxCursado.Size = New System.Drawing.Size(27, 27)
+        Me.PictureBoxCursado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxCursado.TabIndex = 42
+        Me.PictureBoxCursado.TabStop = False
+        '
+        'TextBoxGrado
+        '
+        Me.TextBoxGrado.Enabled = False
+        Me.TextBoxGrado.Location = New System.Drawing.Point(102, 28)
+        Me.TextBoxGrado.Name = "TextBoxGrado"
+        Me.TextBoxGrado.Size = New System.Drawing.Size(54, 22)
+        Me.TextBoxGrado.TabIndex = 3
+        '
         'ComboBoxCicloLectivo
         '
         Me.ComboBoxCicloLectivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -699,52 +732,20 @@ Partial Class AltaInscripcion
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "Cuatrimestre:"
         '
-        'Button2
+        'GradosBindingSource
         '
-        Me.Button2.Location = New System.Drawing.Point(577, 562)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 6
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.GradosBindingSource.DataMember = "grados"
+        Me.GradosBindingSource.DataSource = Me.ComercialDataSet
         '
-        'TextBoxGrado
+        'GradosTableAdapter
         '
-        Me.TextBoxGrado.Enabled = False
-        Me.TextBoxGrado.Location = New System.Drawing.Point(102, 28)
-        Me.TextBoxGrado.Name = "TextBoxGrado"
-        Me.TextBoxGrado.Size = New System.Drawing.Size(54, 22)
-        Me.TextBoxGrado.TabIndex = 3
-        '
-        'PictureBoxCursado
-        '
-        Me.PictureBoxCursado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBoxCursado.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBoxCursado.Image = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureBoxCursado.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureBoxCursado.Location = New System.Drawing.Point(182, 26)
-        Me.PictureBoxCursado.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBoxCursado.Name = "PictureBoxCursado"
-        Me.PictureBoxCursado.Size = New System.Drawing.Size(27, 27)
-        Me.PictureBoxCursado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBoxCursado.TabIndex = 42
-        Me.PictureBoxCursado.TabStop = False
-        '
-        'LabelCursado
-        '
-        Me.LabelCursado.AutoSize = True
-        Me.LabelCursado.Location = New System.Drawing.Point(261, 31)
-        Me.LabelCursado.Name = "LabelCursado"
-        Me.LabelCursado.Size = New System.Drawing.Size(136, 17)
-        Me.LabelCursado.TabIndex = 43
-        Me.LabelCursado.Text = "________________"
+        Me.GradosTableAdapter.ClearBeforeFill = True
         '
         'AltaInscripcion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(858, 604)
-        Me.Controls.Add(Me.Button2)
+        Me.ClientSize = New System.Drawing.Size(851, 612)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox4)
@@ -779,6 +780,7 @@ Partial Class AltaInscripcion
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         CType(Me.PictureBoxCursado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GradosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -822,8 +824,9 @@ Partial Class AltaInscripcion
     Friend WithEvents Label7 As Label
     Friend WithEvents ComboBoxCicloLectivo As ComboBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents Button2 As Button
     Friend WithEvents LabelCursado As Label
     Friend WithEvents PictureBoxCursado As PictureBox
     Friend WithEvents TextBoxGrado As TextBox
+    Friend WithEvents GradosBindingSource As BindingSource
+    Friend WithEvents GradosTableAdapter As comercialDataSetTableAdapters.gradosTableAdapter
 End Class
