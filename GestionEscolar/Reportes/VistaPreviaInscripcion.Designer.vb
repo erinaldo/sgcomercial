@@ -22,29 +22,28 @@ Partial Class VistaPreviaInscripcion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.SuspendLayout()
         '
-        'ReportViewer1
+        'WebBrowser1
         '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(936, 606)
-        Me.ReportViewer1.TabIndex = 0
+        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.Size = New System.Drawing.Size(1104, 570)
+        Me.WebBrowser1.TabIndex = 1
         '
         'VistaPreviaInscripcion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(936, 606)
-        Me.Controls.Add(Me.ReportViewer1)
+        Me.ClientSize = New System.Drawing.Size(1104, 570)
+        Me.Controls.Add(Me.WebBrowser1)
         Me.Name = "VistaPreviaInscripcion"
-        Me.Tag = "VistaPreviaInscripcion"
-        Me.Text = "Vista Previa Inscripcion"
+        Me.Text = "VistaPreviaInscripcion"
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents ReportViewer1 As ReportViewer
+    Friend WithEvents WebBrowser1 As WebBrowser
 End Class
