@@ -84,6 +84,8 @@ Module SGCModule
     Public galumnoseleccionado As Long
     Public gservicioseleccionado As Long
     Public gdomicilioseleccionado As Long
+    Public gclientesserviciosseleccionado As Long
+    Public ggradoseleccionado As Long
     Public gmontovale As Decimal
     Public gidpresupuesto As Long
     '************************************

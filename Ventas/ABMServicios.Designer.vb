@@ -66,7 +66,7 @@ Partial Class ABMServicios
         'IdservicioLabel
         '
         IdservicioLabel.AutoSize = True
-        IdservicioLabel.Location = New System.Drawing.Point(267, 43)
+        IdservicioLabel.Location = New System.Drawing.Point(133, 43)
         IdservicioLabel.Name = "IdservicioLabel"
         IdservicioLabel.Size = New System.Drawing.Size(25, 17)
         IdservicioLabel.TabIndex = 0
@@ -75,7 +75,7 @@ Partial Class ABMServicios
         'DescripcionLabel
         '
         DescripcionLabel.AutoSize = True
-        DescripcionLabel.Location = New System.Drawing.Point(210, 71)
+        DescripcionLabel.Location = New System.Drawing.Point(76, 71)
         DescripcionLabel.Name = "DescripcionLabel"
         DescripcionLabel.Size = New System.Drawing.Size(82, 17)
         DescripcionLabel.TabIndex = 2
@@ -84,7 +84,7 @@ Partial Class ABMServicios
         'PrecioventaLabel
         '
         PrecioventaLabel.AutoSize = True
-        PrecioventaLabel.Location = New System.Drawing.Point(199, 99)
+        PrecioventaLabel.Location = New System.Drawing.Point(65, 99)
         PrecioventaLabel.Name = "PrecioventaLabel"
         PrecioventaLabel.Size = New System.Drawing.Size(93, 17)
         PrecioventaLabel.TabIndex = 4
@@ -93,7 +93,7 @@ Partial Class ABMServicios
         'DiasvigenciaLabel
         '
         DiasvigenciaLabel.AutoSize = True
-        DiasvigenciaLabel.Location = New System.Drawing.Point(194, 127)
+        DiasvigenciaLabel.Location = New System.Drawing.Point(60, 127)
         DiasvigenciaLabel.Name = "DiasvigenciaLabel"
         DiasvigenciaLabel.Size = New System.Drawing.Size(98, 17)
         DiasvigenciaLabel.TabIndex = 6
@@ -119,7 +119,7 @@ Partial Class ABMServicios
         '
         Me.IdservicioTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "idservicio", True))
         Me.IdservicioTextBox.Enabled = False
-        Me.IdservicioTextBox.Location = New System.Drawing.Point(301, 40)
+        Me.IdservicioTextBox.Location = New System.Drawing.Point(167, 40)
         Me.IdservicioTextBox.Name = "IdservicioTextBox"
         Me.IdservicioTextBox.Size = New System.Drawing.Size(100, 22)
         Me.IdservicioTextBox.TabIndex = 1
@@ -137,15 +137,15 @@ Partial Class ABMServicios
         'DescripcionTextBox
         '
         Me.DescripcionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "descripcion", True))
-        Me.DescripcionTextBox.Location = New System.Drawing.Point(301, 68)
+        Me.DescripcionTextBox.Location = New System.Drawing.Point(167, 68)
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
-        Me.DescripcionTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.DescripcionTextBox.Size = New System.Drawing.Size(368, 22)
         Me.DescripcionTextBox.TabIndex = 3
         '
         'PrecioventaTextBox
         '
         Me.PrecioventaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "precioventa", True))
-        Me.PrecioventaTextBox.Location = New System.Drawing.Point(301, 96)
+        Me.PrecioventaTextBox.Location = New System.Drawing.Point(167, 96)
         Me.PrecioventaTextBox.Name = "PrecioventaTextBox"
         Me.PrecioventaTextBox.Size = New System.Drawing.Size(100, 22)
         Me.PrecioventaTextBox.TabIndex = 5
@@ -153,7 +153,7 @@ Partial Class ABMServicios
         'DiasvigenciaTextBox
         '
         Me.DiasvigenciaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "diasvigencia", True))
-        Me.DiasvigenciaTextBox.Location = New System.Drawing.Point(301, 124)
+        Me.DiasvigenciaTextBox.Location = New System.Drawing.Point(167, 124)
         Me.DiasvigenciaTextBox.Name = "DiasvigenciaTextBox"
         Me.DiasvigenciaTextBox.Size = New System.Drawing.Size(100, 22)
         Me.DiasvigenciaTextBox.TabIndex = 7
@@ -174,7 +174,6 @@ Partial Class ABMServicios
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        'Me.TableAdapterManager.clientesalumnosTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing

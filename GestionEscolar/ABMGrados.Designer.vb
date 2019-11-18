@@ -23,11 +23,11 @@ Partial Class ABMGrados
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMGrados))
         Dim IdgradoLabel As System.Windows.Forms.Label
         Dim GradoLabel As System.Windows.Forms.Label
         Dim DivisionLabel As System.Windows.Forms.Label
         Dim TurnoLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMGrados))
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GradosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GradosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gradosTableAdapter()
@@ -49,6 +49,8 @@ Partial Class ABMGrados
         Me.GradoTextBox = New System.Windows.Forms.TextBox()
         Me.DivisionTextBox = New System.Windows.Forms.TextBox()
         Me.TurnoComboBox = New System.Windows.Forms.ComboBox()
+        Me.ToolStripButtonEditar = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButtonCancelar = New System.Windows.Forms.ToolStripButton()
         IdgradoLabel = New System.Windows.Forms.Label()
         GradoLabel = New System.Windows.Forms.Label()
         DivisionLabel = New System.Windows.Forms.Label()
@@ -58,6 +60,42 @@ Partial Class ABMGrados
         CType(Me.GradosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GradosBindingNavigator.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'IdgradoLabel
+        '
+        IdgradoLabel.AutoSize = True
+        IdgradoLabel.Location = New System.Drawing.Point(170, 94)
+        IdgradoLabel.Name = "IdgradoLabel"
+        IdgradoLabel.Size = New System.Drawing.Size(25, 17)
+        IdgradoLabel.TabIndex = 1
+        IdgradoLabel.Text = "ID:"
+        '
+        'GradoLabel
+        '
+        GradoLabel.AutoSize = True
+        GradoLabel.Location = New System.Drawing.Point(143, 122)
+        GradoLabel.Name = "GradoLabel"
+        GradoLabel.Size = New System.Drawing.Size(52, 17)
+        GradoLabel.TabIndex = 3
+        GradoLabel.Text = "Grado:"
+        '
+        'DivisionLabel
+        '
+        DivisionLabel.AutoSize = True
+        DivisionLabel.Location = New System.Drawing.Point(134, 150)
+        DivisionLabel.Name = "DivisionLabel"
+        DivisionLabel.Size = New System.Drawing.Size(61, 17)
+        DivisionLabel.TabIndex = 5
+        DivisionLabel.Text = "División:"
+        '
+        'TurnoLabel
+        '
+        TurnoLabel.AutoSize = True
+        TurnoLabel.Location = New System.Drawing.Point(150, 178)
+        TurnoLabel.Name = "TurnoLabel"
+        TurnoLabel.Size = New System.Drawing.Size(50, 17)
+        TurnoLabel.TabIndex = 7
+        TurnoLabel.Text = "Turno:"
         '
         'ComercialDataSet
         '
@@ -85,7 +123,6 @@ Partial Class ABMGrados
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        'Me.TableAdapterManager.clientesalumnosTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
@@ -160,7 +197,7 @@ Partial Class ABMGrados
         Me.GradosBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.GradosBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.GradosBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.GradosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.GradosBindingNavigatorSaveItem})
+        Me.GradosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.GradosBindingNavigatorSaveItem, Me.ToolStripButtonEditar, Me.ToolStripButtonCancelar})
         Me.GradosBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.GradosBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.GradosBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -168,23 +205,23 @@ Partial Class ABMGrados
         Me.GradosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.GradosBindingNavigator.Name = "GradosBindingNavigator"
         Me.GradosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.GradosBindingNavigator.Size = New System.Drawing.Size(496, 27)
+        Me.GradosBindingNavigator.Size = New System.Drawing.Size(643, 47)
         Me.GradosBindingNavigator.TabIndex = 0
         Me.GradosBindingNavigator.Text = "BindingNavigator1"
         '
         'BindingNavigatorAddNewItem
         '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(111, 44)
         Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
+        Me.BindingNavigatorAddNewItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 24)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 44)
         Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Número total de elementos"
         '
@@ -194,8 +231,9 @@ Partial Class ABMGrados
         Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
         Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(24, 44)
         Me.BindingNavigatorDeleteItem.Text = "Eliminar"
+        Me.BindingNavigatorDeleteItem.Visible = False
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -203,7 +241,7 @@ Partial Class ABMGrados
         Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
         Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(24, 44)
         Me.BindingNavigatorMoveFirstItem.Text = "Mover primero"
         '
         'BindingNavigatorMovePreviousItem
@@ -212,13 +250,13 @@ Partial Class ABMGrados
         Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
         Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(24, 44)
         Me.BindingNavigatorMovePreviousItem.Text = "Mover anterior"
         '
         'BindingNavigatorSeparator
         '
         Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 27)
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 47)
         '
         'BindingNavigatorPositionItem
         '
@@ -232,7 +270,7 @@ Partial Class ABMGrados
         'BindingNavigatorSeparator1
         '
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 27)
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 47)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -240,7 +278,7 @@ Partial Class ABMGrados
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(24, 44)
         Me.BindingNavigatorMoveNextItem.Text = "Mover siguiente"
         '
         'BindingNavigatorMoveLastItem
@@ -249,81 +287,48 @@ Partial Class ABMGrados
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(24, 44)
         Me.BindingNavigatorMoveLastItem.Text = "Mover último"
         '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 27)
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 47)
         '
         'GradosBindingNavigatorSaveItem
         '
-        Me.GradosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.GradosBindingNavigatorSaveItem.Image = CType(resources.GetObject("GradosBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.GradosBindingNavigatorSaveItem.Name = "GradosBindingNavigatorSaveItem"
-        Me.GradosBindingNavigatorSaveItem.Size = New System.Drawing.Size(24, 24)
+        Me.GradosBindingNavigatorSaveItem.Size = New System.Drawing.Size(107, 44)
         Me.GradosBindingNavigatorSaveItem.Text = "Guardar datos"
-        '
-        'IdgradoLabel
-        '
-        IdgradoLabel.AutoSize = True
-        IdgradoLabel.Location = New System.Drawing.Point(170, 68)
-        IdgradoLabel.Name = "IdgradoLabel"
-        IdgradoLabel.Size = New System.Drawing.Size(25, 17)
-        IdgradoLabel.TabIndex = 1
-        IdgradoLabel.Text = "ID:"
+        Me.GradosBindingNavigatorSaveItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'IdgradoTextBox
         '
         Me.IdgradoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GradosBindingSource, "idgrado", True))
-        Me.IdgradoTextBox.Location = New System.Drawing.Point(201, 65)
+        Me.IdgradoTextBox.Enabled = False
+        Me.IdgradoTextBox.Location = New System.Drawing.Point(201, 91)
         Me.IdgradoTextBox.Name = "IdgradoTextBox"
         Me.IdgradoTextBox.Size = New System.Drawing.Size(121, 22)
         Me.IdgradoTextBox.TabIndex = 2
         '
-        'GradoLabel
-        '
-        GradoLabel.AutoSize = True
-        GradoLabel.Location = New System.Drawing.Point(143, 96)
-        GradoLabel.Name = "GradoLabel"
-        GradoLabel.Size = New System.Drawing.Size(52, 17)
-        GradoLabel.TabIndex = 3
-        GradoLabel.Text = "Grado:"
-        '
         'GradoTextBox
         '
+        Me.GradoTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.GradoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GradosBindingSource, "grado", True))
-        Me.GradoTextBox.Location = New System.Drawing.Point(201, 93)
+        Me.GradoTextBox.Location = New System.Drawing.Point(201, 119)
         Me.GradoTextBox.Name = "GradoTextBox"
-        Me.GradoTextBox.Size = New System.Drawing.Size(121, 22)
+        Me.GradoTextBox.Size = New System.Drawing.Size(307, 22)
         Me.GradoTextBox.TabIndex = 4
-        '
-        'DivisionLabel
-        '
-        DivisionLabel.AutoSize = True
-        DivisionLabel.Location = New System.Drawing.Point(134, 124)
-        DivisionLabel.Name = "DivisionLabel"
-        DivisionLabel.Size = New System.Drawing.Size(61, 17)
-        DivisionLabel.TabIndex = 5
-        DivisionLabel.Text = "División:"
         '
         'DivisionTextBox
         '
+        Me.DivisionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.DivisionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GradosBindingSource, "division", True))
-        Me.DivisionTextBox.Location = New System.Drawing.Point(201, 121)
+        Me.DivisionTextBox.Location = New System.Drawing.Point(201, 147)
         Me.DivisionTextBox.Name = "DivisionTextBox"
         Me.DivisionTextBox.Size = New System.Drawing.Size(121, 22)
         Me.DivisionTextBox.TabIndex = 6
-        '
-        'TurnoLabel
-        '
-        TurnoLabel.AutoSize = True
-        TurnoLabel.Location = New System.Drawing.Point(150, 152)
-        TurnoLabel.Name = "TurnoLabel"
-        TurnoLabel.Size = New System.Drawing.Size(45, 17)
-        TurnoLabel.TabIndex = 7
-        TurnoLabel.Text = "turno:"
         '
         'TurnoComboBox
         '
@@ -331,16 +336,34 @@ Partial Class ABMGrados
         Me.TurnoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.TurnoComboBox.FormattingEnabled = True
         Me.TurnoComboBox.Items.AddRange(New Object() {"M", "T"})
-        Me.TurnoComboBox.Location = New System.Drawing.Point(201, 149)
+        Me.TurnoComboBox.Location = New System.Drawing.Point(201, 175)
         Me.TurnoComboBox.Name = "TurnoComboBox"
         Me.TurnoComboBox.Size = New System.Drawing.Size(121, 24)
         Me.TurnoComboBox.TabIndex = 8
+        '
+        'ToolStripButtonEditar
+        '
+        Me.ToolStripButtonEditar.Image = Global.sgcomercial.My.Resources.Resources.editar
+        Me.ToolStripButtonEditar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonEditar.Name = "ToolStripButtonEditar"
+        Me.ToolStripButtonEditar.Size = New System.Drawing.Size(52, 44)
+        Me.ToolStripButtonEditar.Text = "Editar"
+        Me.ToolStripButtonEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'ToolStripButtonCancelar
+        '
+        Me.ToolStripButtonCancelar.Image = Global.sgcomercial.My.Resources.Resources.reload_512
+        Me.ToolStripButtonCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonCancelar.Name = "ToolStripButtonCancelar"
+        Me.ToolStripButtonCancelar.Size = New System.Drawing.Size(70, 44)
+        Me.ToolStripButtonCancelar.Text = "Cancelar"
+        Me.ToolStripButtonCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ABMGrados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(496, 221)
+        Me.ClientSize = New System.Drawing.Size(643, 291)
         Me.Controls.Add(IdgradoLabel)
         Me.Controls.Add(Me.IdgradoTextBox)
         Me.Controls.Add(GradoLabel)
@@ -385,4 +408,6 @@ Partial Class ABMGrados
     Friend WithEvents GradoTextBox As TextBox
     Friend WithEvents DivisionTextBox As TextBox
     Friend WithEvents TurnoComboBox As ComboBox
+    Friend WithEvents ToolStripButtonEditar As ToolStripButton
+    Friend WithEvents ToolStripButtonCancelar As ToolStripButton
 End Class

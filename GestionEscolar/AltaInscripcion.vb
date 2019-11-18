@@ -207,4 +207,31 @@
         x.ShowDialog()
         Me.Close()
     End Sub
+
+    Private Sub PictureBoxCursado_Click(sender As Object, e As EventArgs) Handles PictureBoxCursado.Click
+        ggradoseleccionado = 0
+        Dim p As SeleccionarGrado
+        p = New SeleccionarGrado
+        p.ShowDialog()
+        TextBoxGrado.Text = ggradoseleccionado.ToString
+        If ggradoseleccionado > 0 Then
+            'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, galumnoseleccionado)
+            Me.ServiciosTableAdapter.FillByIDServicio(Me.ComercialDataSet.servicios, ggradoseleccionado)
+            If ggradoseleccionado > 1 Then
+                PictureEditarAlumno.Visible = True
+                'calculafechavencimiento()
+                'ButtonDescuentoDefecto.Visible = True
+            Else
+                PictureEditarAlumno.Visible = False
+                'ButtonDescuentoDefecto.Visible = False
+                TextBoxIdServicio.Text = Nothing
+            End If
+        Else
+            'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
+            Me.ServiciosTableAdapter.FillByIDServicio(Me.ComercialDataSet.servicios, ggradoseleccionado)
+            PictureEditarAlumno.Visible = False
+            TextBoxIdServicio.Text = Nothing
+        End If
+        ggradoseleccionado = Nothing
+    End Sub
 End Class

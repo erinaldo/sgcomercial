@@ -78,7 +78,7 @@ Partial Class AltaInscripcion
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBoxGrado = New System.Windows.Forms.TextBox()
         Me.PictureBoxCursado = New System.Windows.Forms.PictureBox()
         Me.LabelCursado = New System.Windows.Forms.Label()
         IdclienteLabel = New System.Windows.Forms.Label()
@@ -649,7 +649,7 @@ Partial Class AltaInscripcion
         '
         Me.GroupBox5.Controls.Add(Me.LabelCursado)
         Me.GroupBox5.Controls.Add(Me.PictureBoxCursado)
-        Me.GroupBox5.Controls.Add(Me.TextBox1)
+        Me.GroupBox5.Controls.Add(Me.TextBoxGrado)
         Me.GroupBox5.Controls.Add(Me.ComboBoxCicloLectivo)
         Me.GroupBox5.Controls.Add(Me.ComboBoxCuatrimestre)
         Me.GroupBox5.Controls.Add(Me.Label8)
@@ -708,13 +708,13 @@ Partial Class AltaInscripcion
         Me.Button2.Text = "Button2"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'TextBoxGrado
         '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(102, 28)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(54, 22)
-        Me.TextBox1.TabIndex = 3
+        Me.TextBoxGrado.Enabled = False
+        Me.TextBoxGrado.Location = New System.Drawing.Point(102, 28)
+        Me.TextBoxGrado.Name = "TextBoxGrado"
+        Me.TextBoxGrado.Size = New System.Drawing.Size(54, 22)
+        Me.TextBoxGrado.TabIndex = 3
         '
         'PictureBoxCursado
         '
@@ -825,5 +825,5 @@ Partial Class AltaInscripcion
     Friend WithEvents Button2 As Button
     Friend WithEvents LabelCursado As Label
     Friend WithEvents PictureBoxCursado As PictureBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBoxGrado As TextBox
 End Class

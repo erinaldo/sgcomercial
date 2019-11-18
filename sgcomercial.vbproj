@@ -468,6 +468,12 @@
     <Compile Include="GestionEscolar\SeleccionarAlumno.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GestionEscolar\SeleccionarGrado.Designer.vb">
+      <DependentUpon>SeleccionarGrado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEscolar\SeleccionarGrado.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MiFranquicia\ConfiguracionesFranquicia.Designer.vb">
       <DependentUpon>ConfiguracionesFranquicia.vb</DependentUpon>
     </Compile>
@@ -1466,6 +1472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionEscolar\SeleccionarAlumno.resx">
       <DependentUpon>SeleccionarAlumno.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionEscolar\SeleccionarGrado.resx">
+      <DependentUpon>SeleccionarGrado.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MiFranquicia\ConfiguracionesFranquicia.resx">
       <DependentUpon>ConfiguracionesFranquicia.vb</DependentUpon>
