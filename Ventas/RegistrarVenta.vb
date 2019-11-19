@@ -235,6 +235,15 @@ Public Class RegistrarVenta
             '''''''''''''''''''''''''''''''''''''''''''''''
             CheckBoxFP2.Checked = False
         End If
+        '********** CbtDefecto
+        Try
+            If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
+                Dim CbtDefecto As Long
+                CbtDefecto = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("CbtDefecto")
+                Idtipocomprobantecombo.SelectedValue = CbtDefecto
+            End If
+        Catch ex As Exception
+        End Try
     End Sub
     Private Sub NuevaVenta()
         Dim STATUSCAJA As Boolean

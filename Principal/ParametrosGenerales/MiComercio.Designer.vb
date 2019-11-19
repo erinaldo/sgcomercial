@@ -48,6 +48,9 @@ Partial Class MiComercio
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ParametrosgeneralesBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.ParametrosgeneralesBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.AToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
@@ -84,9 +87,11 @@ Partial Class MiComercio
         Me.ComboFEAutoCAEAFIP = New System.Windows.Forms.ComboBox()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
         Me.ComboValDatosNuevosClientes = New System.Windows.Forms.ComboBox()
-        Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.AToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.ComboCbtDefecto = New System.Windows.Forms.ComboBox()
+        Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TipocomprobantesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocomprobantesTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,6 +111,7 @@ Partial Class MiComercio
         Me.GroupBox11.SuspendLayout()
         Me.GroupBoxFEAFIP.SuspendLayout()
         Me.GroupBox12.SuspendLayout()
+        CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -326,6 +332,27 @@ Partial Class MiComercio
         Me.ParametrosgeneralesBindingNavigatorSaveItem.Size = New System.Drawing.Size(127, 24)
         Me.ParametrosgeneralesBindingNavigatorSaveItem.Text = "Guardar datos"
         '
+        'ToolStripDropDownButton1
+        '
+        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AToolStripMenuItem, Me.BToolStripMenuItem})
+        Me.ToolStripDropDownButton1.Image = Global.sgcomercial.My.Resources.Resources.editar
+        Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(189, 24)
+        Me.ToolStripDropDownButton1.Text = "Ver Lista de Productos"
+        '
+        'AToolStripMenuItem
+        '
+        Me.AToolStripMenuItem.Name = "AToolStripMenuItem"
+        Me.AToolStripMenuItem.Size = New System.Drawing.Size(365, 26)
+        Me.AToolStripMenuItem.Text = "Lista Tipo A (Marca/Modelo/Presentación)"
+        '
+        'BToolStripMenuItem
+        '
+        Me.BToolStripMenuItem.Name = "BToolStripMenuItem"
+        Me.BToolStripMenuItem.Size = New System.Drawing.Size(365, 26)
+        Me.BToolStripMenuItem.Text = "Lista Tipo B (Modelo/Marca/Presentación)"
+        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
@@ -336,6 +363,7 @@ Partial Class MiComercio
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -346,6 +374,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
@@ -357,6 +386,8 @@ Partial Class MiComercio
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -386,6 +417,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -688,6 +720,9 @@ Partial Class MiComercio
         '
         'GroupBoxFEAFIP
         '
+        Me.GroupBoxFEAFIP.Controls.Add(Me.ComboCbtDefecto)
+        Me.GroupBoxFEAFIP.Controls.Add(Me.Label11)
+        Me.GroupBoxFEAFIP.Controls.Add(Me.Label10)
         Me.GroupBoxFEAFIP.Controls.Add(Me.ComboFEAutoCAEAFIP)
         Me.GroupBoxFEAFIP.Location = New System.Drawing.Point(9, 559)
         Me.GroupBoxFEAFIP.Name = "GroupBoxFEAFIP"
@@ -701,9 +736,9 @@ Partial Class MiComercio
         Me.ComboFEAutoCAEAFIP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboFEAutoCAEAFIP.FormattingEnabled = True
         Me.ComboFEAutoCAEAFIP.Items.AddRange(New Object() {"SI", "NO"})
-        Me.ComboFEAutoCAEAFIP.Location = New System.Drawing.Point(225, 27)
+        Me.ComboFEAutoCAEAFIP.Location = New System.Drawing.Point(137, 27)
         Me.ComboFEAutoCAEAFIP.Name = "ComboFEAutoCAEAFIP"
-        Me.ComboFEAutoCAEAFIP.Size = New System.Drawing.Size(207, 24)
+        Me.ComboFEAutoCAEAFIP.Size = New System.Drawing.Size(112, 24)
         Me.ComboFEAutoCAEAFIP.TabIndex = 2
         '
         'GroupBox12
@@ -726,26 +761,44 @@ Partial Class MiComercio
         Me.ComboValDatosNuevosClientes.Size = New System.Drawing.Size(121, 24)
         Me.ComboValDatosNuevosClientes.TabIndex = 0
         '
-        'ToolStripDropDownButton1
+        'Label10
         '
-        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AToolStripMenuItem, Me.BToolStripMenuItem})
-        Me.ToolStripDropDownButton1.Image = Global.sgcomercial.My.Resources.Resources.editar
-        Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(189, 24)
-        Me.ToolStripDropDownButton1.Text = "Ver Lista de Productos"
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(82, 31)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(50, 17)
+        Me.Label10.TabIndex = 3
+        Me.Label10.Text = "Activo:"
         '
-        'AToolStripMenuItem
+        'Label11
         '
-        Me.AToolStripMenuItem.Name = "AToolStripMenuItem"
-        Me.AToolStripMenuItem.Size = New System.Drawing.Size(365, 26)
-        Me.AToolStripMenuItem.Text = "Lista Tipo A (Marca/Modelo/Presentación)"
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(276, 31)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(175, 17)
+        Me.Label11.TabIndex = 4
+        Me.Label11.Text = "Comprobante por Defecto:"
         '
-        'BToolStripMenuItem
+        'ComboCbtDefecto
         '
-        Me.BToolStripMenuItem.Name = "BToolStripMenuItem"
-        Me.BToolStripMenuItem.Size = New System.Drawing.Size(365, 26)
-        Me.BToolStripMenuItem.Text = "Lista Tipo B (Modelo/Marca/Presentación)"
+        Me.ComboCbtDefecto.DataSource = Me.TipocomprobantesBindingSource
+        Me.ComboCbtDefecto.DisplayMember = "descripcion"
+        Me.ComboCbtDefecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboCbtDefecto.FormattingEnabled = True
+        Me.ComboCbtDefecto.Location = New System.Drawing.Point(457, 27)
+        Me.ComboCbtDefecto.Name = "ComboCbtDefecto"
+        Me.ComboCbtDefecto.Size = New System.Drawing.Size(155, 24)
+        Me.ComboCbtDefecto.TabIndex = 5
+        Me.ComboCbtDefecto.ValueMember = "idtipocomprobante"
+        '
+        'TipocomprobantesBindingSource
+        '
+        Me.TipocomprobantesBindingSource.DataMember = "tipocomprobantes"
+        Me.TipocomprobantesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'TipocomprobantesTableAdapter
+        '
+        Me.TipocomprobantesTableAdapter.ClearBeforeFill = True
         '
         'MiComercio
         '
@@ -799,7 +852,9 @@ Partial Class MiComercio
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBoxFEAFIP.ResumeLayout(False)
+        Me.GroupBoxFEAFIP.PerformLayout()
         Me.GroupBox12.ResumeLayout(False)
+        CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -868,4 +923,9 @@ Partial Class MiComercio
     Friend WithEvents ToolStripDropDownButton1 As ToolStripDropDownButton
     Friend WithEvents AToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ComboCbtDefecto As ComboBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TipocomprobantesBindingSource As BindingSource
+    Friend WithEvents TipocomprobantesTableAdapter As comercialDataSetTableAdapters.tipocomprobantesTableAdapter
 End Class

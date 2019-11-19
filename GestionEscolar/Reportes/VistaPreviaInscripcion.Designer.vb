@@ -25,11 +25,16 @@ Partial Class VistaPreviaInscripcion
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButtonImprimir = New System.Windows.Forms.ToolStripButton()
+        Me.PrintDocument = New System.Drawing.Printing.PrintDocument()
+        Me.PrintDialog = New System.Windows.Forms.PrintDialog()
+        Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'WebBrowser1
         '
+        Me.WebBrowser1.AccessibleDescription = "accdes"
+        Me.WebBrowser1.AccessibleName = "accname"
         Me.WebBrowser1.AllowWebBrowserDrop = False
         Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.WebBrowser1.Location = New System.Drawing.Point(0, 42)
@@ -59,6 +64,10 @@ Partial Class VistaPreviaInscripcion
         Me.ToolStripButtonImprimir.Text = "Imprimir"
         Me.ToolStripButtonImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'PrintDialog
+        '
+        Me.PrintDialog.UseEXDialog = True
+        '
         'VistaPreviaInscripcion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -82,4 +91,7 @@ Partial Class VistaPreviaInscripcion
     Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents ToolStripButtonImprimir As ToolStripButton
+    Friend WithEvents PrintDocument As Printing.PrintDocument
+    Friend WithEvents PrintDialog As PrintDialog
+    Friend WithEvents SaveFileDialog As SaveFileDialog
 End Class

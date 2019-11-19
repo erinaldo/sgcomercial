@@ -40,12 +40,18 @@
         'WebBrowser1.Navigate("C:\SGComercial\sgcomercial\Resources\contrato.html")
         WebBrowser1.Document.OpenNew(True)
         WebBrowser1.Document.Write(texto)
+        WebBrowser1.Document.Title = "title"
+
         WebBrowser1.Refresh()
+        '***********
         'WebBrowser1.ShowPrintPreviewDialog()
         gclientesserviciosseleccionado = Nothing
     End Sub
 
     Private Sub ToolStripButtonImprimir_Click(sender As Object, e As EventArgs) Handles ToolStripButtonImprimir.Click
+
+        WebBrowser1.Document.Title = ""
         WebBrowser1.ShowPrintPreviewDialog()
+
     End Sub
 End Class

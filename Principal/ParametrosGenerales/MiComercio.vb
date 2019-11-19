@@ -95,6 +95,10 @@ Public Class MiComercio
         If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
             ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("FEAutoCAEAFIP", Nothing, ComboFEAutoCAEAFIP.Text, Nothing)
         End If
+        '********** FECbtDefecto
+        If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
+            ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("CbtDefecto", Val(ComboCbtDefecto.SelectedValue), ComboCbtDefecto.Text, Nothing)
+        End If
         '***************    ValidarDatosNuevosClientes   ******************************************
         ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("ValDatosNuevosClientes", Nothing, ComboValDatosNuevosClientes.Text, Nothing)
         '***************    -----------     FIN     ------------  ******************************************
@@ -102,6 +106,8 @@ Public Class MiComercio
 
 
     Private Sub MiComercio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocomprobantes' Puede moverla o quitarla según sea necesario.
+        Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.parametrosgenerales' Puede moverla o quitarla según sea necesario.
         Me.ParametrosgeneralesTableAdapter.Fill(Me.ComercialDataSet.parametrosgenerales)
         ParametrosgeneralesTableAdapter.FillByPrgclave(Me.ComercialDataSet.parametrosgenerales, "LogoComercio")
@@ -192,6 +198,15 @@ Public Class MiComercio
             Dim V_FEAutoCAEAFIP As String
             V_FEAutoCAEAFIP = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("FEAutoCAEAFIP")
             ComboFEAutoCAEAFIP.Text = V_FEAutoCAEAFIP
+        Else
+            GroupBoxFEAFIP.Enabled = False
+        End If
+        '**********
+        '********** CbtDefecto
+        If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
+            Dim V_FEAutoCAEAFIP As String
+            V_FEAutoCAEAFIP = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("CbtDefecto")
+            ComboCbtDefecto.Text = V_FEAutoCAEAFIP
         Else
             GroupBoxFEAFIP.Enabled = False
         End If
