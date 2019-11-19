@@ -1,6 +1,6 @@
 <p class=MsoNormal align=center style='text-align:center'><span
 style='font-size:12.0pt;mso-bidi-font-size:11.0pt;line-height:115%;font-family:
-"Segoe UI","sans-serif"'><img src="C:\SGComercial\sgcomercial\My Project\img\da_header.png" alt="Smiley face" height="auto" width="auto">
+"Segoe UI","sans-serif"'><img src="C:\SGComercial\cabecera.jpg" alt="Smiley face" height="auto" width="auto">
 <o:p></o:p></span></p>
 </br>
 <p class=MsoNormal align=center style='text-align:center'><span
@@ -54,7 +54,7 @@ Entre la Asociación “Dante Alighieri”, con domicilio social en calle Artiga
 </br>
 <div style='text-align:right';height="auto" width="100px">
 		<p style='text-align:center;float: right'>
-			<img src="C:\SGComercial\sgcomercial\My Project\img\da_header.png" alt="Smiley face" height="90px" width="200px">
+			<img src="C:\SGComercial\firmante.jpg" alt="Smiley face" height="90px" width="200px">
 			</br>
 		<span>PROFESORA LAURA BEATRIZ GRASSI</span>
 		</br>

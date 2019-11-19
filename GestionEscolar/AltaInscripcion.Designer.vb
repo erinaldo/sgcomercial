@@ -666,6 +666,7 @@ Partial Class AltaInscripcion
         'LabelCursado
         '
         Me.LabelCursado.AutoSize = True
+        Me.LabelCursado.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GradosBindingSource, "cursado", True))
         Me.LabelCursado.Location = New System.Drawing.Point(261, 31)
         Me.LabelCursado.Name = "LabelCursado"
         Me.LabelCursado.Size = New System.Drawing.Size(136, 17)

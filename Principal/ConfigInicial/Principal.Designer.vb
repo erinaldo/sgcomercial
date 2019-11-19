@@ -150,8 +150,10 @@ Partial Class Principal
         Me.DescargarPedidosWEBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónEscolarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfigurarMembreteYFirmaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguraciónDeGradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaInscripciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistroDeInscripciónesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -240,7 +242,7 @@ Partial Class Principal
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.PreventaToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.MiFranquiciaToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem, Me.GestiónEscolarToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.PreventaToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.MiFranquiciaToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.GestiónEscolarToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -1180,25 +1182,38 @@ Partial Class Principal
         '
         'GestiónEscolarToolStripMenuItem
         '
-        Me.GestiónEscolarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfiguraciónDeGradosToolStripMenuItem, Me.AltaInscripciónToolStripMenuItem})
+        Me.GestiónEscolarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfigurarMembreteYFirmaToolStripMenuItem, Me.ConfiguraciónDeGradosToolStripMenuItem, Me.AltaInscripciónToolStripMenuItem, Me.RegistroDeInscripciónesToolStripMenuItem})
         Me.GestiónEscolarToolStripMenuItem.Name = "GestiónEscolarToolStripMenuItem"
         Me.GestiónEscolarToolStripMenuItem.Size = New System.Drawing.Size(138, 27)
         Me.GestiónEscolarToolStripMenuItem.Tag = "ModuloGestionEscolar"
         Me.GestiónEscolarToolStripMenuItem.Text = "Gestión Escolar"
         '
+        'ConfigurarMembreteYFirmaToolStripMenuItem
+        '
+        Me.ConfigurarMembreteYFirmaToolStripMenuItem.Name = "ConfigurarMembreteYFirmaToolStripMenuItem"
+        Me.ConfigurarMembreteYFirmaToolStripMenuItem.Size = New System.Drawing.Size(311, 28)
+        Me.ConfigurarMembreteYFirmaToolStripMenuItem.Tag = "ConfigurarMembreteFirmante"
+        Me.ConfigurarMembreteYFirmaToolStripMenuItem.Text = "Configurar Membrete y Firma"
+        '
         'ConfiguraciónDeGradosToolStripMenuItem
         '
         Me.ConfiguraciónDeGradosToolStripMenuItem.Name = "ConfiguraciónDeGradosToolStripMenuItem"
-        Me.ConfiguraciónDeGradosToolStripMenuItem.Size = New System.Drawing.Size(276, 28)
+        Me.ConfiguraciónDeGradosToolStripMenuItem.Size = New System.Drawing.Size(311, 28)
         Me.ConfiguraciónDeGradosToolStripMenuItem.Tag = "ConfiguracionGrados"
         Me.ConfiguraciónDeGradosToolStripMenuItem.Text = "Configuración de Grados"
         '
         'AltaInscripciónToolStripMenuItem
         '
         Me.AltaInscripciónToolStripMenuItem.Name = "AltaInscripciónToolStripMenuItem"
-        Me.AltaInscripciónToolStripMenuItem.Size = New System.Drawing.Size(276, 28)
+        Me.AltaInscripciónToolStripMenuItem.Size = New System.Drawing.Size(311, 28)
         Me.AltaInscripciónToolStripMenuItem.Tag = "AltaInscripcion"
         Me.AltaInscripciónToolStripMenuItem.Text = "Alta Inscripción"
+        '
+        'RegistroDeInscripciónesToolStripMenuItem
+        '
+        Me.RegistroDeInscripciónesToolStripMenuItem.Name = "RegistroDeInscripciónesToolStripMenuItem"
+        Me.RegistroDeInscripciónesToolStripMenuItem.Size = New System.Drawing.Size(311, 28)
+        Me.RegistroDeInscripciónesToolStripMenuItem.Text = "Registro de Inscripciónes"
         '
         'ParametrosgeneralesDataGridView
         '
@@ -1519,7 +1534,6 @@ Partial Class Principal
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        'Me.TableAdapterManager.clientesalumnosTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
@@ -1958,4 +1972,6 @@ Partial Class Principal
     Friend WithEvents GestiónEscolarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConfiguraciónDeGradosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AltaInscripciónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RegistroDeInscripciónesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfigurarMembreteYFirmaToolStripMenuItem As ToolStripMenuItem
 End Class

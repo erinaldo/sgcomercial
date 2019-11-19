@@ -30,12 +30,14 @@ Partial Class VistaPreviaInscripcion
         '
         'WebBrowser1
         '
-        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
+        Me.WebBrowser1.AllowWebBrowserDrop = False
+        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.WebBrowser1.Location = New System.Drawing.Point(0, 42)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(964, 565)
+        Me.WebBrowser1.Size = New System.Drawing.Size(939, 523)
         Me.WebBrowser1.TabIndex = 1
+        Me.WebBrowser1.WebBrowserShortcutsEnabled = False
         '
         'ToolStrip1
         '
@@ -44,7 +46,7 @@ Partial Class VistaPreviaInscripcion
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButtonImprimir})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(964, 47)
+        Me.ToolStrip1.Size = New System.Drawing.Size(939, 47)
         Me.ToolStrip1.TabIndex = 2
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -61,13 +63,14 @@ Partial Class VistaPreviaInscripcion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(964, 565)
+        Me.ClientSize = New System.Drawing.Size(939, 565)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.WebBrowser1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "VistaPreviaInscripcion"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "VistaPreviaInscripcion"
         Me.Text = "Vista Previa de Inscripción"
         Me.ToolStrip1.ResumeLayout(False)

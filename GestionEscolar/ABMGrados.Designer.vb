@@ -375,6 +375,9 @@ Partial Class ABMGrados
         Me.Controls.Add(TurnoLabel)
         Me.Controls.Add(Me.TurnoComboBox)
         Me.Controls.Add(Me.GradosBindingNavigator)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ABMGrados"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ConfiguracionGrados"

@@ -6,7 +6,7 @@
     Private Sub VistaPreviaInscripcion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim RegistroInscripcionesTableAdapter As New comercialDataSetTableAdapters.RegistroInscripcionesTableAdapter()
         Dim RegistroInscripcionesDataTable As New comercialDataSet.RegistroInscripcionesDataTable()
-        RegistroInscripcionesDataTable = RegistroInscripcionesTableAdapter.GetDataByidclientesservicios(gidoperacion)
+        RegistroInscripcionesDataTable = RegistroInscripcionesTableAdapter.GetDataByidclientesservicios(gclientesserviciosseleccionado)
         Dim texto As String = My.Resources.contrato.ToString
         Dim NombreCliente As String
         Dim DocumentoCliente As String
@@ -42,6 +42,7 @@
         WebBrowser1.Document.Write(texto)
         WebBrowser1.Refresh()
         'WebBrowser1.ShowPrintPreviewDialog()
+        gclientesserviciosseleccionado = Nothing
     End Sub
 
     Private Sub ToolStripButtonImprimir_Click(sender As Object, e As EventArgs) Handles ToolStripButtonImprimir.Click

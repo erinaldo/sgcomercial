@@ -104,6 +104,8 @@ Partial Class SeleccionarAlumno
         '
         Me.LibroalumnosDataGridView.AllowUserToAddRows = False
         Me.LibroalumnosDataGridView.AllowUserToDeleteRows = False
+        Me.LibroalumnosDataGridView.AllowUserToResizeColumns = False
+        Me.LibroalumnosDataGridView.AllowUserToResizeRows = False
         Me.LibroalumnosDataGridView.AutoGenerateColumns = False
         Me.LibroalumnosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.LibroalumnosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -179,7 +181,6 @@ Partial Class SeleccionarAlumno
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        'Me.TableAdapterManager.clientesalumnosTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing

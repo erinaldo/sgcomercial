@@ -1327,6 +1327,17 @@ Public Class Principal
         AltaInscripcion.MdiParent = Me
         AltaInscripcion.Visible = True
     End Sub
+
+    Private Sub RegistroDeInscripciónesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroDeInscripciónesToolStripMenuItem.Click
+
+        RegistroInscripciones.MdiParent = Me
+        RegistroInscripciones.Visible = True
+    End Sub
+
+    Private Sub ConfigurarMembreteYFirmaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfigurarMembreteYFirmaToolStripMenuItem.Click
+        CFGMembreteFirmante.MdiParent = Me
+        CFGMembreteFirmante.Visible = True
+    End Sub
     'Private Sub PrivateDownloadSGC()
 
     '    Dim ftpClient As New WebClient

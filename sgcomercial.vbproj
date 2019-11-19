@@ -456,6 +456,18 @@
     <Compile Include="GestionEscolar\AltaInscripcion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GestionEscolar\CFGMembreteFirmante.Designer.vb">
+      <DependentUpon>CFGMembreteFirmante.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEscolar\CFGMembreteFirmante.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionEscolar\RegistroInscripciones.Designer.vb">
+      <DependentUpon>RegistroInscripciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEscolar\RegistroInscripciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GestionEscolar\Reportes\VistaPreviaInscripcion.Designer.vb">
       <DependentUpon>VistaPreviaInscripcion.vb</DependentUpon>
     </Compile>
@@ -1466,6 +1478,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionEscolar\AltaInscripcion.resx">
       <DependentUpon>AltaInscripcion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionEscolar\CFGMembreteFirmante.resx">
+      <DependentUpon>CFGMembreteFirmante.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionEscolar\RegistroInscripciones.resx">
+      <DependentUpon>RegistroInscripciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionEscolar\Reportes\VistaPreviaInscripcion.resx">
       <DependentUpon>VistaPreviaInscripcion.vb</DependentUpon>

@@ -8,7 +8,7 @@
 
     Private Sub AltaInscripcion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.grados' Puede moverla o quitarla según sea necesario.
-        Me.GradosTableAdapter.Fill(Me.ComercialDataSet.grados)
+        'Me.GradosTableAdapter.Fill(Me.ComercialDataSet.grados)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.servicios' Puede moverla o quitarla según sea necesario.
         'Me.ServiciosTableAdapter.Fill(Me.ComercialDataSet.servicios)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.clientesdomicilios' Puede moverla o quitarla según sea necesario.
@@ -66,7 +66,7 @@
             'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, galumnoseleccionado)
             Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, galumnoseleccionado)
             PictureEditarAlumno.Visible = False
-            TextBoxIDAlumno.Text = Nothing
+            TextBoxIDAlumno.Text = galumnoseleccionado.ToString
         Else
             'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
             Me.LibroalumnosTableAdapter.FillByIDAlumno(Me.ComercialDataSet.libroalumnos, galumnoseleccionado)
@@ -180,7 +180,7 @@
                         fechadesde = DateTime.Parse("01/09/" + ComboBoxCicloLectivo.Text)
                         fechahasta = DateTime.Parse("31/12/" + ComboBoxCicloLectivo.Text)
                 End Select
-                gidoperacion = ClientesserviciosTableAdapter.clientesservicios_insertar(idcliente, idclientedomicilio, idalumno, idservicio, idgrado, fechadesde, fechahasta, gusername)
+                gclientesserviciosseleccionado = ClientesserviciosTableAdapter.clientesservicios_insertar(idcliente, idclientedomicilio, idalumno, idservicio, idgrado, fechadesde, fechahasta, gusername)
                 MessageBox.Show("Operación Exitosa!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Dim x As New VistaPreviaInscripcion()
                 x.ShowDialog()
@@ -209,24 +209,24 @@
         Dim p As SeleccionarGrado
         p = New SeleccionarGrado
         p.ShowDialog()
-        TextBoxGrado.Text = ggradoseleccionado.ToString
         If ggradoseleccionado > 0 Then
             'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, galumnoseleccionado)
-            Me.ServiciosTableAdapter.FillByIDServicio(Me.ComercialDataSet.servicios, ggradoseleccionado)
-            If ggradoseleccionado > 1 Then
-                PictureEditarAlumno.Visible = True
+            Me.GradosTableAdapter.FillByidgrado(Me.ComercialDataSet.grados, ggradoseleccionado)
+            If ggradoseleccionado > 0 Then
+                TextBoxGrado.Text = ggradoseleccionado.ToString
+                'PictureEditarAlumno.Visible = True
                 'calculafechavencimiento()
                 'ButtonDescuentoDefecto.Visible = True
             Else
-                PictureEditarAlumno.Visible = False
+                'PictureEditarAlumno.Visible = False
                 'ButtonDescuentoDefecto.Visible = False
-                TextBoxIdServicio.Text = Nothing
+                TextBoxGrado.Text = Nothing
             End If
         Else
             'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
-            Me.ServiciosTableAdapter.FillByIDServicio(Me.ComercialDataSet.servicios, ggradoseleccionado)
-            PictureEditarAlumno.Visible = False
-            TextBoxIdServicio.Text = Nothing
+            Me.GradosTableAdapter.FillByidgrado(Me.ComercialDataSet.grados, ggradoseleccionado)
+            'PictureEditarAlumno.Visible = False
+            TextBoxGrado.Text = Nothing
         End If
         ggradoseleccionado = Nothing
     End Sub

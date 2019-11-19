@@ -47,9 +47,22 @@
 
     Private Sub ABMGrados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.grados' Puede moverla o quitarla según sea necesario.
-        'Me.GradosTableAdapter.Fill(Me.ComercialDataSet.grados)
+        Me.GradosTableAdapter.Fill(Me.ComercialDataSet.grados)
         enablefields(False)
         enabledit(False)
+        Try
+            '--/**********************************************/
+            If ggradoseleccionado = -1 Then
+                BindingNavigatorAddNewItem.PerformClick()
+            End If
+            If ggradoseleccionado > 1 Then
+                autoclose = True
+                GradosTableAdapter.FillByidgrado(Me.ComercialDataSet.grados, ggradoseleccionado)
+                ToolStripButtonEditar.PerformClick()
+            End If
+        Catch ex As Exception
+
+        End Try
 
     End Sub
     Public Sub enablefields(ByRef status As Boolean)
@@ -78,5 +91,15 @@
     Private Sub BindingNavigatorAddNewItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorAddNewItem.Click
         enablefields(True)
         enabledit(True)
+    End Sub
+
+    Private Sub ToolStripButtonEditar_Click(sender As Object, e As EventArgs) Handles ToolStripButtonEditar.Click
+        enablefields(True)
+        enabledit(True)
+    End Sub
+
+    Private Sub ToolStripButtonCancelar_Click(sender As Object, e As EventArgs) Handles ToolStripButtonCancelar.Click
+        enablefields(False)
+        enabledit(False)
     End Sub
 End Class

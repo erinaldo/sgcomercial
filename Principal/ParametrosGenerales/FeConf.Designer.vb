@@ -24,6 +24,7 @@ Partial Class FeConf
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextIIBB = New System.Windows.Forms.TextBox()
         Me.TAFIPPTOVTA = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TCUIT = New System.Windows.Forms.TextBox()
@@ -47,14 +48,13 @@ Partial Class FeConf
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TWSAAH = New System.Windows.Forms.TextBox()
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
         Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextIIBB = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.TipocondicionivaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,6 +95,13 @@ Partial Class FeConf
         Me.GroupBox1.Size = New System.Drawing.Size(832, 412)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'TextIIBB
+        '
+        Me.TextIIBB.Location = New System.Drawing.Point(227, 69)
+        Me.TextIIBB.Name = "TextIIBB"
+        Me.TextIIBB.Size = New System.Drawing.Size(209, 22)
+        Me.TextIIBB.TabIndex = 15
         '
         'TAFIPPTOVTA
         '
@@ -291,6 +298,15 @@ Partial Class FeConf
         Me.Label8.TabIndex = 1
         Me.Label8.Text = "CUIT"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(91, 71)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(123, 17)
+        Me.Label11.TabIndex = 1
+        Me.Label11.Text = "N° Inscripción IIBB"
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -314,22 +330,6 @@ Partial Class FeConf
         'TipocondicionivaTableAdapter
         '
         Me.TipocondicionivaTableAdapter.ClearBeforeFill = True
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(91, 71)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(123, 17)
-        Me.Label11.TabIndex = 1
-        Me.Label11.Text = "N° Inscripción IIBB"
-        '
-        'TextIIBB
-        '
-        Me.TextIIBB.Location = New System.Drawing.Point(227, 69)
-        Me.TextIIBB.Name = "TextIIBB"
-        Me.TextIIBB.Size = New System.Drawing.Size(209, 22)
-        Me.TextIIBB.TabIndex = 15
         '
         'FeConf
         '

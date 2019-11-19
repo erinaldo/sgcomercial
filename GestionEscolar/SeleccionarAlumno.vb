@@ -18,15 +18,20 @@
     End Sub
 
     Private Sub TextBoxfiltro_TextChanged(sender As Object, e As EventArgs) Handles TextBoxfiltro.TextChanged
-        Select Case ComboBox1.Text
-            Case "Nombre"
-                LibroalumnosBindingSource.Filter = "nombre like '%" + String.Format("{0}%'", TextBoxfiltro.Text)
-            Case "Documento"
-                LibroalumnosBindingSource.Filter = "documento like '%" + String.Format("{0}%'", TextBoxfiltro.Text)
-            Case Else
-                MsgBox("Seleccione el campo por el cual desea filtrar", MsgBoxStyle.Exclamation, "Advertencia")
-                LibroalumnosBindingSource.Filter = ""
-        End Select
+        Try
+            Select Case ComboBox1.Text
+                Case "Nombre"
+                    LibroalumnosBindingSource.Filter = "nombre like '%" + String.Format("{0}%'", TextBoxfiltro.Text)
+                Case "Documento"
+                    LibroalumnosBindingSource.Filter = "documento like '%" + String.Format("{0}%'", TextBoxfiltro.Text)
+                Case Else
+                    MsgBox("Seleccione el campo por el cual desea filtrar", MsgBoxStyle.Exclamation, "Advertencia")
+                    LibroalumnosBindingSource.Filter = ""
+            End Select
+        Catch ex As Exception
+            LibroalumnosBindingSource.Filter = ""
+        End Try
+
     End Sub
 
     Private Sub LibroalumnosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles LibroalumnosDataGridView.CellContentClick
