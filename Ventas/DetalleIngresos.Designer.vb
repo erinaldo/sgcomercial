@@ -23,12 +23,23 @@ Partial Class DetalleIngresos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ingresosGraphBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LabelTotal = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.CajasmovimientosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.idoperacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.anular = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.editar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.CajasmovimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CajasoperacionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -49,25 +60,18 @@ Partial Class DetalleIngresos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
         Me.ingresosGraphTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ingresosGraphTableAdapter()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.LabelTotal = New System.Windows.Forms.Label()
-        Me.idoperacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.anular = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.editar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.EstIngUltimoscierresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EstIngUltimoscierresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstIngUltimoscierresTableAdapter()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.ingresosGraphBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.CajasmovimientosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasmovimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
+        CType(Me.EstIngUltimoscierresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ingresosGraphBindingSource
@@ -91,10 +95,30 @@ Partial Class DetalleIngresos
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(981, 496)
+        Me.GroupBox2.Size = New System.Drawing.Size(1057, 496)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ingresos"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.LabelTotal)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 440)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(981, 56)
+        Me.GroupBox1.TabIndex = 4
+        Me.GroupBox1.TabStop = False
+        '
+        'LabelTotal
+        '
+        Me.LabelTotal.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelTotal.Location = New System.Drawing.Point(251, 19)
+        Me.LabelTotal.Name = "LabelTotal"
+        Me.LabelTotal.Size = New System.Drawing.Size(478, 21)
+        Me.LabelTotal.TabIndex = 0
+        Me.LabelTotal.Text = "TOTAL:"
+        Me.LabelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ReportViewer1
         '
@@ -103,16 +127,15 @@ Partial Class DetalleIngresos
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReportViewer1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ReportViewer1.DocumentMapWidth = 37
-        ReportDataSource3.Name = "ingresosgraph"
-        ReportDataSource3.Value = Me.ingresosGraphBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphIngresos.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(926, 28)
+        ReportDataSource4.Name = "EstIngUltimoscierres"
+        ReportDataSource4.Value = Me.EstIngUltimoscierresBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEstIngUltimosCierres.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(602, 28)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ShowToolBar = False
-        Me.ReportViewer1.Size = New System.Drawing.Size(39, 22)
+        Me.ReportViewer1.Size = New System.Drawing.Size(439, 406)
         Me.ReportViewer1.TabIndex = 3
-        Me.ReportViewer1.Visible = False
         '
         'CajasmovimientosDataGridView
         '
@@ -131,8 +154,86 @@ Partial Class DetalleIngresos
         Me.CajasmovimientosDataGridView.Name = "CajasmovimientosDataGridView"
         Me.CajasmovimientosDataGridView.ReadOnly = True
         Me.CajasmovimientosDataGridView.RowTemplate.Height = 24
-        Me.CajasmovimientosDataGridView.Size = New System.Drawing.Size(959, 406)
+        Me.CajasmovimientosDataGridView.Size = New System.Drawing.Size(590, 406)
         Me.CajasmovimientosDataGridView.TabIndex = 2
+        '
+        'idoperacion
+        '
+        Me.idoperacion.DataPropertyName = "idoperacion"
+        Me.idoperacion.HeaderText = "Operación N°"
+        Me.idoperacion.Name = "idoperacion"
+        Me.idoperacion.ReadOnly = True
+        Me.idoperacion.ToolTipText = "Operación N°"
+        Me.idoperacion.Visible = False
+        '
+        'idventa
+        '
+        Me.idventa.DataPropertyName = "idventa"
+        Me.idventa.HeaderText = "Venta N°"
+        Me.idventa.Name = "idventa"
+        Me.idventa.ReadOnly = True
+        Me.idventa.ToolTipText = "Venta N°"
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idevento"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idevento"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idpagos"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "idpagos"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Visible = False
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "idcliente"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "idcliente"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Visible = False
+        '
+        'nombre
+        '
+        Me.nombre.DataPropertyName = "nombre"
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        Me.nombre.ToolTipText = "Nombre"
+        '
+        'monto
+        '
+        Me.monto.DataPropertyName = "monto"
+        Me.monto.HeaderText = "Monto"
+        Me.monto.Name = "monto"
+        Me.monto.ReadOnly = True
+        Me.monto.ToolTipText = "Monto"
+        '
+        'anular
+        '
+        Me.anular.HeaderText = "Anular"
+        Me.anular.Name = "anular"
+        Me.anular.ReadOnly = True
+        Me.anular.Text = "Anular"
+        Me.anular.ToolTipText = "Anular"
+        Me.anular.UseColumnTextForButtonValue = True
+        '
+        'editar
+        '
+        Me.editar.DataPropertyName = "idevento"
+        Me.editar.HeaderText = "Editar"
+        Me.editar.Name = "editar"
+        Me.editar.ReadOnly = True
+        Me.editar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.editar.Text = "Editar"
+        Me.editar.ToolTipText = "Editar"
+        Me.editar.UseColumnTextForButtonValue = True
         '
         'CajasmovimientosBindingSource
         '
@@ -242,6 +343,7 @@ Partial Class DetalleIngresos
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -252,6 +354,7 @@ Partial Class DetalleIngresos
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
@@ -264,6 +367,8 @@ Partial Class DetalleIngresos
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -293,6 +398,7 @@ Partial Class DetalleIngresos
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -323,108 +429,30 @@ Partial Class DetalleIngresos
         '
         Me.ingresosGraphTableAdapter.ClearBeforeFill = True
         '
-        'GroupBox1
+        'EstIngUltimoscierresBindingSource
         '
-        Me.GroupBox1.Controls.Add(Me.LabelTotal)
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 440)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(981, 56)
-        Me.GroupBox1.TabIndex = 4
-        Me.GroupBox1.TabStop = False
+        Me.EstIngUltimoscierresBindingSource.DataMember = "EstIngUltimoscierres"
+        Me.EstIngUltimoscierresBindingSource.DataSource = Me.ComercialDataSet
         '
-        'LabelTotal
+        'EstIngUltimoscierresTableAdapter
         '
-        Me.LabelTotal.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelTotal.Location = New System.Drawing.Point(251, 19)
-        Me.LabelTotal.Name = "LabelTotal"
-        Me.LabelTotal.Size = New System.Drawing.Size(478, 21)
-        Me.LabelTotal.TabIndex = 0
-        Me.LabelTotal.Text = "TOTAL:"
-        Me.LabelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.EstIngUltimoscierresTableAdapter.ClearBeforeFill = True
         '
-        'idoperacion
+        'Button1
         '
-        Me.idoperacion.DataPropertyName = "idoperacion"
-        Me.idoperacion.HeaderText = "Operación N°"
-        Me.idoperacion.Name = "idoperacion"
-        Me.idoperacion.ReadOnly = True
-        Me.idoperacion.ToolTipText = "Operación N°"
-        Me.idoperacion.Visible = False
-        '
-        'idventa
-        '
-        Me.idventa.DataPropertyName = "idventa"
-        Me.idventa.HeaderText = "Venta N°"
-        Me.idventa.Name = "idventa"
-        Me.idventa.ReadOnly = True
-        Me.idventa.ToolTipText = "Venta N°"
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idevento"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idevento"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idpagos"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "idpagos"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Visible = False
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "idcliente"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "idcliente"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Visible = False
-        '
-        'nombre
-        '
-        Me.nombre.DataPropertyName = "nombre"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        Me.nombre.ToolTipText = "Nombre"
-        '
-        'monto
-        '
-        Me.monto.DataPropertyName = "monto"
-        Me.monto.HeaderText = "Monto"
-        Me.monto.Name = "monto"
-        Me.monto.ReadOnly = True
-        Me.monto.ToolTipText = "Monto"
-        '
-        'anular
-        '
-        Me.anular.HeaderText = "Anular"
-        Me.anular.Name = "anular"
-        Me.anular.ReadOnly = True
-        Me.anular.Text = "Anular"
-        Me.anular.ToolTipText = "Anular"
-        Me.anular.UseColumnTextForButtonValue = True
-        '
-        'editar
-        '
-        Me.editar.DataPropertyName = "idevento"
-        Me.editar.HeaderText = "Editar"
-        Me.editar.Name = "editar"
-        Me.editar.ReadOnly = True
-        Me.editar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.editar.Text = "Editar"
-        Me.editar.ToolTipText = "Editar"
-        Me.editar.UseColumnTextForButtonValue = True
+        Me.Button1.Location = New System.Drawing.Point(248, 20)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(170, 30)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Ampliar/Reducir Grafico"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'DetalleIngresos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1005, 520)
+        Me.ClientSize = New System.Drawing.Size(1081, 520)
         Me.Controls.Add(Me.CajasoperacionesDataGridView)
         Me.Controls.Add(Me.GroupBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -437,11 +465,12 @@ Partial Class DetalleIngresos
         CType(Me.ingresosGraphBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
         CType(Me.CajasmovimientosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasmovimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
+        CType(Me.EstIngUltimoscierresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -482,4 +511,7 @@ Partial Class DetalleIngresos
     Friend WithEvents monto As DataGridViewTextBoxColumn
     Friend WithEvents anular As DataGridViewButtonColumn
     Friend WithEvents editar As DataGridViewButtonColumn
+    Friend WithEvents EstIngUltimoscierresBindingSource As BindingSource
+    Friend WithEvents EstIngUltimoscierresTableAdapter As comercialDataSetTableAdapters.EstIngUltimoscierresTableAdapter
+    Friend WithEvents Button1 As Button
 End Class

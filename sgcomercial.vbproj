@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>91</ApplicationRevision>
-    <ApplicationVersion>4.0.9.91</ApplicationVersion>
+    <ApplicationRevision>92</ApplicationRevision>
+    <ApplicationVersion>4.0.9.92</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1809,7 +1809,9 @@
     <EmbeddedResource Include="Ventas\Reportes\GraphEgresos.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepCajaResumen.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepComandera58.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepComprobantesEmitidos.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepEstadoResultados.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepEstIngUltimosCierres.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFactura.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFacturaElectronica.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFacturaIVA.rdlc" />
@@ -1946,7 +1948,6 @@
     <None Include="Principal\DataSets\comercialDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>comercialDataSet3.Designer.vb</LastGenOutput>
     </None>
     <None Include="Principal\DataSets\MySQLDataSet.xsc">
       <DependentUpon>MySQLDataSet.xsd</DependentUpon>

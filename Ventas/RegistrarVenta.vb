@@ -238,9 +238,14 @@ Public Class RegistrarVenta
         '********** CbtDefecto
         Try
             If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
-                Dim CbtDefecto As Long
+                Dim CbtDefecto As Long = 0
                 CbtDefecto = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byclave("CbtDefecto")
                 Idtipocomprobantecombo.SelectedValue = CbtDefecto
+                If Idtipocomprobantecombo.SelectedValue = Nothing Then
+                    Idtipocomprobantecombo.SelectedIndex = 0
+                End If
+            Else
+                Idtipocomprobantecombo.SelectedIndex = 0
             End If
         Catch ex As Exception
         End Try

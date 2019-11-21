@@ -1,10 +1,13 @@
 ﻿Public Class DetalleIngresos
+    Dim graficoampliado As Boolean
     Private Sub MovimientoscajasDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 
     Private Sub DetalleIngresos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        EstIngUltimoscierresTableAdapter.Fill(Me.ComercialDataSet.EstIngUltimoscierres)
+        ReportViewer1.Refresh()
+        ReportViewer1.RefreshReport()
         CajasmovimientosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajasmovimientos, gideventoseleccionado)
         Try
             Me.ingresosGraphTableAdapter.FillByidevento(Me.ComercialDataSet.ingresosGraph, gideventoseleccionado)
@@ -84,5 +87,21 @@
             End If
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If graficoampliado = False Then
+            Dim si As New Drawing.Size
+            si = New Size(1035, 406)
+            ReportViewer1.Size = si
+            ReportViewer1.Location = New Point(6, 28)
+            graficoampliado = True
+        Else
+            Dim si As New Drawing.Size
+            si = New Size(439, 406)
+            ReportViewer1.Size = si
+            ReportViewer1.Location = New Point(602, 28)
+            graficoampliado = False
+        End If
     End Sub
 End Class

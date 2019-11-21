@@ -23,20 +23,28 @@ Partial Class ComprobantesEmitidos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DateTimeHasta = New System.Windows.Forms.DateTimePicker()
         Me.TextClienteNombre = New System.Windows.Forms.TextBox()
         Me.DateTimeDesde = New System.Windows.Forms.DateTimePicker()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.ButtonExportar = New System.Windows.Forms.Button()
         Me.LibroventasDataGridView = New System.Windows.Forms.DataGridView()
-        Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.VistaPrevia = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.SolicitarCAE = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,38 +65,105 @@ Partial Class ComprobantesEmitidos
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipocomprobanteletra = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.LibroventasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.libroventasTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.TipocomprobantesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocomprobantesTableAdapter()
+        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        Me.Button5 = New System.Windows.Forms.Button()
+        CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'MiComercioBindingSource
+        '
+        Me.MiComercioBindingSource.DataMember = "MiComercio"
+        Me.MiComercioBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LibroventasBindingSource
+        '
+        Me.LibroventasBindingSource.DataMember = "libroventas"
+        Me.LibroventasBindingSource.DataSource = Me.ComercialDataSet
         '
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button4)
+        Me.GroupBox1.Controls.Add(Me.Button3)
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.DateTimeHasta)
         Me.GroupBox1.Controls.Add(Me.TextClienteNombre)
         Me.GroupBox1.Controls.Add(Me.DateTimeDesde)
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1058, 81)
+        Me.GroupBox1.Size = New System.Drawing.Size(1058, 92)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Filtros"
+        '
+        'Button4
+        '
+        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Location = New System.Drawing.Point(914, 38)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(124, 31)
+        Me.Button4.TabIndex = 6
+        Me.Button4.Text = "Limpiar Flitro"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Location = New System.Drawing.Point(814, 38)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(94, 31)
+        Me.Button3.TabIndex = 5
+        Me.Button3.Text = "Filtrar"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataSource = Me.TipocomprobantesBindingSource
+        Me.ComboBox1.DisplayMember = "descripcion"
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(629, 41)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(169, 28)
+        Me.ComboBox1.TabIndex = 4
+        Me.ComboBox1.ValueMember = "idtipocomprobanteafip"
+        '
+        'TipocomprobantesBindingSource
+        '
+        Me.TipocomprobantesBindingSource.DataMember = "tipocomprobantes"
+        Me.TipocomprobantesBindingSource.DataSource = Me.ComercialDataSet
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(487, 41)
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(297, 38)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(124, 25)
-        Me.Button1.TabIndex = 4
+        Me.Button1.Size = New System.Drawing.Size(124, 31)
+        Me.Button1.TabIndex = 2
         Me.Button1.Text = "Consultar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -96,31 +171,40 @@ Partial Class ComprobantesEmitidos
         '
         Me.DateTimeHasta.CustomFormat = "dd/MM/yyyy"
         Me.DateTimeHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimeHasta.Location = New System.Drawing.Point(351, 43)
+        Me.DateTimeHasta.Location = New System.Drawing.Point(156, 42)
         Me.DateTimeHasta.Name = "DateTimeHasta"
         Me.DateTimeHasta.Size = New System.Drawing.Size(124, 27)
-        Me.DateTimeHasta.TabIndex = 3
+        Me.DateTimeHasta.TabIndex = 1
         '
         'TextClienteNombre
         '
-        Me.TextClienteNombre.Location = New System.Drawing.Point(698, 43)
+        Me.TextClienteNombre.Location = New System.Drawing.Point(481, 42)
         Me.TextClienteNombre.Name = "TextClienteNombre"
-        Me.TextClienteNombre.Size = New System.Drawing.Size(228, 27)
-        Me.TextClienteNombre.TabIndex = 2
+        Me.TextClienteNombre.Size = New System.Drawing.Size(133, 27)
+        Me.TextClienteNombre.TabIndex = 3
         '
         'DateTimeDesde
         '
         Me.DateTimeDesde.CustomFormat = "dd/MM/yyyy"
         Me.DateTimeDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimeDesde.Location = New System.Drawing.Point(195, 43)
+        Me.DateTimeDesde.Location = New System.Drawing.Point(16, 42)
         Me.DateTimeDesde.Name = "DateTimeDesde"
         Me.DateTimeDesde.Size = New System.Drawing.Size(124, 27)
-        Me.DateTimeDesde.TabIndex = 1
+        Me.DateTimeDesde.TabIndex = 0
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(629, 19)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(108, 20)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Filtrar por Tipo"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(698, 20)
+        Me.Label2.Location = New System.Drawing.Point(481, 19)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(133, 20)
         Me.Label2.TabIndex = 0
@@ -129,7 +213,7 @@ Partial Class ComprobantesEmitidos
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(351, 20)
+        Me.Label3.Location = New System.Drawing.Point(156, 19)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(93, 20)
         Me.Label3.TabIndex = 0
@@ -138,7 +222,7 @@ Partial Class ComprobantesEmitidos
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(195, 20)
+        Me.Label1.Location = New System.Drawing.Point(16, 19)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(93, 20)
         Me.Label1.TabIndex = 0
@@ -149,13 +233,38 @@ Partial Class ComprobantesEmitidos
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.Button5)
+        Me.GroupBox2.Controls.Add(Me.Button2)
+        Me.GroupBox2.Controls.Add(Me.ButtonExportar)
         Me.GroupBox2.Controls.Add(Me.LibroventasDataGridView)
+        Me.GroupBox2.Controls.Add(Me.ReportViewer1)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 99)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(1058, 492)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lista"
+        '
+        'Button2
+        '
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(164, 451)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(322, 31)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Exportar a Excel"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'ButtonExportar
+        '
+        Me.ButtonExportar.Location = New System.Drawing.Point(31, 451)
+        Me.ButtonExportar.Name = "ButtonExportar"
+        Me.ButtonExportar.Size = New System.Drawing.Size(322, 31)
+        Me.ButtonExportar.TabIndex = 1
+        Me.ButtonExportar.Text = "Vista Previa / Exportar"
+        Me.ButtonExportar.UseVisualStyleBackColor = True
+        Me.ButtonExportar.Visible = False
         '
         'LibroventasDataGridView
         '
@@ -177,97 +286,8 @@ Partial Class ComprobantesEmitidos
         Me.LibroventasDataGridView.ReadOnly = True
         Me.LibroventasDataGridView.RowTemplate.Height = 24
         Me.LibroventasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LibroventasDataGridView.Size = New System.Drawing.Size(1025, 460)
+        Me.LibroventasDataGridView.Size = New System.Drawing.Size(1021, 402)
         Me.LibroventasDataGridView.TabIndex = 0
-        '
-        'LibroventasBindingSource
-        '
-        Me.LibroventasBindingSource.DataMember = "libroventas"
-        Me.LibroventasBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LibroventasTableAdapter
-        '
-        Me.LibroventasTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
-        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
-        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
-        Me.TableAdapterManager.cajasTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
-        Me.TableAdapterManager.errorlogTableAdapter = Nothing
-        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
-        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
-        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
-        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager.funcionesTableAdapter = Nothing
-        Me.TableAdapterManager.gastosTableAdapter = Nothing
-        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
-        Me.TableAdapterManager.mesasTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Nothing
-        Me.TableAdapterManager.motivostockTableAdapter = Nothing
-        Me.TableAdapterManager.mozosTableAdapter = Nothing
-        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosTableAdapter = Nothing
-        Me.TableAdapterManager.perfilesTableAdapter = Nothing
-        Me.TableAdapterManager.permisosTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
-        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
-        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.remitosTableAdapter = Nothing
-        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager.salonesTableAdapter = Nothing
-        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
-        Me.TableAdapterManager.stockTableAdapter = Nothing
-        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
-        Me.TableAdapterManager.synclogTableAdapter = Nothing
-        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
-        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
-        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
-        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
-        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
-        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
-        Me.TableAdapterManager.transportesTableAdapter = Nothing
-        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.valesTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
         'VistaPrevia
         '
@@ -450,6 +470,124 @@ Partial Class ComprobantesEmitidos
         Me.idcliente.Visible = False
         Me.idcliente.Width = 95
         '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.DocumentMapWidth = 51
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "libroventas"
+        ReportDataSource2.Value = Me.LibroventasBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComprobantesEmitidos.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(999, 26)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(53, 45)
+        Me.ReportViewer1.TabIndex = 2
+        '
+        'LibroventasTableAdapter
+        '
+        Me.LibroventasTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
+        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
+        Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager.permisosTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'TipocomprobantesTableAdapter
+        '
+        Me.TipocomprobantesTableAdapter.ClearBeforeFill = True
+        '
+        'MiComercioTableAdapter
+        '
+        Me.MiComercioTableAdapter.ClearBeforeFill = True
+        '
+        'Button5
+        '
+        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Location = New System.Drawing.Point(573, 451)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(322, 31)
+        Me.Button5.TabIndex = 4
+        Me.Button5.Text = "Imprimir"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'ComprobantesEmitidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
@@ -463,12 +601,14 @@ Partial Class ComprobantesEmitidos
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ComprobantesEmitidos"
         Me.Text = "Lista de Comprobantes Emitidos"
+        CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -507,4 +647,16 @@ Partial Class ComprobantesEmitidos
     Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
     Friend WithEvents tipocomprobanteletra As DataGridViewTextBoxColumn
     Friend WithEvents idcliente As DataGridViewTextBoxColumn
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents TipocomprobantesBindingSource As BindingSource
+    Friend WithEvents TipocomprobantesTableAdapter As comercialDataSetTableAdapters.tipocomprobantesTableAdapter
+    Friend WithEvents ButtonExportar As Button
+    Friend WithEvents ReportViewer1 As ReportViewer
+    Friend WithEvents MiComercioBindingSource As BindingSource
+    Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button5 As Button
 End Class
