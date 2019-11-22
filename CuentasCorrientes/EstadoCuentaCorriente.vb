@@ -99,21 +99,24 @@
             totaldebe = totaldebe + debe
             totalhaber = totalhaber + haber
         Next
+
         Labeltotaldebe.Text = totaldebe.ToString
         Labeltotalhaber.Text = totalhaber.ToString
         saldototal = totalhaber - totaldebe
-        Labeltotalgeneral.Text = Convert.ToString(totalhaber - totaldebe)
+        Labeltotalgeneral.Text = Convert.ToString(totaldebe - totalhaber)
         '********************************************************
         If saldototal = 0 Then
             LabelTipoSaldo.Text = "-----"
             LabelTipoSaldo.ForeColor = Color.Black
             Labeltotalgeneral.ForeColor = Color.Black
         End If
+
         If saldototal < 0 Then
             LabelTipoSaldo.Text = "Deudor"
             LabelTipoSaldo.ForeColor = Color.Red
             Labeltotalgeneral.ForeColor = Color.Red
         End If
+
         If saldototal > 0 Then
             LabelTipoSaldo.Text = "Acreedor"
             LabelTipoSaldo.ForeColor = Color.Green
@@ -145,11 +148,11 @@
         Select Case ListacuentascorrientesDataGridView.Columns(e.ColumnIndex).Name
             Case "saldo"
                 If IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value) Then Return
-                If ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value < 0 Then
+                If ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value <> 0 Then
                     gidventa = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("nro").Value
                     Dim p As CtasCtesPagar
                     p = New CtasCtesPagar
-                    p.TextBoxMontoaPagar.Text = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value * -1
+                    p.TextBoxMontoaPagar.Text = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value '* -1
                     p.ShowDialog()
                     If gidpago > 0 Then
                         Try

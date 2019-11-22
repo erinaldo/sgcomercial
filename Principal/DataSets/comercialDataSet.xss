@@ -142,7 +142,7 @@
     <Shape ID="DesignTable:RegistroInscripciones" ZOrder="3" X="4375" Y="-102" Height="319" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
     <Shape ID="DesignTable:EstIngUltimoscierres" ZOrder="2" X="4745" Y="-102" Height="158" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="99" />
     <Shape ID="DesignTable:grados" ZOrder="6" X="-821" Y="270" Height="184" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="94" />
-    <Shape ID="DesignTable:pagosimputaciones" ZOrder="1" X="150" Y="973" Height="62" Width="313" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="84" OldDataTableHeight="48" SplitterPosition="28" />
+    <Shape ID="DesignTable:pagosimputaciones" ZOrder="1" X="150" Y="973" Height="227" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="84" OldDataTableHeight="48" SplitterPosition="145" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

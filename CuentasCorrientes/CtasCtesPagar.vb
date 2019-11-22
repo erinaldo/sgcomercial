@@ -70,8 +70,10 @@ Public Class CtasCtesPagar
         '**************************
         Dim idoperacioncaja As Long
         Try
+            Dim PagosImputacionesTableAdapter As New comercialDataSetTableAdapters.pagosimputacionesTableAdapter()
             gidpago = PagosTableAdapter.pagos_insertarpago(gidventa, gidcliente, pago, Today(), ComboFormapago.SelectedValue, nrocomprobante.Text)
             idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(gidevento, gidpago, ComboFormapago.SelectedValue, pago, gusername, Nothing)
+            PagosImputacionesTableAdapter.pagosimputaciones_insertar(gidpago, gidventa, pago)
             Me.Close()
         Catch ex As Exception
             MsgBox("Error al INSERTAR  el pago: " + ex.Message, MsgBoxStyle.Exclamation)

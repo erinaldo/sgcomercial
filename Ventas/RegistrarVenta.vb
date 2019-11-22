@@ -17,6 +17,8 @@ Public Class RegistrarVenta
     Dim ValidarSTK As String
     Dim permisoGenVale As Integer = 0
     Dim diasvencimiento As Integer = 0
+    '**************************************************************************************************
+    Dim PagosImputaciones As New comercialDataSetTableAdapters.pagosimputacionesTableAdapter()
 
     Private nonNumberEntered As Boolean = False
     Private Sub VentasBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -48,6 +50,7 @@ Public Class RegistrarVenta
         'Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)
         'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
         'Me.VentasdetalleTableAdapter.Fill(Me.ComercialDataSet.ventasdetalle)
+        '**************************************************************************************************
         Cursor.Current = Cursors.WaitCursor
         Me.TipoconceptosTableAdapter.Fill(Me.ComercialDataSet.tipoconceptos)
         Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
@@ -455,6 +458,7 @@ Public Class RegistrarVenta
                         '**************************************************************
                         '***** insertar movimiento de caja PAGO 1
                         '**************************************************************
+                        PagosImputaciones.pagosimputaciones_insertar(idpagos, idventas, monto1)
                         idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, monto1, gusername, idvale)
                         If idoperacioncaja > 0 Then
                         Else
@@ -474,6 +478,7 @@ Public Class RegistrarVenta
                         '**************************************************************
                         idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo2.SelectedValue, monto2, gusername, idvale)
                         If idoperacioncaja > 0 Then
+                            PagosImputaciones.pagosimputaciones_insertar(idpagos, idventas, monto2)
                         Else
                             MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
                             Return
@@ -485,6 +490,7 @@ Public Class RegistrarVenta
                 Else
                     idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), total, Today(), idformapagocombo.SelectedValue, NrocomprobanteTextBox.Text)
                     If idpagos > 0 Then
+                        PagosImputaciones.pagosimputaciones_insertar(idpagos, idventas, total)
                     Else
                         MsgBox("Ocurrio un error al registrar el pago", MsgBoxStyle.Information, "Advertencia")
                         Return
