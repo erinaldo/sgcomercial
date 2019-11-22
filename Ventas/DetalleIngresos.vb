@@ -23,6 +23,9 @@
 
     End Sub
     Private Sub recuento()
+        EstIngUltimoscierresTableAdapter.Fill(Me.ComercialDataSet.EstIngUltimoscierres)
+        ReportViewer1.Refresh()
+        ReportViewer1.RefreshReport()
         Try
             Dim sum As Decimal
             For i = 0 To CajasmovimientosDataGridView.RowCount - 1
