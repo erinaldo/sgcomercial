@@ -108,6 +108,7 @@ Partial Class CFGMembreteFirmante
         Me.ClientSize = New System.Drawing.Size(942, 484)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "CFGMembreteFirmante"

@@ -931,7 +931,7 @@ Partial Class Principal
         Me.RegistroDeInscripciónesToolStripMenuItem.Name = "RegistroDeInscripciónesToolStripMenuItem"
         Me.RegistroDeInscripciónesToolStripMenuItem.Size = New System.Drawing.Size(311, 28)
         Me.RegistroDeInscripciónesToolStripMenuItem.Tag = "RegistroInscripciones"
-        Me.RegistroDeInscripciónesToolStripMenuItem.Text = "Registro de Inscripciónes"
+        Me.RegistroDeInscripciónesToolStripMenuItem.Text = "Registro de Inscripciones"
         '
         'ConfiguracionesToolStripMenuItem
         '

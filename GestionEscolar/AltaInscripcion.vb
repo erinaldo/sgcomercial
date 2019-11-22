@@ -107,19 +107,8 @@
         p.ShowDialog()
         TextBoxIdServicio.Text = gservicioseleccionado.ToString
         If gservicioseleccionado > 0 Then
-            'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, galumnoseleccionado)
-            Me.ServiciosTableAdapter.FillByIDservicio(Me.ComercialDataSet.servicios, gservicioseleccionado)
-            If gservicioseleccionado > 1 Then
-                PictureEditarAlumno.Visible = True
-                'calculafechavencimiento()
-                'ButtonDescuentoDefecto.Visible = True
-            Else
-                PictureEditarAlumno.Visible = False
-                'ButtonDescuentoDefecto.Visible = False
-                TextBoxIdServicio.Text = Nothing
-            End If
+            Me.ServiciosTableAdapter.FillByIDServicio(Me.ComercialDataSet.servicios, gservicioseleccionado)
         Else
-            'Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
             Me.ServiciosTableAdapter.FillByIDservicio(Me.ComercialDataSet.servicios, gservicioseleccionado)
             PictureEditarAlumno.Visible = False
             TextBoxIdServicio.Text = Nothing
@@ -229,5 +218,14 @@
             TextBoxGrado.Text = Nothing
         End If
         ggradoseleccionado = Nothing
+    End Sub
+
+    Private Sub AltaInscripcion_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                Me.Close()
+            End If
+        End If
     End Sub
 End Class

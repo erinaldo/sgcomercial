@@ -25,13 +25,6 @@ Partial Class RegistroInscripciones
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.RegistroInscripcionesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.RegistroInscripcionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBoxfiltro = New System.Windows.Forms.TextBox()
-        Me.RegistroInscripcionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.RegistroInscripcionesTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.idclientesservicios = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreCliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,6 +35,14 @@ Partial Class RegistroInscripciones
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cursado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.anular = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.RegistroInscripcionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TextBoxfiltro = New System.Windows.Forms.TextBox()
+        Me.RegistroInscripcionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.RegistroInscripcionesTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
         CType(Me.RegistroInscripcionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RegistroInscripcionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,6 +55,7 @@ Partial Class RegistroInscripciones
         Me.GroupBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Controls.Add(Me.RegistroInscripcionesDataGridView)
         Me.GroupBox3.Location = New System.Drawing.Point(13, 97)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
@@ -83,6 +85,83 @@ Partial Class RegistroInscripciones
         Me.RegistroInscripcionesDataGridView.RowTemplate.Height = 24
         Me.RegistroInscripcionesDataGridView.Size = New System.Drawing.Size(864, 401)
         Me.RegistroInscripcionesDataGridView.TabIndex = 0
+        '
+        'idclientesservicios
+        '
+        Me.idclientesservicios.DataPropertyName = "idclientesservicios"
+        Me.idclientesservicios.HeaderText = "idclientesservicios"
+        Me.idclientesservicios.Name = "idclientesservicios"
+        Me.idclientesservicios.ReadOnly = True
+        Me.idclientesservicios.Visible = False
+        '
+        'idcliente
+        '
+        Me.idcliente.DataPropertyName = "idcliente"
+        Me.idcliente.HeaderText = "idcliente"
+        Me.idcliente.Name = "idcliente"
+        Me.idcliente.ReadOnly = True
+        Me.idcliente.Visible = False
+        '
+        'NombreCliente
+        '
+        Me.NombreCliente.DataPropertyName = "NombreCliente"
+        Me.NombreCliente.HeaderText = "Nombre Tutor"
+        Me.NombreCliente.Name = "NombreCliente"
+        Me.NombreCliente.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "ClienteDocumento"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Tutor Documento"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "domicilio"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Domicilio"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'NombreAlumno
+        '
+        Me.NombreAlumno.DataPropertyName = "NombreAlumno"
+        Me.NombreAlumno.HeaderText = "Nombre Alumno"
+        Me.NombreAlumno.Name = "NombreAlumno"
+        Me.NombreAlumno.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "descripcion"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "precioventa"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "precioventa"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Visible = False
+        '
+        'cursado
+        '
+        Me.cursado.DataPropertyName = "cursado"
+        Me.cursado.HeaderText = "Curso"
+        Me.cursado.Name = "cursado"
+        Me.cursado.ReadOnly = True
+        '
+        'anular
+        '
+        Me.anular.HeaderText = "Anular"
+        Me.anular.Name = "anular"
+        Me.anular.ReadOnly = True
+        Me.anular.Text = "Anular"
+        Me.anular.ToolTipText = "Anular"
+        Me.anular.UseColumnTextForButtonValue = True
         '
         'RegistroInscripcionesBindingSource
         '
@@ -213,82 +292,14 @@ Partial Class RegistroInscripciones
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'idclientesservicios
+        'Label1
         '
-        Me.idclientesservicios.DataPropertyName = "idclientesservicios"
-        Me.idclientesservicios.HeaderText = "idclientesservicios"
-        Me.idclientesservicios.Name = "idclientesservicios"
-        Me.idclientesservicios.ReadOnly = True
-        Me.idclientesservicios.Visible = False
-        '
-        'idcliente
-        '
-        Me.idcliente.DataPropertyName = "idcliente"
-        Me.idcliente.HeaderText = "idcliente"
-        Me.idcliente.Name = "idcliente"
-        Me.idcliente.ReadOnly = True
-        Me.idcliente.Visible = False
-        '
-        'NombreCliente
-        '
-        Me.NombreCliente.DataPropertyName = "NombreCliente"
-        Me.NombreCliente.HeaderText = "Nombre Tutor"
-        Me.NombreCliente.Name = "NombreCliente"
-        Me.NombreCliente.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "ClienteDocumento"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Tutor Documento"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "domicilio"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Domicilio"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'NombreAlumno
-        '
-        Me.NombreAlumno.DataPropertyName = "NombreAlumno"
-        Me.NombreAlumno.HeaderText = "Nombre Alumno"
-        Me.NombreAlumno.Name = "NombreAlumno"
-        Me.NombreAlumno.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "descripcion"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "descripcion"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Visible = False
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "precioventa"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "precioventa"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Visible = False
-        '
-        'cursado
-        '
-        Me.cursado.DataPropertyName = "cursado"
-        Me.cursado.HeaderText = "Curso"
-        Me.cursado.Name = "cursado"
-        Me.cursado.ReadOnly = True
-        '
-        'anular
-        '
-        Me.anular.HeaderText = "Anular"
-        Me.anular.Name = "anular"
-        Me.anular.ReadOnly = True
-        Me.anular.Text = "Anular"
-        Me.anular.ToolTipText = "Anular"
-        Me.anular.UseColumnTextForButtonValue = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(595, 2)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(282, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "<< Presione F5 para actualizar el listado >>"
         '
         'RegistroInscripciones
         '
@@ -305,6 +316,7 @@ Partial Class RegistroInscripciones
         Me.Tag = "RegistroInscripciones"
         Me.Text = "Registro de Inscripciones"
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         CType(Me.RegistroInscripcionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RegistroInscripcionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -333,4 +345,5 @@ Partial Class RegistroInscripciones
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents cursado As DataGridViewTextBoxColumn
     Friend WithEvents anular As DataGridViewButtonColumn
+    Friend WithEvents Label1 As Label
 End Class

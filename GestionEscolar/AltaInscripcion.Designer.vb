@@ -74,13 +74,13 @@ Partial Class AltaInscripcion
         Me.ServiciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.serviciosTableAdapter()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.LabelCursado = New System.Windows.Forms.Label()
+        Me.GradosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PictureBoxCursado = New System.Windows.Forms.PictureBox()
         Me.TextBoxGrado = New System.Windows.Forms.TextBox()
         Me.ComboBoxCicloLectivo = New System.Windows.Forms.ComboBox()
         Me.ComboBoxCuatrimestre = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.GradosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GradosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gradosTableAdapter()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
@@ -113,8 +113,8 @@ Partial Class AltaInscripcion
         CType(Me.ServiciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureServicio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
-        CType(Me.PictureBoxCursado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GradosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxCursado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IdclienteLabel
@@ -673,6 +673,11 @@ Partial Class AltaInscripcion
         Me.LabelCursado.TabIndex = 43
         Me.LabelCursado.Text = "________________"
         '
+        'GradosBindingSource
+        '
+        Me.GradosBindingSource.DataMember = "grados"
+        Me.GradosBindingSource.DataSource = Me.ComercialDataSet
+        '
         'PictureBoxCursado
         '
         Me.PictureBoxCursado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
@@ -733,11 +738,6 @@ Partial Class AltaInscripcion
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "Cuatrimestre:"
         '
-        'GradosBindingSource
-        '
-        Me.GradosBindingSource.DataMember = "grados"
-        Me.GradosBindingSource.DataSource = Me.ComercialDataSet
-        '
         'GradosTableAdapter
         '
         Me.GradosTableAdapter.ClearBeforeFill = True
@@ -754,6 +754,7 @@ Partial Class AltaInscripcion
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.Name = "AltaInscripcion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "AltaInscripcion"
@@ -780,8 +781,8 @@ Partial Class AltaInscripcion
         CType(Me.PictureServicio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        CType(Me.PictureBoxCursado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GradosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxCursado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

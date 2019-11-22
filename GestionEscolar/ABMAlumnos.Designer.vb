@@ -58,6 +58,8 @@ Partial Class ABMAlumnos
         Me.ToolStripButtonEliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonCancelar = New System.Windows.Forms.ToolStripButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.filtrotextbox = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.AlumnosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,8 +68,6 @@ Partial Class ABMAlumnos
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.filtrotextbox = New System.Windows.Forms.TextBox()
         IdalumnoLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         FechanacimientoLabel = New System.Windows.Forms.Label()
@@ -230,7 +230,6 @@ Partial Class ABMAlumnos
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        'Me.TableAdapterManager.clientesalumnosTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
@@ -453,6 +452,22 @@ Partial Class ABMAlumnos
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         '
+        'filtrotextbox
+        '
+        Me.filtrotextbox.Location = New System.Drawing.Point(290, 34)
+        Me.filtrotextbox.Name = "filtrotextbox"
+        Me.filtrotextbox.Size = New System.Drawing.Size(294, 22)
+        Me.filtrotextbox.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(157, 37)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(127, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Filtrar por Nombre:"
+        '
         'AlumnosDataGridView
         '
         Me.AlumnosDataGridView.AllowUserToAddRows = False
@@ -525,22 +540,6 @@ Partial Class ABMAlumnos
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
         Me.DataGridViewTextBoxColumn7.Visible = False
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(157, 37)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(127, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Filtrar por Nombre:"
-        '
-        'filtrotextbox
-        '
-        Me.filtrotextbox.Location = New System.Drawing.Point(290, 34)
-        Me.filtrotextbox.Name = "filtrotextbox"
-        Me.filtrotextbox.Size = New System.Drawing.Size(294, 22)
-        Me.filtrotextbox.TabIndex = 2
-        '
         'ABMAlumnos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -550,6 +549,7 @@ Partial Class ABMAlumnos
         Me.Controls.Add(Me.AlumnosBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ABMAlumnos"
