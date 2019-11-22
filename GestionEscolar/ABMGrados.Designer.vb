@@ -355,7 +355,7 @@ Partial Class ABMGrados
         Me.TurnoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.GradosBindingSource, "turno", True))
         Me.TurnoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.TurnoComboBox.FormattingEnabled = True
-        Me.TurnoComboBox.Items.AddRange(New Object() {"M", "T"})
+        Me.TurnoComboBox.Items.AddRange(New Object() {"", "M", "T"})
         Me.TurnoComboBox.Location = New System.Drawing.Point(201, 175)
         Me.TurnoComboBox.Name = "TurnoComboBox"
         Me.TurnoComboBox.Size = New System.Drawing.Size(121, 24)

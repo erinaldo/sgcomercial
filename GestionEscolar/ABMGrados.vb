@@ -26,7 +26,7 @@
             Try
                 Me.Validate()
                 Me.GradosBindingSource.EndEdit()
-                If Not Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) = 1 Then
+                If Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) = 0 Then
                     MessageBox.Show("Ocurrió un error Verifíque los datos ingresados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Return
                 End If
@@ -76,6 +76,10 @@
             BindingNavigatorAddNewItem.Enabled = False
             ToolStripButtonEditar.Enabled = False
             ToolStripButtonCancelar.Enabled = True
+            BindingNavigatorMoveLastItem.Enabled = False
+            BindingNavigatorMoveFirstItem.Enabled = False
+            BindingNavigatorMoveNextItem.Enabled = False
+            BindingNavigatorMovePreviousItem.Enabled = False
             'ToolStripButtonEliminar.Enabled = False
             'GroupBox2.Enabled = False
         Else
@@ -83,6 +87,10 @@
             BindingNavigatorAddNewItem.Enabled = True
             ToolStripButtonEditar.Enabled = True
             ToolStripButtonCancelar.Enabled = False
+            BindingNavigatorMoveLastItem.Enabled = True
+            BindingNavigatorMoveFirstItem.Enabled = True
+            BindingNavigatorMoveNextItem.Enabled = True
+            BindingNavigatorMovePreviousItem.Enabled = True
             'ToolStripButtonEliminar.Enabled = True
             'GroupBox2.Enabled = True
         End If
@@ -101,5 +109,7 @@
     Private Sub ToolStripButtonCancelar_Click(sender As Object, e As EventArgs) Handles ToolStripButtonCancelar.Click
         enablefields(False)
         enabledit(False)
+        GradosBindingSource.ResetBindings(True)
+        Me.GradosTableAdapter.Fill(Me.ComercialDataSet.grados)
     End Sub
 End Class
