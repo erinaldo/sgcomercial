@@ -1,4 +1,11 @@
 ﻿Partial Class comercialDataSet
+    Partial Public Class EstIngUltimoscierresDataTable
+        Private Sub EstIngUltimoscierresDataTable_EstIngUltimoscierresRowChanging(sender As Object, e As EstIngUltimoscierresRowChangeEvent) Handles Me.EstIngUltimoscierresRowChanging
+
+        End Sub
+
+    End Class
+
     Partial Public Class pagosDataTable
         Private Sub pagosDataTable_pagosRowChanging(sender As Object, e As pagosRowChangeEvent) Handles Me.pagosRowChanging
 

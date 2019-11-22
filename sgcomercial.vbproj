@@ -1948,6 +1948,7 @@
     <None Include="Principal\DataSets\comercialDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>comercialDataSet3.Designer.vb</LastGenOutput>
     </None>
     <None Include="Principal\DataSets\MySQLDataSet.xsc">
       <DependentUpon>MySQLDataSet.xsd</DependentUpon>

@@ -541,7 +541,7 @@ Partial Class AltaInscripcion
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(319, 546)
+        Me.Button1.Location = New System.Drawing.Point(319, 547)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(216, 46)
         Me.Button1.TabIndex = 4
