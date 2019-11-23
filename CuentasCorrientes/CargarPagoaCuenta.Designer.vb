@@ -25,23 +25,23 @@ Partial Class CargarPagoaCuenta
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CargarPagoaCuenta))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.nrocomprobante = New System.Windows.Forms.TextBox()
         Me.ComboTipoComprobante = New System.Windows.Forms.ComboBox()
+        Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ComboFormapago = New System.Windows.Forms.ComboBox()
+        Me.FormaspagoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pagotextbox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipocomprobantesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocomprobantesTableAdapter()
-        Me.FormaspagoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FormaspagoTableAdapter = New sgcomercial.comercialDataSetTableAdapters.formaspagoTableAdapter()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FormaspagoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -65,6 +65,15 @@ Partial Class CargarPagoaCuenta
         Me.GroupBox1.TabIndex = 19
         Me.GroupBox1.TabStop = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(191, 220)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(223, 51)
+        Me.Button1.TabIndex = 27
+        Me.Button1.Text = "Confirmar Pago"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'nrocomprobante
         '
         Me.nrocomprobante.Location = New System.Drawing.Point(247, 167)
@@ -84,6 +93,16 @@ Partial Class CargarPagoaCuenta
         Me.ComboTipoComprobante.TabIndex = 24
         Me.ComboTipoComprobante.ValueMember = "idtipocomprobante"
         '
+        'TipocomprobantesBindingSource
+        '
+        Me.TipocomprobantesBindingSource.DataMember = "tipocomprobantes"
+        Me.TipocomprobantesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'ComboFormapago
         '
         Me.ComboFormapago.DataSource = Me.FormaspagoBindingSource
@@ -95,6 +114,11 @@ Partial Class CargarPagoaCuenta
         Me.ComboFormapago.Size = New System.Drawing.Size(217, 24)
         Me.ComboFormapago.TabIndex = 25
         Me.ComboFormapago.ValueMember = "idformapago"
+        '
+        'FormaspagoBindingSource
+        '
+        Me.FormaspagoBindingSource.DataMember = "formaspago"
+        Me.FormaspagoBindingSource.DataSource = Me.ComercialDataSet
         '
         'Label5
         '
@@ -139,37 +163,13 @@ Partial Class CargarPagoaCuenta
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "Monto a pagar:"
         '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TipocomprobantesBindingSource
-        '
-        Me.TipocomprobantesBindingSource.DataMember = "tipocomprobantes"
-        Me.TipocomprobantesBindingSource.DataSource = Me.ComercialDataSet
-        '
         'TipocomprobantesTableAdapter
         '
         Me.TipocomprobantesTableAdapter.ClearBeforeFill = True
         '
-        'FormaspagoBindingSource
-        '
-        Me.FormaspagoBindingSource.DataMember = "formaspago"
-        Me.FormaspagoBindingSource.DataSource = Me.ComercialDataSet
-        '
         'FormaspagoTableAdapter
         '
         Me.FormaspagoTableAdapter.ClearBeforeFill = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(191, 220)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(223, 51)
-        Me.Button1.TabIndex = 27
-        Me.Button1.Text = "Confirmar Pago"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'CargarPagoaCuenta
         '
@@ -187,8 +187,8 @@ Partial Class CargarPagoaCuenta
         Me.Text = "Cargar Pago a Cuenta"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FormaspagoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

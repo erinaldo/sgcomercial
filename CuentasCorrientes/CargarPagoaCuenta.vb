@@ -6,21 +6,7 @@ Public Class CargarPagoaCuenta
     Dim PagosTableAdapter As New comercialDataSetTableAdapters.pagosTableAdapter()
     Dim CajasoperacionesTableAdapter As New comercialDataSetTableAdapters.cajasoperacionesTableAdapter
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs)
-        If Char.IsControl(e.KeyChar) Then
-            Return
-        End If
 
-        If e.KeyChar = "." Then
-            e.KeyChar = ","
-            Return
-        End If
-        If e.KeyChar = "," Then
-            Return
-        End If
-        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
-            'MessageBox.Show("Solo se permiten numeros")
-            e.KeyChar = ""
-        End If
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
@@ -68,11 +54,15 @@ Public Class CargarPagoaCuenta
         End If
 
         '**************************
+        If MsgBox("Seguro desea Confirmar el PAGO?", MsgBoxStyle.YesNo, "Pregunta") = vbNo Then
+            Return
+        End If
         Dim idoperacioncaja As Long
         Try
             Dim PagosImputacionesTableAdapter As New comercialDataSetTableAdapters.pagosimputacionesTableAdapter()
             gidpago = PagosTableAdapter.pagos_insertarpago(Nothing, gidcliente, pago, Today(), ComboFormapago.SelectedValue, nrocomprobante.Text)
             idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(gidevento, gidpago, ComboFormapago.SelectedValue, pago, gusername, Nothing)
+            PagosImputacionesTableAdapter.pagosimputaciones_pagoacuenta(gidpago, gidcliente)
             'PagosImputacionesTableAdapter.pagosimputaciones_insertar(gidpago, gidventa, pago)
             Me.Close()
         Catch ex As Exception
@@ -99,5 +89,27 @@ Public Class CargarPagoaCuenta
             estado = True
         End If
         '***************    FIN consultar el estado de caja *************
+    End Sub
+
+    Private Sub pagotextbox_TextChanged(sender As Object, e As EventArgs) Handles pagotextbox.TextChanged
+
+    End Sub
+
+    Private Sub pagotextbox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles pagotextbox.KeyPress
+        If Char.IsControl(e.KeyChar) Then
+            Return
+        End If
+
+        If e.KeyChar = "." Then
+            e.KeyChar = ","
+            Return
+        End If
+        If e.KeyChar = "," Then
+            Return
+        End If
+        If (Regex.IsMatch(e.KeyChar, "[^0-9]")) Then
+            'MessageBox.Show("Solo se permiten numeros")
+            e.KeyChar = ""
+        End If
     End Sub
 End Class

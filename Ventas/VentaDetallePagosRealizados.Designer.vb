@@ -45,6 +45,7 @@ Partial Class VentaDetallePagosRealizados
         Me.ListapagosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ListapagosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapagosTableAdapter()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.importepagado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -314,7 +315,7 @@ Partial Class VentaDetallePagosRealizados
         Me.ListapagosDataGridView.AutoGenerateColumns = False
         Me.ListapagosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ListapagosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListapagosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.ListapagosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.importepagado, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
         Me.ListapagosDataGridView.DataSource = Me.ListapagosBindingSource
         Me.ListapagosDataGridView.Location = New System.Drawing.Point(15, 36)
         Me.ListapagosDataGridView.Name = "ListapagosDataGridView"
@@ -340,13 +341,21 @@ Partial Class VentaDetallePagosRealizados
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.ToolTipText = "Pago Nº"
         '
+        'importepagado
+        '
+        Me.importepagado.DataPropertyName = "importepagado"
+        Me.importepagado.HeaderText = "Importe Abonado"
+        Me.importepagado.Name = "importepagado"
+        Me.importepagado.ReadOnly = True
+        Me.importepagado.ToolTipText = "Importe Abonado"
+        '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "importe"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Importe"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Importe Imputado"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.ToolTipText = "Importe"
+        Me.DataGridViewTextBoxColumn4.ToolTipText = "Importe Imputado"
         '
         'DataGridViewTextBoxColumn5
         '
@@ -410,6 +419,7 @@ Partial Class VentaDetallePagosRealizados
     Friend WithEvents ListapagosTableAdapter As comercialDataSetTableAdapters.listapagosTableAdapter
     Friend WithEvents ListapagosDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents importepagado As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn

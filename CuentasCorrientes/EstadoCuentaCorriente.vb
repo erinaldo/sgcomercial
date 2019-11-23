@@ -1,4 +1,6 @@
-﻿Public Class EstadoCuentaCorriente
+﻿Imports System.ComponentModel
+
+Public Class EstadoCuentaCorriente
     Private Sub EstadoCuentaCorriente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pagos' Puede moverla o quitarla según sea necesario.
         Me.PagosTableAdapter.Fill(Me.ComercialDataSet.pagos)
@@ -291,9 +293,22 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim r As New CargarPagoaCuenta()
-        r.ShowDialog()
+        Try
+            gidcliente = Val(IdclienteTextBox.Text)
+            If gidcliente > 0 Then
+                Dim r As New CargarPagoaCuenta()
+                r.ShowDialog()
+                filtrarcliente()
+            Else
+                MsgBox("Seleccione un cliente válido", MsgBoxStyle.Exclamation, "Advertencia")
+            End If
+        Catch ex As Exception
+            MsgBox("Seleccione un cliente válido: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia")
+        End Try
 
+    End Sub
 
+    Private Sub EstadoCuentaCorriente_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        gclienteseleccionado = Nothing
     End Sub
 End Class
