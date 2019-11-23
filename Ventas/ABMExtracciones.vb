@@ -73,14 +73,21 @@ Public Class ABMExtracciones
                 'MsgBox(gusername)
                 CajasoperacionesTableAdapter.cajasoperaciones_insertarextraccion(idevento, 1, CDbl(MontoTextBox.Text), idgasto, gusername)
                 ''*******************************************************
-                MsgBox("Extracción cargada exitosamente!", MsgBoxStyle.Information)
+                MsgBox("Operación cargada exitosamente!", MsgBoxStyle.Information)
                 enablebuttons(False)
                 DescripcionTextBox.Text = ""
                 MontoTextBox.Text = ""
                 FechagastoDateTimePicker.Value = Today
             End If
             If RadioDeposito.Checked = True Then
-                MsgBox("TEMPORALMENTE NO DISPONIBLE", MsgBoxStyle.Information)
+                Dim DepositosTableAdapter As New comercialDataSetTableAdapters.depositosTableAdapter()
+                idgasto = DepositosTableAdapter.depositos_insertar(DescripcionTextBox.Text, CDbl(MontoTextBox.Text), Now())
+                CajasoperacionesTableAdapter.cajasoperaciones_insertardeposito(idevento, 1, CDbl(MontoTextBox.Text), idgasto, gusername)
+                MsgBox("Operación cargada exitosamente!", MsgBoxStyle.Information)
+                enablebuttons(False)
+                DescripcionTextBox.Text = ""
+                MontoTextBox.Text = ""
+                FechagastoDateTimePicker.Value = Today
             End If
         Else
             MsgBox("Operacion Cancelada", MsgBoxStyle.Information, "Aviso")

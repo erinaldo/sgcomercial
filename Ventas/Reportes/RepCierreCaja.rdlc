@@ -648,6 +648,129 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox22">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Total de ingresos con Depósitos en Efectivo (+)</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox17</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>6</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox29">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>$ </Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Depósitos", Fields!monto.Value , Fields!monto.Value * 0))</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox29</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -724,6 +847,7 @@
                             <TextRun>
                               <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Ventas", Fields!monto.Value , Fields!monto.Value * 0)) +
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Cambio - Dif. (+)", Fields!monto.Value , Fields!monto.Value * 0)) + 
+Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Depósitos", Fields!monto.Value , Fields!monto.Value * 0)) + 
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Pago a Cta. Cte.", Fields!monto.Value , Fields!monto.Value * 0))</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
@@ -1228,7 +1352,8 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Pago a 
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Cambio - Dif. (+)" or Fields!tipomovimiento.Value = "Pago a Cta. Cte."), Fields!monto.Value , Fields!monto.Value * 0)) - 
+                              <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Cambio - Dif. (+)" or Fields!tipomovimiento.Value = "Pago a Cta. Cte."), Fields!monto.Value , Fields!monto.Value * 0)) +
+Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Depósito Efect." and (Fields!tipomovimiento.Value = "Depósitos"), Fields!monto.Value , Fields!monto.Value * 0)) - 
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Cambio - Dif. (-)"), Fields!monto.Value , Fields!monto.Value * 0)) -
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Gastos", Fields!monto.Value , Fields!monto.Value * 0)) - 
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracciones", Fields!monto.Value , Fields!monto.Value * 0))</Value>
@@ -1358,7 +1483,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
                               <Value>=Sum(Fields!saldofinal.Value, "cajaseventos") - 
 Sum(Fields!saldoinicial.Value, "cajaseventos")  -  
 
-(Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Pago a Cta. Cte." or Fields!tipomovimiento.Value = "Cambio - Dif. (+)"), Fields!monto.Value , Fields!monto.Value * 0)) -
+(Sum(Microsoft.VisualBasic.Interaction.IIf((Fields!idformapago.Value = "Efectivo" or Fields!idformapago.Value = "Depósito Efect.") and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Pago a Cta. Cte." or Fields!tipomovimiento.Value = "Cambio - Dif. (+)" or Fields!tipomovimiento.Value = "Depósitos"), Fields!monto.Value , Fields!monto.Value * 0)) -
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Cambio - Dif. (-)"), Fields!monto.Value , Fields!monto.Value * 0)) -  
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Gastos", Fields!monto.Value , Fields!monto.Value * 0)) - 
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracciones", Fields!monto.Value , Fields!monto.Value * 0))
@@ -1434,6 +1559,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>librodiario</DataSetName>
@@ -1444,7 +1570,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
         </SortExpressions>
         <Top>2.56765cm</Top>
         <Left>0.12101cm</Left>
-        <Height>6.6cm</Height>
+        <Height>7.2cm</Height>
         <Width>18.34483cm</Width>
         <Style>
           <Border>
@@ -2092,7 +2218,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>17.01094cm</Top>
+        <Top>17.23319cm</Top>
         <Left>0.12101cm</Left>
         <Height>0.78317cm</Height>
         <Width>18.34482cm</Width>
@@ -2410,7 +2536,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
           </Style>
         </ChartNoDataMessage>
         <DataSetName>cajaresumen</DataSetName>
-        <Top>9.34404cm</Top>
+        <Top>9.91554cm</Top>
         <Left>0.12101cm</Left>
         <Height>3.68051cm</Height>
         <Width>18.34482cm</Width>
@@ -3175,7 +3301,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
             <Value>=Fields!idoperacion.Value</Value>
           </SortExpression>
         </SortExpressions>
-        <Top>17.93522cm</Top>
+        <Top>18.12572cm</Top>
         <Left>0.12101cm</Left>
         <Height>3.10276cm</Height>
         <Width>18.34483cm</Width>
@@ -3458,7 +3584,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
           </Style>
         </ChartNoDataMessage>
         <DataSetName>librodiario</DataSetName>
-        <Top>13.20094cm</Top>
+        <Top>13.51844cm</Top>
         <Left>0.12101cm</Left>
         <Height>3.63361cm</Height>
         <Width>18.34482cm</Width>
@@ -3492,7 +3618,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
         </Style>
       </Chart>
     </ReportItems>
-    <Height>8.34812in</Height>
+    <Height>8.44812in</Height>
     <Style />
   </Body>
   <Width>7.33628in</Width>
