@@ -703,10 +703,11 @@ Partial Class Principal
         '
         'ExtraccionesToolStripMenuItem
         '
+        Me.ExtraccionesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources._22_512
         Me.ExtraccionesToolStripMenuItem.Name = "ExtraccionesToolStripMenuItem"
         Me.ExtraccionesToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
         Me.ExtraccionesToolStripMenuItem.Tag = "ABMExtracciones"
-        Me.ExtraccionesToolStripMenuItem.Text = "Extracciones"
+        Me.ExtraccionesToolStripMenuItem.Text = "Extracciones / Depósitos"
         '
         'GeneraciónDeValesToolStripMenuItem
         '
@@ -1559,6 +1560,7 @@ Partial Class Principal
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Me.ParametrosgeneralesTableAdapter
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing

@@ -68,6 +68,8 @@ Partial Class ABMExtracciones
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
         Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Me.RadioExtraccion = New System.Windows.Forms.RadioButton()
+        Me.RadioDeposito = New System.Windows.Forms.RadioButton()
         DescripcionLabel = New System.Windows.Forms.Label()
         MontoLabel = New System.Windows.Forms.Label()
         FechagastoLabel = New System.Windows.Forms.Label()
@@ -85,7 +87,7 @@ Partial Class ABMExtracciones
         'DescripcionLabel
         '
         DescripcionLabel.AutoSize = True
-        DescripcionLabel.Location = New System.Drawing.Point(75, 49)
+        DescripcionLabel.Location = New System.Drawing.Point(75, 71)
         DescripcionLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DescripcionLabel.Name = "DescripcionLabel"
         DescripcionLabel.Size = New System.Drawing.Size(86, 17)
@@ -95,7 +97,7 @@ Partial Class ABMExtracciones
         'MontoLabel
         '
         MontoLabel.AutoSize = True
-        MontoLabel.Location = New System.Drawing.Point(110, 81)
+        MontoLabel.Location = New System.Drawing.Point(110, 103)
         MontoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         MontoLabel.Name = "MontoLabel"
         MontoLabel.Size = New System.Drawing.Size(51, 17)
@@ -105,7 +107,7 @@ Partial Class ABMExtracciones
         'FechagastoLabel
         '
         FechagastoLabel.AutoSize = True
-        FechagastoLabel.Location = New System.Drawing.Point(41, 114)
+        FechagastoLabel.Location = New System.Drawing.Point(41, 136)
         FechagastoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         FechagastoLabel.Name = "FechagastoLabel"
         FechagastoLabel.Size = New System.Drawing.Size(120, 17)
@@ -114,6 +116,9 @@ Partial Class ABMExtracciones
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.BtnNuevo)
         Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 10)
@@ -130,7 +135,7 @@ Partial Class ABMExtracciones
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(158, 32)
         Me.BtnNuevo.TabIndex = 12
-        Me.BtnNuevo.Text = "Nueva Extracción"
+        Me.BtnNuevo.Text = "Nueva Operación"
         Me.BtnNuevo.UseVisualStyleBackColor = True
         '
         'Button1
@@ -140,11 +145,16 @@ Partial Class ABMExtracciones
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(158, 32)
         Me.Button1.TabIndex = 13
-        Me.Button1.Text = "Guardar Extracción"
+        Me.Button1.Text = "Guardar"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.RadioDeposito)
+        Me.GroupBox1.Controls.Add(Me.RadioExtraccion)
         Me.GroupBox1.Controls.Add(DescripcionLabel)
         Me.GroupBox1.Controls.Add(Me.DescripcionTextBox)
         Me.GroupBox1.Controls.Add(MontoLabel)
@@ -161,7 +171,7 @@ Partial Class ABMExtracciones
         'DescripcionTextBox
         '
         Me.DescripcionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.DescripcionTextBox.Location = New System.Drawing.Point(166, 45)
+        Me.DescripcionTextBox.Location = New System.Drawing.Point(166, 67)
         Me.DescripcionTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
         Me.DescripcionTextBox.Size = New System.Drawing.Size(351, 22)
@@ -169,7 +179,7 @@ Partial Class ABMExtracciones
         '
         'MontoTextBox
         '
-        Me.MontoTextBox.Location = New System.Drawing.Point(166, 77)
+        Me.MontoTextBox.Location = New System.Drawing.Point(166, 99)
         Me.MontoTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.MontoTextBox.Name = "MontoTextBox"
         Me.MontoTextBox.Size = New System.Drawing.Size(76, 22)
@@ -180,7 +190,7 @@ Partial Class ABMExtracciones
         '
         Me.FechagastoDateTimePicker.Enabled = False
         Me.FechagastoDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FechagastoDateTimePicker.Location = New System.Drawing.Point(166, 109)
+        Me.FechagastoDateTimePicker.Location = New System.Drawing.Point(166, 131)
         Me.FechagastoDateTimePicker.Margin = New System.Windows.Forms.Padding(4)
         Me.FechagastoDateTimePicker.Name = "FechagastoDateTimePicker"
         Me.FechagastoDateTimePicker.Size = New System.Drawing.Size(149, 22)
@@ -398,6 +408,7 @@ Partial Class ABMExtracciones
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -408,20 +419,30 @@ Partial Class ABMExtracciones
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Me.ExtraccionesTableAdapter
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -441,11 +462,19 @@ Partial Class ABMExtracciones
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -465,6 +494,28 @@ Partial Class ABMExtracciones
         '
         Me.CajasoperacionesTableAdapter.ClearBeforeFill = True
         '
+        'RadioExtraccion
+        '
+        Me.RadioExtraccion.AutoSize = True
+        Me.RadioExtraccion.Location = New System.Drawing.Point(165, 32)
+        Me.RadioExtraccion.Name = "RadioExtraccion"
+        Me.RadioExtraccion.Size = New System.Drawing.Size(158, 21)
+        Me.RadioExtraccion.TabIndex = 27
+        Me.RadioExtraccion.TabStop = True
+        Me.RadioExtraccion.Text = "Extracción de dinero"
+        Me.RadioExtraccion.UseVisualStyleBackColor = True
+        '
+        'RadioDeposito
+        '
+        Me.RadioDeposito.AutoSize = True
+        Me.RadioDeposito.Location = New System.Drawing.Point(351, 32)
+        Me.RadioDeposito.Name = "RadioDeposito"
+        Me.RadioDeposito.Size = New System.Drawing.Size(149, 21)
+        Me.RadioDeposito.TabIndex = 28
+        Me.RadioDeposito.TabStop = True
+        Me.RadioDeposito.Text = "Depósito de dinero"
+        Me.RadioDeposito.UseVisualStyleBackColor = True
+        '
         'ABMExtracciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -475,7 +526,10 @@ Partial Class ABMExtracciones
         Me.Controls.Add(Me.ExtraccionesDataGridView)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ABMExtracciones"
         Me.Tag = "ABMExtracciones"
         Me.Text = "ABM Extracciones"
@@ -535,4 +589,6 @@ Partial Class ABMExtracciones
     Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
+    Friend WithEvents RadioDeposito As RadioButton
+    Friend WithEvents RadioExtraccion As RadioButton
 End Class

@@ -8,6 +8,8 @@ Public Class ABMExtracciones
         Else
             BtnNuevo.Enabled = True
         End If
+        RadioDeposito.Enabled = status
+        RadioExtraccion.Enabled = status
         Button1.Enabled = status
         DescripcionTextBox.Enabled = status
         MontoTextBox.Enabled = status
@@ -48,7 +50,11 @@ Public Class ABMExtracciones
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        '*************** GUARDAR EXTRACCION ***************************
+        '*************** GUARDAR EXTRACCION/INGRESO ***************************
+        If RadioExtraccion.Checked = False And RadioDeposito.Checked = False Then
+            MsgBox("Debe seleccionar el tipo de operación a realizar", MsgBoxStyle.Information, "Aviso")
+            Return
+        End If
         If DescripcionTextBox.Text.Length = 0 Then
             MsgBox("Debe cargar una Descripción", MsgBoxStyle.Information, "Aviso")
             Return
@@ -61,17 +67,21 @@ Public Class ABMExtracciones
         Dim idgasto As Long
 
         If MsgBox("Seguro desea Guardar " + DescripcionTextBox.Text + " por un monto de: " + MontoTextBox.Text + " ?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-
-            ''*******************************************************
-            idgasto = ExtraccionesTableAdapter.extracciones_insertar(DescripcionTextBox.Text, CDbl(MontoTextBox.Text), Now())
-            'MsgBox(gusername)
-            CajasoperacionesTableAdapter.cajasoperaciones_insertarextraccion(idevento, 1, CDbl(MontoTextBox.Text), idgasto, gusername)
-            ''*******************************************************
-            MsgBox("Extracción cargada exitosamente!", MsgBoxStyle.Information)
-            enablebuttons(False)
-            DescripcionTextBox.Text = ""
-            MontoTextBox.Text = ""
-            FechagastoDateTimePicker.Value = Today
+            If RadioExtraccion.Checked = True Then
+                ''*******************************************************
+                idgasto = ExtraccionesTableAdapter.extracciones_insertar(DescripcionTextBox.Text, CDbl(MontoTextBox.Text), Now())
+                'MsgBox(gusername)
+                CajasoperacionesTableAdapter.cajasoperaciones_insertarextraccion(idevento, 1, CDbl(MontoTextBox.Text), idgasto, gusername)
+                ''*******************************************************
+                MsgBox("Extracción cargada exitosamente!", MsgBoxStyle.Information)
+                enablebuttons(False)
+                DescripcionTextBox.Text = ""
+                MontoTextBox.Text = ""
+                FechagastoDateTimePicker.Value = Today
+            End If
+            If RadioDeposito.Checked = True Then
+                MsgBox("TEMPORALMENTE NO DISPONIBLE", MsgBoxStyle.Information)
+            End If
         Else
             MsgBox("Operacion Cancelada", MsgBoxStyle.Information, "Aviso")
         End If
