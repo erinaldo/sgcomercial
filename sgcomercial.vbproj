@@ -258,6 +258,12 @@
     <Compile Include="CuentasCorrientes\AlertaCuentasCorrientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CuentasCorrientes\CargarPagoaCuenta.Designer.vb">
+      <DependentUpon>CargarPagoaCuenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\CargarPagoaCuenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CuentasCorrientes\CtasCtesPagar.Designer.vb">
       <DependentUpon>CtasCtesPagar.vb</DependentUpon>
     </Compile>
@@ -1372,6 +1378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\AlertaCuentasCorrientes.resx">
       <DependentUpon>AlertaCuentasCorrientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasCorrientes\CargarPagoaCuenta.resx">
+      <DependentUpon>CargarPagoaCuenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\CtasCtesPagar.resx">
       <DependentUpon>CtasCtesPagar.vb</DependentUpon>

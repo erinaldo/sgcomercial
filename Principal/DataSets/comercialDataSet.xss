@@ -77,7 +77,7 @@
     <Shape ID="DesignTable:listacuentascorrientes" ZOrder="60" X="1947" Y="114" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="259" OldDataTableHeight="310" SplitterPosition="28" />
     <Shape ID="DesignTable:productos" ZOrder="17" X="145" Y="-98" Height="59" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="973" OldDataTableHeight="48" SplitterPosition="29" />
     <Shape ID="DesignTable:librocuentascorrientes" ZOrder="111" X="1960" Y="891" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="53" OldDataTableHeight="53" SplitterPosition="28" />
-    <Shape ID="DesignTable:listapagos" ZOrder="68" X="1964" Y="1237" Height="63" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="284" OldDataTableHeight="191" SplitterPosition="29" />
+    <Shape ID="DesignTable:listapagos" ZOrder="68" X="1964" Y="1237" Height="342" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="284" OldDataTableHeight="191" SplitterPosition="237" />
     <Shape ID="DesignTable:stkmovimientos" ZOrder="55" X="767" Y="123" Height="62" Width="247" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="352" OldDataTableHeight="214" SplitterPosition="28" />
     <Shape ID="DesignTable:listapedidosdelivery" ZOrder="63" X="1968" Y="1939" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="170" OldDataTableHeight="329" SplitterPosition="28" />
     <Shape ID="DesignTable:listalotesdetalle" ZOrder="110" X="1952" Y="394" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="124" OldDataTableHeight="582" SplitterPosition="28" />

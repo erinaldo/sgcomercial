@@ -7,7 +7,7 @@ Public Class CtasCtesPagar
         'Me.FormaspagoTableAdapter.FillByPagosaCC(Me.ComercialDataSet.formaspago)
         Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocomprobantes' Puede moverla o quitarla según sea necesario.
-        Me.TipocomprobantesTableAdapter.Fill(Me.ComercialDataSet.tipocomprobantes)
+        Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
 
     End Sub
     Private Sub consultarestadocaja(ByRef estado As Boolean)

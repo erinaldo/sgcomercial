@@ -203,9 +203,9 @@
                     '        MsgBox("Operacion cancelada")
                     '    End If
                     'End If
-                    debe = debe * -1
+                    'debe = debe * -1
                     If Not debe = saldo Then
-                        MsgBox("No es posible anular: existen pagos asociados a esta operación.", MsgBoxStyle.Exclamation, "Advertencia")
+                        MsgBox("No es posible anular: existen pagos asociados." + vbCrLf + "Primero anule  los pagos asociados.", MsgBoxStyle.Exclamation, "Advertencia")
                         Return
                     Else
                         If MsgBox("Seguro desea eliminar la venta?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
@@ -287,6 +287,13 @@
     End Sub
 
     Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim r As New CargarPagoaCuenta()
+        r.ShowDialog()
+
 
     End Sub
 End Class

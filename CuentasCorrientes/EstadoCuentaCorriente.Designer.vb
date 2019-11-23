@@ -25,12 +25,12 @@ Partial Class EstadoCuentaCorriente
         Me.components = New System.ComponentModel.Container()
         Dim NombreLabel As System.Windows.Forms.Label
         Dim CuitLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -40,6 +40,7 @@ Partial Class EstadoCuentaCorriente
         Me.Label1 = New System.Windows.Forms.Label()
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.ListacuentascorrientesDataGridView = New System.Windows.Forms.DataGridView()
         Me.nro = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.idpedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -93,7 +94,7 @@ Partial Class EstadoCuentaCorriente
         Me.VentasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.ventasTableAdapter()
         Me.PagosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pagosTableAdapter()
         Me.PermisosTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.permisosTableAdapter()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         NombreLabel = New System.Windows.Forms.Label()
         CuitLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -214,6 +215,16 @@ Partial Class EstadoCuentaCorriente
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Estado de Cuenta"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(467, 1)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(217, 15)
+        Me.Label6.TabIndex = 26
+        Me.Label6.Text = "F5 -Actualizar Estado de Cuenta-"
+        '
         'ListacuentascorrientesDataGridView
         '
         Me.ListacuentascorrientesDataGridView.AllowUserToAddRows = False
@@ -230,9 +241,9 @@ Partial Class EstadoCuentaCorriente
         Me.ListacuentascorrientesDataGridView.Name = "ListacuentascorrientesDataGridView"
         Me.ListacuentascorrientesDataGridView.ReadOnly = True
         Me.ListacuentascorrientesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.InactiveBorder
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
-        Me.ListacuentascorrientesDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.InactiveBorder
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black
+        Me.ListacuentascorrientesDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.ListacuentascorrientesDataGridView.RowTemplate.Height = 24
         Me.ListacuentascorrientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ListacuentascorrientesDataGridView.Size = New System.Drawing.Size(1030, 299)
@@ -241,8 +252,8 @@ Partial Class EstadoCuentaCorriente
         'nro
         '
         Me.nro.DataPropertyName = "nro"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.nro.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.nro.DefaultCellStyle = DataGridViewCellStyle7
         Me.nro.HeaderText = "Comprobante Nº"
         Me.nro.Name = "nro"
         Me.nro.ReadOnly = True
@@ -252,8 +263,8 @@ Partial Class EstadoCuentaCorriente
         'idpedido
         '
         Me.idpedido.DataPropertyName = "idpedido"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.idpedido.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.idpedido.DefaultCellStyle = DataGridViewCellStyle8
         Me.idpedido.HeaderText = "Delivery N°"
         Me.idpedido.Name = "idpedido"
         Me.idpedido.ReadOnly = True
@@ -284,8 +295,8 @@ Partial Class EstadoCuentaCorriente
         'debe
         '
         Me.debe.DataPropertyName = "debe"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.debe.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.debe.DefaultCellStyle = DataGridViewCellStyle9
         Me.debe.HeaderText = "Debe"
         Me.debe.Name = "debe"
         Me.debe.ReadOnly = True
@@ -293,8 +304,8 @@ Partial Class EstadoCuentaCorriente
         'haber
         '
         Me.haber.DataPropertyName = "haber"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.haber.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.haber.DefaultCellStyle = DataGridViewCellStyle10
         Me.haber.HeaderText = "Haber"
         Me.haber.Name = "haber"
         Me.haber.ReadOnly = True
@@ -302,10 +313,10 @@ Partial Class EstadoCuentaCorriente
         'saldo
         '
         Me.saldo.DataPropertyName = "saldo"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red
-        Me.saldo.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Red
+        Me.saldo.DefaultCellStyle = DataGridViewCellStyle11
         Me.saldo.HeaderText = "Saldo"
         Me.saldo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.saldo.Name = "saldo"
@@ -354,6 +365,7 @@ Partial Class EstadoCuentaCorriente
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Button2)
         Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Controls.Add(Me.PagosDataGridView)
         Me.GroupBox3.Controls.Add(Me.VentasDataGridView)
@@ -374,9 +386,11 @@ Partial Class EstadoCuentaCorriente
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(825, 46)
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(825, 62)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(194, 31)
+        Me.Button1.Size = New System.Drawing.Size(194, 43)
         Me.Button1.TabIndex = 17
         Me.Button1.Text = "Imprimir"
         Me.Button1.UseVisualStyleBackColor = True
@@ -627,6 +641,7 @@ Partial Class EstadoCuentaCorriente
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -637,22 +652,31 @@ Partial Class EstadoCuentaCorriente
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -672,6 +696,8 @@ Partial Class EstadoCuentaCorriente
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -710,15 +736,16 @@ Partial Class EstadoCuentaCorriente
         '
         Me.PermisosTableAdapter1.ClearBeforeFill = True
         '
-        'Label6
+        'Button2
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(467, 1)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(234, 16)
-        Me.Label6.TabIndex = 26
-        Me.Label6.Text = "F5 -Actualizar Estado de Cuenta-"
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(825, 18)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(194, 43)
+        Me.Button2.TabIndex = 18
+        Me.Button2.Text = "Cargar Pago a Cuenta"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'EstadoCuentaCorriente
         '
@@ -816,4 +843,5 @@ Partial Class EstadoCuentaCorriente
     Friend WithEvents Anular As DataGridViewButtonColumn
     Friend WithEvents fechavencimiento As DataGridViewTextBoxColumn
     Friend WithEvents Label6 As Label
+    Friend WithEvents Button2 As Button
 End Class
