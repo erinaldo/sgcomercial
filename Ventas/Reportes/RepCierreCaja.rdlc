@@ -723,7 +723,8 @@
                             </TextRun>
                             <TextRun>
                               <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Ventas", Fields!monto.Value , Fields!monto.Value * 0)) +
-Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Cambio - Dif. (+)", Fields!monto.Value , Fields!monto.Value * 0))</Value>
+Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Cambio - Dif. (+)", Fields!monto.Value , Fields!monto.Value * 0)) + 
+Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Pago a Cta. Cte.", Fields!monto.Value , Fields!monto.Value * 0))</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>DarkBlue</Color>
@@ -1227,7 +1228,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Cambio 
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Cambio - Dif. (+)"), Fields!monto.Value , Fields!monto.Value * 0)) - 
+                              <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Cambio - Dif. (+)" or Fields!tipomovimiento.Value = "Pago a Cta. Cte."), Fields!monto.Value , Fields!monto.Value * 0)) - 
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Cambio - Dif. (-)"), Fields!monto.Value , Fields!monto.Value * 0)) -
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Gastos", Fields!monto.Value , Fields!monto.Value * 0)) - 
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracciones", Fields!monto.Value , Fields!monto.Value * 0))</Value>
