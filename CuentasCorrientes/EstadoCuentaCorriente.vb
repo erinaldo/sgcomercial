@@ -59,12 +59,22 @@ Public Class EstadoCuentaCorriente
                 'Me.ListacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.listacuentascorrientes)
                 ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
                 ListacuentascorrientesTableAdapter.FillByidcliente(Me.ComercialDataSet.listacuentascorrientes, gclienteseleccionado)
-                'ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
-                'ClientesBindingSource.Filter = "idcliente = " + gclienteseleccionado.ToString
+                '********************************************************
+                Dim CcSaldoDisponibleTableAdapter As New comercialDataSetTableAdapters.ccsaldodisponibleTableAdapter()
+                Dim sal As Decimal
+                sal = CcSaldoDisponibleTableAdapter.ccsaldodisponible_condultardisponible(gclienteseleccionado)
+                LabelSaldoPI.Text = sal.ToString
+                If sal > 0 Then
+                    LabelSaldoPI.ForeColor = Color.Green
+                Else
+                    LabelSaldoPI.ForeColor = Color.Black
+                End If
+                '********************************************************
                 calculasaldos()
             Catch ex As Exception
                 MsgBox("Ocurrió una excepción al buscar la información del cliente: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia!")
                 ClientesBindingSource.Filter = "idcliente = " + "0"
+                LabelSaldoPI.Text = ""
             End Try
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             '''''''''''''   oculta el boton de anular en PAGOS
@@ -81,6 +91,7 @@ Public Class EstadoCuentaCorriente
             'End Try
         Else
             IdclienteTextBox.Text = "0"
+            LabelSaldoPI = Nothing
             ClientesBindingSource.Filter = "idcliente = " + "0"
             ListacuentascorrientesTableAdapter.FillByidcliente(Me.ComercialDataSet.listacuentascorrientes, gclienteseleccionado)
             'ListacuentascorrientesBindingSource.Filter = "idcliente = " + "0"
@@ -92,7 +103,7 @@ Public Class EstadoCuentaCorriente
     Private Sub calculasaldos()
         Dim totaldebe As Decimal = 0
         Dim totalhaber As Decimal = 0
-        Dim saldototal As Decimal
+        Dim saldototal As Decimal = 0
         Dim i As Long
 
         For i = 0 To ListacuentascorrientesDataGridView.RowCount - 1
@@ -124,6 +135,7 @@ Public Class EstadoCuentaCorriente
             LabelTipoSaldo.ForeColor = Color.Green
             Labeltotalgeneral.ForeColor = Color.Green
         End If
+        '********************************************************
         '********************************************************
         colorear()
     End Sub
@@ -310,5 +322,24 @@ Public Class EstadoCuentaCorriente
 
     Private Sub EstadoCuentaCorriente_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         gclienteseleccionado = Nothing
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Try
+            Dim CcSaldoDisponibleTableAdapter As New comercialDataSetTableAdapters.ccsaldodisponibleTableAdapter()
+
+            '--If LabelTipoSaldo.Text = "Acreedor" Then
+            Dim j As New CCReimputarSaldo()
+                Dim sal As Decimal
+                gidcliente = Val(IdclienteTextBox.Text)
+                sal = CcSaldoDisponibleTableAdapter.ccsaldodisponible_condultardisponible(gidcliente)
+                If gidcliente > 0 And sal > 0 Then
+                    j.ShowDialog()
+                    filtrarcliente()
+                End If
+            '--End If
+        Catch ex As Exception
+            MsgBox("Ha ocurrido una excepción: " + ex.Message)
+        End Try
     End Sub
 End Class

@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>95</ApplicationRevision>
-    <ApplicationVersion>4.0.9.95</ApplicationVersion>
+    <ApplicationRevision>97</ApplicationRevision>
+    <ApplicationVersion>4.0.9.97</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -264,6 +264,12 @@
     <Compile Include="CuentasCorrientes\CargarPagoaCuenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CuentasCorrientes\CCReimputarSaldo.Designer.vb">
+      <DependentUpon>CCReimputarSaldo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\CCReimputarSaldo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CuentasCorrientes\CtasCtesPagar.Designer.vb">
       <DependentUpon>CtasCtesPagar.vb</DependentUpon>
     </Compile>
@@ -304,6 +310,12 @@
       <DependentUpon>ViewerRecibo.vb</DependentUpon>
     </Compile>
     <Compile Include="CuentasCorrientes\Reportes\ViewerRecibo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasCorrientes\SeleccionarVenta.Designer.vb">
+      <DependentUpon>SeleccionarVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasCorrientes\SeleccionarVenta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CuentasCorrientes\ViewerReporteCC.Designer.vb">
@@ -1382,6 +1394,9 @@
     <EmbeddedResource Include="CuentasCorrientes\CargarPagoaCuenta.resx">
       <DependentUpon>CargarPagoaCuenta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CuentasCorrientes\CCReimputarSaldo.resx">
+      <DependentUpon>CCReimputarSaldo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\CtasCtesPagar.resx">
       <DependentUpon>CtasCtesPagar.vb</DependentUpon>
     </EmbeddedResource>
@@ -1405,6 +1420,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\Reportes\ViewerRecibo.resx">
       <DependentUpon>ViewerRecibo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasCorrientes\SeleccionarVenta.resx">
+      <DependentUpon>SeleccionarVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasCorrientes\ViewerReporteCC.resx">
       <DependentUpon>ViewerReporteCC.vb</DependentUpon>
