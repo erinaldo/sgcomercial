@@ -24,6 +24,7 @@ Partial Class RegistroInscripciones
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.RegistroInscripcionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.idclientesservicios = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,7 +43,7 @@ Partial Class RegistroInscripciones
         Me.TextBoxfiltro = New System.Windows.Forms.TextBox()
         Me.RegistroInscripcionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.RegistroInscripcionesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
         CType(Me.RegistroInscripcionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RegistroInscripcionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,6 +56,7 @@ Partial Class RegistroInscripciones
         Me.GroupBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.Label2)
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Controls.Add(Me.RegistroInscripcionesDataGridView)
         Me.GroupBox3.Location = New System.Drawing.Point(13, 97)
@@ -65,6 +67,15 @@ Partial Class RegistroInscripciones
         Me.GroupBox3.TabIndex = 8
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Registro de Inscriptos"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(598, 437)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(282, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "<< Presione F5 para actualizar el listado >>"
         '
         'RegistroInscripcionesDataGridView
         '
@@ -83,7 +94,7 @@ Partial Class RegistroInscripciones
         Me.RegistroInscripcionesDataGridView.ReadOnly = True
         Me.RegistroInscripcionesDataGridView.RowHeadersVisible = False
         Me.RegistroInscripcionesDataGridView.RowTemplate.Height = 24
-        Me.RegistroInscripcionesDataGridView.Size = New System.Drawing.Size(864, 401)
+        Me.RegistroInscripcionesDataGridView.Size = New System.Drawing.Size(864, 395)
         Me.RegistroInscripcionesDataGridView.TabIndex = 0
         '
         'idclientesservicios
@@ -229,6 +240,7 @@ Partial Class RegistroInscripciones
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -249,6 +261,7 @@ Partial Class RegistroInscripciones
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -292,14 +305,14 @@ Partial Class RegistroInscripciones
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'Label1
+        'Label2
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(595, 2)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(282, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "<< Presione F5 para actualizar el listado >>"
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(494, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(386, 17)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "<< Doble Clic en el registro para previsualizar el contrato >>"
         '
         'RegistroInscripciones
         '
@@ -346,4 +359,5 @@ Partial Class RegistroInscripciones
     Friend WithEvents cursado As DataGridViewTextBoxColumn
     Friend WithEvents anular As DataGridViewButtonColumn
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class
