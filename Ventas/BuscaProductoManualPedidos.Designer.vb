@@ -30,9 +30,6 @@ Partial Class BuscaProductoManualPedidos
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListaproductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -63,6 +60,13 @@ Partial Class BuscaProductoManualPedidos
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventadistribuidor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,8 +140,9 @@ Partial Class BuscaProductoManualPedidos
         Me.ProductosDataGridView.AllowUserToDeleteRows = False
         Me.ProductosDataGridView.AllowUserToResizeRows = False
         Me.ProductosDataGridView.AutoGenerateColumns = False
+        Me.ProductosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ProductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.DescripcionDataGridViewTextBoxColumn, Me.idproducto})
+        Me.ProductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.descripcion, Me.idproducto, Me.precioventa, Me.precioventagranel, Me.precioventamayorista, Me.precioventadistribuidor})
         Me.ProductosDataGridView.DataSource = Me.ListaproductosBindingSource
         Me.ProductosDataGridView.Location = New System.Drawing.Point(19, 31)
         Me.ProductosDataGridView.Margin = New System.Windows.Forms.Padding(4)
@@ -147,30 +152,6 @@ Partial Class BuscaProductoManualPedidos
         Me.ProductosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ProductosDataGridView.Size = New System.Drawing.Size(818, 266)
         Me.ProductosDataGridView.TabIndex = 0
-        '
-        'codigoproducto
-        '
-        Me.codigoproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.codigoproducto.DataPropertyName = "codigoproducto"
-        Me.codigoproducto.HeaderText = "Cod. Producto"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        '
-        'DescripcionDataGridViewTextBoxColumn
-        '
-        Me.DescripcionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripción"
-        Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
-        Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DescripcionDataGridViewTextBoxColumn.Width = 550
-        '
-        'idproducto
-        '
-        Me.idproducto.DataPropertyName = "idproducto"
-        Me.idproducto.HeaderText = "idproducto"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.ReadOnly = True
         '
         'ListaproductosBindingSource
         '
@@ -193,6 +174,7 @@ Partial Class BuscaProductoManualPedidos
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -203,8 +185,10 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -214,6 +198,8 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -223,6 +209,7 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -243,6 +230,7 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -474,6 +462,63 @@ Partial Class BuscaProductoManualPedidos
         Me.DataGridViewImageColumn1.HeaderText = "prgimagen1"
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         '
+        'codigoproducto
+        '
+        Me.codigoproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Cod. Producto"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        '
+        'descripcion
+        '
+        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.descripcion.DataPropertyName = "descripcion"
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 400
+        '
+        'idproducto
+        '
+        Me.idproducto.DataPropertyName = "idproducto"
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        '
+        'precioventa
+        '
+        Me.precioventa.DataPropertyName = "precioventa"
+        Me.precioventa.HeaderText = "precioventa"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.Visible = False
+        '
+        'precioventagranel
+        '
+        Me.precioventagranel.DataPropertyName = "precioventagranel"
+        Me.precioventagranel.HeaderText = "precioventagranel"
+        Me.precioventagranel.Name = "precioventagranel"
+        Me.precioventagranel.ReadOnly = True
+        Me.precioventagranel.Visible = False
+        '
+        'precioventamayorista
+        '
+        Me.precioventamayorista.DataPropertyName = "precioventamayorista"
+        Me.precioventamayorista.HeaderText = "precioventamayorista"
+        Me.precioventamayorista.Name = "precioventamayorista"
+        Me.precioventamayorista.ReadOnly = True
+        Me.precioventamayorista.Visible = False
+        '
+        'precioventadistribuidor
+        '
+        Me.precioventadistribuidor.DataPropertyName = "precioventadistribuidor"
+        Me.precioventadistribuidor.HeaderText = "precioventadistribuidor"
+        Me.precioventadistribuidor.Name = "precioventadistribuidor"
+        Me.precioventadistribuidor.ReadOnly = True
+        Me.precioventadistribuidor.Visible = False
+        '
         'BuscaProductoManualPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -545,6 +590,10 @@ Partial Class BuscaProductoManualPedidos
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
-    Friend WithEvents DescripcionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents descripcion As DataGridViewTextBoxColumn
     Friend WithEvents idproducto As DataGridViewTextBoxColumn
+    Friend WithEvents precioventa As DataGridViewTextBoxColumn
+    Friend WithEvents precioventagranel As DataGridViewTextBoxColumn
+    Friend WithEvents precioventamayorista As DataGridViewTextBoxColumn
+    Friend WithEvents precioventadistribuidor As DataGridViewTextBoxColumn
 End Class

@@ -42,6 +42,7 @@ Partial Class ComprobantesEmitidos
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.ButtonExportar = New System.Windows.Forms.Button()
         Me.LibroventasDataGridView = New System.Windows.Forms.DataGridView()
@@ -70,7 +71,6 @@ Partial Class ComprobantesEmitidos
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.TipocomprobantesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocomprobantesTableAdapter()
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
-        Me.Button5 = New System.Windows.Forms.Button()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -244,6 +244,17 @@ Partial Class ComprobantesEmitidos
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lista"
+        '
+        'Button5
+        '
+        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Location = New System.Drawing.Point(573, 451)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(322, 31)
+        Me.Button5.TabIndex = 4
+        Me.Button5.Text = "Imprimir"
+        Me.Button5.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -506,6 +517,7 @@ Partial Class ComprobantesEmitidos
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -526,6 +538,7 @@ Partial Class ComprobantesEmitidos
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -577,17 +590,6 @@ Partial Class ComprobantesEmitidos
         '
         Me.MiComercioTableAdapter.ClearBeforeFill = True
         '
-        'Button5
-        '
-        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Location = New System.Drawing.Point(573, 451)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(322, 31)
-        Me.Button5.TabIndex = 4
-        Me.Button5.Text = "Imprimir"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
         'ComprobantesEmitidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
@@ -596,6 +598,7 @@ Partial Class ComprobantesEmitidos
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "ComprobantesEmitidos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

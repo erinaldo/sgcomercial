@@ -53,52 +53,45 @@ Public Class BuscaProductoManualPedidos
         Select Case ComboBox1.Text
             Case "Código"
                 ListaproductosBindingSource.Filter = "codigoproducto like'" + TextBox1.Text + "'"
-                'If ProductosDataGridView.RowCount = 0 Then
-                '    ProductosDataGridView.Rows(0).Selected = False
-                'End If
-
                 If ProductosDataGridView.RowCount = 1 Then
-                    gcodigoproducto = ProductosDataGridView.CurrentRow.Cells(0).Value
-                    gprecioventa = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
+                    gcodigoproducto = ProductosDataGridView.CurrentRow.Cells("codigoproducto").Value
+                    gprecioventa = ProductosDataGridView.CurrentRow.Cells("precioventa").Value 'ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
                     precioventatextbox.Text = gprecioventa
-                    gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
+                    gproductodescripcion = ProductosDataGridView.CurrentRow.Cells("descripcion").Value  'ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
                     ProductosDataGridView.Rows(0).Selected = True
-                    Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
-
                 Else
                     gcodigoproducto = Nothing
                     gprecioventa = Nothing
                     precioventatextbox.Text = Nothing
                     gproductodescripcion = Nothing
                     'ProductosDataGridView.Rows(0).Selected = False
+                    'ProductosDataGridView.Rows(0).Selected = False
                 End If
             Case "Descripción"
                 ListaproductosBindingSource.Filter = "descripcion like'%" + TextBox1.Text + "%'"
-
                 If ProductosDataGridView.RowCount = 1 Then
-                    gcodigoproducto = ProductosDataGridView.CurrentRow.Cells(0).Value
-                    gprecioventa = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
-                    precioventatextbox.Text = gprecioventa
-                    gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
+                    gcodigoproducto = ProductosDataGridView.CurrentRow.Cells("codigoproducto").Value
+                    'gprecioventa = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
+                    'precioventatextbox.Text = gprecioventa
+                    'gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
                     ProductosDataGridView.Rows(0).Selected = True
-                    'cantidadtextbox.Select()
-                    Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
-
+                    cantidadtextbox.Select()
                 Else
                     gcodigoproducto = Nothing
                     gprecioventa = Nothing
                     precioventatextbox.Text = Nothing
                     gproductodescripcion = Nothing
+                    'ProductosDataGridView.Rows(0).Selected = False
                     Try
-                        ProductosDataGridView.Rows(0).Selected = False
-                        CallClick()
+                        'ProductosDataGridView.Rows(0).Selected = False
+                        'CallClick()
                     Catch ex As Exception
 
                     End Try
 
                 End If
         End Select
-
+        '*****************************************************
     End Sub
 
     Private Sub ProductosDataGridView_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ProductosDataGridView.CellClick
@@ -106,8 +99,9 @@ Public Class BuscaProductoManualPedidos
     End Sub
     Sub CallClick()
         Try
-            gcodigoproducto = ProductosDataGridView.CurrentRow.Cells(0).Value
-            gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
+            gcodigoproducto = ProductosDataGridView.CurrentRow.Cells("codigoproducto").Value
+            'gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
+            gproductodescripcion = ProductosDataGridView.CurrentRow.Cells("descripcion").Value
             cantidadtextbox.Text = Nothing
             montotextbox.Text = Nothing
             ConsultarStockDisponible()
@@ -331,7 +325,7 @@ Public Class BuscaProductoManualPedidos
                 'MsgBox("hola" + precioventamayorista.ToString)
                 Case 4
                     glistaprecio = 4
-                    'precioventacomercios
+                    'precioventacomercios / precioventadistribuidor
                     precioventatextbox.Text = ProductosTableAdapter.productos_precioventadistribuidor(gcodigoproducto)
                     gprecioventa = precioventatextbox.Text
                     'MsgBox("hola" + precioventamayorista.ToString)
@@ -351,12 +345,12 @@ Public Class BuscaProductoManualPedidos
             Case 1
                 glistaprecio = 1
                 'precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
-                precioventatextbox.Text = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
+                precioventatextbox.Text = ProductosDataGridView.CurrentRow.Cells("precioventa").Value   'ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
                 gprecioventa = precioventatextbox.Text
                 'MsgBox("hola" + precioventa.ToString)
             Case 2
                 glistaprecio = 2
-                precioventagranel = ProductosTableAdapter.productos_consultarpreciogranel(gcodigoproducto)
+                precioventagranel = ProductosDataGridView.CurrentRow.Cells("precioventagranel").Value 'ProductosTableAdapter.productos_consultarpreciogranel(gcodigoproducto)
                 Dim medida As Decimal
                 medida = ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
                 precioventatextbox.Text = precioventagranel / medida
@@ -365,13 +359,13 @@ Public Class BuscaProductoManualPedidos
             Case 3
                 glistaprecio = 3
                 'precioventamayorista = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
-                precioventatextbox.Text = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
+                precioventatextbox.Text = ProductosDataGridView.CurrentRow.Cells("precioventamayorista").Value   ' ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
                 gprecioventa = precioventatextbox.Text
                 'MsgBox("hola" + precioventamayorista.ToString)
             Case 4
                 glistaprecio = 4
                 'precioventacomercios
-                precioventatextbox.Text = ProductosTableAdapter.productos_precioventadistribuidor(gcodigoproducto)
+                precioventatextbox.Text = ProductosDataGridView.CurrentRow.Cells("precioventadistribuidor").Value   'ProductosTableAdapter.productos_precioventadistribuidor(gcodigoproducto)
                 gprecioventa = precioventatextbox.Text
                 'MsgBox("hola" + precioventamayorista.ToString)
             Case Else
@@ -395,26 +389,41 @@ Public Class BuscaProductoManualPedidos
 
     End Sub
 
-    'Private Sub ProductosDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.SelectionChanged
-    '    '********* comentado temporalmente
-    '    'Try
-    '    '    CallClick()
-    '    'Catch ex As Exception
+    Private Sub ProductosDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.SelectionChanged
+        '********* comentado temporalmente
+        Try
+            gcodigoproducto = Nothing
+            gprecioventa = Nothing
+            precioventatextbox.Text = Nothing
+            gproductodescripcion = Nothing
+        Catch ex As Exception
 
-    '    'End Try
-    'End Sub
+        End Try
+    End Sub
     Private Sub ConsultarStockDisponible()
-        Dim StockgeneralTableAdapter As New comercialDataSetTableAdapters.stockgeneralTableAdapter()
-        textboxEnvasado.Text = StockgeneralTableAdapter.stockgeneral_consultardisponible(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells("idproducto").Value)
-        textboxUnidades.Text = StockgeneralTableAdapter.stockgeneral_consultardisponible(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells("idproducto").Value)
+        If ValidarSTK = "Enable" Then
+            Dim StockgeneralTableAdapter As New comercialDataSetTableAdapters.stockgeneralTableAdapter()
+            textboxEnvasado.Text = StockgeneralTableAdapter.stockgeneral_consultardisponible(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells("idproducto").Value)
+            textboxUnidades.Text = StockgeneralTableAdapter.stockgeneral_consultardisponible(ProductosDataGridView.Rows(ProductosDataGridView.CurrentRow.Index).Cells("idproducto").Value)
+        Else
+            textboxEnvasado.Text = "0"
+            textboxUnidades.Text = "0"
+        End If
+
     End Sub
 
     Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
         If e.KeyCode = Keys.Enter Then
             ProductosDataGridView.Select()
             Try
-                ProductosDataGridView.Rows(0).Selected = True
-
+                If ProductosDataGridView.RowCount > 0 Then
+                    ProductosDataGridView.Rows(0).Selected = True
+                    ProductosDataGridView.CurrentCell = ProductosDataGridView.Rows(0).Cells("descripcion")
+                    ProductosDataGridView.Focus()
+                End If
+                'ProductosDataGridView.Rows(0).Selected = True
+                'ProductosDataGridView.FirstDisplayedScrollingRowIndex = ProductosDataGridView.Rows(0).Index
+                'CallClick()
             Catch ex As Exception
                 MsgBox("Debe seleccionar al menos un producto de la lista", MsgBoxStyle.Exclamation, "Advertencia!")
             End Try
@@ -426,6 +435,11 @@ Public Class BuscaProductoManualPedidos
         If e.KeyCode = Keys.Enter Then
             CallClick()
             cantidadtextbox.Select()
+            e.SuppressKeyPress = True
+        End If
+        If e.KeyCode = Keys.Space Then
+            CallClick()
+            'cantidadtextbox.Select()
             e.SuppressKeyPress = True
         End If
     End Sub

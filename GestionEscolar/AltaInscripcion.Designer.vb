@@ -82,6 +82,8 @@ Partial Class AltaInscripcion
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GradosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gradosTableAdapter()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         TelefonoLabel = New System.Windows.Forms.Label()
@@ -493,7 +495,7 @@ Partial Class AltaInscripcion
         '
         Me.LabelPrecioventa.AutoSize = True
         Me.LabelPrecioventa.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "precioventa", True))
-        Me.LabelPrecioventa.Location = New System.Drawing.Point(663, 33)
+        Me.LabelPrecioventa.Location = New System.Drawing.Point(652, 33)
         Me.LabelPrecioventa.Name = "LabelPrecioventa"
         Me.LabelPrecioventa.Size = New System.Drawing.Size(128, 17)
         Me.LabelPrecioventa.TabIndex = 43
@@ -508,7 +510,7 @@ Partial Class AltaInscripcion
         '
         Me.LabelServicio.AutoSize = True
         Me.LabelServicio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServiciosBindingSource, "descripcion", True))
-        Me.LabelServicio.Location = New System.Drawing.Point(245, 33)
+        Me.LabelServicio.Location = New System.Drawing.Point(144, 33)
         Me.LabelServicio.Name = "LabelServicio"
         Me.LabelServicio.Size = New System.Drawing.Size(320, 17)
         Me.LabelServicio.TabIndex = 42
@@ -520,7 +522,7 @@ Partial Class AltaInscripcion
         Me.PictureServicio.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureServicio.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureServicio.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureServicio.Location = New System.Drawing.Point(182, 28)
+        Me.PictureServicio.Location = New System.Drawing.Point(111, 28)
         Me.PictureServicio.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureServicio.Name = "PictureServicio"
         Me.PictureServicio.Size = New System.Drawing.Size(27, 27)
@@ -531,7 +533,7 @@ Partial Class AltaInscripcion
         'TextBoxIdServicio
         '
         Me.TextBoxIdServicio.Enabled = False
-        Me.TextBoxIdServicio.Location = New System.Drawing.Point(102, 30)
+        Me.TextBoxIdServicio.Location = New System.Drawing.Point(47, 30)
         Me.TextBoxIdServicio.Name = "TextBoxIdServicio"
         Me.TextBoxIdServicio.Size = New System.Drawing.Size(54, 22)
         Me.TextBoxIdServicio.TabIndex = 0
@@ -568,6 +570,7 @@ Partial Class AltaInscripcion
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Me.ClientesTableAdapter
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -588,6 +591,7 @@ Partial Class AltaInscripcion
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -649,6 +653,8 @@ Partial Class AltaInscripcion
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Label10)
+        Me.GroupBox5.Controls.Add(Me.Label9)
         Me.GroupBox5.Controls.Add(Me.LabelCursado)
         Me.GroupBox5.Controls.Add(Me.PictureBoxCursado)
         Me.GroupBox5.Controls.Add(Me.TextBoxGrado)
@@ -666,8 +672,8 @@ Partial Class AltaInscripcion
         'LabelCursado
         '
         Me.LabelCursado.AutoSize = True
-        Me.LabelCursado.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GradosBindingSource, "cursado", True))
-        Me.LabelCursado.Location = New System.Drawing.Point(261, 31)
+        Me.LabelCursado.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GradosBindingSource, "grado", True))
+        Me.LabelCursado.Location = New System.Drawing.Point(144, 31)
         Me.LabelCursado.Name = "LabelCursado"
         Me.LabelCursado.Size = New System.Drawing.Size(136, 17)
         Me.LabelCursado.TabIndex = 43
@@ -684,7 +690,7 @@ Partial Class AltaInscripcion
         Me.PictureBoxCursado.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxCursado.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureBoxCursado.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureBoxCursado.Location = New System.Drawing.Point(182, 26)
+        Me.PictureBoxCursado.Location = New System.Drawing.Point(111, 26)
         Me.PictureBoxCursado.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBoxCursado.Name = "PictureBoxCursado"
         Me.PictureBoxCursado.Size = New System.Drawing.Size(27, 27)
@@ -695,7 +701,7 @@ Partial Class AltaInscripcion
         'TextBoxGrado
         '
         Me.TextBoxGrado.Enabled = False
-        Me.TextBoxGrado.Location = New System.Drawing.Point(102, 28)
+        Me.TextBoxGrado.Location = New System.Drawing.Point(47, 28)
         Me.TextBoxGrado.Name = "TextBoxGrado"
         Me.TextBoxGrado.Size = New System.Drawing.Size(54, 22)
         Me.TextBoxGrado.TabIndex = 3
@@ -705,7 +711,7 @@ Partial Class AltaInscripcion
         Me.ComboBoxCicloLectivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxCicloLectivo.FormattingEnabled = True
         Me.ComboBoxCicloLectivo.Items.AddRange(New Object() {"2020"})
-        Me.ComboBoxCicloLectivo.Location = New System.Drawing.Point(734, 27)
+        Me.ComboBoxCicloLectivo.Location = New System.Drawing.Point(744, 27)
         Me.ComboBoxCicloLectivo.Name = "ComboBoxCicloLectivo"
         Me.ComboBoxCicloLectivo.Size = New System.Drawing.Size(70, 24)
         Me.ComboBoxCicloLectivo.TabIndex = 2
@@ -715,7 +721,7 @@ Partial Class AltaInscripcion
         Me.ComboBoxCuatrimestre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxCuatrimestre.FormattingEnabled = True
         Me.ComboBoxCuatrimestre.Items.AddRange(New Object() {"Primero", "Segundo", "Tercero"})
-        Me.ComboBoxCuatrimestre.Location = New System.Drawing.Point(541, 27)
+        Me.ComboBoxCuatrimestre.Location = New System.Drawing.Point(555, 27)
         Me.ComboBoxCuatrimestre.Name = "ComboBoxCuatrimestre"
         Me.ComboBoxCuatrimestre.Size = New System.Drawing.Size(85, 24)
         Me.ComboBoxCuatrimestre.TabIndex = 1
@@ -723,7 +729,7 @@ Partial Class AltaInscripcion
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(638, 31)
+        Me.Label8.Location = New System.Drawing.Point(648, 31)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(91, 17)
         Me.Label8.TabIndex = 0
@@ -732,7 +738,7 @@ Partial Class AltaInscripcion
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(443, 31)
+        Me.Label7.Location = New System.Drawing.Point(457, 31)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(92, 17)
         Me.Label7.TabIndex = 0
@@ -741,6 +747,26 @@ Partial Class AltaInscripcion
         'GradosTableAdapter
         '
         Me.GradosTableAdapter.ClearBeforeFill = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GradosBindingSource, "division", True))
+        Me.Label9.Location = New System.Drawing.Point(333, 31)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(32, 17)
+        Me.Label9.TabIndex = 44
+        Me.Label9.Text = "___"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GradosBindingSource, "turno", True))
+        Me.Label10.Location = New System.Drawing.Point(361, 31)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(24, 17)
+        Me.Label10.TabIndex = 45
+        Me.Label10.Text = "__"
         '
         'AltaInscripcion
         '
@@ -831,4 +857,6 @@ Partial Class AltaInscripcion
     Friend WithEvents TextBoxGrado As TextBox
     Friend WithEvents GradosBindingSource As BindingSource
     Friend WithEvents GradosTableAdapter As comercialDataSetTableAdapters.gradosTableAdapter
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
 End Class
