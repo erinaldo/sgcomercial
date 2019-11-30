@@ -945,8 +945,137 @@ Module SGCModule
         Dim mycommand As New SqlCommand
 
         Try
-            mycommand = New SqlCommand("
-ALTER view [dbo].[libroventas]
+            mycommand = New SqlCommand("ALTER view  [dbo].[libroventasdetalle]
+as
+
+-- PRODUCTOS
+select 
+	vd.idventa,
+	vd.idproducto ,
+--------------------------------------------------------------------------------------------------------------------------------
+	isnull(p.marca,'') +' '+
+	isnull(p.modelo,'') +' '+
+	isnull(p.presentacion,'') as descripcion
+--------------------------------------------------------------------------------------------------------------------------------
+		,vd.cantidad
+		--------------------------------------------------------------------------------------------------------------------------------
+		,cast(vd.precioventa as decimal (18,2) )	as precioventa,
+--------------------------------------------------------------------------------------------------------------------------------
+		(
+		case
+	--when tc.idtipocomprobanteafip = 6 then 0
+	when tc.idtipocomprobanteafip = 11 then 0
+	when tc.idtipocomprobanteafip = 13 then 0
+	else
+		CASE
+			WHEN vd.ivaventasdetalle < 0 THEN 
+				cast(  (vd.precioventa   - isnull(vd.descuento,0) + isnull(vd.recargo, 0))  as decimal(18,2))
+			ELSE
+				  cast(((vd.precioventa  - isnull(vd.descuento,0) + isnull(vd.recargo, 0)) / (1 + (vd.ivaventasdetalle/ 100)  )) as decimal(18,2))
+				 
+			END
+	end
+		)
+		as  precioventasiniva 		,
+--------------------------------------------------------------------------------------------------------------------------------
+		isnull(vd.recargo, 0 )	as recargo
+--------------------------------------------------------------------------------------------------------------------------------
+		,vd.descuento 
+--------------------------------------------------------------------------------------------------------------------------------
+		,
+		(
+		case
+	--when tc.idtipocomprobanteafip = 6 then 0
+	when tc.idtipocomprobanteafip = 11 then 0
+	when tc.idtipocomprobanteafip = 13 then 0
+	else
+		CASE
+			WHEN vd.ivaventasdetalle < 0 THEN 
+				cast(  (vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0))  as decimal(18,2))
+			ELSE
+				  cast(((vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0)) / (1 + (vd.ivaventasdetalle/ 100)  )) as decimal(18,2))
+				 
+			END
+	end
+		)
+		as  neto 
+--------------------------------------------------------------------------------------------------------------------------------
+		,cast(vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0) as decimal (18,2)) 
+		as  subtotal
+--------------------------------------------------------------------------------------------------------------------------------
+			,vd.ivaventasdetalle as iva
+--------------------------------------------------------------------------------------------------------------------------------
+	,case
+	--when tc.idtipocomprobanteafip = 6 then 0
+	when tc.idtipocomprobanteafip = 11 then 0
+	when tc.idtipocomprobanteafip = 13 then 0
+	else
+		CASE
+			WHEN vd.ivaventasdetalle < 0 THEN 0
+			ELSE
+				cast(cast(cast(((vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0)) / (1 + (vd.ivaventasdetalle/ 100)  )) as decimal(18,3))  * (vd.ivaventasdetalle/ 100) as decimal(18,3)) as decimal(18,2))
+			END
+	end as ivaventasdetalle
+--------------------------------------------------------------------------------------------------------------------------------
+	,cast(v.fechaventa as date) as fechaventa
+--------------------------------------------------------------------------------------------------------------------------------
+	,v.fechabaja
+--------------------------------------------------------------------------------------------------------------------------------
+,ltrim(rtrim((select letra from tipocomprobantes where tipocomprobantes.idtipocomprobante = v.idtipocomprobante))) as letra
+--------------------------------------------------------------------------------------------------------------------------------
+,cast(isnull(vd.precioventamayorista,0) * vd.cantidad as decimal (18,2) )	as frpreciocostomayorista
+,cast(isnull(vd.precioventadistribuidor,0) * vd.cantidad as decimal (18,2) )	as frpreciocostodistribuidor
+,cast(vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0) as decimal (18,2)) - cast(isnull(vd.precioventamayorista,0) * vd.cantidad as decimal (18,2) ) as frgananciamayorista
+,cast(vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0) as decimal (18,2)) - cast(isnull(vd.precioventadistribuidor,0) * vd.cantidad as decimal (18,2) ) as frgananciadistribuidor
+--------------------------------------------------------------------------------------------------------------------------------
+,p.unidadmedida
+/*CASE
+	WHEN p.unidadmedida = 1 THEN 
+		cast(vd.cantidad * p.medida  as decimal(18,3)) 
+	ELSE
+		0
+	END
+	as kgpeso*/
+--------------------------------------------------------------------------------------------------------------------------------
+,vd.idlistaprecio
+--------------------------------------------------------------------------------------------------------------------------------
+,p.medida
+--------------------------------------------------------------------------------------------------------------------------------
+,case
+when  p.unidadmedida = 1 then
+	case
+		when vd.idlistaprecio = 2 then cast(vd.cantidad as decimal(18,3)) 
+		else
+		cast( vd.cantidad * p.medida as decimal(18,3)) 
+	end
+else
+	0
+end as kilogramos
+--------------------------------------------------------------------------------------------------------------------------------
+,v.idtipocomprobante
+--------------------------------------------------------------------------------------------------------------------------------
+from 
+	ventas v
+	inner JOIN ventasdetalle vd ON v.idventa = vd.idventa
+	 inner JOIN productos p ON vd.idproducto = p.idproducto
+	 inner JOIN tipocomprobantes tc ON v.idtipocomprobante = tc.idtipocomprobante
+	 where 
+	 v.fechabaja is null
+
+
+", myConn2)
+            myConn2.Open()
+            mycommand.ExecuteNonQuery()
+            myConn2.Close()
+            myConn2.Dispose()
+        Catch ex As Exception
+            'ErrorLogTableAdapter.errorlog_insertar("Aplicación", "Actualización de versión", "ActualizarBD", sFile + " - " + ex.Message)
+            'status = False
+            'cod = 1
+            'msg = "Ocurrio un problema en: ActualizarBD() - " + sFile + " - " + ex.Message
+            ''Exit For
+        End Try
+        QueryBDChange("ALTER view [dbo].[libroventas]
                             as
                             select 
                             v.idventa,
@@ -970,20 +1099,24 @@ ALTER view [dbo].[libroventas]
                             ,case
                                 when tc.idtipocomprobanteafip = 0 then 
 										(select cast(sum(libroventasdetalle.subtotal) as decimal(18,2)) from libroventasdetalle where libroventasdetalle.idventa = v.idventa) 
-								else
+							else
 								 (select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa) +
 								 (case
-                            when tc.idtipocomprobanteafip = 0 then 0
-                                when tc.idtipocomprobanteafip = 6 then 
-                                (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
-                                when tc.idtipocomprobanteafip = 11 then 
-                                    (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
-                            when tc.idtipocomprobanteafip = 13 then 
-                                    (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
-                                 else
-                                    (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva > 0)
-                                end)
-								 end
+									when tc.idtipocomprobanteafip = 0 then 0
+									when tc.idtipocomprobanteafip = 3 then 
+										(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva > 0)
+									when tc.idtipocomprobanteafip = 8 then 
+										(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+									when tc.idtipocomprobanteafip = 6 then 
+										(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+									when tc.idtipocomprobanteafip = 11 then 
+										(select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+									when tc.idtipocomprobanteafip = 13 then 
+										(select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+									else
+										(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva > 0)
+								end)
+							end
 							as importe,
                             --------------------------------------------------------------------------------------------------------------------------------
                             (select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa) as ivaventas
@@ -992,27 +1125,37 @@ ALTER view [dbo].[libroventas]
                                 when tc.idtipocomprobanteafip = 0 then 0
                                 when tc.idtipocomprobanteafip = 6 then 0
                                 when tc.idtipocomprobanteafip = 11 then 0
+								when tc.idtipocomprobanteafip = 13 then 0
                                  else
                                 (select isnull(sum(libroventasdetalle.subtotal),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = -1)  
                                 end as  ImpTotConc
                             --------------------------------------------------------------------------------------------------------------------------------
                             , case
                             when tc.idtipocomprobanteafip = 0 then 0
+							when tc.idtipocomprobanteafip = 3 then 
+									(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva > 0)
+							when tc.idtipocomprobanteafip = 8 then 
+									(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
                                 when tc.idtipocomprobanteafip = 6 then 
-                                (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+									(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
                                 when tc.idtipocomprobanteafip = 11 then 
                                     (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
-                            when tc.idtipocomprobanteafip = 13 then 
+								when tc.idtipocomprobanteafip = 13 then 
                                     (select sum(libroventasdetalle.subtotal) from libroventasdetalle where libroventasdetalle.idventa = v.idventa )
+								when tc.idtipocomprobanteafip = 53 then 
+									(select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva > 0)
                                  else
                                     (select isnull(sum(libroventasdetalle.neto),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva > 0)
                                 end as  ImpNeto
                             --------------------------------------------------------------------------------------------------------------------------------
                             , case
                                 when tc.idtipocomprobanteafip = 0 then 0
+								when tc.idtipocomprobanteafip = 3 then  0
+								when tc.idtipocomprobanteafip = 8 then  0
                                 when tc.idtipocomprobanteafip = 6 then  0
                                 when tc.idtipocomprobanteafip = 11 then 0 
                                 when tc.idtipocomprobanteafip = 13 then 0 
+								when tc.idtipocomprobanteafip = 53 then 0 
                                 else
                             (select isnull(sum(libroventasdetalle.subtotal),0) from libroventasdetalle where libroventasdetalle.idventa = v.idventa and libroventasdetalle.iva = 0)  
                             end as  ImpOpEx
@@ -1021,8 +1164,15 @@ ALTER view [dbo].[libroventas]
                             --------------------------------------------------------------------------------------------------------------------------------
                             , case
                                 when tc.idtipocomprobanteafip = 0 then 0
-                                --when tc.idtipocomprobanteafip = 6 then 0
+								when tc.idtipocomprobanteafip = 3 then  
+								(select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa) 
+								when tc.idtipocomprobanteafip = 8 then  
+								(select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa) 
                                 when tc.idtipocomprobanteafip = 11 then 0 
+								when tc.idtipocomprobanteafip = 13 then 
+								(select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa)  
+								when tc.idtipocomprobanteafip = 53 then 
+								(select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa)   
                                 else
                                     (select sum(libroventasdetalle.ivaventasdetalle) from libroventasdetalle where libroventasdetalle.idventa = v.idventa)  
                                 end as   ImpIVA
@@ -1099,134 +1249,6 @@ tipocomprobantes tc
 where
 v.idcliente = c.idcliente
 and v.idtipocomprobante = tc.idtipocomprobante
-
-
-", myConn2)
-            myConn2.Open()
-            mycommand.ExecuteNonQuery()
-            myConn2.Close()
-            myConn2.Dispose()
-        Catch ex As Exception
-            'ErrorLogTableAdapter.errorlog_insertar("Aplicación", "Actualización de versión", "ActualizarBD", sFile + " - " + ex.Message)
-            'status = False
-            'cod = 1
-            'msg = "Ocurrio un problema en: ActualizarBD() - " + sFile + " - " + ex.Message
-            ''Exit For
-        End Try
-        QueryBDChange("ALTER view  [dbo].[libroventasdetalle]
-as
-
--- PRODUCTOS
-select 
-	vd.idventa,
-	vd.idproducto ,
---------------------------------------------------------------------------------------------------------------------------------
-	isnull(p.marca,'') +' '+
-	isnull(p.modelo,'') +' '+
-	isnull(p.presentacion,'') as descripcion
---------------------------------------------------------------------------------------------------------------------------------
-		,vd.cantidad
-		--------------------------------------------------------------------------------------------------------------------------------
-		,cast(vd.precioventa as decimal (18,2) )	as precioventa,
---------------------------------------------------------------------------------------------------------------------------------
-		(
-		case
-	--when tc.idtipocomprobanteafip = 6 then 0
-	when tc.idtipocomprobanteafip = 11 then 0
-	when tc.idtipocomprobanteafip = 13 then 0
-	else
-		CASE
-			WHEN vd.ivaventasdetalle < 0 THEN 
-				cast(  (vd.precioventa   - isnull(vd.descuento,0) + isnull(vd.recargo, 0))  as decimal(18,2))
-			ELSE
-				  cast(((vd.precioventa  - isnull(vd.descuento,0) + isnull(vd.recargo, 0)) / (1 + (vd.ivaventasdetalle/ 100)  )) as decimal(18,2))
-				 
-			END
-	end
-		)
-		as  precioventasiniva 		,
---------------------------------------------------------------------------------------------------------------------------------
-		isnull(vd.recargo, 0 )	as recargo
---------------------------------------------------------------------------------------------------------------------------------
-		,vd.descuento 
---------------------------------------------------------------------------------------------------------------------------------
-		,
-		(
-		case
-	--when tc.idtipocomprobanteafip = 6 then 0
-	when tc.idtipocomprobanteafip = 11 then 0
-	when tc.idtipocomprobanteafip = 13 then 0
-	else
-		CASE
-			WHEN vd.ivaventasdetalle < 0 THEN 
-				cast(  (vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0))  as decimal(18,2))
-			ELSE
-				  cast(((vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0)) / (1 + (vd.ivaventasdetalle/ 100)  )) as decimal(18,2))
-				 
-			END
-	end
-		)
-		as  neto 
---------------------------------------------------------------------------------------------------------------------------------
-		,cast(vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0) as decimal (18,2)) 
-		as  subtotal
---------------------------------------------------------------------------------------------------------------------------------
-			,vd.ivaventasdetalle as iva
---------------------------------------------------------------------------------------------------------------------------------
-	,case
-	--when tc.idtipocomprobanteafip = 6 then 0
-	when tc.idtipocomprobanteafip = 11 then 0
-	else
-		CASE
-			WHEN vd.ivaventasdetalle < 0 THEN 0
-			ELSE
-				cast(cast(cast(((vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0)) / (1 + (vd.ivaventasdetalle/ 100)  )) as decimal(18,3))  * (vd.ivaventasdetalle/ 100) as decimal(18,3)) as decimal(18,2))
-			END
-	end as ivaventasdetalle
---------------------------------------------------------------------------------------------------------------------------------
-	,cast(v.fechaventa as date) as fechaventa
---------------------------------------------------------------------------------------------------------------------------------
-	,v.fechabaja
---------------------------------------------------------------------------------------------------------------------------------
-,ltrim(rtrim((select letra from tipocomprobantes where tipocomprobantes.idtipocomprobante = v.idtipocomprobante))) as letra
---------------------------------------------------------------------------------------------------------------------------------
-,cast(isnull(vd.precioventamayorista,0) * vd.cantidad as decimal (18,2) )	as frpreciocostomayorista
-,cast(isnull(vd.precioventadistribuidor,0) * vd.cantidad as decimal (18,2) )	as frpreciocostodistribuidor
-,cast(vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0) as decimal (18,2)) - cast(isnull(vd.precioventamayorista,0) * vd.cantidad as decimal (18,2) ) as frgananciamayorista
-,cast(vd.precioventa * vd.cantidad  - isnull(vd.descuento,0) + isnull(vd.recargo, 0) as decimal (18,2)) - cast(isnull(vd.precioventadistribuidor,0) * vd.cantidad as decimal (18,2) ) as frgananciadistribuidor
---------------------------------------------------------------------------------------------------------------------------------
-,p.unidadmedida
-/*CASE
-	WHEN p.unidadmedida = 1 THEN 
-		cast(vd.cantidad * p.medida  as decimal(18,3)) 
-	ELSE
-		0
-	END
-	as kgpeso*/
---------------------------------------------------------------------------------------------------------------------------------
-,vd.idlistaprecio
---------------------------------------------------------------------------------------------------------------------------------
-,p.medida
---------------------------------------------------------------------------------------------------------------------------------
-,case
-when  p.unidadmedida = 1 then
-	case
-		when vd.idlistaprecio = 2 then cast(vd.cantidad as decimal(18,3)) 
-		else
-		cast( vd.cantidad * p.medida as decimal(18,3)) 
-	end
-else
-	0
-end as kilogramos
---------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------
-from 
-	ventas v
-	inner JOIN ventasdetalle vd ON v.idventa = vd.idventa
-	 inner JOIN productos p ON vd.idproducto = p.idproducto
-	 inner JOIN tipocomprobantes tc ON v.idtipocomprobante = tc.idtipocomprobante
-	 where 
-	 v.fechabaja is null
 ")
     End Sub
     Public Sub QueryBDChange(ByVal query As String)

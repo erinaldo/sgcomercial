@@ -26,9 +26,9 @@
                     hasta = Convert.ToDateTime(DateTimePickerHasta.Value)
                     msg = " Point B "
                     If desde <> Nothing And hasta <> Nothing Then
-                        Me.libroventasTableAdapter.FillByRangoFechas(Me.comercialDataSet.libroventas, desde.ToString, hasta.ToString)
+                        Me.libroventasTableAdapter.FillByRangoFechasSoloVentas(Me.comercialDataSet.libroventas, desde.ToString, hasta.ToString)
                         msg = " Point LV "
-                        Me.libroventasdetalleTableAdapter.FillByRangoFechas(Me.comercialDataSet.libroventasdetalle, desde.ToString, hasta.ToString)
+                        Me.libroventasdetalleTableAdapter.FillByRangoFechasSoloVentas(Me.comercialDataSet.libroventasdetalle, desde.ToString, hasta.ToString)
                         msg = " Point LVD "
                         Me.ReportViewer1.RefreshReport()
                         Me.Cursor = Cursors.Default
@@ -55,9 +55,9 @@
                     hasta = Convert.ToDateTime(DateTimePickerHasta.Value)
                     msg = " Point B "
                     If desde <> Nothing And hasta <> Nothing Then
-                        Me.libroventasTableAdapter.FillByRangoFechas(Me.comercialDataSet.libroventas, desde.ToString, hasta.ToString)
+                        Me.libroventasTableAdapter.FillByRangoFechasSoloVentas(Me.comercialDataSet.libroventas, desde.ToString, hasta.ToString)
                         msg = " Point LV "
-                        Me.libroventasdetalleTableAdapter.FillByRangoFechas(Me.comercialDataSet.libroventasdetalle, desde.ToString, hasta.ToString)
+                        Me.libroventasdetalleTableAdapter.FillByRangoFechasSoloVentas(Me.comercialDataSet.libroventasdetalle, desde.ToString, hasta.ToString)
                         msg = " Point LVD "
                         Me.ReportViewer1.RefreshReport()
                         Me.Cursor = Cursors.Default

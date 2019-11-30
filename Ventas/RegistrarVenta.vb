@@ -447,7 +447,8 @@ Public Class RegistrarVenta
             '**************************************************************
             '************   PREGUNTO SI =NO= ES UNA VENTA A CUENTA CORRIENTE
             '**************************************************************
-            If Not idformapagocombo.Text = "Cuenta Corriente" Then
+
+            If Not idformapagocombo.Text = "Cuenta Corriente" And Not idformapagocombo.Text = "Nota de C/D" Then
                 '**************************************************************
                 '**** INSERTAR EL PAGO *******************************************
                 '**************************************************************
@@ -509,7 +510,7 @@ Public Class RegistrarVenta
             '**************************************************************
             '***** CUENTA CORRIENTE MOVIMIENTO DE CAJA
             '**************************************************************
-            If idformapagocombo.Text = "Cuenta Corriente" Then
+            If idformapagocombo.Text = "Cuenta Corriente" And (Idtipocomprobantecombo.SelectedValue <> 3 And Idtipocomprobantecombo.SelectedValue <> 4 And Idtipocomprobantecombo.SelectedValue <> 6 And Idtipocomprobantecombo.SelectedValue <> 7 And Idtipocomprobantecombo.SelectedValue <> 9 And Idtipocomprobantecombo.SelectedValue <> 10 And Idtipocomprobantecombo.SelectedValue <> 12 And Idtipocomprobantecombo.SelectedValue <> 13) Then
                 idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarvtactacte(idevento, Nothing, idformapagocombo.SelectedValue, total, gusername, Nothing, idventas)
                 If idoperacioncaja > 0 Then
 
@@ -518,6 +519,9 @@ Public Class RegistrarVenta
                     Return
                 End If
             End If
+            '**************************************************************
+            '***** NOTA DE C/D NO GENERA MOVIMIENTO DE CAJA
+            '**************************************************************
 
             '**************************************************************
             '================   VENTA REGISTRADA EXITOSAMENTE -- BASE DE DATOS LOCAL======================
@@ -629,8 +633,11 @@ Public Class RegistrarVenta
     Private Sub validardatos(ByRef valida As Boolean)
         '******************* valida carga de datos   *********************
         If idformapagocombo.Text = "Cuenta Corriente" And Val(IdclienteTextBox.Text) = 1 Then
-            MsgBox("Seleccione un cliente válido!", MsgBoxStyle.Exclamation, "Advertencia")
-            Return
+            If Not (Idtipocomprobantecombo.SelectedValue <> 6 And Idtipocomprobantecombo.SelectedValue <> 7 And Idtipocomprobantecombo.SelectedValue <> 9 And Idtipocomprobantecombo.SelectedValue <> 10) Then
+            Else
+                MsgBox("Seleccione un cliente válido!", MsgBoxStyle.Exclamation, "Advertencia")
+                Return
+            End If
         End If
         If VentasdetalleDataGridView.RowCount = 0 Then
             MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
@@ -1987,9 +1994,45 @@ Public Class RegistrarVenta
                 FechavencimientoDateTimePicker.Enabled = True
             Case 8
                 FechavencimientoDateTimePicker.Enabled = True
+            Case 11
+                FechavencimientoDateTimePicker.Enabled = True
             Case Else
                 FechavencimientoDateTimePicker.Enabled = False
         End Select
+        Try
+            Select Case Idtipocomprobantecombo.SelectedValue
+                Case 3
+                    idformapagocombo.Text = "Cuenta Corriente"
+                    idformapagocombo.Enabled = False
+                Case 4
+                    idformapagocombo.Text = "Cuenta Corriente"
+                    idformapagocombo.Enabled = False
+                Case 6
+                    idformapagocombo.Text = "Cuenta Corriente"
+                    idformapagocombo.Enabled = False
+                Case 7
+                    idformapagocombo.Text = "Cuenta Corriente"
+                    idformapagocombo.Enabled = False
+                Case 9
+                    idformapagocombo.Text = "Cuenta Corriente"
+                    idformapagocombo.Enabled = False
+                Case 10
+                    idformapagocombo.Text = "Cuenta Corriente"
+                    idformapagocombo.Enabled = False
+                Case 12
+                    idformapagocombo.Text = "Cuenta Corriente"
+                    idformapagocombo.Enabled = False
+                Case 13
+                    idformapagocombo.Text = "Cuenta Corriente"
+                    idformapagocombo.Enabled = False
+                Case Else
+                    idformapagocombo.SelectedIndex = 0
+                    idformapagocombo.Enabled = True
+            End Select
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub ActivarDesactivarFacturaElectrónicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Click
