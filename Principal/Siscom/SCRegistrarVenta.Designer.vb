@@ -51,6 +51,7 @@ Partial Class SCRegistrarVenta
         Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SiscomDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SiscomDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -207,7 +208,7 @@ Partial Class SCRegistrarVenta
         Me.DataGridViewDetalle.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridViewDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.DataGridViewDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridViewDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewDetalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.cantidad, Me.precioventa, Me.idlistaprecio, Me.descuento, Me.recargo, Me.fechadesde, Me.fechahasta, Me.subtotal})
         Me.DataGridViewDetalle.Location = New System.Drawing.Point(9, 21)
@@ -275,6 +276,7 @@ Partial Class SCRegistrarVenta
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.Button2)
         Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Location = New System.Drawing.Point(12, 429)
         Me.GroupBox3.Name = "GroupBox3"
@@ -290,6 +292,15 @@ Partial Class SCRegistrarVenta
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Confirmar"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(65, 18)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(226, 43)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "Nueva"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'SCRegistrarVenta
         '
@@ -348,4 +359,5 @@ Partial Class SCRegistrarVenta
     Friend WithEvents Label4 As Label
     Friend WithEvents RichTextBoxMensaje As RichTextBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents Button2 As Button
 End Class

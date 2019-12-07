@@ -53,7 +53,7 @@ Partial Class SCventas
         Me.GroupBox1.Controls.Add(Me.LibroventasDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(779, 293)
+        Me.GroupBox1.Size = New System.Drawing.Size(779, 435)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -74,7 +74,7 @@ Partial Class SCventas
         Me.LibroventasDataGridView.Name = "LibroventasDataGridView"
         Me.LibroventasDataGridView.ReadOnly = True
         Me.LibroventasDataGridView.RowTemplate.Height = 24
-        Me.LibroventasDataGridView.Size = New System.Drawing.Size(743, 249)
+        Me.LibroventasDataGridView.Size = New System.Drawing.Size(743, 391)
         Me.LibroventasDataGridView.TabIndex = 0
         '
         'idventas
@@ -183,7 +183,7 @@ Partial Class SCventas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(803, 332)
+        Me.ClientSize = New System.Drawing.Size(803, 474)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

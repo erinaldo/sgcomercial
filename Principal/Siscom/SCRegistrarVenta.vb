@@ -2,12 +2,14 @@
     Private Sub SCRegistrarVenta_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         ''''''''''***************************   POR DEFECTO **************************************
         If e.KeyCode = Keys.Escape Then
+            e.SuppressKeyPress = True
             If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
                 Me.Close()
             End If
         End If
         '***************************************************
         If e.KeyCode = Keys.F4 Then
+            e.SuppressKeyPress = True
             DataGridViewDetalle.Select()
             Try
                 Dim row As Integer
@@ -40,6 +42,7 @@
         End If
         '***************************************************
         If e.KeyCode = Keys.Delete Then
+            e.SuppressKeyPress = True
             DataGridViewDetalle.Select()
             Try
                 DataGridViewDetalle.Rows.Remove(DataGridViewDetalle.CurrentRow)
@@ -50,6 +53,7 @@
 
         End If
         If e.KeyCode = Keys.Subtract Then
+            e.SuppressKeyPress = True
             DataGridViewDetalle.Select()
             Try
                 DataGridViewDetalle.Rows.Remove(DataGridViewDetalle.CurrentRow)
@@ -80,12 +84,16 @@
                     SCProductoDescripcion = Nothing
                     recuento()
                     DataGridViewDetalle.Select()
+                    e.SuppressKeyPress = True
+
                 Catch ex As Exception
+                    e.SuppressKeyPress = True
                     SCIdproducto = Nothing
                     SCProductoDescripcion = Nothing
                     MsgBox(ex.Message)
                 End Try
             Catch ex As Exception
+                e.SuppressKeyPress = True
                 MsgBox(ex.Message)
             End Try
         End If
@@ -93,6 +101,7 @@
 
     Private Sub SCRegistrarVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'SiscomDataSet.clientes' Puede moverla o quitarla según sea necesario.
+        ComboBox1.SelectedIndex = -1
         Me.ClientesTableAdapter.Fill(Me.SiscomDataSet.clientes)
         DateTimePickerVencimiento.Value = Today.AddDays(5)
     End Sub
@@ -169,5 +178,10 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        DataGridViewDetalle.Rows.Clear()
+        RichTextBoxMensaje.Text = ""
     End Sub
 End Class
