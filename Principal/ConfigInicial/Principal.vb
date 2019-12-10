@@ -1338,6 +1338,11 @@ Public Class Principal
         CFGMembreteFirmante.MdiParent = Me
         CFGMembreteFirmante.Visible = True
     End Sub
+
+    Private Sub ReporteDeGastosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeGastosToolStripMenuItem.Click
+        ReporteGastos.MdiParent = Me
+        ReporteGastos.Visible = True
+    End Sub
     'Private Sub PrivateDownloadSGC()
 
     '    Dim ftpClient As New WebClient

@@ -219,6 +219,7 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
+        Me.ReporteDeGastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -671,7 +672,7 @@ Partial Class Principal
         '
         'CajasToolStripMenuItem
         '
-        Me.CajasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirToolStripMenuItem, Me.GastosToolStripMenuItem, Me.MovimientosDeCajaToolStripMenuItem, Me.ExtraccionesToolStripMenuItem})
+        Me.CajasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirToolStripMenuItem, Me.GastosToolStripMenuItem, Me.MovimientosDeCajaToolStripMenuItem, Me.ExtraccionesToolStripMenuItem, Me.ReporteDeGastosToolStripMenuItem})
         Me.CajasToolStripMenuItem.Name = "CajasToolStripMenuItem"
         Me.CajasToolStripMenuItem.Size = New System.Drawing.Size(62, 27)
         Me.CajasToolStripMenuItem.Tag = "ModuloCajas"
@@ -1540,6 +1541,7 @@ Partial Class Principal
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -1733,6 +1735,13 @@ Partial Class Principal
         '
         'BGWAlertas
         '
+        '
+        'ReporteDeGastosToolStripMenuItem
+        '
+        Me.ReporteDeGastosToolStripMenuItem.Name = "ReporteDeGastosToolStripMenuItem"
+        Me.ReporteDeGastosToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
+        Me.ReporteDeGastosToolStripMenuItem.Tag = "ReporteGastos"
+        Me.ReporteDeGastosToolStripMenuItem.Text = "Reporte de Gastos"
         '
         'Principal
         '
@@ -1977,4 +1986,5 @@ Partial Class Principal
     Friend WithEvents AltaInscripciónToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistroDeInscripciónesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConfigurarMembreteYFirmaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteDeGastosToolStripMenuItem As ToolStripMenuItem
 End Class

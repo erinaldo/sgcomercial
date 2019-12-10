@@ -1144,6 +1144,12 @@
     <Compile Include="Ventas\Reportes\ReporteCierreCaja.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\Reportes\ReporteGastos.Designer.vb">
+      <DependentUpon>ReporteGastos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Reportes\ReporteGastos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\Reportes\VentasPorUsuario.Designer.vb">
       <DependentUpon>VentasPorUsuario.vb</DependentUpon>
     </Compile>
@@ -1842,6 +1848,7 @@
     <EmbeddedResource Include="Ventas\Reportes\RepFactura.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFacturaElectronica.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepFacturaIVA.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepGastos.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepLibroMayor.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepCabecera.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepCierreCaja.rdlc" />
@@ -1852,6 +1859,9 @@
       <DependentUpon>ReporteCierreCaja.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\GraphIngresos.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\ReporteGastos.resx">
+      <DependentUpon>ReporteGastos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Reportes\RepPresupuesto.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepPresupuesto80.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepVentasPorUsuario.rdlc" />
