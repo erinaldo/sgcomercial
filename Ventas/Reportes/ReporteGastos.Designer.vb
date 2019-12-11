@@ -23,7 +23,14 @@ Partial Class ReporteGastos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.V_gastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DateTimePickerhasta = New System.Windows.Forms.DateTimePicker()
@@ -35,28 +42,42 @@ Partial Class ReporteGastos
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fechadate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.V_gastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.V_gastosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.v_gastosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.V_gastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.V_gastosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.V_gastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'MiComercioBindingSource
+        '
+        Me.MiComercioBindingSource.DataMember = "MiComercio"
+        Me.MiComercioBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'V_gastosBindingSource
+        '
+        Me.V_gastosBindingSource.DataMember = "v_gastos"
+        Me.V_gastosBindingSource.DataSource = Me.ComercialDataSet
         '
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.ReportViewer1)
         Me.GroupBox1.Controls.Add(Me.Button1)
@@ -70,20 +91,45 @@ Partial Class ReporteGastos
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(652, 68)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(129, 29)
+        Me.Button3.TabIndex = 14
+        Me.Button3.Text = "Exportar a Excel"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(524, 68)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(122, 29)
+        Me.Button2.TabIndex = 13
+        Me.Button2.Text = "Imprimir"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'ReportViewer1
         '
         Me.ReportViewer1.DocumentMapWidth = 22
-        Me.ReportViewer1.Location = New System.Drawing.Point(841, 109)
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "v_gastos"
+        ReportDataSource2.Value = Me.V_gastosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepGastos.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(6, 42)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(25, 36)
+        Me.ReportViewer1.Size = New System.Drawing.Size(91, 92)
         Me.ReportViewer1.TabIndex = 12
         Me.ReportViewer1.Visible = False
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(475, 70)
+        Me.Button1.Location = New System.Drawing.Point(396, 68)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(130, 23)
+        Me.Button1.Size = New System.Drawing.Size(122, 29)
         Me.Button1.TabIndex = 11
         Me.Button1.Text = "Consultar"
         Me.Button1.UseVisualStyleBackColor = True
@@ -92,7 +138,7 @@ Partial Class ReporteGastos
         '
         Me.DateTimePickerhasta.CustomFormat = "dd/MM/yyyy"
         Me.DateTimePickerhasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePickerhasta.Location = New System.Drawing.Point(306, 71)
+        Me.DateTimePickerhasta.Location = New System.Drawing.Point(254, 71)
         Me.DateTimePickerhasta.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePickerhasta.Name = "DateTimePickerhasta"
         Me.DateTimePickerhasta.Size = New System.Drawing.Size(125, 22)
@@ -101,7 +147,7 @@ Partial Class ReporteGastos
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(304, 51)
+        Me.Label2.Location = New System.Drawing.Point(252, 51)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(92, 17)
@@ -111,7 +157,7 @@ Partial Class ReporteGastos
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(143, 51)
+        Me.Label1.Location = New System.Drawing.Point(91, 51)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(96, 17)
@@ -122,7 +168,7 @@ Partial Class ReporteGastos
         '
         Me.DateTimePickerdesde.CustomFormat = "dd/MM/yyyy"
         Me.DateTimePickerdesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePickerdesde.Location = New System.Drawing.Point(147, 71)
+        Me.DateTimePickerdesde.Location = New System.Drawing.Point(95, 71)
         Me.DateTimePickerdesde.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePickerdesde.Name = "DateTimePickerdesde"
         Me.DateTimePickerdesde.Size = New System.Drawing.Size(125, 22)
@@ -149,7 +195,7 @@ Partial Class ReporteGastos
         Me.V_gastosDataGridView.AutoGenerateColumns = False
         Me.V_gastosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.V_gastosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.V_gastosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.fechadate, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn1})
+        Me.V_gastosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.fechadate, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn1})
         Me.V_gastosDataGridView.DataSource = Me.V_gastosBindingSource
         Me.V_gastosDataGridView.Location = New System.Drawing.Point(21, 21)
         Me.V_gastosDataGridView.Name = "V_gastosDataGridView"
@@ -179,14 +225,6 @@ Partial Class ReporteGastos
         Me.DataGridViewTextBoxColumn2.HeaderText = "Descripción"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "astipocomprobantedescripcion"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Tipo Comprobante"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.ToolTipText = "Tipo Comprobante"
         '
         'DataGridViewTextBoxColumn3
         '
@@ -218,16 +256,6 @@ Partial Class ReporteGastos
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'V_gastosBindingSource
-        '
-        Me.V_gastosBindingSource.DataMember = "v_gastos"
-        Me.V_gastosBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'V_gastosTableAdapter
         '
@@ -315,14 +343,9 @@ Partial Class ReporteGastos
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'Button2
+        'MiComercioTableAdapter
         '
-        Me.Button2.Location = New System.Drawing.Point(621, 70)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(130, 23)
-        Me.Button2.TabIndex = 13
-        Me.Button2.Text = "Imprimir"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.MiComercioTableAdapter.ClearBeforeFill = True
         '
         'ReporteGastos
         '
@@ -332,14 +355,16 @@ Partial Class ReporteGastos
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "ReporteGastos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ReporteGastos"
         Me.Text = "Reporte de Gastos"
+        CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.V_gastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.V_gastosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.V_gastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -359,11 +384,13 @@ Partial Class ReporteGastos
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents fechadate As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents ReportViewer1 As ReportViewer
     Friend WithEvents Button2 As Button
+    Friend WithEvents MiComercioBindingSource As BindingSource
+    Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
+    Friend WithEvents Button3 As Button
 End Class

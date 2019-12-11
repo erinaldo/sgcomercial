@@ -25,7 +25,7 @@
     <Shape ID="DesignTable:tipocomprobantes" ZOrder="56" X="1021" Y="-26" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="76" OldDataTableHeight="342" SplitterPosition="28" />
     <Shape ID="DesignTable:pagos" ZOrder="54" X="155" Y="473" Height="63" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="212" OldDataTableHeight="260" SplitterPosition="29" />
     <Shape ID="DesignTable:cajasmovimientos" ZOrder="21" X="-2080" Y="266" Height="62" Width="295" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="74" OldDataTableHeight="261" SplitterPosition="28" />
-    <Shape ID="DesignTable:v_gastos" ZOrder="62" X="1634" Y="38" Height="63" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="98" OldDataTableHeight="83" SplitterPosition="29" />
+    <Shape ID="DesignTable:v_gastos" ZOrder="62" X="1634" Y="38" Height="319" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="98" OldDataTableHeight="83" SplitterPosition="214" />
     <Shape ID="DesignTable:cajasestados" ZOrder="20" X="-2079" Y="611" Height="62" Width="256" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="64" SplitterPosition="28" />
     <Shape ID="DesignTable:libroventas" ZOrder="33" X="1961" Y="1446" Height="63" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="581" OldDataTableHeight="191" SplitterPosition="29" />
     <Shape ID="DesignTable:libroventasdetalle" ZOrder="34" X="1969" Y="1518" Height="62" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="121" OldDataTableHeight="121" SplitterPosition="28" />

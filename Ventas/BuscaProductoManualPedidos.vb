@@ -488,5 +488,8 @@ Public Class BuscaProductoManualPedidos
         End If
     End Sub
 
-
+    Private Sub ProductosDataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.CellDoubleClick
+        CallClick()
+        cantidadtextbox.Select()
+    End Sub
 End Class

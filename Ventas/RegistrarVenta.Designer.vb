@@ -891,7 +891,7 @@ Partial Class RegistrarVenta
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1080, 208)
+        Me.GroupBox2.Size = New System.Drawing.Size(1080, 283)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalle"
@@ -981,7 +981,8 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.VentasdetalleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.VentasdetalleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.VentasdetalleDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.VentasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codproducto, Me.descripcion, Me.cantidad, Me.precioventa, Me.descuento, Me.recargo, Me.subtotal, Me.eliminar, Me.listasprecios})
         Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(5, 51)
@@ -989,10 +990,14 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.MultiSelect = False
         Me.VentasdetalleDataGridView.Name = "VentasdetalleDataGridView"
         Me.VentasdetalleDataGridView.ReadOnly = True
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VentasdetalleDataGridView.RowHeadersVisible = False
+        Me.VentasdetalleDataGridView.RowHeadersWidth = 60
+        Me.VentasdetalleDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VentasdetalleDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle7
+        Me.VentasdetalleDataGridView.RowTemplate.Height = 50
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1070, 149)
+        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1070, 224)
         Me.VentasdetalleDataGridView.TabIndex = 0
         '
         'codproducto
@@ -1018,7 +1023,6 @@ Partial Class RegistrarVenta
         Me.cantidad.HeaderText = "Cantidad"
         Me.cantidad.Name = "cantidad"
         Me.cantidad.ReadOnly = True
-        Me.cantidad.Width = 104
         '
         'precioventa
         '
@@ -1029,7 +1033,6 @@ Partial Class RegistrarVenta
         Me.precioventa.HeaderText = "Precio Venta"
         Me.precioventa.Name = "precioventa"
         Me.precioventa.ReadOnly = True
-        Me.precioventa.Width = 134
         '
         'descuento
         '
@@ -1038,7 +1041,6 @@ Partial Class RegistrarVenta
         Me.descuento.HeaderText = "Descuento"
         Me.descuento.Name = "descuento"
         Me.descuento.ReadOnly = True
-        Me.descuento.Width = 119
         '
         'recargo
         '
@@ -1047,7 +1049,6 @@ Partial Class RegistrarVenta
         Me.recargo.HeaderText = "Recargo"
         Me.recargo.Name = "recargo"
         Me.recargo.ReadOnly = True
-        Me.recargo.Width = 101
         '
         'subtotal
         '
@@ -1057,7 +1058,6 @@ Partial Class RegistrarVenta
         Me.subtotal.HeaderText = "Sub Total"
         Me.subtotal.Name = "subtotal"
         Me.subtotal.ReadOnly = True
-        Me.subtotal.Width = 109
         '
         'eliminar
         '
@@ -1066,7 +1066,6 @@ Partial Class RegistrarVenta
         Me.eliminar.ReadOnly = True
         Me.eliminar.Text = "Quitar"
         Me.eliminar.UseColumnTextForButtonValue = True
-        Me.eliminar.Width = 5
         '
         'listasprecios
         '
@@ -1191,6 +1190,7 @@ Partial Class RegistrarVenta
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -1201,8 +1201,10 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -1212,6 +1214,8 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -1221,6 +1225,7 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -1241,6 +1246,7 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -1294,7 +1300,7 @@ Partial Class RegistrarVenta
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.labeltotal)
         Me.GroupBox4.Controls.Add(Me.Label3)
-        Me.GroupBox4.Location = New System.Drawing.Point(16, 447)
+        Me.GroupBox4.Location = New System.Drawing.Point(16, 522)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
@@ -1473,7 +1479,7 @@ Partial Class RegistrarVenta
         Me.GFP2.Controls.Add(Me.pagotextbox2)
         Me.GFP2.Controls.Add(Label2)
         Me.GFP2.Controls.Add(Me.idformapagocombo2)
-        Me.GFP2.Location = New System.Drawing.Point(16, 500)
+        Me.GFP2.Location = New System.Drawing.Point(16, 575)
         Me.GFP2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GFP2.Name = "GFP2"
         Me.GFP2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -1723,7 +1729,7 @@ Partial Class RegistrarVenta
         Me.TabControl.Location = New System.Drawing.Point(16, 195)
         Me.TabControl.Name = "TabControl"
         Me.TabControl.SelectedIndex = 0
-        Me.TabControl.Size = New System.Drawing.Size(1099, 254)
+        Me.TabControl.Size = New System.Drawing.Size(1099, 329)
         Me.TabControl.TabIndex = 33
         '
         'Articulos
@@ -1732,7 +1738,7 @@ Partial Class RegistrarVenta
         Me.Articulos.Location = New System.Drawing.Point(4, 29)
         Me.Articulos.Name = "Articulos"
         Me.Articulos.Padding = New System.Windows.Forms.Padding(3)
-        Me.Articulos.Size = New System.Drawing.Size(1091, 221)
+        Me.Articulos.Size = New System.Drawing.Size(1091, 296)
         Me.Articulos.TabIndex = 0
         Me.Articulos.Text = "Artículos"
         Me.Articulos.UseVisualStyleBackColor = True
@@ -1840,7 +1846,7 @@ Partial Class RegistrarVenta
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1127, 578)
+        Me.ClientSize = New System.Drawing.Size(1127, 653)
         Me.Controls.Add(Me.TabControl)
         Me.Controls.Add(Me.MainMenuStrip)
         Me.Controls.Add(Me.GroupBox5)

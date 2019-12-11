@@ -84,13 +84,13 @@ Partial Class MiComercio
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.ComboModPV = New System.Windows.Forms.ComboBox()
         Me.GroupBoxFEAFIP = New System.Windows.Forms.GroupBox()
+        Me.ComboCbtDefecto = New System.Windows.Forms.ComboBox()
+        Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.ComboFEAutoCAEAFIP = New System.Windows.Forms.ComboBox()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
         Me.ComboValDatosNuevosClientes = New System.Windows.Forms.ComboBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.ComboCbtDefecto = New System.Windows.Forms.ComboBox()
-        Me.TipocomprobantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipocomprobantesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocomprobantesTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,8 +110,8 @@ Partial Class MiComercio
         Me.GroupBox10.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
         Me.GroupBoxFEAFIP.SuspendLayout()
-        Me.GroupBox12.SuspendLayout()
         CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox12.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -377,6 +377,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -397,6 +398,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Me.ParametrosgeneralesTableAdapter
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -660,7 +662,7 @@ Partial Class MiComercio
         Me.GroupBox9.Size = New System.Drawing.Size(657, 77)
         Me.GroupBox9.TabIndex = 9
         Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "E-Mail Automatico al cerrar la Caja"
+        Me.GroupBox9.Text = "E-Mail Automatico al cerrar la Caja (hasta dos direcciones separadas por coma)"
         '
         'EmailCierreCajaTo
         '
@@ -731,6 +733,41 @@ Partial Class MiComercio
         Me.GroupBoxFEAFIP.TabStop = False
         Me.GroupBoxFEAFIP.Text = "Facturación Electrónica AFIP - CAE Automático"
         '
+        'ComboCbtDefecto
+        '
+        Me.ComboCbtDefecto.DataSource = Me.TipocomprobantesBindingSource
+        Me.ComboCbtDefecto.DisplayMember = "descripcion"
+        Me.ComboCbtDefecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboCbtDefecto.FormattingEnabled = True
+        Me.ComboCbtDefecto.Location = New System.Drawing.Point(457, 27)
+        Me.ComboCbtDefecto.Name = "ComboCbtDefecto"
+        Me.ComboCbtDefecto.Size = New System.Drawing.Size(155, 24)
+        Me.ComboCbtDefecto.TabIndex = 5
+        Me.ComboCbtDefecto.ValueMember = "idtipocomprobante"
+        '
+        'TipocomprobantesBindingSource
+        '
+        Me.TipocomprobantesBindingSource.DataMember = "tipocomprobantes"
+        Me.TipocomprobantesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(276, 31)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(175, 17)
+        Me.Label11.TabIndex = 4
+        Me.Label11.Text = "Comprobante por Defecto:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(82, 31)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(50, 17)
+        Me.Label10.TabIndex = 3
+        Me.Label10.Text = "Activo:"
+        '
         'ComboFEAutoCAEAFIP
         '
         Me.ComboFEAutoCAEAFIP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -760,41 +797,6 @@ Partial Class MiComercio
         Me.ComboValDatosNuevosClientes.Name = "ComboValDatosNuevosClientes"
         Me.ComboValDatosNuevosClientes.Size = New System.Drawing.Size(121, 24)
         Me.ComboValDatosNuevosClientes.TabIndex = 0
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(82, 31)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(50, 17)
-        Me.Label10.TabIndex = 3
-        Me.Label10.Text = "Activo:"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(276, 31)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(175, 17)
-        Me.Label11.TabIndex = 4
-        Me.Label11.Text = "Comprobante por Defecto:"
-        '
-        'ComboCbtDefecto
-        '
-        Me.ComboCbtDefecto.DataSource = Me.TipocomprobantesBindingSource
-        Me.ComboCbtDefecto.DisplayMember = "descripcion"
-        Me.ComboCbtDefecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboCbtDefecto.FormattingEnabled = True
-        Me.ComboCbtDefecto.Location = New System.Drawing.Point(457, 27)
-        Me.ComboCbtDefecto.Name = "ComboCbtDefecto"
-        Me.ComboCbtDefecto.Size = New System.Drawing.Size(155, 24)
-        Me.ComboCbtDefecto.TabIndex = 5
-        Me.ComboCbtDefecto.ValueMember = "idtipocomprobante"
-        '
-        'TipocomprobantesBindingSource
-        '
-        Me.TipocomprobantesBindingSource.DataMember = "tipocomprobantes"
-        Me.TipocomprobantesBindingSource.DataSource = Me.ComercialDataSet
         '
         'TipocomprobantesTableAdapter
         '
@@ -853,8 +855,8 @@ Partial Class MiComercio
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBoxFEAFIP.ResumeLayout(False)
         Me.GroupBoxFEAFIP.PerformLayout()
-        Me.GroupBox12.ResumeLayout(False)
         CType(Me.TipocomprobantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox12.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
