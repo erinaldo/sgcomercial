@@ -694,7 +694,7 @@ Partial Class MiComercio
         '
         Me.ComboBoxComandaDefault.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxComandaDefault.FormattingEnabled = True
-        Me.ComboBoxComandaDefault.Items.AddRange(New Object() {"58MM", "80MM", "A4"})
+        Me.ComboBoxComandaDefault.Items.AddRange(New Object() {"50MM", "58MM", "80MM", "A4"})
         Me.ComboBoxComandaDefault.Location = New System.Drawing.Point(113, 27)
         Me.ComboBoxComandaDefault.Name = "ComboBoxComandaDefault"
         Me.ComboBoxComandaDefault.Size = New System.Drawing.Size(228, 24)

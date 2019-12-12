@@ -11,6 +11,8 @@ Public Class ViewerFactura
                 Comanda80mmToolStripMenuItem.PerformClick()
             Case "58MM"
                 Comanda58mmToolStripMenuItem.PerformClick()
+            Case "50MM"
+                Comanda50mmToolStripMenuItem.PerformClick()
             Case "A4"
                 HojaA4ToolStripMenuItem.PerformClick()
         End Select
@@ -54,8 +56,6 @@ Public Class ViewerFactura
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComandera58.rdlc"
         'Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
         Me.ReportViewer1.RefreshReport()
-
-
     End Sub
 
     Private Sub ViewerFactura_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -167,5 +167,15 @@ Public Class ViewerFactura
             MessageBox.Show("El envío de mail falló: " + ex.Message, "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             EmailTo = Nothing
         End Try
+    End Sub
+
+    Private Sub Comanda50mmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Comanda50mmToolStripMenuItem.Click
+        Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
+        Me.libroventasTableAdapter.FillByIdventa(Me.comercialDataSet.libroventas, gidventa)
+        Me.libroventasdetalleTableAdapter.FillByIdventa(Me.comercialDataSet.libroventasdetalle, gidventa)
+
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComandera50.rdlc"
+        'Me.ivaresumenTableAdapter.FillByIdventa(Me.comercialDataSet.ivaresumen, gidventa)
+        Me.ReportViewer1.RefreshReport()
     End Sub
 End Class

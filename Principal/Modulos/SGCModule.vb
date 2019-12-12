@@ -1270,5 +1270,16 @@ and v.idtipocomprobante = tc.idtipocomprobante
             ''Exit For
         End Try
     End Sub
+    Public Sub BackUpDataBase()
+        Try
+            Dim path As String
+            Dim query As String
+            path = gSystemDrive + "\SGComercial\BD\MiComercio_backup.bak"
+            query = "BACKUP DATABASE comercial TO DISK = '" + path + "'"
+            QueryBDChange(query)
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Module
 

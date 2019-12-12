@@ -1343,6 +1343,12 @@ Public Class Principal
         ReporteGastos.MdiParent = Me
         ReporteGastos.Visible = True
     End Sub
+
+    Private Sub Principal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Me.Cursor = Cursors.WaitCursor
+        BackUpDataBase()
+        Me.Cursor = Cursors.Default
+    End Sub
     'Private Sub PrivateDownloadSGC()
 
     '    Dim ftpClient As New WebClient

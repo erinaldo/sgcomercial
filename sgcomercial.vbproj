@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>12</ApplicationRevision>
-    <ApplicationVersion>4.1.0.12</ApplicationVersion>
+    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationVersion>4.1.0.15</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1733,6 +1733,7 @@
     <EmbeddedResource Include="Ventas\Reportes\ComprobantesEmitidos.resx">
       <DependentUpon>ComprobantesEmitidos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Reportes\RepComandera50.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepComandera80.rdlc" />
     <EmbeddedResource Include="TransferenciaStock\EnviarStock.resx">
       <DependentUpon>EnviarStock.vb</DependentUpon>

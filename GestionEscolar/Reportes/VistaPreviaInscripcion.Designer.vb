@@ -76,6 +76,7 @@ Partial Class VistaPreviaInscripcion
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.WebBrowser1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "VistaPreviaInscripcion"
