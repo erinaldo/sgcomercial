@@ -93,35 +93,6 @@ Public Class loginform
             textpassword.Select()
         End If
     End Sub
-    Private Sub connectdblocal()
-        Try 'CONNECT DB LOCAL
-            Dim CheckConnection As SqlConnection
-            CheckConnection = New SqlConnection
-            CheckConnection.ConnectionString = comercialStrConn
-            Try
-                CheckConnection.Open()
-                My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn)
-                gActiveSQLConnectionString = comercialStrConn
-                CheckConnection.Close()
-                CheckConnection.Dispose()
-            Catch ex As Exception
-                Try
-                    CheckConnection.ConnectionString = comercialStrConn2
-                    CheckConnection.Open()
-                    My.Settings.SetUserOverride("comercialConnectionString", comercialStrConn2)
-                    gActiveSQLConnectionString = comercialStrConn2
-                    CheckConnection.Close()
-                    CheckConnection.Dispose()
-                Catch ex2 As Exception
-                    MsgBox("Conexión a base de datos fallida!", vbExclamation, "Advertencia!")
-                    End
-                End Try
-            End Try
-            '********************************
-        Catch ex As Exception
-            End
-        End Try
-    End Sub
     Private Sub connectdbremote()
         Dim status As Boolean
         ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''

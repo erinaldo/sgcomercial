@@ -185,7 +185,7 @@
         </TablixRowHierarchy>
         <DataSetName>libroventas</DataSetName>
         <Top>2.73403cm</Top>
-        <Left>0.02166cm</Left>
+        <Left>0.05341cm</Left>
         <Height>1.24817cm</Height>
         <Width>7.90475cm</Width>
         <Style>
@@ -452,9 +452,9 @@
         </TablixRowHierarchy>
         <DataSetName>libroventasdetalle</DataSetName>
         <Top>4.68359cm</Top>
-        <Left>0.02166cm</Left>
+        <Left>0.05341cm</Left>
         <Height>1.2cm</Height>
-        <Width>7.90475cm</Width>
+        <Width>7.90477cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -636,9 +636,9 @@
         </TablixRowHierarchy>
         <DataSetName>libroventasdetalle</DataSetName>
         <Top>4.05981cm</Top>
-        <Left>0.02166cm</Left>
+        <Left>0.05341cm</Left>
         <Height>0.6cm</Height>
-        <Width>7.89359cm</Width>
+        <Width>7.89361cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -665,7 +665,7 @@
         </Paragraphs>
         <rd:DefaultName>NombreComercio</rd:DefaultName>
         <Top>0.28361cm</Top>
-        <Left>2.83688cm</Left>
+        <Left>2.86863cm</Left>
         <Height>0.43744cm</Height>
         <Width>5.08953cm</Width>
         <ZIndex>3</ZIndex>
@@ -705,7 +705,7 @@
         </Paragraphs>
         <rd:DefaultName>CuitCuil</rd:DefaultName>
         <Top>0.82689cm</Top>
-        <Left>2.83688cm</Left>
+        <Left>2.86863cm</Left>
         <Height>0.43744cm</Height>
         <Width>5.08953cm</Width>
         <ZIndex>4</ZIndex>
@@ -738,7 +738,7 @@
         </Paragraphs>
         <rd:DefaultName>Dirección</rd:DefaultName>
         <Top>1.37016cm</Top>
-        <Left>2.83688cm</Left>
+        <Left>2.86863cm</Left>
         <Height>0.43744cm</Height>
         <Width>5.08953cm</Width>
         <ZIndex>5</ZIndex>
@@ -778,7 +778,7 @@
         </Paragraphs>
         <rd:DefaultName>Teléfono</rd:DefaultName>
         <Top>1.91344cm</Top>
-        <Left>2.83688cm</Left>
+        <Left>2.86863cm</Left>
         <Height>0.43744cm</Height>
         <Width>5.08953cm</Width>
         <ZIndex>6</ZIndex>
@@ -798,7 +798,7 @@
         <MIMEType>image/jpeg</MIMEType>
         <Sizing>FitProportional</Sizing>
         <Top>0.09525cm</Top>
-        <Left>0.14866cm</Left>
+        <Left>0.18041cm</Left>
         <Height>2.49659cm</Height>
         <Width>2.49659cm</Width>
         <ZIndex>7</ZIndex>
@@ -843,7 +843,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>13.31253cm</Top>
-        <Left>0.04773cm</Left>
+        <Left>0.07948cm</Left>
         <Height>0.81872cm</Height>
         <Width>7.86752cm</Width>
         <ZIndex>8</ZIndex>
@@ -1199,6 +1199,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>6.25266cm</Top>
+        <Left>0.03175cm</Left>
         <Height>6.25906cm</Height>
         <Width>7.91525cm</Width>
         <ZIndex>9</ZIndex>
@@ -1233,7 +1234,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>12.70464cm</Top>
-        <Left>0.04773cm</Left>
+        <Left>0.07948cm</Left>
         <Height>0.4315cm</Height>
         <Width>7.86752cm</Width>
         <ZIndex>10</ZIndex>
@@ -1251,10 +1252,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>6.22416in</Height>
+    <Height>5.68249in</Height>
     <Style />
   </Body>
-  <Width>79.2641mm</Width>
+  <Width>80mm</Width>
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>8cm</PageWidth>
