@@ -46,6 +46,8 @@ Partial Class BuscaCodigoProductoManual
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.ProductosDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(13, 99)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
@@ -61,6 +63,9 @@ Partial Class BuscaCodigoProductoManual
         Me.ProductosDataGridView.AllowUserToAddRows = False
         Me.ProductosDataGridView.AllowUserToDeleteRows = False
         Me.ProductosDataGridView.AllowUserToResizeRows = False
+        Me.ProductosDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ProductosDataGridView.AutoGenerateColumns = False
         Me.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ProductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.DescripcionDataGridViewTextBoxColumn})
@@ -103,6 +108,9 @@ Partial Class BuscaCodigoProductoManual
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.TextBoxfiltro)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
@@ -117,6 +125,8 @@ Partial Class BuscaCodigoProductoManual
         '
         'TextBoxfiltro
         '
+        Me.TextBoxfiltro.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxfiltro.Location = New System.Drawing.Point(395, 28)
         Me.TextBoxfiltro.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxfiltro.Name = "TextBoxfiltro"
@@ -164,6 +174,7 @@ Partial Class BuscaCodigoProductoManual
         Me.ClientSize = New System.Drawing.Size(889, 351)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False

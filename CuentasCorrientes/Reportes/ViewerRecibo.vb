@@ -35,12 +35,9 @@ Public Class ViewerRecibo
 
             'Me.ReportViewer1.RefreshReport()
             'Return
-            Me.Cursor = Cursors.Default
-            If MsgBox("Esta seguro que desea enviar el informe por Email? el proceso tomará unos segundos...", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.No Then
-                MsgBox("Envío cancelado!", MsgBoxStyle.Exclamation, "Advertencia")
-                Return
-            End If
-            Me.Cursor = Cursors.WaitCursor
+            'Me.Cursor = Cursors.Default
+
+            'Me.Cursor = Cursors.WaitCursor
             'Threading.Thread.Sleep(5000)
             '*******************************
             Dim byteViewer As Byte() = ReportViewer1.LocalReport.Render("PDF")
@@ -97,7 +94,7 @@ Public Class ViewerRecibo
             '*************************  ENVIO EMAIL **********************************************
             If ModuloUtilidades.clsSendMail.SendEMail(gNombreComercio, EmailFrom, EmailCierreCajaTo, EmailSubject, EmailBody, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
                 Me.Cursor = Cursors.Default
-                MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("El envío de mail ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 Me.Cursor = Cursors.Default
                 MessageBox.Show("El envío de mail falló! Verifíque su conexión a internet", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

@@ -902,7 +902,7 @@ Module SGCModule
     End Sub
     Function IsValidEmailFormat(ByVal s As String) As Boolean
         If s = Nothing Then Return False
-        Return Regex.IsMatch(s, "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$")
+        Return Regex.IsMatch(s, "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*[-\.\w]*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$")
     End Function
     Public Sub ShowPopUp(msg As String, tiempo As Integer)
         Dim x As New WinPopUp()
@@ -1280,6 +1280,22 @@ and v.idtipocomprobante = tc.idtipocomprobante
         Catch ex As Exception
 
         End Try
+    End Sub
+    Public Sub GBuscaProductoManual(ByRef StrRes As StrError)
+        gcodigoproducto = 0
+        Dim p As BuscaCodigoProductoManual
+        p = New BuscaCodigoProductoManual
+        p.ShowDialog()
+        If Len(Trim(gcodigoproducto)) = 0 Then
+            StrRes.CodError = 1
+            StrRes.MsgError = "Producto no Encontrado"
+            Return
+        Else
+            StrRes.CodError = 0
+            StrRes.MsgError = gcodigoproducto
+        End If
+        ''codigoproductoTextBox.Text = gcodigoproducto
+        ''consultardisponibles()
     End Sub
 End Module
 

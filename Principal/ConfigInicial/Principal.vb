@@ -1349,6 +1349,11 @@ Public Class Principal
         BackUpDataBase()
         Me.Cursor = Cursors.Default
     End Sub
+
+    Private Sub LotesDeVencimientoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LotesDeVencimientoToolStripMenuItem.Click
+        LotesVencimiento.MdiParent = Me
+        LotesVencimiento.Visible = True
+    End Sub
     'Private Sub PrivateDownloadSGC()
 
     '    Dim ftpClient As New WebClient

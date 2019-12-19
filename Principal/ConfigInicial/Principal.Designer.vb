@@ -66,6 +66,7 @@ Partial Class Principal
         Me.MovimientosDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpresiónEtiquetasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CodificarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LotesDeVencimientoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarProductosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -85,6 +86,7 @@ Partial Class Principal
         Me.GastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MovimientosDeCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExtraccionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeGastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GeneraciónDeValesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmitirValeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdministrarValesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -219,7 +221,6 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.ReporteDeGastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -475,7 +476,7 @@ Partial Class Principal
         '
         'VentasToolStripMenuItem
         '
-        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProductosToolStripMenuItem, Me.ActualizacionDePreciosToolStripMenuItem, Me.StockToolStripMenuItem, Me.ImpresiónEtiquetasToolStripMenuItem, Me.CodificarProductosToolStripMenuItem})
+        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProductosToolStripMenuItem, Me.ActualizacionDePreciosToolStripMenuItem, Me.StockToolStripMenuItem, Me.ImpresiónEtiquetasToolStripMenuItem, Me.CodificarProductosToolStripMenuItem, Me.LotesDeVencimientoToolStripMenuItem})
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
         Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(99, 27)
         Me.VentasToolStripMenuItem.Tag = "ModuloStock"
@@ -568,6 +569,13 @@ Partial Class Principal
         Me.CodificarProductosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.CodificarProductosToolStripMenuItem.Tag = "CodificarProductos"
         Me.CodificarProductosToolStripMenuItem.Text = "Codificar Productos"
+        '
+        'LotesDeVencimientoToolStripMenuItem
+        '
+        Me.LotesDeVencimientoToolStripMenuItem.Name = "LotesDeVencimientoToolStripMenuItem"
+        Me.LotesDeVencimientoToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
+        Me.LotesDeVencimientoToolStripMenuItem.Tag = "LotesVencimiento"
+        Me.LotesDeVencimientoToolStripMenuItem.Text = "Lotes de Vencimiento"
         '
         'ImportarProductosToolStripMenuItem
         '
@@ -709,6 +717,13 @@ Partial Class Principal
         Me.ExtraccionesToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
         Me.ExtraccionesToolStripMenuItem.Tag = "ABMExtracciones"
         Me.ExtraccionesToolStripMenuItem.Text = "Extracciones / Depósitos"
+        '
+        'ReporteDeGastosToolStripMenuItem
+        '
+        Me.ReporteDeGastosToolStripMenuItem.Name = "ReporteDeGastosToolStripMenuItem"
+        Me.ReporteDeGastosToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
+        Me.ReporteDeGastosToolStripMenuItem.Tag = "ReporteGastos"
+        Me.ReporteDeGastosToolStripMenuItem.Text = "Reporte de Gastos"
         '
         'GeneraciónDeValesToolStripMenuItem
         '
@@ -1557,6 +1572,7 @@ Partial Class Principal
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
         Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
@@ -1735,13 +1751,6 @@ Partial Class Principal
         '
         'BGWAlertas
         '
-        '
-        'ReporteDeGastosToolStripMenuItem
-        '
-        Me.ReporteDeGastosToolStripMenuItem.Name = "ReporteDeGastosToolStripMenuItem"
-        Me.ReporteDeGastosToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
-        Me.ReporteDeGastosToolStripMenuItem.Tag = "ReporteGastos"
-        Me.ReporteDeGastosToolStripMenuItem.Text = "Reporte de Gastos"
         '
         'Principal
         '
@@ -1987,4 +1996,5 @@ Partial Class Principal
     Friend WithEvents RegistroDeInscripciónesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConfigurarMembreteYFirmaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeGastosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LotesDeVencimientoToolStripMenuItem As ToolStripMenuItem
 End Class
