@@ -1297,5 +1297,9 @@ and v.idtipocomprobante = tc.idtipocomprobante
         ''codigoproductoTextBox.Text = gcodigoproducto
         ''consultardisponibles()
     End Sub
+    Public Sub AuRegistrarVentaCancelada(ByRef idcliente As Int64, ByRef usuariocarga As String, ByRef importe As Decimal, ByRef observacion As String)
+        Dim AuVentasCanceladas As New comercialDataSetTableAdapters.auventascanceladasTableAdapter()
+        AuVentasCanceladas.auventascanceladas_insertar(idcliente, usuariocarga, importe, observacion)
+    End Sub
 End Module
 

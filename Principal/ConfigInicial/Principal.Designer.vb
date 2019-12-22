@@ -221,6 +221,7 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
+        Me.LibroVentasCanceladasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -297,7 +298,7 @@ Partial Class Principal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ComprobanesEmitidosToolStripMenuItem, Me.LibroVentasToolStripMenuItem, Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem, Me.VentasPorUsuarioToolStripMenuItem, Me.LibroDeGastosToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ComprobanesEmitidosToolStripMenuItem, Me.LibroVentasToolStripMenuItem, Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem, Me.VentasPorUsuarioToolStripMenuItem, Me.LibroDeGastosToolStripMenuItem, Me.LibroVentasCanceladasToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.ReportesToolStripMenuItem.Tag = "ReportesParent"
@@ -306,42 +307,42 @@ Partial Class Principal
         'ComprobanesEmitidosToolStripMenuItem
         '
         Me.ComprobanesEmitidosToolStripMenuItem.Name = "ComprobanesEmitidosToolStripMenuItem"
-        Me.ComprobanesEmitidosToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.ComprobanesEmitidosToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.ComprobanesEmitidosToolStripMenuItem.Tag = "ComprobanesEmitidos"
         Me.ComprobanesEmitidosToolStripMenuItem.Text = "Comprobanes Emitidos"
         '
         'LibroVentasToolStripMenuItem
         '
         Me.LibroVentasToolStripMenuItem.Name = "LibroVentasToolStripMenuItem"
-        Me.LibroVentasToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.LibroVentasToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.LibroVentasToolStripMenuItem.Tag = "LibroVentasDetalladas"
         Me.LibroVentasToolStripMenuItem.Text = "Libro Ventas Detalladas"
         '
         'VentasPorDiaToolStripMenuItem
         '
         Me.VentasPorDiaToolStripMenuItem.Name = "VentasPorDiaToolStripMenuItem"
-        Me.VentasPorDiaToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.VentasPorDiaToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.VentasPorDiaToolStripMenuItem.Tag = "LibroDiario"
         Me.VentasPorDiaToolStripMenuItem.Text = "Libro Diario"
         '
         'LibroMayorToolStripMenuItem
         '
         Me.LibroMayorToolStripMenuItem.Name = "LibroMayorToolStripMenuItem"
-        Me.LibroMayorToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.LibroMayorToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.LibroMayorToolStripMenuItem.Tag = "LibroMayor"
         Me.LibroMayorToolStripMenuItem.Text = "Libro Mayor"
         '
         'VentasPorUsuarioToolStripMenuItem
         '
         Me.VentasPorUsuarioToolStripMenuItem.Name = "VentasPorUsuarioToolStripMenuItem"
-        Me.VentasPorUsuarioToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.VentasPorUsuarioToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.VentasPorUsuarioToolStripMenuItem.Tag = "ReporteVentasPorUsuario"
         Me.VentasPorUsuarioToolStripMenuItem.Text = "Ventas por Usuario"
         '
         'LibroDeGastosToolStripMenuItem
         '
         Me.LibroDeGastosToolStripMenuItem.Name = "LibroDeGastosToolStripMenuItem"
-        Me.LibroDeGastosToolStripMenuItem.Size = New System.Drawing.Size(264, 28)
+        Me.LibroDeGastosToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.LibroDeGastosToolStripMenuItem.Tag = "LibroGastos"
         Me.LibroDeGastosToolStripMenuItem.Text = "Libro de Gastos"
         '
@@ -1543,6 +1544,7 @@ Partial Class Principal
         'TableAdapterManager
         '
         Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -1751,6 +1753,13 @@ Partial Class Principal
         '
         'BGWAlertas
         '
+        '
+        'LibroVentasCanceladasToolStripMenuItem
+        '
+        Me.LibroVentasCanceladasToolStripMenuItem.Name = "LibroVentasCanceladasToolStripMenuItem"
+        Me.LibroVentasCanceladasToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
+        Me.LibroVentasCanceladasToolStripMenuItem.Tag = "LibroVentasCanceladas"
+        Me.LibroVentasCanceladasToolStripMenuItem.Text = "Libro Ventas Canceladas"
         '
         'Principal
         '
@@ -1997,4 +2006,5 @@ Partial Class Principal
     Friend WithEvents ConfigurarMembreteYFirmaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeGastosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LotesDeVencimientoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LibroVentasCanceladasToolStripMenuItem As ToolStripMenuItem
 End Class

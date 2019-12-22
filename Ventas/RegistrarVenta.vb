@@ -281,10 +281,12 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub BtnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCancelar.Click
+        RegistrarVtaCancelada()
         BtnNueva.Enabled = True
         BtnConfirmar.Enabled = False
         BtnCancelar.Enabled = False
         Labelproducto.Text = ""
+        LabelTotalVisible.Text = Nothing
         labelcliente.Text = ""
         IdclienteTextBox.Text = ""
         vueltotextbox.Text = ""
@@ -301,6 +303,23 @@ Public Class RegistrarVenta
         LabelMontoFP2.Enabled = False
         FechavencimientoDateTimePicker.Value = Today
         FechavencimientoDateTimePicker.Enabled = False
+    End Sub
+    Private Sub RegistrarVtaCancelada()
+        Try
+            Dim tt As Decimal
+            If labeltotal.Text <> "" Then
+                Try
+                    tt = Convert.ToDecimal(labeltotal.Text)
+                Catch ex As Exception
+                    tt = 0
+                End Try
+            Else
+                tt = 0
+            End If
+            AuRegistrarVentaCancelada(IdclienteTextBox.Text, gusername, tt, "obser")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub CancelarVenta()
         BtnNueva.Enabled = True

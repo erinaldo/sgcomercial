@@ -1354,6 +1354,11 @@ Public Class Principal
         LotesVencimiento.MdiParent = Me
         LotesVencimiento.Visible = True
     End Sub
+
+    Private Sub LibroVentasCanceladasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroVentasCanceladasToolStripMenuItem.Click
+        LibroVentasCanceladas.MdiParent = Me
+        LibroVentasCanceladas.Visible = True
+    End Sub
     'Private Sub PrivateDownloadSGC()
 
     '    Dim ftpClient As New WebClient
