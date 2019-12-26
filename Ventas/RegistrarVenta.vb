@@ -114,13 +114,13 @@ Public Class RegistrarVenta
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         Try
             If VerificarCajaFEAFIP() = False Then
-                MainMenuStrip.Visible = False
+                MainMenuStripRV.Visible = False
                 PictureBoxFE.Visible = True
                 PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
                 Return
             End If
         Catch ex As Exception
-            MainMenuStrip.Visible = False
+            MainMenuStripRV.Visible = False
             PictureBoxFE.Visible = True
             PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
             Return
@@ -132,7 +132,7 @@ Public Class RegistrarVenta
                 If GFEAUTOCAEAFIP = "SI" Then
                     ActivarDesactivarFacturaElectrónicaToolStripMenuItem.Text = "Desactivar Factura Electrónica"
                     PictureBoxFE.Visible = True
-                    MainMenuStrip.Visible = True
+                    MainMenuStripRV.Visible = True
                     'TabControl.SelectedTab = TabControl.TabPages(0)
                     TabControl.TabPages("otrostributos").Enabled = True
                     PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_ON
@@ -144,7 +144,7 @@ Public Class RegistrarVenta
                     PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
                 End If
             Else
-                MainMenuStrip.Visible = False
+                MainMenuStripRV.Visible = False
                 PictureBoxFE.Visible = True
                 PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
                 TabControl.SelectedTab = TabControl.TabPages(0)
@@ -152,7 +152,7 @@ Public Class RegistrarVenta
             End If
         Catch ex As Exception
             MessageBox.Show("Facturación Electrónica DESACTIVADA", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            MainMenuStrip.Visible = False
+            MainMenuStripRV.Visible = False
             PictureBoxFE.Visible = True
             PictureBoxFE.Image = sgcomercial.My.Resources.Resources.FEAFIP_OFF
         End Try

@@ -182,7 +182,7 @@ Partial Class RegistrarVenta
         Me.ComercialDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipoconceptosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipoconceptosTableAdapter()
         Me.ListaclientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaclientesTableAdapter()
-        Me.MainMenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.MainMenuStripRV = New System.Windows.Forms.MenuStrip()
         Me.ActivarDesactivarFacturaElectrónicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl = New System.Windows.Forms.TabControl()
         Me.Articulos = New System.Windows.Forms.TabPage()
@@ -249,7 +249,7 @@ Partial Class RegistrarVenta
         CType(Me.TipoconceptosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MainMenuStrip.SuspendLayout()
+        Me.MainMenuStripRV.SuspendLayout()
         Me.TabControl.SuspendLayout()
         Me.Articulos.SuspendLayout()
         Me.otrostributos.SuspendLayout()
@@ -1191,6 +1191,7 @@ Partial Class RegistrarVenta
         'TableAdapterManager
         '
         Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -1203,6 +1204,7 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
@@ -1220,6 +1222,7 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
         Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
@@ -1241,6 +1244,8 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.rangoscriteriosventaTableAdapter = Nothing
+        Me.TableAdapterManager.regalorangocriterioventaTableAdapter = Nothing
         Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
@@ -1700,17 +1705,17 @@ Partial Class RegistrarVenta
         '
         Me.ListaclientesTableAdapter.ClearBeforeFill = True
         '
-        'MainMenuStrip
+        'MainMenuStripRV
         '
-        Me.MainMenuStrip.AllowMerge = False
-        Me.MainMenuStrip.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.MainMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MainMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ActivarDesactivarFacturaElectrónicaToolStripMenuItem})
-        Me.MainMenuStrip.Location = New System.Drawing.Point(0, 0)
-        Me.MainMenuStrip.Name = "MainMenuStrip"
-        Me.MainMenuStrip.Size = New System.Drawing.Size(1127, 28)
-        Me.MainMenuStrip.TabIndex = 32
-        Me.MainMenuStrip.Text = "MenuStrip1"
+        Me.MainMenuStripRV.AllowMerge = False
+        Me.MainMenuStripRV.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.MainMenuStripRV.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MainMenuStripRV.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ActivarDesactivarFacturaElectrónicaToolStripMenuItem})
+        Me.MainMenuStripRV.Location = New System.Drawing.Point(0, 0)
+        Me.MainMenuStripRV.Name = "MainMenuStripRV"
+        Me.MainMenuStripRV.Size = New System.Drawing.Size(1127, 28)
+        Me.MainMenuStripRV.TabIndex = 32
+        Me.MainMenuStripRV.Text = "MenuStrip1"
         '
         'ActivarDesactivarFacturaElectrónicaToolStripMenuItem
         '
@@ -1750,7 +1755,7 @@ Partial Class RegistrarVenta
         Me.otrostributos.Location = New System.Drawing.Point(4, 29)
         Me.otrostributos.Name = "otrostributos"
         Me.otrostributos.Padding = New System.Windows.Forms.Padding(3)
-        Me.otrostributos.Size = New System.Drawing.Size(1091, 221)
+        Me.otrostributos.Size = New System.Drawing.Size(1091, 296)
         Me.otrostributos.TabIndex = 1
         Me.otrostributos.Text = "Otros Tributos"
         Me.otrostributos.UseVisualStyleBackColor = True
@@ -1848,7 +1853,7 @@ Partial Class RegistrarVenta
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1127, 653)
         Me.Controls.Add(Me.TabControl)
-        Me.Controls.Add(Me.MainMenuStrip)
+        Me.Controls.Add(Me.MainMenuStripRV)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GFP2)
         Me.Controls.Add(Me.GroupBox4)
@@ -1901,8 +1906,8 @@ Partial Class RegistrarVenta
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MainMenuStrip.ResumeLayout(False)
-        Me.MainMenuStrip.PerformLayout()
+        Me.MainMenuStripRV.ResumeLayout(False)
+        Me.MainMenuStripRV.PerformLayout()
         Me.TabControl.ResumeLayout(False)
         Me.Articulos.ResumeLayout(False)
         Me.otrostributos.ResumeLayout(False)
@@ -2045,7 +2050,7 @@ Partial Class RegistrarVenta
     Friend WithEvents ListaclientesBindingSource As BindingSource
     Friend WithEvents ListaclientesTableAdapter As comercialDataSetTableAdapters.listaclientesTableAdapter
     Friend WithEvents PictureBoxEditarCliente As PictureBox
-    Friend WithEvents MainMenuStrip As MenuStrip
+    Friend WithEvents MainMenuStripRV As MenuStrip
     Friend WithEvents ActivarDesactivarFacturaElectrónicaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBoxFE As PictureBox
     Friend WithEvents TabControl As TabControl

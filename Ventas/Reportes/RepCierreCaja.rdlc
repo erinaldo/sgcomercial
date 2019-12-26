@@ -2538,7 +2538,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
         <DataSetName>cajaresumen</DataSetName>
         <Top>9.91554cm</Top>
         <Left>0.12101cm</Left>
-        <Height>3.68051cm</Height>
+        <Height>3.53234cm</Height>
         <Width>18.34482cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
