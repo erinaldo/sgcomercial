@@ -196,7 +196,7 @@ Partial Class NuevoCriterioVenta
         '
         Me.ButtonConfirmar.Location = New System.Drawing.Point(333, 160)
         Me.ButtonConfirmar.Name = "ButtonConfirmar"
-        Me.ButtonConfirmar.Size = New System.Drawing.Size(160, 31)
+        Me.ButtonConfirmar.Size = New System.Drawing.Size(160, 32)
         Me.ButtonConfirmar.TabIndex = 15
         Me.ButtonConfirmar.Text = "Confirmar y Continuar"
         Me.ButtonConfirmar.UseVisualStyleBackColor = True
