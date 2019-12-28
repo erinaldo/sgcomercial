@@ -1244,8 +1244,6 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager.rangoscriteriosventaTableAdapter = Nothing
-        Me.TableAdapterManager.regalorangocriterioventaTableAdapter = Nothing
         Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing

@@ -103,6 +103,7 @@ Module SGCModule
     Public grecargoCC As Decimal
     Public gidpago As Long
     Public gidcliente As Long
+    Public gidCriterioSeleccionado As Long
     '************************************
     Public gidoperacion As Long
     Public gidventa As Long

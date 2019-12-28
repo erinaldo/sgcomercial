@@ -915,10 +915,10 @@
     <Compile Include="TransferenciaStock\SeleccionarCantidad.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransferenciaStock\SeleccionarProductoEnvio.Designer.vb">
-      <DependentUpon>SeleccionarProductoEnvio.vb</DependentUpon>
+    <Compile Include="TransferenciaStock\SeleccionarProductoCantidadGenerico.Designer.vb">
+      <DependentUpon>SeleccionarProductoCantidadGenerico.vb</DependentUpon>
     </Compile>
-    <Compile Include="TransferenciaStock\SeleccionarProductoEnvio.vb">
+    <Compile Include="TransferenciaStock\SeleccionarProductoCantidadGenerico.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Usuarios\ABMPerfiles.Designer.vb">
@@ -1066,6 +1066,12 @@
     <Compile Include="Ventas\ABMServicios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\BuscaProductoCantidadGenerico.Designer.vb">
+      <DependentUpon>BuscaProductoCantidadGenerico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\BuscaProductoCantidadGenerico.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\CambioMercaderiaVendida.Designer.vb">
       <DependentUpon>CambioMercaderiaVendida.vb</DependentUpon>
     </Compile>
@@ -1118,6 +1124,12 @@
       <DependentUpon>IngresaPrecioVenta.vb</DependentUpon>
     </Compile>
     <Compile Include="Ventas\IngresaPrecioVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\NuevoCriterioVenta.Designer.vb">
+      <DependentUpon>NuevoCriterioVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\NuevoCriterioVenta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventas\PopUpGetTipoCbt.Designer.vb">
@@ -1745,6 +1757,9 @@
     <EmbeddedResource Include="Ventas\ABMServicios.resx">
       <DependentUpon>ABMServicios.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\BuscaProductoCantidadGenerico.resx">
+      <DependentUpon>BuscaProductoCantidadGenerico.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\DefinirCriteriosVenta.resx">
       <DependentUpon>DefinirCriteriosVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -1753,6 +1768,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\IngresaPrecioVenta.resx">
       <DependentUpon>IngresaPrecioVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\NuevoCriterioVenta.resx">
+      <DependentUpon>NuevoCriterioVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\PopUpGetTipoCbt.resx">
       <DependentUpon>PopUpGetTipoCbt.vb</DependentUpon>
@@ -1787,8 +1805,8 @@
     <EmbeddedResource Include="TransferenciaStock\SeleccionarCantidad.resx">
       <DependentUpon>SeleccionarCantidad.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransferenciaStock\SeleccionarProductoEnvio.resx">
-      <DependentUpon>SeleccionarProductoEnvio.vb</DependentUpon>
+    <EmbeddedResource Include="TransferenciaStock\SeleccionarProductoCantidadGenerico.resx">
+      <DependentUpon>SeleccionarProductoCantidadGenerico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\ABMPerfiles.resx">
       <DependentUpon>ABMPerfiles.vb</DependentUpon>
