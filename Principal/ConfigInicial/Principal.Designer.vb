@@ -37,6 +37,7 @@ Partial Class Principal
         Me.LibroMayorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasPorUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroDeGastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LibroVentasCanceladasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarPreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PresupuestosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarPresupuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -221,7 +222,8 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.LibroVentasCanceladasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CriteriosDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DefinirCriteriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -257,7 +259,7 @@ Partial Class Principal
         '
         'GestionDeProductosToolStripMenuItem
         '
-        Me.GestionDeProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem, Me.CambioMercaderíaVendidaToolStripMenuItem, Me.CambioMultipleToolStripMenuItem, Me.ABMClientesToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConsultarPreciosToolStripMenuItem, Me.PresupuestosToolStripMenuItem})
+        Me.GestionDeProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem, Me.CambioMercaderíaVendidaToolStripMenuItem, Me.CambioMultipleToolStripMenuItem, Me.ABMClientesToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConsultarPreciosToolStripMenuItem, Me.PresupuestosToolStripMenuItem, Me.CriteriosDeVentaToolStripMenuItem})
         Me.GestionDeProductosToolStripMenuItem.Name = "GestionDeProductosToolStripMenuItem"
         Me.GestionDeProductosToolStripMenuItem.Size = New System.Drawing.Size(73, 27)
         Me.GestionDeProductosToolStripMenuItem.Tag = "ModuloVentas"
@@ -345,6 +347,13 @@ Partial Class Principal
         Me.LibroDeGastosToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.LibroDeGastosToolStripMenuItem.Tag = "LibroGastos"
         Me.LibroDeGastosToolStripMenuItem.Text = "Libro de Gastos"
+        '
+        'LibroVentasCanceladasToolStripMenuItem
+        '
+        Me.LibroVentasCanceladasToolStripMenuItem.Name = "LibroVentasCanceladasToolStripMenuItem"
+        Me.LibroVentasCanceladasToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
+        Me.LibroVentasCanceladasToolStripMenuItem.Tag = "LibroVentasCanceladas"
+        Me.LibroVentasCanceladasToolStripMenuItem.Text = "Libro Ventas Canceladas"
         '
         'ConsultarPreciosToolStripMenuItem
         '
@@ -1557,6 +1566,7 @@ Partial Class Principal
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
@@ -1596,6 +1606,8 @@ Partial Class Principal
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.proveedoresTableAdapter = Nothing
         Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.rangoscriteriosventaTableAdapter = Nothing
+        Me.TableAdapterManager.regalorangocriterioventaTableAdapter = Nothing
         Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
@@ -1754,12 +1766,20 @@ Partial Class Principal
         'BGWAlertas
         '
         '
-        'LibroVentasCanceladasToolStripMenuItem
+        'CriteriosDeVentaToolStripMenuItem
         '
-        Me.LibroVentasCanceladasToolStripMenuItem.Name = "LibroVentasCanceladasToolStripMenuItem"
-        Me.LibroVentasCanceladasToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
-        Me.LibroVentasCanceladasToolStripMenuItem.Tag = "LibroVentasCanceladas"
-        Me.LibroVentasCanceladasToolStripMenuItem.Text = "Libro Ventas Canceladas"
+        Me.CriteriosDeVentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefinirCriteriosToolStripMenuItem})
+        Me.CriteriosDeVentaToolStripMenuItem.Name = "CriteriosDeVentaToolStripMenuItem"
+        Me.CriteriosDeVentaToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
+        Me.CriteriosDeVentaToolStripMenuItem.Tag = "CriteriosDeVenta"
+        Me.CriteriosDeVentaToolStripMenuItem.Text = "Criterios de Venta"
+        '
+        'DefinirCriteriosToolStripMenuItem
+        '
+        Me.DefinirCriteriosToolStripMenuItem.Name = "DefinirCriteriosToolStripMenuItem"
+        Me.DefinirCriteriosToolStripMenuItem.Size = New System.Drawing.Size(204, 28)
+        Me.DefinirCriteriosToolStripMenuItem.Tag = "DefinirCriterios"
+        Me.DefinirCriteriosToolStripMenuItem.Text = "Definir Criterios"
         '
         'Principal
         '
@@ -2007,4 +2027,6 @@ Partial Class Principal
     Friend WithEvents ReporteDeGastosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LotesDeVencimientoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroVentasCanceladasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CriteriosDeVentaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DefinirCriteriosToolStripMenuItem As ToolStripMenuItem
 End Class

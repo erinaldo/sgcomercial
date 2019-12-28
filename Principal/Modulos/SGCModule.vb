@@ -1301,5 +1301,18 @@ and v.idtipocomprobante = tc.idtipocomprobante
         Dim AuVentasCanceladas As New comercialDataSetTableAdapters.auventascanceladasTableAdapter()
         AuVentasCanceladas.auventascanceladas_insertar(idcliente, usuariocarga, importe, observacion)
     End Sub
+    Public Sub MsgInfo(ByRef msg As String)
+        MessageBox.Show(msg, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+    Public Sub MsgExcl(ByRef msg As String)
+        MessageBox.Show(msg, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    End Sub
+    Public Function MsgQues(ByRef msg As String) As Boolean
+        If MessageBox.Show(msg, "Pregunta!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 End Module
 
