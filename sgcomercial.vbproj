@@ -1096,6 +1096,12 @@
     <Compile Include="Ventas\DefinirCriteriosVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\DefinirCriterioVentaRango.Designer.vb">
+      <DependentUpon>DefinirCriterioVentaRango.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\DefinirCriterioVentaRango.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\DetalleEgresos.Designer.vb">
       <DependentUpon>DetalleEgresos.vb</DependentUpon>
     </Compile>
@@ -1762,6 +1768,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\DefinirCriteriosVenta.resx">
       <DependentUpon>DefinirCriteriosVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\DefinirCriterioVentaRango.resx">
+      <DependentUpon>DefinirCriterioVentaRango.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\EditarVenta.resx">
       <DependentUpon>EditarVenta.vb</DependentUpon>

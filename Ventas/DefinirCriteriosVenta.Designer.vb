@@ -26,24 +26,25 @@ Partial Class DefinirCriteriosVenta
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CriteriosventaDataGridView = New System.Windows.Forms.DataGridView()
         Me.CriteriosventaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.CriteriosventaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.criteriosventaTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.CriteriosventaDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcriterioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EditarCriterio = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CriteriosventaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CriteriosventaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CriteriosventaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -53,7 +54,7 @@ Partial Class DefinirCriteriosVenta
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(843, 27)
+        Me.ToolStrip1.Size = New System.Drawing.Size(896, 27)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -76,20 +77,55 @@ Partial Class DefinirCriteriosVenta
         Me.GroupBox1.Controls.Add(Me.CriteriosventaDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 30)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(819, 307)
+        Me.GroupBox1.Size = New System.Drawing.Size(872, 438)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Criterios de Venta"
         '
-        'ComercialDataSet
+        'TextBox1
         '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.TextBox1.Location = New System.Drawing.Point(283, 37)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(347, 22)
+        Me.TextBox1.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(189, 40)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(86, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Descripción:"
+        '
+        'CriteriosventaDataGridView
+        '
+        Me.CriteriosventaDataGridView.AllowUserToAddRows = False
+        Me.CriteriosventaDataGridView.AllowUserToDeleteRows = False
+        Me.CriteriosventaDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CriteriosventaDataGridView.AutoGenerateColumns = False
+        Me.CriteriosventaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.CriteriosventaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.CriteriosventaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcriterioventa, Me.EditarCriterio, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
+        Me.CriteriosventaDataGridView.DataSource = Me.CriteriosventaBindingSource
+        Me.CriteriosventaDataGridView.Location = New System.Drawing.Point(6, 80)
+        Me.CriteriosventaDataGridView.Name = "CriteriosventaDataGridView"
+        Me.CriteriosventaDataGridView.ReadOnly = True
+        Me.CriteriosventaDataGridView.RowTemplate.Height = 24
+        Me.CriteriosventaDataGridView.Size = New System.Drawing.Size(849, 337)
+        Me.CriteriosventaDataGridView.TabIndex = 0
         '
         'CriteriosventaBindingSource
         '
         Me.CriteriosventaBindingSource.DataMember = "criteriosventa"
         Me.CriteriosventaBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CriteriosventaTableAdapter
         '
@@ -182,35 +218,29 @@ Partial Class DefinirCriteriosVenta
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'CriteriosventaDataGridView
+        'idcriterioventa
         '
-        Me.CriteriosventaDataGridView.AllowUserToAddRows = False
-        Me.CriteriosventaDataGridView.AllowUserToDeleteRows = False
-        Me.CriteriosventaDataGridView.AutoGenerateColumns = False
-        Me.CriteriosventaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.CriteriosventaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CriteriosventaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
-        Me.CriteriosventaDataGridView.DataSource = Me.CriteriosventaBindingSource
-        Me.CriteriosventaDataGridView.Location = New System.Drawing.Point(6, 80)
-        Me.CriteriosventaDataGridView.Name = "CriteriosventaDataGridView"
-        Me.CriteriosventaDataGridView.ReadOnly = True
-        Me.CriteriosventaDataGridView.RowTemplate.Height = 24
-        Me.CriteriosventaDataGridView.Size = New System.Drawing.Size(807, 205)
-        Me.CriteriosventaDataGridView.TabIndex = 0
+        Me.idcriterioventa.DataPropertyName = "idcriterioventa"
+        Me.idcriterioventa.HeaderText = "idcriterioventa"
+        Me.idcriterioventa.Name = "idcriterioventa"
+        Me.idcriterioventa.ReadOnly = True
+        Me.idcriterioventa.Visible = False
         '
-        'DataGridViewTextBoxColumn1
+        'EditarCriterio
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idcriterioventa"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idcriterioventa"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
+        Me.EditarCriterio.HeaderText = ""
+        Me.EditarCriterio.Name = "EditarCriterio"
+        Me.EditarCriterio.ReadOnly = True
+        Me.EditarCriterio.Text = "Editar Criterio"
+        Me.EditarCriterio.ToolTipText = "Editar Criterio"
+        Me.EditarCriterio.UseColumnTextForButtonValue = True
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "descripcion"
         Me.DataGridViewTextBoxColumn2.HeaderText = "Descripción"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
         Me.DataGridViewTextBoxColumn2.ToolTipText = "Descripción"
         '
         'DataGridViewTextBoxColumn3
@@ -218,47 +248,35 @@ Partial Class DefinirCriteriosVenta
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechadesde"
         Me.DataGridViewTextBoxColumn3.HeaderText = "Desde"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "fechahasta"
         Me.DataGridViewTextBoxColumn4.HeaderText = "Hasta"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "cantidaddisponibletotal"
         Me.DataGridViewTextBoxColumn5.HeaderText = "Cantidad Total Disponible"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "cantidadmaximaporcliente"
         Me.DataGridViewTextBoxColumn6.HeaderText = "Cantidad Maxima Por Cliente"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
         Me.DataGridViewTextBoxColumn6.ToolTipText = "Cantidad Maxima Por Cliente"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(189, 40)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Descripción:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(283, 37)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(347, 22)
-        Me.TextBox1.TabIndex = 2
         '
         'DefinirCriteriosVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(843, 349)
+        Me.ClientSize = New System.Drawing.Size(896, 480)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -273,9 +291,9 @@ Partial Class DefinirCriteriosVenta
         Me.ToolStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CriteriosventaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CriteriosventaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CriteriosventaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -289,12 +307,13 @@ Partial Class DefinirCriteriosVenta
     Friend WithEvents CriteriosventaTableAdapter As comercialDataSetTableAdapters.criteriosventaTableAdapter
     Friend WithEvents TableAdapterManager As comercialDataSetTableAdapters.TableAdapterManager
     Friend WithEvents CriteriosventaDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents idcriterioventa As DataGridViewTextBoxColumn
+    Friend WithEvents EditarCriterio As DataGridViewButtonColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label1 As Label
 End Class

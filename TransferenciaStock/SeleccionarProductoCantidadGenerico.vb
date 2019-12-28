@@ -71,7 +71,7 @@ Public Class SeleccionarProductoCantidadGenerico
     Private Sub TextBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox2.KeyDown
         If Keys.Enter = e.KeyCode Then
             If Len(Trim(TextBox2.Text)) = 0 Then
-                MsgBox("Ingrese cantidad")
+                MsgEx("Ingrese cantidad")
                 TextBox2.Select()
                 Return
             End If

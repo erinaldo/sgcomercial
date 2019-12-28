@@ -21,12 +21,40 @@
 
     Private Sub DefinirCriteriosVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.criteriosventa' Puede moverla o quitarla según sea necesario.
-
+        Me.CriteriosventaTableAdapter.Fill(Me.ComercialDataSet.criteriosventa)
 
     End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         gidCriterioSeleccionado = 0
         NuevoCriterioVenta.ShowDialog()
+    End Sub
+
+    Private Sub CriteriosventaDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles CriteriosventaDataGridView.CellContentClick
+
+    End Sub
+
+    Private Sub CriteriosventaDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles CriteriosventaDataGridView.CellClick
+        Try
+            Select Case CriteriosventaDataGridView.Columns(e.ColumnIndex).Name
+                Case "EditarCriterio"
+                    gidCriterioSeleccionado = CriteriosventaDataGridView.Rows(e.RowIndex).Cells("idcriterioventa").Value
+                    NuevoCriterioVenta.ShowDialog()
+                    Me.CriteriosventaTableAdapter.Fill(Me.ComercialDataSet.criteriosventa)
+            End Select
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        If Len(Trim(TextBox1.Text)) = 0 Then
+            CriteriosventaBindingSource.Filter = ""
+        End If
+        Try
+            CriteriosventaBindingSource.Filter = "descripcion like '%" + TextBox1.Text + "%'"
+        Catch ex As Exception
+            CriteriosventaBindingSource.Filter = ""
+        End Try
     End Sub
 End Class

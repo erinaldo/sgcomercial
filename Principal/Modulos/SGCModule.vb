@@ -104,6 +104,9 @@ Module SGCModule
     Public gidpago As Long
     Public gidcliente As Long
     Public gidCriterioSeleccionado As Long
+    Public gCantidadDesde As Decimal
+    Public gCantidadHasta As Decimal
+    Public gPorcentaje As Decimal
     '************************************
     Public gidoperacion As Long
     Public gidventa As Long
@@ -1305,7 +1308,7 @@ and v.idtipocomprobante = tc.idtipocomprobante
     Public Sub MsgInfo(ByRef msg As String)
         MessageBox.Show(msg, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
-    Public Sub MsgExcl(ByRef msg As String)
+    Public Sub MsgEx(ByRef msg As String)
         MessageBox.Show(msg, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
     End Sub
     Public Function MsgQues(ByRef msg As String) As Boolean
