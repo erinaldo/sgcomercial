@@ -195,11 +195,16 @@ Public Class NuevoCriterioVenta
         Try
             Select Case CriteriosventarangosDataGridView.Columns(e.ColumnIndex).Name
                 Case "AgregarRegalo"
-                    MsgInfo("hola")
-                    'If CriteriosventaproductosDataGridView.Rows(e.RowIndex).Cells("idcriteriosventaproductos").Value > 0 Then
-                    '    CriteriosventaproductosTableAdapter.criteriosventaproductos_eliminar(CriteriosventaproductosDataGridView.Rows(e.RowIndex).Cells("idcriteriosventaproductos").Value)
-                    '    CriteriosventaproductosTableAdapter.FillByIDCriteriosVenta(Me.ComercialDataSet.criteriosventaproductos, gidCriterioSeleccionado)
-                    'End If
+                    Dim kl As SeleccionarProductoCantidadGenerico
+                    kl = New SeleccionarProductoCantidadGenerico()
+                    gcodigoproducto = Nothing
+                    gcantidad = Nothing
+                    kl.ShowDialog()
+                    If gcodigoproducto <> Nothing And gcantidad <> Nothing Then
+                        MsgInfo("cargaregalo")
+                        'CriteriosventaproductosTableAdapter.criteriosventaproductos_insertar(gcodigoproducto, gcantidad, gidCriterioSeleccionado)
+                        'CriteriosventaproductosTableAdapter.FillByIDCriteriosVenta(Me.ComercialDataSet.criteriosventaproductos, gidCriterioSeleccionado)
+                    End If
             End Select
         Catch ex As Exception
 
