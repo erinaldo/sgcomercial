@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.ComponentModel
+Imports System.Text.RegularExpressions
 
 Public Class NuevoCriterioVenta
     Dim inserted As Long
@@ -15,12 +16,16 @@ Public Class NuevoCriterioVenta
                 ButtonConfirmar.Enabled = True
                 ButtonFinalizar.Enabled = False
                 enableGroups(False)
+                CriteriosventaTableAdapter.FillByIDCriterioventa(Me.ComercialDataSet.criteriosventa, 0)
+                CriteriosventaproductosTableAdapter.FillByIDCriteriosVenta(Me.ComercialDataSet.criteriosventaproductos, 0)
+                CriteriosventarangosTableAdapter.FillByidcriterioventa(Me.ComercialDataSet.criteriosventarangos, 0)
+                CriteriosventaregalorangoTableAdapter.FillByidrangocriterioventa(Me.ComercialDataSet.criteriosventaregalorango, 0)
             Else
                 ButtonConfirmar.Enabled = False
                 ButtonFinalizar.Enabled = True
 
                 CriteriosventaTableAdapter.FillByIDCriterioventa(Me.ComercialDataSet.criteriosventa, gidCriterioSeleccionado)
-                Me.CriteriosventaproductosTableAdapter.FillByIDCriteriosVenta(Me.ComercialDataSet.criteriosventaproductos, gidCriterioSeleccionado)
+                CriteriosventaproductosTableAdapter.FillByIDCriteriosVenta(Me.ComercialDataSet.criteriosventaproductos, gidCriterioSeleccionado)
                 CriteriosventarangosTableAdapter.FillByidcriterioventa(Me.ComercialDataSet.criteriosventarangos, gidCriterioSeleccionado)
                 enableGroups(True)
             End If
@@ -197,17 +202,51 @@ Public Class NuevoCriterioVenta
                 Case "AgregarRegalo"
                     Dim kl As SeleccionarProductoCantidadGenerico
                     kl = New SeleccionarProductoCantidadGenerico()
+                    Dim idrango As Long = CriteriosventarangosDataGridView.Rows(e.RowIndex).Cells("idcriterioventarango").Value
                     gcodigoproducto = Nothing
                     gcantidad = Nothing
                     kl.ShowDialog()
                     If gcodigoproducto <> Nothing And gcantidad <> Nothing Then
-                        MsgInfo("cargaregalo")
+                        'MsgInfo("cargaregalo")
+                        CriteriosventaregalorangoTableAdapter.criteriosventaregalorango_insertar(gidCriterioSeleccionado, idrango, gcodigoproducto, gcantidad)
+                        CriteriosventaregalorangoTableAdapter.FillByidrangocriterioventa(Me.ComercialDataSet.criteriosventaregalorango, idrango)
                         'CriteriosventaproductosTableAdapter.criteriosventaproductos_insertar(gcodigoproducto, gcantidad, gidCriterioSeleccionado)
                         'CriteriosventaproductosTableAdapter.FillByIDCriteriosVenta(Me.ComercialDataSet.criteriosventaproductos, gidCriterioSeleccionado)
                     End If
+                Case Else
+                    Try
+                        Dim idrango As Long = CriteriosventarangosDataGridView.Rows(e.RowIndex).Cells("idcriterioventarango").Value
+                        CriteriosventaregalorangoTableAdapter.FillByidrangocriterioventa(Me.ComercialDataSet.criteriosventaregalorango, idrango)
+                    Catch ex As Exception
+
+                    End Try
             End Select
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub CriteriosventaregalorangoDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles CriteriosventaregalorangoDataGridView.CellContentClick
+
+    End Sub
+
+    Private Sub CriteriosventaregalorangoDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles CriteriosventaregalorangoDataGridView.CellClick
+        Try
+            Select Case CriteriosventaregalorangoDataGridView.Columns(e.ColumnIndex).Name
+                Case "QuitarRegalo"
+                    Dim idregalo As Long = CriteriosventaregalorangoDataGridView.Rows(e.RowIndex).Cells("idcriteriosventaregalorango").Value
+                    Dim idrango As Long = CriteriosventaregalorangoDataGridView.Rows(e.RowIndex).Cells("idrangocriterioventa").Value
+
+                    CriteriosventaregalorangoTableAdapter.criteriosventaregalorango_eliminar(idregalo)
+                    CriteriosventaregalorangoTableAdapter.FillByidrangocriterioventa(Me.ComercialDataSet.criteriosventaregalorango, idrango)
+
+            End Select
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub NuevoCriterioVenta_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        gidCriterioSeleccionado = Nothing
     End Sub
 End Class
