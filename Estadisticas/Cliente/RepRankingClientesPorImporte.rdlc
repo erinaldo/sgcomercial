@@ -115,7 +115,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -167,6 +166,12 @@
             </TablixMember>
             <TablixMember>
               <Group Name="Detalles" />
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!importe.Value</Value>
+                  <Direction>Descending</Direction>
+                </SortExpression>
+              </SortExpressions>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
@@ -182,7 +187,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>4.01667in</Height>
+    <Height>0.825in</Height>
     <Style />
   </Body>
   <Width>7.31609in</Width>

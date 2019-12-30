@@ -23,23 +23,33 @@ Partial Class RankingClientesPorImporte
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.EstRankingclientesporimporteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.comercialDataSet = New sgcomercial.comercialDataSet()
-        Me.EstRankingclientesporimporteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EstRankingclientesporimporteTableAdapter = New sgcomercial.comercialDataSetTableAdapters.EstRankingclientesporimporteTableAdapter()
+        CType(Me.EstRankingclientesporimporteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EstRankingclientesporimporteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EstRankingclientesporimporteBindingSource
+        '
+        Me.EstRankingclientesporimporteBindingSource.DataMember = "EstRankingclientesporimporte"
+        Me.EstRankingclientesporimporteBindingSource.DataSource = Me.comercialDataSet
+        '
+        'comercialDataSet
+        '
+        Me.comercialDataSet.DataSetName = "comercialDataSet"
+        Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox1
         '
@@ -55,6 +65,24 @@ Partial Class RankingClientesPorImporte
         Me.GroupBox1.Size = New System.Drawing.Size(774, 97)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CustomFormat = "dd/MM/yyyy"
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker2.Location = New System.Drawing.Point(388, 57)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(115, 22)
+        Me.DateTimePicker2.TabIndex = 3
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy"
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(202, 57)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(115, 22)
+        Me.DateTimePicker1.TabIndex = 2
         '
         'Button1
         '
@@ -98,42 +126,14 @@ Partial Class RankingClientesPorImporte
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource2.Name = "EstRankingclientesporimporte"
-        ReportDataSource2.Value = Me.EstRankingclientesporimporteBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "EstRankingclientesporimporte"
+        ReportDataSource1.Value = Me.EstRankingclientesporimporteBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepRankingClientesPorImporte.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(768, 372)
         Me.ReportViewer1.TabIndex = 0
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy"
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(202, 57)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(115, 22)
-        Me.DateTimePicker1.TabIndex = 2
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.CustomFormat = "dd/MM/yyyy"
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker2.Location = New System.Drawing.Point(388, 57)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(115, 22)
-        Me.DateTimePicker2.TabIndex = 3
-        '
-        'comercialDataSet
-        '
-        Me.comercialDataSet.DataSetName = "comercialDataSet"
-        Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EstRankingclientesporimporteBindingSource
-        '
-        Me.EstRankingclientesporimporteBindingSource.DataMember = "EstRankingclientesporimporte"
-        Me.EstRankingclientesporimporteBindingSource.DataSource = Me.comercialDataSet
         '
         'EstRankingclientesporimporteTableAdapter
         '
@@ -147,12 +147,14 @@ Partial Class RankingClientesPorImporte
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "RankingClientesPorImporte"
-        Me.Text = "RankingClientesPorImporte"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Tag = "RankingClientesPorImporte"
+        Me.Text = "Ranking de Clientes por Importe"
+        CType(Me.EstRankingclientesporimporteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EstRankingclientesporimporteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
