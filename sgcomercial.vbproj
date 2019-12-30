@@ -390,6 +390,12 @@
     <Compile Include="Delivery\Reportes\ViewerListaProduccion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estadisticas\Cliente\RankingClientesPorImporte.Designer.vb">
+      <DependentUpon>RankingClientesPorImporte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Cliente\RankingClientesPorImporte.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Estadisticas\SeleccionaRangoFechas.Designer.vb">
       <DependentUpon>SeleccionaRangoFechas.vb</DependentUpon>
     </Compile>
@@ -1509,6 +1515,10 @@
     <EmbeddedResource Include="Delivery\Reportes\ViewerListaProduccion.resx">
       <DependentUpon>ViewerListaProduccion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Cliente\RankingClientesPorImporte.resx">
+      <DependentUpon>RankingClientesPorImporte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Cliente\RepRankingClientesPorImporte.rdlc" />
     <EmbeddedResource Include="Estadisticas\SeleccionaRangoFechas.resx">
       <DependentUpon>SeleccionaRangoFechas.vb</DependentUpon>
     </EmbeddedResource>

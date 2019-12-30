@@ -968,8 +968,7 @@ Public Class Principal
     End Sub
 
     Private Sub MisClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisClientesToolStripMenuItem.Click
-        EstadisticasCliente.MdiParent = Me
-        EstadisticasCliente.Visible = True
+
     End Sub
 
     Private Sub MisProveedoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisProveedoresToolStripMenuItem.Click
@@ -1363,6 +1362,17 @@ Public Class Principal
     Private Sub DefinirCriteriosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DefinirCriteriosToolStripMenuItem.Click
         DefinirCriteriosVenta.MdiParent = Me
         DefinirCriteriosVenta.Visible = True
+    End Sub
+
+    Private Sub ConsumoClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsumoClienteToolStripMenuItem.Click
+
+        EstadisticasCliente.MdiParent = Me
+        EstadisticasCliente.Visible = True
+    End Sub
+
+    Private Sub RankingClientesPorImporteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RankingClientesPorImporteToolStripMenuItem.Click
+        RankingClientesPorImporte.MdiParent = Me
+        RankingClientesPorImporte.Visible = True
     End Sub
     'Private Sub PrivateDownloadSGC()
 

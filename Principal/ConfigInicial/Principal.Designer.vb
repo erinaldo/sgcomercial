@@ -42,6 +42,8 @@ Partial Class Principal
         Me.PresupuestosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarPresupuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PresupuestosGeneradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CriteriosDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DefinirCriteriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeliveryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaPedidoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecibidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -222,8 +224,8 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.CriteriosDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DefinirCriteriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsumoClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RankingClientesPorImporteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -384,6 +386,21 @@ Partial Class Principal
         Me.PresupuestosGeneradosToolStripMenuItem.Size = New System.Drawing.Size(274, 28)
         Me.PresupuestosGeneradosToolStripMenuItem.Tag = "PresupuestosGenerados"
         Me.PresupuestosGeneradosToolStripMenuItem.Text = "Presupuestos Generados"
+        '
+        'CriteriosDeVentaToolStripMenuItem
+        '
+        Me.CriteriosDeVentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefinirCriteriosToolStripMenuItem})
+        Me.CriteriosDeVentaToolStripMenuItem.Name = "CriteriosDeVentaToolStripMenuItem"
+        Me.CriteriosDeVentaToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
+        Me.CriteriosDeVentaToolStripMenuItem.Tag = "CriteriosDeVenta"
+        Me.CriteriosDeVentaToolStripMenuItem.Text = "Criterios de Venta"
+        '
+        'DefinirCriteriosToolStripMenuItem
+        '
+        Me.DefinirCriteriosToolStripMenuItem.Name = "DefinirCriteriosToolStripMenuItem"
+        Me.DefinirCriteriosToolStripMenuItem.Size = New System.Drawing.Size(204, 28)
+        Me.DefinirCriteriosToolStripMenuItem.Tag = "DefinirCriterios"
+        Me.DefinirCriteriosToolStripMenuItem.Text = "Definir Criterios"
         '
         'DeliveryToolStripMenuItem
         '
@@ -834,7 +851,7 @@ Partial Class Principal
         '
         Me.MisVentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HistoricoVentasToolStripMenuItem, Me.EnvíosPorSucursalesToolStripMenuItem, Me.PrincipioDeParetoToolStripMenuItem, Me.VentasPorProvinciaToolStripMenuItem, Me.RankingDeVentasToolStripMenuItem})
         Me.MisVentasToolStripMenuItem.Name = "MisVentasToolStripMenuItem"
-        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
+        Me.MisVentasToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.MisVentasToolStripMenuItem.Tag = "EstadisticasVentas"
         Me.MisVentasToolStripMenuItem.Text = "Ventas"
         '
@@ -875,15 +892,16 @@ Partial Class Principal
         '
         'MisClientesToolStripMenuItem
         '
+        Me.MisClientesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsumoClienteToolStripMenuItem, Me.RankingClientesPorImporteToolStripMenuItem})
         Me.MisClientesToolStripMenuItem.Name = "MisClientesToolStripMenuItem"
-        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
+        Me.MisClientesToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.MisClientesToolStripMenuItem.Tag = "EstadisticasClientes"
         Me.MisClientesToolStripMenuItem.Text = "Clientes"
         '
         'MisProveedoresToolStripMenuItem
         '
         Me.MisProveedoresToolStripMenuItem.Name = "MisProveedoresToolStripMenuItem"
-        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 28)
+        Me.MisProveedoresToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
         Me.MisProveedoresToolStripMenuItem.Tag = "EstadisticasProveedores"
         Me.MisProveedoresToolStripMenuItem.Text = "Proveedores"
         '
@@ -1566,6 +1584,9 @@ Partial Class Principal
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing
@@ -1684,7 +1705,7 @@ Partial Class Principal
         Me.AlertacuentascorrientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.AlertacuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22})
         Me.AlertacuentascorrientesDataGridView.DataSource = Me.AlertacuentascorrientesBindingSource
-        Me.AlertacuentascorrientesDataGridView.Location = New System.Drawing.Point(893, 547)
+        Me.AlertacuentascorrientesDataGridView.Location = New System.Drawing.Point(968, 500)
         Me.AlertacuentascorrientesDataGridView.Name = "AlertacuentascorrientesDataGridView"
         Me.AlertacuentascorrientesDataGridView.ReadOnly = True
         Me.AlertacuentascorrientesDataGridView.RowTemplate.Height = 24
@@ -1764,20 +1785,19 @@ Partial Class Principal
         'BGWAlertas
         '
         '
-        'CriteriosDeVentaToolStripMenuItem
+        'ConsumoClienteToolStripMenuItem
         '
-        Me.CriteriosDeVentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefinirCriteriosToolStripMenuItem})
-        Me.CriteriosDeVentaToolStripMenuItem.Name = "CriteriosDeVentaToolStripMenuItem"
-        Me.CriteriosDeVentaToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
-        Me.CriteriosDeVentaToolStripMenuItem.Tag = "CriteriosDeVenta"
-        Me.CriteriosDeVentaToolStripMenuItem.Text = "Criterios de Venta"
+        Me.ConsumoClienteToolStripMenuItem.Name = "ConsumoClienteToolStripMenuItem"
+        Me.ConsumoClienteToolStripMenuItem.Size = New System.Drawing.Size(333, 28)
+        Me.ConsumoClienteToolStripMenuItem.Tag = "ConsumoCliente"
+        Me.ConsumoClienteToolStripMenuItem.Text = "Consumo de Cliente"
         '
-        'DefinirCriteriosToolStripMenuItem
+        'RankingClientesPorImporteToolStripMenuItem
         '
-        Me.DefinirCriteriosToolStripMenuItem.Name = "DefinirCriteriosToolStripMenuItem"
-        Me.DefinirCriteriosToolStripMenuItem.Size = New System.Drawing.Size(204, 28)
-        Me.DefinirCriteriosToolStripMenuItem.Tag = "DefinirCriterios"
-        Me.DefinirCriteriosToolStripMenuItem.Text = "Definir Criterios"
+        Me.RankingClientesPorImporteToolStripMenuItem.Name = "RankingClientesPorImporteToolStripMenuItem"
+        Me.RankingClientesPorImporteToolStripMenuItem.Size = New System.Drawing.Size(333, 28)
+        Me.RankingClientesPorImporteToolStripMenuItem.Tag = "RankingClientesPorImporte"
+        Me.RankingClientesPorImporteToolStripMenuItem.Text = "Ranking de Clientes por Importe"
         '
         'Principal
         '
@@ -2027,4 +2047,6 @@ Partial Class Principal
     Friend WithEvents LibroVentasCanceladasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CriteriosDeVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DefinirCriteriosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConsumoClienteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RankingClientesPorImporteToolStripMenuItem As ToolStripMenuItem
 End Class
