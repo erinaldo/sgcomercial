@@ -26,7 +26,7 @@
                     DataGridViewDetalle.Rows(row).Cells("descuento").Value = 0
                     DataGridViewDetalle.Rows(row).Cells("recargo").Value = 0
                     DataGridViewDetalle.Rows(row).Cells("fechadesde").Value = Today
-                    DataGridViewDetalle.Rows(row).Cells("fechahasta").Value = Today
+                    DataGridViewDetalle.Rows(row).Cells("fechahasta").Value = Today.AddDays(30)
                     SCIdproducto = Nothing
                     SCProductoDescripcion = Nothing
                     recuento()
@@ -79,7 +79,7 @@
                     DataGridViewDetalle.Rows(row).Cells("descuento").Value = 0
                     DataGridViewDetalle.Rows(row).Cells("recargo").Value = 0
                     DataGridViewDetalle.Rows(row).Cells("fechadesde").Value = Today
-                    DataGridViewDetalle.Rows(row).Cells("fechahasta").Value = Today
+                    DataGridViewDetalle.Rows(row).Cells("fechahasta").Value = Today.AddDays(30)
                     SCIdproducto = Nothing
                     SCProductoDescripcion = Nothing
                     recuento()

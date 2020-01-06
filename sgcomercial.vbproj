@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>18</ApplicationRevision>
-    <ApplicationVersion>4.1.0.18</ApplicationVersion>
+    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationVersion>4.1.0.19</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1512,6 +1512,7 @@
       <DependentUpon>LotePedidosDeliveryRendir.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delivery\Reportes\RepListaProduccion.rdlc" />
+    <EmbeddedResource Include="Delivery\Reportes\ReportComanda80.rdlc" />
     <EmbeddedResource Include="Delivery\Reportes\ViewerListaProduccion.resx">
       <DependentUpon>ViewerListaProduccion.vb</DependentUpon>
     </EmbeddedResource>

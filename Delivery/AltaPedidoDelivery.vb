@@ -568,6 +568,29 @@ Public Class AltaPedidoDelivery
                 Me.Close()
             End If
         End If
+        '***********************************************
+        If e.KeyCode = Keys.Add Then
+            e.SuppressKeyPress = True
+            buscaproductomanual()
+            recuento()
+        End If
+        If e.KeyCode = Keys.Subtract Then
+            e.SuppressKeyPress = True
+            VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+            recuento()
+        End If
+        If e.KeyCode = Keys.Multiply Then
+            e.SuppressKeyPress = True
+            Dim p As SeleccionarCantidad
+            p = New SeleccionarCantidad
+            gcodigoproducto = 0
+            p.ShowDialog()
+            'p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
+            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(3).Value = gcantidad
+            gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(6).Value
+            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(7).Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+            recuento()
+        End If
     End Sub
 
     Private Sub BGWStockClowd_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWStockClowd.DoWork

@@ -582,7 +582,7 @@ Partial Class ABMProductos
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(197, 28)
-        Me.Button1.TabIndex = 17
+        Me.Button1.TabIndex = 18
         Me.Button1.Tag = "Cargar Foto"
         Me.Button1.Text = "Cargar Foto"
         Me.Button1.UseVisualStyleBackColor = True
@@ -598,6 +598,7 @@ Partial Class ABMProductos
         'TableAdapterManager
         '
         Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -607,11 +608,15 @@ Partial Class ABMProductos
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        'Me.TableAdapterManager.clientesalumnosTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -627,11 +632,13 @@ Partial Class ABMProductos
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
         Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -739,7 +746,7 @@ Partial Class ABMProductos
         Me.ComboProveedores.Location = New System.Drawing.Point(708, 47)
         Me.ComboProveedores.Name = "ComboProveedores"
         Me.ComboProveedores.Size = New System.Drawing.Size(158, 24)
-        Me.ComboProveedores.TabIndex = 125
+        Me.ComboProveedores.TabIndex = 14
         Me.ComboProveedores.ValueMember = "idproveedor"
         '
         'ProveedoresBindingSource
@@ -870,7 +877,7 @@ Partial Class ABMProductos
         Me.stockinicialtextbox.Location = New System.Drawing.Point(687, 80)
         Me.stockinicialtextbox.Name = "stockinicialtextbox"
         Me.stockinicialtextbox.Size = New System.Drawing.Size(91, 22)
-        Me.stockinicialtextbox.TabIndex = 15
+        Me.stockinicialtextbox.TabIndex = 16
         '
         'BPC4
         '
@@ -1036,7 +1043,7 @@ Partial Class ABMProductos
         Me.stockminimotextbox.Margin = New System.Windows.Forms.Padding(4)
         Me.stockminimotextbox.Name = "stockminimotextbox"
         Me.stockminimotextbox.Size = New System.Drawing.Size(91, 22)
-        Me.stockminimotextbox.TabIndex = 14
+        Me.stockminimotextbox.TabIndex = 15
         Me.stockminimotextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'codigoproductoTextBox
@@ -1081,7 +1088,7 @@ Partial Class ABMProductos
         Me.DescripcionTextBox.Multiline = True
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
         Me.DescripcionTextBox.Size = New System.Drawing.Size(449, 53)
-        Me.DescripcionTextBox.TabIndex = 16
+        Me.DescripcionTextBox.TabIndex = 17
         '
         'GroupBox2
         '
