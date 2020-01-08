@@ -1077,7 +1077,7 @@ Public Class Principal
         End If
     End Sub
 
-    Private Sub DescargarPedidosWEBToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DescargarPedidosWEBToolStripMenuItem.Click
+    Private Sub DescargarPedidosWEBToolStripMenuItem_Click(sender As Object, e As EventArgs) 
         'Cursor.Current = Cursors.WaitCursor
         'SynClientes()
         'SynPedidos("TODOS")

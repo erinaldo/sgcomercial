@@ -23,7 +23,7 @@ Partial Class ConsultaStockRemotoProducto
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.StockgeneralDataGridView = New System.Windows.Forms.DataGridView()
         Me.idsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreSucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -33,7 +33,7 @@ Partial Class ConsultaStockRemotoProducto
         Me.Envasado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StockgeneralBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MySQLDataSet = New sgcomercial.MySQLDataSet()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxRemoto = New System.Windows.Forms.GroupBox()
         Me.SucursalesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,13 +45,30 @@ Partial Class ConsultaStockRemotoProducto
         Me.TableAdapterManager = New sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager()
         Me.SucursalesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.sucursalesTableAdapter()
         Me.TableAdapterManager1 = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.GroupBoxLocal = New System.Windows.Forms.GroupBox()
+        Me.StockgeneralBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.StockgeneralTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.stockgeneralTableAdapter()
+        Me.StockgeneralDataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.StockgeneralDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockgeneralBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MySQLDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
+        Me.GroupBoxRemoto.SuspendLayout()
         CType(Me.SucursalesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBoxLocal.SuspendLayout()
+        CType(Me.StockgeneralBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StockgeneralDataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StockgeneralDataGridView
@@ -66,22 +83,22 @@ Partial Class ConsultaStockRemotoProducto
         Me.StockgeneralDataGridView.AutoGenerateColumns = False
         Me.StockgeneralDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.StockgeneralDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.StockgeneralDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idsucursal, Me.NombreSucursal, Me.codigoproducto, Me.medida, Me.DataGridViewTextBoxColumn9, Me.Envasado})
+        Me.StockgeneralDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idsucursal, Me.codigoproducto, Me.medida, Me.DataGridViewTextBoxColumn9, Me.Envasado, Me.NombreSucursal})
         Me.StockgeneralDataGridView.DataSource = Me.StockgeneralBindingSource
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.StockgeneralDataGridView.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.StockgeneralDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.StockgeneralDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.StockgeneralDataGridView.Location = New System.Drawing.Point(16, 21)
         Me.StockgeneralDataGridView.Name = "StockgeneralDataGridView"
         Me.StockgeneralDataGridView.ReadOnly = True
         Me.StockgeneralDataGridView.RowTemplate.Height = 24
-        Me.StockgeneralDataGridView.Size = New System.Drawing.Size(967, 205)
+        Me.StockgeneralDataGridView.Size = New System.Drawing.Size(972, 225)
         Me.StockgeneralDataGridView.TabIndex = 1
         '
         'idsucursal
@@ -106,7 +123,7 @@ Partial Class ConsultaStockRemotoProducto
         Me.codigoproducto.HeaderText = "Código"
         Me.codigoproducto.Name = "codigoproducto"
         Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.Width = 81
+        Me.codigoproducto.Width = 75
         '
         'medida
         '
@@ -143,18 +160,19 @@ Partial Class ConsultaStockRemotoProducto
         Me.MySQLDataSet.DataSetName = "MySQLDataSet"
         Me.MySQLDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'GroupBox1
+        'GroupBoxRemoto
         '
-        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.GroupBoxRemoto.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.SucursalesDataGridView)
-        Me.GroupBox1.Controls.Add(Me.StockgeneralDataGridView)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1002, 250)
-        Me.GroupBox1.TabIndex = 2
-        Me.GroupBox1.TabStop = False
+        Me.GroupBoxRemoto.Controls.Add(Me.SucursalesDataGridView)
+        Me.GroupBoxRemoto.Controls.Add(Me.StockgeneralDataGridView)
+        Me.GroupBoxRemoto.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBoxRemoto.Name = "GroupBoxRemoto"
+        Me.GroupBoxRemoto.Size = New System.Drawing.Size(1007, 270)
+        Me.GroupBoxRemoto.TabIndex = 2
+        Me.GroupBoxRemoto.TabStop = False
+        Me.GroupBoxRemoto.Text = "Consulta de Stock Remoto"
         '
         'SucursalesDataGridView
         '
@@ -241,6 +259,8 @@ Partial Class ConsultaStockRemotoProducto
         '
         'TableAdapterManager1
         '
+        Me.TableAdapterManager1.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager1.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager1.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager1.bultosdeliveryTableAdapter = Nothing
@@ -251,21 +271,36 @@ Partial Class ConsultaStockRemotoProducto
         Me.TableAdapterManager1.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager1.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager1.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager1.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager1.clientesTableAdapter = Nothing
+        Me.TableAdapterManager1.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager1.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager1.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager1.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager1.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager1.depositosTableAdapter = Nothing
         Me.TableAdapterManager1.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager1.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager1.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager1.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager1.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager1.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager1.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager1.funcionesTableAdapter = Nothing
         Me.TableAdapterManager1.gastosTableAdapter = Nothing
+        Me.TableAdapterManager1.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager1.gradosTableAdapter = Nothing
         Me.TableAdapterManager1.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager1.localidadesTableAdapter = Nothing
         Me.TableAdapterManager1.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager1.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager1.lotesvencimientoTableAdapter = Nothing
+        Me.TableAdapterManager1.mesasTableAdapter = Nothing
         Me.TableAdapterManager1.modulosTableAdapter = Nothing
         Me.TableAdapterManager1.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager1.mozosTableAdapter = Nothing
+        Me.TableAdapterManager1.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager1.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager1.pagosTableAdapter = Nothing
         Me.TableAdapterManager1.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager1.pedidosdeliverydetalleTableAdapter = Nothing
@@ -285,6 +320,8 @@ Partial Class ConsultaStockRemotoProducto
         Me.TableAdapterManager1.remitosTableAdapter = Nothing
         Me.TableAdapterManager1.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager1.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager1.salonesTableAdapter = Nothing
+        Me.TableAdapterManager1.serviciosTableAdapter = Nothing
         Me.TableAdapterManager1.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager1.stockTableAdapter = Nothing
         Me.TableAdapterManager1.sucursalesTableAdapter = Me.SucursalesTableAdapter
@@ -307,12 +344,131 @@ Partial Class ConsultaStockRemotoProducto
         Me.TableAdapterManager1.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager1.ventasTableAdapter = Nothing
         '
+        'GroupBoxLocal
+        '
+        Me.GroupBoxLocal.Controls.Add(Me.StockgeneralDataGridView1)
+        Me.GroupBoxLocal.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBoxLocal.Name = "GroupBoxLocal"
+        Me.GroupBoxLocal.Size = New System.Drawing.Size(1007, 270)
+        Me.GroupBoxLocal.TabIndex = 3
+        Me.GroupBoxLocal.TabStop = False
+        Me.GroupBoxLocal.Text = "Consulta de Stock Local"
+        '
+        'StockgeneralBindingSource1
+        '
+        Me.StockgeneralBindingSource1.DataMember = "stockgeneral"
+        Me.StockgeneralBindingSource1.DataSource = Me.ComercialDataSet
+        '
+        'StockgeneralTableAdapter1
+        '
+        Me.StockgeneralTableAdapter1.ClearBeforeFill = True
+        '
+        'StockgeneralDataGridView1
+        '
+        Me.StockgeneralDataGridView1.AllowUserToAddRows = False
+        Me.StockgeneralDataGridView1.AllowUserToDeleteRows = False
+        Me.StockgeneralDataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.StockgeneralDataGridView1.AutoGenerateColumns = False
+        Me.StockgeneralDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.StockgeneralDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.StockgeneralDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15})
+        Me.StockgeneralDataGridView1.DataSource = Me.StockgeneralBindingSource1
+        Me.StockgeneralDataGridView1.Location = New System.Drawing.Point(15, 21)
+        Me.StockgeneralDataGridView1.Name = "StockgeneralDataGridView1"
+        Me.StockgeneralDataGridView1.ReadOnly = True
+        Me.StockgeneralDataGridView1.RowTemplate.Height = 24
+        Me.StockgeneralDataGridView1.Size = New System.Drawing.Size(972, 225)
+        Me.StockgeneralDataGridView1.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "rubro"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Rubro"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Width = 76
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "producto"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Producto"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Width = 94
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "medida"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "Medida"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        Me.DataGridViewTextBoxColumn12.Width = 83
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "unidades"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "Stock Disponible"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Width = 130
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "disponible"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "A Granel"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Visible = False
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "idproducto"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "idproducto"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Visible = False
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "stockminimo"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "stockminimo"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "codigoproducto"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "codigoproducto"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.Visible = False
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "idproveedor"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "idproveedor"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        Me.DataGridViewTextBoxColumn14.Visible = False
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "proveedor"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "proveedor"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        Me.DataGridViewTextBoxColumn15.Visible = False
+        '
         'ConsultaStockRemotoProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1031, 277)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.ClientSize = New System.Drawing.Size(1031, 297)
+        Me.Controls.Add(Me.GroupBoxLocal)
+        Me.Controls.Add(Me.GroupBoxRemoto)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
@@ -320,14 +476,17 @@ Partial Class ConsultaStockRemotoProducto
         Me.Name = "ConsultaStockRemotoProducto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ConsultaStockRemotoProducto"
-        Me.Text = "Consulta Stock Remoto"
+        Me.Text = "Consulta Stock"
         CType(Me.StockgeneralDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockgeneralBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MySQLDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBoxRemoto.ResumeLayout(False)
         CType(Me.SucursalesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBoxLocal.ResumeLayout(False)
+        CType(Me.StockgeneralBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StockgeneralDataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -337,7 +496,7 @@ Partial Class ConsultaStockRemotoProducto
     Friend WithEvents StockgeneralTableAdapter As MySQLDataSetTableAdapters.stockgeneralTableAdapter
     Friend WithEvents TableAdapterManager As MySQLDataSetTableAdapters.TableAdapterManager
     Friend WithEvents StockgeneralDataGridView As DataGridView
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBoxRemoto As GroupBox
     Friend WithEvents ComercialDataSet As comercialDataSet
     Friend WithEvents SucursalesBindingSource As BindingSource
     Friend WithEvents SucursalesTableAdapter As comercialDataSetTableAdapters.sucursalesTableAdapter
@@ -353,4 +512,18 @@ Partial Class ConsultaStockRemotoProducto
     Friend WithEvents medida As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
     Friend WithEvents Envasado As DataGridViewTextBoxColumn
+    Friend WithEvents GroupBoxLocal As GroupBox
+    Friend WithEvents StockgeneralBindingSource1 As BindingSource
+    Friend WithEvents StockgeneralTableAdapter1 As comercialDataSetTableAdapters.stockgeneralTableAdapter
+    Friend WithEvents StockgeneralDataGridView1 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
 End Class

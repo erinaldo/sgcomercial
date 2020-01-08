@@ -106,7 +106,7 @@ Partial Class PedidosDeliveryRecibidos
         'TextBox1
         '
         Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(233, 31)
+        Me.TextBox1.Location = New System.Drawing.Point(556, 31)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(216, 22)
         Me.TextBox1.TabIndex = 8
@@ -117,7 +117,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Pedido N°", "Cliente"})
-        Me.ComboBox1.Location = New System.Drawing.Point(104, 30)
+        Me.ComboBox1.Location = New System.Drawing.Point(427, 30)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 24)
         Me.ComboBox1.TabIndex = 7
@@ -126,7 +126,7 @@ Partial Class PedidosDeliveryRecibidos
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 34)
+        Me.Label1.Location = New System.Drawing.Point(339, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(73, 17)
         Me.Label1.TabIndex = 6
@@ -134,7 +134,7 @@ Partial Class PedidosDeliveryRecibidos
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(488, 24)
+        Me.Button1.Location = New System.Drawing.Point(16, 31)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(102, 34)
         Me.Button1.TabIndex = 4

@@ -159,8 +159,9 @@ Partial Class Principal
         Me.SubirProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DescargarPedidosWEBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PedidosWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PedidosMovilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -226,8 +227,6 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.PedidosWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PedidosMovilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -251,7 +250,7 @@ Partial Class Principal
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.PreventaToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.MiFranquiciaToolStripMenuItem, Me.GestiónEscolarToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.NubeToolStripMenuItem, Me.PedidosWebToolStripMenuItem, Me.PedidosMovilToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.PreventaToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.MiFranquiciaToolStripMenuItem, Me.GestiónEscolarToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NubeToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.PedidosWebToolStripMenuItem, Me.PedidosMovilToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -1235,7 +1234,7 @@ Partial Class Principal
         '
         'NubeToolStripMenuItem
         '
-        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.DescargarPedidosWEBToolStripMenuItem, Me.MisSucursalesToolStripMenuItem})
+        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.MisSucursalesToolStripMenuItem})
         Me.NubeToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
         Me.NubeToolStripMenuItem.Name = "NubeToolStripMenuItem"
         Me.NubeToolStripMenuItem.Size = New System.Drawing.Size(83, 27)
@@ -1263,19 +1262,26 @@ Partial Class Principal
         Me.DescargarProductosToolStripMenuItem.Tag = "DescargarProductosClowd"
         Me.DescargarProductosToolStripMenuItem.Text = "Descargar Productos"
         '
-        'DescargarPedidosWEBToolStripMenuItem
-        '
-        Me.DescargarPedidosWEBToolStripMenuItem.Name = "DescargarPedidosWEBToolStripMenuItem"
-        Me.DescargarPedidosWEBToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.DescargarPedidosWEBToolStripMenuItem.Tag = "DescargarPedidosClowd"
-        Me.DescargarPedidosWEBToolStripMenuItem.Text = "Descargar Pedidos"
-        '
         'MisSucursalesToolStripMenuItem
         '
         Me.MisSucursalesToolStripMenuItem.Name = "MisSucursalesToolStripMenuItem"
         Me.MisSucursalesToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
         Me.MisSucursalesToolStripMenuItem.Tag = "MisSucursales"
         Me.MisSucursalesToolStripMenuItem.Text = "Mis Sucursales"
+        '
+        'PedidosWebToolStripMenuItem
+        '
+        Me.PedidosWebToolStripMenuItem.Name = "PedidosWebToolStripMenuItem"
+        Me.PedidosWebToolStripMenuItem.Size = New System.Drawing.Size(201, 27)
+        Me.PedidosWebToolStripMenuItem.Tag = "ModuloPedidosWeb"
+        Me.PedidosWebToolStripMenuItem.Text = "Descargar Pedidos Web"
+        '
+        'PedidosMovilToolStripMenuItem
+        '
+        Me.PedidosMovilToolStripMenuItem.Name = "PedidosMovilToolStripMenuItem"
+        Me.PedidosMovilToolStripMenuItem.Size = New System.Drawing.Size(208, 27)
+        Me.PedidosMovilToolStripMenuItem.Tag = "ModuloPedidosMovil"
+        Me.PedidosMovilToolStripMenuItem.Text = "Descargar Pedidos Móvil"
         '
         'ParametrosgeneralesDataGridView
         '
@@ -1801,20 +1807,6 @@ Partial Class Principal
         'BGWAlertas
         '
         '
-        'PedidosWebToolStripMenuItem
-        '
-        Me.PedidosWebToolStripMenuItem.Name = "PedidosWebToolStripMenuItem"
-        Me.PedidosWebToolStripMenuItem.Size = New System.Drawing.Size(201, 27)
-        Me.PedidosWebToolStripMenuItem.Tag = "ModuloPedidosWeb"
-        Me.PedidosWebToolStripMenuItem.Text = "Descargar Pedidos Web"
-        '
-        'PedidosMovilToolStripMenuItem
-        '
-        Me.PedidosMovilToolStripMenuItem.Name = "PedidosMovilToolStripMenuItem"
-        Me.PedidosMovilToolStripMenuItem.Size = New System.Drawing.Size(208, 27)
-        Me.PedidosMovilToolStripMenuItem.Tag = "ModuloPedidosMovil"
-        Me.PedidosMovilToolStripMenuItem.Text = "Descargar Pedidos Móvil"
-        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -2021,7 +2013,6 @@ Partial Class Principal
     Friend WithEvents NubeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SubirProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DescargarProductosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DescargarPedidosWEBToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents MisSucursalesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroDePedidosToolStripMenuItem As ToolStripMenuItem

@@ -36,6 +36,7 @@ Partial Class BuscaProductoManualPedidos
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.textboxEnvasado = New System.Windows.Forms.TextBox()
@@ -67,6 +68,7 @@ Partial Class BuscaProductoManualPedidos
         Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precioventadistribuidor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ConsultarStock = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,6 +83,8 @@ Partial Class BuscaProductoManualPedidos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
@@ -88,7 +92,7 @@ Partial Class BuscaProductoManualPedidos
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(862, 79)
+        Me.GroupBox1.Size = New System.Drawing.Size(892, 79)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtro"
@@ -124,12 +128,15 @@ Partial Class BuscaProductoManualPedidos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.ProductosDataGridView)
         Me.GroupBox2.Location = New System.Drawing.Point(16, 90)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(862, 321)
+        Me.GroupBox2.Size = New System.Drawing.Size(892, 321)
         Me.GroupBox2.TabIndex = 0
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Productos"
@@ -139,10 +146,13 @@ Partial Class BuscaProductoManualPedidos
         Me.ProductosDataGridView.AllowUserToAddRows = False
         Me.ProductosDataGridView.AllowUserToDeleteRows = False
         Me.ProductosDataGridView.AllowUserToResizeRows = False
+        Me.ProductosDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ProductosDataGridView.AutoGenerateColumns = False
         Me.ProductosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ProductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.descripcion, Me.idproducto, Me.precioventa, Me.precioventagranel, Me.precioventamayorista, Me.precioventadistribuidor})
+        Me.ProductosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codigoproducto, Me.descripcion, Me.idproducto, Me.precioventa, Me.precioventagranel, Me.precioventamayorista, Me.precioventadistribuidor, Me.ConsultarStock})
         Me.ProductosDataGridView.DataSource = Me.ListaproductosBindingSource
         Me.ProductosDataGridView.Location = New System.Drawing.Point(19, 31)
         Me.ProductosDataGridView.Margin = New System.Windows.Forms.Padding(4)
@@ -150,7 +160,7 @@ Partial Class BuscaProductoManualPedidos
         Me.ProductosDataGridView.Name = "ProductosDataGridView"
         Me.ProductosDataGridView.ReadOnly = True
         Me.ProductosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ProductosDataGridView.Size = New System.Drawing.Size(818, 266)
+        Me.ProductosDataGridView.Size = New System.Drawing.Size(848, 266)
         Me.ProductosDataGridView.TabIndex = 0
         '
         'ListaproductosBindingSource
@@ -175,6 +185,7 @@ Partial Class BuscaProductoManualPedidos
         'TableAdapterManager
         '
         Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -187,6 +198,10 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
@@ -204,6 +219,7 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
         Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
@@ -255,6 +271,9 @@ Partial Class BuscaProductoManualPedidos
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.textboxEnvasado)
@@ -270,27 +289,39 @@ Partial Class BuscaProductoManualPedidos
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox3.Size = New System.Drawing.Size(862, 111)
+        Me.GroupBox3.Size = New System.Drawing.Size(892, 113)
         Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(76, 94)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(74, 25)
+        Me.Label7.TabIndex = 18
+        Me.Label7.Text = "Stock:"
+        Me.Label7.Visible = False
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(69, 57)
+        Me.Label6.Location = New System.Drawing.Point(159, 97)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(37, 18)
+        Me.Label6.Size = New System.Drawing.Size(135, 18)
         Me.Label6.TabIndex = 17
-        Me.Label6.Text = "Env."
+        Me.Label6.Text = "Unidades Cerradas"
         Me.Label6.Visible = False
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(15, 57)
+        Me.Label5.Location = New System.Drawing.Point(311, 97)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(52, 18)
@@ -300,17 +331,17 @@ Partial Class BuscaProductoManualPedidos
         '
         'textboxEnvasado
         '
-        Me.textboxEnvasado.Location = New System.Drawing.Point(67, 78)
+        Me.textboxEnvasado.Location = New System.Drawing.Point(157, 120)
         Me.textboxEnvasado.Name = "textboxEnvasado"
-        Me.textboxEnvasado.Size = New System.Drawing.Size(39, 22)
+        Me.textboxEnvasado.Size = New System.Drawing.Size(137, 22)
         Me.textboxEnvasado.TabIndex = 15
         Me.textboxEnvasado.Visible = False
         '
         'textboxUnidades
         '
-        Me.textboxUnidades.Location = New System.Drawing.Point(18, 78)
+        Me.textboxUnidades.Location = New System.Drawing.Point(314, 120)
         Me.textboxUnidades.Name = "textboxUnidades"
-        Me.textboxUnidades.Size = New System.Drawing.Size(43, 22)
+        Me.textboxUnidades.Size = New System.Drawing.Size(140, 22)
         Me.textboxUnidades.TabIndex = 14
         Me.textboxUnidades.Visible = False
         '
@@ -418,7 +449,7 @@ Partial Class BuscaProductoManualPedidos
         Me.ParametrosgeneralesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ParametrosgeneralesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewImageColumn1})
         Me.ParametrosgeneralesDataGridView.DataSource = Me.ParametrosgeneralesBindingSource
-        Me.ParametrosgeneralesDataGridView.Location = New System.Drawing.Point(893, 127)
+        Me.ParametrosgeneralesDataGridView.Location = New System.Drawing.Point(915, 143)
         Me.ParametrosgeneralesDataGridView.Name = "ParametrosgeneralesDataGridView"
         Me.ParametrosgeneralesDataGridView.RowTemplate.Height = 24
         Me.ParametrosgeneralesDataGridView.Size = New System.Drawing.Size(51, 40)
@@ -486,6 +517,7 @@ Partial Class BuscaProductoManualPedidos
         Me.idproducto.Name = "idproducto"
         Me.idproducto.ReadOnly = True
         Me.idproducto.Visible = False
+        Me.idproducto.Width = 104
         '
         'precioventa
         '
@@ -494,6 +526,7 @@ Partial Class BuscaProductoManualPedidos
         Me.precioventa.Name = "precioventa"
         Me.precioventa.ReadOnly = True
         Me.precioventa.Visible = False
+        Me.precioventa.Width = 111
         '
         'precioventagranel
         '
@@ -502,6 +535,7 @@ Partial Class BuscaProductoManualPedidos
         Me.precioventagranel.Name = "precioventagranel"
         Me.precioventagranel.ReadOnly = True
         Me.precioventagranel.Visible = False
+        Me.precioventagranel.Width = 151
         '
         'precioventamayorista
         '
@@ -510,6 +544,7 @@ Partial Class BuscaProductoManualPedidos
         Me.precioventamayorista.Name = "precioventamayorista"
         Me.precioventamayorista.ReadOnly = True
         Me.precioventamayorista.Visible = False
+        Me.precioventamayorista.Width = 172
         '
         'precioventadistribuidor
         '
@@ -518,13 +553,24 @@ Partial Class BuscaProductoManualPedidos
         Me.precioventadistribuidor.Name = "precioventadistribuidor"
         Me.precioventadistribuidor.ReadOnly = True
         Me.precioventadistribuidor.Visible = False
+        Me.precioventadistribuidor.Width = 181
+        '
+        'ConsultarStock
+        '
+        Me.ConsultarStock.HeaderText = ""
+        Me.ConsultarStock.Name = "ConsultarStock"
+        Me.ConsultarStock.ReadOnly = True
+        Me.ConsultarStock.Text = "Ver Stock"
+        Me.ConsultarStock.ToolTipText = "Consultar Stock"
+        Me.ConsultarStock.UseColumnTextForButtonValue = True
+        Me.ConsultarStock.Width = 5
         '
         'BuscaProductoManualPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(902, 550)
+        Me.ClientSize = New System.Drawing.Size(932, 545)
         Me.Controls.Add(Me.ParametrosgeneralesDataGridView)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -589,6 +635,7 @@ Partial Class BuscaProductoManualPedidos
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents Label7 As Label
     Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
     Friend WithEvents descripcion As DataGridViewTextBoxColumn
     Friend WithEvents idproducto As DataGridViewTextBoxColumn
@@ -596,4 +643,5 @@ Partial Class BuscaProductoManualPedidos
     Friend WithEvents precioventagranel As DataGridViewTextBoxColumn
     Friend WithEvents precioventamayorista As DataGridViewTextBoxColumn
     Friend WithEvents precioventadistribuidor As DataGridViewTextBoxColumn
+    Friend WithEvents ConsultarStock As DataGridViewButtonColumn
 End Class

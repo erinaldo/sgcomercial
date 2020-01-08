@@ -95,7 +95,27 @@ Public Class BuscaProductoManualPedidos
     End Sub
 
     Private Sub ProductosDataGridView_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ProductosDataGridView.CellClick
-        CallClick()
+        Try
+            Select Case ProductosDataGridView.Columns(e.ColumnIndex).Name
+                Case "ConsultarStock"
+                    Cursor.Current = Cursors.WaitCursor
+                    Try
+                        Dim idproducto As Long = 0
+                        idproducto = ProductosTableAdapter.productos_existeproducto(ProductosDataGridView.CurrentRow.Cells("codigoproducto").Value)
+                        If Not idproducto > 0 Then Return
+                        Dim stkr As ConsultaStockRemotoProducto
+                        stkr = New ConsultaStockRemotoProducto
+                        gcodigoproducto = ProductosDataGridView.CurrentRow.Cells("codigoproducto").Value
+                        Cursor.Current = Cursors.Default
+                        stkr.ShowDialog()
+                    Catch ex As Exception
+                        Cursor.Current = Cursors.Default
+                    End Try
+                Case Else
+                    CallClick()
+            End Select
+        Catch ex As Exception
+        End Try
     End Sub
     Sub CallClick()
         Try
@@ -489,7 +509,31 @@ Public Class BuscaProductoManualPedidos
     End Sub
 
     Private Sub ProductosDataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.CellDoubleClick
-        CallClick()
-        cantidadtextbox.Select()
+        Try
+            Select Case ProductosDataGridView.Columns(e.ColumnIndex).Name
+                Case "ConsultarStock"
+                    Cursor.Current = Cursors.WaitCursor
+                    Try
+                        Dim idproducto As Long = 0
+                        idproducto = ProductosTableAdapter.productos_existeproducto(ProductosDataGridView.CurrentRow.Cells("codigoproducto").Value)
+                        If Not idproducto > 0 Then Return
+                        Dim stkr As ConsultaStockRemotoProducto
+                        stkr = New ConsultaStockRemotoProducto
+                        gcodigoproducto = ProductosDataGridView.CurrentRow.Cells("codigoproducto").Value
+                        Cursor.Current = Cursors.Default
+                        stkr.ShowDialog()
+                    Catch ex As Exception
+                        Cursor.Current = Cursors.Default
+                    End Try
+                Case Else
+                    CallClick()
+                    cantidadtextbox.Select()
+            End Select
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub ProductosDataGridView_CellContextMenuStripChanged(sender As Object, e As DataGridViewCellEventArgs) Handles ProductosDataGridView.CellContextMenuStripChanged
+
     End Sub
 End Class
