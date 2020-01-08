@@ -1,4 +1,6 @@
-﻿Public Class ADModulos
+﻿Imports System.ComponentModel
+
+Public Class ADModulos
     Private Sub ModulosBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.ModulosBindingSource.EndEdit()
@@ -25,5 +27,22 @@
         End Try
 
 
+    End Sub
+
+    Private Sub ADModulos_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
+        ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
+        Try
+            gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+            gModuloPedidosWeb = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosWeb")
+            gModuloPedidosMovil = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosMovil")
+            gMiFranquicia = ModulosTableAdapter.modulos_consultarestado("ModuloFranquicia")
+        Catch ex As Exception
+            gModuloClowd = 0
+            gModuloPedidosWeb = 0
+            gModuloPedidosMovil = 0
+            gMiFranquicia = 0
+            Return
+        End Try
     End Sub
 End Class

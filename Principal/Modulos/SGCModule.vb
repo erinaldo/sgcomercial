@@ -41,6 +41,8 @@ Module SGCModule
     Public gFechaSeleccionada As DateTime
     Public gpagocombinadoconfirmado As Boolean
     Public gModuloClowd As Long
+    Public gModuloPedidosWeb As Long
+    Public gModuloPedidosMovil As Long
     Public gMiFranquicia As Long
     Public gProgressBarCounter As Long
     Public gUserToken As String
@@ -1318,5 +1320,21 @@ and v.idtipocomprobante = tc.idtipocomprobante
             Return False
         End If
     End Function
+    Public Sub CheckModulesAuth()
+        Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
+        ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
+        Try
+            gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+            gModuloPedidosWeb = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosWeb")
+            gModuloPedidosMovil = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosMovil")
+            gMiFranquicia = ModulosTableAdapter.modulos_consultarestado("ModuloFranquicia")
+        Catch ex As Exception
+            gModuloClowd = 0
+            gModuloPedidosWeb = 0
+            gModuloPedidosMovil = 0
+            gMiFranquicia = 0
+            Return
+        End Try
+    End Sub
 End Module
 

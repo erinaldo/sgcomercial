@@ -133,15 +133,20 @@ Public Class Principal
                 Dim rtn As Integer
                 For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
                     rtn = ModulosTableAdapter.modulos_habilitar(miitem.Tag)
-                    If rtn > 0 Then
-                        If Not miitem.Name = "NotificacionesToolStripMenuItem" Then
-                            recorrer(miitem)
-                        End If
-                    Else
+                If rtn > 0 Then
+                    ''''''''''''    MODULOS OCULTOS POR DEFECTO  '''''''''''''''''''''''''''
+                    If miitem.Name = "NotificacionesToolStripMenuItem" Or miitem.Name = "PedidosWebToolStripMenuItem" Or miitem.Name = "PedidosMovilToolStripMenuItem" Then
                         miitem.Visible = False
-                        miitem.Enabled = False
+                        Continue For
                     End If
-                Next
+                    '''' RECORRE SUBMENU Y HABILITA FUNCIONES
+                    recorrer(miitem)
+                Else
+                    '''' NO ESTA HABLILITADO
+                    miitem.Visible = False
+                    miitem.Enabled = False
+                End If
+            Next
                 ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
                 PermisoVtaCC = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "RegistrarVentaCuentaCorriente")
                 gReloadPermisos = False
@@ -182,6 +187,7 @@ Public Class Principal
                 otroItem.Visible = False
                 otroItem.Enabled = False
             End If
+            ''''''''''''    ACCESOS OCULTOS POR DEFECTO  '''''''''''''''''''''''''''
             If otroItem.Name = "RegistrarVentaACuentaCorrienteToolStripMenuItem" Or otroItem.Name = "RegistrarPresupuestoToolStripMenuItem" Or otroItem.Name = "PedidosRecibidosVerTodosToolStripMenuItem" Then
                 otroItem.Visible = False
                 otroItem.Enabled = False
@@ -226,11 +232,13 @@ Public Class Principal
                 If Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
                     Alerta1ToolStripMenuItem.Text = "Alerta1"
                     Alerta1ToolStripMenuItem.Visible = False
+                    Alerta1ToolStripMenuItem.Enabled = False
                     Return
                 End If
                 If Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
                     Alerta2ToolStripMenuItem.Text = "Alerta2"
                     Alerta2ToolStripMenuItem.Visible = False
+                    Alerta2ToolStripMenuItem.Enabled = False
                     Return
                 End If
             End If
@@ -1070,10 +1078,10 @@ Public Class Principal
     End Sub
 
     Private Sub DescargarPedidosWEBToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DescargarPedidosWEBToolStripMenuItem.Click
-        Cursor.Current = Cursors.WaitCursor
-        SynClientes()
-        SynPedidos()
-        Cursor.Current = Cursors.Default
+        'Cursor.Current = Cursors.WaitCursor
+        'SynClientes()
+        'SynPedidos("TODOS")
+        'Cursor.Current = Cursors.Default
     End Sub
     Private Sub BACKGROUNDSYNCLIBROVENTASCLOWD_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundSyncLibroventasClowd.DoWork
         'Dim SynLibroVentasStatus As Boolean

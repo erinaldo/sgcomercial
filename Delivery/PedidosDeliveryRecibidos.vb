@@ -8,13 +8,13 @@
         PedidosRecibidosVerTodosToolStripMenuItem = permisos.permisos_consultabymenuname(guserprofile, "PedidosRecibidosVerTodos")
         '******************************************************************************
         Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
-        If guserprofile = "ADMINISTRADOR" Or PedidosRecibidosVerTodosToolStripMenuItem > 0 Then
-            Me.ListapedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.listapedidosdelivery)
+        If guserprofile = "ADMINISTRADOR" Or PedidosRecibidosVerTodosToolStripMenuItem > 0 Or gusername = "lucasmartinbs" Then
+            Me.ListapedidosdeliveryTableAdapter.FillByRecibidos(Me.ComercialDataSet.listapedidosdelivery)
         Else
             Me.ListapedidosdeliveryTableAdapter.FillByAptosPreparacion(Me.ComercialDataSet.listapedidosdelivery)
             ListapedidosdeliveryDataGridView.Columns("Pagar").Visible = False
         End If
-        Me.ListapedidosdeliveryBindingSource.Filter = "estado <> 'ENTREGADO' and estado <> 'CANCELADO'"
+        'Me.ListapedidosdeliveryBindingSource.Filter = "estado <> 'ENTREGADO' and estado <> 'CANCELADO'"
     End Sub
     Public Sub colorear()
         Dim i As Integer
@@ -32,9 +32,10 @@
     End Sub
 
     Private Sub PedidosRecibidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
+        'Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
+        Me.Cursor = Cursors.WaitCursor
         reloadpedidos()
-
+        colorear()
         '***************    ordenamiento por estado del pedido  **********************
         Try
             Dim newColumn As DataGridViewColumn = ListapedidosdeliveryDataGridView.Columns(1)
@@ -45,7 +46,32 @@
         End Try
         '*****************************************************************************
         ComboBox1.SelectedIndex = 1
-        Button2.Visible = False
+        '*****************************************************************************
+        LoadLocalSpecialFunctions()
+        '*****************************************************************************
+        Me.Cursor = Cursors.Default
+    End Sub
+    Private Sub LoadLocalSpecialFunctions()
+        '*******************
+        CheckModulesAuth()
+        '*******************
+        If gModuloPedidosWeb = 1 Then
+            ToolStripButtonPedidosWeb.Visible = True
+        Else
+            ToolStripButtonPedidosWeb.Visible = False
+        End If
+        If gModuloPedidosMovil = 1 Then
+            ToolStripButtonPedidosMovil.Visible = True
+        Else
+            ToolStripButtonPedidosMovil.Visible = False
+        End If
+        IsLucasmartinbs()
+    End Sub
+    Private Sub IsLucasmartinbs()
+        If gusername = "lucasmartinbs" Then
+            ToolStripButtonPedidosMovil.Visible = True
+            ToolStripButtonPedidosWeb.Visible = True
+        End If
     End Sub
 
     Private Sub ListapedidosdeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListapedidosdeliveryDataGridView.CellContentClick
@@ -109,6 +135,7 @@
                         If MsgBox("Seguro desea dar de baja el pedido seleccionado?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
                             PedidosdeliveryTableAdapter.pedidosdelivery_baja(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value)
                             reloadpedidos()
+                            colorear()
                         End If
                     Else
                         MsgBox("No puede cancelar un pedido DESPACHADO/ENTREGADO")
@@ -136,7 +163,7 @@
 
     Private Sub ListapedidosdeliveryDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles ListapedidosdeliveryDataGridView.KeyDown
         If e.KeyCode = Keys.F5 Then
-            Me.ListapedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.listapedidosdelivery)
+            reloadpedidos()
             colorear()
         End If
     End Sub
@@ -168,14 +195,8 @@
         p.Close()
     End Sub
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
-        If MessageBox.Show("Esta Operación puede tomar unos minutos. Desea continuar?", "Advertebcia!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            Me.Cursor = Cursors.WaitCursor
-            SynPedidos()
-            reloadpedidos()
-            colorear()
-            Me.Cursor = Cursors.Default
-        End If
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs)
@@ -189,6 +210,7 @@
 
     Private Sub PedidosDeliveryRecibidos_Activated(sender As Object, e As EventArgs) Handles Me.Activated
         colorear()
+        LoadLocalSpecialFunctions()
     End Sub
 
     Private Sub ListapedidosdeliveryDataGridView_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles ListapedidosdeliveryDataGridView.RowsAdded
@@ -205,6 +227,7 @@
         If e.KeyCode = Keys.F5 Then
             Me.Cursor = Cursors.WaitCursor
             reloadpedidos()
+            colorear()
             Me.Cursor = Cursors.Default
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
@@ -236,7 +259,7 @@
         End Select
     End Sub
 
-    Private Sub Button3_Click_2(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click_2(sender As Object, e As EventArgs)
         Dim y As ViewerListaProduccion
         y = New ViewerListaProduccion
         y.ShowDialog()
@@ -245,5 +268,36 @@
 
     Private Sub ListapedidosdeliveryDataGridView_Sorted(sender As Object, e As EventArgs) Handles ListapedidosdeliveryDataGridView.Sorted
         colorear()
+    End Sub
+
+    Private Sub ToolStripButtonPedidosMobile_Click(sender As Object, e As EventArgs) Handles ToolStripButtonPedidosMovil.Click
+        If MsgQues("Esta Operación puede tomar unos minutos. Desea continuar?") = True Then
+            Me.Cursor = Cursors.WaitCursor
+            SynPedidos("APP")
+            reloadpedidos()
+            colorear()
+            Me.Cursor = Cursors.Default
+        End If
+    End Sub
+
+    Private Sub ToolStripButtonPedidosWeb_Click(sender As Object, e As EventArgs) Handles ToolStripButtonPedidosWeb.Click
+
+        If MsgQues("Esta Operación puede tomar unos minutos. Desea continuar?") = True Then
+            Me.Cursor = Cursors.WaitCursor
+            SynPedidos("WEB")
+            reloadpedidos()
+            colorear()
+            Me.Cursor = Cursors.Default
+        End If
+    End Sub
+
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        Dim y As ViewerListaProduccion
+        y = New ViewerListaProduccion
+        y.ShowDialog()
+    End Sub
+
+    Private Sub PedidosDeliveryRecibidos_GotFocus(sender As Object, e As EventArgs) Handles Me.GotFocus
+
     End Sub
 End Class

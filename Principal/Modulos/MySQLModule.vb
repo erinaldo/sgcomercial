@@ -269,7 +269,11 @@ Module MySQLModule
 
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    Public Sub SynPedidos()
+    Public Sub SynPedidos(ByRef tipo As String)
+        If tipo <> "APP" And tipo <> "WEB" Then
+            MsgEx("Opción no disponible")
+            Return
+        End If
         '***************************************
         '********************** verificar conexion al servidor ************************
         '***************************************
@@ -290,7 +294,7 @@ Module MySQLModule
             Dim PedidosDeliveryWEBTableAdapter As MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter
             PedidosDeliveryWEBTableAdapter = New MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter()
             Dim PedidosDeliveryWEBTable As MySQLDataSet.pedidosdeliveryDataTable
-            PedidosDeliveryWEBTable = PedidosDeliveryWEBTableAdapter.GetDataBySync("N")
+            PedidosDeliveryWEBTable = PedidosDeliveryWEBTableAdapter.GetDataBySync("N", tipo)
             '****   ----    ********
             '****   PedidosDeliveryTableAdapter  ******** LOCAL
             Dim PedidosDeliveryTableAdapter As comercialDataSetTableAdapters.pedidosdeliveryTableAdapter
@@ -327,7 +331,7 @@ Module MySQLModule
                     Dim idpedidosdeliveryweb As Long = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.idpedidodeliverywebColumn)
                     Try ' VALIDAR QUE TODOS LOS DATOS SE HAYAN CARGADO
                         For d = 0 To PedidosDeliveryWEBTable.Columns.Count - 1
-                            If d = 2 Or d = 8 Then
+                            If d = 2 Or d = 5 Or d = 8 Then
                                 Continue For
                             End If
                             If IsDBNull(PedidosDeliveryWEBTable.Rows(i).Item(d)) Then
@@ -345,10 +349,18 @@ Module MySQLModule
                     Else
                         Dim idventaweb As Long = Nothing
                     End If
+                    '*****************************
+                    Dim pagoesperado As Decimal ''' = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)
+                    If IsDBNull(PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)) = False Then
+                        pagoesperado = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.idventawebColumn)
+                    Else
+                        pagoesperado = Nothing
+                    End If
+                    '**************************************
 
                     Dim idtransporte As Long = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.idtransporteColumn)
                     Dim iddomicilioweb As Long = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.iddomicilioColumn)
-                    Dim pagoesperado As Decimal = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)
+
                     Dim fechaalta As DateTime = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.fechaaltaColumn)
                     Dim idpedidodeliverylocal As Long = 0
                     Dim idclientelocal As Long = 0
@@ -382,8 +394,21 @@ Module MySQLModule
                         Dim idproducto As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idproductoColumn)
                         Dim cantidad As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.cantidadColumn)
                         Dim precioventa As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.precioventaColumn)
-                        Dim recargo As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.recargoColumn)
-                        Dim idlistaprecio As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idlistaprecioColumn)
+                        '*****************************
+                        Dim recargo As Decimal '***************'' = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)
+                        If IsDBNull(PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.recargoColumn)) = False Then
+                            recargo = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.recargoColumn)
+                        Else
+                            recargo = Nothing
+                        End If
+                        '************************
+                        Dim idlistaprecio As Long
+                        If IsDBNull(PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idlistaprecioColumn)) = False Then
+                            idlistaprecio = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idlistaprecioColumn)
+                        Else
+                            idlistaprecio = 1
+                        End If
+                        '************************
                         Try
                             PedidosDeliveryDetalleTableAdapter.pedidosdeliverydetalle_insertar(NvoPedido, idproducto, cantidad, precioventa, recargo, idlistaprecio)
                             PedidosDeliveryWEBTableAdapter.pedidosdelivery_updatesync("S", idpedidosdeliveryweb)
@@ -392,9 +417,8 @@ Module MySQLModule
                             MsgBox("No se pudo completar la Sincronización de PEDIDOS: " + ex.Message)
                         End Try
                     Next
-                    '**************** 
+                    '***************** REGISTRO LA VENTA    ******************************* 
                     Dim nvavta As Int64
-                    '***************** REGISTRO LA VENTA    *******************************
                     nvavta = VentasTableAdapter.ventas_insertarventa(idclientelocal, Now(), Nothing, 1, "usuarioweb", Nothing, Nothing, 1)
                     '****************   REGISTRO EL DETALLE DE LA VENTA **************
                     For j = 0 To PedidosDeliveryDetalleWEBTable.Rows.Count - 1
@@ -402,8 +426,20 @@ Module MySQLModule
                         Dim idproducto As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idproductoColumn)
                         Dim cantidad As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.cantidadColumn)
                         Dim precioventa As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.precioventaColumn)
-                        Dim recargo As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.recargoColumn)
-                        Dim idlistaprecio As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idlistaprecioColumn)
+                        Dim recargo As Decimal '***************'' = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)
+                        If IsDBNull(PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.recargoColumn)) = False Then
+                            recargo = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.recargoColumn)
+                        Else
+                            recargo = Nothing
+                        End If
+                        '************************
+                        Dim idlistaprecio As Long
+                        If IsDBNull(PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idlistaprecioColumn)) = False Then
+                            idlistaprecio = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idlistaprecioColumn)
+                        Else
+                            idlistaprecio = 1
+                        End If
+                        '****************************
                         VentasDetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, idproducto, cantidad, precioventa, idlistaprecio, Nothing, Nothing)
                         PedidosDeliveryTableAdapter.pedidosdelivery_updateidventa(nvavta, NvoPedido)
                     Next

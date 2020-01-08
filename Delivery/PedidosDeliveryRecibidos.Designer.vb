@@ -24,12 +24,10 @@ Partial Class PedidosDeliveryRecibidos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.PedidosdeliveryDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,11 +53,11 @@ Partial Class PedidosDeliveryRecibidos
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.imprimircomanda = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Pagar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Baja = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.modificar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.ListapedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -68,6 +66,10 @@ Partial Class PedidosDeliveryRecibidos
         Me.PedidosdeliveryTableAdapter1 = New sgcomercial.MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter()
         Me.TableAdapterManager1 = New sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager()
         Me.ClientesTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.clientesTableAdapter()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButtonPedidosWeb = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButtonPedidosMovil = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ListapedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliveryTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.PedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliveryTableAdapter()
@@ -80,6 +82,7 @@ Partial Class PedidosDeliveryRecibidos
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MySQLDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PedidosdeliveryBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -87,31 +90,18 @@ Partial Class PedidosDeliveryRecibidos
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.PedidosdeliveryDataGridView)
         Me.GroupBox1.Controls.Add(Me.ListapedidosdeliveryDataGridView)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 37)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1111, 605)
+        Me.GroupBox1.Size = New System.Drawing.Size(1111, 579)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lista de pedidos recibidos"
-        '
-        'Button3
-        '
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(918, 22)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(174, 44)
-        Me.Button3.TabIndex = 9
-        Me.Button3.Text = "Lista de Producción"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
@@ -151,20 +141,6 @@ Partial Class PedidosDeliveryRecibidos
         Me.Button1.Text = "SynClilentes"
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
-        '
-        'Button2
-        '
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon30x30
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.Location = New System.Drawing.Point(680, 22)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(223, 44)
-        Me.Button2.TabIndex = 5
-        Me.Button2.Text = "Descargar de la Nube"
-        Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
         '
         'PedidosdeliveryDataGridView
         '
@@ -267,7 +243,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.ListapedidosdeliveryDataGridView.AutoGenerateColumns = False
         Me.ListapedidosdeliveryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.ListapedidosdeliveryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ListapedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpedidodelivery, Me.estado, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.imprimircomanda, Me.Pagar, Me.Baja, Me.saldo, Me.idcliente, Me.modificar})
+        Me.ListapedidosdeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpedidodelivery, Me.estado, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.saldo, Me.idcliente, Me.imprimircomanda, Me.Pagar, Me.Baja, Me.modificar})
         Me.ListapedidosdeliveryDataGridView.DataSource = Me.ListapedidosdeliveryBindingSource
         Me.ListapedidosdeliveryDataGridView.Location = New System.Drawing.Point(16, 79)
         Me.ListapedidosdeliveryDataGridView.MultiSelect = False
@@ -276,7 +252,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.ListapedidosdeliveryDataGridView.RowHeadersVisible = False
         Me.ListapedidosdeliveryDataGridView.RowTemplate.Height = 24
         Me.ListapedidosdeliveryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1076, 515)
+        Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1076, 489)
         Me.ListapedidosdeliveryDataGridView.TabIndex = 0
         '
         'idpedidodelivery
@@ -313,6 +289,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
         Me.DataGridViewTextBoxColumn4.ToolTipText = "Usuario alta"
         Me.DataGridViewTextBoxColumn4.Visible = False
+        Me.DataGridViewTextBoxColumn4.Width = 113
         '
         'DataGridViewTextBoxColumn5
         '
@@ -331,6 +308,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
         Me.DataGridViewTextBoxColumn6.ToolTipText = "Teléfono"
         Me.DataGridViewTextBoxColumn6.Visible = False
+        Me.DataGridViewTextBoxColumn6.Width = 93
         '
         'DataGridViewTextBoxColumn9
         '
@@ -340,6 +318,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
         Me.DataGridViewTextBoxColumn9.ToolTipText = "Transporte"
         Me.DataGridViewTextBoxColumn9.Visible = False
+        Me.DataGridViewTextBoxColumn9.Width = 107
         '
         'DataGridViewTextBoxColumn10
         '
@@ -349,6 +328,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.DataGridViewTextBoxColumn10.ReadOnly = True
         Me.DataGridViewTextBoxColumn10.ToolTipText = "Dirección"
         Me.DataGridViewTextBoxColumn10.Visible = False
+        Me.DataGridViewTextBoxColumn10.Width = 96
         '
         'DataGridViewTextBoxColumn12
         '
@@ -367,6 +347,24 @@ Partial Class PedidosDeliveryRecibidos
         Me.DataGridViewTextBoxColumn13.ReadOnly = True
         Me.DataGridViewTextBoxColumn13.ToolTipText = "Localidad"
         Me.DataGridViewTextBoxColumn13.Width = 98
+        '
+        'saldo
+        '
+        Me.saldo.DataPropertyName = "saldo"
+        Me.saldo.HeaderText = "saldo"
+        Me.saldo.Name = "saldo"
+        Me.saldo.ReadOnly = True
+        Me.saldo.Visible = False
+        Me.saldo.Width = 71
+        '
+        'idcliente
+        '
+        Me.idcliente.DataPropertyName = "idcliente"
+        Me.idcliente.HeaderText = "idcliente"
+        Me.idcliente.Name = "idcliente"
+        Me.idcliente.ReadOnly = True
+        Me.idcliente.Visible = False
+        Me.idcliente.Width = 89
         '
         'imprimircomanda
         '
@@ -401,22 +399,6 @@ Partial Class PedidosDeliveryRecibidos
         Me.Baja.ToolTipText = "Cancelar Pedido"
         Me.Baja.UseColumnTextForButtonValue = True
         Me.Baja.Width = 93
-        '
-        'saldo
-        '
-        Me.saldo.DataPropertyName = "saldo"
-        Me.saldo.HeaderText = "saldo"
-        Me.saldo.Name = "saldo"
-        Me.saldo.ReadOnly = True
-        Me.saldo.Visible = False
-        '
-        'idcliente
-        '
-        Me.idcliente.DataPropertyName = "idcliente"
-        Me.idcliente.HeaderText = "idcliente"
-        Me.idcliente.Name = "idcliente"
-        Me.idcliente.ReadOnly = True
-        Me.idcliente.Visible = False
         '
         'modificar
         '
@@ -483,12 +465,52 @@ Partial Class PedidosDeliveryRecibidos
         '
         Me.ClientesTableAdapter.ClearBeforeFill = True
         '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.AllowMerge = False
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(35, 35)
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButtonPedidosWeb, Me.ToolStripButtonPedidosMovil, Me.ToolStripButton1})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1133, 42)
+        Me.ToolStrip1.TabIndex = 3
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripButtonPedidosWeb
+        '
+        Me.ToolStripButtonPedidosWeb.Image = Global.sgcomercial.My.Resources.Resources.WebClowd
+        Me.ToolStripButtonPedidosWeb.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonPedidosWeb.Name = "ToolStripButtonPedidosWeb"
+        Me.ToolStripButtonPedidosWeb.Size = New System.Drawing.Size(258, 39)
+        Me.ToolStripButtonPedidosWeb.Tag = "ToolStripButtonPedidosWeb"
+        Me.ToolStripButtonPedidosWeb.Text = "Descargar Pedidos de WebPage"
+        '
+        'ToolStripButtonPedidosMovil
+        '
+        Me.ToolStripButtonPedidosMovil.Image = Global.sgcomercial.My.Resources.Resources.MobileClowd
+        Me.ToolStripButtonPedidosMovil.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonPedidosMovil.Name = "ToolStripButtonPedidosMovil"
+        Me.ToolStripButtonPedidosMovil.Size = New System.Drawing.Size(294, 39)
+        Me.ToolStripButtonPedidosMovil.Tag = "ToolStripButtonPedidosAPP"
+        Me.ToolStripButtonPedidosMovil.Text = "Descargar Pedidos de Preventa Móvil"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.Image = Global.sgcomercial.My.Resources.Resources.CheckList
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(177, 39)
+        Me.ToolStripButton1.Text = "Lista de Producción"
+        Me.ToolStripButton1.ToolTipText = "Lista de Producción"
+        '
         'ListapedidosdeliveryTableAdapter
         '
         Me.ListapedidosdeliveryTableAdapter.ClearBeforeFill = True
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -499,9 +521,15 @@ Partial Class PedidosDeliveryRecibidos
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -511,15 +539,19 @@ Partial Class PedidosDeliveryRecibidos
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
         Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -540,6 +572,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -571,6 +604,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1133, 626)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.KeyPreview = True
         Me.MaximizeBox = False
@@ -588,7 +622,10 @@ Partial Class PedidosDeliveryRecibidos
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MySQLDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PedidosdeliveryBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox1 As GroupBox
@@ -618,7 +655,6 @@ Partial Class PedidosDeliveryRecibidos
     Friend WithEvents ClientesTableAdapter As MySQLDataSetTableAdapters.clientesTableAdapter
     Friend WithEvents ClientesBindingSource As BindingSource
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents idpedidodelivery As DataGridViewTextBoxColumn
     Friend WithEvents estado As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
@@ -638,5 +674,8 @@ Partial Class PedidosDeliveryRecibidos
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button3 As Button
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents ToolStripButtonPedidosWeb As ToolStripButton
+    Friend WithEvents ToolStripButtonPedidosMovil As ToolStripButton
+    Friend WithEvents ToolStripButton1 As ToolStripButton
 End Class

@@ -95,17 +95,6 @@ Public Class loginform
     End Sub
     Private Sub connectdbremote()
         Dim status As Boolean
-        ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
-        Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
-        ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
-        Try
-            gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
-            gMiFranquicia = ModulosTableAdapter.modulos_consultarestado("ModuloFranquicia")
-        Catch ex As Exception
-            gModuloClowd = 0
-            gMiFranquicia = 0
-            Return
-        End Try
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         '*************  errorlog    **************************************
         Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
@@ -201,6 +190,12 @@ Public Class loginform
         hi.ProgressBar.PerformStep()
         hi.Refresh()
         identificarterminal()
+        '''''''''''''''''''''''''''''''''''''''''
+        ''''''''''''''''''''''''''''--Autorización modulos especiales--''''''''''''''''''''''''''''''''''''''''''''''
+        hi.mensaje.Text = "Autorización modulos especiales"
+        hi.ProgressBar.PerformStep()
+        hi.Refresh()
+        CheckModulesAuth()
         '''''''''''''''''''''''''''''''''''''''''
         Dim status As Boolean
         Dim cod As Integer

@@ -28,11 +28,6 @@ Partial Class LibroVencimientosProductos
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LibrovencimientosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.LibrovencimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.LibrovencimientosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librovencimientosTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,6 +37,11 @@ Partial Class LibroVencimientosProductos
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estadonumerico = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LibrovencimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.LibrovencimientosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.librovencimientosTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.LibrovencimientosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,13 +57,13 @@ Partial Class LibroVencimientosProductos
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(806, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(958, 100)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(415, 49)
+        Me.Button1.Location = New System.Drawing.Point(523, 49)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(216, 23)
         Me.Button1.TabIndex = 1
@@ -75,7 +75,7 @@ Partial Class LibroVencimientosProductos
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"TODOS", "BUEN ESTADO", "PRÓXIMO A VENCER", "VENCIDOS"})
-        Me.ComboBox1.Location = New System.Drawing.Point(111, 46)
+        Me.ComboBox1.Location = New System.Drawing.Point(219, 46)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(245, 24)
         Me.ComboBox1.TabIndex = 0
@@ -86,9 +86,9 @@ Partial Class LibroVencimientosProductos
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.LibrovencimientosDataGridView)
         Me.GroupBox2.Controls.Add(Me.ReportViewer1)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 129)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 143)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(806, 398)
+        Me.GroupBox2.Size = New System.Drawing.Size(958, 398)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         '
@@ -96,18 +96,91 @@ Partial Class LibroVencimientosProductos
         '
         Me.LibrovencimientosDataGridView.AllowUserToAddRows = False
         Me.LibrovencimientosDataGridView.AllowUserToDeleteRows = False
+        Me.LibrovencimientosDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LibrovencimientosDataGridView.AutoGenerateColumns = False
-        Me.LibrovencimientosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.LibrovencimientosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LibrovencimientosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.estadonumerico})
         Me.LibrovencimientosDataGridView.DataSource = Me.LibrovencimientosBindingSource
-        Me.LibrovencimientosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LibrovencimientosDataGridView.Location = New System.Drawing.Point(3, 18)
+        Me.LibrovencimientosDataGridView.Location = New System.Drawing.Point(6, 21)
         Me.LibrovencimientosDataGridView.Name = "LibrovencimientosDataGridView"
         Me.LibrovencimientosDataGridView.ReadOnly = True
         Me.LibrovencimientosDataGridView.RowTemplate.Height = 24
-        Me.LibrovencimientosDataGridView.Size = New System.Drawing.Size(800, 377)
+        Me.LibrovencimientosDataGridView.Size = New System.Drawing.Size(946, 357)
         Me.LibrovencimientosDataGridView.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idlotevencimiento"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idlotevencimiento"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idproducto"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "idproducto"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Visible = False
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "producto"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Producto"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 126
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cantidad"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Cantidad"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 126
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "fechavto"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Fecha Vencimiento"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 126
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "codigoexterno"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Código de lote Externo"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 127
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "estado"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Estado"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Width = 126
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "dias"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Días"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Width = 126
+        '
+        'estadonumerico
+        '
+        Me.estadonumerico.DataPropertyName = "estadonumerico"
+        Me.estadonumerico.HeaderText = "estadonumerico"
+        Me.estadonumerico.Name = "estadonumerico"
+        Me.estadonumerico.ReadOnly = True
+        Me.estadonumerico.Visible = False
         '
         'LibrovencimientosBindingSource
         '
@@ -134,6 +207,7 @@ Partial Class LibroVencimientosProductos
         'TableAdapterManager
         '
         Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -147,6 +221,10 @@ Partial Class LibroVencimientosProductos
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
@@ -214,77 +292,11 @@ Partial Class LibroVencimientosProductos
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idlotevencimiento"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "idlotevencimiento"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idproducto"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "idproducto"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Visible = False
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "producto"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Producto"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cantidad"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Cantidad"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "fechavto"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Fecha Vencimiento"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "codigoexterno"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Código de lote Externo"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "estado"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Estado"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "dias"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Días"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        '
-        'estadonumerico
-        '
-        Me.estadonumerico.DataPropertyName = "estadonumerico"
-        Me.estadonumerico.HeaderText = "estadonumerico"
-        Me.estadonumerico.Name = "estadonumerico"
-        Me.estadonumerico.ReadOnly = True
-        Me.estadonumerico.Visible = False
-        '
         'LibroVencimientosProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(830, 539)
+        Me.ClientSize = New System.Drawing.Size(982, 553)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

@@ -17368,7 +17368,7 @@ Namespace MySQLDataSetTableAdapters
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT idpedidodeliveryweb, idclienteweb, idventaweb, idtransporte, iddomicilio, "& _ 
                 "pagoesperado, fechaalta, estado, nroguia, sync FROM pedidosdelivery"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where sync "& _ 
-                "= @sync"
+                "= @sync"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and tipopedido = @tipo"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@sync"
@@ -17377,6 +17377,14 @@ Namespace MySQLDataSetTableAdapters
             param.Size = 1
             param.IsNullable = true
             param.SourceColumn = "sync"
+            Me._commandCollection(1).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@tipo"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 50
+            param.IsNullable = true
+            param.SourceColumn = "tipopedido"
             Me._commandCollection(1).Parameters.Add(param)
             Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
@@ -17450,12 +17458,17 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBySync(ByVal dataTable As MySQLDataSet.pedidosdeliveryDataTable, ByVal sync As String) As Integer
+        Public Overloads Overridable Function FillBySync(ByVal dataTable As MySQLDataSet.pedidosdeliveryDataTable, ByVal sync As String, ByVal tipo As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (sync Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(sync,String)
+            End If
+            If (tipo Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(tipo,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -17468,12 +17481,17 @@ Namespace MySQLDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBySync(ByVal sync As String) As MySQLDataSet.pedidosdeliveryDataTable
+        Public Overloads Overridable Function GetDataBySync(ByVal sync As String, ByVal tipo As String) As MySQLDataSet.pedidosdeliveryDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (sync Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(sync,String)
+            End If
+            If (tipo Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(tipo,String)
             End If
             Dim dataTable As MySQLDataSet.pedidosdeliveryDataTable = New MySQLDataSet.pedidosdeliveryDataTable()
             Me.Adapter.Fill(dataTable)
