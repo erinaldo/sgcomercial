@@ -27,9 +27,24 @@
                     j.ShowDialog()
                     gidventaSC = Nothing
                 Case "CargarPago"
-                    gidventaSC = Nothing
-                    Dim kl As New SCCargarPago()
-                    kl.ShowDialog()
+                    gidventaSC = LibroventasDataGridView.Rows(e.RowIndex).Cells("idventas").Value
+                    gidclienteSC = LibroventasDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
+                    Dim importe As Decimal
+                    Try
+                        importe = LibroventasTableAdapter.libroventas_importetotal(gidventaSC)
+                        Dim PagosSc As New siscomDataSetTableAdapters.pagosTableAdapter()
+                        If importe > 0 Then
+                            PagosSc.pagos_insertar(gidventaSC, gidclienteSC, importe, 1, Today)
+                            MsgInfo("Pago cargado exitosamente!")
+                        Else
+                            MsgEx("No se pudo cargar el pago: $" + importe.ToString)
+                        End If
+
+                    Catch ex As Exception
+
+                    End Try
+                    'Dim kl As New SCCargarPago()
+                    'kl.ShowDialog()
 
             End Select
         Catch ex As Exception

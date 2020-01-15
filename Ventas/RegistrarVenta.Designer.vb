@@ -1126,7 +1126,7 @@ Partial Class RegistrarVenta
         '
         Me.ButtonDescuentoDefecto.Location = New System.Drawing.Point(199, 22)
         Me.ButtonDescuentoDefecto.Name = "ButtonDescuentoDefecto"
-        Me.ButtonDescuentoDefecto.Size = New System.Drawing.Size(205, 23)
+        Me.ButtonDescuentoDefecto.Size = New System.Drawing.Size(197, 23)
         Me.ButtonDescuentoDefecto.TabIndex = 21
         Me.ButtonDescuentoDefecto.Text = "Aplicar Descuento Automático"
         Me.ButtonDescuentoDefecto.UseVisualStyleBackColor = True
@@ -1168,6 +1168,7 @@ Partial Class RegistrarVenta
         Me.IdclienteTextBox.Name = "IdclienteTextBox"
         Me.IdclienteTextBox.Size = New System.Drawing.Size(54, 23)
         Me.IdclienteTextBox.TabIndex = 4
+        Me.IdclienteTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'VentasBindingSource
         '
@@ -1204,6 +1205,9 @@ Partial Class RegistrarVenta
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing

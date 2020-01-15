@@ -17165,7 +17165,7 @@ Namespace siscomDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(3) {}
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(4) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT idventas, fechaventa, fechabaja, fechavencimiento, nombre, email, telefono"& _ 
@@ -17206,6 +17206,18 @@ Namespace siscomDataSetTableAdapters
             param.IsNullable = true
             param.SourceColumn = "idventas"
             Me._commandCollection(3).Parameters.Add(param)
+            Me._commandCollection(4) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "SELECT SUM((cantidad * (precioventa - descuento + recargo))) as importetotal FROM"& _ 
+                " ventasdetalle WHERE idventa = @idventa"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@idventa"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "idventa"
+            Me._commandCollection(4).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17316,6 +17328,33 @@ Namespace siscomDataSetTableAdapters
                 Return Nothing
             Else
                 Return CType(returnValue,String)
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function libroventas_importetotal(ByVal idventa As Integer) As Global.System.Nullable(Of Double)
+            Dim command As Global.MySql.Data.MySqlClient.MySqlCommand = Me.CommandCollection(4)
+            command.Parameters(0).Value = CType(idventa,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Object
+            Try 
+                returnValue = command.ExecuteScalar
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            If ((returnValue Is Nothing)  _
+                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
+                Return New Global.System.Nullable(Of Double)()
+            Else
+                Return New Global.System.Nullable(Of Double)(CType(returnValue,Double))
             End If
         End Function
     End Class

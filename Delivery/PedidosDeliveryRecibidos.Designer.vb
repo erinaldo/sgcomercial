@@ -98,7 +98,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.GroupBox1.Controls.Add(Me.ListapedidosdeliveryDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 37)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1111, 579)
+        Me.GroupBox1.Size = New System.Drawing.Size(1110, 506)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lista de pedidos recibidos"
@@ -106,7 +106,7 @@ Partial Class PedidosDeliveryRecibidos
         'TextBox1
         '
         Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(556, 31)
+        Me.TextBox1.Location = New System.Drawing.Point(555, 31)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(216, 22)
         Me.TextBox1.TabIndex = 8
@@ -117,7 +117,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Pedido N°", "Cliente"})
-        Me.ComboBox1.Location = New System.Drawing.Point(427, 30)
+        Me.ComboBox1.Location = New System.Drawing.Point(426, 30)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 24)
         Me.ComboBox1.TabIndex = 7
@@ -126,7 +126,7 @@ Partial Class PedidosDeliveryRecibidos
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(339, 34)
+        Me.Label1.Location = New System.Drawing.Point(338, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(73, 17)
         Me.Label1.TabIndex = 6
@@ -252,7 +252,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.ListapedidosdeliveryDataGridView.RowHeadersVisible = False
         Me.ListapedidosdeliveryDataGridView.RowTemplate.Height = 24
         Me.ListapedidosdeliveryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1076, 489)
+        Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1075, 416)
         Me.ListapedidosdeliveryDataGridView.TabIndex = 0
         '
         'idpedidodelivery
@@ -472,7 +472,7 @@ Partial Class PedidosDeliveryRecibidos
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButtonPedidosWeb, Me.ToolStripButtonPedidosMovil, Me.ToolStripButton1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1133, 42)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1132, 42)
         Me.ToolStrip1.TabIndex = 3
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -603,7 +603,7 @@ Partial Class PedidosDeliveryRecibidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1133, 626)
+        Me.ClientSize = New System.Drawing.Size(1132, 553)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.KeyPreview = True

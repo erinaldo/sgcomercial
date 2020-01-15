@@ -56,25 +56,18 @@ Public Class EstadoCuentaCorriente
     Public Sub filtrarcliente()
         If gclienteseleccionado > 1 Then
             Try
+                Me.Cursor = Cursors.WaitCursor
                 'Me.ListacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.listacuentascorrientes)
                 ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
                 ListacuentascorrientesTableAdapter.FillByidcliente(Me.ComercialDataSet.listacuentascorrientes, gclienteseleccionado)
                 '********************************************************
-                Dim CcSaldoDisponibleTableAdapter As New comercialDataSetTableAdapters.ccsaldodisponibleTableAdapter()
-                Dim sal As Decimal
-                sal = CcSaldoDisponibleTableAdapter.ccsaldodisponible_condultardisponible(gclienteseleccionado)
-                LabelSaldoPI.Text = sal.ToString
-                If sal > 0 Then
-                    LabelSaldoPI.ForeColor = Color.Green
-                Else
-                    LabelSaldoPI.ForeColor = Color.Black
-                End If
-                '********************************************************
                 calculasaldos()
+                Me.Cursor = Cursors.Default
             Catch ex As Exception
+                Me.Cursor = Cursors.Default
                 MsgBox("Ocurrió una excepción al buscar la información del cliente: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia!")
                 ClientesBindingSource.Filter = "idcliente = " + "0"
-                LabelSaldoPI.Text = ""
+                'LabelSaldoPI.Text = Nothing
             End Try
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             '''''''''''''   oculta el boton de anular en PAGOS
@@ -116,7 +109,7 @@ Public Class EstadoCuentaCorriente
         Labeltotaldebe.Text = totaldebe.ToString
         Labeltotalhaber.Text = totalhaber.ToString
         saldototal = totalhaber - totaldebe
-        Labeltotalgeneral.Text = Convert.ToString(totaldebe - totalhaber)
+        Labeltotalgeneral.Text = Convert.ToString(totalhaber - totaldebe)
         '********************************************************
         If saldototal = 0 Then
             LabelTipoSaldo.Text = "-----"
@@ -135,9 +128,33 @@ Public Class EstadoCuentaCorriente
             LabelTipoSaldo.ForeColor = Color.Green
             Labeltotalgeneral.ForeColor = Color.Green
         End If
+        CalculaSaldoPI()
         '********************************************************
         '********************************************************
         colorear()
+    End Sub
+    Private Sub CalculaSaldoPI()
+        Try
+            Dim CcSaldoDisponibleTableAdapter As New comercialDataSetTableAdapters.ccsaldodisponibleTableAdapter()
+            Dim sal As Decimal
+            sal = CcSaldoDisponibleTableAdapter.ccsaldodisponible_condultardisponible(gclienteseleccionado)
+            If sal > 0 Then
+                LabelSaldoPI.Text = sal.ToString
+                LabelSaldoPI.ForeColor = Color.Green
+            Else
+                Try
+                    LabelSaldoPI.ForeColor = Color.Black
+                    LabelSaldoPI.Text = "0,00"
+                Catch ex As Exception
+
+                End Try
+            End If
+            '********************************************************
+        Catch ex As Exception
+            MsgEx("Ocurrió una excepción al calcular el saldo Pendiente de Imputación: " + ex.Message)
+        End Try
+        '********************************************************
+
     End Sub
 
     Private Sub ListacuentascorrientesDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListacuentascorrientesDataGridView.CellContentClick
@@ -162,7 +179,9 @@ Public Class EstadoCuentaCorriente
         Select Case ListacuentascorrientesDataGridView.Columns(e.ColumnIndex).Name
             Case "saldo"
                 If IsDBNull(ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value) Then Return
-                If ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value <> 0 Then
+                Dim sdolocal As Decimal
+                sdolocal = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("saldo").Value
+                If sdolocal > 0 Then
                     gidventa = ListacuentascorrientesDataGridView.Rows(e.RowIndex).Cells("nro").Value
                     Dim p As CtasCtesPagar
                     p = New CtasCtesPagar
@@ -341,5 +360,9 @@ Public Class EstadoCuentaCorriente
         Catch ex As Exception
             MsgBox("Ha ocurrido una excepción: " + ex.Message)
         End Try
+    End Sub
+
+    Private Sub ListacuentascorrientesDataGridView_CancelRowEdit(sender As Object, e As QuestionEventArgs) Handles ListacuentascorrientesDataGridView.CancelRowEdit
+
     End Sub
 End Class
