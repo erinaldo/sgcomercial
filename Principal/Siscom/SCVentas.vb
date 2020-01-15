@@ -26,6 +26,11 @@
                     Cursor.Current = Cursors.WaitCursor
                     j.ShowDialog()
                     gidventaSC = Nothing
+                Case "CargarPago"
+                    gidventaSC = Nothing
+                    Dim kl As New SCCargarPago()
+                    kl.ShowDialog()
+
             End Select
         Catch ex As Exception
             Cursor.Current = Cursors.Default

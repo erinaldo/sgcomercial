@@ -3,6 +3,13 @@ Imports System
 Imports System.Data.SqlClient
 
 Module DBCModule
+    '*************************  VARIABLES **********************************************************
+    Public gCloudServer As String
+    Public gSCdbserverauth As String
+    Public gSCdbuserauth As String
+    Public gCloudUserid As String
+    Public gCloudPassword As String
+    Public gCloudDatabase As String
     '/************  BASE DE DATOS LOCAL  *******************************/
     Public comercialStrConn As String = "Data Source=localhost;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=1" 'LOCALHOST'
     Public comercialStrConn2 As String = "Data Source=SERVIDOR\SERVIDOR;Initial Catalog=comercial;Persist Security Info=True;User ID=sgcomercial;Password=sgcomercial*?;Connect Timeout=2" 'de terminal a SERVIDOR'
@@ -20,23 +27,17 @@ Module DBCModule
         Try
             Dim parametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
             parametrosgeneralesTableAdapter = New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
-            Dim server As String
-            Dim dbserverauth As String
-            Dim dbuserauth As String
-            Dim userid As String
-            Dim password As String
-            Dim database As String
+
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            server = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBSERVERWEB")
-            database = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBWEB")
-            userid = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBUSERWEB")
-            password = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBPWDWEB")
-            dbserverauth = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("dbserverauth")
-            dbuserauth = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("dbuserauth")
+            gCloudServer = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBSERVERWEB")
+            gCloudDatabase = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBWEB")
+            gCloudUserid = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBUSERWEB")
+            gCloudPassword = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("DBPWDWEB")
+            gSCdbserverauth = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("dbserverauth")
+            gSCdbuserauth = parametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("dbuserauth")
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            MySQLStrConn = "server=" + server + ";" + "user id=" + userid + ";" + "password=" + password + ";" + "database=" + database + ";persistsecurityinfo=True;Connect Timeout=25"
-            SCStrConn = "server=" + dbserverauth + ";" + "user id=" + dbuserauth + ";" + "password=" + password + ";database=sistema1_siscom;persistsecurityinfo=True;Connect Timeout=25"
-            gClowdServer = server
+            MySQLStrConn = "server=" + gCloudServer + ";" + "user id=" + gCloudUserid + ";" + "password=" + gCloudPassword + ";" + "database=" + gCloudDatabase + ";persistsecurityinfo=True;Connect Timeout=25"
+            SCStrConn = "server=" + gSCdbserverauth + ";" + "user id=" + gSCdbuserauth + ";" + "password=" + gCloudPassword + ";database=sistema1_siscom;persistsecurityinfo=True;Connect Timeout=25"
         Catch ex As Exception
             MsgBox("No se pudo Construir el string de conexión al servidor remoto: " + ex.Message, MsgBoxStyle.Information, "DBWEB")
             status = False

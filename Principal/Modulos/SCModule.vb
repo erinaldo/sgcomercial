@@ -18,7 +18,8 @@ Module SCModule
     Public LicenceValidDate As DateTime
     Public gTipoLicencia As String
     Public SCConn As MySqlConnection
-    Public gidventaSC
+    Public gidventaSC As Long
+    Public gidclienteSC As Long
     Public SCIdproducto As String
     Public SCProductoDescripcion As String
 

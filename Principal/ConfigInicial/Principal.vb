@@ -314,10 +314,14 @@ Public Class Principal
                 Return
             End If
             If Alerta2ToolStripMenuItem.Text = "Alerta2" Then
-                NotificacionesToolStripMenuItem.Visible = True
-                Alerta2ToolStripMenuItem.Visible = True
-                Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!"
-                Return
+                Try '' dudoso
+                    NotificacionesToolStripMenuItem.Visible = True
+                    Alerta2ToolStripMenuItem.Visible = True
+                    Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!"
+                    Return
+                Catch ex As Exception
+                    Return
+                End Try
             End If
         Else
             If Alerta1ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
@@ -1027,7 +1031,21 @@ Public Class Principal
         '        Me.Close()
         '    End If
         'End If
-
+        '====================   WEB CONFIG ==================
+        If (e.KeyCode = Keys.K AndAlso e.Control AndAlso e.Shift) Then
+            Dim su As SUAuth
+            su = New SUAuth
+            gSUToken = Nothing
+            su.ShowDialog()
+            If gSUToken = True Then
+                Dim conf As WebConf
+                conf = New WebConf
+                conf.ShowDialog()
+                Dim retrylogin = New loginform
+                Me.Hide()
+                retrylogin.Show()
+            End If
+        End If
         ''''''''''***************************   POR DEFECTO **************************************
         If (e.KeyCode = Keys.S AndAlso e.Control AndAlso e.Shift) Then
             For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items

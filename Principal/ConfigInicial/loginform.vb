@@ -229,7 +229,7 @@ Public Class loginform
                 BGWUpdateLicencia.RunWorkerAsync()
             End If
             '--------------------------------
-            LabelClowdInfo.Text = gClowdServer
+            LabelClowdInfo.Text = gCloudServer
             '********************************
         Else
             '********************************

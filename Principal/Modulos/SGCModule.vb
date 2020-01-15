@@ -54,7 +54,6 @@ Module SGCModule
     Public EmailPort As Integer
     Public gNombreComercio As String
     Public gPublicDocumentsPath As String
-    Public gClowdServer As String
     Public WaitingLicence As Boolean
     '************************************************
     Public FormPrincipal As Principal

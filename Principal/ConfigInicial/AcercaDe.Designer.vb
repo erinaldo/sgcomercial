@@ -40,6 +40,7 @@ Partial Class AcercaDe
         Me.LabelVencimiento = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -183,7 +184,9 @@ Partial Class AcercaDe
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.LinkLabel2)
         Me.GroupBox2.Controls.Add(Me.NombreCliente)
+        Me.GroupBox2.Controls.Add(Me.LinkLabel1)
         Me.GroupBox2.Controls.Add(Me.OKButton)
         Me.GroupBox2.Controls.Add(Me.IDCliente)
         Me.GroupBox2.Controls.Add(Me.Terminal)
@@ -197,7 +200,6 @@ Partial Class AcercaDe
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.LinkLabel1)
         Me.GroupBox3.Controls.Add(Me.LabelTipoLicencia)
         Me.GroupBox3.Controls.Add(Me.LabelVencimiento)
         Me.GroupBox3.Controls.Add(Me.Label8)
@@ -212,7 +214,7 @@ Partial Class AcercaDe
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(165, 91)
+        Me.LinkLabel1.Location = New System.Drawing.Point(408, 18)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(125, 17)
         Me.LinkLabel1.TabIndex = 5
@@ -266,6 +268,16 @@ Partial Class AcercaDe
         Me.Label7.TabIndex = 1
         Me.Label7.Text = "Tipo"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Location = New System.Drawing.Point(402, 48)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(131, 17)
+        Me.LinkLabel2.TabIndex = 6
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "Conexión a la Nube"
         '
         'AcercaDe
         '
@@ -323,4 +335,5 @@ Partial Class AcercaDe
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents LinkLabel2 As LinkLabel
 End Class

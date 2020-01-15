@@ -182,7 +182,8 @@ Public Class ABMProductos
                         If codigoORIGINAL <> codigoNUEVO Then
                             ProductosWEBTableAdapter.productos_updateestado("I", codigoORIGINAL)
                         End If
-                        MsgBox("Actualización correcta!", MsgBoxStyle.Information)
+                        'MsgBox("Actualización correcta!", MsgBoxStyle.Information)
+                        MsgInfo("Producto Actualizado Correctamente! [Clowd]")
                     Else
                         MsgBox("No se pudo actualizar el producto en la nube -" + MSGERROR + "-", vbExclamation, "Advertencia")
                         ErrorLog.errorlog_insertar("ABMProductos", "Aplicacion", "PushProducto", MSGERROR)
@@ -803,7 +804,7 @@ Public Class ABMProductos
                         Throw New Exception("No se pudo actualizar el producto en la nube -" + MSGERROR + "-")
                     End If
                 End If
-                MsgBox("Actualización correcta!", MsgBoxStyle.Information, "Mensaje")
+                MsgInfo("Producto Creado Correctamente! [Clowd]")
                 Me.ComercialDataSet.AcceptChanges()
                 ProductosTableAdapter.productos_estadoproducto("A", ProductosTableAdapter.productos_existeproducto(codigoNUEVO))
             End If

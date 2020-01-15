@@ -69,4 +69,9 @@
         SCMisComprobantes.ShowDialog()
 
     End Sub
+
+    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+        Dim lalala As New CloudConnInfo()
+        lalala.ShowDialog()
+    End Sub
 End Class

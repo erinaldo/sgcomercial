@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>20</ApplicationRevision>
-    <ApplicationVersion>4.1.0.20</ApplicationVersion>
+    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationVersion>4.1.0.22</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -226,6 +226,12 @@
       <DependentUpon>CldStockGeneral.vb</DependentUpon>
     </Compile>
     <Compile Include="Clowd\CldStockGeneral.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clowd\CloudConnInfo.Designer.vb">
+      <DependentUpon>CloudConnInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clowd\CloudConnInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clowd\MisSucursales.Designer.vb">
@@ -581,6 +587,12 @@
       <DependentUpon>WebConf.vb</DependentUpon>
     </Compile>
     <Compile Include="Principal\ParametrosGenerales\WebConf.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\Siscom\SCCargarPago.Designer.vb">
+      <DependentUpon>SCCargarPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\Siscom\SCCargarPago.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal\Siscom\SCListaProductos.Designer.vb">
@@ -1429,6 +1441,9 @@
     <EmbeddedResource Include="Clowd\CldStockGeneral.resx">
       <DependentUpon>CldStockGeneral.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clowd\CloudConnInfo.resx">
+      <DependentUpon>CloudConnInfo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clowd\MisSucursales.resx">
       <DependentUpon>MisSucursales.vb</DependentUpon>
     </EmbeddedResource>
@@ -1616,6 +1631,9 @@
       <DependentUpon>WebConf.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\Siscom\RepFacturaSC.rdlc" />
+    <EmbeddedResource Include="Principal\Siscom\SCCargarPago.resx">
+      <DependentUpon>SCCargarPago.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\Siscom\SCListaProductos.resx">
       <DependentUpon>SCListaProductos.vb</DependentUpon>
     </EmbeddedResource>

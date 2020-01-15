@@ -26,18 +26,19 @@ Partial Class SCventas
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LibroventasDataGridView = New System.Windows.Forms.DataGridView()
-        Me.idventas = New System.Windows.Forms.DataGridViewLinkColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VER = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SiscomDataSet = New sgcomercial.siscomDataSet()
         Me.LibroventasTableAdapter = New sgcomercial.siscomDataSetTableAdapters.libroventasTableAdapter()
         Me.TableAdapterManager = New sgcomercial.siscomDataSetTableAdapters.TableAdapterManager()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.RegistrarVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.idventas = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VER = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.CargarPago = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.LibroventasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibroventasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,7 +54,7 @@ Partial Class SCventas
         Me.GroupBox1.Controls.Add(Me.LibroventasDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(779, 435)
+        Me.GroupBox1.Size = New System.Drawing.Size(878, 435)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -68,14 +69,62 @@ Partial Class SCventas
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LibroventasDataGridView.AutoGenerateColumns = False
         Me.LibroventasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idventas, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.VER})
+        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idventas, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.VER, Me.CargarPago})
         Me.LibroventasDataGridView.DataSource = Me.LibroventasBindingSource
         Me.LibroventasDataGridView.Location = New System.Drawing.Point(16, 21)
         Me.LibroventasDataGridView.Name = "LibroventasDataGridView"
         Me.LibroventasDataGridView.ReadOnly = True
         Me.LibroventasDataGridView.RowTemplate.Height = 24
-        Me.LibroventasDataGridView.Size = New System.Drawing.Size(743, 391)
+        Me.LibroventasDataGridView.Size = New System.Drawing.Size(842, 391)
         Me.LibroventasDataGridView.TabIndex = 0
+        '
+        'LibroventasBindingSource
+        '
+        Me.LibroventasBindingSource.DataMember = "libroventas"
+        Me.LibroventasBindingSource.DataSource = Me.SiscomDataSet
+        '
+        'SiscomDataSet
+        '
+        Me.SiscomDataSet.DataSetName = "siscomDataSet"
+        Me.SiscomDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LibroventasTableAdapter
+        '
+        Me.LibroventasTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.clientessucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.licenciasTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.terminalesmodulosTableAdapter = Nothing
+        Me.TableAdapterManager.terminalesTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.siscomDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.AllowMerge = False
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(902, 28)
+        Me.MenuStrip1.TabIndex = 1
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'RegistrarVentaToolStripMenuItem
+        '
+        Me.RegistrarVentaToolStripMenuItem.Name = "RegistrarVentaToolStripMenuItem"
+        Me.RegistrarVentaToolStripMenuItem.Size = New System.Drawing.Size(121, 24)
+        Me.RegistrarVentaToolStripMenuItem.Text = "Registrar Venta"
         '
         'idventas
         '
@@ -131,59 +180,20 @@ Partial Class SCventas
         Me.VER.ToolTipText = "Ver/Imprimir"
         Me.VER.UseColumnTextForButtonValue = True
         '
-        'LibroventasBindingSource
+        'CargarPago
         '
-        Me.LibroventasBindingSource.DataMember = "libroventas"
-        Me.LibroventasBindingSource.DataSource = Me.SiscomDataSet
-        '
-        'SiscomDataSet
-        '
-        Me.SiscomDataSet.DataSetName = "siscomDataSet"
-        Me.SiscomDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LibroventasTableAdapter
-        '
-        Me.LibroventasTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.clientessucursalesTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.licenciasTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.terminalesmodulosTableAdapter = Nothing
-        Me.TableAdapterManager.terminalesTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.siscomDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.AllowMerge = False
-        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(803, 28)
-        Me.MenuStrip1.TabIndex = 1
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'RegistrarVentaToolStripMenuItem
-        '
-        Me.RegistrarVentaToolStripMenuItem.Name = "RegistrarVentaToolStripMenuItem"
-        Me.RegistrarVentaToolStripMenuItem.Size = New System.Drawing.Size(121, 24)
-        Me.RegistrarVentaToolStripMenuItem.Text = "Registrar Venta"
+        Me.CargarPago.HeaderText = ""
+        Me.CargarPago.Name = "CargarPago"
+        Me.CargarPago.ReadOnly = True
+        Me.CargarPago.Text = "CaragarPago"
+        Me.CargarPago.ToolTipText = "CaragarPago"
+        Me.CargarPago.UseColumnTextForButtonValue = True
         '
         'SCventas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(803, 474)
+        Me.ClientSize = New System.Drawing.Size(902, 474)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -213,12 +223,13 @@ Partial Class SCventas
     Friend WithEvents LibroventasTableAdapter As siscomDataSetTableAdapters.libroventasTableAdapter
     Friend WithEvents TableAdapterManager As siscomDataSetTableAdapters.TableAdapterManager
     Friend WithEvents LibroventasDataGridView As DataGridView
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents RegistrarVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents idventas As DataGridViewLinkColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents VER As DataGridViewButtonColumn
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents RegistrarVentaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CargarPago As DataGridViewButtonColumn
 End Class

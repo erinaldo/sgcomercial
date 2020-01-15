@@ -67,6 +67,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SynClientes()
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         '***************************************
         '********************** verificar conexion al servidor ************************
         '***************************************
@@ -170,6 +171,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub PullClienteWeb(ByRef idclienteweb As Long)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         '***************************************
         '********************** verificar conexion al servidor ************************
         '***************************************
@@ -270,6 +272,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SynPedidos(ByRef tipo As String)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         If tipo <> "APP" And tipo <> "WEB" Then
             MsgEx("Opción no disponible")
             Return
@@ -453,6 +456,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub UpdEstadoPedidoWeb(estado As String, idpedidoweb As Long)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         '***************************************
         '********************** verificar conexion al servidor ************************
         '***************************************
@@ -479,6 +483,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub PushProducto(ByVal codigoproducto As String, ByRef coderror As String, ByRef msgerror As String)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         If Not My.Computer.Network.IsAvailable Then
             MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
             Return
@@ -654,6 +659,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub PullProducto(ByVal codigoproducto As Long, ByRef coderror As String, ByRef msgerror As String)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         If Not My.Computer.Network.IsAvailable Then
             MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
             Return
@@ -769,6 +775,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub DescargarProductosClowd(ByRef coderror As String, ByRef msgerror As String)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         If Not My.Computer.Network.IsAvailable Then
             MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
             Return
@@ -993,6 +1000,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SubirProductosClowd(ByRef coderror As String, ByRef msgerror As String)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         If Not My.Computer.Network.IsAvailable Then
             MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
             Return
@@ -1009,6 +1017,8 @@ Module MySQLModule
             Return
         End If
         Try
+            My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
+            'MsgEx(MySQLStrConn)
             gProgressBarCounter = 0
             Dim ProductosTableAdapter As comercialDataSetTableAdapters.productosTableAdapter
             ProductosTableAdapter = New comercialDataSetTableAdapters.productosTableAdapter()
@@ -1018,9 +1028,10 @@ Module MySQLModule
             Dim SyncLogWEBTableAdapter As MySQLDataSetTableAdapters.synclogTableAdapter
             SyncLogWEBTableAdapter = New MySQLDataSetTableAdapters.synclogTableAdapter()
             '-----------------------------------------------------------------------------------
+            '-----------------------------------------------------------------------------------
             Dim ProductosTable As comercialDataSet.productosDataTable
             '-----------------------------------------------------------------------------------
-            ProductosTable = ProductosTableAdapter.GetData
+            ProductosTable = ProductosTableAdapter.GetData()
             '-------------------------------    barra de progreso----------------------------------------------------
             Dim p As SubirProductosClowd
             p = New SubirProductosClowd
@@ -1036,7 +1047,7 @@ Module MySQLModule
                     'Dim idproductolocal As Long
                     '-----------------------------------------------------------------------------------
                     idproductoweb = ProductosWEBTableAdapter.productos_existeproducto(ProductosTable.Rows(i).Item(1))
-                    ProductosTable = ProductosTableAdapter.GetData()
+                    'ProductosTable = ProductosTableAdapter.GetData()
                     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                     Dim codigoproducto As String
                     If IsDBNull(ProductosTable.Rows(i).Item(ProductosTable.Columns("codigoproducto"))) Then
@@ -1198,6 +1209,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub NeedSyncProductos()
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         If Not My.Computer.Network.IsAvailable Then
             MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
             Return
@@ -1243,6 +1255,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SynLibroVentas(ByRef coderror As String, ByRef msgerror As String)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
         ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
         If Not My.Computer.Network.IsAvailable Then
@@ -1379,6 +1392,10 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SynStockGeneral(ByRef coderror As String, ByRef msgerror As String)
+        '/*********************************************************************************/
+        '    procedimiento que actualiza TODO el stock LOCAL en la nube
+        '/*********************************************************************************/
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
         ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
         If Not My.Computer.Network.IsAvailable Then
@@ -1416,7 +1433,7 @@ Module MySQLModule
         End If
         'Dim maxidventas As Long
         '***************************************'***************************************'***************************************
-        '==========   sincronización del stock general ============================
+        '==========   sincronización del stock general local hacia la NUBE ============================
         '***************************************'***************************************'***************************************
         Try
             '-----------------------------------------------------
@@ -1477,6 +1494,10 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub SynStockClowd(ByRef idventa As Long, ByRef origen As String, ByRef coderror As String, ByRef msgerror As String)
+        '/*********************************************************************************/
+        '    procedimiento que actualiza el stock en la nube respecto a los movimientos de una venta,remito,ajuste
+        '/*********************************************************************************/
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
         ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
         If Not My.Computer.Network.IsAvailable Then
@@ -1577,6 +1598,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''
     Sub PushClientes()
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         Try
             '*************  errorlog    **************************************
             Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
@@ -1684,6 +1706,7 @@ Module MySQLModule
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Public Sub PushClientesDomicilios(ByVal idclientelocal As Long, ByRef nuevoidclienteweb As Long)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         '****clientesdomicilios local********
         Dim clientesdomiciliostableadapter As comercialDataSetTableAdapters.clientesdomiciliosTableAdapter
         clientesdomiciliostableadapter = New comercialDataSetTableAdapters.clientesdomiciliosTableAdapter()
