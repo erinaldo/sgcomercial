@@ -7,6 +7,8 @@
                     idformapago = 1
                 Case "Débito"
                     idformapago = 2
+                Case "Tarjeta de Crédito"
+                    idformapago = 3
                 Case Else
                     Return
                     'idformapago = 0

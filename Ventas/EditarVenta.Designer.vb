@@ -69,7 +69,7 @@ Partial Class EditarVenta
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Efectivo", "Débito"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Efectivo", "Débito", "Tarjeta de Crédito"})
         Me.ComboBox1.Location = New System.Drawing.Point(141, 34)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(228, 24)

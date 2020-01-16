@@ -95,8 +95,8 @@ Public Class RegistrarVenta
         ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
-        gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
-        If gModuloClowd = 1 Then
+        gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+        If gModuloCloud = 1 Then
             NeedSyncProductos()
         End If
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -574,7 +574,7 @@ Public Class RegistrarVenta
             '=================== RESETAR CONTROLES  ================================
             resetearcontroles()
             '=================== FUNCIONES CLOWD NUBE  ================================
-            If gModuloClowd = 1 Then
+            If gModuloCloud = 1 Then
                 gidventa = idventas
                 If Not BGWStockClowd.IsBusy Then
                     BGWStockClowd.RunWorkerAsync()

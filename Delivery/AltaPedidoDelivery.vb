@@ -392,7 +392,7 @@ Public Class AltaPedidoDelivery
         End Try
         '****** FIN REGISTRAR VENTA **********
         '=================== FUNCIONES CLOWD NUBE  ================================
-        If gModuloClowd = 1 Then
+        If gModuloCloud = 1 Then
             BGWStockClowd.RunWorkerAsync()
             If Not (BackgroundSyncLibroventasClowd.IsBusy) Then
                 BackgroundSyncLibroventasClowd.RunWorkerAsync()

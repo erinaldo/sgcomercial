@@ -40,7 +40,7 @@ Module SGCModule
     Public gprovinciaseleccionada As Int64
     Public gFechaSeleccionada As DateTime
     Public gpagocombinadoconfirmado As Boolean
-    Public gModuloClowd As Long
+    Public gModuloCloud As Long
     Public gModuloPedidosWeb As Long
     Public gModuloPedidosMovil As Long
     Public gMiFranquicia As Long
@@ -1323,12 +1323,12 @@ and v.idtipocomprobante = tc.idtipocomprobante
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
         Try
-            gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+            gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
             gModuloPedidosWeb = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosWeb")
             gModuloPedidosMovil = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosMovil")
             gMiFranquicia = ModulosTableAdapter.modulos_consultarestado("ModuloFranquicia")
         Catch ex As Exception
-            gModuloClowd = 0
+            gModuloCloud = 0
             gModuloPedidosWeb = 0
             gModuloPedidosMovil = 0
             gMiFranquicia = 0

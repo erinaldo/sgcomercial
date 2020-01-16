@@ -98,8 +98,8 @@ Public Class ingresoegresoproductos
                 textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
                 FormPrincipal.reloadstock()
                 '=======================================================
-                '=================== FUNCIONES CLOWD NUBE  ================================
-                If gModuloClowd = 1 Then
+                '=================== FUNCIONES CLOUD NUBE  ================================
+                If gModuloCloud = 1 Then
                     BGWStockClowd.RunWorkerAsync()
                 End If
                 '=================== --------------------------  ================================

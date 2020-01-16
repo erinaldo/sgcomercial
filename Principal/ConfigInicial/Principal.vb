@@ -63,7 +63,7 @@ Public Class Principal
             BGWAlertas.RunWorkerAsync()
         End If
         '================= BACKGROUND WORKERS   ==========================
-        If gModuloClowd = 1 Then
+        If gModuloCloud = 1 Then
             'BackgroundSyncLibroventasClowd.RunWorkerAsync()
             'BGWStock.RunWorkerAsync()
         End If
@@ -1334,7 +1334,7 @@ Public Class Principal
     End Sub
 
     Private Sub SincronizarClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SincronizarClientesToolStripMenuItem.Click
-        If gModuloClowd = 1 Then
+        If gModuloCloud = 1 Then
             BGWClientes.RunWorkerAsync()
         End If
     End Sub

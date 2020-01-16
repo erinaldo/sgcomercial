@@ -23,7 +23,9 @@ Partial Class SCventas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LibroventasDataGridView = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -37,6 +39,8 @@ Partial Class SCventas
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VER = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.CargarPago = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,7 +59,7 @@ Partial Class SCventas
         Me.GroupBox1.Controls.Add(Me.LibroventasDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(878, 435)
+        Me.GroupBox1.Size = New System.Drawing.Size(1008, 564)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -70,13 +74,13 @@ Partial Class SCventas
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LibroventasDataGridView.AutoGenerateColumns = False
         Me.LibroventasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idventas, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.VER, Me.CargarPago, Me.idcliente})
+        Me.LibroventasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idventas, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.importe, Me.saldo, Me.VER, Me.CargarPago, Me.idcliente})
         Me.LibroventasDataGridView.DataSource = Me.LibroventasBindingSource
         Me.LibroventasDataGridView.Location = New System.Drawing.Point(16, 21)
         Me.LibroventasDataGridView.Name = "LibroventasDataGridView"
         Me.LibroventasDataGridView.ReadOnly = True
         Me.LibroventasDataGridView.RowTemplate.Height = 24
-        Me.LibroventasDataGridView.Size = New System.Drawing.Size(842, 391)
+        Me.LibroventasDataGridView.Size = New System.Drawing.Size(972, 520)
         Me.LibroventasDataGridView.TabIndex = 0
         '
         'MenuStrip1
@@ -86,7 +90,7 @@ Partial Class SCventas
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(902, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1032, 28)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -118,6 +122,7 @@ Partial Class SCventas
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.licenciasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.productosTableAdapter = Nothing
         Me.TableAdapterManager.terminalesmodulosTableAdapter = Nothing
@@ -130,8 +135,8 @@ Partial Class SCventas
         'idventas
         '
         Me.idventas.DataPropertyName = "idventas"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.idventas.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.idventas.DefaultCellStyle = DataGridViewCellStyle4
         Me.idventas.HeaderText = "N°"
         Me.idventas.Name = "idventas"
         Me.idventas.ReadOnly = True
@@ -170,6 +175,28 @@ Partial Class SCventas
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
+        'importe
+        '
+        Me.importe.DataPropertyName = "importe"
+        DataGridViewCellStyle5.Format = "C2"
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.importe.DefaultCellStyle = DataGridViewCellStyle5
+        Me.importe.HeaderText = "Importe"
+        Me.importe.Name = "importe"
+        Me.importe.ReadOnly = True
+        Me.importe.ToolTipText = "Importe"
+        '
+        'saldo
+        '
+        Me.saldo.DataPropertyName = "saldo"
+        DataGridViewCellStyle6.Format = "C2"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.saldo.DefaultCellStyle = DataGridViewCellStyle6
+        Me.saldo.HeaderText = "Saldo"
+        Me.saldo.Name = "saldo"
+        Me.saldo.ReadOnly = True
+        Me.saldo.ToolTipText = "Saldo"
+        '
         'VER
         '
         Me.VER.HeaderText = "Ver/Imprimir"
@@ -202,7 +229,7 @@ Partial Class SCventas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(902, 474)
+        Me.ClientSize = New System.Drawing.Size(1032, 603)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -239,6 +266,8 @@ Partial Class SCventas
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents importe As DataGridViewTextBoxColumn
+    Friend WithEvents saldo As DataGridViewTextBoxColumn
     Friend WithEvents VER As DataGridViewButtonColumn
     Friend WithEvents CargarPago As DataGridViewButtonColumn
     Friend WithEvents idcliente As DataGridViewTextBoxColumn

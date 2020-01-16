@@ -4,7 +4,7 @@
     End Sub
 
     Private Sub ConsultaStockRemotoProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If gModuloClowd = 1 Then
+        If gModuloCloud = 1 Then
             ConsultaRemota()
         Else
             ConsultaLocal()

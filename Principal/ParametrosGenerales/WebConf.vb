@@ -48,7 +48,7 @@
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
         Try
-            gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+            gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
         Catch ex As Exception
             Return
         End Try
@@ -95,7 +95,7 @@
                 MsgBox(ex.Message, vbExclamation, "No se puede conectar con la NUBE")
             End Try
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            If gModuloClowd = 1 Then
+            If gModuloCloud = 1 Then
                 Try
                     'Dim CheckConnection As MySqlConnection
                     'CheckConnection = New MySqlConnection

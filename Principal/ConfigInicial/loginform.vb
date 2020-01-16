@@ -133,7 +133,7 @@ Public Class loginform
                 Return
             End Try
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            If gModuloClowd = 1 Then
+            If gModuloCloud = 1 Then
                 Try
                     'Dim CheckConnection As MySqlConnection
                     'CheckConnection = New MySqlConnection

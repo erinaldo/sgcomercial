@@ -33,12 +33,12 @@ Public Class ADModulos
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
         Try
-            gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+            gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
             gModuloPedidosWeb = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosWeb")
             gModuloPedidosMovil = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosMovil")
             gMiFranquicia = ModulosTableAdapter.modulos_consultarestado("ModuloFranquicia")
         Catch ex As Exception
-            gModuloClowd = 0
+            gModuloCloud = 0
             gModuloPedidosWeb = 0
             gModuloPedidosMovil = 0
             gMiFranquicia = 0

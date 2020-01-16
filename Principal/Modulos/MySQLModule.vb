@@ -2,6 +2,8 @@
 
 Module MySQLModule
     '*************************  VARIABLES **********************************************************
+    Public LastSyncLocalProductos As DateTime
+    Public LastSyncRemoteProductos As DateTime
     'Dim da As MySqlDataAdapter
     Dim da As MySQLDataSetTableAdapters.clientesTableAdapter
     Dim ds As MySQLDataSet
@@ -1208,6 +1210,20 @@ Module MySQLModule
 
     End Sub
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Public Sub LoadGlobalsLastSyncProductos()
+        Try
+            If gModuloCloud = 1 Then
+                Dim SyncLogTableAdapter As comercialDataSetTableAdapters.synclogTableAdapter
+                SyncLogTableAdapter = New comercialDataSetTableAdapters.synclogTableAdapter()
+                Dim SyncLogWEBTableAdapter As MySQLDataSetTableAdapters.synclogTableAdapter
+                SyncLogWEBTableAdapter = New MySQLDataSetTableAdapters.synclogTableAdapter()
+                '--------------------------------------------------------------------------
+                LastSyncLocalProductos = SyncLogTableAdapter.synclog_lastsync("productos")
+                LastSyncRemoteProductos = SyncLogWEBTableAdapter.synclog_lastsync("productos")
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
     Public Sub NeedSyncProductos()
         My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         If Not My.Computer.Network.IsAvailable Then
@@ -1227,19 +1243,17 @@ Module MySQLModule
             Dim SyncLogWEBTableAdapter As MySQLDataSetTableAdapters.synclogTableAdapter
             SyncLogWEBTableAdapter = New MySQLDataSetTableAdapters.synclogTableAdapter()
             '--------------------------------------------------------------------------
-            Dim LastSyncLocal As DateTime
-            Dim LastSyncRemote As DateTime
-            LastSyncLocal = SyncLogTableAdapter.synclog_lastsync("productos")
-            LastSyncRemote = SyncLogWEBTableAdapter.synclog_lastsync("productos")
+            LastSyncLocalProductos = SyncLogTableAdapter.synclog_lastsync("productos")
+            LastSyncRemoteProductos = SyncLogWEBTableAdapter.synclog_lastsync("productos")
             '--------------------------------------------------------------------------
-            If LastSyncLocal < LastSyncRemote Then
+            If LastSyncLocalProductos < LastSyncRemoteProductos Then
                 Dim coderror As Int16
                 Dim msgerror As String = ""
                 MySQLModule.DescargarProductosClowd(coderror, msgerror)
                 If coderror > 0 Then
                     MsgBox("No se pudo descargar el listado de productos de la nube: " + msgerror)
                 Else
-                    SyncLogTableAdapter.synclog_update(1, LastSyncRemote, gmacadress, gusername, "productos")
+                    SyncLogTableAdapter.synclog_update(1, LastSyncRemoteProductos, gmacadress, gusername, "productos")
                 End If
             End If
         Catch ex As Exception

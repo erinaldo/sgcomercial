@@ -132,7 +132,7 @@
                 '=================== REMITO REGISTRADO CORRECTAMENTE ================================
                 '=======================================================
                 '=================== FUNCIONES CLOWD NUBE  ================================
-                If gModuloClowd = 1 Then
+                If gModuloCloud = 1 Then
                     gidremito = idremito
                     BGWStockClowd.RunWorkerAsync()
                 End If

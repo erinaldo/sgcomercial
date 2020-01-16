@@ -33,7 +33,7 @@ Public Class ABMProductos
         ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
-        gModuloClowd = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+        gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         enableedit(False)
         enablefilter(True)
@@ -174,7 +174,7 @@ Public Class ABMProductos
                     End Try
                 End If
                 '/*******************************************************************/
-                If gModuloClowd = 1 Then
+                If gModuloCloud = 1 Then
                     PushProducto(codigoNUEVO, CODERROR, MSGERROR)
                     If CODERROR = 0 Then
                         Dim ProductosWEBTableAdapter As MySQLDataSetTableAdapters.productosTableAdapter
@@ -796,7 +796,7 @@ Public Class ABMProductos
         Try
             Me.ProductosBindingSource.EndEdit()
             If Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet) Then
-                If gModuloClowd = 1 Then
+                If gModuloCloud = 1 Then
                     Dim CODERROR As Long
                     Dim MSGERROR As String = ""
                     PushProducto(codigoNUEVO, CODERROR, MSGERROR)
@@ -952,7 +952,7 @@ Public Class ABMProductos
                             ProductosDataGridView.FirstDisplayedScrollingRowIndex = fdsp
                             ProductosDataGridView.Rows(e.RowIndex).Selected = True
                             '/**************************    UPDATE EN LA NUBE *****************************************/
-                            If gModuloClowd = 1 And gIsOnline = True Then
+                            If gModuloCloud = 1 And gIsOnline = True Then
                                 Dim ProductosWEBTableAdapter As New MySQLDataSetTableAdapters.productosTableAdapter()
                                 ProductosWEBTableAdapter.productos_updateestado(ProductosDataGridView.Rows(e.RowIndex).Cells("estado").Value, codigoproducto)
                             End If
@@ -1051,6 +1051,23 @@ Public Class ABMProductos
                 End Try
                 'End If
             End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub ToolStripTextBoxCantidad_Click(sender As Object, e As EventArgs) Handles ToolStripTextBoxCantidad.Click
+
+    End Sub
+
+    Private Sub ToolStripTextBoxCantidad_DoubleClick(sender As Object, e As EventArgs) Handles ToolStripTextBoxCantidad.DoubleClick
+        Try
+            If gModuloCloud = 0 Then
+                MsgEx("Servicios en la Nube Desactivados!")
+                Return
+            End If
+            LoadGlobalsLastSyncProductos()
+            MsgInfo("Versión local: " + LastSyncLocalProductos.ToString + " | Versión Nube: " + LastSyncRemoteProductos.ToString)
         Catch ex As Exception
 
         End Try
