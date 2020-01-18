@@ -197,6 +197,7 @@ Partial Class RegistrarVenta
         Me.otimporta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.oteliminar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.BGWReloadStock = New System.ComponentModel.BackgroundWorker()
         IdclienteLabel = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
@@ -2068,4 +2069,5 @@ Partial Class RegistrarVenta
     Friend WithEvents otimporta As DataGridViewTextBoxColumn
     Friend WithEvents oteliminar As DataGridViewButtonColumn
     Friend WithEvents DataGridViewOT As DataGridView
+    Friend WithEvents BGWReloadStock As System.ComponentModel.BackgroundWorker
 End Class

@@ -295,6 +295,8 @@ Module MySQLModule
         Try ' COMIENZA LA SYNC
             '***********************
             ds = New MySQLDataSet
+            '****   ProductosTableAdapter  ******** LOCAL
+            Dim ProductosTableAdapter As New comercialDataSetTableAdapters.productosTableAdapter()
             '****   PedidosDeliveryWEBTableAdapter  ******** WEB
             Dim PedidosDeliveryWEBTableAdapter As MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter
             PedidosDeliveryWEBTableAdapter = New MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter()
@@ -314,9 +316,9 @@ Module MySQLModule
             VentasDetalleTableAdapter = New comercialDataSetTableAdapters.ventasdetalleTableAdapter()
             '****   -----   *********
             '****   PedidosDeliveryDetalleWEBTableAdapter  ******** WEB
-            Dim PedidosDeliveryDetalleWEBTableAdapter As MySQLDataSetTableAdapters.pedidosdeliverydetalleTableAdapter
-            PedidosDeliveryDetalleWEBTableAdapter = New MySQLDataSetTableAdapters.pedidosdeliverydetalleTableAdapter()
-            Dim PedidosDeliveryDetalleWEBTable As MySQLDataSet.pedidosdeliverydetalleDataTable
+            Dim PedidosDeliveryDetalleWEBTableAdapter As MySQLDataSetTableAdapters.pedidosdeliverydetallecodTableAdapter
+            PedidosDeliveryDetalleWEBTableAdapter = New MySQLDataSetTableAdapters.pedidosdeliverydetallecodTableAdapter()
+            Dim PedidosDeliveryDetalleWEBTable As MySQLDataSet.pedidosdeliverydetallecodDataTable
             '****   ----    ********
             '****   PedidosDeliveryWEBTableAdapter  ******** LOCAL
             Dim PedidosDeliveryDetalleTableAdapter As comercialDataSetTableAdapters.pedidosdeliverydetalleTableAdapter
@@ -355,7 +357,7 @@ Module MySQLModule
                         Dim idventaweb As Long = Nothing
                     End If
                     '*****************************
-                    Dim pagoesperado As Decimal ''' = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)
+                    Dim pagoesperado As Decimal '' = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)
                     If IsDBNull(PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)) = False Then
                         pagoesperado = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.idventawebColumn)
                     Else
@@ -367,6 +369,14 @@ Module MySQLModule
                     Dim iddomicilioweb As Long = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.iddomicilioColumn)
 
                     Dim fechaalta As DateTime = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.fechaaltaColumn)
+                    '*****************************
+                    Dim obs As String '' = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)
+                    If IsDBNull(PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.obsColumn)) = False Then
+                        obs = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.obsColumn)
+                    Else
+                        obs = Nothing
+                    End If
+                    '/**************** FIN CARGA DE VARIABLES ****************/
                     Dim idpedidodeliverylocal As Long = 0
                     Dim idclientelocal As Long = 0
                     Dim idclientedomiciliolocal As Long = 0
@@ -390,13 +400,15 @@ Module MySQLModule
                     End If
                     'obtengo el detalle del pedido web
                     PedidosDeliveryDetalleWEBTable = PedidosDeliveryDetalleWEBTableAdapter.GetDataByIdpedidodeliveryweb(idpedidosdeliveryweb)
+                    '****************   INSERTAR PEDIDO WEB A LOCAL **************
                     Dim NvoPedido
-                    NvoPedido = PedidosDeliveryTableAdapter.pedidosdelivery_insertfromweb(idclientelocal, Nothing, idtransporte, idclientedomiciliolocal, pagoesperado, fechaalta, "usuarioweb", "RECIBIDO", idpedidosdeliveryweb)
+                    NvoPedido = PedidosDeliveryTableAdapter.pedidosdelivery_insertfromweb(idclientelocal, Nothing, idtransporte, idclientedomiciliolocal, pagoesperado, fechaalta, "usuarioweb", "RECIBIDO", idpedidosdeliveryweb, tipo, obs)
                     '****************   REGISTRO EL DETALLE DEL PEDIDO  **************
                     For j = 0 To PedidosDeliveryDetalleWEBTable.Rows.Count - 1
                         Dim idpedidodeliverydetalleweb As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idpedidosdeliverydetallewebColumn)
                         'Dim idventa As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idpedidosdeliverydetallewebColumn)
-                        Dim idproducto As Long = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.idproductoColumn)
+                        Dim codigoproducto = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.codigoproductoColumn)
+                        Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(codigoproducto)
                         Dim cantidad As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.cantidadColumn)
                         Dim precioventa As Decimal = PedidosDeliveryDetalleWEBTable.Rows(j).Item(PedidosDeliveryDetalleWEBTable.precioventaColumn)
                         '*****************************

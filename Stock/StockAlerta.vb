@@ -91,6 +91,12 @@ Public Class StockAlerta
                 Me.WindowState = FormWindowState.Normal
             End If
         End If
+        If e.KeyCode = Keys.F5 Then
+            Me.Cursor = Cursors.WaitCursor
+            reloadstock()
+            Me.Cursor = Cursors.Default
+        End If
+
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
     End Sub
 End Class

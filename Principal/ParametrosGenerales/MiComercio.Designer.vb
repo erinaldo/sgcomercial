@@ -364,6 +364,7 @@ Partial Class MiComercio
         'TableAdapterManager
         '
         Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -376,6 +377,10 @@ Partial Class MiComercio
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
@@ -393,6 +398,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
         Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
@@ -772,7 +778,7 @@ Partial Class MiComercio
         '
         Me.ComboFEAutoCAEAFIP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboFEAutoCAEAFIP.FormattingEnabled = True
-        Me.ComboFEAutoCAEAFIP.Items.AddRange(New Object() {"SI", "NO"})
+        Me.ComboFEAutoCAEAFIP.Items.AddRange(New Object() {"SI", "NO", "INTERCALAR"})
         Me.ComboFEAutoCAEAFIP.Location = New System.Drawing.Point(137, 27)
         Me.ComboFEAutoCAEAFIP.Name = "ComboFEAutoCAEAFIP"
         Me.ComboFEAutoCAEAFIP.Size = New System.Drawing.Size(112, 24)

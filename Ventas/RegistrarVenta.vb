@@ -569,6 +569,30 @@ Public Class RegistrarVenta
                         End If
                     End If
                 End If
+                If GFEAUTOCAEAFIP = "INTERCALAR" Then
+                    Dim facturar As String
+                    facturar = VentasTableAdapter.ventas_FEAutoCAEAFIP
+                    If facturar = "SI" And Idtipocomprobantecombo.SelectedValue > 1 Then
+                        Dim FECAERequest As New WSFEV1.FECAERequest()
+                        Dim TRA As String = Nothing
+                        Dim StrError As StrError
+                        '========================================================================================
+                        '       generacion TRA
+                        '========================================================================================
+                        StrError = GenTRA(TRA)
+                        If StrError.CodError > 1 Then
+                            MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        Else
+                            '========================================================================================
+                            '       Generación Factura Electrónica
+                            '========================================================================================
+                            StrError = FECAELoadRequest(idventas, FECAERequest)
+                            If StrError.CodError > 0 Then
+                                MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            End If
+                        End If
+                    End If
+                End If
             End If
             '================================================================================================================================
             '=================== RESETAR CONTROLES  ================================
@@ -619,7 +643,10 @@ Public Class RegistrarVenta
                     End If
             End Select
             gidventa = Nothing
-            FormPrincipal.reloadstock()
+            'FormPrincipal.reloadstock()
+            If Not FormPrincipal.BGWAlertas.IsBusy Then
+                FormPrincipal.BGWAlertas.RunWorkerAsync()
+            End If
             labeltotal.Text = ""
             LabelTotalVisible.Text = "$"
             idformapagocombo.Enabled = False

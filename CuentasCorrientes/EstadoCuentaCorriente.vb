@@ -3,7 +3,7 @@
 Public Class EstadoCuentaCorriente
     Private Sub EstadoCuentaCorriente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pagos' Puede moverla o quitarla según sea necesario.
-        Me.PagosTableAdapter.Fill(Me.ComercialDataSet.pagos)
+        'Me.PagosTableAdapter.Fill(Me.ComercialDataSet.pagos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.ventas' Puede moverla o quitarla según sea necesario.
         'Me.VentasTableAdapter.Fill(Me.ComercialDataSet.ventas)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listacuentascorrientes' Puede moverla o quitarla según sea necesario.
@@ -53,11 +53,20 @@ Public Class EstadoCuentaCorriente
         IdclienteTextBox.Text = gclienteseleccionado.ToString
         filtrarcliente()
     End Sub
+    Private Sub limpiartotales()
+        LabelSaldoPI.Text = ""
+        Labeltotaldebe.Text = ""
+        Labeltotalhaber.Text = ""
+        Labeltotalgeneral.Text = ""
+        LabelTipoSaldo.Text = "-----"
+        LabelTipoSaldo.ForeColor = Color.Black
+        Labeltotalgeneral.ForeColor = Color.Black
+    End Sub
     Public Sub filtrarcliente()
         If gclienteseleccionado > 1 Then
+            limpiartotales()
             Try
                 Me.Cursor = Cursors.WaitCursor
-                'Me.ListacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.listacuentascorrientes)
                 ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
                 ListacuentascorrientesTableAdapter.FillByidcliente(Me.ComercialDataSet.listacuentascorrientes, gclienteseleccionado)
                 '********************************************************
@@ -65,7 +74,7 @@ Public Class EstadoCuentaCorriente
                 Me.Cursor = Cursors.Default
             Catch ex As Exception
                 Me.Cursor = Cursors.Default
-                MsgBox("Ocurrió una excepción al buscar la información del cliente: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia!")
+                MsgEx("Ocurrió una excepción al buscar la información del cliente: " + ex.Message)
                 ClientesBindingSource.Filter = "idcliente = " + "0"
                 'LabelSaldoPI.Text = Nothing
             End Try
@@ -89,7 +98,7 @@ Public Class EstadoCuentaCorriente
             ListacuentascorrientesTableAdapter.FillByidcliente(Me.ComercialDataSet.listacuentascorrientes, gclienteseleccionado)
             'ListacuentascorrientesBindingSource.Filter = "idcliente = " + "0"
 
-            MsgBox("Indique un cliente válido!", MsgBoxStyle.Exclamation)
+            MsgEx("Indique un cliente válido!")
 
         End If
     End Sub
