@@ -541,13 +541,20 @@ Public Class CambioMercaderiaVendida
             Try
                 If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigotextbox.Text), cantidadentrante, Today, guserid, "E", "Cambio Mercadería", 1) >= 0 Then
                     'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
-                    FormPrincipal.reloadstock()
-                    'ParentForm.reloadstock()
+                    '=======================================================
+                    If Not FormPrincipal.BGWAlertas.IsBusy Then
+                        FormPrincipal.BGWAlertas.RunWorkerAsync()
+                    End If
+                    '=======================================================
                 Else
                     MsgBox("No se pudo insertar el movimiento de entrada", MsgBoxStyle.Information, "Advertencia")
                     End If
-                    FormPrincipal.reloadstock()
-                Catch ex As Exception
+                '=======================================================
+                If Not FormPrincipal.BGWAlertas.IsBusy Then
+                    FormPrincipal.BGWAlertas.RunWorkerAsync()
+                End If
+                '=======================================================
+            Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
             '2_'************ QUITAR PRODUCTO NUEVO DEL stock   *******************************
@@ -559,12 +566,19 @@ Public Class CambioMercaderiaVendida
             Try
                 If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(TextBoxCodigoSaliente.Text), cantidadsaliente, Today, guserid, "S", "Cambio Mercadería", 1) >= 0 Then
                     'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
-                    FormPrincipal.reloadstock()
-                    'ParentForm.reloadstock()
+                    '=======================================================
+                    If Not FormPrincipal.BGWAlertas.IsBusy Then
+                        FormPrincipal.BGWAlertas.RunWorkerAsync()
+                    End If
+                    '=======================================================
                 Else
                     MsgBox("No se pudo insertar el movimiento de salida", MsgBoxStyle.Information, "Advertencia")
                 End If
-                FormPrincipal.reloadstock()
+                '=======================================================
+                If Not FormPrincipal.BGWAlertas.IsBusy Then
+                    FormPrincipal.BGWAlertas.RunWorkerAsync()
+                End If
+                '=======================================================
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try

@@ -1312,6 +1312,7 @@ and v.idtipocomprobante = tc.idtipocomprobante
     Public Sub MsgEx(ByRef msg As String)
         MessageBox.Show(msg, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
     End Sub
+
     Public Function MsgQues(ByRef msg As String) As Boolean
         If MessageBox.Show(msg, "Pregunta!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             Return True
@@ -1319,11 +1320,51 @@ and v.idtipocomprobante = tc.idtipocomprobante
             Return False
         End If
     End Function
+    Public Sub MsgInfoPopUp(ByRef msg As String)
+        Try
+            Dim xd As frmAlert = New frmAlert
+            Dim codalerta As String = Nothing
+            xd.setAlert(msg, codalerta, frmAlert.alertTypeEnum.Info)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Public Sub MsgSuccessPopUp(ByRef msg As String)
+        Try
+            Dim xd As frmAlert = New frmAlert
+            Dim codalerta As String = Nothing
+            xd.setAlert(msg, codalerta, frmAlert.alertTypeEnum.Success)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Public Sub MsgExPopUp(ByRef msg As String)
+        Try
+            Dim xd As frmAlert = New frmAlert
+            Dim codalerta As String = Nothing
+            xd.setAlert(msg, codalerta, frmAlert.alertTypeEnum.Warning)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Public Sub MsgErrPopUp(ByRef msg As String)
+        Try
+            Dim xd As frmAlert = New frmAlert
+            Dim codalerta As String = Nothing
+            xd.setAlert(msg, codalerta, frmAlert.alertTypeEnum.Err)
+        Catch ex As Exception
+
+        End Try
+    End Sub
     Public Sub CheckModulesAuth()
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
         Try
             gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+            If gModuloCloud = 1 Then
+                'ModulosTableAdapter.modulos_habilitar("ModuloCloud")
+            End If
+            gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloCloud")
             gModuloPedidosWeb = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosWeb")
             gModuloPedidosMovil = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosMovil")
             gMiFranquicia = ModulosTableAdapter.modulos_consultarestado("ModuloFranquicia")

@@ -462,7 +462,7 @@ Module MySQLModule
                     Next
                 Next
             End If
-            MessageBox.Show("Se han sincronizado [" + PedidosDeliveryWEBTable.Rows.Count.ToString + "] pedidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MsgSuccessPopUp("Se han sincronizado [" + PedidosDeliveryWEBTable.Rows.Count.ToString + "] pedidos")
         Catch ex As Exception
             ErrorLogTableAdapter.errorlog_insertar("SynPedidos", "DATOS", "SynPedidos", "No se pudo completar la Sincronización de PEDIDOS: " + ex.Message)
             MsgBox("Advertencia! " + ex.Message, MsgBoxStyle.Exclamation)

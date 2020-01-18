@@ -33,7 +33,7 @@ Public Class ABMProductos
         ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
-        gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+        gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloCloud")
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         enableedit(False)
         enablefilter(True)
@@ -201,7 +201,9 @@ Public Class ABMProductos
         enableedit(False)
         stockinicialtextbox.Enabled = False
         enablefilter(True)
-        FormPrincipal.reloadstock()
+        If Not FormPrincipal.BGWAlertas.IsBusy Then
+            FormPrincipal.BGWAlertas.RunWorkerAsync()
+        End If
         '*************************
         editbtn.Visible = True
         BindingNavigatorAddNewItem.Visible = True
@@ -862,7 +864,10 @@ Public Class ABMProductos
         enableedit(False)
         stockinicialtextbox.Enabled = False
         enablefilter(True)
-        FormPrincipal.reloadstock()
+        '=======================================================
+        If Not FormPrincipal.BGWAlertas.IsBusy Then
+            FormPrincipal.BGWAlertas.RunWorkerAsync()
+        End If
         '*************************
         editbtn.Visible = True
         BindingNavigatorAddNewItem.Visible = True

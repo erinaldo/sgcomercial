@@ -48,7 +48,7 @@
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
         Try
-            gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+            gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloCloud")
         Catch ex As Exception
             Return
         End Try

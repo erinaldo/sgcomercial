@@ -96,7 +96,10 @@ Public Class ingresoegresoproductos
             If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text), cantidad, FechamovimientoDateTimePicker.Value.ToShortDateString, guserid, TipomovimientostockComboBox.SelectedValue, "Manual", ComboMotivoStock.SelectedValue) >= 0 Then
                 'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
                 textdisponible.Text = StockTableAdapter.stock_consultardisponible(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)).ToString
-                FormPrincipal.reloadstock()
+                '=======================================================
+                If Not FormPrincipal.BGWAlertas.IsBusy Then
+                    FormPrincipal.BGWAlertas.RunWorkerAsync()
+                End If
                 '=======================================================
                 '=================== FUNCIONES CLOUD NUBE  ================================
                 If gModuloCloud = 1 Then
@@ -111,11 +114,12 @@ Public Class ingresoegresoproductos
                 TextBoxEnvasado.Text = Nothing
                 ComboUnidad.SelectedIndex = -1
                 TextBoxMedida.Text = Nothing
+                MsgSuccessPopUp("Producto Cargado correctamente!")
                 nuevo()
             Else
                 MsgBox("No se pudo insertar el movimiento", MsgBoxStyle.Information, "Advertencia")
             End If
-            FormPrincipal.reloadstock()
+            '=======================================================
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -215,7 +219,7 @@ Public Class ingresoegresoproductos
             'CantidadTextBox.Text = ""
         End If
     End Sub
-    Private Sub enterkeydown()
+    Public Sub enterkeydown()
         If ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text) > 0 Then
             If ProductosTableAdapter.productos_consultarproductocompuesto(ProductosTableAdapter.productos_existeproducto(codigoproductoTextBox.Text)) = "S" Then
                 MsgBox("No se puede cargar stock de productos compuestos! debe cargar stock de sus componentes", MsgBoxStyle.Exclamation, "Advertencia")

@@ -545,6 +545,12 @@
     <Compile Include="Principal\ConfigInicial\DownloadForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Principal\ConfigInicial\frmAlert.Designer.vb">
+      <DependentUpon>frmAlert.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ConfigInicial\frmAlert.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Principal\ConfigInicial\LoadingForm.Designer.vb">
       <DependentUpon>LoadingForm.vb</DependentUpon>
     </Compile>
@@ -1609,6 +1615,9 @@
     <EmbeddedResource Include="Principal\ConfigInicial\DownloadForm.resx">
       <DependentUpon>DownloadForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Principal\ConfigInicial\frmAlert.resx">
+      <DependentUpon>frmAlert.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\ConfigInicial\LoadingForm.resx">
       <DependentUpon>LoadingForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -2315,6 +2324,14 @@
     <None Include="My Project\img\WebClowd.png" />
     <None Include="My Project\img\MobileClowd.png" />
     <None Include="My Project\img\CheckList.png" />
+    <None Include="My Project\img\Alert_exclamation.png" />
+    <None Include="My Project\img\Alert_check.png" />
+    <None Include="My Project\img\Alert_close.png" />
+    <None Include="My Project\img\Alert_information.png" />
+    <None Include="My Project\img\Alert_warning.png" />
+    <None Include="My Project\img\Alert_error.png" />
+    <None Include="My Project\img\Alert_warning_orange.png" />
+    <None Include="My Project\img\Alert_check_blue.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

@@ -95,7 +95,7 @@ Public Class RegistrarVenta
         ''''''''''''''''''''''''''''--CLOWD--''''''''''''''''''''''''''''''''''''''''''''''
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
-        gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+        gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloCloud")
         If gModuloCloud = 1 Then
             NeedSyncProductos()
         End If
@@ -647,9 +647,8 @@ Public Class RegistrarVenta
             If Not FormPrincipal.BGWAlertas.IsBusy Then
                 FormPrincipal.BGWAlertas.RunWorkerAsync()
             End If
-            labeltotal.Text = ""
-            LabelTotalVisible.Text = "$"
-            idformapagocombo.Enabled = False
+            '**********
+            'resetearcontroles()
             '**********
         Else
             Return
@@ -657,6 +656,7 @@ Public Class RegistrarVenta
     End Sub
     Private Sub resetearcontroles()
         codigotextbox.Text = ""
+        labeltotal.Text = ""
         BtnCancelar.Enabled = False
         BtnNueva.Enabled = True
         BtnConfirmar.Enabled = False
@@ -675,6 +675,7 @@ Public Class RegistrarVenta
         NrocomprobanteTextBox2.Text = ""
         FechavencimientoDateTimePicker.Value = Today
         FechavencimientoDateTimePicker.Enabled = False
+        idformapagocombo.Enabled = False
     End Sub
     Private Sub validardatos(ByRef valida As Boolean)
         '******************* valida carga de datos   *********************

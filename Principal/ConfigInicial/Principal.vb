@@ -5,6 +5,9 @@ Imports System.Net.Sockets
 Imports System.Runtime.InteropServices
 Imports System.Data.SqlClient
 Public Class Principal
+    Dim gNotificacionesAlertasTableAdapter As New comercialDataSetTableAdapters.notificacionesalertasTableAdapter()
+    Dim gNotificacionesAlertasDataTable As New comercialDataSet.notificacionesalertasDataTable
+    Dim CountAlertas As Long
     Dim xi As LoadingForm
     Dim permiso As Integer = 0
     Private Sub Principal_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
@@ -77,29 +80,18 @@ Public Class Principal
             ShowPopUp("Recuerda enviar el ultimo CIERRE DE CAJA!", 400)
         End If
     End Sub
-    Private Sub EjecutarAlertas()
+    Public Sub EjecutarAlertas()
         '====================================================================
         ''''''''''''''''''''''''''''''''''''''  ALERTASSSSSSSSSSSS '''''''''''''''''''''''''''''''''''''
-        '====================================================================
-        ''''''''''''''''''''''''''''''''''''''  ALERTA STOCK '''''''''''''''''''''''''''''''''''''
-        permiso = 0
-        permiso = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "StockParent")
-        If Not permiso = 0 Then
-            reloadstock()
-        End If
-        ''''''''''''''''''''''''''''''''''''''  ALERTA CUENTAS CORRIENTES '''''''''''''''''''''''''''''''''''''
-        permiso = 0
-        permiso = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "LibroCuentasCorrientes")
-        If Not permiso = 0 Then
-            AlertaCuentasCorrientes()
-        End If
-        '====================================================================
-        '====================================================================
-        If Alerta1ToolStripMenuItem.Text = "Alerta1" And Alerta2ToolStripMenuItem.Text = "Alerta2" Then
-            NotificacionesToolStripMenuItem.Visible = False
+        CountAlertas = gNotificacionesAlertasTableAdapter.notificacionesalertas_count()
+        NotificacionesToolStripMenuItem.Visible = True
+        If CountAlertas > 0 Then
+            NotificacionesToolStripMenuItem.Image = sgcomercial.My.Resources.Resources.Alert_warning_orange
         Else
-            NotificacionesToolStripMenuItem.Visible = True
+            NotificacionesToolStripMenuItem.Image = sgcomercial.My.Resources.Resources.Alert_check_blue
         End If
+        gNotificacionesAlertasDataTable = gNotificacionesAlertasTableAdapter.GetData
+        NotificacionesToolStripMenuItem.Text = "Notificaciones (" + CountAlertas.ToString + ")"
         '====================================================================
         ''''''''''''''''''''''''''''''''''''''  FIN '''''''''''''''''''''''''''''''''''''
         '====================================================================
@@ -130,9 +122,9 @@ Public Class Principal
     Public Sub cargapermisos()
         'If gReloadPermisos = True Then
         Try
-                Dim rtn As Integer
-                For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
-                    rtn = ModulosTableAdapter.modulos_habilitar(miitem.Tag)
+            Dim rtn As Integer
+            For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
+                rtn = ModulosTableAdapter.modulos_habilitar(miitem.Tag)
                 If rtn > 0 Then
                     ''''''''''''    MODULOS OCULTOS POR DEFECTO  '''''''''''''''''''''''''''
                     If miitem.Name = "NotificacionesToolStripMenuItem" Or miitem.Name = "PedidosWebToolStripMenuItem" Or miitem.Name = "PedidosMovilToolStripMenuItem" Then
@@ -147,12 +139,12 @@ Public Class Principal
                     miitem.Enabled = False
                 End If
             Next
-                ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
-                PermisoVtaCC = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "RegistrarVentaCuentaCorriente")
-                gReloadPermisos = False
-            Catch ex As Exception
-                MsgBox("Ocurrio un excepción mientras se realizaba la acción:" + ex.Message)
-            End Try
+            ''''''''''''''''''''''''''''''''''''''  Permiso Venta CC '''''''''''''''''''''''''''''''''''''
+            PermisoVtaCC = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "RegistrarVentaCuentaCorriente")
+            gReloadPermisos = False
+        Catch ex As Exception
+            MsgBox("Ocurrio un excepción mientras se realizaba la acción:" + ex.Message)
+        End Try
         'End If
 
 
@@ -201,142 +193,8 @@ Public Class Principal
         ParametrosgeneralesTableAdapter.FillByPrgclave(Me.ComercialDataSet.parametrosgenerales, "FondoAplicacion")
         FormPrincipal.BackgroundImage = PictureBox1.Image
     End Sub
-    Public Sub reloadstock()
-        '*************  errorlog    **************************************
-        Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
-        ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter
-        '*******************************************************************************
-        Try
-            Me.StockalertaTableAdapter.Fill(Me.ComercialDataSet.stockalerta)
-        Catch ex As Exception
-            Try
-                Dim myConnX As SqlConnection = New SqlConnection(gActiveSQLConnectionString)
-                Dim mycommand As New SqlCommand
-                myConnX.Open()
-                mycommand = New SqlCommand("update productos set medida = 1 where medida is null or medida = 0", myConnX)
-                mycommand.ExecuteNonQuery()
-                ErrorLogTableAdapter.errorlog_insertar("AlertasStock", "Aplicacion", "reloadstock", ex.Message)
-                myConnX.Close()
-                myConnX.Dispose()
-                'MsgBox("Ocurrio un problema al cargar las alertas de stock: " + ex.Message)
-            Catch ex2 As Exception
-                ErrorLogTableAdapter.errorlog_insertar("AlertasStock", "Aplicacion", "reloadstock-nivel2", ex2.Message)
-            End Try
-        End Try
 
-        '=========== VERIFICO SI HAY ALERTA ACTIVA
-        If Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!" Or Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
-            If DataGridViewStockAlerta.RowCount > 0 Then ' SI HAY PRODUCTOS EN ALERTA ENTONCES ESTA TODO OK... SALGO
-                Return
-            Else ' NO HAY PRODUCTOS EN ALERTA - reseteo los menues de alerta a cero e invisible
-                If Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
-                    Alerta1ToolStripMenuItem.Text = "Alerta1"
-                    Alerta1ToolStripMenuItem.Visible = False
-                    Alerta1ToolStripMenuItem.Enabled = False
-                    Return
-                End If
-                If Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
-                    Alerta2ToolStripMenuItem.Text = "Alerta2"
-                    Alerta2ToolStripMenuItem.Visible = False
-                    Alerta2ToolStripMenuItem.Enabled = False
-                    Return
-                End If
-            End If
 
-        End If
-        '=========== SETEO ALERTA - LAS ALERTAS ESTAN APAGADAS
-        If DataGridViewStockAlerta.RowCount > 0 Then
-            Try
-                If Alerta1ToolStripMenuItem.Text = "Alerta1" Then
-                    Alerta1ToolStripMenuItem.Visible = True
-                    NotificacionesToolStripMenuItem.Visible = True
-                    Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!"
-                    Return
-                End If
-                If Alerta2ToolStripMenuItem.Text = "Alerta2" Then
-                    NotificacionesToolStripMenuItem.Visible = True
-                    Alerta2ToolStripMenuItem.Visible = True
-                    Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!"
-                    Return
-                End If
-            Catch ex As Exception
-
-            End Try
-
-        Else
-            Try
-                If Alerta1ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
-                    Alerta1ToolStripMenuItem.Text = "Alerta1"
-                    Alerta1ToolStripMenuItem.Visible = True
-                    Return
-                End If
-                If Alerta2ToolStripMenuItem.Text = "Se necesita reponer productos!" Then
-                    Alerta2ToolStripMenuItem.Text = "Alerta2"
-                    Alerta2ToolStripMenuItem.Visible = True
-                    Return
-                End If
-            Catch ex As Exception
-
-            End Try
-        End If
-    End Sub
-    Public Sub AlertaCuentasCorrientes()
-        '==================
-        Try
-            Me.AlertacuentascorrientesTableAdapter.Fill(Me.ComercialDataSet.alertacuentascorrientes)
-        Catch ex As Exception
-            MsgBox("No se pudo cargar las alertas de Cuentas Corrientes: " + ex.Message)
-        End Try
-        '=========== VERIFICO SI HAY ALERTA ACTIVA
-        If Alerta1ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Or Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
-            If AlertacuentascorrientesDataGridView.RowCount > 0 Then ' SI HAY PRODUCTOS EN ALERTA ENTONCES ESTA TODO OK... SALGO
-                Return
-            Else ' NO HAY PRODUCTOS EN ALERTA - reseteo los menues de alerta a cero e invisible
-                If Alerta1ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
-                    Alerta1ToolStripMenuItem.Text = "Alerta1"
-                    Alerta1ToolStripMenuItem.Visible = False
-                    Return
-                End If
-                If Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
-                    Alerta2ToolStripMenuItem.Text = "Alerta2"
-                    Alerta2ToolStripMenuItem.Visible = False
-                    Return
-                End If
-            End If
-
-        End If
-        '=========== SETEO ALERTA - LAS ALERTAS ESTAN APAGADAS
-        If AlertacuentascorrientesDataGridView.RowCount > 0 Then
-            If Alerta1ToolStripMenuItem.Text = "Alerta1" Then
-                Alerta1ToolStripMenuItem.Visible = True
-                NotificacionesToolStripMenuItem.Visible = True
-                Alerta1ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!"
-                Return
-            End If
-            If Alerta2ToolStripMenuItem.Text = "Alerta2" Then
-                Try '' dudoso
-                    NotificacionesToolStripMenuItem.Visible = True
-                    Alerta2ToolStripMenuItem.Visible = True
-                    Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!"
-                    Return
-                Catch ex As Exception
-                    Return
-                End Try
-            End If
-        Else
-            If Alerta1ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
-                Alerta1ToolStripMenuItem.Text = "Alerta1"
-                Alerta1ToolStripMenuItem.Visible = True
-                Return
-            End If
-            If Alerta2ToolStripMenuItem.Text = "Revisar Cuentas Vencidas!" Then
-                Alerta2ToolStripMenuItem.Text = "Alerta2"
-                Alerta2ToolStripMenuItem.Visible = True
-                Return
-            End If
-        End If
-        '=============================
-    End Sub
 
     Private Sub GestionDeProductosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GestionDeProductosToolStripMenuItem.Click
 
@@ -852,34 +710,6 @@ Public Class Principal
     Private Sub ImportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
     End Sub
-
-
-    Private Sub Alerta1ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Alerta1ToolStripMenuItem.Click
-        Select Case Alerta1ToolStripMenuItem.Text
-            Case "Se necesita reponer productos!"
-                'Dim p As StockAlerta
-                'p = New StockAlerta
-                StockAlerta.ShowDialog()
-            Case "Revisar Cuentas Vencidas!"
-                Dim p As AlertaCuentasCorrientes
-                p = New AlertaCuentasCorrientes
-                p.ShowDialog()
-        End Select
-    End Sub
-    Private Sub Alerta2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Alerta2ToolStripMenuItem.Click
-        Select Case Alerta2ToolStripMenuItem.Text
-            Case "Se necesita reponer productos!"
-                'Dim p As StockAlerta
-                'p = New StockAlerta
-                StockAlerta.ShowDialog()
-            Case "Revisar Cuentas Vencidas!"
-                Dim p As AlertaCuentasCorrientes
-                p = New AlertaCuentasCorrientes
-                p.TopMost = True
-                p.ShowDialog()
-        End Select
-    End Sub
-
     'Private Sub Principal_Activated(sender As Object, e As EventArgs) Handles Me.Activated
     '    'holamundo?
     'End Sub
@@ -1095,7 +925,7 @@ Public Class Principal
         End If
     End Sub
 
-    Private Sub DescargarPedidosWEBToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+    Private Sub DescargarPedidosWEBToolStripMenuItem_Click(sender As Object, e As EventArgs)
         'Cursor.Current = Cursors.WaitCursor
         'SynClientes()
         'SynPedidos("TODOS")
@@ -1209,7 +1039,7 @@ Public Class Principal
         MsgBox("Temporalmente no disponible")
     End Sub
 
-    Private Sub BGWAlertas_DoWork(sender As Object, e As DoWorkEventArgs) 
+    Private Sub BGWAlertas_DoWork(sender As Object, e As DoWorkEventArgs)
 
     End Sub
 
@@ -1322,6 +1152,18 @@ Public Class Principal
     Private Sub BGWAlertas_DoWork_1(sender As Object, e As DoWorkEventArgs) Handles BGWAlertas.DoWork
         EjecutarAlertas()
     End Sub
+    Public Sub MostrarAlertas()
+        For i = 0 To gNotificacionesAlertasDataTable.Count
+            Try
+                Dim xd As frmAlert = New frmAlert
+                Dim msg As String = gNotificacionesAlertasDataTable.Rows(i).Item(gNotificacionesAlertasDataTable.msgalertaColumn)
+                Dim codalerta As String = gNotificacionesAlertasDataTable.Rows(i).Item(gNotificacionesAlertasDataTable.codalertaColumn)
+                xd.setAlert(msg, codalerta, frmAlert.alertTypeEnum.Warning)
+            Catch ex As Exception
+
+            End Try
+        Next
+    End Sub
 
     Private Sub ConfiguraciónesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguraciónesToolStripMenuItem.Click
         ConfiguracionesFranquicia.MdiParent = Me
@@ -1399,6 +1241,15 @@ Public Class Principal
     Private Sub RankingClientesPorImporteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RankingClientesPorImporteToolStripMenuItem.Click
         RankingClientesPorImporte.MdiParent = Me
         RankingClientesPorImporte.Visible = True
+    End Sub
+
+    Private Sub NotificacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NotificacionesToolStripMenuItem.Click
+        If CountAlertas = 0 Then
+            MsgSuccessPopUp("Tenés [0] notificaciones! Nada de que preocuparse...")
+        Else
+            MostrarAlertas()
+        End If
+
     End Sub
     'Private Sub PrivateDownloadSGC()
 

@@ -152,14 +152,12 @@ Partial Class Principal
         Me.FacturaElectrónicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MailServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecargarPermisosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Alerta1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Alerta2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NubeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubirProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosMovilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
@@ -171,13 +169,6 @@ Partial Class Principal
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ParametrosgeneralesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.DataGridViewStockAlerta = New System.Windows.Forms.DataGridView()
-        Me.IdproductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodigoproductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RubroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DisponibleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StockminimoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StockalertaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CajaseventosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -187,13 +178,6 @@ Partial Class Principal
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CajaseventosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GBBienvenido = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.LabelFecha = New System.Windows.Forms.Label()
-        Me.LabelCaja = New System.Windows.Forms.Label()
-        Me.LabelUsuario = New System.Windows.Forms.Label()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.ModulosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -214,14 +198,6 @@ Partial Class Principal
         Me.ListaprecioscajaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaprecioscajaTableAdapter()
         Me.AlertacuentascorrientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AlertacuentascorrientesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.alertacuentascorrientesTableAdapter()
-        Me.AlertacuentascorrientesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BackgroundSyncLibroventasClowd = New System.ComponentModel.BackgroundWorker()
         Me.BGWStock = New System.ComponentModel.BackgroundWorker()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -231,17 +207,14 @@ Partial Class Principal
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridViewStockAlerta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockalertaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GBBienvenido.SuspendLayout()
         CType(Me.ModulosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModulosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PermisosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListaprecioscajaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AlertacuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AlertacuentascorrientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -256,7 +229,7 @@ Partial Class Principal
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1082, 109)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1140, 85)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -1203,42 +1176,13 @@ Partial Class Principal
         Me.RecargarPermisosToolStripMenuItem.Tag = "ReloadGlobals"
         Me.RecargarPermisosToolStripMenuItem.Text = "Recargar Globales"
         '
-        'NotificacionesToolStripMenuItem
-        '
-        Me.NotificacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Alerta1ToolStripMenuItem, Me.Alerta2ToolStripMenuItem})
-        Me.NotificacionesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
-        Me.NotificacionesToolStripMenuItem.Name = "NotificacionesToolStripMenuItem"
-        Me.NotificacionesToolStripMenuItem.Size = New System.Drawing.Size(148, 27)
-        Me.NotificacionesToolStripMenuItem.Tag = "ModuloNotificaciones"
-        Me.NotificacionesToolStripMenuItem.Text = "Notificaciones"
-        Me.NotificacionesToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.NotificacionesToolStripMenuItem.Visible = False
-        '
-        'Alerta1ToolStripMenuItem
-        '
-        Me.Alerta1ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
-        Me.Alerta1ToolStripMenuItem.Name = "Alerta1ToolStripMenuItem"
-        Me.Alerta1ToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
-        Me.Alerta1ToolStripMenuItem.Tag = "Alerta1"
-        Me.Alerta1ToolStripMenuItem.Text = "Alerta1"
-        Me.Alerta1ToolStripMenuItem.Visible = False
-        '
-        'Alerta2ToolStripMenuItem
-        '
-        Me.Alerta2ToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alerta
-        Me.Alerta2ToolStripMenuItem.Name = "Alerta2ToolStripMenuItem"
-        Me.Alerta2ToolStripMenuItem.Size = New System.Drawing.Size(181, 28)
-        Me.Alerta2ToolStripMenuItem.Tag = "Alerta2"
-        Me.Alerta2ToolStripMenuItem.Text = "Alerta2"
-        Me.Alerta2ToolStripMenuItem.Visible = False
-        '
         'NubeToolStripMenuItem
         '
         Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.MisSucursalesToolStripMenuItem})
         Me.NubeToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
         Me.NubeToolStripMenuItem.Name = "NubeToolStripMenuItem"
         Me.NubeToolStripMenuItem.Size = New System.Drawing.Size(83, 27)
-        Me.NubeToolStripMenuItem.Tag = "ModuloClowd"
+        Me.NubeToolStripMenuItem.Tag = "ModuloCloud"
         Me.NubeToolStripMenuItem.Text = "Nube"
         '
         'SubirProductosToolStripMenuItem
@@ -1269,6 +1213,15 @@ Partial Class Principal
         Me.MisSucursalesToolStripMenuItem.Tag = "MisSucursales"
         Me.MisSucursalesToolStripMenuItem.Text = "Mis Sucursales"
         '
+        'NotificacionesToolStripMenuItem
+        '
+        Me.NotificacionesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alert_check_blue
+        Me.NotificacionesToolStripMenuItem.Name = "NotificacionesToolStripMenuItem"
+        Me.NotificacionesToolStripMenuItem.Size = New System.Drawing.Size(148, 27)
+        Me.NotificacionesToolStripMenuItem.Tag = "ModuloNotificaciones"
+        Me.NotificacionesToolStripMenuItem.Text = "Notificaciones"
+        Me.NotificacionesToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'PedidosWebToolStripMenuItem
         '
         Me.PedidosWebToolStripMenuItem.Name = "PedidosWebToolStripMenuItem"
@@ -1289,7 +1242,7 @@ Partial Class Principal
         Me.ParametrosgeneralesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ParametrosgeneralesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewImageColumn1})
         Me.ParametrosgeneralesDataGridView.DataSource = Me.ParametrosgeneralesBindingSource
-        Me.ParametrosgeneralesDataGridView.Location = New System.Drawing.Point(1081, 34)
+        Me.ParametrosgeneralesDataGridView.Location = New System.Drawing.Point(1081, 91)
         Me.ParametrosgeneralesDataGridView.Name = "ParametrosgeneralesDataGridView"
         Me.ParametrosgeneralesDataGridView.RowTemplate.Height = 24
         Me.ParametrosgeneralesDataGridView.Size = New System.Drawing.Size(44, 31)
@@ -1343,64 +1296,6 @@ Partial Class Principal
         Me.ComercialDataSet.DataSetName = "comercialDataSet"
         Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'DataGridViewStockAlerta
-        '
-        Me.DataGridViewStockAlerta.AllowUserToAddRows = False
-        Me.DataGridViewStockAlerta.AllowUserToDeleteRows = False
-        Me.DataGridViewStockAlerta.AutoGenerateColumns = False
-        Me.DataGridViewStockAlerta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewStockAlerta.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdproductoDataGridViewTextBoxColumn, Me.CodigoproductoDataGridViewTextBoxColumn, Me.RubroDataGridViewTextBoxColumn, Me.ProductoDataGridViewTextBoxColumn, Me.DisponibleDataGridViewTextBoxColumn, Me.StockminimoDataGridViewTextBoxColumn})
-        Me.DataGridViewStockAlerta.DataSource = Me.StockalertaBindingSource
-        Me.DataGridViewStockAlerta.Location = New System.Drawing.Point(1081, 71)
-        Me.DataGridViewStockAlerta.Name = "DataGridViewStockAlerta"
-        Me.DataGridViewStockAlerta.ReadOnly = True
-        Me.DataGridViewStockAlerta.RowTemplate.Height = 24
-        Me.DataGridViewStockAlerta.Size = New System.Drawing.Size(44, 30)
-        Me.DataGridViewStockAlerta.TabIndex = 6
-        Me.DataGridViewStockAlerta.Visible = False
-        '
-        'IdproductoDataGridViewTextBoxColumn
-        '
-        Me.IdproductoDataGridViewTextBoxColumn.DataPropertyName = "idproducto"
-        Me.IdproductoDataGridViewTextBoxColumn.HeaderText = "idproducto"
-        Me.IdproductoDataGridViewTextBoxColumn.Name = "IdproductoDataGridViewTextBoxColumn"
-        Me.IdproductoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CodigoproductoDataGridViewTextBoxColumn
-        '
-        Me.CodigoproductoDataGridViewTextBoxColumn.DataPropertyName = "codigoproducto"
-        Me.CodigoproductoDataGridViewTextBoxColumn.HeaderText = "codigoproducto"
-        Me.CodigoproductoDataGridViewTextBoxColumn.Name = "CodigoproductoDataGridViewTextBoxColumn"
-        Me.CodigoproductoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'RubroDataGridViewTextBoxColumn
-        '
-        Me.RubroDataGridViewTextBoxColumn.DataPropertyName = "rubro"
-        Me.RubroDataGridViewTextBoxColumn.HeaderText = "rubro"
-        Me.RubroDataGridViewTextBoxColumn.Name = "RubroDataGridViewTextBoxColumn"
-        Me.RubroDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ProductoDataGridViewTextBoxColumn
-        '
-        Me.ProductoDataGridViewTextBoxColumn.DataPropertyName = "producto"
-        Me.ProductoDataGridViewTextBoxColumn.HeaderText = "producto"
-        Me.ProductoDataGridViewTextBoxColumn.Name = "ProductoDataGridViewTextBoxColumn"
-        Me.ProductoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DisponibleDataGridViewTextBoxColumn
-        '
-        Me.DisponibleDataGridViewTextBoxColumn.DataPropertyName = "disponible"
-        Me.DisponibleDataGridViewTextBoxColumn.HeaderText = "disponible"
-        Me.DisponibleDataGridViewTextBoxColumn.Name = "DisponibleDataGridViewTextBoxColumn"
-        Me.DisponibleDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'StockminimoDataGridViewTextBoxColumn
-        '
-        Me.StockminimoDataGridViewTextBoxColumn.DataPropertyName = "stockminimo"
-        Me.StockminimoDataGridViewTextBoxColumn.HeaderText = "stockminimo"
-        Me.StockminimoDataGridViewTextBoxColumn.Name = "StockminimoDataGridViewTextBoxColumn"
-        Me.StockminimoDataGridViewTextBoxColumn.ReadOnly = True
-        '
         'StockalertaBindingSource
         '
         Me.StockalertaBindingSource.DataMember = "stockalerta"
@@ -1412,7 +1307,7 @@ Partial Class Principal
         Me.CajaseventosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.CajaseventosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.CajaseventosDataGridView.DataSource = Me.CajaseventosBindingSource
-        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(1081, 107)
+        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(1081, 126)
         Me.CajaseventosDataGridView.Name = "CajaseventosDataGridView"
         Me.CajaseventosDataGridView.RowTemplate.Height = 24
         Me.CajaseventosDataGridView.Size = New System.Drawing.Size(44, 30)
@@ -1461,80 +1356,6 @@ Partial Class Principal
         Me.CajaseventosBindingSource.DataMember = "cajaseventos"
         Me.CajaseventosBindingSource.DataSource = Me.ComercialDataSet
         '
-        'GBBienvenido
-        '
-        Me.GBBienvenido.BackColor = System.Drawing.Color.White
-        Me.GBBienvenido.Controls.Add(Me.Label3)
-        Me.GBBienvenido.Controls.Add(Me.Label2)
-        Me.GBBienvenido.Controls.Add(Me.Label1)
-        Me.GBBienvenido.Controls.Add(Me.LabelFecha)
-        Me.GBBienvenido.Controls.Add(Me.LabelCaja)
-        Me.GBBienvenido.Controls.Add(Me.LabelUsuario)
-        Me.GBBienvenido.Location = New System.Drawing.Point(12, 77)
-        Me.GBBienvenido.Name = "GBBienvenido"
-        Me.GBBienvenido.Size = New System.Drawing.Size(301, 159)
-        Me.GBBienvenido.TabIndex = 9
-        Me.GBBienvenido.TabStop = False
-        Me.GBBienvenido.Text = "Sesión Iniciada"
-        Me.GBBienvenido.Visible = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(96, 100)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(60, 20)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Fecha:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(85, 72)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 20)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Caja N°: "
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(84, 44)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 20)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Usuario:"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LabelFecha
-        '
-        Me.LabelFecha.AutoSize = True
-        Me.LabelFecha.Location = New System.Drawing.Point(160, 100)
-        Me.LabelFecha.Name = "LabelFecha"
-        Me.LabelFecha.Size = New System.Drawing.Size(59, 20)
-        Me.LabelFecha.TabIndex = 2
-        Me.LabelFecha.Text = "Label1"
-        '
-        'LabelCaja
-        '
-        Me.LabelCaja.AutoSize = True
-        Me.LabelCaja.Location = New System.Drawing.Point(160, 72)
-        Me.LabelCaja.Name = "LabelCaja"
-        Me.LabelCaja.Size = New System.Drawing.Size(59, 20)
-        Me.LabelCaja.TabIndex = 1
-        Me.LabelCaja.Text = "Label1"
-        '
-        'LabelUsuario
-        '
-        Me.LabelUsuario.AutoSize = True
-        Me.LabelUsuario.Location = New System.Drawing.Point(160, 44)
-        Me.LabelUsuario.Name = "LabelUsuario"
-        Me.LabelUsuario.Size = New System.Drawing.Size(59, 20)
-        Me.LabelUsuario.TabIndex = 0
-        Me.LabelUsuario.Text = "Label1"
-        '
         'BackgroundWorker1
         '
         '
@@ -1544,7 +1365,7 @@ Partial Class Principal
         Me.ModulosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ModulosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15})
         Me.ModulosDataGridView.DataSource = Me.ModulosBindingSource
-        Me.ModulosDataGridView.Location = New System.Drawing.Point(1081, 143)
+        Me.ModulosDataGridView.Location = New System.Drawing.Point(1081, 162)
         Me.ModulosDataGridView.Name = "ModulosDataGridView"
         Me.ModulosDataGridView.RowTemplate.Height = 24
         Me.ModulosDataGridView.Size = New System.Drawing.Size(44, 33)
@@ -1719,71 +1540,6 @@ Partial Class Principal
         '
         Me.AlertacuentascorrientesTableAdapter.ClearBeforeFill = True
         '
-        'AlertacuentascorrientesDataGridView
-        '
-        Me.AlertacuentascorrientesDataGridView.AllowUserToAddRows = False
-        Me.AlertacuentascorrientesDataGridView.AllowUserToDeleteRows = False
-        Me.AlertacuentascorrientesDataGridView.AutoGenerateColumns = False
-        Me.AlertacuentascorrientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.AlertacuentascorrientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22})
-        Me.AlertacuentascorrientesDataGridView.DataSource = Me.AlertacuentascorrientesBindingSource
-        Me.AlertacuentascorrientesDataGridView.Location = New System.Drawing.Point(968, 500)
-        Me.AlertacuentascorrientesDataGridView.Name = "AlertacuentascorrientesDataGridView"
-        Me.AlertacuentascorrientesDataGridView.ReadOnly = True
-        Me.AlertacuentascorrientesDataGridView.RowTemplate.Height = 24
-        Me.AlertacuentascorrientesDataGridView.Size = New System.Drawing.Size(102, 91)
-        Me.AlertacuentascorrientesDataGridView.TabIndex = 11
-        Me.AlertacuentascorrientesDataGridView.Visible = False
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "idcliente"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "idcliente"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        Me.DataGridViewTextBoxColumn16.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.DataPropertyName = "nombre"
-        Me.DataGridViewTextBoxColumn17.HeaderText = "nombre"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        Me.DataGridViewTextBoxColumn17.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.DataPropertyName = "cuit"
-        Me.DataGridViewTextBoxColumn18.HeaderText = "cuit"
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        Me.DataGridViewTextBoxColumn18.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn19
-        '
-        Me.DataGridViewTextBoxColumn19.DataPropertyName = "telefono"
-        Me.DataGridViewTextBoxColumn19.HeaderText = "telefono"
-        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
-        Me.DataGridViewTextBoxColumn19.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn20
-        '
-        Me.DataGridViewTextBoxColumn20.DataPropertyName = "email"
-        Me.DataGridViewTextBoxColumn20.HeaderText = "email"
-        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-        Me.DataGridViewTextBoxColumn20.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "saldo"
-        Me.DataGridViewTextBoxColumn21.HeaderText = "saldo"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        Me.DataGridViewTextBoxColumn21.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.DataPropertyName = "saldovencido"
-        Me.DataGridViewTextBoxColumn22.HeaderText = "saldovencido"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        Me.DataGridViewTextBoxColumn22.ReadOnly = True
-        '
         'BackgroundSyncLibroventasClowd
         '
         '
@@ -1812,12 +1568,9 @@ Partial Class Principal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1082, 603)
-        Me.Controls.Add(Me.AlertacuentascorrientesDataGridView)
+        Me.ClientSize = New System.Drawing.Size(1140, 603)
         Me.Controls.Add(Me.ModulosDataGridView)
-        Me.Controls.Add(Me.GBBienvenido)
         Me.Controls.Add(Me.CajaseventosDataGridView)
-        Me.Controls.Add(Me.DataGridViewStockAlerta)
         Me.Controls.Add(Me.ParametrosgeneralesDataGridView)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.PictureBox1)
@@ -1838,18 +1591,14 @@ Partial Class Principal
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridViewStockAlerta, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockalertaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GBBienvenido.ResumeLayout(False)
-        Me.GBBienvenido.PerformLayout()
         CType(Me.ModulosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ModulosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PermisosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListaprecioscajaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AlertacuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AlertacuentascorrientesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -1890,18 +1639,9 @@ Partial Class Principal
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents StockEnAlertaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DataGridViewStockAlerta As DataGridView
     Friend WithEvents StockalertaBindingSource As BindingSource
     Friend WithEvents StockalertaTableAdapter As comercialDataSetTableAdapters.stockalertaTableAdapter
-    Friend WithEvents IdproductoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CodigoproductoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents RubroDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ProductoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DisponibleDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents StockminimoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NotificacionesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Alerta1ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Alerta2ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ActualizacionDePreciosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductoEstandarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductoCompuestoToolStripMenuItem As ToolStripMenuItem
@@ -1929,14 +1669,7 @@ Partial Class Principal
     Friend WithEvents ImpresiónEtiquetasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RecepciónSinPedidoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CambiarContraseñaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GBBienvenido As GroupBox
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents LabelFecha As Label
-    Friend WithEvents LabelCaja As Label
-    Friend WithEvents LabelUsuario As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents ExtraccionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModulosBindingSource As BindingSource
     Friend WithEvents ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
@@ -1985,14 +1718,6 @@ Partial Class Principal
     Friend WithEvents CambioMultipleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AlertacuentascorrientesBindingSource As BindingSource
     Friend WithEvents AlertacuentascorrientesTableAdapter As comercialDataSetTableAdapters.alertacuentascorrientesTableAdapter
-    Friend WithEvents AlertacuentascorrientesDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
     Friend WithEvents ABMTiposIVAToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TerminalVerificadoraToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TerminalVerificadoraDePreciosToolStripMenuItem1 As ToolStripMenuItem

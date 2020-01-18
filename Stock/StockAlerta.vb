@@ -36,6 +36,7 @@ Public Class StockAlerta
                     p.CantidadTextBox.Select()
                     'gcodigoproducto = StockalertaDataGridView.Rows(e.RowIndex).Cells(0).Value()
                     'p.setcodigoproducto()
+                    p.enterkeydown()
                     p.ShowDialog()
                 Catch ex As Exception
 
@@ -98,5 +99,9 @@ Public Class StockAlerta
         End If
 
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub StockalertaDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles StockalertaDataGridView.CellContentClick
+
     End Sub
 End Class

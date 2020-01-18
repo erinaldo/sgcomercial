@@ -33,7 +33,7 @@ Public Class ADModulos
         Dim ModulosTableAdapter As comercialDataSetTableAdapters.modulosTableAdapter
         ModulosTableAdapter = New comercialDataSetTableAdapters.modulosTableAdapter()
         Try
-            gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
+            gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloCloud")
             gModuloPedidosWeb = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosWeb")
             gModuloPedidosMovil = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosMovil")
             gMiFranquicia = ModulosTableAdapter.modulos_consultarestado("ModuloFranquicia")

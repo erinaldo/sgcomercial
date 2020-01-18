@@ -225,7 +225,9 @@ Public Class RegistrarVentaCC
                     End If
             End Select
             gidventa = Nothing
-            FormPrincipal.reloadstock()
+            If Not FormPrincipal.BGWAlertas.IsBusy Then
+                FormPrincipal.BGWAlertas.RunWorkerAsync()
+            End If
             labeltotal.Text = ""
             LabelTotalVisible.Text = "$"
             '**********

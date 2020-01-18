@@ -63,9 +63,9 @@ Partial Class StockAlerta
         Me.producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.ProductoscomponentesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productoscomponentesTableAdapter()
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
-        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockalertaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -463,14 +463,6 @@ Partial Class StockAlerta
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
         Me.DataGridViewTextBoxColumn6.Width = 81
         '
-        'ProductoscomponentesTableAdapter
-        '
-        Me.ProductoscomponentesTableAdapter.ClearBeforeFill = True
-        '
-        'ProductosTableAdapter
-        '
-        Me.ProductosTableAdapter.ClearBeforeFill = True
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -479,6 +471,14 @@ Partial Class StockAlerta
         Me.Label1.Size = New System.Drawing.Size(182, 17)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "F5 para actualizar el listado"
+        '
+        'ProductoscomponentesTableAdapter
+        '
+        Me.ProductoscomponentesTableAdapter.ClearBeforeFill = True
+        '
+        'ProductosTableAdapter
+        '
+        Me.ProductosTableAdapter.ClearBeforeFill = True
         '
         'StockAlerta
         '
