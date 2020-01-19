@@ -75,19 +75,28 @@
             Case actionEnum.open
                 '********************************************************/
                 Try
+                    Dim PermisosTableAdapter As New comercialDataSetTableAdapters.permisosTableAdapter()
                     Select Case LabelMsg.Tag
                         Case "STK"
-                            StockAlerta.MdiParent = FormPrincipal
-                            StockAlerta.Visible = True
+                            If PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "StockAlerta") = 1 Then
+                                StockAlerta.MdiParent = FormPrincipal
+                                StockAlerta.Visible = True
+                            End If
                         Case "PPD"
-                            PedidosDeliveryDespacho.MdiParent = FormPrincipal
-                            PedidosDeliveryDespacho.Visible = True
+                            If PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "PedidosDeliveryDespacho") = 1 Then
+                                PedidosDeliveryDespacho.MdiParent = FormPrincipal
+                                PedidosDeliveryDespacho.Visible = True
+                            End If
                         Case "PPV"
-                            LibroVencimientosProductos.MdiParent = FormPrincipal
-                            LibroVencimientosProductos.Visible = True
+                            If PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "LibroVencimientosProductos") = 1 Then
+                                LibroVencimientosProductos.MdiParent = FormPrincipal
+                                LibroVencimientosProductos.Visible = True
+                            End If
                         Case "CCV"
-                            LibroCuentasCorrientes.MdiParent = FormPrincipal
-                            LibroCuentasCorrientes.Visible = True
+                            If PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "LibroCuentasCorrientes") = 1 Then
+                                LibroCuentasCorrientes.MdiParent = FormPrincipal
+                                LibroCuentasCorrientes.Visible = True
+                            End If
                     End Select
                 Catch
                 End Try

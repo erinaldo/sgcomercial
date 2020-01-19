@@ -51,6 +51,11 @@
                 Me.ClientesdomiciliosBindingSource.EndEdit()
                 Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
                 'Me.Close()
+                If gModuloCloud = 1 Then
+                    Me.Cursor = Cursors.WaitCursor
+                    PushCliente(gclienteseleccionado)
+                    Me.Cursor = Cursors.Default
+                End If
             Catch ex As Exception
 
             End Try

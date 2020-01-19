@@ -24,6 +24,10 @@ Public Class StockAlerta
         Select Case StockalertaDataGridView.Columns(StockalertaDataGridView.CurrentCell.ColumnIndex).DataPropertyName
             Case "codigoproducto"
                 Try
+                    Dim PermisosTableAdapter As New comercialDataSetTableAdapters.permisosTableAdapter()
+                    If PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "ingresoegresoproductos") = 0 Then
+                        Return
+                    End If
                     If ProductosTableAdapter.productos_consultarproductocompuesto(ProductosTableAdapter.productos_existeproducto(StockalertaDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Value())) = "S" Then
                         MsgBox("No se puede cargar stock de productos compuestos! debe cargar stock de sus componentes", MsgBoxStyle.Exclamation, "Advertencia")
                         Return
@@ -54,7 +58,7 @@ Public Class StockAlerta
         Select Case ComboBoxFiltro.Text
             Case "Código"
                 Try
-                    StockalertaBindingSource.Filter = "codigoproducto" + " like '%" + TextBox1.Text + "%'"
+                    StockalertaBindingSource.Filter = "codigoproducto" + " like '" + TextBox1.Text + "'"
                 Catch ex As Exception
 
                 End Try

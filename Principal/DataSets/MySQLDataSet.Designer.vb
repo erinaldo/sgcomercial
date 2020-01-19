@@ -1235,7 +1235,7 @@ Partial Public Class MySQLDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddclientesRow(ByVal nombre As String, ByVal cuit As String, ByVal telefono As String, ByVal email As String, ByVal sync As String, ByVal condicioniva As Integer, ByVal diasvencimiento As Integer, ByVal porcentajedescuento As Single, ByVal idprovincia As Integer, ByVal idtipodocumento As Integer) As clientesRow
+        Public Overloads Function AddclientesRow(ByVal nombre As String, ByVal cuit As String, ByVal telefono As String, ByVal email As String, ByVal sync As String, ByVal condicioniva As Integer, ByVal diasvencimiento As Integer, ByVal porcentajedescuento As Long, ByVal idprovincia As Integer, ByVal idtipodocumento As Integer) As clientesRow
             Dim rowclientesRow As clientesRow = CType(Me.NewRow,clientesRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, nombre, cuit, telefono, email, sync, condicioniva, diasvencimiento, porcentajedescuento, idprovincia, idtipodocumento}
             rowclientesRow.ItemArray = columnValuesArray
@@ -1298,7 +1298,7 @@ Partial Public Class MySQLDataSet
             MyBase.Columns.Add(Me.columncondicioniva)
             Me.columndiasvencimiento = New Global.System.Data.DataColumn("diasvencimiento", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndiasvencimiento)
-            Me.columnporcentajedescuento = New Global.System.Data.DataColumn("porcentajedescuento", GetType(Single), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnporcentajedescuento = New Global.System.Data.DataColumn("porcentajedescuento", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnporcentajedescuento)
             Me.columnidprovincia = New Global.System.Data.DataColumn("idprovincia", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidprovincia)
@@ -8943,10 +8943,10 @@ Partial Public Class MySQLDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property porcentajedescuento() As Single
+        Public Property porcentajedescuento() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableclientes.porcentajedescuentoColumn),Single)
+                    Return CType(Me(Me.tableclientes.porcentajedescuentoColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'porcentajedescuento' de la tabla 'clientes' es DBNull.", e)
                 End Try

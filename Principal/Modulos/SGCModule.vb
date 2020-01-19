@@ -1362,7 +1362,10 @@ and v.idtipocomprobante = tc.idtipocomprobante
         Try
             gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloClowd")
             If gModuloCloud = 1 Then
-                'ModulosTableAdapter.modulos_habilitar("ModuloCloud")
+                QueryBDChange("update modulos set estado = 1 where nombre = 'ModuloCloud'")
+                QueryBDChange("update permisos set menuname = 'SubirProductosCloud' where menuname = 'SubirProductosClowd'")
+                QueryBDChange("update permisos set menuname = 'SubirStockCloud' where menuname = 'SubirStockClowd'")
+                QueryBDChange("update permisos set menuname = 'DescargarProductosCloud' where menuname = 'DescargarProductosClowd'")
             End If
             gModuloCloud = ModulosTableAdapter.modulos_consultarestado("ModuloCloud")
             gModuloPedidosWeb = ModulosTableAdapter.modulos_consultarestado("ModuloPedidosWeb")

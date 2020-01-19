@@ -203,6 +203,7 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
+        Me.SincronizarClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1178,7 +1179,7 @@ Partial Class Principal
         '
         'NubeToolStripMenuItem
         '
-        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.MisSucursalesToolStripMenuItem})
+        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.MisSucursalesToolStripMenuItem, Me.SincronizarClientesToolStripMenuItem1})
         Me.NubeToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
         Me.NubeToolStripMenuItem.Name = "NubeToolStripMenuItem"
         Me.NubeToolStripMenuItem.Size = New System.Drawing.Size(83, 27)
@@ -1189,21 +1190,21 @@ Partial Class Principal
         '
         Me.SubirProductosToolStripMenuItem.Name = "SubirProductosToolStripMenuItem"
         Me.SubirProductosToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.SubirProductosToolStripMenuItem.Tag = "SubirProductosClowd"
+        Me.SubirProductosToolStripMenuItem.Tag = "SubirProductosCloud"
         Me.SubirProductosToolStripMenuItem.Text = "Subir Productos"
         '
         'SubirStockToolStripMenuItem
         '
         Me.SubirStockToolStripMenuItem.Name = "SubirStockToolStripMenuItem"
         Me.SubirStockToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.SubirStockToolStripMenuItem.Tag = "SubirStockClowd"
+        Me.SubirStockToolStripMenuItem.Tag = "SubirStockCloud"
         Me.SubirStockToolStripMenuItem.Text = "Subir Stock"
         '
         'DescargarProductosToolStripMenuItem
         '
         Me.DescargarProductosToolStripMenuItem.Name = "DescargarProductosToolStripMenuItem"
         Me.DescargarProductosToolStripMenuItem.Size = New System.Drawing.Size(244, 28)
-        Me.DescargarProductosToolStripMenuItem.Tag = "DescargarProductosClowd"
+        Me.DescargarProductosToolStripMenuItem.Tag = "DescargarProductosCloud"
         Me.DescargarProductosToolStripMenuItem.Text = "Descargar Productos"
         '
         'MisSucursalesToolStripMenuItem
@@ -1563,6 +1564,13 @@ Partial Class Principal
         'BGWAlertas
         '
         '
+        'SincronizarClientesToolStripMenuItem1
+        '
+        Me.SincronizarClientesToolStripMenuItem1.Name = "SincronizarClientesToolStripMenuItem1"
+        Me.SincronizarClientesToolStripMenuItem1.Size = New System.Drawing.Size(244, 28)
+        Me.SincronizarClientesToolStripMenuItem1.Tag = "SincronizarClientesCloud"
+        Me.SincronizarClientesToolStripMenuItem1.Text = "Sincronizar Clientes"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1783,4 +1791,5 @@ Partial Class Principal
     Friend WithEvents RankingClientesPorImporteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PedidosWebToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PedidosMovilToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SincronizarClientesToolStripMenuItem1 As ToolStripMenuItem
 End Class

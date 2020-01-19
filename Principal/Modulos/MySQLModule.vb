@@ -1623,6 +1623,114 @@ Module MySQLModule
         End Try
     End Sub
     '''''''''''''''''
+    Sub PushCliente(ByRef idcliente As Long)
+        My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
+        Try
+            '*************  errorlog    **************************************
+            Dim ErrorLogTableAdapter As comercialDataSetTableAdapters.errorlogTableAdapter
+            ErrorLogTableAdapter = New comercialDataSetTableAdapters.errorlogTableAdapter()
+            '****   ----    ********
+            '****clientes local********
+            Dim clientestableadapter As comercialDataSetTableAdapters.clientesTableAdapter
+            clientestableadapter = New comercialDataSetTableAdapters.clientesTableAdapter()
+            Dim clientestable As New comercialDataSet.clientesDataTable()
+            clientestable = clientestableadapter.GetDataByIdcliente(idcliente)
+            '****   ----    ********
+            '****clientesweb********
+            Dim clienteswebtableadapter As MySQLDataSetTableAdapters.clientesTableAdapter
+            clienteswebtableadapter = New MySQLDataSetTableAdapters.clientesTableAdapter()
+            '*********************
+
+            For i = 0 To clientestable.Count - 1
+                Dim webid As Long
+                If IsDBNull(clientestable.Rows(i).Item(clientestable.idclientewebColumn)) Then
+                    webid = clienteswebtableadapter.clientes_maxidcliente() + 1
+                Else
+                    webid = clientestable.Rows(i).Item(clientestable.idclientewebColumn)
+                End If
+                '**********************
+                Dim nuevoidclienteweb As Long = webid ' clientestable.Rows(i).Item(clientestable.idclienteColumn)
+                Dim idclientelocal As Long = clientestable.Rows(i).Item(clientestable.idclienteColumn)
+                '*******************************
+                Dim nombre As String
+                If IsDBNull(clientestable.Rows(i).Item(clientestable.nombreColumn)) Then
+                    nombre = " "
+                Else
+                    nombre = clientestable.Rows(i).Item(clientestable.nombreColumn)
+                End If
+                '*******************************
+                Dim cuit As String
+                If IsDBNull(clientestable.Rows(i).Item(clientestable.cuitColumn)) Then
+                    cuit = " "
+                Else
+                    cuit = clientestable.Rows(i).Item(clientestable.cuitColumn)
+                End If
+                '*******************************
+                Dim telefono As String
+                If IsDBNull(clientestable.Rows(i).Item(clientestable.telefonoColumn)) Then
+                    telefono = " "
+                Else
+                    telefono = clientestable.Rows(i).Item(clientestable.telefonoColumn)
+                End If
+                '*******************************
+                Dim email As String
+                Try
+                    email = clientestable.Rows(i).Item(clientestable.emailColumn)
+                Catch ex As Exception
+                    email = " "
+                End Try
+                '*******************************
+                Dim sync As String = "S"
+                Dim condicioniva As Long
+                Dim diasvencimiento As Long
+                Dim idprovincia As Long
+                Dim idtipodocumento As Long
+                Dim porcentajedescuento As Integer
+                '*******************************
+                Try
+                    idtipodocumento = clientestable.Rows(i).Item(clientestable.idtipodocumentoColumn)
+                Catch ex As Exception
+                    idtipodocumento = Nothing
+                End Try
+                '*******************************
+                Try
+                    idprovincia = clientestable.Rows(i).Item(clientestable.idprovinciaColumn)
+                Catch ex As Exception
+                    idprovincia = Nothing
+                End Try
+                '*******************************
+                Try
+                    diasvencimiento = clientestable.Rows(i).Item(clientestable.diasvencimientoColumn)
+                Catch ex As Exception
+                    diasvencimiento = 0
+                End Try
+                '*******************************
+                Try
+                    porcentajedescuento = clientestable.Rows(i).Item(clientestable.porcentajedescuentoColumn)
+                Catch ex As Exception
+                    porcentajedescuento = 0
+                End Try
+                '*******************************
+                Try
+                    condicioniva = clientestable.Rows(i).Item(clientestable.condicionivaColumn)
+                Catch ex As Exception
+                    condicioniva = Nothing
+                End Try
+                '*******************************
+                clienteswebtableadapter.clientes_update(nuevoidclienteweb, nombre, cuit, telefono, email, sync, condicioniva, diasvencimiento, porcentajedescuento, idprovincia, idtipodocumento)
+                ''****   ----    ********
+                clientestableadapter.clientes_updateidweblocal(nuevoidclienteweb, idclientelocal)
+                ''****   ----    ********
+                PushClientesDomicilios(idclientelocal, nuevoidclienteweb)
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Advertencia - PushCliente: " + ex.Message, "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            'coderror = 1
+            'msgerror = ex.Message
+            ErrorLogTableAdapter.errorlog_insertar("PushClientes", "Al tratar de sincronizar Clientes en la nube", "PushClientes", "Mensaje: " + ex.Message)
+        End Try
+    End Sub
+    ''**********************************
     Sub PushClientes()
         My.Settings.SetUserOverride("MySQLConnectionString", MySQLStrConn)
         Try

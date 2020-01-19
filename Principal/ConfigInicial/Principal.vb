@@ -66,6 +66,7 @@ Public Class Principal
             BGWAlertas.RunWorkerAsync()
         End If
         '================= BACKGROUND WORKERS   ==========================
+        CheckModulesAuth()
         If gModuloCloud = 1 Then
             'BackgroundSyncLibroventasClowd.RunWorkerAsync()
             'BGWStock.RunWorkerAsync()
@@ -926,10 +927,7 @@ Public Class Principal
     End Sub
 
     Private Sub DescargarPedidosWEBToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        'Cursor.Current = Cursors.WaitCursor
-        'SynClientes()
-        'SynPedidos("TODOS")
-        'Cursor.Current = Cursors.Default
+
     End Sub
     Private Sub BACKGROUNDSYNCLIBROVENTASCLOWD_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundSyncLibroventasClowd.DoWork
         'Dim SynLibroVentasStatus As Boolean
@@ -1250,6 +1248,12 @@ Public Class Principal
             MostrarAlertas()
         End If
 
+    End Sub
+
+    Private Sub SincronizarClientesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SincronizarClientesToolStripMenuItem1.Click
+        If Not BGWClientes.IsBusy Then
+            BGWClientes.RunWorkerAsync()
+        End If
     End Sub
     'Private Sub PrivateDownloadSGC()
 

@@ -201,7 +201,7 @@ Partial Class StockAlerta
         Me.ComboBoxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxFiltro.FormattingEnabled = True
         Me.ComboBoxFiltro.Items.AddRange(New Object() {"Código", "Producto"})
-        Me.ComboBoxFiltro.Location = New System.Drawing.Point(299, 37)
+        Me.ComboBoxFiltro.Location = New System.Drawing.Point(344, 37)
         Me.ComboBoxFiltro.Name = "ComboBoxFiltro"
         Me.ComboBoxFiltro.Size = New System.Drawing.Size(139, 24)
         Me.ComboBoxFiltro.TabIndex = 4
@@ -355,7 +355,7 @@ Partial Class StockAlerta
         'LabelFiltro
         '
         Me.LabelFiltro.AutoSize = True
-        Me.LabelFiltro.Location = New System.Drawing.Point(194, 41)
+        Me.LabelFiltro.Location = New System.Drawing.Point(182, 41)
         Me.LabelFiltro.Name = "LabelFiltro"
         Me.LabelFiltro.Size = New System.Drawing.Size(73, 17)
         Me.LabelFiltro.TabIndex = 1
@@ -363,7 +363,7 @@ Partial Class StockAlerta
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(444, 37)
+        Me.TextBox1.Location = New System.Drawing.Point(489, 37)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(314, 22)
         Me.TextBox1.TabIndex = 0

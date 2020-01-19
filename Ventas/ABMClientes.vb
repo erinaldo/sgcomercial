@@ -54,6 +54,11 @@ Public Class ABMClientes
                 enablefields(False)
                 ClientesDataGridView.Enabled = True
                 filtrotextbox.Enabled = True
+                If gModuloCloud = 1 Then
+                    Me.Cursor = Cursors.WaitCursor
+                    PushCliente(Val(IdclienteTextBox.Text))
+                    Me.Cursor = Cursors.Default
+                End If
                 If gclienteseleccionado = -1 Then
                     gclienteseleccionado = Val(IdclienteTextBox.Text)
                     Me.Close()
@@ -66,7 +71,7 @@ Public Class ABMClientes
     End Sub
 
     Private Sub ABMClientes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        CheckModulesAuth()
         '********** 
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipodocumentos' Puede moverla o quitarla según sea necesario.
         Me.TipodocumentosTableAdapter.Fill(Me.ComercialDataSet.tipodocumentos)
