@@ -57,9 +57,9 @@ Public Class AltaPedidoDelivery
         p.ShowDialog()
         IdclienteTextBox.Text = gclienteseleccionado.ToString
         If gclienteseleccionado > 0 Then
-            Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
+            Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
             ClientesBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
-            Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
+            Me.ClientesdomiciliosTableAdapter.FillByidcliente(Me.ComercialDataSet.clientesdomicilios, gclienteseleccionado)
             ClientesdomiciliosBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
         End If
     End Sub
@@ -437,7 +437,7 @@ Public Class AltaPedidoDelivery
         P.ShowDialog()
         If gdomicilioseleccionado = 0 Then Return
         ' MsgBox("paso")
-        Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
+        Me.ClientesdomiciliosTableAdapter.FillByiddomicilio(Me.ComercialDataSet.clientesdomicilios, gdomicilioseleccionado)
         ClientesdomiciliosBindingSource.Filter = "iddomicilio = " + gdomicilioseleccionado.ToString
     End Sub
 
@@ -630,9 +630,9 @@ Public Class AltaPedidoDelivery
         gclienteseleccionado = Val(IdclienteTextBox.Text)
         p.ShowDialog()
         If gclienteseleccionado > 0 Then
-            Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
+            Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
             ClientesBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
-            Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
+            Me.ClientesdomiciliosTableAdapter.FillByidcliente(Me.ComercialDataSet.clientesdomicilios, gclienteseleccionado)
             ClientesdomiciliosBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
         End If
     End Sub

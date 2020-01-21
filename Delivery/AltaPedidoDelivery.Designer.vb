@@ -36,7 +36,6 @@ Partial Class AltaPedidoDelivery
         Dim Label12 As System.Windows.Forms.Label
         Dim RazonsocialLabel As System.Windows.Forms.Label
         Dim Label16 As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AltaPedidoDelivery))
         Dim Label17 As System.Windows.Forms.Label
         Dim Label18 As System.Windows.Forms.Label
         Dim Label19 As System.Windows.Forms.Label
@@ -44,6 +43,7 @@ Partial Class AltaPedidoDelivery
         Dim Label21 As System.Windows.Forms.Label
         Dim Label22 As System.Windows.Forms.Label
         Dim Label23 As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AltaPedidoDelivery))
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.PictureSeleccionarCliente = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -279,7 +279,7 @@ Partial Class AltaPedidoDelivery
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(289, 114)
+        Label2.Location = New System.Drawing.Point(311, 114)
         Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label2.Name = "Label2"
         Label2.Size = New System.Drawing.Size(32, 17)
@@ -389,6 +389,96 @@ Partial Class AltaPedidoDelivery
         Label16.TabIndex = 32
         Label16.Text = "Condición IVA:"
         '
+        'Label17
+        '
+        Label17.AutoSize = True
+        Label17.BackColor = System.Drawing.Color.Transparent
+        Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label17.ForeColor = System.Drawing.Color.Red
+        Label17.Location = New System.Drawing.Point(29, 57)
+        Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label17.Name = "Label17"
+        Label17.Size = New System.Drawing.Size(14, 17)
+        Label17.TabIndex = 41
+        Label17.Text = "*"
+        '
+        'Label18
+        '
+        Label18.AutoSize = True
+        Label18.BackColor = System.Drawing.Color.Transparent
+        Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label18.ForeColor = System.Drawing.Color.Red
+        Label18.Location = New System.Drawing.Point(7, 87)
+        Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label18.Name = "Label18"
+        Label18.Size = New System.Drawing.Size(14, 17)
+        Label18.TabIndex = 42
+        Label18.Text = "*"
+        '
+        'Label19
+        '
+        Label19.AutoSize = True
+        Label19.BackColor = System.Drawing.Color.Transparent
+        Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label19.ForeColor = System.Drawing.Color.Red
+        Label19.Location = New System.Drawing.Point(221, 87)
+        Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label19.Name = "Label19"
+        Label19.Size = New System.Drawing.Size(14, 17)
+        Label19.TabIndex = 42
+        Label19.Text = "*"
+        '
+        'Label20
+        '
+        Label20.AutoSize = True
+        Label20.BackColor = System.Drawing.Color.Transparent
+        Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label20.ForeColor = System.Drawing.Color.Red
+        Label20.Location = New System.Drawing.Point(13, 22)
+        Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label20.Name = "Label20"
+        Label20.Size = New System.Drawing.Size(14, 17)
+        Label20.TabIndex = 41
+        Label20.Text = "*"
+        '
+        'Label21
+        '
+        Label21.AutoSize = True
+        Label21.BackColor = System.Drawing.Color.Transparent
+        Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label21.ForeColor = System.Drawing.Color.Red
+        Label21.Location = New System.Drawing.Point(293, 22)
+        Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label21.Name = "Label21"
+        Label21.Size = New System.Drawing.Size(14, 17)
+        Label21.TabIndex = 41
+        Label21.Text = "*"
+        '
+        'Label22
+        '
+        Label22.AutoSize = True
+        Label22.BackColor = System.Drawing.Color.Transparent
+        Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label22.ForeColor = System.Drawing.Color.Red
+        Label22.Location = New System.Drawing.Point(223, 107)
+        Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label22.Name = "Label22"
+        Label22.Size = New System.Drawing.Size(14, 17)
+        Label22.TabIndex = 41
+        Label22.Text = "*"
+        '
+        'Label23
+        '
+        Label23.AutoSize = True
+        Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label23.ForeColor = System.Drawing.Color.Red
+        Label23.Location = New System.Drawing.Point(405, 10)
+        Label23.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label23.Name = "Label23"
+        Label23.Size = New System.Drawing.Size(150, 17)
+        Label23.TabIndex = 21
+        Label23.Text = "(*) Dato Obligatorio"
+        '
         'IdclienteTextBox
         '
         Me.IdclienteTextBox.Enabled = False
@@ -440,7 +530,7 @@ Partial Class AltaPedidoDelivery
         Me.GroupBox1.Controls.Add(IdclienteLabel)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(443, 169)
+        Me.GroupBox1.Size = New System.Drawing.Size(500, 169)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cliente"
@@ -469,7 +559,7 @@ Partial Class AltaPedidoDelivery
         Me.ComboCondicionIVA.Location = New System.Drawing.Point(101, 110)
         Me.ComboCondicionIVA.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboCondicionIVA.Name = "ComboCondicionIVA"
-        Me.ComboCondicionIVA.Size = New System.Drawing.Size(165, 24)
+        Me.ComboCondicionIVA.Size = New System.Drawing.Size(202, 24)
         Me.ComboCondicionIVA.TabIndex = 4
         Me.ComboCondicionIVA.ValueMember = "idtipocondicioniva"
         '
@@ -511,7 +601,7 @@ Partial Class AltaPedidoDelivery
         Me.TextBoxCuit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "cuit", True))
         Me.TextBoxCuit.Location = New System.Drawing.Point(321, 84)
         Me.TextBoxCuit.Name = "TextBoxCuit"
-        Me.TextBoxCuit.Size = New System.Drawing.Size(114, 22)
+        Me.TextBoxCuit.Size = New System.Drawing.Size(174, 22)
         Me.TextBoxCuit.TabIndex = 3
         '
         'ProductosDataGridView
@@ -723,7 +813,7 @@ Partial Class AltaPedidoDelivery
         'CheckBoxNuevoCliente
         '
         Me.CheckBoxNuevoCliente.AutoSize = True
-        Me.CheckBoxNuevoCliente.Location = New System.Drawing.Point(314, 23)
+        Me.CheckBoxNuevoCliente.Location = New System.Drawing.Point(268, 23)
         Me.CheckBoxNuevoCliente.Name = "CheckBoxNuevoCliente"
         Me.CheckBoxNuevoCliente.Size = New System.Drawing.Size(121, 21)
         Me.CheckBoxNuevoCliente.TabIndex = 0
@@ -781,15 +871,15 @@ Partial Class AltaPedidoDelivery
         Me.TextBoxEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "email", True))
         Me.TextBoxEmail.Location = New System.Drawing.Point(101, 138)
         Me.TextBoxEmail.Name = "TextBoxEmail"
-        Me.TextBoxEmail.Size = New System.Drawing.Size(334, 22)
+        Me.TextBoxEmail.Size = New System.Drawing.Size(394, 22)
         Me.TextBoxEmail.TabIndex = 6
         '
         'TextBoxTelefono
         '
         Me.TextBoxTelefono.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "telefono", True))
-        Me.TextBoxTelefono.Location = New System.Drawing.Point(321, 111)
+        Me.TextBoxTelefono.Location = New System.Drawing.Point(350, 111)
         Me.TextBoxTelefono.Name = "TextBoxTelefono"
-        Me.TextBoxTelefono.Size = New System.Drawing.Size(114, 22)
+        Me.TextBoxTelefono.Size = New System.Drawing.Size(145, 22)
         Me.TextBoxTelefono.TabIndex = 5
         '
         'TextBoxNombreCliente
@@ -798,11 +888,13 @@ Partial Class AltaPedidoDelivery
         Me.TextBoxNombreCliente.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "nombre", True))
         Me.TextBoxNombreCliente.Location = New System.Drawing.Point(101, 54)
         Me.TextBoxNombreCliente.Name = "TextBoxNombreCliente"
-        Me.TextBoxNombreCliente.Size = New System.Drawing.Size(334, 22)
+        Me.TextBoxNombreCliente.Size = New System.Drawing.Size(394, 22)
         Me.TextBoxNombreCliente.TabIndex = 1
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Label23)
         Me.GroupBox2.Controls.Add(Me.PictureBoxEditarDomicilios)
         Me.GroupBox2.Controls.Add(Me.ComboBoxLocalidad)
@@ -820,9 +912,9 @@ Partial Class AltaPedidoDelivery
         Me.GroupBox2.Controls.Add(Label5)
         Me.GroupBox2.Controls.Add(Label4)
         Me.GroupBox2.Controls.Add(Me.TextBoxDireccion)
-        Me.GroupBox2.Location = New System.Drawing.Point(461, 12)
+        Me.GroupBox2.Location = New System.Drawing.Point(515, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(558, 169)
+        Me.GroupBox2.Size = New System.Drawing.Size(557, 169)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Domicilio"
@@ -988,6 +1080,8 @@ Partial Class AltaPedidoDelivery
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -998,8 +1092,14 @@ Partial Class AltaPedidoDelivery
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Me.ClientesdomiciliosTableAdapter
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Me.ClientesTableAdapter
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -1009,15 +1109,19 @@ Partial Class AltaPedidoDelivery
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Me.LocalidadesTableAdapter
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
         Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -1038,6 +1142,7 @@ Partial Class AltaPedidoDelivery
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -1078,12 +1183,14 @@ Partial Class AltaPedidoDelivery
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.ComboBox1)
         Me.GroupBox3.Controls.Add(Me.Label14)
         Me.GroupBox3.Controls.Add(Me.VentasdetalleDataGridView)
         Me.GroupBox3.Location = New System.Drawing.Point(13, 188)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(1006, 330)
+        Me.GroupBox3.Size = New System.Drawing.Size(1059, 330)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Detalle del pedido"
@@ -1118,7 +1225,8 @@ Partial Class AltaPedidoDelivery
         '
         Me.VentasdetalleDataGridView.AllowUserToAddRows = False
         Me.VentasdetalleDataGridView.AllowUserToDeleteRows = False
-        Me.VentasdetalleDataGridView.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.VentasdetalleDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.VentasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.cantidad, Me.unidadmedida, Me.medida, Me.precioventa, Me.SubTotal, Me.idlistaprecio})
@@ -1128,7 +1236,7 @@ Partial Class AltaPedidoDelivery
         Me.VentasdetalleDataGridView.ReadOnly = True
         Me.VentasdetalleDataGridView.RowTemplate.Height = 24
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(984, 260)
+        Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1037, 260)
         Me.VentasdetalleDataGridView.TabIndex = 0
         '
         'idproducto
@@ -1606,101 +1714,11 @@ Partial Class AltaPedidoDelivery
         '
         Me.TipocondicionivaTableAdapter.ClearBeforeFill = True
         '
-        'Label17
-        '
-        Label17.AutoSize = True
-        Label17.BackColor = System.Drawing.Color.Transparent
-        Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label17.ForeColor = System.Drawing.Color.Red
-        Label17.Location = New System.Drawing.Point(29, 57)
-        Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label17.Name = "Label17"
-        Label17.Size = New System.Drawing.Size(14, 17)
-        Label17.TabIndex = 41
-        Label17.Text = "*"
-        '
-        'Label18
-        '
-        Label18.AutoSize = True
-        Label18.BackColor = System.Drawing.Color.Transparent
-        Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label18.ForeColor = System.Drawing.Color.Red
-        Label18.Location = New System.Drawing.Point(7, 87)
-        Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label18.Name = "Label18"
-        Label18.Size = New System.Drawing.Size(14, 17)
-        Label18.TabIndex = 42
-        Label18.Text = "*"
-        '
-        'Label19
-        '
-        Label19.AutoSize = True
-        Label19.BackColor = System.Drawing.Color.Transparent
-        Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label19.ForeColor = System.Drawing.Color.Red
-        Label19.Location = New System.Drawing.Point(221, 87)
-        Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label19.Name = "Label19"
-        Label19.Size = New System.Drawing.Size(14, 17)
-        Label19.TabIndex = 42
-        Label19.Text = "*"
-        '
-        'Label20
-        '
-        Label20.AutoSize = True
-        Label20.BackColor = System.Drawing.Color.Transparent
-        Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label20.ForeColor = System.Drawing.Color.Red
-        Label20.Location = New System.Drawing.Point(13, 22)
-        Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label20.Name = "Label20"
-        Label20.Size = New System.Drawing.Size(14, 17)
-        Label20.TabIndex = 41
-        Label20.Text = "*"
-        '
-        'Label21
-        '
-        Label21.AutoSize = True
-        Label21.BackColor = System.Drawing.Color.Transparent
-        Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label21.ForeColor = System.Drawing.Color.Red
-        Label21.Location = New System.Drawing.Point(293, 22)
-        Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label21.Name = "Label21"
-        Label21.Size = New System.Drawing.Size(14, 17)
-        Label21.TabIndex = 41
-        Label21.Text = "*"
-        '
-        'Label22
-        '
-        Label22.AutoSize = True
-        Label22.BackColor = System.Drawing.Color.Transparent
-        Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label22.ForeColor = System.Drawing.Color.Red
-        Label22.Location = New System.Drawing.Point(223, 107)
-        Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label22.Name = "Label22"
-        Label22.Size = New System.Drawing.Size(14, 17)
-        Label22.TabIndex = 41
-        Label22.Text = "*"
-        '
-        'Label23
-        '
-        Label23.AutoSize = True
-        Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label23.ForeColor = System.Drawing.Color.Red
-        Label23.Location = New System.Drawing.Point(405, 10)
-        Label23.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label23.Name = "Label23"
-        Label23.Size = New System.Drawing.Size(150, 17)
-        Label23.TabIndex = 21
-        Label23.Text = "(*) Dato Obligatorio"
-        '
         'AltaPedidoDelivery
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1029, 560)
+        Me.ClientSize = New System.Drawing.Size(1082, 560)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.TextBoxObs)
@@ -1717,12 +1735,13 @@ Partial Class AltaPedidoDelivery
         Me.Controls.Add(Me.LabelTotal)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "AltaPedidoDelivery"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Alta Pedido"
+        Me.Text = "Alta Pedido Delivery"
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
