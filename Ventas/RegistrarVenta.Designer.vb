@@ -288,6 +288,7 @@ Partial Class RegistrarVenta
         Label7.Size = New System.Drawing.Size(117, 17)
         Label7.TabIndex = 19
         Label7.Text = "N° Comprobante:"
+        AddHandler Label7.Click, AddressOf Me.Label7_Click
         '
         'IdtipocomprobanteLabel
         '

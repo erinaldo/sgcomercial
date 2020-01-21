@@ -100,14 +100,14 @@
                                 UpdEstadoPedidoWeb("ENPROCESO", idpedidoweb)
                             End If
                         Catch ex As Exception
-                            MsgBox(ex.Message)
+                            MsgEx(ex.Message)
                         End Try
                         reloadpedidos()
                         colorear()
                     End If
                 Case "Pagar" ' cargar pago
                     If estadopedido = "CANCELADO" Then
-                        MsgBox("Opción no disponible", MsgBoxStyle.Exclamation, "Advertencia")
+                        MsgErrPopUp("Opción no disponible")
                         Return
                     End If
                     If ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("saldo").Value > 0 Then
@@ -124,25 +124,25 @@
                         reloadpedidos()
                         colorear()
                     Else
-                        MsgBox("El pedido ya se encuentra pagado!", MsgBoxStyle.Information)
+                        MsgSuccessPopUp("El pedido ya se encuentra pagado!")
                     End If
                 Case "Baja"
                     If estadopedido = "CANCELADO" Then
-                        MsgBox("Opción no disponible", MsgBoxStyle.Exclamation, "Advertencia")
+                        MsgErrPopUp("Opción no disponible")
                         Return
                     End If
                     If Not estadopedido = "DESPACHADO" And Not estadopedido = "ENTREGADO" Then
-                        If MsgBox("Seguro desea dar de baja el pedido seleccionado?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                        If MsgQues("Seguro desea dar de baja el pedido seleccionado?") = True Then
                             PedidosdeliveryTableAdapter.pedidosdelivery_baja(ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value)
                             reloadpedidos()
                             colorear()
                         End If
                     Else
-                        MsgBox("No puede cancelar un pedido DESPACHADO/ENTREGADO")
+                        MsgErrPopUp("No puede cancelar un pedido DESPACHADO/ENTREGADO")
                     End If
                 Case "modificar"
                     If estadopedido = "CANCELADO" Then
-                        MsgBox("Opción no disponible", MsgBoxStyle.Exclamation, "Advertencia")
+                        MsgErrPopUp("Opción no disponible")
                         Return
                     End If
                     Dim j As PedidosDeliveryModificar
@@ -152,12 +152,11 @@
                     gidpedidodelivery = Nothing
                     reloadpedidos()
                     colorear()
-                    'MsgBox("vamos a modificar: " + ListapedidosdeliveryDataGridView.Rows(e.RowIndex).Cells("idpedidodelivery").Value.ToString)
                 Case Else
                     'colorear()
             End Select
         Catch ex As Exception
-            MsgBox("No se pudo completar la operación: " + ex.Message)
+            MsgEx("No se pudo completar la operación: " + ex.Message)
         End Try
     End Sub
 
@@ -220,7 +219,7 @@
     Private Sub PedidosDeliveryRecibidos_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         ''''''''''***************************   POR DEFECTO **************************************
         If e.KeyCode = Keys.Escape Then
-            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+            If MsgQues("Seguro desea salir de " + Me.Text) = True Then
                 Me.Close()
             End If
         End If

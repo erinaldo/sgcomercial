@@ -192,7 +192,7 @@ Public Class RegistrarVenta
         '***************    consultar el estado de caja *************
         gidcaja = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
         If gidcaja = 0 Then
-            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgErrPopUp("Este ordenador no esta Registrado para operar como CAJA!")
             status = False
             Return
         End If
@@ -204,7 +204,7 @@ Public Class RegistrarVenta
 
         If gidevento = 0 Then
             status = False
-            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgErrPopUp("Caja Cerrada. Abra la caja antes de registrar una venta")
             Return
         Else
             'RegistrarVenta.MdiParent = Me
@@ -318,7 +318,7 @@ Public Class RegistrarVenta
             End If
             AuRegistrarVentaCancelada(IdclienteTextBox.Text, gusername, tt, "obser")
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgEx(ex.Message)
         End Try
     End Sub
     Private Sub CancelarVenta()
@@ -364,25 +364,25 @@ Public Class RegistrarVenta
                 monto1 = pagotextbox.Text
                 monto2 = pagotextbox2.Text
                 If monto1 < 0 Or monto2 < 0 Then
-                    MsgBox("Monto Incorrecto", MsgBoxStyle.Exclamation, "Advertencia")
+                    MsgEx("Monto Incorrecto")
                     Return
                 End If
                 pago = monto1 + monto2
                 If Not pago = tot Then
-                    MsgBox("Monto Incorrecto", MsgBoxStyle.Exclamation, "Advertencia")
+                    MsgEx("Monto Incorrecto")
                     pagotextbox.Select()
                     Return
                 End If
             Catch ex2 As Exception
-                MsgBox("Montos Incorrectos! " + ex2.Message, MsgBoxStyle.Exclamation, "Aviso!")
+                MsgEx("Montos Incorrectos! " + ex2.Message)
             End Try
         Else
             If VentasdetalleDataGridView.RowCount = 0 Then
-                MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
+                MsgEx("Debe ingresar al menos un (1) producto!")
                 Return
             End If
             If pago < tot Then
-                MsgBox("Monto insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
+                MsgEx("Monto insuficiente")
                 pagotextbox.Select()
                 Return
             End If
@@ -391,7 +391,7 @@ Public Class RegistrarVenta
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         ''''''''''''''''''''''''''''''''''''' DATOS CARGADOS CORRECTAMENTE! GUARDAMOS LA VENTA  '''''''''''''''''''''''''
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-        If MsgBox("Seguro desea guardar la venta?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+        If MsgQues("Seguro desea guardar la venta?") = True Then
             Try
                 If Val(IdclienteTextBox.Text) > 1 Then
                     gidcliente = Val(IdclienteTextBox.Text)
@@ -402,30 +402,35 @@ Public Class RegistrarVenta
                 gidcliente = Nothing
             End Try
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            ' VALE
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             Dim idvale As Integer = Nothing
-            '***** PREGUNTO SI SE VA insertar VALE    ****************
-            If CheckBoxVale.Checked = True Then
-                Dim vuelto As Decimal = vueltotextbox.Text
-                gmontovale = vuelto
-                IngresaMontoVale.TextBox1.Text = gmontovale
-                IngresaMontoVale.ShowDialog()
-                If gmontovale > 0 Then
-                    idvale = ValesTableAdapter.vales_insertar("Vuelto", gmontovale, gusername)
-                    MsgBox("Vale N°:" + vbTab + idvale.ToString + vbTab + " Generado exitosamente!")
-                    '***** calculo el monto total de la venta
-                    total = total + gmontovale
-                Else
-                    MsgBox("No seleccionó el monto del vale! Operación cancelada!", MsgBoxStyle.Exclamation, "Advertencia!")
-                    Return
-                End If
-            Else '***************       NO SE GENERA VALE
-                total = labeltotal.Text
-            End If
-            'total = labeltotal.Text
+            ''***** PREGUNTO SI SE VA insertar VALE    ****************
+            'If CheckBoxVale.Checked = True Then
+            '    Dim vuelto As Decimal = vueltotextbox.Text
+            '    gmontovale = vuelto
+            '    IngresaMontoVale.TextBox1.Text = gmontovale
+            '    IngresaMontoVale.ShowDialog()
+            '    If gmontovale > 0 Then
+            '        idvale = ValesTableAdapter.vales_insertar("Vuelto", gmontovale, gusername)
+            '        MsgInfoPopUp("Vale N°:" + vbTab + idvale.ToString + vbTab + " Generado exitosamente!")
+            '        '***** calculo el monto total de la venta
+            '        total = total + gmontovale
+            '    Else
+            '        msgex("No seleccionó el monto del vale! Operación cancelada!")
+            '        Return
+            '    End If
+            'Else '***************       NO SE GENERA VALE
+            '    total = labeltotal.Text
+            'End If
+            total = labeltotal.Text
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             '********* insertar cabecera
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             idventas = VentasTableAdapter.ventas_insertarventa(Val(IdclienteTextBox.Text), FechaventaDateTimePicker.Value, idformapagocombo.SelectedValue, Idtipocomprobantecombo.SelectedValue, gusername, NrocomprobanteTextBox.Text, FechavencimientoDateTimePicker.Value, ComboConcepto.SelectedIndex + 1)
-            'MsgBox(idventas.ToString)
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             '********* insertar detalle
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             Dim i As Integer = 0
             Dim recalocal As Decimal
             '********************   obtiene recargo si corresponde ******************
@@ -451,22 +456,17 @@ Public Class RegistrarVenta
                     End If
 
                     idventasdetalle = VentasdetalleTableAdapter.ventasdetalle_insertardetalle(idventas, idproducto, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value), Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value), VentasdetalleDataGridView.Rows(i).Cells("listasprecios").Value, recargo, Convert.ToDecimal(VentasdetalleDataGridView.Rows(i).Cells("descuento").Value)) '// descuento
+                    If Not idventasdetalle > 0 Then
+                        Throw New Exception("no se pudo insertar IDVENTASDETALLE")
+                    End If
                 Catch ex As Exception
-                    MsgBox("Error al grabar el detalle: " + ex.Message)
+                    MsgEx("Error al grabar el detalle: " + ex.Message)
                     VentasTableAdapter.ventas_bajaventa(idventas, gusername)
                 End Try
-
-                If idventasdetalle > 0 Then
-                Else
-                    MsgBox("Ocurrio un error al intentar insetar detalle de la venta", MsgBoxStyle.Exclamation, "Advertencia")
-                    Return
-                End If
             Next
-
             '**************************************************************
             '************   PREGUNTO SI =NO= ES UNA VENTA A CUENTA CORRIENTE
             '**************************************************************
-
             If Not idformapagocombo.Text = "Cuenta Corriente" And Not idformapagocombo.Text = "Nota de C/D" Then
                 '**************************************************************
                 '**** INSERTAR EL PAGO *******************************************
@@ -480,14 +480,13 @@ Public Class RegistrarVenta
                         '**************************************************************
                         PagosImputaciones.pagosimputaciones_insertar(idpagos, idventas, monto1)
                         idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, monto1, gusername, idvale)
-                        If idoperacioncaja > 0 Then
-                        Else
-                            MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
+                        If Not idoperacioncaja > 0 Then
+                            MsgEx("Ocurrio un error al registrar el movimiento de caja")
                             Return
                         End If
                         idpagos = Nothing
                     Else
-                        MsgBox("Ocurrio un error al registrar el pago 1", MsgBoxStyle.Information, "Advertencia")
+                        MsgEx("Ocurrio un error al registrar el pago 1")
                         Return
                     End If
                     '*****************  EL SEGUNDO PAGO COMBINADO   **********************
@@ -500,11 +499,11 @@ Public Class RegistrarVenta
                         If idoperacioncaja > 0 Then
                             PagosImputaciones.pagosimputaciones_insertar(idpagos, idventas, monto2)
                         Else
-                            MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
+                            MsgEx("Ocurrio un error al registrar el movimiento de caja")
                             Return
                         End If
                     Else
-                        MsgBox("Ocurrio un error al registrar el pago 2", MsgBoxStyle.Information, "Advertencia")
+                        MsgEx("Ocurrio un error al registrar el pago 2")
                         Return
                     End If
                 Else
@@ -512,16 +511,15 @@ Public Class RegistrarVenta
                     If idpagos > 0 Then
                         PagosImputaciones.pagosimputaciones_insertar(idpagos, idventas, total)
                     Else
-                        MsgBox("Ocurrio un error al registrar el pago", MsgBoxStyle.Information, "Advertencia")
+                        MsgEx("Ocurrio un error al registrar el pago")
                         Return
                     End If
                     '**************************************************************
                     '***** insertar movimiento de caja
                     '**************************************************************
                     idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, idformapagocombo.SelectedValue, total, gusername, idvale)
-                    If idoperacioncaja > 0 Then
-                    Else
-                        MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
+                    If Not idoperacioncaja > 0 Then
+                        MsgEx("Ocurrio un error al registrar el movimiento de caja")
                         Return
                     End If
                 End If
@@ -531,10 +529,8 @@ Public Class RegistrarVenta
             '**************************************************************
             If idformapagocombo.Text = "Cuenta Corriente" And (Idtipocomprobantecombo.SelectedValue <> 3 And Idtipocomprobantecombo.SelectedValue <> 4 And Idtipocomprobantecombo.SelectedValue <> 6 And Idtipocomprobantecombo.SelectedValue <> 7 And Idtipocomprobantecombo.SelectedValue <> 9 And Idtipocomprobantecombo.SelectedValue <> 10 And Idtipocomprobantecombo.SelectedValue <> 12 And Idtipocomprobantecombo.SelectedValue <> 13) Then
                 idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarvtactacte(idevento, Nothing, idformapagocombo.SelectedValue, total, gusername, Nothing, idventas)
-                If idoperacioncaja > 0 Then
-
-                Else
-                    MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
+                If Not idoperacioncaja > 0 Then
+                    MsgEx("Ocurrio un error al registrar el movimiento de caja")
                     Return
                 End If
             End If
@@ -558,14 +554,14 @@ Public Class RegistrarVenta
                     '========================================================================================
                     StrError = GenTRA(TRA)
                     If StrError.CodError > 1 Then
-                        MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        MsgEx(StrError.MsgError)
                     Else
                         '========================================================================================
                         '       Generación Factura Electrónica
                         '========================================================================================
                         StrError = FECAELoadRequest(idventas, FECAERequest)
                         If StrError.CodError > 0 Then
-                            MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            MsgEx(StrError.MsgError)
                         End If
                     End If
                 End If
@@ -581,14 +577,14 @@ Public Class RegistrarVenta
                         '========================================================================================
                         StrError = GenTRA(TRA)
                         If StrError.CodError > 1 Then
-                            MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            MsgEx(StrError.MsgError)
                         Else
                             '========================================================================================
                             '       Generación Factura Electrónica
                             '========================================================================================
                             StrError = FECAELoadRequest(idventas, FECAERequest)
                             If StrError.CodError > 0 Then
-                                MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                                MsgEx(StrError.MsgError)
                             End If
                         End If
                     End If
@@ -630,7 +626,7 @@ Public Class RegistrarVenta
                         ErrorLogTableAdapter.errorlog_insertar("Registrar Venta", "Aplicacion", "Confirmar", ex.Message)
                     End Try
                 Case "Preguntar"
-                    If MsgBox("Desea Imprimir el comprobante?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                    If MsgQues("Desea Imprimir el comprobante?") = True Then
                         Try
                             Dim p As New ViewerFactura
                             'p.MdiParent = Me.ParentForm
@@ -682,30 +678,30 @@ Public Class RegistrarVenta
         If idformapagocombo.Text = "Cuenta Corriente" And Val(IdclienteTextBox.Text) = 1 Then
             If Not (Idtipocomprobantecombo.SelectedValue <> 6 And Idtipocomprobantecombo.SelectedValue <> 7 And Idtipocomprobantecombo.SelectedValue <> 9 And Idtipocomprobantecombo.SelectedValue <> 10) Then
             Else
-                MsgBox("Seleccione un cliente válido!", MsgBoxStyle.Exclamation, "Advertencia")
+                MsgEx("Seleccione un cliente válido!")
+                idformapagocombo.Select()
                 Return
             End If
         End If
         If VentasdetalleDataGridView.RowCount = 0 Then
-            MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgEx("Debe ingresar al menos un (1) producto!")
             valida = False
             Return
         End If
-        If Val(Idtipocomprobantecombo.SelectedValue) > 0 Then
-        Else
-            MsgBox("Seleccione un tipo de comprobante", MsgBoxStyle.Exclamation, "Advertencia")
+        If Not Val(Idtipocomprobantecombo.SelectedValue) > 0 Then
+            MsgEx("Seleccione un tipo de comprobante")
             valida = False
             Return
         End If
-        If Val(IdclienteTextBox.Text) > 0 Then
-        Else
-            MsgBox("Seleccione un cliente válido", MsgBoxStyle.Exclamation, "Advertencia")
+        If Not Val(IdclienteTextBox.Text) > 0 Then
+            MsgEx("Seleccione un cliente válido")
+            IdclienteTextBox.Select()
             valida = False
             Return
         End If
-        If Val(idformapagocombo.SelectedValue) > 0 Then
-        Else
-            MsgBox("Seleccione una forma de pago", MsgBoxStyle.Exclamation, "Advertencia")
+        If Not Val(idformapagocombo.SelectedValue) > 0 Then
+            MsgEx("Seleccione una forma de pago")
+            idformapagocombo.Select()
             valida = False
             Return
         End If
@@ -715,21 +711,20 @@ Public Class RegistrarVenta
                 pagotextbox.Text = total.ToString
                 CheckBoxFP2.Checked = False
             Else
-                MsgBox("Monto 1 Incorrecto", MsgBoxStyle.Exclamation, "Advertencia")
+                MsgEx("Monto 1 Incorrecto")
                 pagotextbox.Select()
                 Return
             End If
         End If
 
         If CheckBoxFP2.Checked = True Then '**** forma de pago 2
-            If Val(idformapagocombo2.SelectedValue) > 0 Then
-            Else
-                MsgBox("Seleccione una forma de pago 2", MsgBoxStyle.Exclamation, "Advertencia")
+            If Not Val(idformapagocombo2.SelectedValue) > 0 Then
+                MsgEx("Seleccione una forma de pago 2")
                 valida = False
                 Return
             End If
             If Val(pagotextbox2.Text) <= 0 Then
-                MsgBox("Monto 2 insuficiente", MsgBoxStyle.Exclamation, "Advertencia")
+                MsgEx("Monto 2 insuficiente")
                 pagotextbox.Select()
                 Return
             End If
@@ -754,8 +749,9 @@ Public Class RegistrarVenta
         gcantidad = Convert.ToDecimal(stringcantidad)
         '***********************************************************
         existeproducto = ProductosTableAdapter.productos_existeproducto(codigoproducto)
-        If existeproducto = 0 Then
-            MsgBox("Producto no encontrado", MsgBoxStyle.Exclamation, "Advertencia")
+        If Not existeproducto > 0 Then
+            MsgEx("Producto no encontrado")
+            codigotextbox.Select()
             Return
         End If
         productodisponible = StockTableAdapter.stock_consultardisponible(existeproducto)
@@ -858,7 +854,8 @@ Public Class RegistrarVenta
             End If
         Else
             Labelproducto.Text = ""
-            MsgBox("Producto no encontrado", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgEx("Producto no encontrado")
+            codigotextbox.Select()
             'TextBox1.Text = ""
             'TextBox1.Select()
         End If
@@ -870,8 +867,9 @@ Public Class RegistrarVenta
         Dim unidadmedida As Integer
         '        glistaprecio = 1
         existeproducto = ProductosTableAdapter.productos_existeproducto(codigotextbox.Text)
-        If existeproducto = 0 Then
-            MsgBox("Producto no encontrado", MsgBoxStyle.Exclamation, "Advertencia")
+        If Not existeproducto > 0 Then
+            MsgEx("Producto no encontrado")
+            codigotextbox.Select()
             Return
         End If
         'productodisponible = StockTableAdapter.stock_consultardisponible(existeproducto)
@@ -905,7 +903,7 @@ Public Class RegistrarVenta
                 If unidadmedida = 6 Then '** LA UNIDAD DE MEDIDA ES ENTERA
                     If ValidarSTK = "Enable" Then
                         If Not productodisponible >= 1 Then ''''''' validar stock disponible
-                            MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto insuficiente")
+                            MsgEx("No hay stock disponible!")
                             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
                             codigotextbox.Select()
                             codigotextbox.SelectAll()
@@ -934,7 +932,7 @@ Public Class RegistrarVenta
                         Select Case glistaprecio
                             Case 2 'es venta a granel! POR KILO
                                 If productodisponible < gcantidad Then
-                                    MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto suelto insuficiente")
+                                    MsgEx("No hay stock disponible!")
                                     VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
                                     codigotextbox.Select()
                                     codigotextbox.SelectAll()
@@ -942,7 +940,7 @@ Public Class RegistrarVenta
                                 End If
                             Case Else
                                 If productodisponibleenvasado < gcantidad Then
-                                    MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto envasado insuficiente")
+                                    MsgEx("No hay stock disponible!")
                                     VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
                                     codigotextbox.Select()
                                     codigotextbox.SelectAll()
@@ -970,7 +968,7 @@ Public Class RegistrarVenta
                             gprecioventa = v_precioventa
                             If ValidarSTK = "Enable" Then
                                 If Not productodisponible >= gcantidad Then ''''''' validar stock disponible
-                                    MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto insuficiente")
+                                    MsgEx("No hay stock disponible!")
                                     VentasdetalleDataGridView.Rows(i).Selected = True
                                     codigotextbox.Select()
                                     codigotextbox.SelectAll()
@@ -997,7 +995,7 @@ Public Class RegistrarVenta
                                 Select Case glistaprecio
                                     Case 2 'es venta a granel! POR KILO
                                         If productodisponible < gcantidad Then
-                                            MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto suelto insuficiente")
+                                            MsgEx("No hay stock disponible!")
                                             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.Rows(i))
                                             codigotextbox.Select()
                                             codigotextbox.SelectAll()
@@ -1005,7 +1003,7 @@ Public Class RegistrarVenta
                                         End If
                                     Case Else
                                         If productodisponibleenvasado < gcantidad Then
-                                            MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto envasado insuficiente")
+                                            MsgEx("No hay stock disponible!")
                                             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.Rows(i))
                                             codigotextbox.Select()
                                             codigotextbox.SelectAll()
@@ -1035,7 +1033,7 @@ Public Class RegistrarVenta
                         VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = 1 '*******  cantidad
                         If ValidarSTK = "Enable" Then
                             If Not productodisponible >= gcantidad Then ''''''' validar stock disponible
-                                MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto insuficiente")
+                                MsgEx("No hay stock disponible!")
                                 VentasdetalleDataGridView.Rows(i).Selected = True
                                 VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
                                 Return
@@ -1056,13 +1054,13 @@ Public Class RegistrarVenta
                             Select Case glistaprecio
                                 Case 2 'es venta a granel! POR KILO
                                     If productodisponible < gcantidad Then
-                                        MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto suelto insuficiente")
+                                        MsgEx("No hay stock disponible!")
                                         VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.Rows(newrow))
                                         Return
                                     End If
                                 Case Else
                                     If productodisponibleenvasado < gcantidad Then
-                                        MsgBox("No hay stock disponible!", MsgBoxStyle.Exclamation, "Producto envasado insuficiente")
+                                        MsgEx("No hay stock disponible!")
                                         VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.Rows(newrow))
                                         Return
                                     End If
@@ -1081,9 +1079,8 @@ Public Class RegistrarVenta
             End If
         Else
             Labelproducto.Text = ""
-            'MsgBox("Producto no encontrado", MsgBoxStyle.Exclamation, "Advertencia")
-            'TextBox1.Text = ""
-            'TextBox1.Select()
+            MsgEx("Producto no encontrado")
+            codigotextbox.Select()
         End If
     End Sub
     Public Sub buscaproductomanual()
@@ -1408,7 +1405,7 @@ Public Class RegistrarVenta
             fechavenc = Today.AddDays(diasvencimiento)
             FechavencimientoDateTimePicker.Value = fechavenc
         Catch ex As Exception
-            MsgBox("No se pudo calcular la fecha de vencimiento: " + ex.Message)
+            MsgEx("No se pudo calcular la fecha de vencimiento: " + ex.Message)
         End Try
 
     End Sub
@@ -1561,18 +1558,12 @@ Public Class RegistrarVenta
                 buscaproductoauto()
             End If
         End If
-
-        'If e.KeyCode.ToString = "Escape" Then
-        '    If MsgBox("Seguro desea salir de Registrar Venta?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-        '        Me.Close()
-        '    End If
-        'End If
     End Sub
 
     Private Sub RegistrarVenta_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         ''''''''''***************************   POR DEFECTO **************************************
         If e.KeyCode = Keys.Escape Then
-            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+            If MsgQues("Seguro desea salir de " + Me.Text) = True Then
                 Me.Close()
             End If
         End If
@@ -1672,7 +1663,7 @@ Public Class RegistrarVenta
     Private Sub VtaCC()
         If idformapagocombo.Text = "Cuenta Corriente" Then
             If PermisoVtaCC = 0 Then
-                MsgBox("No tiene permisos para utilizar esta función", MsgBoxStyle.Exclamation)
+                MsgEx("No tiene permisos para utilizar esta función")
                 Return
             Else
                 FechavencimientoDateTimePicker.Enabled = True
@@ -1689,7 +1680,7 @@ Public Class RegistrarVenta
         '********************************************
         If CheckBoxFP2.Checked = True Then
             If Not idformapagocombo.Text = "Efectivo" And Not idformapagocombo.Text = "Débito" Then
-                MsgBox("Primera forma de pago tiene que ser Efectivo o Débito para recibir una segunda forma de pago", MsgBoxStyle.Exclamation, "Advertencia")
+                MsgEx("Primera forma de pago tiene que ser Efectivo o Débito para recibir una segunda forma de pago")
                 CheckBoxFP2.Checked = False
                 Return
             Else
@@ -1757,7 +1748,7 @@ Public Class RegistrarVenta
 
     Private Sub idformapagocombo2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles idformapagocombo2.SelectedIndexChanged
         If idformapagocombo2.Text = "Cuenta Corriente" Or idformapagocombo2.Text = "Otros" Or idformapagocombo2.Text = "Cheque" Then
-            MsgBox("Forma de pago no permitida en esta instancia", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgEx("Forma de pago no permitida en esta instancia")
             idformapagocombo2.SelectedIndex = -1
             Return
         End If
@@ -1846,7 +1837,7 @@ Public Class RegistrarVenta
                                     pagotextbox2.Text = Nothing
                                 End If
                             Else
-                                MsgBox("Forma de pago no permitida", MsgBoxStyle.Exclamation, "Advertencia")
+                                MsgEx("Forma de pago no permitida")
                                 idformapagocombo2.SelectedIndex = -1
                                 Return
                             End If
@@ -1899,10 +1890,8 @@ Public Class RegistrarVenta
                 descuentogeneral(porcentaje)
             End If
         Catch ex As Exception
-            MsgBox("Ocurrio una excepción: " + ex.Message)
+            MsgEx("Ocurrio una excepción: " + ex.Message)
         End Try
-
-
     End Sub
     Private Sub descuentogeneral(ByRef porcentaje As Decimal)
         For i = 0 To VentasdetalleDataGridView.RowCount - 1
@@ -1931,17 +1920,17 @@ Public Class RegistrarVenta
         '*********** VALIDACIONES   ********************************************************************
         ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, Val(IdclienteTextBox.Text))
         If Not ClientesBindingSource.Count = 1 Or Val(IdclienteTextBox.Text) = 1 Then
-            MsgBox("Seleccione un cliente válido!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgEx("Seleccione un cliente válido!")
             Return
         End If
         If VentasdetalleDataGridView.RowCount = 0 Then
-            MsgBox("Debe ingresar al menos un (1) producto!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgEx("Debe ingresar al menos un (1) producto!")
             'valida = False
             Return
         End If
         '***********************************************************************************************
         '***********************************************************************************************
-        If MsgBox("Seguro desea generar el presupuesto?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+        If MsgQues("Seguro desea generar el presupuesto?") = True Then
             Try
                 '***********************************************************************************************
                 Dim PresupuestosTableAdapter As comercialDataSetTableAdapters.presupuestosTableAdapter
@@ -1964,7 +1953,7 @@ Public Class RegistrarVenta
                     Next
                     listacorrecta = 1
                 Catch ex As Exception
-                    MsgBox("Ocurrió un error: verifique la lista de productos y los códigos asociados" + ex.Message, MsgBoxStyle.Information, "Aviso")
+                    MsgEx("Ocurrió un error: verifique la lista de productos y los códigos asociados" + ex.Message)
                     listacorrecta = 0
                 End Try
                 If listacorrecta = 1 Then
@@ -1985,13 +1974,13 @@ Public Class RegistrarVenta
                         gidpresupuesto = Nothing
                     End If
                 Else
-                    MsgBox("Ocurrió un error: verifique la lista de productos y los códigos asociados", MsgBoxStyle.Information, "Aviso")
+                    MsgEx("Ocurrió un error: verifique la lista de productos y los códigos asociados")
                 End If
             Catch ex As Exception
-                MsgBox("Ocurrió un error: " + ex.Message, MsgBoxStyle.Information, "Aviso")
+                MsgEx("Ocurrió un error: " + ex.Message)
             End Try
         Else
-            MsgBox("Operación Cancelada", MsgBoxStyle.Information, "Aviso")
+            MsgEx("Operación Cancelada")
         End If
     End Sub
 
@@ -2132,5 +2121,9 @@ Public Class RegistrarVenta
 
     Private Sub idformapagocombo_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles idformapagocombo.SelectedIndexChanged
         recuento()
+    End Sub
+
+    Private Sub Label7_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class

@@ -1338,10 +1338,9 @@ and v.idtipocomprobante = tc.idtipocomprobante
 
         End Try
     End Sub
-    Public Sub MsgExPopUp(ByRef msg As String)
+    Public Sub MsgExPopUp(ByRef msg As String, Optional ByRef codalerta As String = Nothing)
         Try
             Dim xd As frmAlert = New frmAlert
-            Dim codalerta As String = Nothing
             xd.setAlert(msg, codalerta, frmAlert.alertTypeEnum.Warning)
         Catch ex As Exception
 

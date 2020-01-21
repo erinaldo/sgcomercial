@@ -38,7 +38,7 @@ Partial Class frmAlert
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(6, 115)
+        Me.Panel1.Size = New System.Drawing.Size(6, 136)
         Me.Panel1.TabIndex = 0
         '
         'PictureBox1
@@ -46,7 +46,7 @@ Partial Class frmAlert
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.Alert_warning
-        Me.PictureBox1.Location = New System.Drawing.Point(16, 37)
+        Me.PictureBox1.Location = New System.Drawing.Point(16, 48)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(40, 40)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -58,7 +58,7 @@ Partial Class frmAlert
         Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox2.Image = Global.sgcomercial.My.Resources.Resources.Alert_close
-        Me.PictureBox2.Location = New System.Drawing.Point(427, 50)
+        Me.PictureBox2.Location = New System.Drawing.Point(427, 61)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(15, 15)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -75,7 +75,7 @@ Partial Class frmAlert
         Me.LabelMsg.ForeColor = System.Drawing.Color.White
         Me.LabelMsg.Location = New System.Drawing.Point(59, 9)
         Me.LabelMsg.Name = "LabelMsg"
-        Me.LabelMsg.Size = New System.Drawing.Size(362, 97)
+        Me.LabelMsg.Size = New System.Drawing.Size(362, 118)
         Me.LabelMsg.TabIndex = 3
         Me.LabelMsg.Text = "Label1"
         Me.LabelMsg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -88,12 +88,13 @@ Partial Class frmAlert
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(450, 115)
+        Me.ClientSize = New System.Drawing.Size(450, 136)
         Me.Controls.Add(Me.LabelMsg)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.KeyPreview = True
         Me.Name = "frmAlert"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

@@ -25,6 +25,7 @@ Partial Class WinPopUp
         Me.components = New System.ComponentModel.Container()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SuspendLayout()
         '
         'Timer1
@@ -46,12 +47,22 @@ Partial Class WinPopUp
         Me.Label.Text = "Label1"
         Me.Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(411, 6)
+        Me.Panel1.TabIndex = 1
+        '
         'WinPopUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(411, 208)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "WinPopUp"
@@ -64,4 +75,5 @@ Partial Class WinPopUp
 
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Label As Label
+    Friend WithEvents Panel1 As Panel
 End Class

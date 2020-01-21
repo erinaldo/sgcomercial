@@ -144,7 +144,7 @@ Public Class Principal
             PermisoVtaCC = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "RegistrarVentaCuentaCorriente")
             gReloadPermisos = False
         Catch ex As Exception
-            MsgBox("Ocurrio un excepción mientras se realizaba la acción:" + ex.Message)
+            MsgEx("Ocurrio un excepción mientras se realizaba la acción:" + ex.Message)
         End Try
         'End If
 
@@ -266,17 +266,13 @@ Public Class Principal
         '***************    consultar el estado de caja *************
         gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
         If gidcaja = 0 Then
-            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgEx("Este ordenador no esta Registrado para operar como CAJA!")
             Return
         End If
 
-        Dim idevento As Integer
-        'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
-        'lblCaja.Text = "Caja Nº: " + idcaja.ToString
-        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
-
-        If idevento = 0 Then
-            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+        gidevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
+        If gidevento = 0 Then
+            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
         Else
             RegistrarVenta.MdiParent = Me
             RegistrarVenta.Visible = True
@@ -502,7 +498,7 @@ Public Class Principal
             CodificarProductos.MdiParent = Me
             CodificarProductos.Visible = True
         Else
-            MsgBox("Función No disponible en tu versión", MsgBoxStyle.Information, "Aviso")
+            MsgErrPopUp("Función No disponible en tu versión")
         End If
 
     End Sub
@@ -511,7 +507,7 @@ Public Class Principal
         '***************    consultar el estado de caja *************
         gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
         If gidcaja = 0 Then
-            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgErrPopUp("Este ordenador no esta Registrado para operar como CAJA!")
             Return
         End If
 
@@ -521,7 +517,7 @@ Public Class Principal
         idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
         gidevento = idevento
         If idevento = 0 Then
-            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
         Else
             'RegistrarVenta.MdiParent = Me
             'RegistrarVenta.Visible = True
@@ -585,7 +581,7 @@ Public Class Principal
         idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
 
         If idevento = 0 Then
-            MsgBox("Para poder operar debe abrir la caja", MsgBoxStyle.Exclamation)
+            MsgExPopUp("Para poder operar debe abrir la caja", "CAC")
             Return
         Else
             LotePedidosDeliveryRendir.MdiParent = Me
@@ -655,7 +651,7 @@ Public Class Principal
         '***************    consultar el estado de caja *************
         gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
         If gidcaja = 0 Then
-            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgErrPopUp("Este ordenador no esta Registrado para operar como CAJA!")
             Return
         End If
 
@@ -665,7 +661,7 @@ Public Class Principal
         idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
 
         If idevento = 0 Then
-            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
         Else
             RegistrarVenta.MdiParent = Me
             RegistrarVenta.Visible = True
@@ -688,7 +684,7 @@ Public Class Principal
         '***************    consultar el estado de caja *************
         gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
         If gidcaja = 0 Then
-            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgErrPopUp("Este ordenador no esta Registrado para operar como CAJA!")
             Return
         End If
 
@@ -698,7 +694,7 @@ Public Class Principal
         idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
         gidevento = idevento
         If idevento = 0 Then
-            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
         Else
             'RegistrarVenta.MdiParent = Me
             'RegistrarVenta.Visible = True
@@ -769,7 +765,7 @@ Public Class Principal
     'End Sub
 
     Private Sub Principal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If MsgBox("    Seguro desea salir del sistema?   ", MessageBoxButtons.YesNo, "Pregunta") = MsgBoxResult.No Then
+        If MsgQues("    Seguro desea salir del sistema?   ") = False Then
             e.Cancel = True
         Else
             '********************************************************
@@ -825,14 +821,14 @@ Public Class Principal
     End Sub
 
     Private Sub DescargarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DescargarProductosToolStripMenuItem.Click
-        If MsgBox("Este procedimiento tardará varios minutos, seguro desea continuar?", MsgBoxStyle.YesNo, "ADVERTENCIA! - Descargar productos de la Nube") = MsgBoxResult.Yes Then
+        If MsgQues("Este procedimiento tardará varios minutos, seguro desea continuar?") = True Then
             Dim CODERROR As Long
             Dim MSGERROR As String = ""
             DescargarProductosClowd(CODERROR, MSGERROR)
             If CODERROR = 0 Then
-                MsgBox("Sincronización de productos completa!", MsgBoxStyle.Information)
+                MsgInfo("Sincronización de productos completa!")
             Else
-                MsgBox(MSGERROR, MsgBoxStyle.Exclamation)
+                MsgEx(MSGERROR)
             End If
         End If
     End Sub
@@ -843,9 +839,9 @@ Public Class Principal
             Dim MSGERROR As String = ""
             MySQLModule.SubirProductosClowd(CODERROR, MSGERROR)
             If CODERROR = 0 Then
-                MsgBox("Sincronización de productos completa!", MsgBoxStyle.Information)
+                MsgInfo("Sincronización de productos completa!")
             Else
-                MsgBox(MSGERROR, MsgBoxStyle.Exclamation)
+                MsgEx(MSGERROR)
             End If
         End If
     End Sub
@@ -857,11 +853,6 @@ Public Class Principal
             Me.Hide()
             retrylogin.Show()
         End If
-        'If e.KeyCode = Keys.Escape Then
-        '    If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-        '        Me.Close()
-        '    End If
-        'End If
         '====================   WEB CONFIG ==================
         If (e.KeyCode = Keys.K AndAlso e.Control AndAlso e.Shift) Then
             Dim su As SUAuth
@@ -905,8 +896,8 @@ Public Class Principal
         '''''''''*************************** 
         '''''''''*************************** 
         If e.KeyCode = Keys.F5 Then
-            'MsgBox("recargando")
             EjecutarAlertas()
+            'MostrarAlertas()
         End If
         '*********************************************************
         '*********************************************************
@@ -943,7 +934,7 @@ Public Class Principal
 
     Private Sub MisSucursalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisSucursalesToolStripMenuItem.Click
         If Not My.Computer.Network.IsAvailable Then
-            MsgBox("No puede utilizar funciones basadas en la nube sin conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgExPopUp("No puede utilizar funciones basadas en la nube sin conexión a internet")
             Return
         End If
         Cursor.Current = Cursors.WaitCursor
@@ -970,14 +961,14 @@ Public Class Principal
             myConn2.Close()
             myConn2.Dispose()
         Catch ex As Exception
-            MsgBox("Ocurrio un problema: " + ex.Message)
+            MsgEx("Ocurrio un problema: " + ex.Message)
         End Try
     End Sub
 
     Private Sub SubirStockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SubirStockToolStripMenuItem.Click
         If Not BGWStock.IsBusy Then
             BGWStock.RunWorkerAsync()
-            MsgBox("El proceso ha comenzado, te avisaremos cuando finalice!", MsgBoxStyle.Information, "Aviso")
+            MsgInfoPopUp("El proceso ha comenzado, te avisaremos cuando finalice!")
         End If
     End Sub
 
@@ -998,29 +989,11 @@ Public Class Principal
     End Sub
 
     Private Sub BGWStock_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BGWStock.RunWorkerCompleted
-        'MsgBox("Stock cargado en la NUBE exitosamente!", MsgBoxStyle.Information, "Aviso")
+        MsgSuccessPopUp("Stock cargado en la NUBE exitosamente!")
     End Sub
 
     Private Sub RegistrarPresupuestoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarPresupuestoToolStripMenuItem.Click
-        '***************    consultar el estado de caja *************
-        'gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
-        'If gidcaja = 0 Then
-        '    MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
-        '    Return
-        'End If
 
-        'Dim idevento As Integer
-        ''idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
-        ''lblCaja.Text = "Caja Nº: " + idcaja.ToString
-        'idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
-
-        'If idevento = 0 Then
-        '    MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
-        'Else
-        '    RegistrarVenta.MdiParent = Me
-        '    RegistrarVenta.Visible = True
-        'End If
-        '***************    FIN consultar el estado de caja *************
     End Sub
 
     Private Sub PresupuestosGeneradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PresupuestosGeneradosToolStripMenuItem.Click
@@ -1034,7 +1007,7 @@ Public Class Principal
     End Sub
 
     Private Sub LibroDeGastosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroDeGastosToolStripMenuItem.Click
-        MsgBox("Temporalmente no disponible")
+        MsgErrPopUp("Temporalmente no disponible")
     End Sub
 
     Private Sub BGWAlertas_DoWork(sender As Object, e As DoWorkEventArgs)
@@ -1109,7 +1082,7 @@ Public Class Principal
         '***************    consultar el estado de caja *************
         gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
         If gidcaja = 0 Then
-            MsgBox("Este ordenador no esta Registrado para operar como CAJA!", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgExPopUp("Este ordenador no esta Registrado para operar como CAJA!", "CAC")
             Return
         End If
 
@@ -1119,7 +1092,7 @@ Public Class Principal
         idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
 
         If idevento = 0 Then
-            MsgBox("Caja Cerrada. Abra la caja antes de registrar una venta", MsgBoxStyle.Exclamation, "Advertencia")
+            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
         Else
             AdmOrdenes.MdiParent = Me
             AdmOrdenes.Visible = True
@@ -1255,72 +1228,5 @@ Public Class Principal
             BGWClientes.RunWorkerAsync()
         End If
     End Sub
-    'Private Sub PrivateDownloadSGC()
 
-    '    Dim ftpClient As New WebClient
-    '    Dim path As String = "ftp://sistemascomerciales.net/Ejecutable.rar"
-    '    Dim trnsfrpth As String = "C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
-    '    'Dim UpdateAlertStatus As Boolean
-    '    '***********************************************************
-    '    'DESCARGA ACTUALIZACIÓN
-    '    '***********************************************************
-    '    'If UpdateAlertStatus = False Then Return
-    '    Try
-    '        '**********************************************
-    '        Try 'ELIMINA POR COMPLETO LA CARPETA EJECUTABLE
-    '            IO.Directory.Delete("C:\SGComercial\UpdatePack\Ejecutable\", True)
-    '        Catch ex As Exception
-
-    '        End Try
-    '        '**********************************************
-    '        ' SI NO EXISTE LA CREA
-    '        If (Not System.IO.Directory.Exists("C:\SGComercial\UpdatePack\Ejecutable\")) Then
-    '            System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\")
-    '        End If
-    '    Catch ex As Exception
-    '        Cursor.Current = Cursors.Default
-    '        MsgBox("Borrando archivos " + ex.Message, MsgBoxStyle.Exclamation, "Ocurrió un evento inesperado")
-    '        Return
-    '    End Try
-    '    '======================================
-    '    gDownloadProgress = 0
-    '    '=====================================
-    '    'BackgroundWorker.RunWorkerAsync()
-    '    '===========================
-    '    AddHandler ftpClient.DownloadProgressChanged, AddressOf DownloadProgressChanged
-    '    AddHandler ftpClient.DownloadFileCompleted, AddressOf DownloadComplete
-    '    xi = New LoadingForm
-    '    xi.Text = "Descargando última versión"
-    '    xi.ProgressBar.Maximum = 100
-    '    xi.ProgressBar.MarqueeAnimationSpeed = 100
-    '    'xi.mensaje.TextAlign = ContentAlignment.MiddleLeft
-    '    xi.mensaje.Text = "Descargando"
-    '    xi.Show()
-    '    'Try
-    '    Try
-    '        FileSystem.Kill("C:\SGComercial\UpdatePack\Ejecutable\*.rar")
-    '    Catch ex As Exception
-
-    '    End Try
-    '    ftpClient.Credentials = New System.Net.NetworkCredential("actualizacion@sistemascomerciales.net", "sgcomercial*?")
-    '    ftpClient.DownloadFileAsync(New Uri(path), trnsfrpth)
-    'End Sub
-    'Private Sub DownloadProgressChanged(ByVal sender As Object, ByVal e As Net.DownloadProgressChangedEventArgs)
-    '    'counter = counter + 1
-    '    'Dim xi As LoadingForm
-    '    Dim info As New IO.FileInfo("C:\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar")
-    '    Dim length As Long
-    '    length = (info.Length) / 1000
-    '    gDownloadProgress = e.ProgressPercentage
-    '    xi.ProgressBar.Value = gDownloadProgress
-    '    xi.mensaje.Text = length.ToString + "kb " + "Descargando... "
-    '    xi.Refresh()
-    'End Sub
-    'Private Sub DownloadComplete(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
-    '    'MsgBox("Descarga completa! " + gDownloadProgress.ToString)
-    '    'Dim xi As LoadingForm
-    '    xi.Dispose()
-    '    'UpdateSGC(newversion)
-    '    UpdateSGC()
-    'End Sub
 End Class

@@ -157,6 +157,7 @@ Partial Class Principal
         Me.SubirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SincronizarClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosMovilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -203,7 +204,6 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.SincronizarClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1214,6 +1214,13 @@ Partial Class Principal
         Me.MisSucursalesToolStripMenuItem.Tag = "MisSucursales"
         Me.MisSucursalesToolStripMenuItem.Text = "Mis Sucursales"
         '
+        'SincronizarClientesToolStripMenuItem1
+        '
+        Me.SincronizarClientesToolStripMenuItem1.Name = "SincronizarClientesToolStripMenuItem1"
+        Me.SincronizarClientesToolStripMenuItem1.Size = New System.Drawing.Size(244, 28)
+        Me.SincronizarClientesToolStripMenuItem1.Tag = "SincronizarClientesCloud"
+        Me.SincronizarClientesToolStripMenuItem1.Text = "Sincronizar Clientes"
+        '
         'NotificacionesToolStripMenuItem
         '
         Me.NotificacionesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alert_check_blue
@@ -1564,17 +1571,11 @@ Partial Class Principal
         'BGWAlertas
         '
         '
-        'SincronizarClientesToolStripMenuItem1
-        '
-        Me.SincronizarClientesToolStripMenuItem1.Name = "SincronizarClientesToolStripMenuItem1"
-        Me.SincronizarClientesToolStripMenuItem1.Size = New System.Drawing.Size(244, 28)
-        Me.SincronizarClientesToolStripMenuItem1.Tag = "SincronizarClientesCloud"
-        Me.SincronizarClientesToolStripMenuItem1.Text = "Sincronizar Clientes"
-        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1140, 603)
         Me.Controls.Add(Me.ModulosDataGridView)

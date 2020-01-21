@@ -1,10 +1,19 @@
 ﻿Public Class frmAlert
+    Public Enum actionEnum
+        wait
+        start
+        close
+        open
+    End Enum
     Enum alertTypeEnum
         Success
         Warning
         Err
         Info
     End Enum
+
+    Private action As actionEnum = action.start
+
     Dim x, y As Integer
     Public Sub setAlert(msg As String, codalerta As String, type As alertTypeEnum)
         Me.Opacity = 0
@@ -42,13 +51,8 @@
         Me.Timer1.Interval = 1
         Me.Timer1.Start()
     End Sub
-    Enum actionEnum
-        wait
-        start
-        close
-        open
-    End Enum
-    Private action As actionEnum = action.start
+
+
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Select Case action
@@ -88,7 +92,7 @@
                                 PedidosDeliveryDespacho.Visible = True
                             End If
                         Case "PPV"
-                            If PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "LibroVencimientosProductos") = 1 Then
+                            If PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "LotesVencimiento") = 1 Then
                                 LibroVencimientosProductos.MdiParent = FormPrincipal
                                 LibroVencimientosProductos.Visible = True
                             End If
@@ -96,6 +100,11 @@
                             If PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "LibroCuentasCorrientes") = 1 Then
                                 LibroCuentasCorrientes.MdiParent = FormPrincipal
                                 LibroCuentasCorrientes.Visible = True
+                            End If
+                        Case "CAC"
+                            If PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "CajaAperturaCierre") = 1 Then
+                                CajaAperturaCierre.MdiParent = FormPrincipal
+                                CajaAperturaCierre.Visible = True
                             End If
                     End Select
                 Catch
@@ -127,5 +136,11 @@
 
     Private Sub frmAlert_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub frmAlert_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Me.Close()
+        End If
     End Sub
 End Class
