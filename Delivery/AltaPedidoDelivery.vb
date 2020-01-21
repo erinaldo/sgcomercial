@@ -14,11 +14,7 @@ Public Class AltaPedidoDelivery
         Me.TransportesTableAdapter.Fill(Me.ComercialDataSet.transportes)
         Me.LocalidadesTableAdapter.Fill(Me.ComercialDataSet.localidades)
         Me.ProvinciasTableAdapter.Fill(Me.ComercialDataSet.provincias)
-        'Me.ClientesTableAdapter.Fill(Me.ComercialDataSet.clientes)
-        'Me.ClientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.clientesdomicilios)
-        'Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
-        'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
-        'Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
+
 
 
         ClientesBindingSource.Filter = "idcliente = 0"

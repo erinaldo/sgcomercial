@@ -96,7 +96,7 @@ Public Class CajaAperturaCierre
             p.ShowDialog()
             If gmontofinal = -1 Then Return
             If MsgBox("Esta seguro que desea Cerrar la caja " + idcaja.ToString() + " con " + gmontofinal.ToString + " ? ", MsgBoxStyle.YesNo, "Pregunta") = vbNo Then
-                MsgBox("Operacion Cancelada", MsgBoxStyle.Information, "Aviso")
+                MsgErrPopUp("Operacion Cancelada")
                 Return
             End If
 
@@ -111,7 +111,7 @@ Public Class CajaAperturaCierre
                 Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
                 '*******************************
             Catch ex As Exception
-                MsgBox("Ocurrió una excepción al cerrar la caja: " + ex.Message)
+                MsgEx("Ocurrió una excepción al cerrar la caja: " + ex.Message)
             End Try
 
             If rtn = 1 Then
@@ -120,7 +120,7 @@ Public Class CajaAperturaCierre
                 If My.Computer.Network.IsAvailable Then
                     mail_cierrecaja()
                 Else
-                    MsgBox("No hay conexión a internet", MsgBoxStyle.Exclamation, "Advertencia")
+                    MsgEx("No hay conexión a internet")
                 End If
                 isopen(idcaja)
                 '*********************************************************************
