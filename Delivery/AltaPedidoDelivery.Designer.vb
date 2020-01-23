@@ -128,16 +128,7 @@ Partial Class AltaPedidoDelivery
         Me.ListaspreciosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label14 = New System.Windows.Forms.Label()
         Me.VentasdetalleDataGridView = New System.Windows.Forms.DataGridView()
-        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.unidadmedida = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.UnidadesmedidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idlistaprecio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.ProductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
         Me.ListaspreciosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaspreciosTableAdapter()
@@ -200,6 +191,17 @@ Partial Class AltaPedidoDelivery
         Me.TextBoxObs = New System.Windows.Forms.TextBox()
         Me.TipodocumentosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipodocumentosTableAdapter()
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.unidadmedida = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idlistaprecio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
         IdclienteLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
@@ -502,6 +504,7 @@ Partial Class AltaPedidoDelivery
         Me.PictureSeleccionarCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureSeleccionarCliente.TabIndex = 20
         Me.PictureSeleccionarCliente.TabStop = False
+        Me.PictureSeleccionarCliente.Tag = "Presiona F2 para seleccionar el cliente"
         '
         'GroupBox1
         '
@@ -815,10 +818,11 @@ Partial Class AltaPedidoDelivery
         Me.CheckBoxNuevoCliente.AutoSize = True
         Me.CheckBoxNuevoCliente.Location = New System.Drawing.Point(268, 23)
         Me.CheckBoxNuevoCliente.Name = "CheckBoxNuevoCliente"
-        Me.CheckBoxNuevoCliente.Size = New System.Drawing.Size(121, 21)
+        Me.CheckBoxNuevoCliente.Size = New System.Drawing.Size(151, 21)
         Me.CheckBoxNuevoCliente.TabIndex = 0
         Me.CheckBoxNuevoCliente.TabStop = False
-        Me.CheckBoxNuevoCliente.Text = "Nuevo Cliente!"
+        Me.CheckBoxNuevoCliente.Tag = "Presiona la tecla F1 para activar/desactivar"
+        Me.CheckBoxNuevoCliente.Text = "Nuevo Cliente! (F1)"
         Me.CheckBoxNuevoCliente.UseVisualStyleBackColor = True
         '
         'ClientesDataGridView
@@ -1185,6 +1189,7 @@ Partial Class AltaPedidoDelivery
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Controls.Add(Me.ComboBox1)
         Me.GroupBox3.Controls.Add(Me.Label14)
         Me.GroupBox3.Controls.Add(Me.VentasdetalleDataGridView)
@@ -1215,7 +1220,7 @@ Partial Class AltaPedidoDelivery
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(285, 22)
+        Me.Label14.Location = New System.Drawing.Point(285, 23)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(166, 17)
         Me.Label14.TabIndex = 1
@@ -1229,7 +1234,7 @@ Partial Class AltaPedidoDelivery
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.VentasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.cantidad, Me.unidadmedida, Me.medida, Me.precioventa, Me.SubTotal, Me.idlistaprecio})
+        Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idproducto, Me.codigoproducto, Me.descripcion, Me.unidadmedida, Me.cantidad, Me.precioventa, Me.descuento, Me.SubTotal, Me.idlistaprecio, Me.medida})
         Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(11, 55)
         Me.VentasdetalleDataGridView.MultiSelect = False
         Me.VentasdetalleDataGridView.Name = "VentasdetalleDataGridView"
@@ -1239,79 +1244,10 @@ Partial Class AltaPedidoDelivery
         Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1037, 260)
         Me.VentasdetalleDataGridView.TabIndex = 0
         '
-        'idproducto
-        '
-        Me.idproducto.HeaderText = "ID"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.ReadOnly = True
-        Me.idproducto.Visible = False
-        '
-        'codigoproducto
-        '
-        Me.codigoproducto.HeaderText = "Código"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.Visible = False
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 300
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        '
-        'unidadmedida
-        '
-        Me.unidadmedida.DataSource = Me.UnidadesmedidaBindingSource
-        Me.unidadmedida.DisplayMember = "descripcion"
-        Me.unidadmedida.HeaderText = "U. Medida"
-        Me.unidadmedida.Name = "unidadmedida"
-        Me.unidadmedida.ReadOnly = True
-        Me.unidadmedida.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.unidadmedida.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.unidadmedida.ToolTipText = "U. Medida"
-        Me.unidadmedida.ValueMember = "idunidadmedida"
-        Me.unidadmedida.Width = 120
-        '
         'UnidadesmedidaBindingSource
         '
         Me.UnidadesmedidaBindingSource.DataMember = "unidadesmedida"
         Me.UnidadesmedidaBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'medida
-        '
-        Me.medida.HeaderText = "Medida"
-        Me.medida.Name = "medida"
-        Me.medida.ReadOnly = True
-        Me.medida.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.medida.ToolTipText = "Medida"
-        '
-        'precioventa
-        '
-        Me.precioventa.HeaderText = "Precio Venta"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        '
-        'SubTotal
-        '
-        Me.SubTotal.HeaderText = "SubTotal"
-        Me.SubTotal.Name = "SubTotal"
-        Me.SubTotal.ReadOnly = True
-        '
-        'idlistaprecio
-        '
-        Me.idlistaprecio.HeaderText = "idlistaprecio"
-        Me.idlistaprecio.Name = "idlistaprecio"
-        Me.idlistaprecio.ReadOnly = True
-        Me.idlistaprecio.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.idlistaprecio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.idlistaprecio.Visible = False
         '
         'StockTableAdapter
         '
@@ -1362,12 +1298,14 @@ Partial Class AltaPedidoDelivery
         '
         'BtnConfirmar
         '
+        Me.BtnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnConfirmar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnConfirmar.Location = New System.Drawing.Point(644, 525)
         Me.BtnConfirmar.Name = "BtnConfirmar"
         Me.BtnConfirmar.Size = New System.Drawing.Size(162, 29)
         Me.BtnConfirmar.TabIndex = 4
-        Me.BtnConfirmar.Text = "Confirmar"
+        Me.BtnConfirmar.Text = "Confirmar (F3)"
         Me.BtnConfirmar.UseVisualStyleBackColor = True
         '
         'TextBoxPagaCon
@@ -1714,6 +1652,95 @@ Partial Class AltaPedidoDelivery
         '
         Me.TipocondicionivaTableAdapter.ClearBeforeFill = True
         '
+        'idproducto
+        '
+        Me.idproducto.HeaderText = "ID"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        '
+        'codigoproducto
+        '
+        Me.codigoproducto.HeaderText = "codigoproducto"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.Visible = False
+        '
+        'descripcion
+        '
+        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        '
+        'unidadmedida
+        '
+        Me.unidadmedida.DataSource = Me.UnidadesmedidaBindingSource
+        Me.unidadmedida.DisplayMember = "descripcion"
+        Me.unidadmedida.HeaderText = "U. Medida"
+        Me.unidadmedida.Name = "unidadmedida"
+        Me.unidadmedida.ReadOnly = True
+        Me.unidadmedida.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.unidadmedida.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.unidadmedida.ToolTipText = "U. Medida"
+        Me.unidadmedida.ValueMember = "idunidadmedida"
+        Me.unidadmedida.Width = 120
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        '
+        'precioventa
+        '
+        Me.precioventa.HeaderText = "Precio Venta"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        '
+        'descuento
+        '
+        Me.descuento.HeaderText = "Descuento"
+        Me.descuento.Name = "descuento"
+        Me.descuento.ReadOnly = True
+        Me.descuento.ToolTipText = "Descuento"
+        '
+        'SubTotal
+        '
+        Me.SubTotal.HeaderText = "SubTotal"
+        Me.SubTotal.Name = "SubTotal"
+        Me.SubTotal.ReadOnly = True
+        '
+        'idlistaprecio
+        '
+        Me.idlistaprecio.HeaderText = "idlistaprecio"
+        Me.idlistaprecio.Name = "idlistaprecio"
+        Me.idlistaprecio.ReadOnly = True
+        Me.idlistaprecio.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.idlistaprecio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.idlistaprecio.Visible = False
+        '
+        'medida
+        '
+        Me.medida.HeaderText = "Medida"
+        Me.medida.Name = "medida"
+        Me.medida.ReadOnly = True
+        Me.medida.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.medida.ToolTipText = "Medida"
+        Me.medida.Visible = False
+        '
+        'Button1
+        '
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(812, 19)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(236, 25)
+        Me.Button1.TabIndex = 3
+        Me.Button1.Text = "Aplicar Descuento Pre-definido"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'AltaPedidoDelivery
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1920,15 +1947,6 @@ Partial Class AltaPedidoDelivery
     Friend WithEvents DataGridViewTextBoxColumn74 As DataGridViewTextBoxColumn
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents idproducto As DataGridViewTextBoxColumn
-    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
-    Friend WithEvents descripcion As DataGridViewTextBoxColumn
-    Friend WithEvents cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents unidadmedida As DataGridViewComboBoxColumn
-    Friend WithEvents medida As DataGridViewTextBoxColumn
-    Friend WithEvents precioventa As DataGridViewTextBoxColumn
-    Friend WithEvents SubTotal As DataGridViewTextBoxColumn
-    Friend WithEvents idlistaprecio As DataGridViewTextBoxColumn
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents Label15 As Label
@@ -1940,4 +1958,15 @@ Partial Class AltaPedidoDelivery
     Friend WithEvents TipocondicionivaBindingSource As BindingSource
     Friend WithEvents TipocondicionivaTableAdapter As comercialDataSetTableAdapters.tipocondicionivaTableAdapter
     Friend WithEvents PictureBoxEditarCliente As PictureBox
+    Friend WithEvents idproducto As DataGridViewTextBoxColumn
+    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
+    Friend WithEvents descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents unidadmedida As DataGridViewComboBoxColumn
+    Friend WithEvents cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents precioventa As DataGridViewTextBoxColumn
+    Friend WithEvents descuento As DataGridViewTextBoxColumn
+    Friend WithEvents SubTotal As DataGridViewTextBoxColumn
+    Friend WithEvents idlistaprecio As DataGridViewTextBoxColumn
+    Friend WithEvents medida As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

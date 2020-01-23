@@ -794,12 +794,14 @@ Public Class RegistrarVenta
                     End If
                     VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
                 End If
-                VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = v_precioventa
+                VentasdetalleDataGridView.Rows(newrow).Cells("precioventa").Value = v_precioventa
                 VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
                 VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio ' glistaprecio
                 codigotextbox.SelectAll()
                 codigotextbox.Select()
                 recuento()
+                Me.VentasdetalleDataGridView.FirstDisplayedScrollingRowIndex = Me.VentasdetalleDataGridView.RowCount - 1
+                Me.VentasdetalleDataGridView.Rows(Me.VentasdetalleDataGridView.RowCount - 1).Selected = True
                 Return
             Else '**  NO ES EL PRIMER ARTICULO DE LA LISTA -- DEBO RECORRERLA PARA SABER SI YA ESTA CARGADO
                 Dim i As Integer
@@ -822,6 +824,8 @@ Public Class RegistrarVenta
                         codigotextbox.SelectAll()
                         codigotextbox.Select()
                         recuento()
+                        Me.VentasdetalleDataGridView.FirstDisplayedScrollingRowIndex = Me.VentasdetalleDataGridView.RowCount - 1
+                        Me.VentasdetalleDataGridView.Rows(Me.VentasdetalleDataGridView.RowCount - 1).Selected = True
                         Return
                     Else
                         addnewrow = True '** EL ARTICULO NO ESTA EN LA LISTA SE AGREGA UN NUEVO REGISTRO
@@ -849,6 +853,8 @@ Public Class RegistrarVenta
                     codigotextbox.SelectAll()
                     codigotextbox.Select()
                     recuento()
+                    Me.VentasdetalleDataGridView.FirstDisplayedScrollingRowIndex = Me.VentasdetalleDataGridView.RowCount - 1
+                    Me.VentasdetalleDataGridView.Rows(Me.VentasdetalleDataGridView.RowCount - 1).Selected = True
                     Return
                 End If
             End If
@@ -872,11 +878,12 @@ Public Class RegistrarVenta
             codigotextbox.Select()
             Return
         End If
-        'productodisponible = StockTableAdapter.stock_consultardisponible(existeproducto)
-        'productodisponibleenvasado = StockTableAdapter.stock_consultardisponibleenvasado(existeproducto)
         productodisponible = StockGeneralTableAdapter.stockgeneral_consultardisponible(existeproducto)
         productodisponibleenvasado = StockGeneralTableAdapter.stockgeneral_consultardisponibleenvasado(existeproducto)
         unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(codigotextbox.Text)
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        '       PREGUNTA FUNDAMENTAL 1
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         If existeproducto > 0 Then ' existeproducto ------------- es el codigo de producto
             Labelproducto.Text = ProductosTableAdapter.productos_consultardescripcion(codigotextbox.Text)
             '********   LISTA PRECIO PREFERIDA ************
@@ -898,8 +905,8 @@ Public Class RegistrarVenta
                 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 newrow = VentasdetalleDataGridView.Rows.Add()
                 VentasdetalleDataGridView.Rows(newrow).Selected = True
-                VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = codigotextbox.Text
-                VentasdetalleDataGridView.Rows(newrow).Cells(1).Value = Labelproducto.Text
+                VentasdetalleDataGridView.Rows(newrow).Cells("codproducto").Value = codigotextbox.Text
+                VentasdetalleDataGridView.Rows(newrow).Cells("descripcion").Value = Labelproducto.Text
                 If unidadmedida = 6 Then '** LA UNIDAD DE MEDIDA ES ENTERA
                     If ValidarSTK = "Enable" Then
                         If Not productodisponible >= 1 Then ''''''' validar stock disponible
@@ -910,7 +917,7 @@ Public Class RegistrarVenta
                             Return
                         End If
                     End If
-                    VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = 1 '*******  cantidad
+                    VentasdetalleDataGridView.Rows(newrow).Cells("cantidad").Value = 1 '*******  cantidad
                     gprecioventa = v_precioventa
                     VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio
                 Else    '****************** la unidad de medida es kilo litro o metros
@@ -957,6 +964,8 @@ Public Class RegistrarVenta
                 codigotextbox.SelectAll()
                 codigotextbox.Select()
                 recuento()
+                Me.VentasdetalleDataGridView.FirstDisplayedScrollingRowIndex = Me.VentasdetalleDataGridView.RowCount - 1
+                Me.VentasdetalleDataGridView.Rows(Me.VentasdetalleDataGridView.RowCount - 1).Selected = True
                 Return
             Else '**  NO ES EL PRIMER ARTICULO DE LA LISTA -- DEBO RECORRERLA PARA SABER SI YA ESTA CARGADO
                 Dim i As Integer
@@ -1019,6 +1028,8 @@ Public Class RegistrarVenta
                         codigotextbox.SelectAll()
                         codigotextbox.Select()
                         recuento()
+                        Me.VentasdetalleDataGridView.FirstDisplayedScrollingRowIndex = Me.VentasdetalleDataGridView.RowCount - 1
+                        Me.VentasdetalleDataGridView.Rows(Me.VentasdetalleDataGridView.RowCount - 1).Selected = True
                         Return
                     Else
                         addnewrow = True '** EL ARTICULO NO ESTA EN LA LISTA SE AGREGA UN NUEVO REGISTRO
@@ -1074,6 +1085,8 @@ Public Class RegistrarVenta
                     codigotextbox.SelectAll()
                     codigotextbox.Select()
                     recuento()
+                    Me.VentasdetalleDataGridView.FirstDisplayedScrollingRowIndex = Me.VentasdetalleDataGridView.RowCount - 1
+                    Me.VentasdetalleDataGridView.Rows(Me.VentasdetalleDataGridView.RowCount - 1).Selected = True
                     Return
                 End If
             End If
@@ -1113,6 +1126,8 @@ Public Class RegistrarVenta
             codigotextbox.SelectAll()
             codigotextbox.Select()
             recuento()
+            Me.VentasdetalleDataGridView.FirstDisplayedScrollingRowIndex = Me.VentasdetalleDataGridView.RowCount - 1
+            Me.VentasdetalleDataGridView.Rows(Me.VentasdetalleDataGridView.RowCount - 1).Selected = True
             Return
         Else '**  NO ES EL PRIMER ARTICULO DE LA LISTA -- DEBO RECORRERLA PARA SABER SI YA ESTA CARGADO
             Dim i As Integer
@@ -1130,6 +1145,8 @@ Public Class RegistrarVenta
                     codigotextbox.SelectAll()
                     codigotextbox.Select()
                     recuento()
+                    Me.VentasdetalleDataGridView.FirstDisplayedScrollingRowIndex = Me.VentasdetalleDataGridView.RowCount - 1
+                    Me.VentasdetalleDataGridView.Rows(Me.VentasdetalleDataGridView.RowCount - 1).Selected = True
                     Return
                 Else
                     addnewrow = True '** EL ARTICULO NO ESTA EN LA LISTA SE AGREGA UN NUEVO REGISTRO
@@ -1151,6 +1168,8 @@ Public Class RegistrarVenta
                 codigotextbox.SelectAll()
                 codigotextbox.Select()
                 recuento()
+                Me.VentasdetalleDataGridView.FirstDisplayedScrollingRowIndex = Me.VentasdetalleDataGridView.RowCount - 1
+                Me.VentasdetalleDataGridView.Rows(Me.VentasdetalleDataGridView.RowCount - 1).Selected = True
                 Return
             End If
         End If
@@ -1158,7 +1177,6 @@ Public Class RegistrarVenta
         '*************************
     End Sub
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles codigotextbox.TextChanged
-        'LimpiarCodigo(codigotextbox.Text)
         If BCScanerCR = "Disable" Then
             If Len(Trim(codigotextbox.Text)) = 0 Then
                 Labelproducto.Text = ""
@@ -1167,14 +1185,18 @@ Public Class RegistrarVenta
 
             If Len(Trim(codigotextbox.Text)) = 13 And Mid(codigotextbox.Text, 1, 1) = gbalprefix And Len(codigotextbox.Text) = 13 Then
                 Labelproducto.Text = "es balanza"
+                '       FORMA 2
                 buscaproductobalanza()
                 Return
             End If
 
             If PictureBox1.BackColor = Color.Transparent Then
+                '       FORMA 2
                 buscaproductoauto()
             End If
         End If
+        '       FORMA 3 DESDE LA MANITO
+        '   buscaproductomanual()
     End Sub
 
     Private Sub VentasdetalleDataGridView_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VentasdetalleDataGridView.CellClick
@@ -1227,9 +1249,12 @@ Public Class RegistrarVenta
                         End If
                     Case "cantidad"
                         If VentasdetalleDataGridView.RowCount = 0 Then Return
+                        gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
+                        If gprecioventa = 0 Then Return
                         Dim p As SeleccionarCantidad
                         p = New SeleccionarCantidad
                         gcodigoproducto = 0
+                        gcantidad = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value
                         p.ShowDialog()
                         If gcantidad = 0 Then
                             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
@@ -1240,7 +1265,6 @@ Public Class RegistrarVenta
                         End If
                         'p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
                         VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
-                        gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
                         VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("subtotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
                         gcantidad = Nothing
                         gprecioventa = Nothing
@@ -1248,7 +1272,8 @@ Public Class RegistrarVenta
                     Case "precioventa"
                         If gModPVV = "SI" Then
                             gprecioventa = Nothing
-                            IngresaPrecioVenta.ShowDialog()
+                            Dim xd As New IngresaPrecioVenta()
+                            xd.ShowDialog()
                             If gprecioventa = Nothing Or gprecioventa = 0 Then
                                 Return
                             Else
@@ -1273,12 +1298,11 @@ Public Class RegistrarVenta
 
     End Sub
     Private Sub recuento()
-
+        'VerificaCriteriosVenta()
         '********** RecargoTC
         grecargoTC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoTC")
         grecargoCC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoCC")
         '**********
-
         Dim cantidad As Decimal = 0
         Dim descuentolocal As Decimal
         Dim recargolocal As Decimal
@@ -1370,7 +1394,7 @@ Public Class RegistrarVenta
         If Val(pagotextbox.Text) > 0 Then
             Dim pago As Decimal = pagotextbox.Text
             Dim vuelto As Decimal = pago - total
-            vueltotextbox.Text = +vuelto.ToString
+            vueltotextbox.Text = vuelto.ToString
         End If
     End Sub
 
@@ -1633,6 +1657,7 @@ Public Class RegistrarVenta
             Dim p As SeleccionarCantidad
             p = New SeleccionarCantidad
             gcodigoproducto = 0
+            gcantidad = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value
             p.ShowDialog()
             'p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
             VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
@@ -2125,5 +2150,84 @@ Public Class RegistrarVenta
 
     Private Sub Label7_Click(sender As Object, e As EventArgs)
 
+    End Sub
+    Private Sub VerificaCriteriosVenta()
+
+        Dim CriteriosVentaTableAdapter As New comercialDataSetTableAdapters.criteriosventaTableAdapter()
+        Dim CriteriosVentaRegaloRango As New comercialDataSetTableAdapters.criteriosventaregalorangoTableAdapter()
+        Dim CriteriosVentaRegaloRangoDataTable As New comercialDataSet.criteriosventaregalorangoDataTable()
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        For i = 0 To VentasdetalleDataGridView.RowCount - 1
+            Dim l_cantidad As Decimal
+            Dim l_cantidadregalo As Decimal
+            Dim l_precioventa As Decimal
+            Dim l_codigoproducto As String
+            Dim l_codigoproductoregalo As String
+            Dim porcentajedescuento As Decimal
+            Dim aplicaregalo As Integer = 0
+            l_cantidad = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value
+            l_precioventa = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
+            l_codigoproducto = VentasdetalleDataGridView.Rows(i).Cells("codproducto").Value
+            aplicaregalo = VentasdetalleDataGridView.Rows(i).Cells("aplicaregalo").Value
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            '     DETERMINAR PORCENTAJE DE DESCUENTO
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            porcentajedescuento = CriteriosVentaTableAdapter.criteriosventa_get_porcentaje(l_codigoproducto, l_cantidad)
+            If porcentajedescuento > 0 Then
+                Try
+                    VentasdetalleDataGridView.Rows(i).Cells("descuento").Value = String.Format("{0:n}", ((l_precioventa * l_cantidad) * porcentajedescuento / 100))
+                Catch ex As Exception
+                    VentasdetalleDataGridView.Rows(i).Cells("descuento").Value = Nothing
+                End Try
+            Else
+                VentasdetalleDataGridView.Rows(i).Cells("descuento").Value = Nothing
+            End If
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            '     DETERMINAR REGALOS
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            If aplicaregalo = 1 Then Return
+            CriteriosVentaRegaloRangoDataTable = CriteriosVentaRegaloRango.GetDataBy_get_regalos(l_codigoproducto, l_cantidad)
+            If CriteriosVentaRegaloRangoDataTable.Count > 0 Then
+                For j = 0 To CriteriosVentaRegaloRangoDataTable.Count - 1
+                    l_codigoproductoregalo = CriteriosVentaRegaloRangoDataTable.Rows(j).Item(CriteriosVentaRegaloRangoDataTable.codigoproductoColumn)
+                    l_cantidadregalo = CriteriosVentaRegaloRangoDataTable.Rows(j).Item(CriteriosVentaRegaloRangoDataTable.cantidadColumn)
+                    InsertarNuevoRegalo(l_codigoproductoregalo, l_cantidadregalo)
+                Next
+                VentasdetalleDataGridView.Rows(i).Cells("aplicaregalo").Value = 1
+            End If
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Next
+    End Sub
+    Private Sub InsertarNuevoRegalo(ByRef codigoproducto As String, ByRef cantidad As Decimal)
+        Dim newrow As Integer
+        Dim unidadmedida As Integer
+        Dim descripcion As String
+        unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(codigoproducto)
+        descripcion = ProductosTableAdapter.productos_consultardescripcion(codigoproducto)
+        Try
+            newrow = VentasdetalleDataGridView.Rows.Add()
+            VentasdetalleDataGridView.Rows(newrow).Selected = True
+            VentasdetalleDataGridView.Rows(newrow).Cells("codproducto").Value = codigoproducto
+            VentasdetalleDataGridView.Rows(newrow).Cells("descripcion").Value = "BONIF. " + descripcion
+            VentasdetalleDataGridView.Rows(newrow).Cells("cantidad").Value = cantidad '*******  cantidad
+            If ValidarSTK = "Enable" Then
+                If Not productodisponible >= gcantidad Then ''''''' validar stock disponible
+                    MsgEx("No hay stock disponible!")
+                    VentasdetalleDataGridView.Rows(newrow).Selected = True
+                    VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+                    Return
+                End If
+            End If
+            VentasdetalleDataGridView.Rows(newrow).Cells("precioventa").Value = 0 'gprecioventa
+            VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = 0 'gprecioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
+            VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = 1 'glistaprecio
+            VentasdetalleDataGridView.Rows(newrow).Cells("aplicaregalo").Value = 1
+            codigotextbox.SelectAll()
+            codigotextbox.Select()
+            'recuento() no es necesario hacer el recuento porque es un regalo!
+            Return
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

@@ -28,6 +28,7 @@
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         gidCriterioSeleccionado = 0
         NuevoCriterioVenta.ShowDialog()
+        Me.CriteriosventaTableAdapter.Fill(Me.ComercialDataSet.criteriosventa)
     End Sub
 
     Private Sub CriteriosventaDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles CriteriosventaDataGridView.CellContentClick

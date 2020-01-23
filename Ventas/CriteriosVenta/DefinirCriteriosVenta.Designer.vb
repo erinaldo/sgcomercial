@@ -29,10 +29,6 @@ Partial Class DefinirCriteriosVenta
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CriteriosventaDataGridView = New System.Windows.Forms.DataGridView()
-        Me.CriteriosventaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.CriteriosventaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.criteriosventaTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.idcriterioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EditarCriterio = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -40,6 +36,10 @@ Partial Class DefinirCriteriosVenta
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CriteriosventaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.CriteriosventaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.criteriosventaTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.CriteriosventaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,9 +113,64 @@ Partial Class DefinirCriteriosVenta
         Me.CriteriosventaDataGridView.Location = New System.Drawing.Point(6, 80)
         Me.CriteriosventaDataGridView.Name = "CriteriosventaDataGridView"
         Me.CriteriosventaDataGridView.ReadOnly = True
+        Me.CriteriosventaDataGridView.RowHeadersVisible = False
         Me.CriteriosventaDataGridView.RowTemplate.Height = 24
         Me.CriteriosventaDataGridView.Size = New System.Drawing.Size(849, 337)
         Me.CriteriosventaDataGridView.TabIndex = 0
+        '
+        'idcriterioventa
+        '
+        Me.idcriterioventa.DataPropertyName = "idcriterioventa"
+        Me.idcriterioventa.HeaderText = "idcriterioventa"
+        Me.idcriterioventa.Name = "idcriterioventa"
+        Me.idcriterioventa.ReadOnly = True
+        Me.idcriterioventa.Visible = False
+        '
+        'EditarCriterio
+        '
+        Me.EditarCriterio.HeaderText = ""
+        Me.EditarCriterio.Name = "EditarCriterio"
+        Me.EditarCriterio.ReadOnly = True
+        Me.EditarCriterio.Text = "Editar Criterio"
+        Me.EditarCriterio.ToolTipText = "Editar Criterio"
+        Me.EditarCriterio.UseColumnTextForButtonValue = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Descripción"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.ToolTipText = "Descripción"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechadesde"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Desde"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "fechahasta"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Hasta"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "cantidaddisponibletotal"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Cantidad Total Disponible"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "cantidadmaximaporcliente"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Cantidad Maxima Por Cliente"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.ToolTipText = "Cantidad Maxima Por Cliente"
         '
         'CriteriosventaBindingSource
         '
@@ -217,60 +272,6 @@ Partial Class DefinirCriteriosVenta
         Me.TableAdapterManager.valesTableAdapter = Nothing
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
-        'idcriterioventa
-        '
-        Me.idcriterioventa.DataPropertyName = "idcriterioventa"
-        Me.idcriterioventa.HeaderText = "idcriterioventa"
-        Me.idcriterioventa.Name = "idcriterioventa"
-        Me.idcriterioventa.ReadOnly = True
-        Me.idcriterioventa.Visible = False
-        '
-        'EditarCriterio
-        '
-        Me.EditarCriterio.HeaderText = ""
-        Me.EditarCriterio.Name = "EditarCriterio"
-        Me.EditarCriterio.ReadOnly = True
-        Me.EditarCriterio.Text = "Editar Criterio"
-        Me.EditarCriterio.ToolTipText = "Editar Criterio"
-        Me.EditarCriterio.UseColumnTextForButtonValue = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "descripcion"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Descripción"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.ToolTipText = "Descripción"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "fechadesde"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Desde"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "fechahasta"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Hasta"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "cantidaddisponibletotal"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Cantidad Total Disponible"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "cantidadmaximaporcliente"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Cantidad Maxima Por Cliente"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.ToolTipText = "Cantidad Maxima Por Cliente"
         '
         'DefinirCriteriosVenta
         '

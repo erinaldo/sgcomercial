@@ -40,6 +40,7 @@ Partial Class DefinirCriterioVentaRango
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CriteriosventaproductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.criteriosventaproductosTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.CriteriosventaproductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CriteriosventaproductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,13 +56,14 @@ Partial Class DefinirCriterioVentaRango
         Me.GroupBox1.Controls.Add(Me.TextBoxDescuento)
         Me.GroupBox1.Controls.Add(Me.TextBoxHasta)
         Me.GroupBox1.Controls.Add(Me.TextBoxDesde)
+        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(498, 129)
+        Me.GroupBox1.Size = New System.Drawing.Size(498, 137)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -147,6 +149,7 @@ Partial Class DefinirCriterioVentaRango
         Me.Label4.Size = New System.Drawing.Size(148, 17)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Producto a descontar:"
+        Me.Label4.Visible = False
         '
         'Label3
         '
@@ -266,11 +269,20 @@ Partial Class DefinirCriterioVentaRango
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(147, 116)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(204, 17)
+        Me.Label5.TabIndex = 0
+        Me.Label5.Text = "Presione <Enter> para finalizar"
+        '
         'DefinirCriterioVentaRango
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(522, 153)
+        Me.ClientSize = New System.Drawing.Size(522, 161)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
@@ -306,4 +318,5 @@ Partial Class DefinirCriterioVentaRango
     Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
     Friend WithEvents cantidadmaxima As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents Label5 As Label
 End Class

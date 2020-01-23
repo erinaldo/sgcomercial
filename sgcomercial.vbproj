@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>24</ApplicationRevision>
-    <ApplicationVersion>4.1.0.24</ApplicationVersion>
+    <ApplicationRevision>25</ApplicationRevision>
+    <ApplicationVersion>4.1.0.25</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1114,16 +1114,16 @@
     <Compile Include="Ventas\ConsultarPrecios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventas\DefinirCriteriosVenta.Designer.vb">
+    <Compile Include="Ventas\CriteriosVenta\DefinirCriteriosVenta.Designer.vb">
       <DependentUpon>DefinirCriteriosVenta.vb</DependentUpon>
     </Compile>
-    <Compile Include="Ventas\DefinirCriteriosVenta.vb">
+    <Compile Include="Ventas\CriteriosVenta\DefinirCriteriosVenta.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventas\DefinirCriterioVentaRango.Designer.vb">
+    <Compile Include="Ventas\CriteriosVenta\DefinirCriterioVentaRango.Designer.vb">
       <DependentUpon>DefinirCriterioVentaRango.vb</DependentUpon>
     </Compile>
-    <Compile Include="Ventas\DefinirCriterioVentaRango.vb">
+    <Compile Include="Ventas\CriteriosVenta\DefinirCriterioVentaRango.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventas\DetalleEgresos.Designer.vb">
@@ -1156,10 +1156,10 @@
     <Compile Include="Ventas\IngresaPrecioVenta.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventas\NuevoCriterioVenta.Designer.vb">
+    <Compile Include="Ventas\CriteriosVenta\NuevoCriterioVenta.Designer.vb">
       <DependentUpon>NuevoCriterioVenta.vb</DependentUpon>
     </Compile>
-    <Compile Include="Ventas\NuevoCriterioVenta.vb">
+    <Compile Include="Ventas\CriteriosVenta\NuevoCriterioVenta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventas\PopUpGetTipoCbt.Designer.vb">
@@ -1804,10 +1804,10 @@
     <EmbeddedResource Include="Ventas\BuscaProductoCantidadGenerico.resx">
       <DependentUpon>BuscaProductoCantidadGenerico.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventas\DefinirCriteriosVenta.resx">
+    <EmbeddedResource Include="Ventas\CriteriosVenta\DefinirCriteriosVenta.resx">
       <DependentUpon>DefinirCriteriosVenta.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventas\DefinirCriterioVentaRango.resx">
+    <EmbeddedResource Include="Ventas\CriteriosVenta\DefinirCriterioVentaRango.resx">
       <DependentUpon>DefinirCriterioVentaRango.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\EditarVenta.resx">
@@ -1816,7 +1816,7 @@
     <EmbeddedResource Include="Ventas\IngresaPrecioVenta.resx">
       <DependentUpon>IngresaPrecioVenta.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventas\NuevoCriterioVenta.resx">
+    <EmbeddedResource Include="Ventas\CriteriosVenta\NuevoCriterioVenta.resx">
       <DependentUpon>NuevoCriterioVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\PopUpGetTipoCbt.resx">
@@ -2353,42 +2353,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

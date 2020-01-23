@@ -123,6 +123,7 @@ Partial Class RegistrarVenta
         Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.listasprecios = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aplicaregalo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VentasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxEditarCliente = New System.Windows.Forms.PictureBox()
@@ -918,7 +919,7 @@ Partial Class RegistrarVenta
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(826, 23)
+        Me.Label14.Location = New System.Drawing.Point(817, 23)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(51, 20)
         Me.Label14.TabIndex = 6
@@ -986,7 +987,7 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.VentasdetalleDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.VentasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codproducto, Me.descripcion, Me.cantidad, Me.precioventa, Me.descuento, Me.recargo, Me.subtotal, Me.eliminar, Me.listasprecios})
+        Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codproducto, Me.descripcion, Me.cantidad, Me.precioventa, Me.descuento, Me.recargo, Me.subtotal, Me.eliminar, Me.listasprecios, Me.aplicaregalo})
         Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(5, 51)
         Me.VentasdetalleDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.VentasdetalleDataGridView.MultiSelect = False
@@ -1077,6 +1078,13 @@ Partial Class RegistrarVenta
         Me.listasprecios.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.listasprecios.Visible = False
         '
+        'aplicaregalo
+        '
+        Me.aplicaregalo.HeaderText = "aplicaregalo"
+        Me.aplicaregalo.Name = "aplicaregalo"
+        Me.aplicaregalo.ReadOnly = True
+        Me.aplicaregalo.Visible = False
+        '
         'VentasdetalleBindingSource
         '
         Me.VentasdetalleBindingSource.DataMember = "ventasdetalle"
@@ -1115,7 +1123,7 @@ Partial Class RegistrarVenta
         Me.PictureBoxEditarCliente.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxEditarCliente.Image = CType(resources.GetObject("PictureBoxEditarCliente.Image"), System.Drawing.Image)
         Me.PictureBoxEditarCliente.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureBoxEditarCliente.Location = New System.Drawing.Point(172, 20)
+        Me.PictureBoxEditarCliente.Location = New System.Drawing.Point(168, 20)
         Me.PictureBoxEditarCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBoxEditarCliente.Name = "PictureBoxEditarCliente"
         Me.PictureBoxEditarCliente.Size = New System.Drawing.Size(27, 27)
@@ -1126,11 +1134,13 @@ Partial Class RegistrarVenta
         '
         'ButtonDescuentoDefecto
         '
+        Me.ButtonDescuentoDefecto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.ButtonDescuentoDefecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ButtonDescuentoDefecto.Location = New System.Drawing.Point(199, 22)
         Me.ButtonDescuentoDefecto.Name = "ButtonDescuentoDefecto"
         Me.ButtonDescuentoDefecto.Size = New System.Drawing.Size(197, 23)
         Me.ButtonDescuentoDefecto.TabIndex = 21
-        Me.ButtonDescuentoDefecto.Text = "Aplicar Descuento Automático"
+        Me.ButtonDescuentoDefecto.Text = "Aplicar Descuento Pre-definido"
         Me.ButtonDescuentoDefecto.UseVisualStyleBackColor = True
         Me.ButtonDescuentoDefecto.Visible = False
         '
@@ -1154,7 +1164,7 @@ Partial Class RegistrarVenta
         Me.PictureSeleccionarCliente.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureSeleccionarCliente.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSeleccionarCliente.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(141, 20)
+        Me.PictureSeleccionarCliente.Location = New System.Drawing.Point(137, 20)
         Me.PictureSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureSeleccionarCliente.Name = "PictureSeleccionarCliente"
         Me.PictureSeleccionarCliente.Size = New System.Drawing.Size(27, 27)
@@ -2022,15 +2032,6 @@ Partial Class RegistrarVenta
     Friend WithEvents CheckBoxFP2 As CheckBox
     Friend WithEvents FormaspagoBindingSource1 As BindingSource
     Friend WithEvents Label6 As Label
-    Friend WithEvents codproducto As DataGridViewTextBoxColumn
-    Friend WithEvents descripcion As DataGridViewTextBoxColumn
-    Friend WithEvents cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents precioventa As DataGridViewTextBoxColumn
-    Friend WithEvents descuento As DataGridViewTextBoxColumn
-    Friend WithEvents recargo As DataGridViewTextBoxColumn
-    Friend WithEvents subtotal As DataGridViewTextBoxColumn
-    Friend WithEvents eliminar As DataGridViewButtonColumn
-    Friend WithEvents listasprecios As DataGridViewTextBoxColumn
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
     Friend WithEvents ButtonDescuentoDefecto As Button
     Friend WithEvents BGWStockClowd As System.ComponentModel.BackgroundWorker
@@ -2071,4 +2072,14 @@ Partial Class RegistrarVenta
     Friend WithEvents oteliminar As DataGridViewButtonColumn
     Friend WithEvents DataGridViewOT As DataGridView
     Friend WithEvents BGWReloadStock As System.ComponentModel.BackgroundWorker
+    Friend WithEvents codproducto As DataGridViewTextBoxColumn
+    Friend WithEvents descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents precioventa As DataGridViewTextBoxColumn
+    Friend WithEvents descuento As DataGridViewTextBoxColumn
+    Friend WithEvents recargo As DataGridViewTextBoxColumn
+    Friend WithEvents subtotal As DataGridViewTextBoxColumn
+    Friend WithEvents eliminar As DataGridViewButtonColumn
+    Friend WithEvents listasprecios As DataGridViewTextBoxColumn
+    Friend WithEvents aplicaregalo As DataGridViewTextBoxColumn
 End Class

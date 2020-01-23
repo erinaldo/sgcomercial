@@ -35,15 +35,33 @@ Partial Class NuevoCriterioVenta
         Me.GroupBoxRegalos = New System.Windows.Forms.GroupBox()
         Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
         Me.CriteriosventaregalorangoDataGridView = New System.Windows.Forms.DataGridView()
+        Me.idcriteriosventaregalorango = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idrangocriterioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.QuitarRegalo = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.CriteriosventaregalorangoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBoxRangos = New System.Windows.Forms.GroupBox()
         Me.CriteriosventarangosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.idcriterioventarango = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.desde = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.hasta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.porcentajedescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.codigoproductoadescontar = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EliminarRango = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.AgregarRegalo = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.CriteriosventarangosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.GroupBoxProductos = New System.Windows.Forms.GroupBox()
         Me.CriteriosventaproductosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.QuitarProducto = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.idcriteriosventaproductos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CriteriosventaproductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
@@ -59,23 +77,6 @@ Partial Class NuevoCriterioVenta
         Me.CriteriosventaproductosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.criteriosventaproductosTableAdapter()
         Me.CriteriosventarangosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.criteriosventarangosTableAdapter()
         Me.CriteriosventaregalorangoTableAdapter = New sgcomercial.comercialDataSetTableAdapters.criteriosventaregalorangoTableAdapter()
-        Me.idcriterioventarango = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.desde = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.hasta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.porcentajedescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.codigoproductoadescontar = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AgregarRegalo = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.idcriteriosventaregalorango = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idrangocriterioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QuitarRegalo = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QuitarProducto = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.idcriteriosventaproductos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdcriterioventaLabel = New System.Windows.Forms.Label()
         DescripcionLabel = New System.Windows.Forms.Label()
         FechadesdeLabel = New System.Windows.Forms.Label()
@@ -101,7 +102,7 @@ Partial Class NuevoCriterioVenta
         'IdcriterioventaLabel
         '
         IdcriterioventaLabel.AutoSize = True
-        IdcriterioventaLabel.Location = New System.Drawing.Point(3, 76)
+        IdcriterioventaLabel.Location = New System.Drawing.Point(9, 117)
         IdcriterioventaLabel.Name = "IdcriterioventaLabel"
         IdcriterioventaLabel.Size = New System.Drawing.Size(101, 17)
         IdcriterioventaLabel.TabIndex = 0
@@ -111,7 +112,7 @@ Partial Class NuevoCriterioVenta
         'DescripcionLabel
         '
         DescripcionLabel.AutoSize = True
-        DescripcionLabel.Location = New System.Drawing.Point(308, 17)
+        DescripcionLabel.Location = New System.Drawing.Point(198, 14)
         DescripcionLabel.Name = "DescripcionLabel"
         DescripcionLabel.Size = New System.Drawing.Size(86, 17)
         DescripcionLabel.TabIndex = 2
@@ -120,7 +121,7 @@ Partial Class NuevoCriterioVenta
         'FechadesdeLabel
         '
         FechadesdeLabel.AutoSize = True
-        FechadesdeLabel.Location = New System.Drawing.Point(341, 46)
+        FechadesdeLabel.Location = New System.Drawing.Point(231, 43)
         FechadesdeLabel.Name = "FechadesdeLabel"
         FechadesdeLabel.Size = New System.Drawing.Size(53, 17)
         FechadesdeLabel.TabIndex = 4
@@ -129,7 +130,7 @@ Partial Class NuevoCriterioVenta
         'FechahastaLabel
         '
         FechahastaLabel.AutoSize = True
-        FechahastaLabel.Location = New System.Drawing.Point(345, 74)
+        FechahastaLabel.Location = New System.Drawing.Point(235, 71)
         FechahastaLabel.Name = "FechahastaLabel"
         FechahastaLabel.Size = New System.Drawing.Size(49, 17)
         FechahastaLabel.TabIndex = 6
@@ -138,7 +139,7 @@ Partial Class NuevoCriterioVenta
         'CantidaddisponibletotalLabel
         '
         CantidaddisponibletotalLabel.AutoSize = True
-        CantidaddisponibletotalLabel.Location = New System.Drawing.Point(220, 101)
+        CantidaddisponibletotalLabel.Location = New System.Drawing.Point(565, 17)
         CantidaddisponibletotalLabel.Name = "CantidaddisponibletotalLabel"
         CantidaddisponibletotalLabel.Size = New System.Drawing.Size(174, 17)
         CantidaddisponibletotalLabel.TabIndex = 8
@@ -147,7 +148,7 @@ Partial Class NuevoCriterioVenta
         'CantidadmaximaporclienteLabel
         '
         CantidadmaximaporclienteLabel.AutoSize = True
-        CantidadmaximaporclienteLabel.Location = New System.Drawing.Point(203, 129)
+        CantidadmaximaporclienteLabel.Location = New System.Drawing.Point(548, 45)
         CantidadmaximaporclienteLabel.Name = "CantidadmaximaporclienteLabel"
         CantidadmaximaporclienteLabel.Size = New System.Drawing.Size(191, 17)
         CantidadmaximaporclienteLabel.TabIndex = 10
@@ -177,7 +178,7 @@ Partial Class NuevoCriterioVenta
         Me.GroupBox1.Controls.Add(Me.CantidadmaximaporclienteTextBox)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 1)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1020, 611)
+        Me.GroupBox1.Size = New System.Drawing.Size(1020, 559)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -185,7 +186,7 @@ Partial Class NuevoCriterioVenta
         '
         Me.ButtonFinalizar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonFinalizar.Location = New System.Drawing.Point(288, 563)
+        Me.ButtonFinalizar.Location = New System.Drawing.Point(288, 511)
         Me.ButtonFinalizar.Name = "ButtonFinalizar"
         Me.ButtonFinalizar.Size = New System.Drawing.Size(445, 41)
         Me.ButtonFinalizar.TabIndex = 16
@@ -195,7 +196,7 @@ Partial Class NuevoCriterioVenta
         '
         'ButtonConfirmar
         '
-        Me.ButtonConfirmar.Location = New System.Drawing.Point(333, 160)
+        Me.ButtonConfirmar.Location = New System.Drawing.Point(444, 101)
         Me.ButtonConfirmar.Name = "ButtonConfirmar"
         Me.ButtonConfirmar.Size = New System.Drawing.Size(160, 32)
         Me.ButtonConfirmar.TabIndex = 15
@@ -208,7 +209,7 @@ Partial Class NuevoCriterioVenta
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxRegalos.Controls.Add(Me.ToolStrip3)
         Me.GroupBoxRegalos.Controls.Add(Me.CriteriosventaregalorangoDataGridView)
-        Me.GroupBoxRegalos.Location = New System.Drawing.Point(613, 385)
+        Me.GroupBoxRegalos.Location = New System.Drawing.Point(613, 333)
         Me.GroupBoxRegalos.Name = "GroupBoxRegalos"
         Me.GroupBoxRegalos.Size = New System.Drawing.Size(401, 172)
         Me.GroupBoxRegalos.TabIndex = 14
@@ -246,6 +247,61 @@ Partial Class NuevoCriterioVenta
         Me.CriteriosventaregalorangoDataGridView.Size = New System.Drawing.Size(375, 118)
         Me.CriteriosventaregalorangoDataGridView.TabIndex = 0
         '
+        'idcriteriosventaregalorango
+        '
+        Me.idcriteriosventaregalorango.DataPropertyName = "idcriteriosventaregalorango"
+        Me.idcriteriosventaregalorango.Frozen = True
+        Me.idcriteriosventaregalorango.HeaderText = "idcriteriosventaregalorango"
+        Me.idcriteriosventaregalorango.MinimumWidth = 2
+        Me.idcriteriosventaregalorango.Name = "idcriteriosventaregalorango"
+        Me.idcriteriosventaregalorango.ReadOnly = True
+        Me.idcriteriosventaregalorango.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.idcriteriosventaregalorango.Visible = False
+        Me.idcriteriosventaregalorango.Width = 2
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "idcriterioventa"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "idcriterioventa"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Visible = False
+        '
+        'idrangocriterioventa
+        '
+        Me.idrangocriterioventa.DataPropertyName = "idrangocriterioventa"
+        Me.idrangocriterioventa.HeaderText = "idrangocriterioventa"
+        Me.idrangocriterioventa.Name = "idrangocriterioventa"
+        Me.idrangocriterioventa.ReadOnly = True
+        Me.idrangocriterioventa.Visible = False
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "codigoproducto"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Cód. Producto"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.ToolTipText = "Código Producto"
+        Me.DataGridViewTextBoxColumn7.Width = 140
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "cantidad"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Cantidad"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.ToolTipText = "Cantidad"
+        Me.DataGridViewTextBoxColumn8.Width = 75
+        '
+        'QuitarRegalo
+        '
+        Me.QuitarRegalo.HeaderText = ""
+        Me.QuitarRegalo.Name = "QuitarRegalo"
+        Me.QuitarRegalo.ReadOnly = True
+        Me.QuitarRegalo.Text = "Quitar Regalo"
+        Me.QuitarRegalo.ToolTipText = "Quitar Regalo"
+        Me.QuitarRegalo.UseColumnTextForButtonValue = True
+        '
         'CriteriosventaregalorangoBindingSource
         '
         Me.CriteriosventaregalorangoBindingSource.DataMember = "criteriosventaregalorango"
@@ -262,7 +318,7 @@ Partial Class NuevoCriterioVenta
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxRangos.Controls.Add(Me.CriteriosventarangosDataGridView)
         Me.GroupBoxRangos.Controls.Add(Me.ToolStrip2)
-        Me.GroupBoxRangos.Location = New System.Drawing.Point(6, 385)
+        Me.GroupBoxRangos.Location = New System.Drawing.Point(6, 333)
         Me.GroupBoxRangos.Name = "GroupBoxRangos"
         Me.GroupBoxRangos.Size = New System.Drawing.Size(601, 172)
         Me.GroupBoxRangos.TabIndex = 13
@@ -280,7 +336,7 @@ Partial Class NuevoCriterioVenta
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CriteriosventarangosDataGridView.AutoGenerateColumns = False
         Me.CriteriosventarangosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CriteriosventarangosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcriterioventarango, Me.DataGridViewTextBoxColumn2, Me.desde, Me.hasta, Me.porcentajedescuento, Me.codigoproductoadescontar, Me.AgregarRegalo})
+        Me.CriteriosventarangosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcriterioventarango, Me.DataGridViewTextBoxColumn2, Me.desde, Me.hasta, Me.porcentajedescuento, Me.codigoproductoadescontar, Me.EliminarRango, Me.AgregarRegalo})
         Me.CriteriosventarangosDataGridView.DataSource = Me.CriteriosventarangosBindingSource
         Me.CriteriosventarangosDataGridView.Location = New System.Drawing.Point(6, 48)
         Me.CriteriosventarangosDataGridView.Name = "CriteriosventarangosDataGridView"
@@ -289,6 +345,81 @@ Partial Class NuevoCriterioVenta
         Me.CriteriosventarangosDataGridView.RowTemplate.Height = 24
         Me.CriteriosventarangosDataGridView.Size = New System.Drawing.Size(576, 118)
         Me.CriteriosventarangosDataGridView.TabIndex = 1
+        '
+        'idcriterioventarango
+        '
+        Me.idcriterioventarango.DataPropertyName = "idcriterioventarango"
+        Me.idcriterioventarango.Frozen = True
+        Me.idcriterioventarango.HeaderText = "idcriterioventarango"
+        Me.idcriterioventarango.MinimumWidth = 2
+        Me.idcriterioventarango.Name = "idcriterioventarango"
+        Me.idcriterioventarango.ReadOnly = True
+        Me.idcriterioventarango.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.idcriterioventarango.Visible = False
+        Me.idcriterioventarango.Width = 2
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idcriterioventa"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "idcriterioventa"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Visible = False
+        '
+        'desde
+        '
+        Me.desde.DataPropertyName = "desde"
+        Me.desde.HeaderText = "Desde"
+        Me.desde.Name = "desde"
+        Me.desde.ReadOnly = True
+        Me.desde.Width = 75
+        '
+        'hasta
+        '
+        Me.hasta.DataPropertyName = "hasta"
+        Me.hasta.HeaderText = "Hasta"
+        Me.hasta.Name = "hasta"
+        Me.hasta.ReadOnly = True
+        Me.hasta.Width = 75
+        '
+        'porcentajedescuento
+        '
+        Me.porcentajedescuento.DataPropertyName = "porcentajedescuento"
+        Me.porcentajedescuento.HeaderText = "% Desc."
+        Me.porcentajedescuento.Name = "porcentajedescuento"
+        Me.porcentajedescuento.ReadOnly = True
+        Me.porcentajedescuento.ToolTipText = "% Desc."
+        Me.porcentajedescuento.Width = 95
+        '
+        'codigoproductoadescontar
+        '
+        Me.codigoproductoadescontar.DataPropertyName = "codigoproductoadescontar"
+        Me.codigoproductoadescontar.HeaderText = "Cód. Producto a descontar"
+        Me.codigoproductoadescontar.Name = "codigoproductoadescontar"
+        Me.codigoproductoadescontar.ReadOnly = True
+        Me.codigoproductoadescontar.ToolTipText = "Cód. Producto a descontar"
+        Me.codigoproductoadescontar.Visible = False
+        Me.codigoproductoadescontar.Width = 200
+        '
+        'EliminarRango
+        '
+        Me.EliminarRango.HeaderText = ""
+        Me.EliminarRango.Name = "EliminarRango"
+        Me.EliminarRango.ReadOnly = True
+        Me.EliminarRango.Text = "EliminarRango"
+        Me.EliminarRango.ToolTipText = "EliminarRango"
+        Me.EliminarRango.UseColumnTextForButtonValue = True
+        '
+        'AgregarRegalo
+        '
+        Me.AgregarRegalo.DataPropertyName = "idcriterioventarango"
+        Me.AgregarRegalo.HeaderText = ""
+        Me.AgregarRegalo.Name = "AgregarRegalo"
+        Me.AgregarRegalo.ReadOnly = True
+        Me.AgregarRegalo.Text = "AgregarRegalo"
+        Me.AgregarRegalo.ToolTipText = "AgregarRegalo"
+        Me.AgregarRegalo.UseColumnTextForButtonValue = True
+        Me.AgregarRegalo.Width = 150
         '
         'CriteriosventarangosBindingSource
         '
@@ -322,7 +453,7 @@ Partial Class NuevoCriterioVenta
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxProductos.Controls.Add(Me.CriteriosventaproductosDataGridView)
         Me.GroupBoxProductos.Controls.Add(Me.ToolStrip1)
-        Me.GroupBoxProductos.Location = New System.Drawing.Point(6, 194)
+        Me.GroupBoxProductos.Location = New System.Drawing.Point(6, 142)
         Me.GroupBoxProductos.Name = "GroupBoxProductos"
         Me.GroupBoxProductos.Size = New System.Drawing.Size(1008, 185)
         Me.GroupBoxProductos.TabIndex = 12
@@ -350,6 +481,52 @@ Partial Class NuevoCriterioVenta
         Me.CriteriosventaproductosDataGridView.RowTemplate.Height = 24
         Me.CriteriosventaproductosDataGridView.Size = New System.Drawing.Size(996, 123)
         Me.CriteriosventaproductosDataGridView.TabIndex = 1
+        '
+        'codigoproducto
+        '
+        Me.codigoproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.Frozen = True
+        Me.codigoproducto.HeaderText = "Cód. Producto"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        Me.codigoproducto.ToolTipText = "codigoproducto"
+        Me.codigoproducto.Width = 250
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cantidadmaxima"
+        Me.DataGridViewTextBoxColumn3.Frozen = True
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Cantidad Maxima cada Venta"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.ToolTipText = "Cantidad Maxima cada Venta"
+        Me.DataGridViewTextBoxColumn3.Width = 250
+        '
+        'QuitarProducto
+        '
+        Me.QuitarProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.QuitarProducto.DataPropertyName = "idcriteriosventaproductos"
+        Me.QuitarProducto.Frozen = True
+        Me.QuitarProducto.HeaderText = "Quitar Producto"
+        Me.QuitarProducto.Name = "QuitarProducto"
+        Me.QuitarProducto.ReadOnly = True
+        Me.QuitarProducto.Text = "Quitar Producto"
+        Me.QuitarProducto.ToolTipText = "Quitar Producto"
+        Me.QuitarProducto.UseColumnTextForButtonValue = True
+        Me.QuitarProducto.Width = 318
+        '
+        'idcriteriosventaproductos
+        '
+        Me.idcriteriosventaproductos.DataPropertyName = "idcriteriosventaproductos"
+        Me.idcriteriosventaproductos.Frozen = True
+        Me.idcriteriosventaproductos.HeaderText = "idcriteriosventaproductos"
+        Me.idcriteriosventaproductos.MinimumWidth = 2
+        Me.idcriteriosventaproductos.Name = "idcriteriosventaproductos"
+        Me.idcriteriosventaproductos.ReadOnly = True
+        Me.idcriteriosventaproductos.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.idcriteriosventaproductos.Visible = False
         '
         'CriteriosventaproductosBindingSource
         '
@@ -379,9 +556,9 @@ Partial Class NuevoCriterioVenta
         'IdcriterioventaTextBox
         '
         Me.IdcriterioventaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CriteriosventaBindingSource, "idcriterioventa", True))
-        Me.IdcriterioventaTextBox.Location = New System.Drawing.Point(107, 73)
+        Me.IdcriterioventaTextBox.Location = New System.Drawing.Point(113, 114)
         Me.IdcriterioventaTextBox.Name = "IdcriterioventaTextBox"
-        Me.IdcriterioventaTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.IdcriterioventaTextBox.Size = New System.Drawing.Size(66, 22)
         Me.IdcriterioventaTextBox.TabIndex = 1
         Me.IdcriterioventaTextBox.Visible = False
         '
@@ -394,7 +571,7 @@ Partial Class NuevoCriterioVenta
         '
         Me.DescripcionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.DescripcionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CriteriosventaBindingSource, "descripcion", True))
-        Me.DescripcionTextBox.Location = New System.Drawing.Point(402, 14)
+        Me.DescripcionTextBox.Location = New System.Drawing.Point(292, 11)
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
         Me.DescripcionTextBox.Size = New System.Drawing.Size(200, 22)
         Me.DescripcionTextBox.TabIndex = 3
@@ -404,7 +581,7 @@ Partial Class NuevoCriterioVenta
         Me.FechadesdeDateTimePicker.CustomFormat = "dd/MM/yyyy"
         Me.FechadesdeDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.CriteriosventaBindingSource, "fechadesde", True))
         Me.FechadesdeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.FechadesdeDateTimePicker.Location = New System.Drawing.Point(402, 42)
+        Me.FechadesdeDateTimePicker.Location = New System.Drawing.Point(292, 39)
         Me.FechadesdeDateTimePicker.Name = "FechadesdeDateTimePicker"
         Me.FechadesdeDateTimePicker.Size = New System.Drawing.Size(113, 22)
         Me.FechadesdeDateTimePicker.TabIndex = 5
@@ -414,7 +591,7 @@ Partial Class NuevoCriterioVenta
         Me.FechahastaDateTimePicker.CustomFormat = "dd/MM/yyyy"
         Me.FechahastaDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.CriteriosventaBindingSource, "fechahasta", True))
         Me.FechahastaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.FechahastaDateTimePicker.Location = New System.Drawing.Point(402, 70)
+        Me.FechahastaDateTimePicker.Location = New System.Drawing.Point(292, 67)
         Me.FechahastaDateTimePicker.Name = "FechahastaDateTimePicker"
         Me.FechahastaDateTimePicker.Size = New System.Drawing.Size(113, 22)
         Me.FechahastaDateTimePicker.TabIndex = 7
@@ -422,7 +599,7 @@ Partial Class NuevoCriterioVenta
         'CantidaddisponibletotalTextBox
         '
         Me.CantidaddisponibletotalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CriteriosventaBindingSource, "cantidaddisponibletotal", True))
-        Me.CantidaddisponibletotalTextBox.Location = New System.Drawing.Point(402, 98)
+        Me.CantidaddisponibletotalTextBox.Location = New System.Drawing.Point(747, 14)
         Me.CantidaddisponibletotalTextBox.Name = "CantidaddisponibletotalTextBox"
         Me.CantidaddisponibletotalTextBox.Size = New System.Drawing.Size(75, 22)
         Me.CantidaddisponibletotalTextBox.TabIndex = 9
@@ -430,7 +607,7 @@ Partial Class NuevoCriterioVenta
         'CantidadmaximaporclienteTextBox
         '
         Me.CantidadmaximaporclienteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CriteriosventaBindingSource, "cantidadmaximaporcliente", True))
-        Me.CantidadmaximaporclienteTextBox.Location = New System.Drawing.Point(402, 126)
+        Me.CantidadmaximaporclienteTextBox.Location = New System.Drawing.Point(747, 42)
         Me.CantidadmaximaporclienteTextBox.Name = "CantidadmaximaporclienteTextBox"
         Me.CantidadmaximaporclienteTextBox.Size = New System.Drawing.Size(75, 22)
         Me.CantidadmaximaporclienteTextBox.TabIndex = 11
@@ -538,178 +715,11 @@ Partial Class NuevoCriterioVenta
         '
         Me.CriteriosventaregalorangoTableAdapter.ClearBeforeFill = True
         '
-        'idcriterioventarango
-        '
-        Me.idcriterioventarango.DataPropertyName = "idcriterioventarango"
-        Me.idcriterioventarango.Frozen = True
-        Me.idcriterioventarango.HeaderText = "idcriterioventarango"
-        Me.idcriterioventarango.MinimumWidth = 2
-        Me.idcriterioventarango.Name = "idcriterioventarango"
-        Me.idcriterioventarango.ReadOnly = True
-        Me.idcriterioventarango.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.idcriterioventarango.Visible = False
-        Me.idcriterioventarango.Width = 2
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "idcriterioventa"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "idcriterioventa"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Visible = False
-        '
-        'desde
-        '
-        Me.desde.DataPropertyName = "desde"
-        Me.desde.HeaderText = "Desde"
-        Me.desde.Name = "desde"
-        Me.desde.ReadOnly = True
-        Me.desde.Width = 75
-        '
-        'hasta
-        '
-        Me.hasta.DataPropertyName = "hasta"
-        Me.hasta.HeaderText = "Hasta"
-        Me.hasta.Name = "hasta"
-        Me.hasta.ReadOnly = True
-        Me.hasta.Width = 75
-        '
-        'porcentajedescuento
-        '
-        Me.porcentajedescuento.DataPropertyName = "porcentajedescuento"
-        Me.porcentajedescuento.HeaderText = "% Desc."
-        Me.porcentajedescuento.Name = "porcentajedescuento"
-        Me.porcentajedescuento.ReadOnly = True
-        Me.porcentajedescuento.ToolTipText = "% Desc."
-        Me.porcentajedescuento.Width = 95
-        '
-        'codigoproductoadescontar
-        '
-        Me.codigoproductoadescontar.DataPropertyName = "codigoproductoadescontar"
-        Me.codigoproductoadescontar.HeaderText = "Cód. Producto a descontar"
-        Me.codigoproductoadescontar.Name = "codigoproductoadescontar"
-        Me.codigoproductoadescontar.ReadOnly = True
-        Me.codigoproductoadescontar.ToolTipText = "Cód. Producto a descontar"
-        Me.codigoproductoadescontar.Visible = False
-        Me.codigoproductoadescontar.Width = 200
-        '
-        'AgregarRegalo
-        '
-        Me.AgregarRegalo.DataPropertyName = "idcriterioventarango"
-        Me.AgregarRegalo.HeaderText = ""
-        Me.AgregarRegalo.Name = "AgregarRegalo"
-        Me.AgregarRegalo.ReadOnly = True
-        Me.AgregarRegalo.Text = "AgregarRegalo"
-        Me.AgregarRegalo.ToolTipText = "AgregarRegalo"
-        Me.AgregarRegalo.UseColumnTextForButtonValue = True
-        Me.AgregarRegalo.Width = 150
-        '
-        'idcriteriosventaregalorango
-        '
-        Me.idcriteriosventaregalorango.DataPropertyName = "idcriteriosventaregalorango"
-        Me.idcriteriosventaregalorango.Frozen = True
-        Me.idcriteriosventaregalorango.HeaderText = "idcriteriosventaregalorango"
-        Me.idcriteriosventaregalorango.MinimumWidth = 2
-        Me.idcriteriosventaregalorango.Name = "idcriteriosventaregalorango"
-        Me.idcriteriosventaregalorango.ReadOnly = True
-        Me.idcriteriosventaregalorango.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.idcriteriosventaregalorango.Visible = False
-        Me.idcriteriosventaregalorango.Width = 2
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "idcriterioventa"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "idcriterioventa"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Visible = False
-        '
-        'idrangocriterioventa
-        '
-        Me.idrangocriterioventa.DataPropertyName = "idrangocriterioventa"
-        Me.idrangocriterioventa.HeaderText = "idrangocriterioventa"
-        Me.idrangocriterioventa.Name = "idrangocriterioventa"
-        Me.idrangocriterioventa.ReadOnly = True
-        Me.idrangocriterioventa.Visible = False
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "codigoproducto"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Cód. Producto"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.ToolTipText = "Código Producto"
-        Me.DataGridViewTextBoxColumn7.Width = 140
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "cantidad"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Cantidad"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.ToolTipText = "Cantidad"
-        Me.DataGridViewTextBoxColumn8.Width = 75
-        '
-        'QuitarRegalo
-        '
-        Me.QuitarRegalo.HeaderText = ""
-        Me.QuitarRegalo.Name = "QuitarRegalo"
-        Me.QuitarRegalo.ReadOnly = True
-        Me.QuitarRegalo.Text = "Quitar Regalo"
-        Me.QuitarRegalo.ToolTipText = "Quitar Regalo"
-        Me.QuitarRegalo.UseColumnTextForButtonValue = True
-        '
-        'codigoproducto
-        '
-        Me.codigoproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.codigoproducto.DataPropertyName = "codigoproducto"
-        Me.codigoproducto.Frozen = True
-        Me.codigoproducto.HeaderText = "Cód. Producto"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        Me.codigoproducto.ToolTipText = "codigoproducto"
-        Me.codigoproducto.Width = 250
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cantidadmaxima"
-        Me.DataGridViewTextBoxColumn3.Frozen = True
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Cantidad Maxima cada Venta"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.ToolTipText = "Cantidad Maxima cada Venta"
-        Me.DataGridViewTextBoxColumn3.Width = 250
-        '
-        'QuitarProducto
-        '
-        Me.QuitarProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.QuitarProducto.DataPropertyName = "idcriteriosventaproductos"
-        Me.QuitarProducto.Frozen = True
-        Me.QuitarProducto.HeaderText = "Quitar Producto"
-        Me.QuitarProducto.Name = "QuitarProducto"
-        Me.QuitarProducto.ReadOnly = True
-        Me.QuitarProducto.Text = "Quitar Producto"
-        Me.QuitarProducto.ToolTipText = "Quitar Producto"
-        Me.QuitarProducto.UseColumnTextForButtonValue = True
-        Me.QuitarProducto.Width = 318
-        '
-        'idcriteriosventaproductos
-        '
-        Me.idcriteriosventaproductos.DataPropertyName = "idcriteriosventaproductos"
-        Me.idcriteriosventaproductos.Frozen = True
-        Me.idcriteriosventaproductos.HeaderText = "idcriteriosventaproductos"
-        Me.idcriteriosventaproductos.MinimumWidth = 2
-        Me.idcriteriosventaproductos.Name = "idcriteriosventaproductos"
-        Me.idcriteriosventaproductos.ReadOnly = True
-        Me.idcriteriosventaproductos.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.idcriteriosventaproductos.Visible = False
-        '
         'NuevoCriterioVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1044, 619)
+        Me.ClientSize = New System.Drawing.Size(1044, 567)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -778,15 +788,16 @@ Partial Class NuevoCriterioVenta
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents QuitarRegalo As DataGridViewButtonColumn
+    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents QuitarProducto As DataGridViewButtonColumn
+    Friend WithEvents idcriteriosventaproductos As DataGridViewTextBoxColumn
     Friend WithEvents idcriterioventarango As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents desde As DataGridViewTextBoxColumn
     Friend WithEvents hasta As DataGridViewTextBoxColumn
     Friend WithEvents porcentajedescuento As DataGridViewTextBoxColumn
     Friend WithEvents codigoproductoadescontar As DataGridViewTextBoxColumn
+    Friend WithEvents EliminarRango As DataGridViewButtonColumn
     Friend WithEvents AgregarRegalo As DataGridViewButtonColumn
-    Friend WithEvents codigoproducto As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents QuitarProducto As DataGridViewButtonColumn
-    Friend WithEvents idcriteriosventaproductos As DataGridViewTextBoxColumn
 End Class

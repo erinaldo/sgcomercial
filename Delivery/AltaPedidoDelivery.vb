@@ -47,6 +47,9 @@ Public Class AltaPedidoDelivery
     End Sub
 
     Private Sub PictureSeleccionarCliente_Click(sender As Object, e As EventArgs) Handles PictureSeleccionarCliente.Click
+        SeleccionarCliente()
+    End Sub
+    Public Sub SeleccionarCliente()
         gclienteseleccionado = 0
         Dim p As SeleccionarCliente
         p = New SeleccionarCliente
@@ -78,6 +81,9 @@ Public Class AltaPedidoDelivery
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxNuevoCliente.CheckedChanged
+        NuevoCliente()
+    End Sub
+    Public Sub NuevoCliente()
         If CheckBoxNuevoCliente.Checked Then
             IdclienteTextBox.Text = Nothing
             PictureSeleccionarCliente.Enabled = False
@@ -90,6 +96,7 @@ Public Class AltaPedidoDelivery
             TextBoxNombreCliente.Select()
             ComboBoxTransporte.SelectedIndex = 0
             PictureBoxEditarCliente.Enabled = False
+
         Else
             IdclienteTextBox.Text = Nothing
             PictureBoxEditarDomicilios.Enabled = True
@@ -120,9 +127,9 @@ Public Class AltaPedidoDelivery
             gcodigoproducto = 0
             p.ShowDialog()
             'p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
-            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(3).Value = gcantidad
-            gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(6).Value
-            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(7).Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
+            gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("gprecioventa").Value
+            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("SubTotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
             recuento()
         End If
     End Sub
@@ -152,15 +159,15 @@ Public Class AltaPedidoDelivery
         ''codigotextbox.Text = gcodigoproducto
         If VentasdetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
             newrow = VentasdetalleDataGridView.Rows.Add()
-            VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = idproducto
-            VentasdetalleDataGridView.Rows(newrow).Cells(1).Value = gcodigoproducto
-            VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = descripcion
-            VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = gcantidad '*******  cantidad
-            VentasdetalleDataGridView.Rows(newrow).Cells(4).Value = unidadmedida
-            VentasdetalleDataGridView.Rows(newrow).Cells(5).Value = medida
-            VentasdetalleDataGridView.Rows(newrow).Cells(6).Value = gprecioventa
-            VentasdetalleDataGridView.Rows(newrow).Cells(7).Value = gmontototal '*--- subtotal
-            VentasdetalleDataGridView.Rows(newrow).Cells(8).Value = glistaprecio '*--- glistaprecio
+            VentasdetalleDataGridView.Rows(newrow).Cells("idproducto").Value = idproducto
+            VentasdetalleDataGridView.Rows(newrow).Cells("codigoproducto").Value = gcodigoproducto
+            VentasdetalleDataGridView.Rows(newrow).Cells("descripcion").Value = descripcion
+            VentasdetalleDataGridView.Rows(newrow).Cells("cantidad").Value = gcantidad '*******  cantidad
+            VentasdetalleDataGridView.Rows(newrow).Cells("unidadmedida").Value = unidadmedida
+            VentasdetalleDataGridView.Rows(newrow).Cells("medida").Value = medida
+            VentasdetalleDataGridView.Rows(newrow).Cells("precioventa").Value = gprecioventa
+            VentasdetalleDataGridView.Rows(newrow).Cells("SubTotal").Value = gmontototal '*--- subtotal
+            VentasdetalleDataGridView.Rows(newrow).Cells("idlistaprecio").Value = glistaprecio '*--- glistaprecio
             VentasdetalleDataGridView.Select()
             recuento()
             Return
@@ -168,15 +175,15 @@ Public Class AltaPedidoDelivery
             Dim i As Integer
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 If gcodigoproducto = VentasdetalleDataGridView.Rows(i).Cells(1).Value Then '** ARTICULO ENCONTRADO
-                    VentasdetalleDataGridView.Rows(i).Cells(0).Value = idproducto
-                    VentasdetalleDataGridView.Rows(i).Cells(1).Value = gcodigoproducto
-                    VentasdetalleDataGridView.Rows(i).Cells(2).Value = descripcion
-                    VentasdetalleDataGridView.Rows(i).Cells(3).Value = gcantidad '*******  cantidad
-                    VentasdetalleDataGridView.Rows(i).Cells(4).Value = unidadmedida
-                    VentasdetalleDataGridView.Rows(i).Cells(5).Value = medida
-                    VentasdetalleDataGridView.Rows(i).Cells(6).Value = gprecioventa
-                    VentasdetalleDataGridView.Rows(i).Cells(7).Value = gmontototal '*--- subtotal
-                    VentasdetalleDataGridView.Rows(i).Cells(8).Value = glistaprecio '*--- glistaprecio
+                    VentasdetalleDataGridView.Rows(newrow).Cells("idproducto").Value = idproducto
+                    VentasdetalleDataGridView.Rows(i).Cells("codigoproducto").Value = gcodigoproducto
+                    VentasdetalleDataGridView.Rows(i).Cells("descripcion").Value = descripcion
+                    VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value = gcantidad '*******  cantidad
+                    VentasdetalleDataGridView.Rows(i).Cells("unidadmedida").Value = unidadmedida
+                    VentasdetalleDataGridView.Rows(i).Cells("medida").Value = medida
+                    VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value = gprecioventa
+                    VentasdetalleDataGridView.Rows(i).Cells("SubTotal").Value = gmontototal '*--- subtotal
+                    VentasdetalleDataGridView.Rows(i).Cells("idlistaprecio").Value = glistaprecio '*--- glistaprecio
                     VentasdetalleDataGridView.Select()
                     recuento()
                     Return
@@ -186,15 +193,15 @@ Public Class AltaPedidoDelivery
             Next
             If addnewrow = True Then
                 newrow = VentasdetalleDataGridView.Rows.Add()
-                VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = idproducto
-                VentasdetalleDataGridView.Rows(newrow).Cells(1).Value = gcodigoproducto
-                VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = descripcion
-                VentasdetalleDataGridView.Rows(newrow).Cells(3).Value = gcantidad '*******  cantidad
-                VentasdetalleDataGridView.Rows(newrow).Cells(4).Value = unidadmedida
-                VentasdetalleDataGridView.Rows(newrow).Cells(5).Value = medida
-                VentasdetalleDataGridView.Rows(newrow).Cells(6).Value = gprecioventa
-                VentasdetalleDataGridView.Rows(newrow).Cells(7).Value = gmontototal '*--- subtotal
-                VentasdetalleDataGridView.Rows(newrow).Cells(8).Value = glistaprecio '*--- glistaprecio
+                VentasdetalleDataGridView.Rows(newrow).Cells("idproducto").Value = idproducto
+                VentasdetalleDataGridView.Rows(newrow).Cells("codigoproducto").Value = gcodigoproducto
+                VentasdetalleDataGridView.Rows(newrow).Cells("descripcion").Value = descripcion
+                VentasdetalleDataGridView.Rows(newrow).Cells("cantidad").Value = gcantidad '*******  cantidad
+                VentasdetalleDataGridView.Rows(newrow).Cells("unidadmedida").Value = unidadmedida
+                VentasdetalleDataGridView.Rows(newrow).Cells("medida").Value = medida
+                VentasdetalleDataGridView.Rows(newrow).Cells("precioventa").Value = gprecioventa
+                VentasdetalleDataGridView.Rows(newrow).Cells("SubTotal").Value = gmontototal '*--- subtotal
+                VentasdetalleDataGridView.Rows(newrow).Cells("idlistaprecio").Value = glistaprecio '*--- glistaprecio
                 VentasdetalleDataGridView.Select()
                 recuento()
                 Return
@@ -357,12 +364,12 @@ Public Class AltaPedidoDelivery
         Try
             nvopedido = PedidosdeliveryTableAdapter.pedidosdelivery_insertar(nvocliente, Nothing, ComboBoxTransporte.SelectedValue, nvodomicilio, Convert.ToDecimal(TextBoxPagaCon.Text), Today, gusername, Nothing, Nothing, TextBoxObs.Text)
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
-                Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
-                Dim cantidad As Decimal = VentasdetalleDataGridView.Rows(i).Cells(3).Value
+                Dim idproducto As Long = VentasdetalleDataGridView.Rows(i).Cells("idproducto").Value
+                Dim cantidad As Decimal = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value
                 Dim precioventa As Decimal = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
-                Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells(8).Value
+                Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells("idlistaprecio").Value
                 '****** INSERTAR PEDIDODELIVERY    DETALLE **********
-                PedidosdeliverydetalleTableAdapter.pedidosdeliverydetalle_insertar(nvopedido, codigo, cantidad, precioventa, Nothing, idlistaprecio)
+                PedidosdeliverydetalleTableAdapter.pedidosdeliverydetalle_insertar(nvopedido, idproducto, cantidad, precioventa, Nothing, idlistaprecio)
             Next
         Catch ex As Exception
             MsgBox("Ocurrio un problema al tratar de guardar el pedido: " + ex.Message, MsgBoxStyle.Exclamation)
@@ -375,16 +382,16 @@ Public Class AltaPedidoDelivery
             nvavta = VentasTableAdapter.ventas_insertarventa(nvocliente, Now(), Nothing, 1, gusername, Nothing, Nothing, 1)
             gidventa = nvavta
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
-                Dim codigo As Long = VentasdetalleDataGridView.Rows(i).Cells(0).Value
-                Dim cantidad As Decimal = VentasdetalleDataGridView.Rows(i).Cells(3).Value
+                Dim idproducto As Long = VentasdetalleDataGridView.Rows(i).Cells("idproducto").Value
+                Dim cantidad As Decimal = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value
                 Dim precioventa As Decimal = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
-                Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells(8).Value
+                Dim idlistaprecio As Long = VentasdetalleDataGridView.Rows(i).Cells("idlistaprecio").Value
                 '****** REGISTRAR VENTA     DETALLE **********
-                VentasdetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, codigo, cantidad, precioventa, idlistaprecio, Nothing, Nothing) ' descuento
+                VentasdetalleTableAdapter.ventasdetalle_insertardetalle(nvavta, idproducto, cantidad, precioventa, idlistaprecio, Nothing, Nothing) ' descuento
                 PedidosdeliveryTableAdapter.pedidosdelivery_updateidventa(nvavta, nvopedido)
             Next
         Catch ex As Exception
-            MsgBox("No se pudo registrar la venta: " + ex.Message)
+            MsgEx("No se pudo registrar la venta: " + ex.Message)
         End Try
         '****** FIN REGISTRAR VENTA **********
         '=================== FUNCIONES CLOWD NUBE  ================================
@@ -395,7 +402,7 @@ Public Class AltaPedidoDelivery
             End If
         End If
         '===================  FIN FUNCIONES CLOWD NUBE  ================================
-        MsgBox("Pedido cargado exitosanente!", MsgBoxStyle.Information)
+        MsgSuccessPopUp("Pedido cargado exitosanente!")
         'Me.Close()
         CheckBoxNuevoCliente.Checked = False
         CheckBoxNuevoCliente.Checked = True
@@ -582,10 +589,27 @@ Public Class AltaPedidoDelivery
             gcodigoproducto = 0
             p.ShowDialog()
             'p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
-            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(3).Value = gcantidad
-            gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(6).Value
-            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells(7).Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
+            gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
+            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("SubTotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
             recuento()
+        End If
+        If e.KeyCode = Keys.F3 Then
+            BtnConfirmar.PerformClick()
+        End If
+
+        If e.KeyCode = Keys.F2 Then
+            If PictureSeleccionarCliente.Enabled = True Then
+                SeleccionarCliente()
+            End If
+        End If
+        If e.KeyCode = Keys.F1 Then
+            If CheckBoxNuevoCliente.Checked Then
+                CheckBoxNuevoCliente.Checked = False
+            Else
+                CheckBoxNuevoCliente.Checked = True
+            End If
+            NuevoCliente()
         End If
     End Sub
 
@@ -631,5 +655,54 @@ Public Class AltaPedidoDelivery
             Me.ClientesdomiciliosTableAdapter.FillByidcliente(Me.ComercialDataSet.clientesdomicilios, gclienteseleccionado)
             ClientesdomiciliosBindingSource.Filter = "idcliente = " + IdclienteTextBox.Text
         End If
+    End Sub
+
+    Private Sub VentasdetalleDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles VentasdetalleDataGridView.CellClick
+        Try
+            Select Case VentasdetalleDataGridView.Columns(e.ColumnIndex).Name
+                Case "cantidad"
+                    Dim p As SeleccionarCantidad
+                    p = New SeleccionarCantidad
+                    gcodigoproducto = 0
+                    p.ShowDialog()
+                    VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
+                    gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
+                    VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("SubTotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
+                    recuento()
+            End Select
+        Catch ex As Exception
+            MsgErrPopUp("Ocurrió un problema al intentar calcular precio y cantidad")
+            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = 0
+            VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("SubTotal").Value = 0
+        End Try
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim porcentaje As Decimal
+        Try
+            gclienteseleccionado = Val(IdclienteTextBox.Text)
+
+            If gclienteseleccionado > 0 Then
+                porcentaje = ClientesTableAdapter.clientes_consultardescuento(gclienteseleccionado)
+                descuentogeneral(porcentaje)
+            End If
+        Catch ex As Exception
+            MsgEx("Ocurrio una excepción: " + ex.Message)
+        End Try
+    End Sub
+    Private Sub descuentogeneral(ByRef porcentaje As Decimal)
+        For i = 0 To VentasdetalleDataGridView.RowCount - 1
+            Dim precioventa As Decimal
+            Dim montodescuento As Decimal
+            Dim cantidad As Decimal
+            precioventa = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
+            cantidad = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value
+            precioventa = precioventa * cantidad
+            montodescuento = precioventa * porcentaje / 100
+            montodescuento = String.Format("{0:n}", montodescuento)
+            VentasdetalleDataGridView.Rows(i).Cells("descuento").Value = montodescuento
+        Next
+        recuento()
+
     End Sub
 End Class

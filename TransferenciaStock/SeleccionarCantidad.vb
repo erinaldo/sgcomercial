@@ -10,7 +10,7 @@ Public Class SeleccionarCantidad
     End Sub
 
     Private Sub SeleccionarCantidad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        TextBox1.Text = gcantidad.ToString
     End Sub
 
     Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown

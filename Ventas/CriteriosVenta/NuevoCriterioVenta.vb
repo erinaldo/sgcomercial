@@ -151,7 +151,7 @@ Public Class NuevoCriterioVenta
         gCantidadHasta = Nothing
         gPorcentaje = Nothing
         kl.ShowDialog()
-        If gCantidadDesde <> Nothing And gCantidadHasta <> Nothing And gPorcentaje <> Nothing Then
+        If gCantidadDesde <> Nothing And gCantidadHasta <> Nothing Then
             CriteriosventarangosTableAdapter.criteriosventarangos_insertar(gidCriterioSeleccionado, gCantidadDesde, gCantidadHasta, gPorcentaje, Nothing)
             CriteriosventarangosTableAdapter.FillByidcriterioventa(Me.ComercialDataSet.criteriosventarangos, gidCriterioSeleccionado)
             'CriteriosventaproductosTableAdapter.criteriosventaproductos_insertar(gcodigoproducto, gcantidad, gidCriterioSeleccionado)
@@ -213,6 +213,12 @@ Public Class NuevoCriterioVenta
                         'CriteriosventaproductosTableAdapter.criteriosventaproductos_insertar(gcodigoproducto, gcantidad, gidCriterioSeleccionado)
                         'CriteriosventaproductosTableAdapter.FillByIDCriteriosVenta(Me.ComercialDataSet.criteriosventaproductos, gidCriterioSeleccionado)
                     End If
+                Case "EliminarRango"
+                    Dim idrango As Long = CriteriosventarangosDataGridView.Rows(e.RowIndex).Cells("idcriterioventarango").Value
+                    Dim CriteriosVentaRangos As New comercialDataSetTableAdapters.criteriosventarangosTableAdapter()
+                    CriteriosVentaRangos.criteriosventarangos_eliminar(idrango)
+                    CriteriosventarangosTableAdapter.FillByidcriterioventa(Me.ComercialDataSet.criteriosventarangos, gidCriterioSeleccionado)
+                    CriteriosventaregalorangoTableAdapter.FillByidrangocriterioventa(Me.ComercialDataSet.criteriosventaregalorango, idrango)
                 Case Else
                     Try
                         Dim idrango As Long = CriteriosventarangosDataGridView.Rows(e.RowIndex).Cells("idcriterioventarango").Value
