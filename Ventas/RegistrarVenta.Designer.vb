@@ -44,12 +44,12 @@ Partial Class RegistrarVenta
         Dim LabelDocTipo As System.Windows.Forms.Label
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RegistrarVenta))
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RegistrarVenta))
         Me.ListaclientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -114,16 +114,6 @@ Partial Class RegistrarVenta
         Me.codigotextbox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.VentasdetalleDataGridView = New System.Windows.Forms.DataGridView()
-        Me.codproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.recargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.listasprecios = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aplicaregalo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VentasdetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxEditarCliente = New System.Windows.Forms.PictureBox()
@@ -199,6 +189,16 @@ Partial Class RegistrarVenta
         Me.oteliminar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.BGWReloadStock = New System.ComponentModel.BackgroundWorker()
+        Me.codproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.recargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.listasprecios = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.esregalo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdclienteLabel = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
@@ -987,7 +987,7 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.VentasdetalleDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.VentasdetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codproducto, Me.descripcion, Me.cantidad, Me.precioventa, Me.descuento, Me.recargo, Me.subtotal, Me.eliminar, Me.listasprecios, Me.aplicaregalo})
+        Me.VentasdetalleDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codproducto, Me.descripcion, Me.cantidad, Me.precioventa, Me.descuento, Me.recargo, Me.subtotal, Me.eliminar, Me.listasprecios, Me.esregalo})
         Me.VentasdetalleDataGridView.Location = New System.Drawing.Point(5, 51)
         Me.VentasdetalleDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.VentasdetalleDataGridView.MultiSelect = False
@@ -1002,88 +1002,6 @@ Partial Class RegistrarVenta
         Me.VentasdetalleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.VentasdetalleDataGridView.Size = New System.Drawing.Size(1070, 224)
         Me.VentasdetalleDataGridView.TabIndex = 0
-        '
-        'codproducto
-        '
-        Me.codproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.codproducto.HeaderText = "Cod. Producto"
-        Me.codproducto.Name = "codproducto"
-        Me.codproducto.ReadOnly = True
-        Me.codproducto.Width = 70
-        '
-        'descripcion
-        '
-        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 350
-        '
-        'cantidad
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle2
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        '
-        'precioventa
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "C2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle3
-        Me.precioventa.HeaderText = "Precio Venta"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        '
-        'descuento
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.descuento.DefaultCellStyle = DataGridViewCellStyle4
-        Me.descuento.HeaderText = "Descuento"
-        Me.descuento.Name = "descuento"
-        Me.descuento.ReadOnly = True
-        '
-        'recargo
-        '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.recargo.DefaultCellStyle = DataGridViewCellStyle5
-        Me.recargo.HeaderText = "Recargo"
-        Me.recargo.Name = "recargo"
-        Me.recargo.ReadOnly = True
-        '
-        'subtotal
-        '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Format = "C2"
-        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle6
-        Me.subtotal.HeaderText = "Sub Total"
-        Me.subtotal.Name = "subtotal"
-        Me.subtotal.ReadOnly = True
-        '
-        'eliminar
-        '
-        Me.eliminar.HeaderText = ""
-        Me.eliminar.Name = "eliminar"
-        Me.eliminar.ReadOnly = True
-        Me.eliminar.Text = "Quitar"
-        Me.eliminar.UseColumnTextForButtonValue = True
-        '
-        'listasprecios
-        '
-        Me.listasprecios.HeaderText = "Lista de Precios"
-        Me.listasprecios.Name = "listasprecios"
-        Me.listasprecios.ReadOnly = True
-        Me.listasprecios.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.listasprecios.Visible = False
-        '
-        'aplicaregalo
-        '
-        Me.aplicaregalo.HeaderText = "aplicaregalo"
-        Me.aplicaregalo.Name = "aplicaregalo"
-        Me.aplicaregalo.ReadOnly = True
-        Me.aplicaregalo.Visible = False
         '
         'VentasdetalleBindingSource
         '
@@ -1861,6 +1779,88 @@ Partial Class RegistrarVenta
         Me.DataGridView1.Size = New System.Drawing.Size(1073, 154)
         Me.DataGridView1.TabIndex = 0
         '
+        'codproducto
+        '
+        Me.codproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.codproducto.HeaderText = "Cod. Producto"
+        Me.codproducto.Name = "codproducto"
+        Me.codproducto.ReadOnly = True
+        Me.codproducto.Width = 70
+        '
+        'descripcion
+        '
+        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 350
+        '
+        'cantidad
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        '
+        'precioventa
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.precioventa.DefaultCellStyle = DataGridViewCellStyle3
+        Me.precioventa.HeaderText = "Precio Venta"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        '
+        'descuento
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.descuento.DefaultCellStyle = DataGridViewCellStyle4
+        Me.descuento.HeaderText = "Descuento"
+        Me.descuento.Name = "descuento"
+        Me.descuento.ReadOnly = True
+        '
+        'recargo
+        '
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.recargo.DefaultCellStyle = DataGridViewCellStyle5
+        Me.recargo.HeaderText = "Recargo"
+        Me.recargo.Name = "recargo"
+        Me.recargo.ReadOnly = True
+        '
+        'subtotal
+        '
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "C2"
+        Me.subtotal.DefaultCellStyle = DataGridViewCellStyle6
+        Me.subtotal.HeaderText = "Sub Total"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
+        '
+        'eliminar
+        '
+        Me.eliminar.HeaderText = ""
+        Me.eliminar.Name = "eliminar"
+        Me.eliminar.ReadOnly = True
+        Me.eliminar.Text = "Quitar"
+        Me.eliminar.UseColumnTextForButtonValue = True
+        '
+        'listasprecios
+        '
+        Me.listasprecios.HeaderText = "Lista de Precios"
+        Me.listasprecios.Name = "listasprecios"
+        Me.listasprecios.ReadOnly = True
+        Me.listasprecios.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.listasprecios.Visible = False
+        '
+        'esregalo
+        '
+        Me.esregalo.HeaderText = "esregalo"
+        Me.esregalo.Name = "esregalo"
+        Me.esregalo.ReadOnly = True
+        Me.esregalo.Visible = False
+        '
         'RegistrarVenta
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -2081,5 +2081,5 @@ Partial Class RegistrarVenta
     Friend WithEvents subtotal As DataGridViewTextBoxColumn
     Friend WithEvents eliminar As DataGridViewButtonColumn
     Friend WithEvents listasprecios As DataGridViewTextBoxColumn
-    Friend WithEvents aplicaregalo As DataGridViewTextBoxColumn
+    Friend WithEvents esregalo As DataGridViewTextBoxColumn
 End Class

@@ -368,7 +368,7 @@ Partial Class Principal
         Me.CriteriosDeVentaToolStripMenuItem.Name = "CriteriosDeVentaToolStripMenuItem"
         Me.CriteriosDeVentaToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.CriteriosDeVentaToolStripMenuItem.Tag = "CriteriosDeVenta"
-        Me.CriteriosDeVentaToolStripMenuItem.Text = "Criterios de Venta"
+        Me.CriteriosDeVentaToolStripMenuItem.Text = "Criterios de Venta (BETA)"
         '
         'DefinirCriteriosToolStripMenuItem
         '

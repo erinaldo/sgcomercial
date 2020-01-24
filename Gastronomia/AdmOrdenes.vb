@@ -388,6 +388,8 @@ Public Class AdmOrdenes
                 '**************************************************************
                 idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(gidevento, idpagos, idformapagocombo.SelectedValue, monto1, gusername, Nothing)
                 If idoperacioncaja > 0 Then
+                    Dim PagosImputaciones As New comercialDataSetTableAdapters.pagosimputacionesTableAdapter()
+                    PagosImputaciones.pagosimputaciones_insertar(idpagos, idventas, monto1)
                 Else
                     MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
                     Return
@@ -399,8 +401,7 @@ Public Class AdmOrdenes
         '**************************************************************
         If idformapagocombo.Text = "Cuenta Corriente" Then
             idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarvtactacte(gidevento, Nothing, idformapagocombo.SelectedValue, monto1, gusername, Nothing, idventas)
-            If idoperacioncaja > 0 Then
-            Else
+            If Not idoperacioncaja > 0 Then
                 MsgBox("Ocurrio un error al registrar el movimiento de caja", MsgBoxStyle.Information, "Advertencia")
                 Return
             End If

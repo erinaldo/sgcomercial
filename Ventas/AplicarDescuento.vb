@@ -48,10 +48,16 @@ Public Class AplicarDescuento
 
     Private Sub TextBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox2.KeyDown
         If e.KeyCode = Keys.Enter Then
-            gdescuentopc = 0
-            gdescuentoef = TextBox2.Text
-            gdescuentoef = Convert.ToDecimal(gdescuentoef)
-            Me.Close()
+            Try
+                gdescuentopc = 0
+                gdescuentoef = TextBox2.Text
+                gdescuentoef = Convert.ToDecimal(gdescuentoef)
+                Me.Close()
+            Catch ex As Exception
+                gdescuentoef = 0
+                Me.Close()
+            End Try
+
         End If
     End Sub
 

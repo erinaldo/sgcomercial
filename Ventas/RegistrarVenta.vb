@@ -1110,7 +1110,7 @@ Public Class RegistrarVenta
         If Val(gcantidad) = 0 Then Return
         Labelproducto.Text = gproductodescripcion
         v_precioventa = gprecioventa
-        'codigotextbox.Text = gcodigoproducto
+        codigotextbox.Text = Nothing
         If VentasdetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
             newrow = VentasdetalleDataGridView.Rows.Add()
             VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = gcodigoproducto
@@ -1234,7 +1234,6 @@ Public Class RegistrarVenta
                             gdescuentoef = 0
                             recuento()
                         End If
-
                     Case "eliminar"
                         If VentasdetalleDataGridView.CurrentRow.Cells(2).Value > 1 Then
                             VentasdetalleDataGridView.CurrentRow.Cells(2).Value = VentasdetalleDataGridView.CurrentRow.Cells(2).Value - 1
@@ -1287,7 +1286,6 @@ Public Class RegistrarVenta
                         End If
                 End Select
             End If
-            recuento()
         Catch ex As Exception
 
         End Try
@@ -1298,7 +1296,7 @@ Public Class RegistrarVenta
 
     End Sub
     Private Sub recuento()
-        'VerificaCriteriosVenta()
+        VerificaCriteriosVenta()
         '********** RecargoTC
         grecargoTC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoTC")
         grecargoCC = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgdecimal1("RecargoCC")
@@ -1324,7 +1322,7 @@ Public Class RegistrarVenta
                     descuentolocal = VentasdetalleDataGridView.Rows(i).Cells("descuento").Value
                 End If
                 VentasdetalleDataGridView.Rows(i).Cells("recargo").Value = String.Format("{0:n}", 0)
-                subtotallocal = (cantidad * precio) - descuentolocal
+                subtotallocal = (precio * cantidad) - descuentolocal
                 '*****************************************************
                 '*********  calcular total con recargo  ¡¡¡¡¡¡¡¡¡¡¡¡¡
                 If grecargoTC > 0 Then
@@ -1643,10 +1641,10 @@ Public Class RegistrarVenta
     Private Sub VentasdetalleDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles VentasdetalleDataGridView.KeyDown
         If e.KeyCode = Keys.Delete Then
             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+            recuento()
         End If
         If e.KeyCode = Keys.Add Then
             buscaproductomanual()
-            recuento()
         End If
         If e.KeyCode = Keys.Subtract Then
             VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
@@ -1654,12 +1652,13 @@ Public Class RegistrarVenta
         End If
         If e.KeyCode = Keys.Multiply Then
             If VentasdetalleDataGridView.RowCount = 0 Then Return
+            gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
+            If gprecioventa = 0 Then Return
             Dim p As SeleccionarCantidad
             p = New SeleccionarCantidad
             gcodigoproducto = 0
             gcantidad = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value
             p.ShowDialog()
-            'p.TextBox1.Text = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow).Cells(3).Value
             VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("cantidad").Value = gcantidad
             gprecioventa = VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("precioventa").Value
             VentasdetalleDataGridView.Rows(VentasdetalleDataGridView.CurrentRow.Index).Cells("subtotal").Value = Convert.ToDecimal(gcantidad * gprecioventa) '*--- subtotal
@@ -1667,7 +1666,6 @@ Public Class RegistrarVenta
             gprecioventa = Nothing
             recuento()
         End If
-        recuento()
     End Sub
 
     Private Sub VentasdetalleDataGridView_KeyPress(sender As Object, e As KeyPressEventArgs) Handles VentasdetalleDataGridView.KeyPress
@@ -2014,7 +2012,7 @@ Public Class RegistrarVenta
     End Sub
 
     Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
-
+        EliminaRegalos()
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
@@ -2157,6 +2155,7 @@ Public Class RegistrarVenta
         Dim CriteriosVentaRegaloRango As New comercialDataSetTableAdapters.criteriosventaregalorangoTableAdapter()
         Dim CriteriosVentaRegaloRangoDataTable As New comercialDataSet.criteriosventaregalorangoDataTable()
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        EliminaRegalos()
         For i = 0 To VentasdetalleDataGridView.RowCount - 1
             Dim l_cantidad As Decimal
             Dim l_cantidadregalo As Decimal
@@ -2168,7 +2167,7 @@ Public Class RegistrarVenta
             l_cantidad = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value
             l_precioventa = VentasdetalleDataGridView.Rows(i).Cells("precioventa").Value
             l_codigoproducto = VentasdetalleDataGridView.Rows(i).Cells("codproducto").Value
-            aplicaregalo = VentasdetalleDataGridView.Rows(i).Cells("aplicaregalo").Value
+
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             '     DETERMINAR PORCENTAJE DE DESCUENTO
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -2179,13 +2178,14 @@ Public Class RegistrarVenta
                 Catch ex As Exception
                     VentasdetalleDataGridView.Rows(i).Cells("descuento").Value = Nothing
                 End Try
-            Else
-                VentasdetalleDataGridView.Rows(i).Cells("descuento").Value = Nothing
             End If
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             '     DETERMINAR REGALOS
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            If aplicaregalo = 1 Then Return
+            aplicaregalo = VentasdetalleDataGridView.Rows(i).Cells("esregalo").Value
+            If aplicaregalo = 1 Then
+                Continue For ' SI ES 1 ES UN REGALO ENTONCES NO APLICA REGALO... CONTINUA EL CICLO
+            End If
             CriteriosVentaRegaloRangoDataTable = CriteriosVentaRegaloRango.GetDataBy_get_regalos(l_codigoproducto, l_cantidad)
             If CriteriosVentaRegaloRangoDataTable.Count > 0 Then
                 For j = 0 To CriteriosVentaRegaloRangoDataTable.Count - 1
@@ -2193,9 +2193,19 @@ Public Class RegistrarVenta
                     l_cantidadregalo = CriteriosVentaRegaloRangoDataTable.Rows(j).Item(CriteriosVentaRegaloRangoDataTable.cantidadColumn)
                     InsertarNuevoRegalo(l_codigoproductoregalo, l_cantidadregalo)
                 Next
-                VentasdetalleDataGridView.Rows(i).Cells("aplicaregalo").Value = 1
             End If
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Next
+    End Sub
+    Private Sub EliminaRegalos()
+        For i = VentasdetalleDataGridView.Rows.Count - 1 To 0 Step -1
+            Dim delete As Integer = 0
+            delete = VentasdetalleDataGridView.Rows(i).Cells("esregalo").Value
+            If delete = 1 Then
+                Dim row As DataGridViewRow
+                row = VentasdetalleDataGridView.Rows(i)
+                VentasdetalleDataGridView.Rows.Remove(row)
+            End If
         Next
     End Sub
     Private Sub InsertarNuevoRegalo(ByRef codigoproducto As String, ByRef cantidad As Decimal)
@@ -2221,10 +2231,10 @@ Public Class RegistrarVenta
             VentasdetalleDataGridView.Rows(newrow).Cells("precioventa").Value = 0 'gprecioventa
             VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = 0 'gprecioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
             VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = 1 'glistaprecio
-            VentasdetalleDataGridView.Rows(newrow).Cells("aplicaregalo").Value = 1
+            VentasdetalleDataGridView.Rows(newrow).Cells("esregalo").Value = 1
             codigotextbox.SelectAll()
             codigotextbox.Select()
-            'recuento() no es necesario hacer el recuento porque es un regalo!
+            ' no es necesario hacer el recuento porque es un regalo!
             Return
         Catch ex As Exception
 

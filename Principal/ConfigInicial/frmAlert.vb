@@ -5,15 +5,13 @@
         close
         open
     End Enum
-    Enum alertTypeEnum
+    Public Enum alertTypeEnum
         Success
         Warning
         Err
         Info
     End Enum
-
     Private action As actionEnum = action.start
-
     Dim x, y As Integer
     Public Sub setAlert(msg As String, codalerta As String, type As alertTypeEnum)
         Me.Opacity = 0
