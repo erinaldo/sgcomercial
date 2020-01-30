@@ -1,4 +1,11 @@
 ﻿Partial Class comercialDataSet
+    Partial Public Class criteriosventaDataTable
+        Private Sub criteriosventaDataTable_criteriosventaRowChanging(sender As Object, e As criteriosventaRowChangeEvent) Handles Me.criteriosventaRowChanging
+
+        End Sub
+
+    End Class
+
     Partial Public Class EstIngUltimoscierresDataTable
         Private Sub EstIngUltimoscierresDataTable_EstIngUltimoscierresRowChanging(sender As Object, e As EstIngUltimoscierresRowChangeEvent) Handles Me.EstIngUltimoscierresRowChanging
 

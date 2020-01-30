@@ -102,7 +102,7 @@ Partial Class NuevoCriterioVenta
         'IdcriterioventaLabel
         '
         IdcriterioventaLabel.AutoSize = True
-        IdcriterioventaLabel.Location = New System.Drawing.Point(9, 117)
+        IdcriterioventaLabel.Location = New System.Drawing.Point(9, 91)
         IdcriterioventaLabel.Name = "IdcriterioventaLabel"
         IdcriterioventaLabel.Size = New System.Drawing.Size(101, 17)
         IdcriterioventaLabel.TabIndex = 0
@@ -112,7 +112,7 @@ Partial Class NuevoCriterioVenta
         'DescripcionLabel
         '
         DescripcionLabel.AutoSize = True
-        DescripcionLabel.Location = New System.Drawing.Point(198, 14)
+        DescripcionLabel.Location = New System.Drawing.Point(89, 29)
         DescripcionLabel.Name = "DescripcionLabel"
         DescripcionLabel.Size = New System.Drawing.Size(86, 17)
         DescripcionLabel.TabIndex = 2
@@ -121,7 +121,7 @@ Partial Class NuevoCriterioVenta
         'FechadesdeLabel
         '
         FechadesdeLabel.AutoSize = True
-        FechadesdeLabel.Location = New System.Drawing.Point(231, 43)
+        FechadesdeLabel.Location = New System.Drawing.Point(525, 29)
         FechadesdeLabel.Name = "FechadesdeLabel"
         FechadesdeLabel.Size = New System.Drawing.Size(53, 17)
         FechadesdeLabel.TabIndex = 4
@@ -130,7 +130,7 @@ Partial Class NuevoCriterioVenta
         'FechahastaLabel
         '
         FechahastaLabel.AutoSize = True
-        FechahastaLabel.Location = New System.Drawing.Point(235, 71)
+        FechahastaLabel.Location = New System.Drawing.Point(725, 29)
         FechahastaLabel.Name = "FechahastaLabel"
         FechahastaLabel.Size = New System.Drawing.Size(49, 17)
         FechahastaLabel.TabIndex = 6
@@ -139,20 +139,22 @@ Partial Class NuevoCriterioVenta
         'CantidaddisponibletotalLabel
         '
         CantidaddisponibletotalLabel.AutoSize = True
-        CantidaddisponibletotalLabel.Location = New System.Drawing.Point(565, 17)
+        CantidaddisponibletotalLabel.Location = New System.Drawing.Point(198, 59)
         CantidaddisponibletotalLabel.Name = "CantidaddisponibletotalLabel"
         CantidaddisponibletotalLabel.Size = New System.Drawing.Size(174, 17)
         CantidaddisponibletotalLabel.TabIndex = 8
         CantidaddisponibletotalLabel.Text = "Cantidad Disponible Total:"
+        CantidaddisponibletotalLabel.Visible = False
         '
         'CantidadmaximaporclienteLabel
         '
         CantidadmaximaporclienteLabel.AutoSize = True
-        CantidadmaximaporclienteLabel.Location = New System.Drawing.Point(548, 45)
+        CantidadmaximaporclienteLabel.Location = New System.Drawing.Point(518, 59)
         CantidadmaximaporclienteLabel.Name = "CantidadmaximaporclienteLabel"
         CantidadmaximaporclienteLabel.Size = New System.Drawing.Size(191, 17)
         CantidadmaximaporclienteLabel.TabIndex = 10
         CantidadmaximaporclienteLabel.Text = "Cantidad Máxima por Cliente:"
+        CantidadmaximaporclienteLabel.Visible = False
         '
         'GroupBox1
         '
@@ -178,7 +180,7 @@ Partial Class NuevoCriterioVenta
         Me.GroupBox1.Controls.Add(Me.CantidadmaximaporclienteTextBox)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 1)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1020, 559)
+        Me.GroupBox1.Size = New System.Drawing.Size(1108, 545)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -186,9 +188,9 @@ Partial Class NuevoCriterioVenta
         '
         Me.ButtonFinalizar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonFinalizar.Location = New System.Drawing.Point(288, 511)
+        Me.ButtonFinalizar.Location = New System.Drawing.Point(288, 497)
         Me.ButtonFinalizar.Name = "ButtonFinalizar"
-        Me.ButtonFinalizar.Size = New System.Drawing.Size(445, 41)
+        Me.ButtonFinalizar.Size = New System.Drawing.Size(533, 41)
         Me.ButtonFinalizar.TabIndex = 16
         Me.ButtonFinalizar.Tag = "Finalizar"
         Me.ButtonFinalizar.Text = "Finalizar"
@@ -196,7 +198,7 @@ Partial Class NuevoCriterioVenta
         '
         'ButtonConfirmar
         '
-        Me.ButtonConfirmar.Location = New System.Drawing.Point(444, 101)
+        Me.ButtonConfirmar.Location = New System.Drawing.Point(474, 82)
         Me.ButtonConfirmar.Name = "ButtonConfirmar"
         Me.ButtonConfirmar.Size = New System.Drawing.Size(160, 32)
         Me.ButtonConfirmar.TabIndex = 15
@@ -209,9 +211,9 @@ Partial Class NuevoCriterioVenta
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxRegalos.Controls.Add(Me.ToolStrip3)
         Me.GroupBoxRegalos.Controls.Add(Me.CriteriosventaregalorangoDataGridView)
-        Me.GroupBoxRegalos.Location = New System.Drawing.Point(613, 333)
+        Me.GroupBoxRegalos.Location = New System.Drawing.Point(613, 297)
         Me.GroupBoxRegalos.Name = "GroupBoxRegalos"
-        Me.GroupBoxRegalos.Size = New System.Drawing.Size(401, 172)
+        Me.GroupBoxRegalos.Size = New System.Drawing.Size(489, 194)
         Me.GroupBoxRegalos.TabIndex = 14
         Me.GroupBoxRegalos.TabStop = False
         Me.GroupBoxRegalos.Text = "Regalo del Rango Seleccionado"
@@ -222,7 +224,7 @@ Partial Class NuevoCriterioVenta
         Me.ToolStrip3.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip3.Location = New System.Drawing.Point(3, 18)
         Me.ToolStrip3.Name = "ToolStrip3"
-        Me.ToolStrip3.Size = New System.Drawing.Size(395, 25)
+        Me.ToolStrip3.Size = New System.Drawing.Size(483, 25)
         Me.ToolStrip3.TabIndex = 1
         Me.ToolStrip3.Text = "ToolStrip3"
         '
@@ -244,7 +246,7 @@ Partial Class NuevoCriterioVenta
         Me.CriteriosventaregalorangoDataGridView.ReadOnly = True
         Me.CriteriosventaregalorangoDataGridView.RowHeadersVisible = False
         Me.CriteriosventaregalorangoDataGridView.RowTemplate.Height = 24
-        Me.CriteriosventaregalorangoDataGridView.Size = New System.Drawing.Size(375, 118)
+        Me.CriteriosventaregalorangoDataGridView.Size = New System.Drawing.Size(463, 140)
         Me.CriteriosventaregalorangoDataGridView.TabIndex = 0
         '
         'idcriteriosventaregalorango
@@ -318,9 +320,9 @@ Partial Class NuevoCriterioVenta
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxRangos.Controls.Add(Me.CriteriosventarangosDataGridView)
         Me.GroupBoxRangos.Controls.Add(Me.ToolStrip2)
-        Me.GroupBoxRangos.Location = New System.Drawing.Point(6, 333)
+        Me.GroupBoxRangos.Location = New System.Drawing.Point(6, 297)
         Me.GroupBoxRangos.Name = "GroupBoxRangos"
-        Me.GroupBoxRangos.Size = New System.Drawing.Size(601, 172)
+        Me.GroupBoxRangos.Size = New System.Drawing.Size(601, 194)
         Me.GroupBoxRangos.TabIndex = 13
         Me.GroupBoxRangos.TabStop = False
         Me.GroupBoxRangos.Text = "Rangos Según Cantidad"
@@ -343,7 +345,7 @@ Partial Class NuevoCriterioVenta
         Me.CriteriosventarangosDataGridView.ReadOnly = True
         Me.CriteriosventarangosDataGridView.RowHeadersVisible = False
         Me.CriteriosventarangosDataGridView.RowTemplate.Height = 24
-        Me.CriteriosventarangosDataGridView.Size = New System.Drawing.Size(576, 118)
+        Me.CriteriosventarangosDataGridView.Size = New System.Drawing.Size(576, 140)
         Me.CriteriosventarangosDataGridView.TabIndex = 1
         '
         'idcriterioventarango
@@ -453,9 +455,9 @@ Partial Class NuevoCriterioVenta
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxProductos.Controls.Add(Me.CriteriosventaproductosDataGridView)
         Me.GroupBoxProductos.Controls.Add(Me.ToolStrip1)
-        Me.GroupBoxProductos.Location = New System.Drawing.Point(6, 142)
+        Me.GroupBoxProductos.Location = New System.Drawing.Point(6, 120)
         Me.GroupBoxProductos.Name = "GroupBoxProductos"
-        Me.GroupBoxProductos.Size = New System.Drawing.Size(1008, 185)
+        Me.GroupBoxProductos.Size = New System.Drawing.Size(1096, 185)
         Me.GroupBoxProductos.TabIndex = 12
         Me.GroupBoxProductos.TabStop = False
         Me.GroupBoxProductos.Text = "Grupo de Productos"
@@ -479,7 +481,7 @@ Partial Class NuevoCriterioVenta
         Me.CriteriosventaproductosDataGridView.ReadOnly = True
         Me.CriteriosventaproductosDataGridView.RowHeadersVisible = False
         Me.CriteriosventaproductosDataGridView.RowTemplate.Height = 24
-        Me.CriteriosventaproductosDataGridView.Size = New System.Drawing.Size(996, 123)
+        Me.CriteriosventaproductosDataGridView.Size = New System.Drawing.Size(1084, 123)
         Me.CriteriosventaproductosDataGridView.TabIndex = 1
         '
         'codigoproducto
@@ -539,7 +541,7 @@ Partial Class NuevoCriterioVenta
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1})
         Me.ToolStrip1.Location = New System.Drawing.Point(3, 18)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1002, 27)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1090, 27)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -556,7 +558,7 @@ Partial Class NuevoCriterioVenta
         'IdcriterioventaTextBox
         '
         Me.IdcriterioventaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CriteriosventaBindingSource, "idcriterioventa", True))
-        Me.IdcriterioventaTextBox.Location = New System.Drawing.Point(113, 114)
+        Me.IdcriterioventaTextBox.Location = New System.Drawing.Point(113, 88)
         Me.IdcriterioventaTextBox.Name = "IdcriterioventaTextBox"
         Me.IdcriterioventaTextBox.Size = New System.Drawing.Size(66, 22)
         Me.IdcriterioventaTextBox.TabIndex = 1
@@ -571,9 +573,9 @@ Partial Class NuevoCriterioVenta
         '
         Me.DescripcionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.DescripcionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CriteriosventaBindingSource, "descripcion", True))
-        Me.DescripcionTextBox.Location = New System.Drawing.Point(292, 11)
+        Me.DescripcionTextBox.Location = New System.Drawing.Point(181, 26)
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
-        Me.DescripcionTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.DescripcionTextBox.Size = New System.Drawing.Size(327, 22)
         Me.DescripcionTextBox.TabIndex = 3
         '
         'FechadesdeDateTimePicker
@@ -581,7 +583,7 @@ Partial Class NuevoCriterioVenta
         Me.FechadesdeDateTimePicker.CustomFormat = "dd/MM/yyyy"
         Me.FechadesdeDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.CriteriosventaBindingSource, "fechadesde", True))
         Me.FechadesdeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.FechadesdeDateTimePicker.Location = New System.Drawing.Point(292, 39)
+        Me.FechadesdeDateTimePicker.Location = New System.Drawing.Point(595, 26)
         Me.FechadesdeDateTimePicker.Name = "FechadesdeDateTimePicker"
         Me.FechadesdeDateTimePicker.Size = New System.Drawing.Size(113, 22)
         Me.FechadesdeDateTimePicker.TabIndex = 5
@@ -591,7 +593,7 @@ Partial Class NuevoCriterioVenta
         Me.FechahastaDateTimePicker.CustomFormat = "dd/MM/yyyy"
         Me.FechahastaDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.CriteriosventaBindingSource, "fechahasta", True))
         Me.FechahastaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.FechahastaDateTimePicker.Location = New System.Drawing.Point(292, 67)
+        Me.FechahastaDateTimePicker.Location = New System.Drawing.Point(791, 26)
         Me.FechahastaDateTimePicker.Name = "FechahastaDateTimePicker"
         Me.FechahastaDateTimePicker.Size = New System.Drawing.Size(113, 22)
         Me.FechahastaDateTimePicker.TabIndex = 7
@@ -599,18 +601,20 @@ Partial Class NuevoCriterioVenta
         'CantidaddisponibletotalTextBox
         '
         Me.CantidaddisponibletotalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CriteriosventaBindingSource, "cantidaddisponibletotal", True))
-        Me.CantidaddisponibletotalTextBox.Location = New System.Drawing.Point(747, 14)
+        Me.CantidaddisponibletotalTextBox.Location = New System.Drawing.Point(378, 56)
         Me.CantidaddisponibletotalTextBox.Name = "CantidaddisponibletotalTextBox"
-        Me.CantidaddisponibletotalTextBox.Size = New System.Drawing.Size(75, 22)
+        Me.CantidaddisponibletotalTextBox.Size = New System.Drawing.Size(123, 22)
         Me.CantidaddisponibletotalTextBox.TabIndex = 9
+        Me.CantidaddisponibletotalTextBox.Visible = False
         '
         'CantidadmaximaporclienteTextBox
         '
         Me.CantidadmaximaporclienteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CriteriosventaBindingSource, "cantidadmaximaporcliente", True))
-        Me.CantidadmaximaporclienteTextBox.Location = New System.Drawing.Point(747, 42)
+        Me.CantidadmaximaporclienteTextBox.Location = New System.Drawing.Point(721, 56)
         Me.CantidadmaximaporclienteTextBox.Name = "CantidadmaximaporclienteTextBox"
-        Me.CantidadmaximaporclienteTextBox.Size = New System.Drawing.Size(75, 22)
+        Me.CantidadmaximaporclienteTextBox.Size = New System.Drawing.Size(123, 22)
         Me.CantidadmaximaporclienteTextBox.TabIndex = 11
+        Me.CantidadmaximaporclienteTextBox.Visible = False
         '
         'CriteriosventaTableAdapter
         '
@@ -719,7 +723,7 @@ Partial Class NuevoCriterioVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1044, 567)
+        Me.ClientSize = New System.Drawing.Size(1132, 553)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False

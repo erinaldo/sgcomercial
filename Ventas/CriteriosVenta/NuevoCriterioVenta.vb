@@ -52,9 +52,16 @@ Public Class NuevoCriterioVenta
             descripcion = DescripcionTextBox.Text
             fechadesde = FechadesdeDateTimePicker.Value
             fechahasta = FechahastaDateTimePicker.Value
-            cantidadtotal = Convert.ToDecimal(CantidaddisponibletotalTextBox.Text)
-            cantidadmaxima = Convert.ToDecimal(CantidadmaximaporclienteTextBox.Text)
-
+            Try
+                cantidadtotal = Convert.ToDecimal(CantidaddisponibletotalTextBox.Text)
+            Catch ex As Exception
+                cantidadtotal = 9999999999
+            End Try
+            Try
+                cantidadmaxima = Convert.ToDecimal(CantidadmaximaporclienteTextBox.Text)
+            Catch ex As Exception
+                cantidadmaxima = 9999999999
+            End Try
             inserted = CriteriosventaTableAdapter.criteriosventa_insertar(descripcion, fechadesde, fechahasta, cantidadtotal, cantidadmaxima)
             gidCriterioSeleccionado = inserted
             CriteriosventaTableAdapter.FillByIDCriterioventa(Me.ComercialDataSet.criteriosventa, gidCriterioSeleccionado)
@@ -182,8 +189,16 @@ Public Class NuevoCriterioVenta
             descripcion = DescripcionTextBox.Text
             fechadesde = FechadesdeDateTimePicker.Value
             fechahasta = FechahastaDateTimePicker.Value
-            cantidadtotal = Convert.ToDecimal(CantidaddisponibletotalTextBox.Text)
-            cantidadmaxima = Convert.ToDecimal(CantidadmaximaporclienteTextBox.Text)
+            Try
+                cantidadtotal = Convert.ToDecimal(CantidaddisponibletotalTextBox.Text)
+            Catch ex As Exception
+                cantidadtotal = 9999999999
+            End Try
+            Try
+                cantidadmaxima = Convert.ToDecimal(CantidadmaximaporclienteTextBox.Text)
+            Catch ex As Exception
+                cantidadmaxima = 9999999999
+            End Try
             CriteriosventaTableAdapter.criteriosventa_update(descripcion, fechadesde, fechahasta, cantidadtotal, cantidadmaxima, gidCriterioSeleccionado)
             Me.Close()
         Catch ex As Exception
