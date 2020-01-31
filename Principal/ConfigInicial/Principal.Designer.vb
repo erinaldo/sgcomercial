@@ -161,6 +161,7 @@ Partial Class Principal
         Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosMovilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SueldosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -204,6 +205,12 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
+        Me.ConfParamétricasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GruposJerarquicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CentrosDeCostoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ObrasSocialesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SindicatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CategoríasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -224,13 +231,13 @@ Partial Class Principal
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.PreventaToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.MiFranquiciaToolStripMenuItem, Me.GestiónEscolarToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NubeToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.PedidosWebToolStripMenuItem, Me.PedidosMovilToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.PreventaToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.MiFranquiciaToolStripMenuItem, Me.GestiónEscolarToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NubeToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.PedidosWebToolStripMenuItem, Me.PedidosMovilToolStripMenuItem, Me.SueldosToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1140, 85)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1140, 109)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -1244,6 +1251,14 @@ Partial Class Principal
         Me.PedidosMovilToolStripMenuItem.Tag = "ModuloPedidosMovil"
         Me.PedidosMovilToolStripMenuItem.Text = "Descargar Pedidos Móvil"
         '
+        'SueldosToolStripMenuItem
+        '
+        Me.SueldosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfParamétricasToolStripMenuItem})
+        Me.SueldosToolStripMenuItem.Name = "SueldosToolStripMenuItem"
+        Me.SueldosToolStripMenuItem.Size = New System.Drawing.Size(81, 27)
+        Me.SueldosToolStripMenuItem.Tag = "ModuloSueldos"
+        Me.SueldosToolStripMenuItem.Text = "Sueldos"
+        '
         'ParametrosgeneralesDataGridView
         '
         Me.ParametrosgeneralesDataGridView.AutoGenerateColumns = False
@@ -1432,6 +1447,8 @@ Partial Class Principal
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
@@ -1441,6 +1458,7 @@ Partial Class Principal
         Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -1452,6 +1470,7 @@ Partial Class Principal
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
         Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -1461,6 +1480,7 @@ Partial Class Principal
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
@@ -1484,6 +1504,7 @@ Partial Class Principal
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -1570,6 +1591,49 @@ Partial Class Principal
         '
         'BGWAlertas
         '
+        '
+        'ConfParamétricasToolStripMenuItem
+        '
+        Me.ConfParamétricasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GruposJerarquicosToolStripMenuItem, Me.CentrosDeCostoToolStripMenuItem, Me.ObrasSocialesToolStripMenuItem, Me.SindicatosToolStripMenuItem, Me.CategoríasToolStripMenuItem})
+        Me.ConfParamétricasToolStripMenuItem.Name = "ConfParamétricasToolStripMenuItem"
+        Me.ConfParamétricasToolStripMenuItem.Size = New System.Drawing.Size(217, 28)
+        Me.ConfParamétricasToolStripMenuItem.Tag = "SueldosConfParametos"
+        Me.ConfParamétricasToolStripMenuItem.Text = "Conf. Parametros"
+        '
+        'GruposJerarquicosToolStripMenuItem
+        '
+        Me.GruposJerarquicosToolStripMenuItem.Name = "GruposJerarquicosToolStripMenuItem"
+        Me.GruposJerarquicosToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.GruposJerarquicosToolStripMenuItem.Tag = "GruposJerarquicos"
+        Me.GruposJerarquicosToolStripMenuItem.Text = "Grupos Jerarquicos"
+        '
+        'CentrosDeCostoToolStripMenuItem
+        '
+        Me.CentrosDeCostoToolStripMenuItem.Name = "CentrosDeCostoToolStripMenuItem"
+        Me.CentrosDeCostoToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.CentrosDeCostoToolStripMenuItem.Tag = "CentrosCosto"
+        Me.CentrosDeCostoToolStripMenuItem.Text = "Centros de Costo"
+        '
+        'ObrasSocialesToolStripMenuItem
+        '
+        Me.ObrasSocialesToolStripMenuItem.Name = "ObrasSocialesToolStripMenuItem"
+        Me.ObrasSocialesToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.ObrasSocialesToolStripMenuItem.Tag = "ObrasSociales"
+        Me.ObrasSocialesToolStripMenuItem.Text = "Obras Sociales"
+        '
+        'SindicatosToolStripMenuItem
+        '
+        Me.SindicatosToolStripMenuItem.Name = "SindicatosToolStripMenuItem"
+        Me.SindicatosToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.SindicatosToolStripMenuItem.Tag = "Sindicatos"
+        Me.SindicatosToolStripMenuItem.Text = "Sindicatos"
+        '
+        'CategoríasToolStripMenuItem
+        '
+        Me.CategoríasToolStripMenuItem.Name = "CategoríasToolStripMenuItem"
+        Me.CategoríasToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.CategoríasToolStripMenuItem.Tag = "CategoriasEmpleados"
+        Me.CategoríasToolStripMenuItem.Text = "Categorías Empleados"
         '
         'Principal
         '
@@ -1793,4 +1857,11 @@ Partial Class Principal
     Friend WithEvents PedidosWebToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PedidosMovilToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SincronizarClientesToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents SueldosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfParamétricasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GruposJerarquicosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CentrosDeCostoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ObrasSocialesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SindicatosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CategoríasToolStripMenuItem As ToolStripMenuItem
 End Class

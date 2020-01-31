@@ -1229,4 +1229,9 @@ Public Class Principal
         End If
     End Sub
 
+    Private Sub GruposJerarquicosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruposJerarquicosToolStripMenuItem.Click
+        'ABMGruposJerarquicos.MdiParent = Me
+        'ABMGruposJerarquicos.Visible = True
+        ABMGruposJerarquicos.ShowDialog()
+    End Sub
 End Class

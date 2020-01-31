@@ -664,6 +664,12 @@
     <Compile Include="Stock\LotesVencimiento.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Sueldos\ABMGruposJerarquicos.Designer.vb">
+      <DependentUpon>ABMGruposJerarquicos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sueldos\ABMGruposJerarquicos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Testing\CalendarTest.Designer.vb">
       <DependentUpon>CalendarTest.vb</DependentUpon>
     </Compile>
@@ -1667,6 +1673,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stock\LotesVencimiento.resx">
       <DependentUpon>LotesVencimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sueldos\ABMGruposJerarquicos.resx">
+      <DependentUpon>ABMGruposJerarquicos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Testing\CalendarTest.resx">
       <DependentUpon>CalendarTest.vb</DependentUpon>
