@@ -162,6 +162,12 @@ Partial Class Principal
         Me.PedidosWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosMovilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SueldosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfParamétricasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GruposJerarquicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CentrosDeCostoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ObrasSocialesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SindicatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CategoríasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -205,12 +211,6 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.ConfParamétricasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GruposJerarquicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CentrosDeCostoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ObrasSocialesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SindicatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CategoríasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1259,6 +1259,49 @@ Partial Class Principal
         Me.SueldosToolStripMenuItem.Tag = "ModuloSueldos"
         Me.SueldosToolStripMenuItem.Text = "Sueldos"
         '
+        'ConfParamétricasToolStripMenuItem
+        '
+        Me.ConfParamétricasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GruposJerarquicosToolStripMenuItem, Me.CentrosDeCostoToolStripMenuItem, Me.ObrasSocialesToolStripMenuItem, Me.SindicatosToolStripMenuItem, Me.CategoríasToolStripMenuItem})
+        Me.ConfParamétricasToolStripMenuItem.Name = "ConfParamétricasToolStripMenuItem"
+        Me.ConfParamétricasToolStripMenuItem.Size = New System.Drawing.Size(217, 28)
+        Me.ConfParamétricasToolStripMenuItem.Tag = "SueldosConfParametos"
+        Me.ConfParamétricasToolStripMenuItem.Text = "Conf. Parametros"
+        '
+        'GruposJerarquicosToolStripMenuItem
+        '
+        Me.GruposJerarquicosToolStripMenuItem.Name = "GruposJerarquicosToolStripMenuItem"
+        Me.GruposJerarquicosToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.GruposJerarquicosToolStripMenuItem.Tag = "GruposJerarquicos"
+        Me.GruposJerarquicosToolStripMenuItem.Text = "Grupos Jerarquicos"
+        '
+        'CentrosDeCostoToolStripMenuItem
+        '
+        Me.CentrosDeCostoToolStripMenuItem.Name = "CentrosDeCostoToolStripMenuItem"
+        Me.CentrosDeCostoToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.CentrosDeCostoToolStripMenuItem.Tag = "CentrosCosto"
+        Me.CentrosDeCostoToolStripMenuItem.Text = "Centros de Costo"
+        '
+        'ObrasSocialesToolStripMenuItem
+        '
+        Me.ObrasSocialesToolStripMenuItem.Name = "ObrasSocialesToolStripMenuItem"
+        Me.ObrasSocialesToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.ObrasSocialesToolStripMenuItem.Tag = "ObrasSociales"
+        Me.ObrasSocialesToolStripMenuItem.Text = "Obras Sociales"
+        '
+        'SindicatosToolStripMenuItem
+        '
+        Me.SindicatosToolStripMenuItem.Name = "SindicatosToolStripMenuItem"
+        Me.SindicatosToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.SindicatosToolStripMenuItem.Tag = "Sindicatos"
+        Me.SindicatosToolStripMenuItem.Text = "Sindicatos"
+        '
+        'CategoríasToolStripMenuItem
+        '
+        Me.CategoríasToolStripMenuItem.Name = "CategoríasToolStripMenuItem"
+        Me.CategoríasToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.CategoríasToolStripMenuItem.Tag = "CategoriasEmpleados"
+        Me.CategoríasToolStripMenuItem.Text = "Categorías Empleados"
+        '
         'ParametrosgeneralesDataGridView
         '
         Me.ParametrosgeneralesDataGridView.AutoGenerateColumns = False
@@ -1591,49 +1634,6 @@ Partial Class Principal
         '
         'BGWAlertas
         '
-        '
-        'ConfParamétricasToolStripMenuItem
-        '
-        Me.ConfParamétricasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GruposJerarquicosToolStripMenuItem, Me.CentrosDeCostoToolStripMenuItem, Me.ObrasSocialesToolStripMenuItem, Me.SindicatosToolStripMenuItem, Me.CategoríasToolStripMenuItem})
-        Me.ConfParamétricasToolStripMenuItem.Name = "ConfParamétricasToolStripMenuItem"
-        Me.ConfParamétricasToolStripMenuItem.Size = New System.Drawing.Size(217, 28)
-        Me.ConfParamétricasToolStripMenuItem.Tag = "SueldosConfParametos"
-        Me.ConfParamétricasToolStripMenuItem.Text = "Conf. Parametros"
-        '
-        'GruposJerarquicosToolStripMenuItem
-        '
-        Me.GruposJerarquicosToolStripMenuItem.Name = "GruposJerarquicosToolStripMenuItem"
-        Me.GruposJerarquicosToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
-        Me.GruposJerarquicosToolStripMenuItem.Tag = "GruposJerarquicos"
-        Me.GruposJerarquicosToolStripMenuItem.Text = "Grupos Jerarquicos"
-        '
-        'CentrosDeCostoToolStripMenuItem
-        '
-        Me.CentrosDeCostoToolStripMenuItem.Name = "CentrosDeCostoToolStripMenuItem"
-        Me.CentrosDeCostoToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
-        Me.CentrosDeCostoToolStripMenuItem.Tag = "CentrosCosto"
-        Me.CentrosDeCostoToolStripMenuItem.Text = "Centros de Costo"
-        '
-        'ObrasSocialesToolStripMenuItem
-        '
-        Me.ObrasSocialesToolStripMenuItem.Name = "ObrasSocialesToolStripMenuItem"
-        Me.ObrasSocialesToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
-        Me.ObrasSocialesToolStripMenuItem.Tag = "ObrasSociales"
-        Me.ObrasSocialesToolStripMenuItem.Text = "Obras Sociales"
-        '
-        'SindicatosToolStripMenuItem
-        '
-        Me.SindicatosToolStripMenuItem.Name = "SindicatosToolStripMenuItem"
-        Me.SindicatosToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
-        Me.SindicatosToolStripMenuItem.Tag = "Sindicatos"
-        Me.SindicatosToolStripMenuItem.Text = "Sindicatos"
-        '
-        'CategoríasToolStripMenuItem
-        '
-        Me.CategoríasToolStripMenuItem.Name = "CategoríasToolStripMenuItem"
-        Me.CategoríasToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
-        Me.CategoríasToolStripMenuItem.Tag = "CategoriasEmpleados"
-        Me.CategoríasToolStripMenuItem.Text = "Categorías Empleados"
         '
         'Principal
         '

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ABMGruposJerarquicos
+Partial Class ABMCentroscosto
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,49 +23,61 @@ Partial Class ABMGruposJerarquicos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim IdcentrocostoLabel As System.Windows.Forms.Label
         Dim DescripcionLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMGruposJerarquicos))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMCentroscosto))
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
-        Me.GruposjerarquicosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GruposjerarquicosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gruposjerarquicosTableAdapter()
+        Me.CentroscostoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CentroscostoTableAdapter = New sgcomercial.comercialDataSetTableAdapters.centroscostoTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.GruposjerarquicosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.CentroscostoBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BtnNuevo = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
-        Me.NavFirst = New System.Windows.Forms.ToolStripButton()
-        Me.NavPrev = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NavNext = New System.Windows.Forms.ToolStripButton()
-        Me.NavLast = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnGuardar = New System.Windows.Forms.ToolStripButton()
         Me.BtnCancelar = New System.Windows.Forms.ToolStripButton()
         Me.BtnEditar = New System.Windows.Forms.ToolStripButton()
         Me.BtnListar = New System.Windows.Forms.ToolStripButton()
-        Me.IdgrupojerarquicoTextBox = New System.Windows.Forms.TextBox()
+        Me.IdcentrocostoTextBox = New System.Windows.Forms.TextBox()
         Me.DescripcionTextBox = New System.Windows.Forms.TextBox()
+        Me.CentroscostoDataGridView = New System.Windows.Forms.DataGridView()
         Me.GroupABM = New System.Windows.Forms.GroupBox()
         Me.GroupListado = New System.Windows.Forms.GroupBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.IdgrupojerarquicoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        IdcentrocostoLabel = New System.Windows.Forms.Label()
         DescripcionLabel = New System.Windows.Forms.Label()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GruposjerarquicosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GruposjerarquicosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GruposjerarquicosBindingNavigator.SuspendLayout()
+        CType(Me.CentroscostoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CentroscostoBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CentroscostoBindingNavigator.SuspendLayout()
+        CType(Me.CentroscostoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupABM.SuspendLayout()
         Me.GroupListado.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'IdcentrocostoLabel
+        '
+        IdcentrocostoLabel.AutoSize = True
+        IdcentrocostoLabel.Location = New System.Drawing.Point(14, 24)
+        IdcentrocostoLabel.Name = "IdcentrocostoLabel"
+        IdcentrocostoLabel.Size = New System.Drawing.Size(97, 17)
+        IdcentrocostoLabel.TabIndex = 1
+        IdcentrocostoLabel.Text = "idcentrocosto:"
+        IdcentrocostoLabel.Visible = False
         '
         'DescripcionLabel
         '
         DescripcionLabel.AutoSize = True
-        DescripcionLabel.Location = New System.Drawing.Point(118, 92)
+        DescripcionLabel.Location = New System.Drawing.Point(142, 130)
         DescripcionLabel.Name = "DescripcionLabel"
         DescripcionLabel.Size = New System.Drawing.Size(86, 17)
-        DescripcionLabel.TabIndex = 4
+        DescripcionLabel.TabIndex = 3
         DescripcionLabel.Text = "Descripción:"
         '
         'ComercialDataSet
@@ -73,14 +85,14 @@ Partial Class ABMGruposJerarquicos
         Me.ComercialDataSet.DataSetName = "comercialDataSet"
         Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'GruposjerarquicosBindingSource
+        'CentroscostoBindingSource
         '
-        Me.GruposjerarquicosBindingSource.DataMember = "gruposjerarquicos"
-        Me.GruposjerarquicosBindingSource.DataSource = Me.ComercialDataSet
+        Me.CentroscostoBindingSource.DataMember = "centroscosto"
+        Me.CentroscostoBindingSource.DataSource = Me.ComercialDataSet
         '
-        'GruposjerarquicosTableAdapter
+        'CentroscostoTableAdapter
         '
-        Me.GruposjerarquicosTableAdapter.ClearBeforeFill = True
+        Me.CentroscostoTableAdapter.ClearBeforeFill = True
         '
         'TableAdapterManager
         '
@@ -96,7 +108,7 @@ Partial Class ABMGruposJerarquicos
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
         Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
-        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Me.CentroscostoTableAdapter
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
@@ -118,7 +130,7 @@ Partial Class ABMGruposJerarquicos
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
         Me.TableAdapterManager.gradosTableAdapter = Nothing
-        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Me.GruposjerarquicosTableAdapter
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -175,33 +187,33 @@ Partial Class ABMGruposJerarquicos
         Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
         Me.TableAdapterManager.ventasTableAdapter = Nothing
         '
-        'GruposjerarquicosBindingNavigator
+        'CentroscostoBindingNavigator
         '
-        Me.GruposjerarquicosBindingNavigator.AddNewItem = Me.BtnNuevo
-        Me.GruposjerarquicosBindingNavigator.BindingSource = Me.GruposjerarquicosBindingSource
-        Me.GruposjerarquicosBindingNavigator.CountItem = Nothing
-        Me.GruposjerarquicosBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.GruposjerarquicosBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.GruposjerarquicosBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NavFirst, Me.NavPrev, Me.BindingNavigatorSeparator1, Me.NavNext, Me.NavLast, Me.BindingNavigatorSeparator2, Me.BtnNuevo, Me.BindingNavigatorDeleteItem, Me.BtnGuardar, Me.BtnCancelar, Me.BtnEditar, Me.BtnListar})
-        Me.GruposjerarquicosBindingNavigator.Location = New System.Drawing.Point(0, 0)
-        Me.GruposjerarquicosBindingNavigator.MoveFirstItem = Me.NavFirst
-        Me.GruposjerarquicosBindingNavigator.MoveLastItem = Me.NavLast
-        Me.GruposjerarquicosBindingNavigator.MoveNextItem = Me.NavNext
-        Me.GruposjerarquicosBindingNavigator.MovePreviousItem = Me.NavPrev
-        Me.GruposjerarquicosBindingNavigator.Name = "GruposjerarquicosBindingNavigator"
-        Me.GruposjerarquicosBindingNavigator.PositionItem = Nothing
-        Me.GruposjerarquicosBindingNavigator.Size = New System.Drawing.Size(589, 47)
-        Me.GruposjerarquicosBindingNavigator.TabIndex = 1
-        Me.GruposjerarquicosBindingNavigator.Text = "BindingNavigator1"
+        Me.CentroscostoBindingNavigator.AddNewItem = Me.BtnNuevo
+        Me.CentroscostoBindingNavigator.BindingSource = Me.CentroscostoBindingSource
+        Me.CentroscostoBindingNavigator.CountItem = Nothing
+        Me.CentroscostoBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.CentroscostoBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.CentroscostoBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BtnNuevo, Me.BindingNavigatorDeleteItem, Me.BtnGuardar, Me.BtnCancelar, Me.BtnEditar, Me.BtnListar})
+        Me.CentroscostoBindingNavigator.Location = New System.Drawing.Point(0, 0)
+        Me.CentroscostoBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
+        Me.CentroscostoBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
+        Me.CentroscostoBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
+        Me.CentroscostoBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
+        Me.CentroscostoBindingNavigator.Name = "CentroscostoBindingNavigator"
+        Me.CentroscostoBindingNavigator.PositionItem = Nothing
+        Me.CentroscostoBindingNavigator.Size = New System.Drawing.Size(660, 47)
+        Me.CentroscostoBindingNavigator.TabIndex = 0
+        Me.CentroscostoBindingNavigator.Text = "BindingNavigator1"
         '
         'BtnNuevo
         '
         Me.BtnNuevo.Image = CType(resources.GetObject("BtnNuevo.Image"), System.Drawing.Image)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.RightToLeftAutoMirrorImage = True
-        Me.BtnNuevo.Size = New System.Drawing.Size(111, 44)
-        Me.BtnNuevo.Tag = "Agregar nuevo"
-        Me.BtnNuevo.Text = "Agregar nuevo"
+        Me.BtnNuevo.Size = New System.Drawing.Size(67, 44)
+        Me.BtnNuevo.Tag = "Agregar"
+        Me.BtnNuevo.Text = "Agregar"
         Me.BtnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'BindingNavigatorDeleteItem
@@ -214,46 +226,46 @@ Partial Class ABMGruposJerarquicos
         Me.BindingNavigatorDeleteItem.Text = "Eliminar"
         Me.BindingNavigatorDeleteItem.Visible = False
         '
-        'NavFirst
+        'BindingNavigatorMoveFirstItem
         '
-        Me.NavFirst.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.NavFirst.Image = CType(resources.GetObject("NavFirst.Image"), System.Drawing.Image)
-        Me.NavFirst.Name = "NavFirst"
-        Me.NavFirst.RightToLeftAutoMirrorImage = True
-        Me.NavFirst.Size = New System.Drawing.Size(24, 44)
-        Me.NavFirst.Text = "Mover primero"
+        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
+        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(24, 44)
+        Me.BindingNavigatorMoveFirstItem.Text = "Mover primero"
         '
-        'NavPrev
+        'BindingNavigatorMovePreviousItem
         '
-        Me.NavPrev.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.NavPrev.Image = CType(resources.GetObject("NavPrev.Image"), System.Drawing.Image)
-        Me.NavPrev.Name = "NavPrev"
-        Me.NavPrev.RightToLeftAutoMirrorImage = True
-        Me.NavPrev.Size = New System.Drawing.Size(24, 44)
-        Me.NavPrev.Text = "Mover anterior"
+        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
+        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(24, 44)
+        Me.BindingNavigatorMovePreviousItem.Text = "Mover anterior"
         '
-        'BindingNavigatorSeparator1
+        'BindingNavigatorSeparator
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 47)
+        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 47)
         '
-        'NavNext
+        'BindingNavigatorMoveNextItem
         '
-        Me.NavNext.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.NavNext.Image = CType(resources.GetObject("NavNext.Image"), System.Drawing.Image)
-        Me.NavNext.Name = "NavNext"
-        Me.NavNext.RightToLeftAutoMirrorImage = True
-        Me.NavNext.Size = New System.Drawing.Size(24, 44)
-        Me.NavNext.Text = "Mover siguiente"
+        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
+        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(24, 44)
+        Me.BindingNavigatorMoveNextItem.Text = "Mover siguiente"
         '
-        'NavLast
+        'BindingNavigatorMoveLastItem
         '
-        Me.NavLast.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.NavLast.Image = CType(resources.GetObject("NavLast.Image"), System.Drawing.Image)
-        Me.NavLast.Name = "NavLast"
-        Me.NavLast.RightToLeftAutoMirrorImage = True
-        Me.NavLast.Size = New System.Drawing.Size(24, 44)
-        Me.NavLast.Text = "Mover último"
+        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
+        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(24, 44)
+        Me.BindingNavigatorMoveLastItem.Text = "Mover último"
         '
         'BindingNavigatorSeparator2
         '
@@ -295,39 +307,57 @@ Partial Class ABMGruposJerarquicos
         Me.BtnListar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnListar.Name = "BtnListar"
         Me.BtnListar.Size = New System.Drawing.Size(48, 44)
+        Me.BtnListar.Tag = "Listar"
         Me.BtnListar.Text = "Listar"
         Me.BtnListar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
-        'IdgrupojerarquicoTextBox
+        'IdcentrocostoTextBox
         '
-        Me.IdgrupojerarquicoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GruposjerarquicosBindingSource, "idgrupojerarquico", True))
-        Me.IdgrupojerarquicoTextBox.Location = New System.Drawing.Point(542, 18)
-        Me.IdgrupojerarquicoTextBox.Name = "IdgrupojerarquicoTextBox"
-        Me.IdgrupojerarquicoTextBox.Size = New System.Drawing.Size(22, 22)
-        Me.IdgrupojerarquicoTextBox.TabIndex = 3
-        Me.IdgrupojerarquicoTextBox.Visible = False
+        Me.IdcentrocostoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CentroscostoBindingSource, "idcentrocosto", True))
+        Me.IdcentrocostoTextBox.Location = New System.Drawing.Point(117, 21)
+        Me.IdcentrocostoTextBox.Name = "IdcentrocostoTextBox"
+        Me.IdcentrocostoTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.IdcentrocostoTextBox.TabIndex = 2
+        Me.IdcentrocostoTextBox.Visible = False
         '
         'DescripcionTextBox
         '
         Me.DescripcionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.DescripcionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GruposjerarquicosBindingSource, "descripcion", True))
-        Me.DescripcionTextBox.Location = New System.Drawing.Point(225, 89)
+        Me.DescripcionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CentroscostoBindingSource, "descripcion", True))
+        Me.DescripcionTextBox.Location = New System.Drawing.Point(245, 127)
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
-        Me.DescripcionTextBox.Size = New System.Drawing.Size(222, 22)
-        Me.DescripcionTextBox.TabIndex = 5
+        Me.DescripcionTextBox.Size = New System.Drawing.Size(250, 22)
+        Me.DescripcionTextBox.TabIndex = 4
+        '
+        'CentroscostoDataGridView
+        '
+        Me.CentroscostoDataGridView.AllowUserToAddRows = False
+        Me.CentroscostoDataGridView.AllowUserToDeleteRows = False
+        Me.CentroscostoDataGridView.AutoGenerateColumns = False
+        Me.CentroscostoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.CentroscostoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.CentroscostoDataGridView.DataSource = Me.CentroscostoBindingSource
+        Me.CentroscostoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CentroscostoDataGridView.Location = New System.Drawing.Point(3, 18)
+        Me.CentroscostoDataGridView.Name = "CentroscostoDataGridView"
+        Me.CentroscostoDataGridView.ReadOnly = True
+        Me.CentroscostoDataGridView.RowTemplate.Height = 24
+        Me.CentroscostoDataGridView.Size = New System.Drawing.Size(630, 256)
+        Me.CentroscostoDataGridView.TabIndex = 5
         '
         'GroupABM
         '
         Me.GroupABM.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupABM.Controls.Add(Me.IdgrupojerarquicoTextBox)
-        Me.GroupABM.Controls.Add(DescripcionLabel)
+        Me.GroupABM.Controls.Add(Me.IdcentrocostoTextBox)
         Me.GroupABM.Controls.Add(Me.DescripcionTextBox)
-        Me.GroupABM.Location = New System.Drawing.Point(12, 54)
+        Me.GroupABM.Controls.Add(IdcentrocostoLabel)
+        Me.GroupABM.Controls.Add(DescripcionLabel)
+        Me.GroupABM.Location = New System.Drawing.Point(12, 50)
         Me.GroupABM.Name = "GroupABM"
-        Me.GroupABM.Size = New System.Drawing.Size(565, 201)
-        Me.GroupABM.TabIndex = 8
+        Me.GroupABM.Size = New System.Drawing.Size(636, 277)
+        Me.GroupABM.TabIndex = 6
         Me.GroupABM.TabStop = False
         '
         'GroupListado
@@ -335,97 +365,82 @@ Partial Class ABMGruposJerarquicos
         Me.GroupListado.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupListado.Controls.Add(Me.DataGridView1)
-        Me.GroupListado.Location = New System.Drawing.Point(12, 54)
+        Me.GroupListado.Controls.Add(Me.CentroscostoDataGridView)
+        Me.GroupListado.Location = New System.Drawing.Point(12, 50)
         Me.GroupListado.Name = "GroupListado"
-        Me.GroupListado.Size = New System.Drawing.Size(565, 201)
-        Me.GroupListado.TabIndex = 9
+        Me.GroupListado.Size = New System.Drawing.Size(636, 277)
+        Me.GroupListado.TabIndex = 7
         Me.GroupListado.TabStop = False
         Me.GroupListado.Text = "Listado"
         '
-        'DataGridView1
+        'DataGridViewTextBoxColumn1
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdgrupojerarquicoDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.GruposjerarquicosBindingSource
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 18)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(559, 180)
-        Me.DataGridView1.TabIndex = 0
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "idcentrocosto"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "idcentrocosto"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
         '
-        'IdgrupojerarquicoDataGridViewTextBoxColumn
+        'DataGridViewTextBoxColumn2
         '
-        Me.IdgrupojerarquicoDataGridViewTextBoxColumn.DataPropertyName = "idgrupojerarquico"
-        Me.IdgrupojerarquicoDataGridViewTextBoxColumn.HeaderText = "idgrupojerarquico"
-        Me.IdgrupojerarquicoDataGridViewTextBoxColumn.Name = "IdgrupojerarquicoDataGridViewTextBoxColumn"
-        Me.IdgrupojerarquicoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdgrupojerarquicoDataGridViewTextBoxColumn.Visible = False
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Descripción"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.ToolTipText = "Descripción"
         '
-        'DescripcionDataGridViewTextBoxColumn
-        '
-        Me.DescripcionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripción"
-        Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
-        Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DescripcionDataGridViewTextBoxColumn.ToolTipText = "Descripción"
-        '
-        'ABMGruposJerarquicos
+        'ABMCentroscosto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(589, 267)
-        Me.Controls.Add(Me.GruposjerarquicosBindingNavigator)
-        Me.Controls.Add(Me.GroupABM)
+        Me.ClientSize = New System.Drawing.Size(660, 336)
+        Me.Controls.Add(Me.CentroscostoBindingNavigator)
         Me.Controls.Add(Me.GroupListado)
+        Me.Controls.Add(Me.GroupABM)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "ABMGruposJerarquicos"
+        Me.Name = "ABMCentroscosto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Tag = "ABMGruposJerarquicos"
-        Me.Text = "Alta, Baja y Modificación de Grupos Jerárquicos"
+        Me.Tag = "ABMCentroscosto"
+        Me.Text = "Alta, Baja y Modificación de Centros de Costos"
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GruposjerarquicosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GruposjerarquicosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GruposjerarquicosBindingNavigator.ResumeLayout(False)
-        Me.GruposjerarquicosBindingNavigator.PerformLayout()
+        CType(Me.CentroscostoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CentroscostoBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CentroscostoBindingNavigator.ResumeLayout(False)
+        Me.CentroscostoBindingNavigator.PerformLayout()
+        CType(Me.CentroscostoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupABM.ResumeLayout(False)
         Me.GroupABM.PerformLayout()
         Me.GroupListado.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
+
     Friend WithEvents ComercialDataSet As comercialDataSet
-    Friend WithEvents GruposjerarquicosBindingSource As BindingSource
-    Friend WithEvents GruposjerarquicosTableAdapter As comercialDataSetTableAdapters.gruposjerarquicosTableAdapter
+    Friend WithEvents CentroscostoBindingSource As BindingSource
+    Friend WithEvents CentroscostoTableAdapter As comercialDataSetTableAdapters.centroscostoTableAdapter
     Friend WithEvents TableAdapterManager As comercialDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents GruposjerarquicosBindingNavigator As BindingNavigator
+    Friend WithEvents CentroscostoBindingNavigator As BindingNavigator
     Friend WithEvents BtnNuevo As ToolStripButton
     Friend WithEvents BindingNavigatorDeleteItem As ToolStripButton
-    Friend WithEvents NavFirst As ToolStripButton
-    Friend WithEvents NavPrev As ToolStripButton
-    Friend WithEvents BindingNavigatorSeparator1 As ToolStripSeparator
-    Friend WithEvents NavNext As ToolStripButton
-    Friend WithEvents NavLast As ToolStripButton
+    Friend WithEvents BindingNavigatorMoveFirstItem As ToolStripButton
+    Friend WithEvents BindingNavigatorMovePreviousItem As ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator As ToolStripSeparator
+    Friend WithEvents BindingNavigatorMoveNextItem As ToolStripButton
+    Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents BtnGuardar As ToolStripButton
-    Friend WithEvents IdgrupojerarquicoTextBox As TextBox
+    Friend WithEvents IdcentrocostoTextBox As TextBox
     Friend WithEvents DescripcionTextBox As TextBox
+    Friend WithEvents CentroscostoDataGridView As DataGridView
     Friend WithEvents GroupABM As GroupBox
+    Friend WithEvents GroupListado As GroupBox
     Friend WithEvents BtnCancelar As ToolStripButton
     Friend WithEvents BtnEditar As ToolStripButton
-    Friend WithEvents GroupListado As GroupBox
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents IdgrupojerarquicoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DescripcionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BtnListar As ToolStripButton
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
 End Class

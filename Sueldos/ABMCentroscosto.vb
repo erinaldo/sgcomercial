@@ -1,8 +1,9 @@
-﻿Public Class ABMGruposJerarquicos
-    Private Sub GruposjerarquicosBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles BtnGuardar.Click
+﻿Public Class ABMCentroscosto
+    Private Sub CentroscostoBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles BtnGuardar.Click
+
         Try
             Me.Validate()
-            Me.GruposjerarquicosBindingSource.EndEdit()
+            Me.CentroscostoBindingSource.EndEdit()
             Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
             enabledit(False)
             enablefields(False)
@@ -11,17 +12,16 @@
 
         End Try
 
-
     End Sub
 
-    Private Sub ABMGruposJerarquicos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.gruposjerarquicos' Puede moverla o quitarla según sea necesario.
-        Me.GruposjerarquicosTableAdapter.Fill(Me.ComercialDataSet.gruposjerarquicos)
+    Private Sub ABMCentroscosto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.centroscosto' Puede moverla o quitarla según sea necesario.
+        Me.CentroscostoTableAdapter.Fill(Me.ComercialDataSet.centroscosto)
         enabledit(False)
         enablefields(False)
     End Sub
-    Private Sub enabledit(status As Boolean)
-        If status = False Then
+    Private Sub enabledit(Status As Boolean)
+        If Status = False Then
             BtnNuevo.Enabled = True
             BtnCancelar.Enabled = False
             BtnGuardar.Enabled = False
@@ -34,43 +34,38 @@
             GroupABM.Visible = True
             GroupListado.Visible = False
         End If
-
     End Sub
-    Private Sub enablefields(status As Boolean)
-
-        DescripcionTextBox.Enabled = status
+    Private Sub enablefields(Status As Boolean)
+        DescripcionTextBox.Enabled = Status
         DescripcionTextBox.Select()
     End Sub
-    Private Sub NavStatus(ByRef status As Boolean)
-        NavFirst.Enabled = status
-        NavLast.Enabled = status
-        NavPrev.Enabled = status
-        NavNext.Enabled = status
-    End Sub
-
-
 
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
+        NavStatus(False)
         enabledit(True)
         enablefields(True)
-        NavStatus(False)
+    End Sub
+    Private Sub NavStatus(status As Boolean)
+        BindingNavigatorMoveFirstItem.Enabled = status
+        BindingNavigatorMovePreviousItem.Enabled = status
+        BindingNavigatorMoveNextItem.Enabled = status
+        BindingNavigatorMoveLastItem.Enabled = status
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         enabledit(False)
         enablefields(False)
-        GruposjerarquicosBindingSource.ResetBindings(True)
+        CentroscostoBindingSource.ResetBindings(True)
         DescripcionTextBox.Text = Nothing
-        Me.GruposjerarquicosTableAdapter.Fill(Me.ComercialDataSet.gruposjerarquicos)
+        Me.CentroscostoTableAdapter.Fill(Me.ComercialDataSet.centroscosto)
         NavStatus(True)
     End Sub
 
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
-        If GruposjerarquicosBindingSource.Count = 0 Then
+        If CentroscostoBindingSource.Count = 0 Then
             MsgExPopUp("No hay registros para editar")
             Return
         End If
-
         enabledit(True)
         enablefields(True)
         NavStatus(False)
@@ -79,14 +74,13 @@
     Private Sub BtnListar_Click(sender As Object, e As EventArgs) Handles BtnListar.Click
         listar(True)
     End Sub
-
     Private Sub listar(status As Boolean)
         If status = True Then
             enabledit(False)
             enablefields(False)
-            GruposjerarquicosBindingSource.ResetBindings(True)
+            CentroscostoBindingSource.ResetBindings(True)
             DescripcionTextBox.Text = Nothing
-            Me.GruposjerarquicosTableAdapter.Fill(Me.ComercialDataSet.gruposjerarquicos)
+            Me.CentroscostoTableAdapter.Fill(Me.ComercialDataSet.centroscosto)
             NavStatus(True)
             GroupABM.Visible = False
             GroupListado.Visible = True

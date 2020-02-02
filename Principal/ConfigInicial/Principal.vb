@@ -92,7 +92,12 @@ Public Class Principal
             NotificacionesToolStripMenuItem.Image = sgcomercial.My.Resources.Resources.Alert_check_blue
         End If
         gNotificacionesAlertasDataTable = gNotificacionesAlertasTableAdapter.GetData
-        NotificacionesToolStripMenuItem.Text = "Notificaciones (" + CountAlertas.ToString + ")"
+        Try
+            NotificacionesToolStripMenuItem.Text = "Notificaciones (" + CountAlertas.ToString + ")"
+        Catch ex As Exception
+
+        End Try
+
         '====================================================================
         ''''''''''''''''''''''''''''''''''''''  FIN '''''''''''''''''''''''''''''''''''''
         '====================================================================
@@ -1232,6 +1237,28 @@ Public Class Principal
     Private Sub GruposJerarquicosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruposJerarquicosToolStripMenuItem.Click
         'ABMGruposJerarquicos.MdiParent = Me
         'ABMGruposJerarquicos.Visible = True
-        ABMGruposJerarquicos.ShowDialog()
+        Dim GJ As New ABMGruposJerarquicos()
+        GJ.ShowDialog()
+    End Sub
+
+    Private Sub CentrosDeCostoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CentrosDeCostoToolStripMenuItem.Click
+        Dim CC As New ABMCentroscosto()
+        CC.ShowDialog()
+    End Sub
+
+    Private Sub ObrasSocialesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ObrasSocialesToolStripMenuItem.Click
+        Dim OS As New ABMObrasSociales()
+        OS.ShowDialog()
+    End Sub
+
+    Private Sub SindicatosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SindicatosToolStripMenuItem.Click
+        Dim sin As New ABMSindicatos()
+        sin.ShowDialog()
+
+    End Sub
+
+    Private Sub CategoríasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategoríasToolStripMenuItem.Click
+        Dim ce As New ABMCategoriasEmpleados()
+        ce.ShowDialog()
     End Sub
 End Class
