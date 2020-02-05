@@ -676,10 +676,22 @@
     <Compile Include="Sueldos\ABMCentroscosto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Sueldos\ABMEmpleados.Designer.vb">
+      <DependentUpon>ABMEmpleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sueldos\ABMEmpleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Sueldos\ABMGruposJerarquicos.Designer.vb">
       <DependentUpon>ABMGruposJerarquicos.vb</DependentUpon>
     </Compile>
     <Compile Include="Sueldos\ABMGruposJerarquicos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sueldos\ABMIncapacidades.Designer.vb">
+      <DependentUpon>ABMIncapacidades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sueldos\ABMIncapacidades.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sueldos\ABMObrasSociales.Designer.vb">
@@ -1704,8 +1716,14 @@
     <EmbeddedResource Include="Sueldos\ABMCentroscosto.resx">
       <DependentUpon>ABMCentroscosto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sueldos\ABMEmpleados.resx">
+      <DependentUpon>ABMEmpleados.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sueldos\ABMGruposJerarquicos.resx">
       <DependentUpon>ABMGruposJerarquicos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sueldos\ABMIncapacidades.resx">
+      <DependentUpon>ABMIncapacidades.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sueldos\ABMObrasSociales.resx">
       <DependentUpon>ABMObrasSociales.vb</DependentUpon>

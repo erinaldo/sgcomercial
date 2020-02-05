@@ -168,6 +168,8 @@ Partial Class Principal
         Me.ObrasSocialesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SindicatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CategoríasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LegajosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -211,6 +213,7 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
+        Me.AMBIncapacidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1253,7 +1256,7 @@ Partial Class Principal
         '
         'SueldosToolStripMenuItem
         '
-        Me.SueldosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfParamétricasToolStripMenuItem})
+        Me.SueldosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfParamétricasToolStripMenuItem, Me.EmpleadosToolStripMenuItem})
         Me.SueldosToolStripMenuItem.Name = "SueldosToolStripMenuItem"
         Me.SueldosToolStripMenuItem.Size = New System.Drawing.Size(81, 27)
         Me.SueldosToolStripMenuItem.Tag = "ModuloSueldos"
@@ -1261,7 +1264,7 @@ Partial Class Principal
         '
         'ConfParamétricasToolStripMenuItem
         '
-        Me.ConfParamétricasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GruposJerarquicosToolStripMenuItem, Me.CentrosDeCostoToolStripMenuItem, Me.ObrasSocialesToolStripMenuItem, Me.SindicatosToolStripMenuItem, Me.CategoríasToolStripMenuItem})
+        Me.ConfParamétricasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GruposJerarquicosToolStripMenuItem, Me.CentrosDeCostoToolStripMenuItem, Me.ObrasSocialesToolStripMenuItem, Me.SindicatosToolStripMenuItem, Me.AMBIncapacidadesToolStripMenuItem, Me.CategoríasToolStripMenuItem})
         Me.ConfParamétricasToolStripMenuItem.Name = "ConfParamétricasToolStripMenuItem"
         Me.ConfParamétricasToolStripMenuItem.Size = New System.Drawing.Size(217, 28)
         Me.ConfParamétricasToolStripMenuItem.Tag = "SueldosConfParametos"
@@ -1301,6 +1304,21 @@ Partial Class Principal
         Me.CategoríasToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
         Me.CategoríasToolStripMenuItem.Tag = "CategoriasEmpleados"
         Me.CategoríasToolStripMenuItem.Text = "Categorías Empleados"
+        '
+        'EmpleadosToolStripMenuItem
+        '
+        Me.EmpleadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LegajosToolStripMenuItem})
+        Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
+        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(217, 28)
+        Me.EmpleadosToolStripMenuItem.Tag = "Empleados"
+        Me.EmpleadosToolStripMenuItem.Text = "Empleados"
+        '
+        'LegajosToolStripMenuItem
+        '
+        Me.LegajosToolStripMenuItem.Name = "LegajosToolStripMenuItem"
+        Me.LegajosToolStripMenuItem.Size = New System.Drawing.Size(143, 28)
+        Me.LegajosToolStripMenuItem.Tag = "ABMEmpleados"
+        Me.LegajosToolStripMenuItem.Text = "Legajos"
         '
         'ParametrosgeneralesDataGridView
         '
@@ -1495,6 +1513,8 @@ Partial Class Principal
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
@@ -1514,6 +1534,7 @@ Partial Class Principal
         Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
         Me.TableAdapterManager.gradosTableAdapter = Nothing
         Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -1634,6 +1655,13 @@ Partial Class Principal
         '
         'BGWAlertas
         '
+        '
+        'AMBIncapacidadesToolStripMenuItem
+        '
+        Me.AMBIncapacidadesToolStripMenuItem.Name = "AMBIncapacidadesToolStripMenuItem"
+        Me.AMBIncapacidadesToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.AMBIncapacidadesToolStripMenuItem.Tag = "AMBIncapacidades"
+        Me.AMBIncapacidadesToolStripMenuItem.Text = "Incapacidades"
         '
         'Principal
         '
@@ -1864,4 +1892,7 @@ Partial Class Principal
     Friend WithEvents ObrasSocialesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SindicatosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CategoríasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EmpleadosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LegajosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AMBIncapacidadesToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -1261,4 +1261,14 @@ Public Class Principal
         Dim ce As New ABMCategoriasEmpleados()
         ce.ShowDialog()
     End Sub
+
+    Private Sub LegajosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LegajosToolStripMenuItem.Click
+        Dim AE As New ABMEmpleados()
+        AE.ShowDialog()
+    End Sub
+
+    Private Sub AMBIncapacidadesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AMBIncapacidadesToolStripMenuItem.Click
+        Dim AI As New ABMIncapacidades()
+        AI.ShowDialog()
+    End Sub
 End Class
