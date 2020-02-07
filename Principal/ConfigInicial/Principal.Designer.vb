@@ -167,6 +167,7 @@ Partial Class Principal
         Me.CentrosDeCostoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ObrasSocialesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SindicatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AMBIncapacidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CategoríasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LegajosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -213,7 +214,7 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.AMBIncapacidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QRTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1104,7 +1105,7 @@ Partial Class Principal
         '
         'SysConfigToolStripMenuItem
         '
-        Me.SysConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.POSTFormToolStripMenuItem, Me.ABMTipoComprobantesToolStripMenuItem, Me.FacturaElectrónicaToolStripMenuItem, Me.MailServerToolStripMenuItem, Me.RecargarPermisosToolStripMenuItem})
+        Me.SysConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.POSTFormToolStripMenuItem, Me.ABMTipoComprobantesToolStripMenuItem, Me.FacturaElectrónicaToolStripMenuItem, Me.MailServerToolStripMenuItem, Me.RecargarPermisosToolStripMenuItem, Me.QRTestToolStripMenuItem})
         Me.SysConfigToolStripMenuItem.Name = "SysConfigToolStripMenuItem"
         Me.SysConfigToolStripMenuItem.Size = New System.Drawing.Size(96, 27)
         Me.SysConfigToolStripMenuItem.Tag = "SysConfig"
@@ -1297,6 +1298,13 @@ Partial Class Principal
         Me.SindicatosToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
         Me.SindicatosToolStripMenuItem.Tag = "Sindicatos"
         Me.SindicatosToolStripMenuItem.Text = "Sindicatos"
+        '
+        'AMBIncapacidadesToolStripMenuItem
+        '
+        Me.AMBIncapacidadesToolStripMenuItem.Name = "AMBIncapacidadesToolStripMenuItem"
+        Me.AMBIncapacidadesToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
+        Me.AMBIncapacidadesToolStripMenuItem.Tag = "AMBIncapacidades"
+        Me.AMBIncapacidadesToolStripMenuItem.Text = "Incapacidades"
         '
         'CategoríasToolStripMenuItem
         '
@@ -1656,12 +1664,11 @@ Partial Class Principal
         'BGWAlertas
         '
         '
-        'AMBIncapacidadesToolStripMenuItem
+        'QRTestToolStripMenuItem
         '
-        Me.AMBIncapacidadesToolStripMenuItem.Name = "AMBIncapacidadesToolStripMenuItem"
-        Me.AMBIncapacidadesToolStripMenuItem.Size = New System.Drawing.Size(255, 28)
-        Me.AMBIncapacidadesToolStripMenuItem.Tag = "AMBIncapacidades"
-        Me.AMBIncapacidadesToolStripMenuItem.Text = "Incapacidades"
+        Me.QRTestToolStripMenuItem.Name = "QRTestToolStripMenuItem"
+        Me.QRTestToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
+        Me.QRTestToolStripMenuItem.Text = "QRTest"
         '
         'Principal
         '
@@ -1895,4 +1902,5 @@ Partial Class Principal
     Friend WithEvents EmpleadosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LegajosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AMBIncapacidadesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents QRTestToolStripMenuItem As ToolStripMenuItem
 End Class

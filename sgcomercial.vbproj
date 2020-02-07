@@ -91,10 +91,10 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -152,6 +152,9 @@
     <Reference Include="Google.Apis.PlatformServices, Version=1.41.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>packages\Google.Apis.1.41.1\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode">
+      <HintPath>packages\QRCodeDLL\MessagingToolkit.QRCode.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
@@ -634,6 +637,12 @@
       <DependentUpon>ViewerFacturaSiscom.vb</DependentUpon>
     </Compile>
     <Compile Include="Principal\Siscom\ViewerFacturaSiscom.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QRCodeGenerator\QRTest.Designer.vb">
+      <DependentUpon>QRTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="QRCodeGenerator\QRTest.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Service References\WSAA\Reference.vb">
@@ -1701,6 +1710,9 @@
       <DependentUpon>ViewerFacturaSiscom.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedores\Reportes\ReportPedidoCantidades.rdlc" />
+    <EmbeddedResource Include="QRCodeGenerator\QRTest.resx">
+      <DependentUpon>QRTest.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stock\ConsultaStockRemotoProducto.resx">
       <DependentUpon>ConsultaStockRemotoProducto.vb</DependentUpon>
     </EmbeddedResource>

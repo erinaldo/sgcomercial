@@ -1271,4 +1271,9 @@ Public Class Principal
         Dim AI As New ABMIncapacidades()
         AI.ShowDialog()
     End Sub
+
+    Private Sub QRTestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QRTestToolStripMenuItem.Click
+        QRTest.ShowDialog()
+
+    End Sub
 End Class
