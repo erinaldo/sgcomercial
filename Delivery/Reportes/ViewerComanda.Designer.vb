@@ -23,9 +23,9 @@ Partial Class ViewerComanda
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource10 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource11 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource12 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.listapedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -66,15 +66,17 @@ Partial Class ViewerComanda
         '
         'ReportViewer1
         '
-        ReportDataSource10.Name = "MiComercio"
-        ReportDataSource10.Value = Me.MiComercioBindingSource
-        ReportDataSource11.Name = "ListaPedidosDelivery"
-        ReportDataSource11.Value = Me.listapedidosdeliveryBindingSource
-        ReportDataSource12.Name = "ListaPedidosDeliveryDetalle"
-        ReportDataSource12.Value = Me.listapedidosdeliverydetalleBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource10)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource11)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource12)
+        Me.ReportViewer1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "ListaPedidosDelivery"
+        ReportDataSource2.Value = Me.listapedidosdeliveryBindingSource
+        ReportDataSource3.Name = "ListaPedidosDeliveryDetalle"
+        ReportDataSource3.Value = Me.listapedidosdeliverydetalleBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.ReportComanda.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 28)
         Me.ReportViewer1.Name = "ReportViewer1"

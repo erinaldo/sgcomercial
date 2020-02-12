@@ -59,6 +59,7 @@ Public Class BuscaProductoManualPedidos
                     precioventatextbox.Text = gprecioventa
                     gproductodescripcion = ProductosDataGridView.CurrentRow.Cells("descripcion").Value  'ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
                     ProductosDataGridView.Rows(0).Selected = True
+                    CallClick()
                 Else
                     gcodigoproducto = Nothing
                     gprecioventa = Nothing
@@ -75,6 +76,7 @@ Public Class BuscaProductoManualPedidos
                     'precioventatextbox.Text = gprecioventa
                     'gproductodescripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
                     ProductosDataGridView.Rows(0).Selected = True
+                    CallClick()
                     cantidadtextbox.Select()
                 Else
                     gcodigoproducto = Nothing
@@ -501,10 +503,12 @@ Public Class BuscaProductoManualPedidos
         If Len(gUltimoCodBuscado) > 0 Then
             ComboBox1.SelectedIndex = 0
             TextBox1.Text = gUltimoCodBuscado
+            TextBox1.Select()
         End If
         If Len(gUltimoProdBuscado) > 0 Then
             ComboBox1.SelectedIndex = 1
             TextBox1.Text = gUltimoProdBuscado
+            TextBox1.Select()
         End If
     End Sub
 

@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>29</ApplicationRevision>
-    <ApplicationVersion>4.1.0.29</ApplicationVersion>
+    <ApplicationRevision>30</ApplicationRevision>
+    <ApplicationVersion>4.1.0.30</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -81,11 +81,10 @@
     <ApplicationIcon>Recursos\monedas.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>16CB78E2918809F06046B90D45D22124D7954F2F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B64AF572B2E7B63A2E24732DBC9BA5FE2BF19372</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>sgcomercial_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -2326,6 +2325,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="sgcomercial.snk" />
+    <None Include="sgcomercial_1_TemporaryKey.pfx" />
     <None Include="sgcomercial_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
