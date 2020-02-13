@@ -45,7 +45,6 @@ Partial Class ABMEmpleados
         Dim IdincapacidadLabel As System.Windows.Forms.Label
         Dim NacionalidadLabel As System.Windows.Forms.Label
         Dim FechanacimientoLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMEmpleados))
         Dim IdcondicionLabel As System.Windows.Forms.Label
         Dim AdicionalfijoLabel As System.Windows.Forms.Label
         Dim SueldojornalLabel As System.Windows.Forms.Label
@@ -56,16 +55,29 @@ Partial Class ABMEmpleados
         Dim IdgrupojerarquicoLabel As System.Windows.Forms.Label
         Dim IdcategoriaempleadoLabel As System.Windows.Forms.Label
         Dim IdcentrocostoLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMEmpleados))
         Me.GroupABM = New System.Windows.Forms.GroupBox()
         Me.GroupLaborales = New System.Windows.Forms.GroupBox()
+        Me.IdconvenioempleoComboBox = New System.Windows.Forms.ComboBox()
         Me.EmpleadosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.ConvenioempleoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdcondicionempleoComboBox = New System.Windows.Forms.ComboBox()
+        Me.CondicionempleoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdgrupojerarquicoComboBox = New System.Windows.Forms.ComboBox()
         Me.GruposjerarquicosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdcentrocostoComboBox = New System.Windows.Forms.ComboBox()
         Me.CentroscostoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdcategoriaempleadoComboBox = New System.Windows.Forms.ComboBox()
         Me.CategoriasempleadosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdsindicatoComboBox = New System.Windows.Forms.ComboBox()
         Me.SindicatosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdobrasocialComboBox = New System.Windows.Forms.ComboBox()
         Me.ObrassocialesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AdicionalfijoTextBox = New System.Windows.Forms.TextBox()
+        Me.SueldojornalTextBox = New System.Windows.Forms.TextBox()
+        Me.TareaTextBox = New System.Windows.Forms.TextBox()
         Me.GroupDomCon = New System.Windows.Forms.GroupBox()
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.TelefonoTextBox = New System.Windows.Forms.TextBox()
@@ -78,6 +90,7 @@ Partial Class ABMEmpleados
         Me.DompisoTextBox = New System.Windows.Forms.TextBox()
         Me.GroupPersonales = New System.Windows.Forms.GroupBox()
         Me.IdincapacidadComboBox = New System.Windows.Forms.ComboBox()
+        Me.IncapacidadesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdtipodocumentoComboBox = New System.Windows.Forms.ComboBox()
         Me.TipodocumentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DocumentoTextBox = New System.Windows.Forms.TextBox()
@@ -147,22 +160,9 @@ Partial Class ABMEmpleados
         Me.CategoriasempleadosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.categoriasempleadosTableAdapter()
         Me.CentroscostoTableAdapter = New sgcomercial.comercialDataSetTableAdapters.centroscostoTableAdapter()
         Me.GruposjerarquicosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.gruposjerarquicosTableAdapter()
-        Me.IncapacidadesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IncapacidadesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.incapacidadesTableAdapter()
-        Me.CondicionempleoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CondicionempleoTableAdapter = New sgcomercial.comercialDataSetTableAdapters.condicionempleoTableAdapter()
-        Me.ConvenioempleoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ConvenioempleoTableAdapter = New sgcomercial.comercialDataSetTableAdapters.convenioempleoTableAdapter()
-        Me.IdconvenioempleoComboBox = New System.Windows.Forms.ComboBox()
-        Me.IdcondicionempleoComboBox = New System.Windows.Forms.ComboBox()
-        Me.IdgrupojerarquicoComboBox = New System.Windows.Forms.ComboBox()
-        Me.IdcentrocostoComboBox = New System.Windows.Forms.ComboBox()
-        Me.IdcategoriaempleadoComboBox = New System.Windows.Forms.ComboBox()
-        Me.IdsindicatoComboBox = New System.Windows.Forms.ComboBox()
-        Me.IdobrasocialComboBox = New System.Windows.Forms.ComboBox()
-        Me.AdicionalfijoTextBox = New System.Windows.Forms.TextBox()
-        Me.SueldojornalTextBox = New System.Windows.Forms.TextBox()
-        Me.TareaTextBox = New System.Windows.Forms.TextBox()
         ApellidoLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         FechaaltaLabel = New System.Windows.Forms.Label()
@@ -199,6 +199,8 @@ Partial Class ABMEmpleados
         Me.GroupLaborales.SuspendLayout()
         CType(Me.EmpleadosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ConvenioempleoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CondicionempleoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GruposjerarquicosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CentroscostoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -207,15 +209,13 @@ Partial Class ABMEmpleados
         CType(Me.ObrassocialesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupDomCon.SuspendLayout()
         Me.GroupPersonales.SuspendLayout()
+        CType(Me.IncapacidadesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipodocumentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPrevisionales.SuspendLayout()
         Me.GroupListado.SuspendLayout()
         CType(Me.EmpleadosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpleadosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmpleadosBindingNavigator.SuspendLayout()
-        CType(Me.IncapacidadesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CondicionempleoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ConvenioempleoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ApellidoLabel
@@ -416,6 +416,96 @@ Partial Class ABMEmpleados
         FechanacimientoLabel.TabIndex = 52
         FechanacimientoLabel.Text = "Fecha Nac.:"
         '
+        'IdcondicionLabel
+        '
+        IdcondicionLabel.AutoSize = True
+        IdcondicionLabel.Location = New System.Drawing.Point(77, 113)
+        IdcondicionLabel.Name = "IdcondicionLabel"
+        IdcondicionLabel.Size = New System.Drawing.Size(74, 17)
+        IdcondicionLabel.TabIndex = 71
+        IdcondicionLabel.Text = "Condición:"
+        '
+        'AdicionalfijoLabel
+        '
+        AdicionalfijoLabel.AutoSize = True
+        AdicionalfijoLabel.Location = New System.Drawing.Point(82, 172)
+        AdicionalfijoLabel.Name = "AdicionalfijoLabel"
+        AdicionalfijoLabel.Size = New System.Drawing.Size(69, 17)
+        AdicionalfijoLabel.TabIndex = 75
+        AdicionalfijoLabel.Text = "Adic. Fijo:"
+        '
+        'SueldojornalLabel
+        '
+        SueldojornalLabel.AutoSize = True
+        SueldojornalLabel.Location = New System.Drawing.Point(52, 143)
+        SueldojornalLabel.Name = "SueldojornalLabel"
+        SueldojornalLabel.Size = New System.Drawing.Size(99, 17)
+        SueldojornalLabel.TabIndex = 73
+        SueldojornalLabel.Text = "Sueldo/Jornal:"
+        '
+        'IdconvenioLabel
+        '
+        IdconvenioLabel.AutoSize = True
+        IdconvenioLabel.Location = New System.Drawing.Point(80, 82)
+        IdconvenioLabel.Name = "IdconvenioLabel"
+        IdconvenioLabel.Size = New System.Drawing.Size(71, 17)
+        IdconvenioLabel.TabIndex = 72
+        IdconvenioLabel.Text = "Convenio:"
+        '
+        'IdobrasocialLabel
+        '
+        IdobrasocialLabel.AutoSize = True
+        IdobrasocialLabel.Location = New System.Drawing.Point(65, 270)
+        IdobrasocialLabel.Name = "IdobrasocialLabel"
+        IdobrasocialLabel.Size = New System.Drawing.Size(86, 17)
+        IdobrasocialLabel.TabIndex = 79
+        IdobrasocialLabel.Text = "Obra Social:"
+        '
+        'TareaLabel
+        '
+        TareaLabel.AutoSize = True
+        TareaLabel.Location = New System.Drawing.Point(105, 52)
+        TareaLabel.Name = "TareaLabel"
+        TareaLabel.Size = New System.Drawing.Size(46, 17)
+        TareaLabel.TabIndex = 77
+        TareaLabel.Text = "Tarea"
+        '
+        'IdsindicatoLabel
+        '
+        IdsindicatoLabel.AutoSize = True
+        IdsindicatoLabel.Location = New System.Drawing.Point(81, 300)
+        IdsindicatoLabel.Name = "IdsindicatoLabel"
+        IdsindicatoLabel.Size = New System.Drawing.Size(70, 17)
+        IdsindicatoLabel.TabIndex = 80
+        IdsindicatoLabel.Text = "Sindicato:"
+        '
+        'IdgrupojerarquicoLabel
+        '
+        IdgrupojerarquicoLabel.AutoSize = True
+        IdgrupojerarquicoLabel.Location = New System.Drawing.Point(28, 22)
+        IdgrupojerarquicoLabel.Name = "IdgrupojerarquicoLabel"
+        IdgrupojerarquicoLabel.Size = New System.Drawing.Size(123, 17)
+        IdgrupojerarquicoLabel.TabIndex = 83
+        IdgrupojerarquicoLabel.Text = "Grupo Jerárquico:"
+        '
+        'IdcategoriaempleadoLabel
+        '
+        IdcategoriaempleadoLabel.AutoSize = True
+        IdcategoriaempleadoLabel.Location = New System.Drawing.Point(78, 240)
+        IdcategoriaempleadoLabel.Name = "IdcategoriaempleadoLabel"
+        IdcategoriaempleadoLabel.Size = New System.Drawing.Size(73, 17)
+        IdcategoriaempleadoLabel.TabIndex = 81
+        IdcategoriaempleadoLabel.Text = "Categoría:"
+        '
+        'IdcentrocostoLabel
+        '
+        IdcentrocostoLabel.AutoSize = True
+        IdcentrocostoLabel.Location = New System.Drawing.Point(57, 202)
+        IdcentrocostoLabel.Name = "IdcentrocostoLabel"
+        IdcentrocostoLabel.Size = New System.Drawing.Size(94, 17)
+        IdcentrocostoLabel.TabIndex = 82
+        IdcentrocostoLabel.Text = "Centro Costo:"
+        '
         'GroupABM
         '
         Me.GroupABM.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -465,6 +555,19 @@ Partial Class ABMEmpleados
         Me.GroupLaborales.TabStop = False
         Me.GroupLaborales.Text = "Datos Laborales"
         '
+        'IdconvenioempleoComboBox
+        '
+        Me.IdconvenioempleoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idcondicionempleo", True))
+        Me.IdconvenioempleoComboBox.DataSource = Me.ConvenioempleoBindingSource
+        Me.IdconvenioempleoComboBox.DisplayMember = "descripcion"
+        Me.IdconvenioempleoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.IdconvenioempleoComboBox.FormattingEnabled = True
+        Me.IdconvenioempleoComboBox.Location = New System.Drawing.Point(152, 78)
+        Me.IdconvenioempleoComboBox.Name = "IdconvenioempleoComboBox"
+        Me.IdconvenioempleoComboBox.Size = New System.Drawing.Size(200, 24)
+        Me.IdconvenioempleoComboBox.TabIndex = 90
+        Me.IdconvenioempleoComboBox.ValueMember = "idconvenioempleo"
+        '
         'EmpleadosBindingSource
         '
         Me.EmpleadosBindingSource.DataMember = "empleados"
@@ -474,6 +577,42 @@ Partial Class ABMEmpleados
         '
         Me.ComercialDataSet.DataSetName = "comercialDataSet"
         Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ConvenioempleoBindingSource
+        '
+        Me.ConvenioempleoBindingSource.DataMember = "convenioempleo"
+        Me.ConvenioempleoBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'IdcondicionempleoComboBox
+        '
+        Me.IdcondicionempleoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idcondicionempleo", True))
+        Me.IdcondicionempleoComboBox.DataSource = Me.CondicionempleoBindingSource
+        Me.IdcondicionempleoComboBox.DisplayMember = "descripcion"
+        Me.IdcondicionempleoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.IdcondicionempleoComboBox.FormattingEnabled = True
+        Me.IdcondicionempleoComboBox.Location = New System.Drawing.Point(152, 109)
+        Me.IdcondicionempleoComboBox.Name = "IdcondicionempleoComboBox"
+        Me.IdcondicionempleoComboBox.Size = New System.Drawing.Size(200, 24)
+        Me.IdcondicionempleoComboBox.TabIndex = 88
+        Me.IdcondicionempleoComboBox.ValueMember = "idcondicionempleo"
+        '
+        'CondicionempleoBindingSource
+        '
+        Me.CondicionempleoBindingSource.DataMember = "condicionempleo"
+        Me.CondicionempleoBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'IdgrupojerarquicoComboBox
+        '
+        Me.IdgrupojerarquicoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idgrupojerarquico", True))
+        Me.IdgrupojerarquicoComboBox.DataSource = Me.GruposjerarquicosBindingSource
+        Me.IdgrupojerarquicoComboBox.DisplayMember = "descripcion"
+        Me.IdgrupojerarquicoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.IdgrupojerarquicoComboBox.FormattingEnabled = True
+        Me.IdgrupojerarquicoComboBox.Location = New System.Drawing.Point(152, 18)
+        Me.IdgrupojerarquicoComboBox.Name = "IdgrupojerarquicoComboBox"
+        Me.IdgrupojerarquicoComboBox.Size = New System.Drawing.Size(200, 24)
+        Me.IdgrupojerarquicoComboBox.TabIndex = 87
+        Me.IdgrupojerarquicoComboBox.ValueMember = "idgrupojerarquico"
         '
         'GruposjerarquicosBindingSource
         '
@@ -485,25 +624,102 @@ Partial Class ABMEmpleados
         Me.ComercialDataSetBindingSource.DataSource = Me.ComercialDataSet
         Me.ComercialDataSetBindingSource.Position = 0
         '
+        'IdcentrocostoComboBox
+        '
+        Me.IdcentrocostoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idcentrocosto", True))
+        Me.IdcentrocostoComboBox.DataSource = Me.CentroscostoBindingSource
+        Me.IdcentrocostoComboBox.DisplayMember = "descripcion"
+        Me.IdcentrocostoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.IdcentrocostoComboBox.FormattingEnabled = True
+        Me.IdcentrocostoComboBox.Location = New System.Drawing.Point(152, 198)
+        Me.IdcentrocostoComboBox.Name = "IdcentrocostoComboBox"
+        Me.IdcentrocostoComboBox.Size = New System.Drawing.Size(200, 24)
+        Me.IdcentrocostoComboBox.TabIndex = 86
+        Me.IdcentrocostoComboBox.ValueMember = "idcentrocosto"
+        '
         'CentroscostoBindingSource
         '
         Me.CentroscostoBindingSource.DataMember = "centroscosto"
         Me.CentroscostoBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'IdcategoriaempleadoComboBox
+        '
+        Me.IdcategoriaempleadoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idcategoriaempleado", True))
+        Me.IdcategoriaempleadoComboBox.DataSource = Me.CategoriasempleadosBindingSource
+        Me.IdcategoriaempleadoComboBox.DisplayMember = "categoria"
+        Me.IdcategoriaempleadoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.IdcategoriaempleadoComboBox.FormattingEnabled = True
+        Me.IdcategoriaempleadoComboBox.Location = New System.Drawing.Point(152, 236)
+        Me.IdcategoriaempleadoComboBox.Name = "IdcategoriaempleadoComboBox"
+        Me.IdcategoriaempleadoComboBox.Size = New System.Drawing.Size(200, 24)
+        Me.IdcategoriaempleadoComboBox.TabIndex = 85
+        Me.IdcategoriaempleadoComboBox.ValueMember = "idcategoriaempleado"
         '
         'CategoriasempleadosBindingSource
         '
         Me.CategoriasempleadosBindingSource.DataMember = "categoriasempleados"
         Me.CategoriasempleadosBindingSource.DataSource = Me.ComercialDataSet
         '
+        'IdsindicatoComboBox
+        '
+        Me.IdsindicatoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idsindicato", True))
+        Me.IdsindicatoComboBox.DataSource = Me.SindicatosBindingSource
+        Me.IdsindicatoComboBox.DisplayMember = "nombre"
+        Me.IdsindicatoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.IdsindicatoComboBox.FormattingEnabled = True
+        Me.IdsindicatoComboBox.Location = New System.Drawing.Point(152, 296)
+        Me.IdsindicatoComboBox.Name = "IdsindicatoComboBox"
+        Me.IdsindicatoComboBox.Size = New System.Drawing.Size(200, 24)
+        Me.IdsindicatoComboBox.TabIndex = 84
+        Me.IdsindicatoComboBox.ValueMember = "idsindicato"
+        '
         'SindicatosBindingSource
         '
         Me.SindicatosBindingSource.DataMember = "sindicatos"
         Me.SindicatosBindingSource.DataSource = Me.ComercialDataSet
         '
+        'IdobrasocialComboBox
+        '
+        Me.IdobrasocialComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idobrasocial", True))
+        Me.IdobrasocialComboBox.DataSource = Me.ObrassocialesBindingSource
+        Me.IdobrasocialComboBox.DisplayMember = "nombre"
+        Me.IdobrasocialComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.IdobrasocialComboBox.FormattingEnabled = True
+        Me.IdobrasocialComboBox.Location = New System.Drawing.Point(152, 266)
+        Me.IdobrasocialComboBox.Name = "IdobrasocialComboBox"
+        Me.IdobrasocialComboBox.Size = New System.Drawing.Size(200, 24)
+        Me.IdobrasocialComboBox.TabIndex = 89
+        Me.IdobrasocialComboBox.ValueMember = "idobrasocial"
+        '
         'ObrassocialesBindingSource
         '
         Me.ObrassocialesBindingSource.DataMember = "obrassociales"
         Me.ObrassocialesBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'AdicionalfijoTextBox
+        '
+        Me.AdicionalfijoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpleadosBindingSource, "adicionalfijo", True))
+        Me.AdicionalfijoTextBox.Location = New System.Drawing.Point(152, 169)
+        Me.AdicionalfijoTextBox.Name = "AdicionalfijoTextBox"
+        Me.AdicionalfijoTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.AdicionalfijoTextBox.TabIndex = 76
+        '
+        'SueldojornalTextBox
+        '
+        Me.SueldojornalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpleadosBindingSource, "sueldojornal", True))
+        Me.SueldojornalTextBox.Location = New System.Drawing.Point(152, 140)
+        Me.SueldojornalTextBox.Name = "SueldojornalTextBox"
+        Me.SueldojornalTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.SueldojornalTextBox.TabIndex = 74
+        '
+        'TareaTextBox
+        '
+        Me.TareaTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TareaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpleadosBindingSource, "tarea", True))
+        Me.TareaTextBox.Location = New System.Drawing.Point(152, 49)
+        Me.TareaTextBox.Name = "TareaTextBox"
+        Me.TareaTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.TareaTextBox.TabIndex = 78
         '
         'GroupDomCon
         '
@@ -649,6 +865,11 @@ Partial Class ABMEmpleados
         Me.IdincapacidadComboBox.Size = New System.Drawing.Size(217, 24)
         Me.IdincapacidadComboBox.TabIndex = 55
         Me.IdincapacidadComboBox.ValueMember = "idincapacidad"
+        '
+        'IncapacidadesBindingSource
+        '
+        Me.IncapacidadesBindingSource.DataMember = "incapacidades"
+        Me.IncapacidadesBindingSource.DataSource = Me.ComercialDataSet
         '
         'IdtipodocumentoComboBox
         '
@@ -1091,6 +1312,7 @@ Partial Class ABMEmpleados
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
         Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
         Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
@@ -1154,6 +1376,7 @@ Partial Class ABMEmpleados
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -1312,238 +1535,17 @@ Partial Class ABMEmpleados
         '
         Me.GruposjerarquicosTableAdapter.ClearBeforeFill = True
         '
-        'IncapacidadesBindingSource
-        '
-        Me.IncapacidadesBindingSource.DataMember = "incapacidades"
-        Me.IncapacidadesBindingSource.DataSource = Me.ComercialDataSet
-        '
         'IncapacidadesTableAdapter
         '
         Me.IncapacidadesTableAdapter.ClearBeforeFill = True
-        '
-        'CondicionempleoBindingSource
-        '
-        Me.CondicionempleoBindingSource.DataMember = "condicionempleo"
-        Me.CondicionempleoBindingSource.DataSource = Me.ComercialDataSet
         '
         'CondicionempleoTableAdapter
         '
         Me.CondicionempleoTableAdapter.ClearBeforeFill = True
         '
-        'ConvenioempleoBindingSource
-        '
-        Me.ConvenioempleoBindingSource.DataMember = "convenioempleo"
-        Me.ConvenioempleoBindingSource.DataSource = Me.ComercialDataSet
-        '
         'ConvenioempleoTableAdapter
         '
         Me.ConvenioempleoTableAdapter.ClearBeforeFill = True
-        '
-        'IdconvenioempleoComboBox
-        '
-        Me.IdconvenioempleoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idcondicionempleo", True))
-        Me.IdconvenioempleoComboBox.DataSource = Me.ConvenioempleoBindingSource
-        Me.IdconvenioempleoComboBox.DisplayMember = "descripcion"
-        Me.IdconvenioempleoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.IdconvenioempleoComboBox.FormattingEnabled = True
-        Me.IdconvenioempleoComboBox.Location = New System.Drawing.Point(152, 78)
-        Me.IdconvenioempleoComboBox.Name = "IdconvenioempleoComboBox"
-        Me.IdconvenioempleoComboBox.Size = New System.Drawing.Size(200, 24)
-        Me.IdconvenioempleoComboBox.TabIndex = 90
-        Me.IdconvenioempleoComboBox.ValueMember = "idconvenioempleo"
-        '
-        'IdcondicionempleoComboBox
-        '
-        Me.IdcondicionempleoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idcondicionempleo", True))
-        Me.IdcondicionempleoComboBox.DataSource = Me.CondicionempleoBindingSource
-        Me.IdcondicionempleoComboBox.DisplayMember = "descripcion"
-        Me.IdcondicionempleoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.IdcondicionempleoComboBox.FormattingEnabled = True
-        Me.IdcondicionempleoComboBox.Location = New System.Drawing.Point(152, 109)
-        Me.IdcondicionempleoComboBox.Name = "IdcondicionempleoComboBox"
-        Me.IdcondicionempleoComboBox.Size = New System.Drawing.Size(200, 24)
-        Me.IdcondicionempleoComboBox.TabIndex = 88
-        Me.IdcondicionempleoComboBox.ValueMember = "idcondicionempleo"
-        '
-        'IdgrupojerarquicoComboBox
-        '
-        Me.IdgrupojerarquicoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idgrupojerarquico", True))
-        Me.IdgrupojerarquicoComboBox.DataSource = Me.GruposjerarquicosBindingSource
-        Me.IdgrupojerarquicoComboBox.DisplayMember = "descripcion"
-        Me.IdgrupojerarquicoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.IdgrupojerarquicoComboBox.FormattingEnabled = True
-        Me.IdgrupojerarquicoComboBox.Location = New System.Drawing.Point(152, 18)
-        Me.IdgrupojerarquicoComboBox.Name = "IdgrupojerarquicoComboBox"
-        Me.IdgrupojerarquicoComboBox.Size = New System.Drawing.Size(200, 24)
-        Me.IdgrupojerarquicoComboBox.TabIndex = 87
-        Me.IdgrupojerarquicoComboBox.ValueMember = "idgrupojerarquico"
-        '
-        'IdcentrocostoComboBox
-        '
-        Me.IdcentrocostoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idcentrocosto", True))
-        Me.IdcentrocostoComboBox.DataSource = Me.CentroscostoBindingSource
-        Me.IdcentrocostoComboBox.DisplayMember = "descripcion"
-        Me.IdcentrocostoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.IdcentrocostoComboBox.FormattingEnabled = True
-        Me.IdcentrocostoComboBox.Location = New System.Drawing.Point(152, 198)
-        Me.IdcentrocostoComboBox.Name = "IdcentrocostoComboBox"
-        Me.IdcentrocostoComboBox.Size = New System.Drawing.Size(200, 24)
-        Me.IdcentrocostoComboBox.TabIndex = 86
-        Me.IdcentrocostoComboBox.ValueMember = "idcentrocosto"
-        '
-        'IdcategoriaempleadoComboBox
-        '
-        Me.IdcategoriaempleadoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idcategoriaempleado", True))
-        Me.IdcategoriaempleadoComboBox.DataSource = Me.CategoriasempleadosBindingSource
-        Me.IdcategoriaempleadoComboBox.DisplayMember = "categoria"
-        Me.IdcategoriaempleadoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.IdcategoriaempleadoComboBox.FormattingEnabled = True
-        Me.IdcategoriaempleadoComboBox.Location = New System.Drawing.Point(152, 236)
-        Me.IdcategoriaempleadoComboBox.Name = "IdcategoriaempleadoComboBox"
-        Me.IdcategoriaempleadoComboBox.Size = New System.Drawing.Size(200, 24)
-        Me.IdcategoriaempleadoComboBox.TabIndex = 85
-        Me.IdcategoriaempleadoComboBox.ValueMember = "idcategoriaempleado"
-        '
-        'IdsindicatoComboBox
-        '
-        Me.IdsindicatoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idsindicato", True))
-        Me.IdsindicatoComboBox.DataSource = Me.SindicatosBindingSource
-        Me.IdsindicatoComboBox.DisplayMember = "nombre"
-        Me.IdsindicatoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.IdsindicatoComboBox.FormattingEnabled = True
-        Me.IdsindicatoComboBox.Location = New System.Drawing.Point(152, 296)
-        Me.IdsindicatoComboBox.Name = "IdsindicatoComboBox"
-        Me.IdsindicatoComboBox.Size = New System.Drawing.Size(200, 24)
-        Me.IdsindicatoComboBox.TabIndex = 84
-        Me.IdsindicatoComboBox.ValueMember = "idsindicato"
-        '
-        'IdobrasocialComboBox
-        '
-        Me.IdobrasocialComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmpleadosBindingSource, "idobrasocial", True))
-        Me.IdobrasocialComboBox.DataSource = Me.ObrassocialesBindingSource
-        Me.IdobrasocialComboBox.DisplayMember = "nombre"
-        Me.IdobrasocialComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.IdobrasocialComboBox.FormattingEnabled = True
-        Me.IdobrasocialComboBox.Location = New System.Drawing.Point(152, 266)
-        Me.IdobrasocialComboBox.Name = "IdobrasocialComboBox"
-        Me.IdobrasocialComboBox.Size = New System.Drawing.Size(200, 24)
-        Me.IdobrasocialComboBox.TabIndex = 89
-        Me.IdobrasocialComboBox.ValueMember = "idobrasocial"
-        '
-        'IdcondicionLabel
-        '
-        IdcondicionLabel.AutoSize = True
-        IdcondicionLabel.Location = New System.Drawing.Point(77, 113)
-        IdcondicionLabel.Name = "IdcondicionLabel"
-        IdcondicionLabel.Size = New System.Drawing.Size(74, 17)
-        IdcondicionLabel.TabIndex = 71
-        IdcondicionLabel.Text = "Condición:"
-        '
-        'AdicionalfijoTextBox
-        '
-        Me.AdicionalfijoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpleadosBindingSource, "adicionalfijo", True))
-        Me.AdicionalfijoTextBox.Location = New System.Drawing.Point(152, 169)
-        Me.AdicionalfijoTextBox.Name = "AdicionalfijoTextBox"
-        Me.AdicionalfijoTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.AdicionalfijoTextBox.TabIndex = 76
-        '
-        'AdicionalfijoLabel
-        '
-        AdicionalfijoLabel.AutoSize = True
-        AdicionalfijoLabel.Location = New System.Drawing.Point(82, 172)
-        AdicionalfijoLabel.Name = "AdicionalfijoLabel"
-        AdicionalfijoLabel.Size = New System.Drawing.Size(69, 17)
-        AdicionalfijoLabel.TabIndex = 75
-        AdicionalfijoLabel.Text = "Adic. Fijo:"
-        '
-        'SueldojornalTextBox
-        '
-        Me.SueldojornalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpleadosBindingSource, "sueldojornal", True))
-        Me.SueldojornalTextBox.Location = New System.Drawing.Point(152, 140)
-        Me.SueldojornalTextBox.Name = "SueldojornalTextBox"
-        Me.SueldojornalTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.SueldojornalTextBox.TabIndex = 74
-        '
-        'SueldojornalLabel
-        '
-        SueldojornalLabel.AutoSize = True
-        SueldojornalLabel.Location = New System.Drawing.Point(52, 143)
-        SueldojornalLabel.Name = "SueldojornalLabel"
-        SueldojornalLabel.Size = New System.Drawing.Size(99, 17)
-        SueldojornalLabel.TabIndex = 73
-        SueldojornalLabel.Text = "Sueldo/Jornal:"
-        '
-        'IdconvenioLabel
-        '
-        IdconvenioLabel.AutoSize = True
-        IdconvenioLabel.Location = New System.Drawing.Point(80, 82)
-        IdconvenioLabel.Name = "IdconvenioLabel"
-        IdconvenioLabel.Size = New System.Drawing.Size(71, 17)
-        IdconvenioLabel.TabIndex = 72
-        IdconvenioLabel.Text = "Convenio:"
-        '
-        'TareaTextBox
-        '
-        Me.TareaTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TareaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmpleadosBindingSource, "tarea", True))
-        Me.TareaTextBox.Location = New System.Drawing.Point(152, 49)
-        Me.TareaTextBox.Name = "TareaTextBox"
-        Me.TareaTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.TareaTextBox.TabIndex = 78
-        '
-        'IdobrasocialLabel
-        '
-        IdobrasocialLabel.AutoSize = True
-        IdobrasocialLabel.Location = New System.Drawing.Point(65, 270)
-        IdobrasocialLabel.Name = "IdobrasocialLabel"
-        IdobrasocialLabel.Size = New System.Drawing.Size(86, 17)
-        IdobrasocialLabel.TabIndex = 79
-        IdobrasocialLabel.Text = "Obra Social:"
-        '
-        'TareaLabel
-        '
-        TareaLabel.AutoSize = True
-        TareaLabel.Location = New System.Drawing.Point(105, 52)
-        TareaLabel.Name = "TareaLabel"
-        TareaLabel.Size = New System.Drawing.Size(46, 17)
-        TareaLabel.TabIndex = 77
-        TareaLabel.Text = "Tarea"
-        '
-        'IdsindicatoLabel
-        '
-        IdsindicatoLabel.AutoSize = True
-        IdsindicatoLabel.Location = New System.Drawing.Point(81, 300)
-        IdsindicatoLabel.Name = "IdsindicatoLabel"
-        IdsindicatoLabel.Size = New System.Drawing.Size(70, 17)
-        IdsindicatoLabel.TabIndex = 80
-        IdsindicatoLabel.Text = "Sindicato:"
-        '
-        'IdgrupojerarquicoLabel
-        '
-        IdgrupojerarquicoLabel.AutoSize = True
-        IdgrupojerarquicoLabel.Location = New System.Drawing.Point(28, 22)
-        IdgrupojerarquicoLabel.Name = "IdgrupojerarquicoLabel"
-        IdgrupojerarquicoLabel.Size = New System.Drawing.Size(123, 17)
-        IdgrupojerarquicoLabel.TabIndex = 83
-        IdgrupojerarquicoLabel.Text = "Grupo Jerárquico:"
-        '
-        'IdcategoriaempleadoLabel
-        '
-        IdcategoriaempleadoLabel.AutoSize = True
-        IdcategoriaempleadoLabel.Location = New System.Drawing.Point(78, 240)
-        IdcategoriaempleadoLabel.Name = "IdcategoriaempleadoLabel"
-        IdcategoriaempleadoLabel.Size = New System.Drawing.Size(73, 17)
-        IdcategoriaempleadoLabel.TabIndex = 81
-        IdcategoriaempleadoLabel.Text = "Categoría:"
-        '
-        'IdcentrocostoLabel
-        '
-        IdcentrocostoLabel.AutoSize = True
-        IdcentrocostoLabel.Location = New System.Drawing.Point(57, 202)
-        IdcentrocostoLabel.Name = "IdcentrocostoLabel"
-        IdcentrocostoLabel.Size = New System.Drawing.Size(94, 17)
-        IdcentrocostoLabel.TabIndex = 82
-        IdcentrocostoLabel.Text = "Centro Costo:"
         '
         'ABMEmpleados
         '
@@ -1554,6 +1556,7 @@ Partial Class ABMEmpleados
         Me.Controls.Add(Me.GroupABM)
         Me.Controls.Add(Me.GroupListado)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ABMEmpleados"
@@ -1566,6 +1569,8 @@ Partial Class ABMEmpleados
         Me.GroupLaborales.PerformLayout()
         CType(Me.EmpleadosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ConvenioempleoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CondicionempleoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GruposjerarquicosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CentroscostoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1576,6 +1581,7 @@ Partial Class ABMEmpleados
         Me.GroupDomCon.PerformLayout()
         Me.GroupPersonales.ResumeLayout(False)
         Me.GroupPersonales.PerformLayout()
+        CType(Me.IncapacidadesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipodocumentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPrevisionales.ResumeLayout(False)
         Me.GroupPrevisionales.PerformLayout()
@@ -1584,9 +1590,6 @@ Partial Class ABMEmpleados
         CType(Me.EmpleadosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.EmpleadosBindingNavigator.ResumeLayout(False)
         Me.EmpleadosBindingNavigator.PerformLayout()
-        CType(Me.IncapacidadesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CondicionempleoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ConvenioempleoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

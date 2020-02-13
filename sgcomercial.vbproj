@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>30</ApplicationRevision>
-    <ApplicationVersion>4.1.0.30</ApplicationVersion>
+    <ApplicationRevision>31</ApplicationRevision>
+    <ApplicationVersion>4.1.0.31</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -654,6 +654,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Stock\ABMRubros.Designer.vb">
+      <DependentUpon>ABMRubros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\ABMRubros.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Stock\ConsultaStockRemotoProducto.Designer.vb">
       <DependentUpon>ConsultaStockRemotoProducto.vb</DependentUpon>
     </Compile>
@@ -682,6 +688,12 @@
       <DependentUpon>ABMCentroscosto.vb</DependentUpon>
     </Compile>
     <Compile Include="Sueldos\ABMCentroscosto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sueldos\ABMConceptosSueldos.Designer.vb">
+      <DependentUpon>ABMConceptosSueldos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sueldos\ABMConceptosSueldos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sueldos\ABMEmpleados.Designer.vb">
@@ -1290,12 +1302,6 @@
     <Compile Include="Stock\ABMProductosCompuestos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\ABMRubros.Designer.vb">
-      <DependentUpon>ABMRubros.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Stock\ABMRubros.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Stock\ABMUnidadesMedida.Designer.vb">
       <DependentUpon>ABMUnidadesMedida.vb</DependentUpon>
     </Compile>
@@ -1712,6 +1718,9 @@
     <EmbeddedResource Include="QRCodeGenerator\QRTest.resx">
       <DependentUpon>QRTest.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stock\ABMRubros.resx">
+      <DependentUpon>ABMRubros.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stock\ConsultaStockRemotoProducto.resx">
       <DependentUpon>ConsultaStockRemotoProducto.vb</DependentUpon>
     </EmbeddedResource>
@@ -2052,9 +2061,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stock\ABMProductosCompuestos.resx">
       <DependentUpon>ABMProductosCompuestos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Stock\ABMRubros.resx">
-      <DependentUpon>ABMRubros.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock\ABMUnidadesMedida.resx">
       <DependentUpon>ABMUnidadesMedida.vb</DependentUpon>

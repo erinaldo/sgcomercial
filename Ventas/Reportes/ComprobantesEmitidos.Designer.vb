@@ -23,8 +23,8 @@ Partial Class ComprobantesEmitidos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource8 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -233,11 +233,11 @@ Partial Class ComprobantesEmitidos
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.ReportViewer1)
         Me.GroupBox2.Controls.Add(Me.Button5)
         Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.ButtonExportar)
         Me.GroupBox2.Controls.Add(Me.LibroventasDataGridView)
+        Me.GroupBox2.Controls.Add(Me.ReportViewer1)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 99)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(1058, 492)
@@ -247,6 +247,8 @@ Partial Class ComprobantesEmitidos
         '
         'Button5
         '
+        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button5.Enabled = False
         Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.Location = New System.Drawing.Point(573, 451)
@@ -258,6 +260,8 @@ Partial Class ComprobantesEmitidos
         '
         'Button2
         '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button2.Enabled = False
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Location = New System.Drawing.Point(164, 451)
@@ -484,18 +488,19 @@ Partial Class ComprobantesEmitidos
         'ReportViewer1
         '
         Me.ReportViewer1.DocumentMapWidth = 51
-        ReportDataSource1.Name = "MiComercio"
-        ReportDataSource1.Value = Me.MiComercioBindingSource
-        ReportDataSource2.Name = "libroventas"
-        ReportDataSource2.Value = Me.LibroventasBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource7.Name = "MiComercio"
+        ReportDataSource7.Value = Me.MiComercioBindingSource
+        ReportDataSource8.Name = "libroventas"
+        ReportDataSource8.Value = Me.LibroventasBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource8)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComprobantesEmitidos.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(975, 26)
+        Me.ReportViewer1.Location = New System.Drawing.Point(17, 26)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(77, 75)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1021, 402)
         Me.ReportViewer1.TabIndex = 2
-        Me.ReportViewer1.Visible = False
+        Me.ReportViewer1.UseWaitCursor = True
+        Me.ReportViewer1.WaitControlDisplayAfter = 100
         '
         'LibroventasTableAdapter
         '
@@ -616,6 +621,7 @@ Partial Class ComprobantesEmitidos
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "ComprobantesEmitidos"

@@ -1,4 +1,7 @@
-﻿Public Class ComprobantesEmitidos
+﻿Imports System.ComponentModel
+Imports System.Threading
+
+Public Class ComprobantesEmitidos
     Private Sub ComprobantesEmitidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocomprobantes' Puede moverla o quitarla según sea necesario.
         Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
@@ -36,6 +39,7 @@
         ComboBox1.SelectedIndex = -1
         TextClienteNombre.Text = Nothing
         LibroventasBindingSource.Filter = ""
+        Me.ReportViewer1.RefreshReport()
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimeDesde.ValueChanged
@@ -45,7 +49,7 @@
         If MessageBox.Show("La busqueda tardará unos segundos, Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = vbNo Then
             Return
         End If
-        Try
+        Try ' pra un formato de fechas segun windows
             Me.Cursor = Cursors.WaitCursor
             Dim fechadesde As Date
             Dim fechahasta As Date
@@ -56,9 +60,10 @@
             '**************************************************************************************************
             Dim newColumn As DataGridViewColumn = LibroventasDataGridView.Columns("DataGridViewTextBoxColumn1")
             LibroventasDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
+            Me.ReportViewer1.RefreshReport()
             Me.Cursor = Cursors.Default
         Catch ex As Exception
-            Try
+            Try ' pra OTRO formato de fechas segun windows
                 'Dim fechadesde As Date
                 'Dim fechahasta As Date
                 'fechadesde = Convert.ToDateTime(DateTimeDesde.Value)
@@ -68,7 +73,6 @@
                 ''**************************************************************************************************
                 Dim newColumn As DataGridViewColumn = LibroventasDataGridView.Columns("DataGridViewTextBoxColumn1")
                 LibroventasDataGridView.Sort(newColumn, System.ComponentModel.ListSortDirection.Descending)
-                Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
                 Me.ReportViewer1.RefreshReport()
                 Me.Cursor = Cursors.Default
             Catch ex2 As Exception
@@ -93,8 +97,8 @@
                     Dim idcliente As Long
                     idcliente = LibroventasDataGridView.Rows(e.RowIndex).Cells("idcliente").Value
                     strerror = ValidarDatosClienteAFIP(idcliente)
-                    If StrError.CodError > 1 Then
-                        MessageBox.Show(StrError.MsgError, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    If strerror.CodError > 1 Then
+                        MessageBox.Show(strerror.MsgError, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         Return
                     End If
                     If LibroventasDataGridView.Rows(e.RowIndex).Cells("tipocomprobanteletra").Value = "X" Then
@@ -168,7 +172,6 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'cleanfilters()
         refreshgrid()
-        Me.ReportViewer1.RefreshReport()
     End Sub
 
     Private Sub ButtonExportar_Click(sender As Object, e As EventArgs) Handles ButtonExportar.Click
@@ -231,24 +234,22 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
-        Me.ReportViewer1.RefreshReport()
         Try
             Dim extensions As RenderingExtension() = ReportViewer1.LocalReport.ListRenderingExtensions()
             For Each extension As RenderingExtension In extensions
                 If extension.Name = "EXCELOPENXML" Then
-                    If MessageBox.Show("El proceso puede tardar unos minutos. Desea continuar?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
-                        'Dim rtn As Integer
-                        If ReportViewer1.ExportDialog(extension) Then
-                            'MsgBox("Proceso finalizado correctamente!", MsgBoxStyle.Information, "Mensaje")
-                            MessageBox.Show("Proceso finalizado correctamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            'Me.Close()
-                        End If
+                    'If MessageBox.Show("El proceso puede tardar unos minutos. Desea continuar?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+                    'Dim rtn As Integer
+                    If ReportViewer1.ExportDialog(extension) Then
+                        'MsgBox("Proceso finalizado correctamente!", MsgBoxStyle.Information, "Mensaje")
+                        MsgSuccessPopUp("Proceso finalizado correctamente!")
+                        'Me.Close()
                     End If
+                    'End If
                 End If
             Next
         Catch ex As Exception
-            MessageBox.Show("Ha ocurrido una excepción: " + ex.Message, "Excepción", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MsgExPopUp("Aguarde un momento, se estan procesando los datos del reporte")
             Return
         End Try
     End Sub
@@ -266,6 +267,7 @@
                     LibroventasBindingSource.Filter = "idtipocomprobanteafip =" + ComboBox1.SelectedValue.ToString
                 End If
             End If
+            Me.ReportViewer1.RefreshReport()
         Catch ex As Exception
             LibroventasBindingSource.Filter = ""
             refreshgrid()
@@ -278,19 +280,17 @@
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-
-        Me.ReportViewer1.RefreshReport()
         Try
-            If MessageBox.Show("Seguro desea imprimir el reporte?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
-                'Dim rtn As Integer
-                If ReportViewer1.PrintDialog() Then
-                    'MsgBox("Proceso finalizado correctamente!", MsgBoxStyle.Information, "Mensaje")
-                    MessageBox.Show("Proceso finalizado correctamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    'Me.Close()
-                End If
+            'If MessageBox.Show("Seguro desea imprimir el reporte?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+            'Dim rtn As Integer
+            If ReportViewer1.PrintDialog() Then
+                'MsgBox("Proceso finalizado correctamente!", MsgBoxStyle.Information, "Mensaje")
+                MsgSuccessPopUp("Proceso finalizado correctamente!")
+                'Me.Close()
             End If
+            'End If
         Catch ex As Exception
-            MessageBox.Show("Ha ocurrido una excepción: " + ex.Message, "Excepción", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MsgExPopUp("Aguarde un momento, se estan procesando los datos del reporte")
             Return
         End Try
     End Sub
@@ -301,5 +301,20 @@
                 Me.Close()
             End If
         End If
+    End Sub
+
+    Private Sub ReportViewer1_Load(sender As Object, e As EventArgs) Handles ReportViewer1.Load
+
+    End Sub
+
+    Private Sub ReportViewer1_RenderingComplete(sender As Object, e As RenderingCompleteEventArgs) Handles ReportViewer1.RenderingComplete
+
+        Button2.Enabled = True
+        Button5.Enabled = True
+    End Sub
+
+    Private Sub ReportViewer1_RenderingBegin(sender As Object, e As CancelEventArgs) Handles ReportViewer1.RenderingBegin
+        Button2.Enabled = False
+        Button5.Enabled = False
     End Sub
 End Class

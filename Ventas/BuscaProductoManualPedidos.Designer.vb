@@ -30,6 +30,14 @@ Partial Class BuscaProductoManualPedidos
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventadistribuidor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ConsultarStock = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.ListaproductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -54,21 +62,6 @@ Partial Class BuscaProductoManualPedidos
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.ParametrosgeneralesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
-        Me.ParametrosgeneralesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventadistribuidor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ConsultarStock = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,7 +71,6 @@ Partial Class BuscaProductoManualPedidos
         Me.GroupBox3.SuspendLayout()
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -163,6 +155,78 @@ Partial Class BuscaProductoManualPedidos
         Me.ProductosDataGridView.Size = New System.Drawing.Size(848, 266)
         Me.ProductosDataGridView.TabIndex = 0
         '
+        'codigoproducto
+        '
+        Me.codigoproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Cod. Producto"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        '
+        'descripcion
+        '
+        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.descripcion.DataPropertyName = "descripcion"
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 400
+        '
+        'idproducto
+        '
+        Me.idproducto.DataPropertyName = "idproducto"
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        Me.idproducto.Width = 104
+        '
+        'precioventa
+        '
+        Me.precioventa.DataPropertyName = "precioventa"
+        Me.precioventa.HeaderText = "precioventa"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.Visible = False
+        Me.precioventa.Width = 111
+        '
+        'precioventagranel
+        '
+        Me.precioventagranel.DataPropertyName = "precioventagranel"
+        Me.precioventagranel.HeaderText = "precioventagranel"
+        Me.precioventagranel.Name = "precioventagranel"
+        Me.precioventagranel.ReadOnly = True
+        Me.precioventagranel.Visible = False
+        Me.precioventagranel.Width = 151
+        '
+        'precioventamayorista
+        '
+        Me.precioventamayorista.DataPropertyName = "precioventamayorista"
+        Me.precioventamayorista.HeaderText = "precioventamayorista"
+        Me.precioventamayorista.Name = "precioventamayorista"
+        Me.precioventamayorista.ReadOnly = True
+        Me.precioventamayorista.Visible = False
+        Me.precioventamayorista.Width = 172
+        '
+        'precioventadistribuidor
+        '
+        Me.precioventadistribuidor.DataPropertyName = "precioventadistribuidor"
+        Me.precioventadistribuidor.HeaderText = "precioventadistribuidor"
+        Me.precioventadistribuidor.Name = "precioventadistribuidor"
+        Me.precioventadistribuidor.ReadOnly = True
+        Me.precioventadistribuidor.Visible = False
+        Me.precioventadistribuidor.Width = 181
+        '
+        'ConsultarStock
+        '
+        Me.ConsultarStock.HeaderText = ""
+        Me.ConsultarStock.Name = "ConsultarStock"
+        Me.ConsultarStock.ReadOnly = True
+        Me.ConsultarStock.Text = "Ver Stock"
+        Me.ConsultarStock.ToolTipText = "Consultar Stock"
+        Me.ConsultarStock.UseColumnTextForButtonValue = True
+        Me.ConsultarStock.Width = 5
+        '
         'ListaproductosBindingSource
         '
         Me.ListaproductosBindingSource.DataMember = "listaproductos"
@@ -195,15 +259,21 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -215,6 +285,8 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
         Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -224,6 +296,7 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
@@ -247,6 +320,7 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -254,6 +328,7 @@ Partial Class BuscaProductoManualPedidos
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -443,135 +518,12 @@ Partial Class BuscaProductoManualPedidos
         '
         Me.ParametrosgeneralesTableAdapter.ClearBeforeFill = True
         '
-        'ParametrosgeneralesDataGridView
-        '
-        Me.ParametrosgeneralesDataGridView.AutoGenerateColumns = False
-        Me.ParametrosgeneralesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ParametrosgeneralesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewImageColumn1})
-        Me.ParametrosgeneralesDataGridView.DataSource = Me.ParametrosgeneralesBindingSource
-        Me.ParametrosgeneralesDataGridView.Location = New System.Drawing.Point(915, 143)
-        Me.ParametrosgeneralesDataGridView.Name = "ParametrosgeneralesDataGridView"
-        Me.ParametrosgeneralesDataGridView.RowTemplate.Height = 24
-        Me.ParametrosgeneralesDataGridView.Size = New System.Drawing.Size(51, 40)
-        Me.ParametrosgeneralesDataGridView.TabIndex = 3
-        Me.ParametrosgeneralesDataGridView.Visible = False
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "prgid"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "prgid"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "prgclave"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "prgclave"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "prgvalor1"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "prgvalor1"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "prgstring1"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "prgstring1"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "prgdecimal1"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "prgdecimal1"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewImageColumn1
-        '
-        Me.DataGridViewImageColumn1.DataPropertyName = "prgimagen1"
-        Me.DataGridViewImageColumn1.HeaderText = "prgimagen1"
-        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
-        '
-        'codigoproducto
-        '
-        Me.codigoproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.codigoproducto.DataPropertyName = "codigoproducto"
-        Me.codigoproducto.HeaderText = "Cod. Producto"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        '
-        'descripcion
-        '
-        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.descripcion.DataPropertyName = "descripcion"
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 400
-        '
-        'idproducto
-        '
-        Me.idproducto.DataPropertyName = "idproducto"
-        Me.idproducto.HeaderText = "idproducto"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.ReadOnly = True
-        Me.idproducto.Visible = False
-        Me.idproducto.Width = 104
-        '
-        'precioventa
-        '
-        Me.precioventa.DataPropertyName = "precioventa"
-        Me.precioventa.HeaderText = "precioventa"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        Me.precioventa.Visible = False
-        Me.precioventa.Width = 111
-        '
-        'precioventagranel
-        '
-        Me.precioventagranel.DataPropertyName = "precioventagranel"
-        Me.precioventagranel.HeaderText = "precioventagranel"
-        Me.precioventagranel.Name = "precioventagranel"
-        Me.precioventagranel.ReadOnly = True
-        Me.precioventagranel.Visible = False
-        Me.precioventagranel.Width = 151
-        '
-        'precioventamayorista
-        '
-        Me.precioventamayorista.DataPropertyName = "precioventamayorista"
-        Me.precioventamayorista.HeaderText = "precioventamayorista"
-        Me.precioventamayorista.Name = "precioventamayorista"
-        Me.precioventamayorista.ReadOnly = True
-        Me.precioventamayorista.Visible = False
-        Me.precioventamayorista.Width = 172
-        '
-        'precioventadistribuidor
-        '
-        Me.precioventadistribuidor.DataPropertyName = "precioventadistribuidor"
-        Me.precioventadistribuidor.HeaderText = "precioventadistribuidor"
-        Me.precioventadistribuidor.Name = "precioventadistribuidor"
-        Me.precioventadistribuidor.ReadOnly = True
-        Me.precioventadistribuidor.Visible = False
-        Me.precioventadistribuidor.Width = 181
-        '
-        'ConsultarStock
-        '
-        Me.ConsultarStock.HeaderText = ""
-        Me.ConsultarStock.Name = "ConsultarStock"
-        Me.ConsultarStock.ReadOnly = True
-        Me.ConsultarStock.Text = "Ver Stock"
-        Me.ConsultarStock.ToolTipText = "Consultar Stock"
-        Me.ConsultarStock.UseColumnTextForButtonValue = True
-        Me.ConsultarStock.Width = 5
-        '
         'BuscaProductoManualPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(932, 545)
-        Me.Controls.Add(Me.ParametrosgeneralesDataGridView)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -595,7 +547,6 @@ Partial Class BuscaProductoManualPedidos
         Me.GroupBox3.PerformLayout()
         CType(Me.ListaspreciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -626,13 +577,6 @@ Partial Class BuscaProductoManualPedidos
     Friend WithEvents StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
     Friend WithEvents ParametrosgeneralesBindingSource As BindingSource
     Friend WithEvents ParametrosgeneralesTableAdapter As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
-    Friend WithEvents ParametrosgeneralesDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label7 As Label

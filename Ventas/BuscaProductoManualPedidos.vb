@@ -7,20 +7,14 @@ Public Class BuscaProductoManualPedidos
         Me.Validate()
         Me.ProductosBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
-
     End Sub
 
     Private Sub BuscaProductoManual_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.parametrosgenerales' Puede moverla o quitarla según sea necesario.
-            'Me.ParametrosgeneralesTableAdapter.Fill(Me.ComercialDataSet.parametrosgenerales)
-            'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
-            'Me.ListaspreciosTableAdapter.Fill(Me.ComercialDataSet.listasprecios)
-
 
             Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
-            Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
-            'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+            Me.ListaproductosTableAdapter.FillByComerciables(Me.ComercialDataSet.listaproductos)
+
             ProductosDataGridView.Rows(0).Selected = False
 
             ComboBox1.SelectedIndex = 1
