@@ -777,23 +777,13 @@ Public Class RegistrarVenta
                 newrow = VentasdetalleDataGridView.Rows.Add()
                 VentasdetalleDataGridView.Rows(newrow).Cells(0).Value = codigoproducto
                 VentasdetalleDataGridView.Rows(newrow).Cells(1).Value = Labelproducto.Text
-                If unidadmedida = 6 Then '** LA UNIDAD DE MEDIDA ES ENTERA
-                    VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = 1 '*******  cantidad
-                Else
-                    'Dim p As IngresaCantidad
-                    'p = New IngresaCantidad
-                    'gcantidad = 0
-                    'gmontototal = 0
-                    'p.codigoproducto = codigoproducto
-                    'p.unidadmedida = unidadmedida
-                    'p.precioventa = v_precioventa
-                    'p.ShowDialog()
-                    If gcantidad = 0 Then 'Or gmontototal = 0 Then
-                        VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
-                        Return
-                    End If
-                    VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
+
+                If gcantidad = 0 Then 'Or gmontototal = 0 Then
+                    VentasdetalleDataGridView.Rows.Remove(VentasdetalleDataGridView.CurrentRow)
+                    Return
                 End If
+                VentasdetalleDataGridView.Rows(newrow).Cells(2).Value = gcantidad '*******  cantidad
+
                 VentasdetalleDataGridView.Rows(newrow).Cells("precioventa").Value = v_precioventa
                 VentasdetalleDataGridView.Rows(newrow).Cells("subtotal").Value = v_precioventa * VentasdetalleDataGridView.Rows(newrow).Cells(2).Value
                 VentasdetalleDataGridView.Rows(newrow).Cells("listasprecios").Value = glistaprecio ' glistaprecio

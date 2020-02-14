@@ -1,10 +1,14 @@
-﻿Public Class ConsultaStockRemotoProducto
+﻿Imports System.ComponentModel
+
+Public Class ConsultaStockRemotoProducto
     Private Sub StockgeneralBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
 
     End Sub
 
     Private Sub ConsultaStockRemotoProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If gModuloCloud = 1 Then
+            Me.Cursor = Cursors.WaitCursor
+            UpdateSTKRemoto()
             ConsultaRemota()
         Else
             ConsultaLocal()
@@ -19,6 +23,12 @@
             MessageBox.Show("No se puede completar la consulta: " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
+    Private Sub UpdateSTKRemoto()
+        If Not BGWStockClowd.IsBusy Then
+            BGWStockClowd.RunWorkerAsync()
+        End If
+    End Sub
+
 
     Private Sub ConsultaRemota()
         GroupBoxRemoto.Visible = True
@@ -61,5 +71,20 @@
         '    End If
         'End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub BGWStockClowd_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWStockClowd.DoWork
+
+        Dim coderror As Long
+        Dim msgerror As String = Nothing
+        Dim ProductosTableAdapter As New comercialDataSetTableAdapters.productosTableAdapter()
+        gidproducto = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
+
+        SynStockClowd(gidproducto, "UPD", coderror, msgerror)
+    End Sub
+
+    Private Sub BGWStockClowd_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BGWStockClowd.RunWorkerCompleted
+        ConsultaRemota()
+        Me.Cursor = Cursors.Default
     End Sub
 End Class

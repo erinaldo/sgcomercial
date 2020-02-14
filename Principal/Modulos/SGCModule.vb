@@ -1233,6 +1233,7 @@ from
                             ,1 as MonCotiz
                             ,v.cae
                             ,v.caefchvto
+							,v.caefchreg
                             ,convert(date,v.caefchvto) as caefchvtodate
                             ,v.ptovta
                             ,v.cbtnro
@@ -1254,6 +1255,7 @@ tipocomprobantes tc
 where
 v.idcliente = c.idcliente
 and v.idtipocomprobante = tc.idtipocomprobante
+
 ")
     End Sub
     Public Sub QueryBDChange(ByVal query As String)

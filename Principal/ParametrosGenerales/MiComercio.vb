@@ -336,29 +336,8 @@ Public Class MiComercio
 
     Private Sub AToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AToolStripMenuItem.Click
         Try
-
-
-            QueryBDChange("ALTER view [dbo].[listaproductos] as
-SELECT 
-idproducto,
-ISNULL(fabricante,'-SIN ASIGNAR-') as fabricante,
-(select descripcion from rubros where rubros.idrubro = productos.idrubro) as rubro,
-codigoproducto,
-rtrim(ltrim(marca)) as marca,
-marca  + ' '+
-modelo + ' '+ 
-presentacion as descripcion,
-precioventa,
-precioventagranel,
-precioventamayorista,
-precioventadistribuidor,
-productos.productocompuesto
-,(select isnull(idproveedor,0) from listaproductosproveedores lpp where lpp.idproducto = productos.idproducto) as idproveedor
-,(select isnull(nombre,'') from proveedores where idproveedor = (select isnull(idproveedor,0) from listaproductosproveedores lpp where lpp.idproducto = productos.idproducto)) as nombreproveedor
-FROM productos
-where productos.estado = 'A'
-")
-            MessageBox.Show("Operación Exitosa!", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            QueryBDChange("exec SetListapreciosA")
+            MsgSuccessPopUp("Formato de lista Activado -Tipo A-")
         Catch ex As Exception
             MessageBox.Show("No se pudo completar la Operación", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
@@ -366,27 +345,8 @@ where productos.estado = 'A'
 
     Private Sub BToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BToolStripMenuItem.Click
         Try
-            QueryBDChange("ALTER view [dbo].[listaproductos] as
-SELECT 
-idproducto,
-ISNULL(fabricante,'-SIN ASIGNAR-') as fabricante,
-(select descripcion from rubros where rubros.idrubro = productos.idrubro) as rubro,
-codigoproducto,
-rtrim(ltrim(marca)) as marca,
-modelo  + ' '+
-marca + ' '+ 
-presentacion as descripcion,
-precioventa,
-precioventagranel,
-precioventamayorista,
-precioventadistribuidor,
-productos.productocompuesto
-,(select isnull(idproveedor,0) from listaproductosproveedores lpp where lpp.idproducto = productos.idproducto) as idproveedor
-,(select isnull(nombre,'') from proveedores where idproveedor = (select isnull(idproveedor,0) from listaproductosproveedores lpp where lpp.idproducto = productos.idproducto)) as nombreproveedor
-FROM productos
-where productos.estado = 'A'
-")
-            MessageBox.Show("Operación Exitosa!", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            QueryBDChange("exec SetListapreciosB")
+            MsgSuccessPopUp("Formato de lista Activado -Tipo B-")
         Catch ex As Exception
             MessageBox.Show("No se pudo completar la Operación", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try

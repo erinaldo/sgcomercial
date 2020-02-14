@@ -75,9 +75,9 @@
             End If
         End If
         If e.KeyCode = Keys.F5 Then
-            If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
-                Me.LibroventasTableAdapter.Fill(Me.SiscomDataSet.libroventas)
-            End If
+            'If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+            Me.LibroventasTableAdapter.Fill(Me.SiscomDataSet.libroventas)
+            'End If
         End If
     End Sub
 End Class

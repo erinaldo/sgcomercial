@@ -200,6 +200,9 @@ Public Class loginform
         Dim status As Boolean
         Dim cod As Integer
         Dim msg As String = Nothing
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ''''''''''''''''''' ACTUALIZACIÓNES DE BASE DE DATOS    ''''''''''''''''''''''
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         If (Not System.IO.Directory.Exists(gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\BD")) Then
             'System.IO.Directory.CreateDirectory("C:\SGComercial\UpdatePack\Ejecutable\") 'la crearia
         Else

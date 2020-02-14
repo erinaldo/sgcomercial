@@ -263,16 +263,16 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim status As Boolean
-        Dim status1 As Boolean
-        recalcularentrada(status)
-        recalcularsalida(status1)
-        If status = False Or status1 = False Then
-            Return
-        End If
-        '        if MsgBox("Seguro de")
-        Dim diferencia As Decimal = 0
         Try
+            Dim status As Boolean
+            Dim status1 As Boolean
+            recalcularentrada(status)
+            recalcularsalida(status1)
+            If status = False Or status1 = False Then
+                Return
+            End If
+            '        if MsgBox("Seguro de")
+            Dim diferencia As Decimal = 0
             diferencia = montosaliente - montoentrante
             If diferencia > 0 Then
                 GroupBox5.Enabled = True
@@ -288,18 +288,22 @@
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
+        Dim IDCAMBIODEVOLUCION As Long
         '/////////////////
         Button1.PerformClick()
         '/////////////////
 
         If MsgBox("Seguro desea realizar el cambio?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
             '*************  REGISTRAR CAMBIO DEVOLUCION ************************************
-            Dim IDCAMBIODEVOLUCION As Long
-            IDCAMBIODEVOLUCION = CambiodevolucionTableAdapter.cambiodevolucion_insertar(0, 0, montoentrante, 0, 0, 0, montosaliente, 0, Today, gusername)
-            If Not IDCAMBIODEVOLUCION > 0 Then
-                MsgBox("Ocurrio un error al intentar escribir en cambiodevolución")
-                Return
-            End If
+            Try
+                IDCAMBIODEVOLUCION = CambiodevolucionTableAdapter.cambiodevolucion_insertar(0, 0, montoentrante, 0, 0, 0, montosaliente, 0, Today, gusername)
+                If Not IDCAMBIODEVOLUCION > 0 Then
+                    MsgBox("Ocurrio un error al intentar escribir en cambiodevolución")
+                    Return
+                End If
+            Catch ex As Exception
+                MsgEx("[CDV1] " + ex.Message)
+            End Try
             '****************************************************************************
             '1_'************ ingresar producto a stock   *******************************
             '****************************************************************************
@@ -310,8 +314,8 @@
                 Try
                     If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(DataGridView1.Rows(i).Cells("codigoproducto").Value), DataGridView1.Rows(i).Cells("cantidad").Value, Today, guserid, "E", "Cambio Mercaderías Varias", 1) >= 0 Then
                         Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(DataGridView1.Rows(i).Cells("codigoproducto").Value)
-                        Dim cant As Decimal = DataGridView1.Rows(i).Cells("cantidad").Value
-                        Dim subt As Decimal = DataGridView1.Rows(i).Cells("subtotal").Value
+                        Dim cant As Decimal = Convert.ToDecimal(DataGridView1.Rows(i).Cells("cantidad").Value)
+                        Dim subt As Decimal = Convert.ToDecimal(DataGridView1.Rows(i).Cells("subtotal").Value)
                         CambiodevoluciondetalleTableAdapter.cambiodevoluciondetalle_insertar(IDCAMBIODEVOLUCION, idproducto, "E", cant, subt)
                         'MsgBox("Movimiento cargado exitosamente!", MsgBoxStyle.Information, "Información")
                         'FormPrincipal.reloadstock()
@@ -322,41 +326,35 @@
                     End If
                     'FormPrincipal.reloadstock()
                 Catch ex As Exception
-                    MsgBox(ex.Message)
+                    MsgEx("[STK-in1] " + ex.Message)
                 End Try
             Next
-
-            '        Dim medidaentrante As Decimal = medida
-            '        If ComboBox1.SelectedIndex() = 1 Then
-            '            cantidadentrante = cantidadentrante * medida
-            '        End If
-            '        
             '2_'************ QUITAR PRODUCTO NUEVO DEL stock   *******************************
             For i = 0 To DataGridView2.RowCount - 1
                 medida = ProductosTableAdapter.productos_consultarmedida(DataGridView2.Rows(i).Cells("codigoproducto2").Value)
                 Try
                     If StockTableAdapter.stock_insertarmovimiento(ProductosTableAdapter.productos_existeproducto(DataGridView2.Rows(i).Cells("codigoproducto2").Value), DataGridView2.Rows(i).Cells("cantidad2").Value, Today, guserid, "S", "Cambio Mercaderías Varias", 1) >= 0 Then
                         Dim idproducto As Long = ProductosTableAdapter.productos_existeproducto(DataGridView2.Rows(i).Cells("codigoproducto2").Value)
-                        Dim cant As Decimal = DataGridView2.Rows(i).Cells("cantidad2").Value
-                        Dim subt As Decimal = DataGridView2.Rows(i).Cells("subtotal2").Value
+                        Dim cant As Decimal = Convert.ToDecimal(DataGridView2.Rows(i).Cells("cantidad2").Value)
+                        Dim subt As Decimal = Convert.ToDecimal(DataGridView2.Rows(i).Cells("subtotal2").Value)
                         CambiodevoluciondetalleTableAdapter.cambiodevoluciondetalle_insertar(IDCAMBIODEVOLUCION, idproducto, "S", cant, subt)
                     Else
-                        MsgBox("No se pudo insertar el movimiento de salida", MsgBoxStyle.Information, "Advertencia")
+                        MsgEx("[STK-out1] - no fue posible cargar el movimiento de salida ")
                         Return
                     End If
                     'FormPrincipal.reloadstock()
                 Catch ex As Exception
-                    MsgBox(ex.Message)
+                    MsgEx("[STK-outex1] " + ex.Message)
                 End Try
             Next
 
             Dim idpagos As Long
-            Dim MONTO As Decimal = MontoDiferencia.Text
+            Dim MONTO As Decimal = Convert.ToDecimal(MontoDiferencia.Text)
             If MONTO > 0 Then
                 '**************************************************************
                 '***** insertar EL PAGO
                 '**************************************************************
-                idpagos = PagosTableAdapter.pagos_insertarpagocambio(IDCAMBIODEVOLUCION, 1, MONTO, Val(idformapagocombo.SelectedValue), NrocomprobanteTextBox.text) '"NrocomprobanteTextBox"
+                idpagos = PagosTableAdapter.pagos_insertarpagocambio(IDCAMBIODEVOLUCION, 1, MONTO, Val(idformapagocombo.SelectedValue), NrocomprobanteTextBox.Text) '"NrocomprobanteTextBox"
                 If idpagos > 0 Then
                 Else
                     MsgBox("Ocurrio un error al registrar el pago", MsgBoxStyle.Information, "Advertencia")

@@ -23,8 +23,8 @@ Partial Class ComprobantesEmitidos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource8 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.LibroventasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -488,18 +488,19 @@ Partial Class ComprobantesEmitidos
         'ReportViewer1
         '
         Me.ReportViewer1.DocumentMapWidth = 51
-        ReportDataSource7.Name = "MiComercio"
-        ReportDataSource7.Value = Me.MiComercioBindingSource
-        ReportDataSource8.Name = "libroventas"
-        ReportDataSource8.Value = Me.LibroventasBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource8)
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "libroventas"
+        ReportDataSource2.Value = Me.LibroventasBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepComprobantesEmitidos.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(17, 26)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(1021, 402)
         Me.ReportViewer1.TabIndex = 2
         Me.ReportViewer1.UseWaitCursor = True
+        Me.ReportViewer1.Visible = False
         Me.ReportViewer1.WaitControlDisplayAfter = 100
         '
         'LibroventasTableAdapter

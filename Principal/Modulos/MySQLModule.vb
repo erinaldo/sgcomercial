@@ -1576,6 +1576,8 @@ Module MySQLModule
                     stockgeneral = stockgeneralTableAdapter.GetDataByRemito(idventa)
                 Case "A"
                     stockgeneral = stockgeneralTableAdapter.GetDataByIDproducto(idventa)
+                Case "UPD"
+                    stockgeneral = stockgeneralTableAdapter.GetDataByIDproducto(idventa)
             End Select
             '-------------------------------    barra de progreso----------------------------------------------------
             'Dim p As SubirProductosClowd

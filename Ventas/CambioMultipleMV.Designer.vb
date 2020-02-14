@@ -25,10 +25,22 @@ Partial Class CambioMultipleMV
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.quitar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.codigoproducto2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.monto2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subtotal2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.quitar2 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
@@ -134,18 +146,6 @@ Partial Class CambioMultipleMV
         Me.DataGridViewTextBoxColumn69 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn70 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn71 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.quitar = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.codigoproducto2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.monto2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subtotal2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.quitar2 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -173,6 +173,8 @@ Partial Class CambioMultipleMV
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
@@ -197,6 +199,44 @@ Partial Class CambioMultipleMV
         Me.DataGridView1.Size = New System.Drawing.Size(614, 249)
         Me.DataGridView1.TabIndex = 2
         '
+        'codigoproducto
+        '
+        Me.codigoproducto.HeaderText = "Código"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        '
+        'monto
+        '
+        Me.monto.HeaderText = "Monto"
+        Me.monto.Name = "monto"
+        '
+        'subtotal
+        '
+        Me.subtotal.HeaderText = "Sub-total"
+        Me.subtotal.Name = "subtotal"
+        Me.subtotal.ReadOnly = True
+        '
+        'quitar
+        '
+        Me.quitar.HeaderText = "Quitar"
+        Me.quitar.Name = "quitar"
+        Me.quitar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.quitar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.quitar.Text = "Quitar"
+        Me.quitar.ToolTipText = "Quitar"
+        Me.quitar.UseColumnTextForButtonValue = True
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -219,6 +259,8 @@ Partial Class CambioMultipleMV
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.PictureBox2)
@@ -242,6 +284,44 @@ Partial Class CambioMultipleMV
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView2.Size = New System.Drawing.Size(614, 249)
         Me.DataGridView2.TabIndex = 3
+        '
+        'codigoproducto2
+        '
+        Me.codigoproducto2.HeaderText = "Código"
+        Me.codigoproducto2.Name = "codigoproducto2"
+        Me.codigoproducto2.ReadOnly = True
+        '
+        'descripcion2
+        '
+        Me.descripcion2.HeaderText = "Descripción"
+        Me.descripcion2.Name = "descripcion2"
+        Me.descripcion2.ReadOnly = True
+        '
+        'cantidad2
+        '
+        Me.cantidad2.HeaderText = "Cantidad"
+        Me.cantidad2.Name = "cantidad2"
+        '
+        'monto2
+        '
+        Me.monto2.HeaderText = "Monto"
+        Me.monto2.Name = "monto2"
+        '
+        'subtotal2
+        '
+        Me.subtotal2.HeaderText = "Sub-total"
+        Me.subtotal2.Name = "subtotal2"
+        Me.subtotal2.ReadOnly = True
+        '
+        'quitar2
+        '
+        Me.quitar2.HeaderText = "Quitar"
+        Me.quitar2.Name = "quitar2"
+        Me.quitar2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.quitar2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.quitar2.Text = "Quitar"
+        Me.quitar2.ToolTipText = "Quitar"
+        Me.quitar2.UseColumnTextForButtonValue = True
         '
         'Label2
         '
@@ -403,6 +483,8 @@ Partial Class CambioMultipleMV
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.GroupBox5)
         Me.GroupBox3.Controls.Add(Me.btnConfirmar)
         Me.GroupBox3.Controls.Add(Me.GroupBox4)
@@ -844,6 +926,8 @@ Partial Class CambioMultipleMV
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -853,21 +937,46 @@ Partial Class CambioMultipleMV
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -887,11 +996,21 @@ Partial Class CambioMultipleMV
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -1000,82 +1119,6 @@ Partial Class CambioMultipleMV
         Me.DataGridViewTextBoxColumn71.HeaderText = "fechabaja"
         Me.DataGridViewTextBoxColumn71.Name = "DataGridViewTextBoxColumn71"
         '
-        'codigoproducto
-        '
-        Me.codigoproducto.HeaderText = "Código"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        '
-        'monto
-        '
-        Me.monto.HeaderText = "Monto"
-        Me.monto.Name = "monto"
-        '
-        'subtotal
-        '
-        Me.subtotal.HeaderText = "Sub-total"
-        Me.subtotal.Name = "subtotal"
-        Me.subtotal.ReadOnly = True
-        '
-        'quitar
-        '
-        Me.quitar.HeaderText = "Quitar"
-        Me.quitar.Name = "quitar"
-        Me.quitar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.quitar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.quitar.Text = "Quitar"
-        Me.quitar.ToolTipText = "Quitar"
-        Me.quitar.UseColumnTextForButtonValue = True
-        '
-        'codigoproducto2
-        '
-        Me.codigoproducto2.HeaderText = "Código"
-        Me.codigoproducto2.Name = "codigoproducto2"
-        Me.codigoproducto2.ReadOnly = True
-        '
-        'descripcion2
-        '
-        Me.descripcion2.HeaderText = "Descripción"
-        Me.descripcion2.Name = "descripcion2"
-        Me.descripcion2.ReadOnly = True
-        '
-        'cantidad2
-        '
-        Me.cantidad2.HeaderText = "Cantidad"
-        Me.cantidad2.Name = "cantidad2"
-        '
-        'monto2
-        '
-        Me.monto2.HeaderText = "Monto"
-        Me.monto2.Name = "monto2"
-        '
-        'subtotal2
-        '
-        Me.subtotal2.HeaderText = "Sub-total"
-        Me.subtotal2.Name = "subtotal2"
-        Me.subtotal2.ReadOnly = True
-        '
-        'quitar2
-        '
-        Me.quitar2.HeaderText = "Quitar"
-        Me.quitar2.Name = "quitar2"
-        Me.quitar2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.quitar2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.quitar2.Text = "Quitar"
-        Me.quitar2.ToolTipText = "Quitar"
-        Me.quitar2.UseColumnTextForButtonValue = True
-        '
         'CambioMultipleMV
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1090,7 +1133,10 @@ Partial Class CambioMultipleMV
         Me.Controls.Add(Me.ProductosDataGridView)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "CambioMultipleMV"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "CambioMultipleMV"
