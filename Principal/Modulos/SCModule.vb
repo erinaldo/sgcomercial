@@ -22,7 +22,7 @@ Module SCModule
     Public gidclienteSC As Long
     Public SCIdproducto As String
     Public SCProductoDescripcion As String
-
+    Public gForceUpdateSC As Integer
     Sub conectarSCConn(ByRef status As Boolean)
         Try
             If Not My.Computer.Network.IsAvailable Then

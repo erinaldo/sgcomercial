@@ -568,6 +568,7 @@ Module SGCModule
         Try
             gTerminal = TerminalesSCTableAdapter.terminales_GetID(gmacadress)
             gAutoUpdater = TerminalesSCTableAdapter.terminales_autoupdater(gTerminal)
+            gForceUpdateSC = TerminalesSCTableAdapter.terminales_forceupdate(gTerminal)
             If Not gTerminal > 0 Or gAutoUpdater = 0 Then
                 'Cursor.Current = Cursors.Default
                 'MsgBox("Dispositivo no autorizado", MsgBoxStyle.Exclamation, "Advertencia")
@@ -647,11 +648,10 @@ Module SGCModule
         '/*********************************************************/
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         Try
-
             gAutoUpdater = TerminalesSCTableAdapter.terminales_autoupdater(gTerminal)
             If gAutoUpdater = 0 Then
                 Cursor.Current = Cursors.Default
-                MsgBox("Tu suscripción a soporte y actualizaciones se encuentra vencida!", MsgBoxStyle.Exclamation, "Advertencia")
+                MsgEx("Tu suscripción a soporte y actualizaciones se encuentra vencida!")
                 Return
             End If
         Catch ex As Exception
@@ -671,7 +671,8 @@ Module SGCModule
         '''''''''''''''''''''''''''''''''''''''''''''''
         'Cursor.Current = Cursors.Default
         'MsgBox("La aplicación se cerrará para comenzar el proceso de instalación", MsgBoxStyle.Information, "Advertencia")
-        CreateObject("WScript.Shell").Popup("La aplicación se cerrará para comenzar el proceso de instalación", 3, "Aviso!", vbInformation)
+        'MsgInfoPopUp("La aplicación se cerrará para comenzar el proceso de instalación")
+        CreateObject("WScript.Shell").Popup("La aplicación se cerrará para comenzar el proceso de instalación", 2, "Aviso!", vbInformation)
         '*******************************************************'''''''''''''''''''''''''''''''''''''''''''''''
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         '================= ACTUALIZAR OBJETOS DE BASE DE DATOS
@@ -1378,6 +1379,18 @@ and v.idtipocomprobante = tc.idtipocomprobante
             gModuloPedidosMovil = 0
             gMiFranquicia = 0
             Return
+        End Try
+    End Sub
+    Public Sub RegLoginDate(gTerminal)
+        '********************************
+        '   registro LOGIN
+        '********************************
+        Try
+            Dim TerminalesSCTableAdapter As siscomDataSetTableAdapters.terminalesTableAdapter
+            TerminalesSCTableAdapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+            TerminalesSCTableAdapter.terminales_updatelogin(Now(), gTerminal)
+        Catch ex As Exception
+
         End Try
     End Sub
 End Module

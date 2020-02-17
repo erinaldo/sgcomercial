@@ -420,8 +420,16 @@ Public Class loginform
                 UpdateAlert.ForeColor = Color.Orange
                 PictureUpdateAlert.Image = My.Resources.UpdateAlert
                 PictureUpdateAlert.Visible = True
-                If MessageBox.Show("Hay una nueva versión disponible! Desea actualizar ahora?", "Descargar nueva versión!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+                If gForceUpdateSC = 1 Then
+                    Me.Enabled = False
                     BuscarActualizaciones()
+                Else
+                    Me.Enabled = False
+                    If MsgQues("Hay una nueva versión disponible! Desea actualizar ahora?") = True Then
+                        BuscarActualizaciones()
+                    Else
+                        Me.Enabled = True
+                    End If
                 End If
             Else
                 If newversion = 0 Then Return
@@ -481,6 +489,7 @@ Public Class loginform
         UpdateLocalLicence()
         ValidarLicencia()
         UpdateHDSN(gTerminal)
+        RegLoginDate(gTerminal)
     End Sub
 
     Private Sub LabelMACaddress_Click(sender As Object, e As EventArgs) Handles LabelMACaddress.Click
@@ -493,6 +502,9 @@ Public Class loginform
 
     End Sub
     Sub BuscarActualizaciones()
+        '/********************************/
+        '   DESCARGA LA ACTUALIZACIÓN
+        '***********************************
         trnsfrpth = gSystemDrive + "\SGComercial\UpdatePack\Ejecutable\Ejecutable.rar"
         If UpdateAlertStatus = False Then Return
         Me.Cursor = Cursors.WaitCursor
@@ -549,4 +561,5 @@ Public Class loginform
     Private Sub UpdateAlert_DoubleClick(sender As Object, e As EventArgs) Handles UpdateAlert.DoubleClick
         Return
     End Sub
+
 End Class

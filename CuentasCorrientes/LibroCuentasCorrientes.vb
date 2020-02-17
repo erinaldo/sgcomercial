@@ -63,11 +63,15 @@ Public Class LibroCuentasCorrientes
     Private Sub calculasaldos()
         Dim saldo As Decimal = Nothing
         Dim saldovencido As Decimal = Nothing
+        Try
+            For i = 0 To LibrocuentascorrientesDataGridView.RowCount - 1
+                saldo = saldo + LibrocuentascorrientesDataGridView.Rows(i).Cells("saldo").Value
+                saldovencido = saldovencido + LibrocuentascorrientesDataGridView.Rows(i).Cells("saldovencido").Value
+            Next
+        Catch ex As Exception
+            MsgEx(ex.Message)
+        End Try
 
-        For i = 0 To LibrocuentascorrientesDataGridView.RowCount - 1
-            saldo = saldo + LibrocuentascorrientesDataGridView.Rows(i).Cells("saldo").Value
-            saldovencido = saldovencido + LibrocuentascorrientesDataGridView.Rows(i).Cells("saldovencido").Value
-        Next
         Try
             TextSaldo.Text = saldo
             TextSaldoVencido.Text = saldovencido
