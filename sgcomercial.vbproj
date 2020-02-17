@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>41</ApplicationRevision>
-    <ApplicationVersion>4.1.0.41</ApplicationVersion>
+    <ApplicationRevision>42</ApplicationRevision>
+    <ApplicationVersion>4.1.0.42</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -218,28 +218,28 @@
     <Compile Include="BarCodePrint\BuscarCodigoInterno.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clowd\CldLibroVentas.Designer.vb">
+    <Compile Include="Cloud\CldLibroVentas.Designer.vb">
       <DependentUpon>CldLibroVentas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Clowd\CldLibroVentas.vb">
+    <Compile Include="Cloud\CldLibroVentas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clowd\CldStockGeneral.Designer.vb">
+    <Compile Include="Cloud\CldStockGeneral.Designer.vb">
       <DependentUpon>CldStockGeneral.vb</DependentUpon>
     </Compile>
-    <Compile Include="Clowd\CldStockGeneral.vb">
+    <Compile Include="Cloud\CldStockGeneral.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clowd\CloudConnInfo.Designer.vb">
+    <Compile Include="Cloud\CloudConnInfo.Designer.vb">
       <DependentUpon>CloudConnInfo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Clowd\CloudConnInfo.vb">
+    <Compile Include="Cloud\CloudConnInfo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clowd\MisSucursales.Designer.vb">
+    <Compile Include="Cloud\MisSucursales.Designer.vb">
       <DependentUpon>MisSucursales.vb</DependentUpon>
     </Compile>
-    <Compile Include="Clowd\MisSucursales.vb">
+    <Compile Include="Cloud\MisSucursales.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Contabilidad\AsignacionIVAMasivo.Designer.vb">
@@ -905,10 +905,10 @@
     <Compile Include="Proveedores\Reportes\ViewerPedido.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clowd\SubirProductosClowd.Designer.vb">
+    <Compile Include="Cloud\SubirProductosClowd.Designer.vb">
       <DependentUpon>SubirProductosClowd.vb</DependentUpon>
     </Compile>
-    <Compile Include="Clowd\SubirProductosClowd.vb">
+    <Compile Include="Cloud\SubirProductosClowd.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Stock\CalculaMontoPC.Designer.vb">
@@ -1497,19 +1497,19 @@
       <DependentUpon>BuscarCodigoInterno.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BarCodePrint\RepPlantillaBarCode.rdlc" />
-    <EmbeddedResource Include="Clowd\CldLibroVentas.resx">
+    <EmbeddedResource Include="Cloud\CldLibroVentas.resx">
       <DependentUpon>CldLibroVentas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clowd\CldStockGeneral.resx">
+    <EmbeddedResource Include="Cloud\CldStockGeneral.resx">
       <DependentUpon>CldStockGeneral.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clowd\CloudConnInfo.resx">
+    <EmbeddedResource Include="Cloud\CloudConnInfo.resx">
       <DependentUpon>CloudConnInfo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clowd\MisSucursales.resx">
+    <EmbeddedResource Include="Cloud\MisSucursales.resx">
       <DependentUpon>MisSucursales.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clowd\Reportes\repStockGRemoto.rdlc" />
+    <EmbeddedResource Include="Cloud\Reportes\repStockGRemoto.rdlc" />
     <EmbeddedResource Include="Contabilidad\AsignacionIVAMasivo.resx">
       <DependentUpon>AsignacionIVAMasivo.vb</DependentUpon>
     </EmbeddedResource>
@@ -1842,7 +1842,7 @@
     <EmbeddedResource Include="Proveedores\Reportes\ViewerPedido.resx">
       <DependentUpon>ViewerPedido.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clowd\SubirProductosClowd.resx">
+    <EmbeddedResource Include="Cloud\SubirProductosClowd.resx">
       <DependentUpon>SubirProductosClowd.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock\CalculaMontoPC.resx">

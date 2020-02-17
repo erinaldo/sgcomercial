@@ -794,6 +794,13 @@ Public Class ABMProductos
             ComboBox3.Select()
             Return
         End If
+        '**********************************************
+        If Not IvaComboBox.SelectedIndex >= 0 Then
+            MsgBox("Ingrese un valor de IVA", MsgBoxStyle.Exclamation, "Advertencia")
+            IvaComboBox.Select()
+            res = False
+            Return
+        End If
 
         Try
             Me.ProductosBindingSource.EndEdit()
@@ -804,9 +811,10 @@ Public Class ABMProductos
                     PushProducto(codigoNUEVO, CODERROR, MSGERROR)
                     If CODERROR > 0 Then
                         Throw New Exception("No se pudo actualizar el producto en la nube -" + MSGERROR + "-")
+                    Else
+                        MsgInfo("Producto Creado Correctamente! [Clowd]")
                     End If
                 End If
-                MsgInfo("Producto Creado Correctamente! [Clowd]")
                 Me.ComercialDataSet.AcceptChanges()
                 ProductosTableAdapter.productos_estadoproducto("A", ProductosTableAdapter.productos_existeproducto(codigoNUEVO))
             End If
@@ -841,7 +849,7 @@ Public Class ABMProductos
         '/*******************   insertar PROVEEDOR ***************************/
         '/*******************************************************************/
         Try
-            If idproveedor >= 0 Then
+            If idproveedor > 0 Then
                 Try
                     AsignarProveedor(idproveedor)
                 Catch ex As Exception
@@ -1009,8 +1017,14 @@ Public Class ABMProductos
     End Sub
 
     Private Sub ProductosDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles ProductosDataGridView.SelectionChanged
-        SetProveedor()
-
+        Try
+            Dim idprod As Long = IdproductoTextBox.Text
+            If idprod > 0 Then
+                SetProveedor()
+            End If
+        Catch ex As Exception
+            'Return
+        End Try
     End Sub
     Private Sub SetProveedor()
         Try

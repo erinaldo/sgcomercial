@@ -773,22 +773,22 @@ Public Class Principal
         If MsgQues("    Seguro desea salir del sistema?   ") = False Then
             e.Cancel = True
         Else
-            '********************************************************
-            Dim TerminalesTableadapter As siscomDataSetTableAdapters.terminalesTableAdapter
-            TerminalesTableadapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
-            '********************************************************
-            Dim forceupdate As Integer = 0
-            Try
-                forceupdate = TerminalesTableadapter.terminales_getforceupdate(gmacadress)
-            Catch ex As Exception
-                forceupdate = 0
-            End Try
-            If gAutoUpdater = 1 And forceupdate = 1 Then
-                e.Cancel = True
-                DownloadSGC()
-            Else
-                End
-            End If
+            ''********************************************************
+            'Dim TerminalesTableadapter As siscomDataSetTableAdapters.terminalesTableAdapter
+            'TerminalesTableadapter = New siscomDataSetTableAdapters.terminalesTableAdapter()
+            ''********************************************************
+            'Dim forceupdate As Integer = 0
+            'Try
+            '    forceupdate = TerminalesTableadapter.terminales_getforceupdate(gmacadress)
+            'Catch ex As Exception
+            '    forceupdate = 0
+            'End Try
+            'If gAutoUpdater = 1 And forceupdate = 1 Then
+            '    e.Cancel = True
+            '    DownloadSGC()
+            'Else
+            '    End
+            'End If
         End If
     End Sub
 
