@@ -12982,6 +12982,35 @@ SELECT idtipoconceptosueldo, descripcion, signo FROM tipoconceptosueldo WHERE (i
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="listaclientesdomiciliosTableAdapter" GeneratorDataComponentClassName="listaclientesdomiciliosTableAdapter" Name="listaclientesdomicilios" UserDataComponentName="listaclientesdomiciliosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="comercialConnectionString (MySettings)" DbObjectName="comercial.dbo.listaclientesdomicilios" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idcliente, nombre, idtipodocumento, doctipoafip, doctipo, docnro, telefono, condicioniva, nombreprovincia, direccion, referencias, cp, dom_localidad, dom_provincia FROM listaclientesdomicilios</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idcliente" DataSetColumn="idcliente" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="idtipodocumento" DataSetColumn="idtipodocumento" />
+              <Mapping SourceColumn="doctipoafip" DataSetColumn="doctipoafip" />
+              <Mapping SourceColumn="doctipo" DataSetColumn="doctipo" />
+              <Mapping SourceColumn="docnro" DataSetColumn="docnro" />
+              <Mapping SourceColumn="telefono" DataSetColumn="telefono" />
+              <Mapping SourceColumn="condicioniva" DataSetColumn="condicioniva" />
+              <Mapping SourceColumn="nombreprovincia" DataSetColumn="nombreprovincia" />
+              <Mapping SourceColumn="direccion" DataSetColumn="direccion" />
+              <Mapping SourceColumn="referencias" DataSetColumn="referencias" />
+              <Mapping SourceColumn="cp" DataSetColumn="cp" />
+              <Mapping SourceColumn="dom_provincia" DataSetColumn="dom_provincia" />
+              <Mapping SourceColumn="dom_localidad" DataSetColumn="dom_localidad" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -17703,6 +17732,98 @@ SELECT idtipoconceptosueldo, descripcion, signo FROM tipoconceptosueldo WHERE (i
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="listaclientesdomicilios" msprop:Generator_TableClassName="listaclientesdomiciliosDataTable" msprop:Generator_TableVarName="tablelistaclientesdomicilios" msprop:Generator_RowChangedName="listaclientesdomiciliosRowChanged" msprop:Generator_TablePropName="listaclientesdomicilios" msprop:Generator_RowDeletingName="listaclientesdomiciliosRowDeleting" msprop:Generator_RowChangingName="listaclientesdomiciliosRowChanging" msprop:Generator_RowEvHandlerName="listaclientesdomiciliosRowChangeEventHandler" msprop:Generator_RowDeletedName="listaclientesdomiciliosRowDeleted" msprop:Generator_RowClassName="listaclientesdomiciliosRow" msprop:Generator_UserTableName="listaclientesdomicilios" msprop:Generator_RowEvArgName="listaclientesdomiciliosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idcliente" msprop:Generator_ColumnVarNameInTable="columnidcliente" msprop:Generator_ColumnPropNameInRow="idcliente" msprop:Generator_ColumnPropNameInTable="idclienteColumn" msprop:Generator_UserColumnName="idcliente" type="xs:decimal" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idtipodocumento" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnidtipodocumento" msprop:Generator_ColumnPropNameInRow="idtipodocumento" msprop:Generator_ColumnPropNameInTable="idtipodocumentoColumn" msprop:Generator_UserColumnName="idtipodocumento" type="xs:int" minOccurs="0" />
+              <xs:element name="doctipoafip" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndoctipoafip" msprop:Generator_ColumnPropNameInRow="doctipoafip" msprop:Generator_ColumnPropNameInTable="doctipoafipColumn" msprop:Generator_UserColumnName="doctipoafip" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="doctipo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndoctipo" msprop:Generator_ColumnPropNameInRow="doctipo" msprop:Generator_ColumnPropNameInTable="doctipoColumn" msprop:Generator_UserColumnName="doctipo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="docnro" msprop:Generator_ColumnVarNameInTable="columndocnro" msprop:Generator_ColumnPropNameInRow="docnro" msprop:Generator_ColumnPropNameInTable="docnroColumn" msprop:Generator_UserColumnName="docnro" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" msprop:Generator_UserColumnName="telefono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="condicioniva" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncondicioniva" msprop:Generator_ColumnPropNameInRow="condicioniva" msprop:Generator_ColumnPropNameInTable="condicionivaColumn" msprop:Generator_UserColumnName="condicioniva" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombreprovincia" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnnombreprovincia" msprop:Generator_ColumnPropNameInRow="nombreprovincia" msprop:Generator_ColumnPropNameInTable="nombreprovinciaColumn" msprop:Generator_UserColumnName="nombreprovincia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="direccion" msprop:Generator_ColumnVarNameInTable="columndireccion" msprop:Generator_ColumnPropNameInRow="direccion" msprop:Generator_ColumnPropNameInTable="direccionColumn" msprop:Generator_UserColumnName="direccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="referencias" msprop:Generator_ColumnVarNameInTable="columnreferencias" msprop:Generator_ColumnPropNameInRow="referencias" msprop:Generator_ColumnPropNameInTable="referenciasColumn" msprop:Generator_UserColumnName="referencias" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cp" msprop:Generator_ColumnVarNameInTable="columncp" msprop:Generator_ColumnPropNameInRow="cp" msprop:Generator_ColumnPropNameInTable="cpColumn" msprop:Generator_UserColumnName="cp" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dom_provincia" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndom_provincia" msprop:Generator_ColumnPropNameInRow="dom_provincia" msprop:Generator_ColumnPropNameInTable="dom_provinciaColumn" msprop:Generator_UserColumnName="dom_provincia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dom_localidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndom_localidad" msprop:Generator_ColumnPropNameInRow="dom_localidad" msprop:Generator_ColumnPropNameInTable="dom_localidadColumn" msprop:Generator_UserColumnName="dom_localidad" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.ComponentModel
+Imports System.Text.RegularExpressions
 Public Class ABMClientes
     Dim autoclose As Boolean = False
     Dim v_valdatosnuevosclientes As String
@@ -73,11 +74,8 @@ Public Class ABMClientes
     Private Sub ABMClientes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         CheckModulesAuth()
         '********** 
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipodocumentos' Puede moverla o quitarla según sea necesario.
         Me.TipodocumentosTableAdapter.Fill(Me.ComercialDataSet.tipodocumentos)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.provincias' Puede moverla o quitarla según sea necesario.
         Me.ProvinciasTableAdapter.Fill(Me.ComercialDataSet.provincias)
-        'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.tipocondicioniva' Puede moverla o quitarla según sea necesario.
         Me.TipocondicionivaTableAdapter.Fill(Me.ComercialDataSet.tipocondicioniva)
         '********** 
         Me.ClientesTableAdapter.FillByClientesTodos(Me.ComercialDataSet.clientes)
@@ -91,6 +89,8 @@ Public Class ABMClientes
             ToolStripButtonEditar.PerformClick()
         End If
         ComboBox1.SelectedIndex = 0
+        BGWLCD.RunWorkerAsync()
+        'Me.ReportViewer1.RefreshReport()
     End Sub
 
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButtonEditar.Click
@@ -156,13 +156,13 @@ Public Class ABMClientes
                 Me.Close()
             End If
         End If
-        If e.KeyCode = Keys.F12 And Me.MaximizeBox = True Then
-            If Me.WindowState = FormWindowState.Normal Then
-                Me.WindowState = FormWindowState.Maximized
-            Else
-                Me.WindowState = FormWindowState.Normal
-            End If
-        End If
+        'If e.KeyCode = Keys.F12 And Me.MaximizeBox = True Then
+        '    If Me.WindowState = FormWindowState.Normal Then
+        '        Me.WindowState = FormWindowState.Maximized
+        '    Else
+        '        Me.WindowState = FormWindowState.Normal
+        '    End If
+        'End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
     End Sub
 
@@ -263,5 +263,67 @@ Public Class ABMClientes
         Catch ex As Exception
             'MessageBox.Show("Operación exitosa!", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         End Try
+    End Sub
+
+    Private Sub ExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcelToolStripMenuItem.Click
+        If BGWLCD.IsBusy Then
+            MsgExPopUp("Se estan cargando los datos del informe, intente nuevamente en unos segundos")
+            Return
+        End If
+        Try
+            Dim extensions As RenderingExtension() = ReportViewer1.LocalReport.ListRenderingExtensions()
+            For Each extension As RenderingExtension In extensions
+                If extension.Name = "EXCELOPENXML" Then
+                    'If MessageBox.Show("El proceso puede tardar unos minutos. Desea continuar?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+                    'Dim rtn As Integer
+                    If ReportViewer1.ExportDialog(extension) Then
+                        'MsgBox("Proceso finalizado correctamente!", MsgBoxStyle.Information, "Mensaje")
+                        MsgSuccessPopUp("Proceso finalizado correctamente!")
+                        'Me.Close()
+                    End If
+                    'End If
+                End If
+            Next
+        Catch ex As Exception
+            MsgExPopUp("Aguarde un momento, se estan procesando los datos del reporte")
+            Return
+        End Try
+    End Sub
+
+    Private Sub PDFToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PDFToolStripMenuItem.Click
+        If BGWLCD.IsBusy Then
+            MsgExPopUp("Se estan cargando los datos del informe, intente nuevamente en unos segundos")
+            Return
+        End If
+        Try
+            Dim extensions As RenderingExtension() = ReportViewer1.LocalReport.ListRenderingExtensions()
+            For Each extension As RenderingExtension In extensions
+                If extension.Name = "PDF" Then
+                    'If MessageBox.Show("El proceso puede tardar unos minutos. Desea continuar?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+                    'Dim rtn As Integer
+                    If ReportViewer1.ExportDialog(extension) Then
+                        'MsgBox("Proceso finalizado correctamente!", MsgBoxStyle.Information, "Mensaje")
+                        MsgSuccessPopUp("Proceso finalizado correctamente!")
+                        'Me.Close()
+                    End If
+                    'End If
+                End If
+            Next
+        Catch ex As Exception
+            MsgExPopUp("Aguarde un momento, se estan procesando los datos del reporte")
+            Return
+        End Try
+    End Sub
+
+    Private Sub BGWLCD_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGWLCD.DoWork
+        Me.MiComercioTableAdapter.Fill(Me.ComercialDataSet.MiComercio)
+        Me.listaclientesdomiciliosTableAdapter.Fill(Me.ComercialDataSet.listaclientesdomicilios)
+
+        'ExportarBtn.Enabled = False
+    End Sub
+
+    Private Sub BGWLCD_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BGWLCD.RunWorkerCompleted
+        'ExportarBtn.Enabled = False
+        Me.ReportViewer1.RefreshReport()
     End Sub
 End Class

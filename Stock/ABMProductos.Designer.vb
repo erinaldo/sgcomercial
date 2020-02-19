@@ -23,26 +23,40 @@ Partial Class ABMProductos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim IdproductoLabel As System.Windows.Forms.Label
-        Dim MarcaLabel As System.Windows.Forms.Label
-        Dim ModeloLabel As System.Windows.Forms.Label
-        Dim PresentacionLabel As System.Windows.Forms.Label
-        Dim UnidadmedidaLabel As System.Windows.Forms.Label
-        Dim MedidaLabel As System.Windows.Forms.Label
         Dim ImagenLabel As System.Windows.Forms.Label
         Dim PreciounitarioLabel As System.Windows.Forms.Label
         Dim PrecioventaLabel As System.Windows.Forms.Label
         Dim Label3 As System.Windows.Forms.Label
         Dim Label2 As System.Windows.Forms.Label
         Dim DescripcionLabel As System.Windows.Forms.Label
-        Dim PrecioventagranelLabel As System.Windows.Forms.Label
-        Dim PrecioventamayoristaLabel As System.Windows.Forms.Label
-        Dim Label4 As System.Windows.Forms.Label
         Dim Label5 As System.Windows.Forms.Label
         Dim Label6 As System.Windows.Forms.Label
         Dim FabricanteLabel As System.Windows.Forms.Label
         Dim Label7 As System.Windows.Forms.Label
+        Dim Label11 As System.Windows.Forms.Label
+        Dim Label8 As System.Windows.Forms.Label
+        Dim Label9 As System.Windows.Forms.Label
+        Dim Label10 As System.Windows.Forms.Label
+        Dim Label12 As System.Windows.Forms.Label
+        Dim Label13 As System.Windows.Forms.Label
+        Dim Label14 As System.Windows.Forms.Label
+        Dim Label15 As System.Windows.Forms.Label
+        Dim Label16 As System.Windows.Forms.Label
+        Dim IdproductoLabel As System.Windows.Forms.Label
+        Dim MarcaLabel As System.Windows.Forms.Label
+        Dim ModeloLabel As System.Windows.Forms.Label
+        Dim PresentacionLabel As System.Windows.Forms.Label
+        Dim UnidadmedidaLabel As System.Windows.Forms.Label
+        Dim MedidaLabel As System.Windows.Forms.Label
+        Dim Label17 As System.Windows.Forms.Label
+        Dim Label18 As System.Windows.Forms.Label
+        Dim Label19 As System.Windows.Forms.Label
+        Dim Label20 As System.Windows.Forms.Label
+        Dim Label21 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMProductos))
+        Dim PrecioventagranelLabel As System.Windows.Forms.Label
+        Dim PrecioventamayoristaLabel As System.Windows.Forms.Label
+        Dim Label4 As System.Windows.Forms.Label
         Me.ProductosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -122,25 +136,39 @@ Partial Class ABMProductos
         Me.StockTableAdapter1 = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.TipoivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipoivaTableAdapter()
         Me.ProveedoresTableAdapter = New sgcomercial.comercialDataSetTableAdapters.proveedoresTableAdapter()
-        IdproductoLabel = New System.Windows.Forms.Label()
-        MarcaLabel = New System.Windows.Forms.Label()
-        ModeloLabel = New System.Windows.Forms.Label()
-        PresentacionLabel = New System.Windows.Forms.Label()
-        UnidadmedidaLabel = New System.Windows.Forms.Label()
-        MedidaLabel = New System.Windows.Forms.Label()
         ImagenLabel = New System.Windows.Forms.Label()
         PreciounitarioLabel = New System.Windows.Forms.Label()
         PrecioventaLabel = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
         DescripcionLabel = New System.Windows.Forms.Label()
-        PrecioventagranelLabel = New System.Windows.Forms.Label()
-        PrecioventamayoristaLabel = New System.Windows.Forms.Label()
-        Label4 = New System.Windows.Forms.Label()
         Label5 = New System.Windows.Forms.Label()
         Label6 = New System.Windows.Forms.Label()
         FabricanteLabel = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
+        Label11 = New System.Windows.Forms.Label()
+        Label8 = New System.Windows.Forms.Label()
+        Label9 = New System.Windows.Forms.Label()
+        Label10 = New System.Windows.Forms.Label()
+        Label12 = New System.Windows.Forms.Label()
+        Label13 = New System.Windows.Forms.Label()
+        Label14 = New System.Windows.Forms.Label()
+        Label15 = New System.Windows.Forms.Label()
+        Label16 = New System.Windows.Forms.Label()
+        IdproductoLabel = New System.Windows.Forms.Label()
+        MarcaLabel = New System.Windows.Forms.Label()
+        ModeloLabel = New System.Windows.Forms.Label()
+        PresentacionLabel = New System.Windows.Forms.Label()
+        UnidadmedidaLabel = New System.Windows.Forms.Label()
+        MedidaLabel = New System.Windows.Forms.Label()
+        Label17 = New System.Windows.Forms.Label()
+        Label18 = New System.Windows.Forms.Label()
+        Label19 = New System.Windows.Forms.Label()
+        Label20 = New System.Windows.Forms.Label()
+        Label21 = New System.Windows.Forms.Label()
+        PrecioventagranelLabel = New System.Windows.Forms.Label()
+        PrecioventamayoristaLabel = New System.Windows.Forms.Label()
+        Label4 = New System.Windows.Forms.Label()
         CType(Me.ProductosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProductosBindingNavigator.SuspendLayout()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -161,66 +189,6 @@ Partial Class ABMProductos
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
-        'IdproductoLabel
-        '
-        IdproductoLabel.AutoSize = True
-        IdproductoLabel.Location = New System.Drawing.Point(48, 63)
-        IdproductoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        IdproductoLabel.Name = "IdproductoLabel"
-        IdproductoLabel.Size = New System.Drawing.Size(102, 17)
-        IdproductoLabel.TabIndex = 1
-        IdproductoLabel.Text = "Cod. Producto:"
-        '
-        'MarcaLabel
-        '
-        MarcaLabel.AutoSize = True
-        MarcaLabel.Location = New System.Drawing.Point(99, 95)
-        MarcaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        MarcaLabel.Name = "MarcaLabel"
-        MarcaLabel.Size = New System.Drawing.Size(51, 17)
-        MarcaLabel.TabIndex = 3
-        MarcaLabel.Text = "Marca:"
-        '
-        'ModeloLabel
-        '
-        ModeloLabel.AutoSize = True
-        ModeloLabel.Location = New System.Drawing.Point(81, 127)
-        ModeloLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        ModeloLabel.Name = "ModeloLabel"
-        ModeloLabel.Size = New System.Drawing.Size(69, 17)
-        ModeloLabel.TabIndex = 5
-        ModeloLabel.Text = "Producto:"
-        '
-        'PresentacionLabel
-        '
-        PresentacionLabel.AutoSize = True
-        PresentacionLabel.Location = New System.Drawing.Point(56, 159)
-        PresentacionLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        PresentacionLabel.Name = "PresentacionLabel"
-        PresentacionLabel.Size = New System.Drawing.Size(95, 17)
-        PresentacionLabel.TabIndex = 7
-        PresentacionLabel.Text = "Presentación:"
-        '
-        'UnidadmedidaLabel
-        '
-        UnidadmedidaLabel.AutoSize = True
-        UnidadmedidaLabel.Location = New System.Drawing.Point(23, 189)
-        UnidadmedidaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        UnidadmedidaLabel.Name = "UnidadmedidaLabel"
-        UnidadmedidaLabel.Size = New System.Drawing.Size(127, 17)
-        UnidadmedidaLabel.TabIndex = 9
-        UnidadmedidaLabel.Text = "Unidad de Medida:"
-        '
-        'MedidaLabel
-        '
-        MedidaLabel.AutoSize = True
-        MedidaLabel.Location = New System.Drawing.Point(92, 227)
-        MedidaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        MedidaLabel.Name = "MedidaLabel"
-        MedidaLabel.Size = New System.Drawing.Size(58, 17)
-        MedidaLabel.TabIndex = 11
-        MedidaLabel.Text = "Medida:"
-        '
         'ImagenLabel
         '
         ImagenLabel.AutoSize = True
@@ -234,12 +202,14 @@ Partial Class ABMProductos
         'PreciounitarioLabel
         '
         PreciounitarioLabel.AutoSize = True
-        PreciounitarioLabel.Location = New System.Drawing.Point(42, 215)
+        PreciounitarioLabel.BackColor = System.Drawing.Color.Transparent
+        PreciounitarioLabel.Location = New System.Drawing.Point(51, 215)
         PreciounitarioLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PreciounitarioLabel.Name = "PreciounitarioLabel"
         PreciounitarioLabel.Size = New System.Drawing.Size(92, 17)
         PreciounitarioLabel.TabIndex = 110
         PreciounitarioLabel.Text = "Precio Costo:"
+        PreciounitarioLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'PrecioventaLabel
         '
@@ -247,17 +217,20 @@ Partial Class ABMProductos
         PrecioventaLabel.AccessibleName = "Precio Vta. público (empaque cerrado):"
         PrecioventaLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolTip
         PrecioventaLabel.AutoSize = True
-        PrecioventaLabel.Location = New System.Drawing.Point(4, 251)
+        PrecioventaLabel.BackColor = System.Drawing.Color.Transparent
+        PrecioventaLabel.Location = New System.Drawing.Point(13, 251)
         PrecioventaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PrecioventaLabel.Name = "PrecioventaLabel"
         PrecioventaLabel.Size = New System.Drawing.Size(130, 17)
         PrecioventaLabel.TabIndex = 109
         PrecioventaLabel.Text = "Precio Vta. público:"
+        PrecioventaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label3
         '
         Label3.AutoSize = True
-        Label3.Location = New System.Drawing.Point(405, 83)
+        Label3.BackColor = System.Drawing.Color.Transparent
+        Label3.Location = New System.Drawing.Point(414, 83)
         Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label3.Name = "Label3"
         Label3.Size = New System.Drawing.Size(95, 17)
@@ -267,7 +240,8 @@ Partial Class ABMProductos
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(405, 20)
+        Label2.BackColor = System.Drawing.Color.Transparent
+        Label2.Location = New System.Drawing.Point(414, 20)
         Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label2.Name = "Label2"
         Label2.Size = New System.Drawing.Size(51, 17)
@@ -277,63 +251,19 @@ Partial Class ABMProductos
         'DescripcionLabel
         '
         DescripcionLabel.AutoSize = True
-        DescripcionLabel.Location = New System.Drawing.Point(405, 121)
+        DescripcionLabel.BackColor = System.Drawing.Color.Transparent
+        DescripcionLabel.Location = New System.Drawing.Point(414, 121)
         DescripcionLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DescripcionLabel.Name = "DescripcionLabel"
         DescripcionLabel.Size = New System.Drawing.Size(86, 17)
         DescripcionLabel.TabIndex = 108
         DescripcionLabel.Text = "Descripción:"
         '
-        'PrecioventagranelLabel
-        '
-        PrecioventagranelLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        PrecioventagranelLabel.Cursor = System.Windows.Forms.Cursors.Hand
-        PrecioventagranelLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        PrecioventagranelLabel.ForeColor = System.Drawing.SystemColors.Highlight
-        PrecioventagranelLabel.Location = New System.Drawing.Point(304, 216)
-        PrecioventagranelLabel.Name = "PrecioventagranelLabel"
-        PrecioventagranelLabel.Size = New System.Drawing.Size(140, 17)
-        PrecioventagranelLabel.TabIndex = 112
-        PrecioventagranelLabel.Text = "Precio Vta. a Granel:"
-        PrecioventagranelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        AddHandler PrecioventagranelLabel.Click, AddressOf Me.PrecioventagranelLabel_Click
-        '
-        'PrecioventamayoristaLabel
-        '
-        PrecioventamayoristaLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        PrecioventamayoristaLabel.Cursor = System.Windows.Forms.Cursors.Hand
-        PrecioventamayoristaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        PrecioventamayoristaLabel.ForeColor = System.Drawing.SystemColors.Highlight
-        PrecioventamayoristaLabel.Location = New System.Drawing.Point(290, 252)
-        PrecioventamayoristaLabel.Name = "PrecioventamayoristaLabel"
-        PrecioventamayoristaLabel.Size = New System.Drawing.Size(155, 17)
-        PrecioventamayoristaLabel.TabIndex = 113
-        PrecioventamayoristaLabel.Text = "P. Vta. Com./Mayorista:"
-        PrecioventamayoristaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        AddHandler PrecioventamayoristaLabel.Click, AddressOf Me.PrecioventamayoristaLabel_Click
-        '
-        'Label4
-        '
-        Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Label4.Cursor = System.Windows.Forms.Cursors.Hand
-        Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        Label4.ForeColor = System.Drawing.SystemColors.Highlight
-        Label4.Location = New System.Drawing.Point(592, 216)
-        Label4.Name = "Label4"
-        Label4.Size = New System.Drawing.Size(130, 17)
-        Label4.TabIndex = 115
-        Label4.Tag = "Precio Vta. Distribuidores y comercios"
-        Label4.Text = "P. Vta. Distribuidor:"
-        Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        AddHandler Label4.Click, AddressOf Me.Label4_Click
-        '
         'Label5
         '
         Label5.AutoSize = True
-        Label5.Location = New System.Drawing.Point(605, 83)
+        Label5.BackColor = System.Drawing.Color.Transparent
+        Label5.Location = New System.Drawing.Point(614, 83)
         Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label5.Name = "Label5"
         Label5.Size = New System.Drawing.Size(86, 17)
@@ -343,17 +273,20 @@ Partial Class ABMProductos
         'Label6
         '
         Label6.AutoSize = True
+        Label6.BackColor = System.Drawing.Color.Transparent
         Label6.Location = New System.Drawing.Point(611, 252)
         Label6.Name = "Label6"
         Label6.Size = New System.Drawing.Size(113, 17)
         Label6.TabIndex = 123
         Label6.Tag = "Precio Vta. Distribuidores y comercios"
         Label6.Text = "Alícuota IVA (%):"
+        Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'FabricanteLabel
         '
         FabricanteLabel.AutoSize = True
-        FabricanteLabel.Location = New System.Drawing.Point(405, 51)
+        FabricanteLabel.BackColor = System.Drawing.Color.Transparent
+        FabricanteLabel.Location = New System.Drawing.Point(414, 51)
         FabricanteLabel.Name = "FabricanteLabel"
         FabricanteLabel.Size = New System.Drawing.Size(79, 17)
         FabricanteLabel.TabIndex = 124
@@ -362,13 +295,254 @@ Partial Class ABMProductos
         'Label7
         '
         Label7.AutoSize = True
+        Label7.BackColor = System.Drawing.Color.Transparent
         Label7.Cursor = System.Windows.Forms.Cursors.Hand
         Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label7.Location = New System.Drawing.Point(630, 51)
+        Label7.Location = New System.Drawing.Point(639, 51)
         Label7.Name = "Label7"
         Label7.Size = New System.Drawing.Size(78, 17)
         Label7.TabIndex = 124
         Label7.Text = "Proveedor:"
+        '
+        'Label11
+        '
+        Label11.AutoSize = True
+        Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label11.ForeColor = System.Drawing.Color.Red
+        Label11.Location = New System.Drawing.Point(720, 0)
+        Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label11.Name = "Label11"
+        Label11.Size = New System.Drawing.Size(150, 17)
+        Label11.TabIndex = 125
+        Label11.Text = "(*) Dato Obligatorio"
+        '
+        'Label8
+        '
+        Label8.AutoSize = True
+        Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label8.ForeColor = System.Drawing.Color.Red
+        Label8.Location = New System.Drawing.Point(26, 20)
+        Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label8.Name = "Label8"
+        Label8.Size = New System.Drawing.Size(14, 17)
+        Label8.TabIndex = 126
+        Label8.Text = "*"
+        '
+        'Label9
+        '
+        Label9.AutoSize = True
+        Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label9.ForeColor = System.Drawing.Color.Red
+        Label9.Location = New System.Drawing.Point(79, 50)
+        Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label9.Name = "Label9"
+        Label9.Size = New System.Drawing.Size(14, 17)
+        Label9.TabIndex = 127
+        Label9.Text = "*"
+        '
+        'Label10
+        '
+        Label10.AutoSize = True
+        Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label10.ForeColor = System.Drawing.Color.Red
+        Label10.Location = New System.Drawing.Point(61, 83)
+        Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label10.Name = "Label10"
+        Label10.Size = New System.Drawing.Size(14, 17)
+        Label10.TabIndex = 127
+        Label10.Text = "*"
+        '
+        'Label12
+        '
+        Label12.AutoSize = True
+        Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label12.ForeColor = System.Drawing.Color.Red
+        Label12.Location = New System.Drawing.Point(32, 116)
+        Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label12.Name = "Label12"
+        Label12.Size = New System.Drawing.Size(14, 17)
+        Label12.TabIndex = 128
+        Label12.Text = "*"
+        '
+        'Label13
+        '
+        Label13.AutoSize = True
+        Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label13.ForeColor = System.Drawing.Color.Red
+        Label13.Location = New System.Drawing.Point(21, 147)
+        Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label13.Name = "Label13"
+        Label13.Size = New System.Drawing.Size(14, 17)
+        Label13.TabIndex = 129
+        Label13.Text = "*"
+        '
+        'Label14
+        '
+        Label14.AutoSize = True
+        Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label14.ForeColor = System.Drawing.Color.Red
+        Label14.Location = New System.Drawing.Point(71, 186)
+        Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label14.Name = "Label14"
+        Label14.Size = New System.Drawing.Size(14, 17)
+        Label14.TabIndex = 130
+        Label14.Text = "*"
+        '
+        'Label15
+        '
+        Label15.AutoSize = True
+        Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label15.ForeColor = System.Drawing.Color.Red
+        Label15.Location = New System.Drawing.Point(38, 217)
+        Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label15.Name = "Label15"
+        Label15.Size = New System.Drawing.Size(14, 17)
+        Label15.TabIndex = 131
+        Label15.Text = "*"
+        '
+        'Label16
+        '
+        Label16.AutoSize = True
+        Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label16.ForeColor = System.Drawing.Color.Red
+        Label16.Location = New System.Drawing.Point(1, 251)
+        Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label16.Name = "Label16"
+        Label16.Size = New System.Drawing.Size(14, 17)
+        Label16.TabIndex = 132
+        Label16.Text = "*"
+        '
+        'IdproductoLabel
+        '
+        IdproductoLabel.AutoSize = True
+        IdproductoLabel.BackColor = System.Drawing.Color.Transparent
+        IdproductoLabel.Location = New System.Drawing.Point(40, 20)
+        IdproductoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        IdproductoLabel.Name = "IdproductoLabel"
+        IdproductoLabel.Size = New System.Drawing.Size(102, 17)
+        IdproductoLabel.TabIndex = 133
+        IdproductoLabel.Text = "Cod. Producto:"
+        IdproductoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'MarcaLabel
+        '
+        MarcaLabel.AutoSize = True
+        MarcaLabel.BackColor = System.Drawing.Color.Transparent
+        MarcaLabel.Location = New System.Drawing.Point(91, 52)
+        MarcaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        MarcaLabel.Name = "MarcaLabel"
+        MarcaLabel.Size = New System.Drawing.Size(51, 17)
+        MarcaLabel.TabIndex = 134
+        MarcaLabel.Text = "Marca:"
+        MarcaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'ModeloLabel
+        '
+        ModeloLabel.AutoSize = True
+        ModeloLabel.BackColor = System.Drawing.Color.Transparent
+        ModeloLabel.Location = New System.Drawing.Point(73, 84)
+        ModeloLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        ModeloLabel.Name = "ModeloLabel"
+        ModeloLabel.Size = New System.Drawing.Size(69, 17)
+        ModeloLabel.TabIndex = 135
+        ModeloLabel.Text = "Producto:"
+        ModeloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'PresentacionLabel
+        '
+        PresentacionLabel.AutoSize = True
+        PresentacionLabel.BackColor = System.Drawing.Color.Transparent
+        PresentacionLabel.Location = New System.Drawing.Point(48, 116)
+        PresentacionLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        PresentacionLabel.Name = "PresentacionLabel"
+        PresentacionLabel.Size = New System.Drawing.Size(95, 17)
+        PresentacionLabel.TabIndex = 136
+        PresentacionLabel.Text = "Presentación:"
+        PresentacionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'UnidadmedidaLabel
+        '
+        UnidadmedidaLabel.AutoSize = True
+        UnidadmedidaLabel.BackColor = System.Drawing.Color.Transparent
+        UnidadmedidaLabel.Location = New System.Drawing.Point(36, 146)
+        UnidadmedidaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        UnidadmedidaLabel.Name = "UnidadmedidaLabel"
+        UnidadmedidaLabel.Size = New System.Drawing.Size(107, 17)
+        UnidadmedidaLabel.TabIndex = 137
+        UnidadmedidaLabel.Text = "Unidad Medida:"
+        UnidadmedidaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'MedidaLabel
+        '
+        MedidaLabel.AutoSize = True
+        MedidaLabel.BackColor = System.Drawing.Color.Transparent
+        MedidaLabel.Location = New System.Drawing.Point(84, 184)
+        MedidaLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        MedidaLabel.Name = "MedidaLabel"
+        MedidaLabel.Size = New System.Drawing.Size(58, 17)
+        MedidaLabel.TabIndex = 138
+        MedidaLabel.Text = "Medida:"
+        MedidaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label17
+        '
+        Label17.AutoSize = True
+        Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label17.ForeColor = System.Drawing.Color.Red
+        Label17.Location = New System.Drawing.Point(401, 20)
+        Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label17.Name = "Label17"
+        Label17.Size = New System.Drawing.Size(14, 17)
+        Label17.TabIndex = 139
+        Label17.Text = "*"
+        '
+        'Label18
+        '
+        Label18.AutoSize = True
+        Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label18.ForeColor = System.Drawing.Color.Red
+        Label18.Location = New System.Drawing.Point(316, 216)
+        Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label18.Name = "Label18"
+        Label18.Size = New System.Drawing.Size(14, 17)
+        Label18.TabIndex = 141
+        Label18.Text = "*"
+        '
+        'Label19
+        '
+        Label19.AutoSize = True
+        Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label19.ForeColor = System.Drawing.Color.Red
+        Label19.Location = New System.Drawing.Point(303, 252)
+        Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label19.Name = "Label19"
+        Label19.Size = New System.Drawing.Size(14, 17)
+        Label19.TabIndex = 142
+        Label19.Text = "*"
+        '
+        'Label20
+        '
+        Label20.AutoSize = True
+        Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label20.ForeColor = System.Drawing.Color.Red
+        Label20.Location = New System.Drawing.Point(609, 217)
+        Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label20.Name = "Label20"
+        Label20.Size = New System.Drawing.Size(14, 17)
+        Label20.TabIndex = 143
+        Label20.Text = "*"
+        '
+        'Label21
+        '
+        Label21.AutoSize = True
+        Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label21.ForeColor = System.Drawing.Color.Red
+        Label21.Location = New System.Drawing.Point(603, 251)
+        Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label21.Name = "Label21"
+        Label21.Size = New System.Drawing.Size(14, 17)
+        Label21.TabIndex = 144
+        Label21.Text = "*"
         '
         'ProductosBindingNavigator
         '
@@ -608,15 +782,21 @@ Partial Class ABMProductos
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -628,6 +808,8 @@ Partial Class ABMProductos
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
         Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -637,6 +819,7 @@ Partial Class ABMProductos
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
@@ -660,6 +843,7 @@ Partial Class ABMProductos
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -667,6 +851,7 @@ Partial Class ABMProductos
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -688,13 +873,30 @@ Partial Class ABMProductos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(PrecioventagranelLabel)
+        Me.GroupBox1.Controls.Add(PrecioventamayoristaLabel)
+        Me.GroupBox1.Controls.Add(Label4)
+        Me.GroupBox1.Controls.Add(Label6)
+        Me.GroupBox1.Controls.Add(Label21)
+        Me.GroupBox1.Controls.Add(Label20)
+        Me.GroupBox1.Controls.Add(Label19)
+        Me.GroupBox1.Controls.Add(Label18)
+        Me.GroupBox1.Controls.Add(Label17)
+        Me.GroupBox1.Controls.Add(Label16)
+        Me.GroupBox1.Controls.Add(Label15)
+        Me.GroupBox1.Controls.Add(Label14)
+        Me.GroupBox1.Controls.Add(Label13)
+        Me.GroupBox1.Controls.Add(Label12)
+        Me.GroupBox1.Controls.Add(Label10)
+        Me.GroupBox1.Controls.Add(Label9)
+        Me.GroupBox1.Controls.Add(Label8)
+        Me.GroupBox1.Controls.Add(Label11)
         Me.GroupBox1.Controls.Add(Me.ComboProveedores)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Label7)
         Me.GroupBox1.Controls.Add(FabricanteLabel)
         Me.GroupBox1.Controls.Add(Me.FabricanteTextBox)
         Me.GroupBox1.Controls.Add(Me.IvaComboBox)
-        Me.GroupBox1.Controls.Add(Label6)
         Me.GroupBox1.Controls.Add(Me.StockDataGridView)
         Me.GroupBox1.Controls.Add(Me.stockinicialtextbox)
         Me.GroupBox1.Controls.Add(Label5)
@@ -703,10 +905,7 @@ Partial Class ABMProductos
         Me.GroupBox1.Controls.Add(Me.BPC2)
         Me.GroupBox1.Controls.Add(Me.BPC1)
         Me.GroupBox1.Controls.Add(Me.PrecioventadistribuidorTextBox)
-        Me.GroupBox1.Controls.Add(Label4)
-        Me.GroupBox1.Controls.Add(PrecioventamayoristaLabel)
         Me.GroupBox1.Controls.Add(Me.PrecioventamayoristaTextBox)
-        Me.GroupBox1.Controls.Add(PrecioventagranelLabel)
         Me.GroupBox1.Controls.Add(Me.PrecioventagranelTextBox)
         Me.GroupBox1.Controls.Add(Me.PictureBoxCalidacodigo)
         Me.GroupBox1.Controls.Add(Me.MedidaTextBox)
@@ -715,18 +914,24 @@ Partial Class ABMProductos
         Me.GroupBox1.Controls.Add(Me.MarcaTextBox)
         Me.GroupBox1.Controls.Add(Me.ModeloTextBox)
         Me.GroupBox1.Controls.Add(Me.PresentacionTextBox)
-        Me.GroupBox1.Controls.Add(PreciounitarioLabel)
         Me.GroupBox1.Controls.Add(Me.PreciocostoTextBox)
-        Me.GroupBox1.Controls.Add(PrecioventaLabel)
         Me.GroupBox1.Controls.Add(Me.PrecioventaTextBox)
         Me.GroupBox1.Controls.Add(Label3)
         Me.GroupBox1.Controls.Add(Me.stockminimotextbox)
         Me.GroupBox1.Controls.Add(Me.codigoproductoTextBox)
         Me.GroupBox1.Controls.Add(Me.ComboBox3)
-        Me.GroupBox1.Controls.Add(Label2)
         Me.GroupBox1.Controls.Add(Me.IdproductoTextBox)
         Me.GroupBox1.Controls.Add(DescripcionLabel)
         Me.GroupBox1.Controls.Add(Me.DescripcionTextBox)
+        Me.GroupBox1.Controls.Add(PreciounitarioLabel)
+        Me.GroupBox1.Controls.Add(PrecioventaLabel)
+        Me.GroupBox1.Controls.Add(IdproductoLabel)
+        Me.GroupBox1.Controls.Add(MarcaLabel)
+        Me.GroupBox1.Controls.Add(ModeloLabel)
+        Me.GroupBox1.Controls.Add(PresentacionLabel)
+        Me.GroupBox1.Controls.Add(UnidadmedidaLabel)
+        Me.GroupBox1.Controls.Add(MedidaLabel)
+        Me.GroupBox1.Controls.Add(Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(16, 43)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
@@ -743,7 +948,7 @@ Partial Class ABMProductos
         Me.ComboProveedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboProveedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!)
         Me.ComboProveedores.FormattingEnabled = True
-        Me.ComboProveedores.Location = New System.Drawing.Point(708, 47)
+        Me.ComboProveedores.Location = New System.Drawing.Point(717, 47)
         Me.ComboProveedores.Name = "ComboProveedores"
         Me.ComboProveedores.Size = New System.Drawing.Size(158, 24)
         Me.ComboProveedores.TabIndex = 14
@@ -763,7 +968,7 @@ Partial Class ABMProductos
         '
         Me.FabricanteTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FabricanteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "fabricante", True))
-        Me.FabricanteTextBox.Location = New System.Drawing.Point(485, 48)
+        Me.FabricanteTextBox.Location = New System.Drawing.Point(494, 48)
         Me.FabricanteTextBox.Name = "FabricanteTextBox"
         Me.FabricanteTextBox.Size = New System.Drawing.Size(141, 22)
         Me.FabricanteTextBox.TabIndex = 13
@@ -793,7 +998,7 @@ Partial Class ABMProductos
         Me.StockDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.StockDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16})
         Me.StockDataGridView.DataSource = Me.StockBindingSource
-        Me.StockDataGridView.Location = New System.Drawing.Point(784, 81)
+        Me.StockDataGridView.Location = New System.Drawing.Point(793, 81)
         Me.StockDataGridView.Name = "StockDataGridView"
         Me.StockDataGridView.RowTemplate.Height = 24
         Me.StockDataGridView.Size = New System.Drawing.Size(21, 21)
@@ -874,7 +1079,7 @@ Partial Class ABMProductos
         '
         'stockinicialtextbox
         '
-        Me.stockinicialtextbox.Location = New System.Drawing.Point(687, 80)
+        Me.stockinicialtextbox.Location = New System.Drawing.Point(696, 80)
         Me.stockinicialtextbox.Name = "stockinicialtextbox"
         Me.stockinicialtextbox.Size = New System.Drawing.Size(91, 22)
         Me.stockinicialtextbox.TabIndex = 16
@@ -922,27 +1127,27 @@ Partial Class ABMProductos
         'PrecioventadistribuidorTextBox
         '
         Me.PrecioventadistribuidorTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventadistribuidor", True))
-        Me.PrecioventadistribuidorTextBox.Location = New System.Drawing.Point(723, 213)
+        Me.PrecioventadistribuidorTextBox.Location = New System.Drawing.Point(742, 213)
         Me.PrecioventadistribuidorTextBox.Name = "PrecioventadistribuidorTextBox"
-        Me.PrecioventadistribuidorTextBox.Size = New System.Drawing.Size(108, 22)
+        Me.PrecioventadistribuidorTextBox.Size = New System.Drawing.Size(89, 22)
         Me.PrecioventadistribuidorTextBox.TabIndex = 10
         Me.PrecioventadistribuidorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'PrecioventamayoristaTextBox
         '
         Me.PrecioventamayoristaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventamayorista", True))
-        Me.PrecioventamayoristaTextBox.Location = New System.Drawing.Point(448, 249)
+        Me.PrecioventamayoristaTextBox.Location = New System.Drawing.Point(467, 249)
         Me.PrecioventamayoristaTextBox.Name = "PrecioventamayoristaTextBox"
-        Me.PrecioventamayoristaTextBox.Size = New System.Drawing.Size(108, 22)
+        Me.PrecioventamayoristaTextBox.Size = New System.Drawing.Size(89, 22)
         Me.PrecioventamayoristaTextBox.TabIndex = 9
         Me.PrecioventamayoristaTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'PrecioventagranelTextBox
         '
         Me.PrecioventagranelTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "precioventagranel", True))
-        Me.PrecioventagranelTextBox.Location = New System.Drawing.Point(448, 213)
+        Me.PrecioventagranelTextBox.Location = New System.Drawing.Point(467, 213)
         Me.PrecioventagranelTextBox.Name = "PrecioventagranelTextBox"
-        Me.PrecioventagranelTextBox.Size = New System.Drawing.Size(108, 22)
+        Me.PrecioventagranelTextBox.Size = New System.Drawing.Size(89, 22)
         Me.PrecioventagranelTextBox.TabIndex = 8
         Me.PrecioventagranelTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1039,7 +1244,7 @@ Partial Class ABMProductos
         'stockminimotextbox
         '
         Me.stockminimotextbox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "stockminimo", True))
-        Me.stockminimotextbox.Location = New System.Drawing.Point(504, 80)
+        Me.stockminimotextbox.Location = New System.Drawing.Point(513, 80)
         Me.stockminimotextbox.Margin = New System.Windows.Forms.Padding(4)
         Me.stockminimotextbox.Name = "stockminimotextbox"
         Me.stockminimotextbox.Size = New System.Drawing.Size(91, 22)
@@ -1063,7 +1268,7 @@ Partial Class ABMProductos
         Me.ComboBox3.DisplayMember = "descripcion"
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(458, 16)
+        Me.ComboBox3.Location = New System.Drawing.Point(467, 16)
         Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(238, 24)
@@ -1083,7 +1288,7 @@ Partial Class ABMProductos
         'DescripcionTextBox
         '
         Me.DescripcionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductosBindingSource, "descripcion", True))
-        Me.DescripcionTextBox.Location = New System.Drawing.Point(409, 144)
+        Me.DescripcionTextBox.Location = New System.Drawing.Point(418, 144)
         Me.DescripcionTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.DescripcionTextBox.Multiline = True
         Me.DescripcionTextBox.Name = "DescripcionTextBox"
@@ -1163,18 +1368,61 @@ Partial Class ABMProductos
         '
         Me.ProveedoresTableAdapter.ClearBeforeFill = True
         '
+        'PrecioventagranelLabel
+        '
+        PrecioventagranelLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        PrecioventagranelLabel.AutoSize = True
+        PrecioventagranelLabel.BackColor = System.Drawing.Color.Transparent
+        PrecioventagranelLabel.Cursor = System.Windows.Forms.Cursors.Hand
+        PrecioventagranelLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!)
+        PrecioventagranelLabel.ForeColor = System.Drawing.SystemColors.Highlight
+        PrecioventagranelLabel.Location = New System.Drawing.Point(333, 216)
+        PrecioventagranelLabel.Name = "PrecioventagranelLabel"
+        PrecioventagranelLabel.Size = New System.Drawing.Size(140, 17)
+        PrecioventagranelLabel.TabIndex = 145
+        PrecioventagranelLabel.Text = "Precio Vta. a Granel:"
+        PrecioventagranelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'PrecioventamayoristaLabel
+        '
+        PrecioventamayoristaLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        PrecioventamayoristaLabel.AutoSize = True
+        PrecioventamayoristaLabel.BackColor = System.Drawing.Color.Transparent
+        PrecioventamayoristaLabel.Cursor = System.Windows.Forms.Cursors.Hand
+        PrecioventamayoristaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!)
+        PrecioventamayoristaLabel.ForeColor = System.Drawing.SystemColors.Highlight
+        PrecioventamayoristaLabel.Location = New System.Drawing.Point(319, 251)
+        PrecioventamayoristaLabel.Name = "PrecioventamayoristaLabel"
+        PrecioventamayoristaLabel.Size = New System.Drawing.Size(155, 17)
+        PrecioventamayoristaLabel.TabIndex = 146
+        PrecioventamayoristaLabel.Text = "P. Vta. Com./Mayorista:"
+        PrecioventamayoristaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Label4.AutoSize = True
+        Label4.BackColor = System.Drawing.Color.Transparent
+        Label4.Cursor = System.Windows.Forms.Cursors.Hand
+        Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        Label4.ForeColor = System.Drawing.SystemColors.Highlight
+        Label4.Location = New System.Drawing.Point(619, 216)
+        Label4.Name = "Label4"
+        Label4.Size = New System.Drawing.Size(130, 17)
+        Label4.TabIndex = 147
+        Label4.Tag = "Precio Vta. Distribuidores y comercios"
+        Label4.Text = "P. Vta. Distribuidor:"
+        Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'ABMProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1164, 632)
         Me.Controls.Add(Me.ProductosDataGridView)
-        Me.Controls.Add(IdproductoLabel)
-        Me.Controls.Add(MarcaLabel)
-        Me.Controls.Add(ModeloLabel)
-        Me.Controls.Add(PresentacionLabel)
-        Me.Controls.Add(UnidadmedidaLabel)
-        Me.Controls.Add(MedidaLabel)
         Me.Controls.Add(Me.ImagenPictureBox)
         Me.Controls.Add(Me.ProductosBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)

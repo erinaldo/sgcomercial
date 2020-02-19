@@ -1276,4 +1276,10 @@ Public Class Principal
         QRTest.ShowDialog()
 
     End Sub
+
+    Private Sub ExportarListaDePreciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarListaDePreciosToolStripMenuItem.Click
+        Dim x As New ExportarListaPrecios()
+        'x.MdiParent = Me
+        x.ShowDialog()
+    End Sub
 End Class

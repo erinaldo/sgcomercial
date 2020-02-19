@@ -124,23 +124,20 @@
   <data name="Alerta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alerta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Alert_check" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alert_check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="contrato" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\contrato.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Excel_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\Excel_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Alert_exclamation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alert_exclamation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Alert_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alert_error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Alert_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\Alert_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="reload-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\reload-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,6 +178,12 @@
   <data name="plus-orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\plus-orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="green-plus-icon-13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\green-plus-icon-13.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG 1X1 (1080X1080) FACE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG 1X1 (1080X1080) FACE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Yes_check" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Yes_check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,8 +208,8 @@
   <data name="UpdateAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\UpdateAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="green-plus-icon-13" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\green-plus-icon-13.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Alert_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\Alert_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Alert_information" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alert_information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,11 +226,14 @@
   <data name="cashregister" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\cashregister.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="save_image_floppy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\save_image_floppy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Alert_check_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\Alert_check_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="appicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\appicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_image_floppy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\save_image_floppy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WebClowd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\WebClowd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,8 +241,11 @@
   <data name="refresh-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\refresh-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BG 1X1 (1080X1080) FACE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BG 1X1 (1080X1080) FACE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Export_1export" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\Export_1export.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Bienvenidaepos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bienvenidaepos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -244,7 +253,7 @@
   <data name="epos_logo_B_sub" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\epos_logo_B_sub.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Alert_check_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\Alert_check_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PDF_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\PDF_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

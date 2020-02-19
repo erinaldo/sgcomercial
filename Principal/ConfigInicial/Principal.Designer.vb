@@ -152,6 +152,7 @@ Partial Class Principal
         Me.FacturaElectrónicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MailServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecargarPermisosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QRTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NubeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubirProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -214,7 +215,7 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.QRTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportarListaDePreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -497,7 +498,7 @@ Partial Class Principal
         '
         'ABMProductosToolStripMenuItem
         '
-        Me.ABMProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductoEstandarToolStripMenuItem, Me.ProductoCompuestoToolStripMenuItem})
+        Me.ABMProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductoEstandarToolStripMenuItem, Me.ProductoCompuestoToolStripMenuItem, Me.ExportarListaDePreciosToolStripMenuItem})
         Me.ABMProductosToolStripMenuItem.Name = "ABMProductosToolStripMenuItem"
         Me.ABMProductosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.ABMProductosToolStripMenuItem.Tag = "ABMProductosParent"
@@ -1188,6 +1189,12 @@ Partial Class Principal
         Me.RecargarPermisosToolStripMenuItem.Tag = "ReloadGlobals"
         Me.RecargarPermisosToolStripMenuItem.Text = "Recargar Globales"
         '
+        'QRTestToolStripMenuItem
+        '
+        Me.QRTestToolStripMenuItem.Name = "QRTestToolStripMenuItem"
+        Me.QRTestToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
+        Me.QRTestToolStripMenuItem.Text = "QRTest"
+        '
         'NubeToolStripMenuItem
         '
         Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.MisSucursalesToolStripMenuItem, Me.SincronizarClientesToolStripMenuItem1})
@@ -1521,6 +1528,7 @@ Partial Class Principal
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
         Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
         Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
@@ -1584,6 +1592,7 @@ Partial Class Principal
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -1664,11 +1673,13 @@ Partial Class Principal
         'BGWAlertas
         '
         '
-        'QRTestToolStripMenuItem
+        'ExportarListaDePreciosToolStripMenuItem
         '
-        Me.QRTestToolStripMenuItem.Name = "QRTestToolStripMenuItem"
-        Me.QRTestToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
-        Me.QRTestToolStripMenuItem.Text = "QRTest"
+        Me.ExportarListaDePreciosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Export_1export
+        Me.ExportarListaDePreciosToolStripMenuItem.Name = "ExportarListaDePreciosToolStripMenuItem"
+        Me.ExportarListaDePreciosToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
+        Me.ExportarListaDePreciosToolStripMenuItem.Tag = "ExportarListadePrecios"
+        Me.ExportarListaDePreciosToolStripMenuItem.Text = "Exportar Lista de Precios"
         '
         'Principal
         '
@@ -1903,4 +1914,5 @@ Partial Class Principal
     Friend WithEvents LegajosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AMBIncapacidadesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents QRTestToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExportarListaDePreciosToolStripMenuItem As ToolStripMenuItem
 End Class

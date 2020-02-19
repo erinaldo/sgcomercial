@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>42</ApplicationRevision>
-    <ApplicationVersion>4.1.0.42</ApplicationVersion>
+    <ApplicationRevision>44</ApplicationRevision>
+    <ApplicationVersion>4.1.0.44</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -664,6 +664,12 @@
       <DependentUpon>ConsultaStockRemotoProducto.vb</DependentUpon>
     </Compile>
     <Compile Include="Stock\ConsultaStockRemotoProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\ExportarListaPrecios.Designer.vb">
+      <DependentUpon>ExportarListaPrecios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\ExportarListaPrecios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Stock\LibroVencimientosProductos.Designer.vb">
@@ -1724,12 +1730,19 @@
     <EmbeddedResource Include="Stock\ConsultaStockRemotoProducto.resx">
       <DependentUpon>ConsultaStockRemotoProducto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stock\ExportarListaPrecios.resx">
+      <DependentUpon>ExportarListaPrecios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stock\LibroVencimientosProductos.resx">
       <DependentUpon>LibroVencimientosProductos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock\LotesVencimiento.resx">
       <DependentUpon>LotesVencimiento.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stock\Reportes\RepEXListaPrecioVenta.rdlc" />
+    <EmbeddedResource Include="Stock\Reportes\RepEXListaPrecioVentaDistribuidor.rdlc" />
+    <EmbeddedResource Include="Stock\Reportes\RepEXListaPrecioVentaGranel.rdlc" />
+    <EmbeddedResource Include="Stock\Reportes\RepEXListaPrecioVentaMayorista.rdlc" />
     <EmbeddedResource Include="Sueldos\ABMCategoriasEmpleados.resx">
       <DependentUpon>ABMCategoriasEmpleados.vb</DependentUpon>
     </EmbeddedResource>
@@ -2040,6 +2053,7 @@
     <EmbeddedResource Include="Ventas\Reportes\RepLibroMayorVentasCompras.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepLibroVentasDetalladas.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepLibroDiario_.rdlc" />
+    <EmbeddedResource Include="Ventas\Reportes\RepListaClientes.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\ReporteCierreCaja.resx">
       <DependentUpon>ReporteCierreCaja.vb</DependentUpon>
     </EmbeddedResource>
@@ -2413,6 +2427,9 @@
     <None Include="My Project\img\Alert_error.png" />
     <None Include="My Project\img\Alert_warning_orange.png" />
     <None Include="My Project\img\Alert_check_blue.png" />
+    <None Include="My Project\img\Export_1export.png" />
+    <None Include="My Project\img\Excel_ico.png" />
+    <None Include="My Project\img\PDF_ico.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

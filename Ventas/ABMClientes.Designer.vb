@@ -37,10 +37,14 @@ Partial Class ABMClientes
         Dim Label10 As System.Windows.Forms.Label
         Dim Label11 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ABMClientes))
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
+        Me.listaclientesdomiciliosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
@@ -49,6 +53,9 @@ Partial Class ABMClientes
         Me.ClientesBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonEditar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ExportarBtn = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PDFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IdclienteTextBox = New System.Windows.Forms.TextBox()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
         Me.CUITTextBox = New System.Windows.Forms.TextBox()
@@ -68,6 +75,7 @@ Partial Class ABMClientes
         Me.ComboCondicionIVA = New System.Windows.Forms.ComboBox()
         Me.TipocondicionivaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.filtrotextbox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -76,6 +84,9 @@ Partial Class ABMClientes
         Me.TipocondicionivaTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocondicionivaTableAdapter()
         Me.ProvinciasTableAdapter = New sgcomercial.comercialDataSetTableAdapters.provinciasTableAdapter()
         Me.TipodocumentosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipodocumentosTableAdapter()
+        Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
+        Me.listaclientesdomiciliosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaclientesdomiciliosTableAdapter()
+        Me.BGWLCD = New System.ComponentModel.BackgroundWorker()
         Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cuit = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -96,10 +107,12 @@ Partial Class ABMClientes
         Label9 = New System.Windows.Forms.Label()
         Label10 = New System.Windows.Forms.Label()
         Label11 = New System.Windows.Forms.Label()
+        CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.listaclientesdomiciliosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ClientesBindingNavigator.SuspendLayout()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.TipodocumentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -247,6 +260,26 @@ Partial Class ABMClientes
         Label11.TabIndex = 20
         Label11.Text = "(*) Dato Obligatorio"
         '
+        'MiComercioBindingSource
+        '
+        Me.MiComercioBindingSource.DataMember = "MiComercio"
+        Me.MiComercioBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ComercialDataSet
+        '
+        Me.ComercialDataSet.DataSetName = "comercialDataSet"
+        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'listaclientesdomiciliosBindingSource
+        '
+        Me.listaclientesdomiciliosBindingSource.DataMember = "listaclientesdomicilios"
+        Me.listaclientesdomiciliosBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "clientes"
+        Me.ClientesBindingSource.DataSource = Me.ComercialDataSet
+        '
         'ClientesBindingNavigator
         '
         Me.ClientesBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
@@ -254,7 +287,7 @@ Partial Class ABMClientes
         Me.ClientesBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.ClientesBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.ClientesBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ClientesBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.ClientesBindingNavigatorSaveItem, Me.ToolStripButtonEditar, Me.ToolStripButton2})
+        Me.ClientesBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.ClientesBindingNavigatorSaveItem, Me.ToolStripButtonEditar, Me.ToolStripButton2, Me.ExportarBtn})
         Me.ClientesBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.ClientesBindingNavigator.MoveFirstItem = Nothing
         Me.ClientesBindingNavigator.MoveLastItem = Nothing
@@ -274,16 +307,6 @@ Partial Class ABMClientes
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(111, 44)
         Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
         Me.BindingNavigatorAddNewItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "clientes"
-        Me.ClientesBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ComercialDataSet
-        '
-        Me.ComercialDataSet.DataSetName = "comercialDataSet"
-        Me.ComercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -349,6 +372,30 @@ Partial Class ABMClientes
         Me.ToolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.ToolStripButton2.Visible = False
         '
+        'ExportarBtn
+        '
+        Me.ExportarBtn.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcelToolStripMenuItem, Me.PDFToolStripMenuItem})
+        Me.ExportarBtn.Image = Global.sgcomercial.My.Resources.Resources.Export_1export
+        Me.ExportarBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ExportarBtn.Name = "ExportarBtn"
+        Me.ExportarBtn.Size = New System.Drawing.Size(131, 44)
+        Me.ExportarBtn.Text = "Exportar Listado"
+        Me.ExportarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'ExcelToolStripMenuItem
+        '
+        Me.ExcelToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Excel_ico
+        Me.ExcelToolStripMenuItem.Name = "ExcelToolStripMenuItem"
+        Me.ExcelToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.ExcelToolStripMenuItem.Text = "Excel"
+        '
+        'PDFToolStripMenuItem
+        '
+        Me.PDFToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.PDF_ico
+        Me.PDFToolStripMenuItem.Name = "PDFToolStripMenuItem"
+        Me.PDFToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.PDFToolStripMenuItem.Text = "PDF"
+        '
         'IdclienteTextBox
         '
         Me.IdclienteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "idcliente", True))
@@ -408,7 +455,6 @@ Partial Class ABMClientes
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ClientesDataGridView.AutoGenerateColumns = False
-        Me.ClientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcliente, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.EditarDomicilio, Me.eliminar})
         Me.ClientesDataGridView.DataSource = Me.ClientesBindingSource
@@ -416,6 +462,7 @@ Partial Class ABMClientes
         Me.ClientesDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.ClientesDataGridView.Name = "ClientesDataGridView"
         Me.ClientesDataGridView.ReadOnly = True
+        Me.ClientesDataGridView.RowHeadersVisible = False
         Me.ClientesDataGridView.Size = New System.Drawing.Size(975, 199)
         Me.ClientesDataGridView.TabIndex = 13
         '
@@ -555,6 +602,7 @@ Partial Class ABMClientes
         '
         Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.ReportViewer1)
         Me.GroupBox2.Controls.Add(Me.filtrotextbox)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
@@ -567,6 +615,21 @@ Partial Class ABMClientes
         Me.GroupBox2.TabIndex = 15
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lista de clientes"
+        '
+        'ReportViewer1
+        '
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "listaclientesdomicilios"
+        ReportDataSource2.Value = Me.listaclientesdomiciliosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepListaClientes.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 128)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(975, 144)
+        Me.ReportViewer1.TabIndex = 17
+        Me.ReportViewer1.Visible = False
         '
         'filtrotextbox
         '
@@ -603,6 +666,8 @@ Partial Class ABMClientes
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -612,9 +677,21 @@ Partial Class ABMClientes
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Me.ClientesTableAdapter
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -624,15 +701,22 @@ Partial Class ABMClientes
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
         Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -653,6 +737,8 @@ Partial Class ABMClientes
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -660,6 +746,7 @@ Partial Class ABMClientes
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -687,22 +774,32 @@ Partial Class ABMClientes
         '
         Me.TipodocumentosTableAdapter.ClearBeforeFill = True
         '
+        'MiComercioTableAdapter
+        '
+        Me.MiComercioTableAdapter.ClearBeforeFill = True
+        '
+        'listaclientesdomiciliosTableAdapter
+        '
+        Me.listaclientesdomiciliosTableAdapter.ClearBeforeFill = True
+        '
+        'BGWLCD
+        '
+        '
         'idcliente
         '
         Me.idcliente.DataPropertyName = "idcliente"
-        Me.idcliente.HeaderText = "idcliente"
+        Me.idcliente.HeaderText = "N°"
         Me.idcliente.Name = "idcliente"
         Me.idcliente.ReadOnly = True
-        Me.idcliente.Visible = False
+        Me.idcliente.Width = 129
         '
         'DataGridViewTextBoxColumn2
         '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
         Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre / Razón Social"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 200
         '
         'cuit
         '
@@ -710,6 +807,7 @@ Partial Class ABMClientes
         Me.cuit.HeaderText = "Cuit"
         Me.cuit.Name = "cuit"
         Me.cuit.ReadOnly = True
+        Me.cuit.Width = 128
         '
         'DataGridViewTextBoxColumn4
         '
@@ -717,6 +815,7 @@ Partial Class ABMClientes
         Me.DataGridViewTextBoxColumn4.HeaderText = "Teléfono"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 129
         '
         'DataGridViewTextBoxColumn5
         '
@@ -724,6 +823,7 @@ Partial Class ABMClientes
         Me.DataGridViewTextBoxColumn5.HeaderText = "Email"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 129
         '
         'EditarDomicilio
         '
@@ -736,6 +836,7 @@ Partial Class ABMClientes
         Me.EditarDomicilio.Text = "Editar Domicilio"
         Me.EditarDomicilio.ToolTipText = "Editar Domicilio"
         Me.EditarDomicilio.UseColumnTextForButtonValue = True
+        Me.EditarDomicilio.Width = 128
         '
         'eliminar
         '
@@ -746,6 +847,7 @@ Partial Class ABMClientes
         Me.eliminar.Text = "Eliminar"
         Me.eliminar.ToolTipText = "Eliminar"
         Me.eliminar.UseColumnTextForButtonValue = True
+        Me.eliminar.Width = 129
         '
         'ABMClientes
         '
@@ -764,11 +866,13 @@ Partial Class ABMClientes
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ABMClientes"
         Me.Text = "Agenda de Clientes - Altas, Bajas y Modificación de Clientes"
+        CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.listaclientesdomiciliosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ClientesBindingNavigator.ResumeLayout(False)
         Me.ClientesBindingNavigator.PerformLayout()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -822,6 +926,15 @@ Partial Class ABMClientes
     Friend WithEvents ComboDocTipo As ComboBox
     Friend WithEvents TipodocumentosBindingSource As BindingSource
     Friend WithEvents TipodocumentosTableAdapter As comercialDataSetTableAdapters.tipodocumentosTableAdapter
+    Friend WithEvents ExportarBtn As ToolStripDropDownButton
+    Friend WithEvents ExcelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PDFToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReportViewer1 As ReportViewer
+    Friend WithEvents MiComercioBindingSource As BindingSource
+    Friend WithEvents MiComercioTableAdapter As comercialDataSetTableAdapters.MiComercioTableAdapter
+    Friend WithEvents listaclientesdomiciliosBindingSource As BindingSource
+    Friend WithEvents listaclientesdomiciliosTableAdapter As comercialDataSetTableAdapters.listaclientesdomiciliosTableAdapter
+    Friend WithEvents BGWLCD As System.ComponentModel.BackgroundWorker
     Friend WithEvents idcliente As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents cuit As DataGridViewTextBoxColumn

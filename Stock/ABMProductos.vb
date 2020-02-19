@@ -372,12 +372,13 @@ Public Class ABMProductos
 
     Private Sub stockminimotextbox_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles stockminimotextbox.LostFocus
         If IsNumeric(stockminimotextbox.Text) = False Then
-            stockminimotextbox.Select()
+            'stockminimotextbox.Select()
+            stockminimotextbox.Text = "0"
         End If
     End Sub
 
     Private Sub stockminimotextbox_TextChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles stockminimotextbox.TextChanged
-        Return
+        'Return
     End Sub
 
     Private Sub PreciounitarioTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles PreciocostoTextBox.KeyPress
