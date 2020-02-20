@@ -141,7 +141,7 @@ Module MySQLModule
                                 Dim idlocalidad As Long = clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.idlocalidadColumn)
                                 Dim cp As String = Convert.ToString(clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.cpColumn), Nothing)
                                 Dim rtn2 As Long = 0
-                                rtn2 = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(idclientesdomiciliosweb)
+                                rtn2 = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(idclientelocal, idclientesdomiciliosweb)
                                 If rtn2 = 0 Then ' el domicilio no esta registrado localmente
                                     clientesdomiciliostableadapter.clientesdomicilios_insertar(idclientelocal, direccion, referencias, idprovincia, idlocalidad, cp, idclientesdomiciliosweb)
                                 Else
@@ -222,13 +222,13 @@ Module MySQLModule
                     Dim condicioniva As Long = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.condicionivaColumn), Nothing)
                     Dim idtipodocumento As Long = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.idtipodocumentoColumn), Nothing)
                     Try
-                        'idclientelocal = clientestableadapter.clientes_existeclienteweb(idclienteweb)
+                        idclientelocal = clientestableadapter.clientes_existeclienteweb(idclienteweb)
                         ''****     ins/upd  CLIENTE     **********
-                        'If idclientelocal = 0 Then ' el cliente no esta registrado localmente
-                        idclientelocal = clientestableadapter.clientes_insertar(idclienteweb, nombre, telefono, email, cuit, idtipodocumento, condicioniva)
-                        'Else ' ESTA REGISTRADO LOCALMENTE - ACTUALIZO LA INFORMACION
-                        '    clientestableadapter.clientes_updateclientefromweb(nombre, cuit, telefono, email, idclienteweb)
-                        'End If
+                        If idclientelocal = 0 Then ' el cliente no esta registrado localmente
+                            idclientelocal = clientestableadapter.clientes_insertar(idclienteweb, nombre, telefono, email, cuit, idtipodocumento, condicioniva)
+                        Else ' ESTA REGISTRADO LOCALMENTE - ACTUALIZO LA INFORMACION
+                            clientestableadapter.clientes_updateclientefromweb(nombre, cuit, telefono, email, idclienteweb)
+                        End If
                         '***    OBTENGO DOMICILIOS WEB  **********
                         clientesdomicilioswebtable = clientesdomicilioswebTableAdapter.GetDataByidclientesdomiciliosweb(idclienteweb)
                         'MsgBox(clientesdomicilioswebtable.Rows.Count.ToString)
@@ -245,7 +245,8 @@ Module MySQLModule
                                 Dim idlocalidad As Long = clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.idlocalidadColumn)
                                 Dim cp As String = Convert.ToString(clientesdomicilioswebtable.Rows(j).Item(clientesdomicilioswebtable.cpColumn), Nothing)
                                 Dim rtn2 As Long = 0
-                                rtn2 = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(idclientesdomiciliosweb)
+                                rtn2 = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(idclientelocal, idclientesdomiciliosweb)
+                                '/**************************************************************/
                                 If rtn2 = 0 Then ' el domicilio no esta registrado localmente
                                     clientesdomiciliostableadapter.clientesdomicilios_insertar(idclientelocal, direccion, referencias, idprovincia, idlocalidad, cp, idclientesdomiciliosweb)
                                 Else
@@ -301,7 +302,7 @@ Module MySQLModule
             Dim PedidosDeliveryWEBTableAdapter As MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter
             PedidosDeliveryWEBTableAdapter = New MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter()
             Dim PedidosDeliveryWEBTable As MySQLDataSet.pedidosdeliveryDataTable
-            PedidosDeliveryWEBTable = PedidosDeliveryWEBTableAdapter.GetDataBySync("N", tipo)
+            PedidosDeliveryWEBTable = PedidosDeliveryWEBTableAdapter.GetDataBySync("N", tipo, "GENERADO")
             '****   ----    ********
             '****   PedidosDeliveryTableAdapter  ******** LOCAL
             Dim PedidosDeliveryTableAdapter As comercialDataSetTableAdapters.pedidosdeliveryTableAdapter
@@ -338,7 +339,7 @@ Module MySQLModule
                     Dim idpedidosdeliveryweb As Long = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.idpedidodeliverywebColumn)
                     Try ' VALIDAR QUE TODOS LOS DATOS SE HAYAN CARGADO
                         For d = 0 To PedidosDeliveryWEBTable.Columns.Count - 1
-                            If d = 2 Or d = 5 Or d = 8 Then
+                            If d = 2 Or d = 5 Or d = 8 Or d = 11 Then
                                 Continue For
                             End If
                             If IsDBNull(PedidosDeliveryWEBTable.Rows(i).Item(d)) Then
@@ -359,15 +360,13 @@ Module MySQLModule
                     '*****************************
                     Dim pagoesperado As Decimal '' = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)
                     If IsDBNull(PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)) = False Then
-                        pagoesperado = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.idventawebColumn)
+                        pagoesperado = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)
                     Else
                         pagoesperado = Nothing
                     End If
                     '**************************************
-
                     Dim idtransporte As Long = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.idtransporteColumn)
                     Dim iddomicilioweb As Long = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.iddomicilioColumn)
-
                     Dim fechaalta As DateTime = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.fechaaltaColumn)
                     '*****************************
                     Dim obs As String '' = PedidosDeliveryWEBTable.Rows(i).Item(PedidosDeliveryWEBTable.pagoesperadoColumn)
@@ -384,18 +383,19 @@ Module MySQLModule
                     idpedidodeliverylocal = Convert.ToInt64(PedidosDeliveryTableAdapter.pedidosdelivery_existepedidoweb(idpedidosdeliveryweb), Nothing)
                     If idpedidodeliverylocal = 0 Then ' VERIFICO QUE EXISTA EL CLIENTE LOCAL Y EL DOMICILIO LOCAL
                         idclientelocal = clientestableadapter.clientes_existeclienteweb(idclienteweb)
-                        idclientedomiciliolocal = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(iddomicilioweb)
+                        idclientedomiciliolocal = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(idclientelocal, iddomicilioweb)
                         If idclientelocal = 0 Or idclientedomiciliolocal = 0 Then
                             PullClienteWeb(idclienteweb)
                             idclientelocal = clientestableadapter.clientes_existeclienteweb(idclienteweb)
-                            idclientedomiciliolocal = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(iddomicilioweb)
+                            idclientedomiciliolocal = clientesdomiciliostableadapter.clientesdomicilios_existedomicilioweb(idclientelocal, iddomicilioweb)
                             If idclientelocal = 0 Or idclientedomiciliolocal = 0 Then
                                 ErrorLogTableAdapter.errorlog_insertar("SynPedidos", "DATOS", "SynPedidos", "No se pudo sincronizar el pedido WEB: " + idpedidosdeliveryweb.ToString + " (información de cliente inválida)")
                                 MsgBox("No se pudo sincronizar el pedido WEB: " + idpedidosdeliveryweb.ToString + " (información de cliente inválida)", MsgBoxStyle.Exclamation)
                                 Continue For
                             End If
                         End If
-                    Else    ' SI YA EXISTE LO SALTO
+                    Else    ' SI EL PEDIDO YA EXISTE LO SALTO
+                        PedidosDeliveryWEBTableAdapter.pedidosdelivery_updatesync("S", idpedidosdeliveryweb)
                         Continue For
                     End If
                     'obtengo el detalle del pedido web
