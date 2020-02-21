@@ -30,14 +30,6 @@ Partial Class BuscaProductoManualPedidos
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ProductosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precioventadistribuidor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ConsultarStock = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.ListaproductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -62,6 +54,14 @@ Partial Class BuscaProductoManualPedidos
         Me.StockTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockTableAdapter()
         Me.ParametrosgeneralesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Me.codigoproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idproducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventagranel = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventamayorista = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precioventadistribuidor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ConsultarStock = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.ProductosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -154,78 +154,6 @@ Partial Class BuscaProductoManualPedidos
         Me.ProductosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ProductosDataGridView.Size = New System.Drawing.Size(848, 266)
         Me.ProductosDataGridView.TabIndex = 0
-        '
-        'codigoproducto
-        '
-        Me.codigoproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.codigoproducto.DataPropertyName = "codigoproducto"
-        Me.codigoproducto.HeaderText = "Cod. Producto"
-        Me.codigoproducto.Name = "codigoproducto"
-        Me.codigoproducto.ReadOnly = True
-        '
-        'descripcion
-        '
-        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.descripcion.DataPropertyName = "descripcion"
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 400
-        '
-        'idproducto
-        '
-        Me.idproducto.DataPropertyName = "idproducto"
-        Me.idproducto.HeaderText = "idproducto"
-        Me.idproducto.Name = "idproducto"
-        Me.idproducto.ReadOnly = True
-        Me.idproducto.Visible = False
-        Me.idproducto.Width = 104
-        '
-        'precioventa
-        '
-        Me.precioventa.DataPropertyName = "precioventa"
-        Me.precioventa.HeaderText = "precioventa"
-        Me.precioventa.Name = "precioventa"
-        Me.precioventa.ReadOnly = True
-        Me.precioventa.Visible = False
-        Me.precioventa.Width = 111
-        '
-        'precioventagranel
-        '
-        Me.precioventagranel.DataPropertyName = "precioventagranel"
-        Me.precioventagranel.HeaderText = "precioventagranel"
-        Me.precioventagranel.Name = "precioventagranel"
-        Me.precioventagranel.ReadOnly = True
-        Me.precioventagranel.Visible = False
-        Me.precioventagranel.Width = 151
-        '
-        'precioventamayorista
-        '
-        Me.precioventamayorista.DataPropertyName = "precioventamayorista"
-        Me.precioventamayorista.HeaderText = "precioventamayorista"
-        Me.precioventamayorista.Name = "precioventamayorista"
-        Me.precioventamayorista.ReadOnly = True
-        Me.precioventamayorista.Visible = False
-        Me.precioventamayorista.Width = 172
-        '
-        'precioventadistribuidor
-        '
-        Me.precioventadistribuidor.DataPropertyName = "precioventadistribuidor"
-        Me.precioventadistribuidor.HeaderText = "precioventadistribuidor"
-        Me.precioventadistribuidor.Name = "precioventadistribuidor"
-        Me.precioventadistribuidor.ReadOnly = True
-        Me.precioventadistribuidor.Visible = False
-        Me.precioventadistribuidor.Width = 181
-        '
-        'ConsultarStock
-        '
-        Me.ConsultarStock.HeaderText = ""
-        Me.ConsultarStock.Name = "ConsultarStock"
-        Me.ConsultarStock.ReadOnly = True
-        Me.ConsultarStock.Text = "Ver Stock"
-        Me.ConsultarStock.ToolTipText = "Consultar Stock"
-        Me.ConsultarStock.UseColumnTextForButtonValue = True
-        Me.ConsultarStock.Width = 5
         '
         'ListaproductosBindingSource
         '
@@ -517,6 +445,77 @@ Partial Class BuscaProductoManualPedidos
         'ParametrosgeneralesTableAdapter
         '
         Me.ParametrosgeneralesTableAdapter.ClearBeforeFill = True
+        '
+        'codigoproducto
+        '
+        Me.codigoproducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.codigoproducto.DataPropertyName = "codigoproducto"
+        Me.codigoproducto.HeaderText = "Cod. Producto"
+        Me.codigoproducto.Name = "codigoproducto"
+        Me.codigoproducto.ReadOnly = True
+        '
+        'descripcion
+        '
+        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.descripcion.DataPropertyName = "descripcion"
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        '
+        'idproducto
+        '
+        Me.idproducto.DataPropertyName = "idproducto"
+        Me.idproducto.HeaderText = "idproducto"
+        Me.idproducto.Name = "idproducto"
+        Me.idproducto.ReadOnly = True
+        Me.idproducto.Visible = False
+        Me.idproducto.Width = 104
+        '
+        'precioventa
+        '
+        Me.precioventa.DataPropertyName = "precioventa"
+        Me.precioventa.HeaderText = "precioventa"
+        Me.precioventa.Name = "precioventa"
+        Me.precioventa.ReadOnly = True
+        Me.precioventa.Visible = False
+        Me.precioventa.Width = 111
+        '
+        'precioventagranel
+        '
+        Me.precioventagranel.DataPropertyName = "precioventagranel"
+        Me.precioventagranel.HeaderText = "precioventagranel"
+        Me.precioventagranel.Name = "precioventagranel"
+        Me.precioventagranel.ReadOnly = True
+        Me.precioventagranel.Visible = False
+        Me.precioventagranel.Width = 151
+        '
+        'precioventamayorista
+        '
+        Me.precioventamayorista.DataPropertyName = "precioventamayorista"
+        Me.precioventamayorista.HeaderText = "precioventamayorista"
+        Me.precioventamayorista.Name = "precioventamayorista"
+        Me.precioventamayorista.ReadOnly = True
+        Me.precioventamayorista.Visible = False
+        Me.precioventamayorista.Width = 172
+        '
+        'precioventadistribuidor
+        '
+        Me.precioventadistribuidor.DataPropertyName = "precioventadistribuidor"
+        Me.precioventadistribuidor.HeaderText = "precioventadistribuidor"
+        Me.precioventadistribuidor.Name = "precioventadistribuidor"
+        Me.precioventadistribuidor.ReadOnly = True
+        Me.precioventadistribuidor.Visible = False
+        Me.precioventadistribuidor.Width = 181
+        '
+        'ConsultarStock
+        '
+        Me.ConsultarStock.HeaderText = ""
+        Me.ConsultarStock.Name = "ConsultarStock"
+        Me.ConsultarStock.ReadOnly = True
+        Me.ConsultarStock.Text = "Ver Stock"
+        Me.ConsultarStock.ToolTipText = "Consultar Stock"
+        Me.ConsultarStock.UseColumnTextForButtonValue = True
+        Me.ConsultarStock.Width = 5
         '
         'BuscaProductoManualPedidos
         '

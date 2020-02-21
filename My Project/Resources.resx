@@ -145,6 +145,9 @@
   <data name="CheckList" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\CheckList.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PDF_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\PDF_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Cloud-icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Cloud-icon2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,6 +211,9 @@
   <data name="UpdateAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\UpdateAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="menu_icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\menu_icon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Alert_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alert_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -253,7 +259,7 @@
   <data name="epos_logo_B_sub" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\epos_logo_B_sub.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PDF_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\PDF_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SC_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\SC_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

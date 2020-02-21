@@ -1,9 +1,24 @@
 ﻿Public Class ConsultarPrecios
+    Dim permisoStockParent As Integer
     Private Sub ConsultarPrecios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim PermisosTableAdapter As New comercialDataSetTableAdapters.permisosTableAdapter()
+        permisoStockParent = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "StockParent")
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listaprecioscaja' Puede moverla o quitarla según sea necesario.
         Me.ListaprecioscajaTableAdapter.Fill(Me.ComercialDataSet.listaprecioscaja)
         TextBox1.Select()
         ComboBox1.SelectedIndex = 0
+        OcultarColumnas()
+    End Sub
+    Private Sub OcultarColumnas()
+        If permisoStockParent = 0 Then
+            ListaprecioscajaDataGridView.Columns("disponible").Visible = False
+            ListaprecioscajaDataGridView.Columns("unidades").Visible = False
+            ListaprecioscajaDataGridView.Columns("ConsultarSucursales").Visible = False
+        Else
+            ListaprecioscajaDataGridView.Columns("disponible").Visible = True
+            ListaprecioscajaDataGridView.Columns("unidades").Visible = True
+            ListaprecioscajaDataGridView.Columns("ConsultarSucursales").Visible = True
+        End If
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged

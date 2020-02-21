@@ -2,16 +2,30 @@
 Imports System.Text.RegularExpressions
 Public Class BuscaProductoManualPedidos
     Dim ValidarSTK As String
+    Dim permisoStockParent As Integer
 
     Private Sub ProductosBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Validate()
         Me.ProductosBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.ComercialDataSet)
     End Sub
+    Private Sub OcultarColumnas()
+        Try
+            If permisoStockParent = 0 Then
+                ProductosDataGridView.Columns("ConsultarStock").Visible = False
+            Else
+                ProductosDataGridView.Columns("ConsultarStock").Visible = True
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
 
     Private Sub BuscaProductoManual_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-
+            Dim PermisosTableAdapter As New comercialDataSetTableAdapters.permisosTableAdapter()
+            permisoStockParent = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "StockParent")
+            OcultarColumnas()
             Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
             Me.ListaproductosTableAdapter.FillByComerciables(Me.ComercialDataSet.listaproductos)
 

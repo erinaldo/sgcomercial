@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>45</ApplicationRevision>
-    <ApplicationVersion>4.1.0.45</ApplicationVersion>
+    <ApplicationRevision>46</ApplicationRevision>
+    <ApplicationVersion>4.1.0.46</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -2430,6 +2430,8 @@
     <None Include="My Project\img\Export_1export.png" />
     <None Include="My Project\img\Excel_ico.png" />
     <None Include="My Project\img\PDF_ico.png" />
+    <None Include="My Project\img\menu_icon2.png" />
+    <None Include="My Project\img\SC_Icon.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />
