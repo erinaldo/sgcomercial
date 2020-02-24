@@ -1243,7 +1243,7 @@ Partial Class Principal
         'ModuloNotificaciones
         '
         Me.ModuloNotificaciones.Name = "ModuloNotificaciones"
-        Me.ModuloNotificaciones.Size = New System.Drawing.Size(148, 27)
+        Me.ModuloNotificaciones.Size = New System.Drawing.Size(129, 27)
         Me.ModuloNotificaciones.Tag = "ModuloNotificaciones"
         Me.ModuloNotificaciones.Text = "Notificaciones"
         Me.ModuloNotificaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1702,7 +1702,7 @@ Partial Class Principal
         Me.PanelSlider.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelSlider.Location = New System.Drawing.Point(0, 155)
         Me.PanelSlider.Name = "PanelSlider"
-        Me.PanelSlider.Size = New System.Drawing.Size(250, 566)
+        Me.PanelSlider.Size = New System.Drawing.Size(250, 1122)
         Me.PanelSlider.TabIndex = 12
         '
         'FlowLayoutPanelBotonera
@@ -1732,7 +1732,7 @@ Partial Class Principal
         Me.FlowLayoutPanelBotonera.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanelBotonera.Location = New System.Drawing.Point(0, 70)
         Me.FlowLayoutPanelBotonera.Name = "FlowLayoutPanelBotonera"
-        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 496)
+        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 1052)
         Me.FlowLayoutPanelBotonera.TabIndex = 3
         '
         'FlatBtnModuloNotificaciones
@@ -1761,6 +1761,7 @@ Partial Class Principal
         Me.FlatBtnModuloVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloVentas.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloVentas.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloVentas.Image = Global.sgcomercial.My.Resources.Resources.cart_iconw_35
         Me.FlatBtnModuloVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloVentas.Location = New System.Drawing.Point(3, 49)
         Me.FlatBtnModuloVentas.Name = "FlatBtnModuloVentas"
@@ -1780,6 +1781,7 @@ Partial Class Principal
         Me.FlatBtnModuloConfiguraciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloConfiguraciones.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloConfiguraciones.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloConfiguraciones.Image = Global.sgcomercial.My.Resources.Resources.config_iconw_35
         Me.FlatBtnModuloConfiguraciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloConfiguraciones.Location = New System.Drawing.Point(3, 95)
         Me.FlatBtnModuloConfiguraciones.Name = "FlatBtnModuloConfiguraciones"
@@ -1799,6 +1801,7 @@ Partial Class Principal
         Me.FlatBtnModuloGestionEscolar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloGestionEscolar.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloGestionEscolar.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloGestionEscolar.Image = Global.sgcomercial.My.Resources.Resources.birrete_iconw_35
         Me.FlatBtnModuloGestionEscolar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloGestionEscolar.Location = New System.Drawing.Point(3, 141)
         Me.FlatBtnModuloGestionEscolar.Name = "FlatBtnModuloGestionEscolar"
@@ -1818,6 +1821,7 @@ Partial Class Principal
         Me.FlatBtnModuloSeguridad.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloSeguridad.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloSeguridad.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloSeguridad.Image = Global.sgcomercial.My.Resources.Resources.users_iconw_35
         Me.FlatBtnModuloSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloSeguridad.Location = New System.Drawing.Point(3, 187)
         Me.FlatBtnModuloSeguridad.Name = "FlatBtnModuloSeguridad"
@@ -1837,6 +1841,7 @@ Partial Class Principal
         Me.FlatBtnModuloFranquicia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloFranquicia.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloFranquicia.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloFranquicia.Image = Global.sgcomercial.My.Resources.Resources.franchise_iconw_37
         Me.FlatBtnModuloFranquicia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloFranquicia.Location = New System.Drawing.Point(3, 233)
         Me.FlatBtnModuloFranquicia.Name = "FlatBtnModuloFranquicia"
@@ -1856,6 +1861,7 @@ Partial Class Principal
         Me.FlatBtnTerminalVerificadoraPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnTerminalVerificadoraPrecios.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnTerminalVerificadoraPrecios.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnTerminalVerificadoraPrecios.Image = Global.sgcomercial.My.Resources.Resources.pricetag_iconw_37
         Me.FlatBtnTerminalVerificadoraPrecios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnTerminalVerificadoraPrecios.Location = New System.Drawing.Point(3, 279)
         Me.FlatBtnTerminalVerificadoraPrecios.Name = "FlatBtnTerminalVerificadoraPrecios"
@@ -1875,6 +1881,7 @@ Partial Class Principal
         Me.FlatBtnModuloUtilidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloUtilidades.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloUtilidades.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloUtilidades.Image = Global.sgcomercial.My.Resources.Resources.utilities_iconw_35
         Me.FlatBtnModuloUtilidades.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloUtilidades.Location = New System.Drawing.Point(3, 325)
         Me.FlatBtnModuloUtilidades.Name = "FlatBtnModuloUtilidades"
@@ -1894,6 +1901,7 @@ Partial Class Principal
         Me.FlatBtnModuloAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloAyuda.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloAyuda.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloAyuda.Image = Global.sgcomercial.My.Resources.Resources.Alert_information_35
         Me.FlatBtnModuloAyuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloAyuda.Location = New System.Drawing.Point(3, 371)
         Me.FlatBtnModuloAyuda.Name = "FlatBtnModuloAyuda"
@@ -1913,6 +1921,7 @@ Partial Class Principal
         Me.FlatBtnModuloEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloEstadisticas.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloEstadisticas.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloEstadisticas.Image = Global.sgcomercial.My.Resources.Resources.Estadistica_icon_35
         Me.FlatBtnModuloEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloEstadisticas.Location = New System.Drawing.Point(3, 417)
         Me.FlatBtnModuloEstadisticas.Name = "FlatBtnModuloEstadisticas"
@@ -1932,6 +1941,7 @@ Partial Class Principal
         Me.FlatBtnModuloCloud.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloCloud.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloCloud.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloCloud.Image = Global.sgcomercial.My.Resources.Resources.ClowdWeb_iconw_37
         Me.FlatBtnModuloCloud.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloCloud.Location = New System.Drawing.Point(3, 463)
         Me.FlatBtnModuloCloud.Name = "FlatBtnModuloCloud"
@@ -1951,6 +1961,7 @@ Partial Class Principal
         Me.FlatBtnModuloContabilidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloContabilidad.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloContabilidad.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloContabilidad.Image = Global.sgcomercial.My.Resources.Resources.calc_iconw_38
         Me.FlatBtnModuloContabilidad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloContabilidad.Location = New System.Drawing.Point(3, 509)
         Me.FlatBtnModuloContabilidad.Name = "FlatBtnModuloContabilidad"
@@ -1970,6 +1981,7 @@ Partial Class Principal
         Me.FlatBtnModuloCuentasCorrientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloCuentasCorrientes.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloCuentasCorrientes.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloCuentasCorrientes.Image = Global.sgcomercial.My.Resources.Resources.CuentaCorriente_iconw_38
         Me.FlatBtnModuloCuentasCorrientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloCuentasCorrientes.Location = New System.Drawing.Point(3, 555)
         Me.FlatBtnModuloCuentasCorrientes.Name = "FlatBtnModuloCuentasCorrientes"
@@ -1989,6 +2001,7 @@ Partial Class Principal
         Me.FlatBtnModuloCajas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloCajas.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloCajas.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloCajas.Image = Global.sgcomercial.My.Resources.Resources.cashregister_40px
         Me.FlatBtnModuloCajas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloCajas.Location = New System.Drawing.Point(3, 601)
         Me.FlatBtnModuloCajas.Name = "FlatBtnModuloCajas"
@@ -2008,6 +2021,7 @@ Partial Class Principal
         Me.FlatBtnModuloTransferenciaStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloTransferenciaStock.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloTransferenciaStock.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloTransferenciaStock.Image = Global.sgcomercial.My.Resources.Resources.transport_iconw_38
         Me.FlatBtnModuloTransferenciaStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloTransferenciaStock.Location = New System.Drawing.Point(3, 647)
         Me.FlatBtnModuloTransferenciaStock.Name = "FlatBtnModuloTransferenciaStock"
@@ -2027,6 +2041,7 @@ Partial Class Principal
         Me.FlatBtnModuloProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloProveedores.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloProveedores.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloProveedores.Image = Global.sgcomercial.My.Resources.Resources.delivery_iconw_39
         Me.FlatBtnModuloProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloProveedores.Location = New System.Drawing.Point(3, 693)
         Me.FlatBtnModuloProveedores.Name = "FlatBtnModuloProveedores"
@@ -2046,6 +2061,7 @@ Partial Class Principal
         Me.FlatBtnModuloGGastronomica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloGGastronomica.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloGGastronomica.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloGGastronomica.Image = Global.sgcomercial.My.Resources.Resources.gastronomia_iconw_39
         Me.FlatBtnModuloGGastronomica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloGGastronomica.Location = New System.Drawing.Point(3, 739)
         Me.FlatBtnModuloGGastronomica.Name = "FlatBtnModuloGGastronomica"
@@ -2065,6 +2081,7 @@ Partial Class Principal
         Me.FlatBtnModuloStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloStock.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloStock.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloStock.Image = Global.sgcomercial.My.Resources.Resources.unbox_iconw_38
         Me.FlatBtnModuloStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloStock.Location = New System.Drawing.Point(3, 785)
         Me.FlatBtnModuloStock.Name = "FlatBtnModuloStock"
@@ -2084,6 +2101,7 @@ Partial Class Principal
         Me.FlatBtnModuloDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloDelivery.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloDelivery.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloDelivery.Image = Global.sgcomercial.My.Resources.Resources.deliveryman_iconw_39
         Me.FlatBtnModuloDelivery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloDelivery.Location = New System.Drawing.Point(3, 831)
         Me.FlatBtnModuloDelivery.Name = "FlatBtnModuloDelivery"
@@ -2103,6 +2121,7 @@ Partial Class Principal
         Me.FlatBtnModuloSueldos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloSueldos.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloSueldos.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloSueldos.Image = Global.sgcomercial.My.Resources.Resources.sueldos_iconw_39
         Me.FlatBtnModuloSueldos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloSueldos.Location = New System.Drawing.Point(3, 877)
         Me.FlatBtnModuloSueldos.Name = "FlatBtnModuloSueldos"
@@ -2146,7 +2165,7 @@ Partial Class Principal
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 721)
+        Me.ClientSize = New System.Drawing.Size(1006, 1277)
         Me.Controls.Add(Me.PanelSlider)
         Me.Controls.Add(Me.ModulosDataGridView)
         Me.Controls.Add(Me.CajaseventosDataGridView)
