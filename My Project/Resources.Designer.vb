@@ -701,6 +701,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Public ReadOnly Property pallet_white() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("pallet_white", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Public ReadOnly Property PDF_ico() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("PDF_ico", resourceCulture)
@@ -764,6 +774,16 @@ Namespace My.Resources
         Public ReadOnly Property productos_box_white() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("productos-box_white", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property productos_box_white_40() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("productos-box_white_40", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -844,6 +864,36 @@ Namespace My.Resources
         Public ReadOnly Property Sistemascomerciales_white() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Sistemascomerciales_white", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property stock_box_w_40() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("stock_box_w_40", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property stockmove_white() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("stockmove_white", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property stockpallet_iconw_40() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("stockpallet_iconw_40", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

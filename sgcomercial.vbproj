@@ -2469,6 +2469,11 @@
     <None Include="My Project\img\recipe_iconw_40.png" />
     <None Include="My Project\img\Export_iconw_40.png" />
     <None Include="My Project\img\expired_iconw_40.png" />
+    <None Include="My Project\img\stock_box_w_40.png" />
+    <None Include="My Project\img\pallet_white.png" />
+    <None Include="My Project\img\stockpallet_iconw_40.png" />
+    <None Include="My Project\img\stockmove_white.png" />
+    <None Include="My Project\img\productos-box_white_40.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

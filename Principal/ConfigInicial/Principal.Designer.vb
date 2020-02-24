@@ -260,7 +260,7 @@ Partial Class Principal
         '
         'MenuStripMain
         '
-        Me.MenuStripMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.MenuStripMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.MenuStripMain.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStripMain.ImageScalingSize = New System.Drawing.Size(19, 19)
         Me.MenuStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModuloVentas, Me.ModuloDelivery, Me.ModuloGGastronomica, Me.ModuloStock, Me.ModuloProveedores, Me.ModuloTransferenciaStock, Me.ModuloCajas, Me.ModuloVales, Me.ModuloCuentasCorrientes, Me.ModuloContabilidad, Me.ModuloEstadisticas, Me.ModuloUtilidades, Me.ModuloFranquicia, Me.ModuloGestionEscolar, Me.ModuloConfiguraciones, Me.ModuloSeguridad, Me.TerminalVerificadoraPrecios, Me.ModuloAyuda, Me.SysConfig, Me.ModuloCloud, Me.ModuloNotificaciones, Me.PedidosWebToolStripMenuItem, Me.PedidosMovilToolStripMenuItem, Me.ModuloSueldos})
@@ -530,7 +530,7 @@ Partial Class Principal
         'ABMProductosToolStripMenuItem
         '
         Me.ABMProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductoEstandarToolStripMenuItem, Me.ProductoCompuestoToolStripMenuItem, Me.ExportarListaDePreciosToolStripMenuItem})
-        Me.ABMProductosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.productos_box_white
+        Me.ABMProductosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.unbox_iconw_38
         Me.ABMProductosToolStripMenuItem.Name = "ABMProductosToolStripMenuItem"
         Me.ABMProductosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.ABMProductosToolStripMenuItem.Tag = "ABMProductosParent"
@@ -565,6 +565,7 @@ Partial Class Principal
         '
         'ActualizacionDePreciosToolStripMenuItem
         '
+        Me.ActualizacionDePreciosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.NULL_IMG_10
         Me.ActualizacionDePreciosToolStripMenuItem.Name = "ActualizacionDePreciosToolStripMenuItem"
         Me.ActualizacionDePreciosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.ActualizacionDePreciosToolStripMenuItem.Tag = "ActualizacionPrecios"
@@ -573,6 +574,7 @@ Partial Class Principal
         'StockToolStripMenuItem
         '
         Me.StockToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresoDeProductosToolStripMenuItem, Me.ControlDeStockToolStripMenuItem, Me.StockEnAlertaToolStripMenuItem, Me.MovimientosDeStockToolStripMenuItem})
+        Me.StockToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.stockpallet_iconw_40
         Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
         Me.StockToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.StockToolStripMenuItem.Tag = "StockParent"
@@ -580,6 +582,7 @@ Partial Class Principal
         '
         'IngresoDeProductosToolStripMenuItem
         '
+        Me.IngresoDeProductosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.product_iconw_38
         Me.IngresoDeProductosToolStripMenuItem.Name = "IngresoDeProductosToolStripMenuItem"
         Me.IngresoDeProductosToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
@@ -589,6 +592,7 @@ Partial Class Principal
         '
         'ControlDeStockToolStripMenuItem
         '
+        Me.ControlDeStockToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.stock_box_w_40
         Me.ControlDeStockToolStripMenuItem.Name = "ControlDeStockToolStripMenuItem"
         Me.ControlDeStockToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
         Me.ControlDeStockToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
@@ -597,6 +601,7 @@ Partial Class Principal
         '
         'StockEnAlertaToolStripMenuItem
         '
+        Me.StockEnAlertaToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.pallet_white
         Me.StockEnAlertaToolStripMenuItem.Name = "StockEnAlertaToolStripMenuItem"
         Me.StockEnAlertaToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
         Me.StockEnAlertaToolStripMenuItem.Tag = "StockAlerta"
@@ -604,6 +609,7 @@ Partial Class Principal
         '
         'MovimientosDeStockToolStripMenuItem
         '
+        Me.MovimientosDeStockToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.stockmove_white
         Me.MovimientosDeStockToolStripMenuItem.Name = "MovimientosDeStockToolStripMenuItem"
         Me.MovimientosDeStockToolStripMenuItem.Size = New System.Drawing.Size(424, 28)
         Me.MovimientosDeStockToolStripMenuItem.Tag = "MovimientosStock"
@@ -2106,7 +2112,7 @@ Partial Class Principal
         Me.FlatBtnModuloStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FlatBtnModuloStock.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlatBtnModuloStock.ForeColor = System.Drawing.Color.White
-        Me.FlatBtnModuloStock.Image = Global.sgcomercial.My.Resources.Resources.unbox_iconw_38
+        Me.FlatBtnModuloStock.Image = Global.sgcomercial.My.Resources.Resources.productos_box_white_40
         Me.FlatBtnModuloStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FlatBtnModuloStock.Location = New System.Drawing.Point(3, 785)
         Me.FlatBtnModuloStock.Name = "FlatBtnModuloStock"
@@ -2173,7 +2179,7 @@ Partial Class Principal
         '
         Me.MenuStripTop.AllowMerge = False
         Me.MenuStripTop.AutoSize = False
-        Me.MenuStripTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.MenuStripTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.MenuStripTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.MenuStripTop.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStripTop.ImageScalingSize = New System.Drawing.Size(35, 35)
