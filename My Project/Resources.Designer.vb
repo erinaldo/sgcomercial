@@ -153,6 +153,26 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Public ReadOnly Property Alert_warning_orange_39() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Alert_warning_orange_39", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property Alert_warning_white_39() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Alert_warning_white_39", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Public ReadOnly Property Alerta() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Alerta", resourceCulture)
@@ -431,6 +451,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Public ReadOnly Property menu_icon_white() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("menu_icon_white", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Public ReadOnly Property menu_icon2() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("menu_icon2", resourceCulture)
@@ -524,6 +554,16 @@ Namespace My.Resources
         Public ReadOnly Property SC_Icon() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("SC_Icon", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property Sistemascomerciales_white() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Sistemascomerciales_white", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -2432,6 +2432,10 @@
     <None Include="My Project\img\PDF_ico.png" />
     <None Include="My Project\img\menu_icon2.png" />
     <None Include="My Project\img\SC_Icon.png" />
+    <None Include="My Project\img\menu_icon_white.png" />
+    <None Include="My Project\img\Sistemascomerciales_white.png" />
+    <None Include="My Project\img\Alert_warning_orange_39.png" />
+    <None Include="My Project\img\Alert_warning_white_39.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

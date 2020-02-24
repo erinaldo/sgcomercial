@@ -10,6 +10,8 @@ Public Class Principal
     Dim CountAlertas As Long
     Dim xi As LoadingForm
     Dim permiso As Integer = 0
+    Dim ModuloSeleccionado As New ToolStripMenuItem()
+
     Private Sub Principal_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
         End
     End Sub
@@ -29,6 +31,7 @@ Public Class Principal
     End Sub
 
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        PanelSlider.Width = 50
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
         Dim hi As LoadingForm
         hi = New LoadingForm
@@ -55,6 +58,9 @@ Public Class Principal
         ''''''''''''''  CARGA DE PERMISOS DE USUARIO '''''''''''''''''''''
         If Not gusername = "lucasmartinbs" Then
             cargapermisos()
+            MenuStripMain.Visible = False
+        Else
+            MenuStripMain.Visible = False
         End If
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -85,15 +91,18 @@ Public Class Principal
         '====================================================================
         ''''''''''''''''''''''''''''''''''''''  ALERTASSSSSSSSSSSS '''''''''''''''''''''''''''''''''''''
         CountAlertas = gNotificacionesAlertasTableAdapter.notificacionesalertas_count()
-        NotificacionesToolStripMenuItem.Visible = True
+        ModuloNotificaciones.Visible = True
         If CountAlertas > 0 Then
-            NotificacionesToolStripMenuItem.Image = sgcomercial.My.Resources.Resources.Alert_warning_orange
+            'ModuloNotificaciones.Image = sgcomercial.My.Resources.Resources.Alert_warning_orange
+            FlatBtnModuloNotificaciones.Image = sgcomercial.My.Resources.Resources.Alert_warning_orange_39
         Else
-            NotificacionesToolStripMenuItem.Image = sgcomercial.My.Resources.Resources.Alert_check_blue
+            'ModuloNotificaciones.Image = sgcomercial.My.Resources.Resources.Alert_check_blue
+            FlatBtnModuloNotificaciones.Image = sgcomercial.My.Resources.Resources.Alert_warning_white_39
         End If
         gNotificacionesAlertasDataTable = gNotificacionesAlertasTableAdapter.GetData
         Try
-            NotificacionesToolStripMenuItem.Text = "Notificaciones (" + CountAlertas.ToString + ")"
+            'ModuloNotificaciones.Text = "Notificaciones (" + CountAlertas.ToString + ")"
+            FlatBtnModuloNotificaciones.Text = "Notificaciones (" + CountAlertas.ToString + ")"
         Catch ex As Exception
 
         End Try
@@ -112,7 +121,7 @@ Public Class Principal
 
 
     Public Sub InsertarModulos()
-        For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
+        For Each miitem As ToolStripMenuItem In Me.MenuStripMain.Items
             If Not miitem.Tag = "SysConfig" Then
                 ModulosTableAdapter.modulos_insertar(miitem.Tag, miitem.Name, 0)
             End If
@@ -129,7 +138,7 @@ Public Class Principal
         'If gReloadPermisos = True Then
         Try
             Dim rtn As Integer
-            For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
+            For Each miitem As ToolStripMenuItem In Me.MenuStripMain.Items
                 rtn = ModulosTableAdapter.modulos_habilitar(miitem.Tag)
                 If rtn > 0 Then
                     ''''''''''''    MODULOS OCULTOS POR DEFECTO  '''''''''''''''''''''''''''
@@ -137,10 +146,13 @@ Public Class Principal
                         miitem.Visible = False
                         Continue For
                     End If
+                    '''' HABILITA FLAT MENU
+                    FlatMenuEnableButton(miitem.Tag, True)
                     '''' RECORRE SUBMENU Y HABILITA FUNCIONES
                     recorrer(miitem)
                 Else
                     '''' NO ESTA HABLILITADO
+                    FlatMenuEnableButton(miitem.Tag, False)
                     miitem.Visible = False
                     miitem.Enabled = False
                 End If
@@ -202,11 +214,11 @@ Public Class Principal
 
 
 
-    Private Sub GestionDeProductosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GestionDeProductosToolStripMenuItem.Click
+    Private Sub GestionDeProductosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ModuloVentas.Click
 
     End Sub
 
-    Private Sub VentasToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles VentasToolStripMenuItem.Click
+    Private Sub VentasToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ModuloStock.Click
 
     End Sub
 
@@ -709,9 +721,7 @@ Public Class Principal
         '***************    FIN consultar el estado de caja *************
     End Sub
 
-    Private Sub ImportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
-    End Sub
     'Private Sub Principal_Activated(sender As Object, e As EventArgs) Handles Me.Activated
     '    'holamundo?
     'End Sub
@@ -724,7 +734,7 @@ Public Class Principal
         TerminalVerificadoraPrecios.Visible = True
     End Sub
 
-    Private Sub ImportarProductosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ImportarProductosToolStripMenuItem1.Click
+    Private Sub ImportarProductosToolStripMenuItem1_Click(sender As Object, e As EventArgs)
         ImportarProductos.MdiParent = Me
         ImportarProductos.Visible = True
     End Sub
@@ -747,10 +757,7 @@ Public Class Principal
         LibroIVACompras.Visible = True
     End Sub
 
-    Private Sub ExportarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarProductosToolStripMenuItem.Click
-        ExportarProductos.MdiParent = Me
-        ExportarProductos.Visible = True
-    End Sub
+
 
     'Private Sub Principal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
 
@@ -875,28 +882,12 @@ Public Class Principal
         End If
         ''''''''''***************************   POR DEFECTO **************************************
         If (e.KeyCode = Keys.S AndAlso e.Control AndAlso e.Shift) Then
-            For Each miitem As ToolStripMenuItem In Me.MenuStrip1.Items
-                If miitem.Name = "SysConfigToolStripMenuItem" Then
-                    If miitem.Visible = True Then
-                        miitem.Visible = False
-                        miitem.Enabled = False
-                        For Each otroitem As ToolStripMenuItem In miitem.DropDownItems
-                            otroitem.Enabled = False
-                        Next
-                    Else
-                        gSUToken = False
-                        Dim suauth As New SUAuth
-                        suauth.ShowDialog()
-                        If gSUToken = True Then
-                            miitem.Visible = True
-                            miitem.Enabled = True
-                            For Each otroitem As ToolStripMenuItem In miitem.DropDownItems
-                                otroitem.Enabled = True
-                            Next
-                        End If
-                    End If
-                End If
-            Next
+            gSUToken = False
+            Dim suauth As New SUAuth
+            suauth.ShowDialog()
+            If gSUToken = True Then
+                LoadModuloMenuTOPSysConfig("SysConfig")
+            End If
         End If
         '''''''''*************************** 
         '''''''''*************************** 
@@ -1151,7 +1142,7 @@ Public Class Principal
         ReporteVentasFranquicia.Visible = True
     End Sub
 
-    Private Sub SincronizarClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SincronizarClientesToolStripMenuItem.Click
+    Private Sub SincronizarClientesToolStripMenuItem_Click(sender As Object, e As EventArgs)
         If gModuloCloud = 1 Then
             BGWClientes.RunWorkerAsync()
         End If
@@ -1219,13 +1210,12 @@ Public Class Principal
         RankingClientesPorImporte.Visible = True
     End Sub
 
-    Private Sub NotificacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NotificacionesToolStripMenuItem.Click
+    Private Sub NotificacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModuloNotificaciones.Click
         If CountAlertas = 0 Then
             MsgSuccessPopUp("Tenés [0] notificaciones! Nada de que preocuparse...")
         Else
             MostrarAlertas()
         End If
-
     End Sub
 
     Private Sub SincronizarClientesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SincronizarClientesToolStripMenuItem1.Click
@@ -1281,5 +1271,256 @@ Public Class Principal
         Dim x As New ExportarListaPrecios()
         'x.MdiParent = Me
         x.ShowDialog()
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureMenu.Click
+        If PanelSlider.Width = 50 Then
+            PanelSlider.Width = 250
+        Else
+            PanelSlider.Width = 50
+        End If
+    End Sub
+
+    Private Sub FlowLayoutPanelBotonera_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanelBotonera.Paint
+
+    End Sub
+
+    Private Sub FlowLayoutPanelBotonera_MouseWheel(sender As Object, e As MouseEventArgs) Handles FlowLayoutPanelBotonera.MouseWheel
+        Dim myview As Point = Me.FlowLayoutPanelBotonera.AutoScrollPosition
+        If e.Delta > 0 Then
+            'sube
+            If myview.Y = 0 Then Return
+            myview.Y = (myview.Y + 50)
+        Else
+            'baja
+            If myview.Y < 0 Then Return
+            myview.Y = (myview.Y + 50)
+        End If
+        FlowLayoutPanelBotonera.AutoScrollPosition = myview
+    End Sub
+    Private Sub LoadModuloMenuTOP(tag As String)
+        '/**************************************************************/
+        '/*     CARGA LAS FUNCIONES DISPONIBLES PARA EL MODULO                                                 */
+        '*********************************************************************
+        Try
+            Dim modulo As ToolStripMenuItem
+            modulo = MenuStripMain.Items(tag)
+            Dim colorBG As New Color
+            Dim colorFore As New Color
+            colorBG = MenuStripMain.BackColor
+            colorFore = Color.White
+            MenuStripTop.ForeColor = colorFore
+            MenuStripTop.Items.Clear()
+            For i = 0 To modulo.DropDownItems.Count - 1
+                Dim submenu As New ToolStripMenuItem()
+                Dim submenuinsertado As New ToolStripMenuItem()
+                If modulo.DropDownItems(i).Enabled = False Then Continue For
+                submenu = modulo.DropDownItems(i)
+                If submenu.HasDropDown Then
+                    submenu.ForeColor = MenuStripTop.ForeColor
+                    submenu.BackColor = MenuStripTop.BackColor
+                    submenuinsertado = MenuStripTop.Items.Add(modulo.DropDownItems(i).Text, modulo.DropDownItems(i).Image, AddressOf modulo.DropDownItems(i).PerformClick)
+                    submenuinsertado.BackColor = colorBG
+                    submenuinsertado.ForeColor = colorFore
+                    For j = 0 To submenu.DropDownItems.Count - 1
+                        If submenu.DropDownItems(j).Enabled = False Then Continue For
+                        Dim subsubmenu As New ToolStripMenuItem()
+                        subsubmenu = submenuinsertado.DropDownItems.Add(submenu.DropDownItems(j).Text, submenu.DropDownItems(j).Image, AddressOf submenu.DropDownItems(j).PerformClick)
+                        subsubmenu.ForeColor = colorFore
+                        subsubmenu.BackColor = colorBG
+                    Next
+                Else
+                    MenuStripTop.Items.Add(modulo.DropDownItems(i).Text, modulo.DropDownItems(i).Image, AddressOf modulo.DropDownItems(i).PerformClick)
+                End If
+            Next
+            MenuStripTop.Refresh()
+        Catch ex As Exception
+            MsgExPopUp("No se pudo cargar el módulo seleccionado: [" + tag + "]")
+        End Try
+    End Sub
+    Private Sub LoadModuloMenuTOPSysConfig(tag As String)
+        '/**************************************************************/
+        '/*     CARGA LAS FUNCIONES DISPONIBLES PARA EL MODULO                                                 */
+        '*********************************************************************
+        Try
+            Dim modulo As ToolStripMenuItem
+            modulo = MenuStripMain.Items(tag)
+            Dim color As New Color
+            color = Color.Black
+            MenuStripTop.ForeColor = color
+            MenuStripTop.Items.Clear()
+            For i = 0 To modulo.DropDownItems.Count - 1
+                Dim submenu As New ToolStripMenuItem()
+                Dim submenuinsertado As New ToolStripMenuItem()
+                modulo.DropDownItems(i).Enabled = True
+                submenu = modulo.DropDownItems(i)
+                If submenu.HasDropDown Then
+                    submenu.ForeColor = MenuStripTop.ForeColor
+                    submenu.BackColor = MenuStripTop.BackColor
+                    submenuinsertado = MenuStripTop.Items.Add(modulo.DropDownItems(i).Text, modulo.DropDownItems(i).Image, AddressOf modulo.DropDownItems(i).PerformClick)
+                    For j = 0 To submenu.DropDownItems.Count - 1
+                        submenu.DropDownItems(j).Enabled = True
+                        submenuinsertado.DropDownItems.Add(submenu.DropDownItems(j).Text, submenu.DropDownItems(j).Image, AddressOf submenu.DropDownItems(j).PerformClick)
+                        submenuinsertado.ForeColor = MenuStripTop.ForeColor
+                        submenuinsertado.BackColor = MenuStripTop.BackColor
+                    Next
+                Else
+                    MenuStripTop.Items.Add(modulo.DropDownItems(i).Text, modulo.DropDownItems(i).Image, AddressOf modulo.DropDownItems(i).PerformClick)
+                End If
+            Next
+            MenuStripTop.Refresh()
+        Catch ex As Exception
+            MsgExPopUp("No se pudo cargar el módulo seleccionado: [" + tag + "]")
+        End Try
+    End Sub
+
+    Public Sub FlatMenuEnableButton(ByRef modulo As String, ByRef status As Boolean)
+        Select Case modulo
+            Case ListaModulos.ModuloVentas.ToString
+                FlatBtnModuloVentas.Visible = status
+            Case ListaModulos.ModuloDelivery.ToString
+                FlatBtnModuloDelivery.Visible = status
+            Case ListaModulos.ModuloStock.ToString
+                FlatBtnModuloStock.Visible = status
+            Case ListaModulos.ModuloProveedores.ToString
+                FlatBtnModuloProveedores.Visible = status
+            Case ListaModulos.ModuloTransferenciaStock.ToString
+                FlatBtnModuloTransferenciaStock.Visible = status
+            Case ListaModulos.ModuloCajas.ToString
+                FlatBtnModuloCajas.Visible = status
+            Case ListaModulos.ModuloVales.ToString
+            Case ListaModulos.ModuloCuentasCorrientes.ToString
+                FlatBtnModuloCuentasCorrientes.Visible = status
+            Case ListaModulos.ModuloContabilidad.ToString
+            Case ListaModulos.ModuloEstadisticas.ToString
+                FlatBtnModuloEstadisticas.Visible = status
+            Case ListaModulos.ModuloUtilidades.ToString
+                FlatBtnModuloUtilidades.Visible = status
+            Case ListaModulos.ModuloConfiguraciones.ToString
+                FlatBtnModuloConfiguraciones.Visible = status
+            Case ListaModulos.ModuloSeguridad.ToString
+                FlatBtnModuloSeguridad.Visible = status
+            Case ListaModulos.TerminalVerificadoraPrecios.ToString
+                FlatBtnTerminalVerificadoraPrecios.Visible = status
+            Case ListaModulos.ModuloAyuda.ToString
+                FlatBtnModuloAyuda.Visible = status
+            Case ListaModulos.ModuloNotificaciones.ToString
+                FlatBtnModuloNotificaciones.Visible = status
+            Case ListaModulos.ModuloCloud.ToString
+                FlatBtnModuloCloud.Visible = status
+            Case ListaModulos.ModuloSyncWeb.ToString
+            Case ListaModulos.ModuloGGastronomica.ToString
+                FlatBtnModuloGGastronomica.Visible = status
+            Case ListaModulos.ModuloFranquicia.ToString
+                FlatBtnModuloFranquicia.Visible = status
+            Case ListaModulos.ModuloPreventa.ToString
+            Case ListaModulos.ModuloGestionEscolar.ToString
+                FlatBtnModuloGestionEscolar.Visible = status
+            Case ListaModulos.ModuloPedidosWeb.ToString
+            Case ListaModulos.ModuloPedidosMovil.ToString
+            Case ListaModulos.ModuloSueldos.ToString
+                FlatBtnModuloSueldos.Visible = status
+        End Select
+    End Sub
+
+    Private Sub ImportarProductosToolStripMenuItem1_Click_1(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ImportarProductosToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ImportarProductosToolStripMenuItem2.Click
+        ImportarProductos.MdiParent = Me
+        ImportarProductos.Visible = True
+    End Sub
+
+    Private Sub FlatBtnModuloNotificaciones_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloNotificaciones.Click
+        If CountAlertas = 0 Then
+            MsgSuccessPopUp("Tenés [0] notificaciones! Nada de que preocuparse...")
+        Else
+            MostrarAlertas()
+        End If
+    End Sub
+    Private Sub ModuloProductos_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloStock.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloGGastronomica.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+    Private Sub FlatBtnModuloConfiguraciones_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloConfiguraciones.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloGestionEscolar_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloGestionEscolar.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloSeguridad_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloSeguridad.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloFranquicia_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloFranquicia.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnTerminalVerificadoraPrecios_Click(sender As Object, e As EventArgs) Handles FlatBtnTerminalVerificadoraPrecios.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloUtilidades_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloUtilidades.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloAyuda_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloAyuda.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloEstadisticas_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloEstadisticas.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloCloud_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloCloud.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloContabilidad_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloContabilidad.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloCuentasCorrientes_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloCuentasCorrientes.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloModuloCajas_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloCajas.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloModuloTransferenciaStock_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloTransferenciaStock.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloProveedores_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloProveedores.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+    Private Sub BtnModuloVentas_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloVentas.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub BtnModuloDelivery_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloDelivery.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub FlatBtnModuloSueldos_Click(sender As Object, e As EventArgs) Handles FlatBtnModuloSueldos.Click
+        LoadModuloMenuTOP(CType(sender, Button).Tag)
+    End Sub
+
+    Private Sub PictureLogo_Click(sender As Object, e As EventArgs) Handles PictureLogo.Click
+
+    End Sub
+
+    Private Sub PictureLogo_DoubleClick(sender As Object, e As EventArgs) Handles PictureLogo.DoubleClick
+
+    End Sub
+
+    Private Sub ExportarProductosToolStripMenuItem1_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class

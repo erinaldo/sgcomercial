@@ -24,8 +24,8 @@ Partial Class Principal
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Principal))
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.GestionDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStripMain = New System.Windows.Forms.MenuStrip()
+        Me.ModuloVentas = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambioMercaderíaVendidaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambioMultipleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,7 +44,7 @@ Partial Class Principal
         Me.PresupuestosGeneradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CriteriosDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DefinirCriteriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeliveryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloDelivery = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaPedidoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecibidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DespachoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -52,15 +52,14 @@ Partial Class Principal
         Me.EntregasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosRecibidosVerTodosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PreventaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SincronizarClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GestiónGastronómicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloGGastronomica = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalonesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloStock = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductoEstandarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductoCompuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportarListaDePreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ActualizacionDePreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IngresoDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,39 +69,37 @@ Partial Class Principal
         Me.ImpresiónEtiquetasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CodificarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotesDeVencimientoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImportarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImportarProductosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExportarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportarProductosToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloProveedores = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMPedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListaDePedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecepciónDePedidoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecepciónSinPedidoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductosPorProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TransferenciaStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloTransferenciaStock = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnviarStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecibirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListaRemitosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CajasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloCajas = New System.Windows.Forms.ToolStripMenuItem()
         Me.AbrirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MovimientosDeCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExtraccionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeGastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GeneraciónDeValesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloVales = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmitirValeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdministrarValesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMMotivosValesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CuentasCorrientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloCuentasCorrientes = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadoDeCuentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroDeCuentasCorrientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarVentaACuentaCorrienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ContabilidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloContabilidad = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignaciónDeIVAMasivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroIVAVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LibroIVAComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EstadisticasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloEstadisticas = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HistoricoVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnvíosPorSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -113,17 +110,17 @@ Partial Class Principal
         Me.ConsumoClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RankingClientesPorImporteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UtilidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloUtilidades = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirPlantillasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MiFranquiciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloFranquicia = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguraciónesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GestiónEscolarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloGestionEscolar = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfigurarMembreteYFirmaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguraciónDeGradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaInscripciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroDeInscripciónesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConfiguracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloConfiguraciones = New System.Windows.Forms.ToolStripMenuItem()
         Me.MiComercioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FondoAplicaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMRubrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -131,16 +128,16 @@ Partial Class Principal
         Me.ABMTransportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListasDePreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMTiposIVAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloSeguridad = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMPermisosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMPerfilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TerminalVerificadoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TerminalVerificadoraPrecios = New System.Windows.Forms.ToolStripMenuItem()
         Me.TerminalVerificadoraDePreciosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloAyuda = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeSGComercialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambiarContraseñaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SysConfigToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SysConfig = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaTerminalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMCajasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -153,16 +150,16 @@ Partial Class Principal
         Me.MailServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecargarPermisosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QRTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NubeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloCloud = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubirProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubirStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescargarProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MisSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SincronizarClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloNotificaciones = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosMovilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SueldosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModuloSueldos = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfParamétricasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GruposJerarquicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CentrosDeCostoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -215,8 +212,33 @@ Partial Class Principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BGWClientes = New System.ComponentModel.BackgroundWorker()
         Me.BGWAlertas = New System.ComponentModel.BackgroundWorker()
-        Me.ExportarListaDePreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuStrip1.SuspendLayout()
+        Me.PictureMenu = New System.Windows.Forms.PictureBox()
+        Me.PictureLogo = New System.Windows.Forms.PictureBox()
+        Me.PanelSlider = New System.Windows.Forms.Panel()
+        Me.FlowLayoutPanelBotonera = New System.Windows.Forms.FlowLayoutPanel()
+        Me.FlatBtnModuloNotificaciones = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloVentas = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloConfiguraciones = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloGestionEscolar = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloSeguridad = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloFranquicia = New System.Windows.Forms.Button()
+        Me.FlatBtnTerminalVerificadoraPrecios = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloUtilidades = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloAyuda = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloEstadisticas = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloCloud = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloContabilidad = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloCuentasCorrientes = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloCajas = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloTransferenciaStock = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloProveedores = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloGGastronomica = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloStock = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloDelivery = New System.Windows.Forms.Button()
+        Me.FlatBtnModuloSueldos = New System.Windows.Forms.Button()
+        Me.PanelHeader = New System.Windows.Forms.Panel()
+        Me.MenuStripTop = New System.Windows.Forms.MenuStrip()
+        Me.MenuStripMain.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -229,33 +251,40 @@ Partial Class Principal
         CType(Me.ListaprecioscajaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AlertacuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureMenu, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelSlider.SuspendLayout()
+        Me.FlowLayoutPanelBotonera.SuspendLayout()
+        Me.PanelHeader.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MenuStrip1
+        'MenuStripMain
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.White
-        Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(19, 19)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.DeliveryToolStripMenuItem, Me.PreventaToolStripMenuItem, Me.GestiónGastronómicaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ImportarProductosToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.TransferenciaStockToolStripMenuItem, Me.CajasToolStripMenuItem, Me.GeneraciónDeValesToolStripMenuItem, Me.CuentasCorrientesToolStripMenuItem, Me.ContabilidadToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.UtilidadesToolStripMenuItem, Me.MiFranquiciaToolStripMenuItem, Me.GestiónEscolarToolStripMenuItem, Me.ConfiguracionesToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.TerminalVerificadoraToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SysConfigToolStripMenuItem, Me.NubeToolStripMenuItem, Me.NotificacionesToolStripMenuItem, Me.PedidosWebToolStripMenuItem, Me.PedidosMovilToolStripMenuItem, Me.SueldosToolStripMenuItem})
-        Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
-        Me.MenuStrip1.ShowItemToolTips = True
-        Me.MenuStrip1.Size = New System.Drawing.Size(1140, 109)
-        Me.MenuStrip1.TabIndex = 0
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.MenuStripMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.MenuStripMain.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.MenuStripMain.ImageScalingSize = New System.Drawing.Size(19, 19)
+        Me.MenuStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModuloVentas, Me.ModuloDelivery, Me.ModuloGGastronomica, Me.ModuloStock, Me.ModuloProveedores, Me.ModuloTransferenciaStock, Me.ModuloCajas, Me.ModuloVales, Me.ModuloCuentasCorrientes, Me.ModuloContabilidad, Me.ModuloEstadisticas, Me.ModuloUtilidades, Me.ModuloFranquicia, Me.ModuloGestionEscolar, Me.ModuloConfiguraciones, Me.ModuloSeguridad, Me.TerminalVerificadoraPrecios, Me.ModuloAyuda, Me.SysConfig, Me.ModuloCloud, Me.ModuloNotificaciones, Me.PedidosWebToolStripMenuItem, Me.PedidosMovilToolStripMenuItem, Me.ModuloSueldos})
+        Me.MenuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
+        Me.MenuStripMain.Location = New System.Drawing.Point(0, 43)
+        Me.MenuStripMain.Name = "MenuStripMain"
+        Me.MenuStripMain.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
+        Me.MenuStripMain.ShowItemToolTips = True
+        Me.MenuStripMain.Size = New System.Drawing.Size(1006, 112)
+        Me.MenuStripMain.TabIndex = 0
+        Me.MenuStripMain.Text = "MenuStrip1"
         '
-        'GestionDeProductosToolStripMenuItem
+        'ModuloVentas
         '
-        Me.GestionDeProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem, Me.CambioMercaderíaVendidaToolStripMenuItem, Me.CambioMultipleToolStripMenuItem, Me.ABMClientesToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConsultarPreciosToolStripMenuItem, Me.PresupuestosToolStripMenuItem, Me.CriteriosDeVentaToolStripMenuItem})
-        Me.GestionDeProductosToolStripMenuItem.Name = "GestionDeProductosToolStripMenuItem"
-        Me.GestionDeProductosToolStripMenuItem.Size = New System.Drawing.Size(73, 27)
-        Me.GestionDeProductosToolStripMenuItem.Tag = "ModuloVentas"
-        Me.GestionDeProductosToolStripMenuItem.Text = "Ventas"
+        Me.ModuloVentas.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.ModuloVentas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem, Me.CambioMercaderíaVendidaToolStripMenuItem, Me.CambioMultipleToolStripMenuItem, Me.ABMClientesToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConsultarPreciosToolStripMenuItem, Me.PresupuestosToolStripMenuItem, Me.CriteriosDeVentaToolStripMenuItem})
+        Me.ModuloVentas.Name = "ModuloVentas"
+        Me.ModuloVentas.Size = New System.Drawing.Size(73, 27)
+        Me.ModuloVentas.Tag = "ModuloVentas"
+        Me.ModuloVentas.Text = "Ventas"
         '
         'RegistrarVentaToolStripMenuItem
         '
+        Me.RegistrarVentaToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control
         Me.RegistrarVentaToolStripMenuItem.Name = "RegistrarVentaToolStripMenuItem"
         Me.RegistrarVentaToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.RegistrarVentaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
@@ -389,13 +418,13 @@ Partial Class Principal
         Me.DefinirCriteriosToolStripMenuItem.Tag = "DefinirCriterios"
         Me.DefinirCriteriosToolStripMenuItem.Text = "Definir Criterios"
         '
-        'DeliveryToolStripMenuItem
+        'ModuloDelivery
         '
-        Me.DeliveryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaPedidoToolStripMenuItem, Me.RecibidosToolStripMenuItem, Me.DespachoToolStripMenuItem, Me.LotesDeEnvìosToolStripMenuItem, Me.EntregasToolStripMenuItem, Me.LibroDePedidosToolStripMenuItem, Me.PedidosRecibidosVerTodosToolStripMenuItem})
-        Me.DeliveryToolStripMenuItem.Name = "DeliveryToolStripMenuItem"
-        Me.DeliveryToolStripMenuItem.Size = New System.Drawing.Size(82, 27)
-        Me.DeliveryToolStripMenuItem.Tag = "ModuloDelivery"
-        Me.DeliveryToolStripMenuItem.Text = "Delivery"
+        Me.ModuloDelivery.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaPedidoToolStripMenuItem, Me.RecibidosToolStripMenuItem, Me.DespachoToolStripMenuItem, Me.LotesDeEnvìosToolStripMenuItem, Me.EntregasToolStripMenuItem, Me.LibroDePedidosToolStripMenuItem, Me.PedidosRecibidosVerTodosToolStripMenuItem})
+        Me.ModuloDelivery.Name = "ModuloDelivery"
+        Me.ModuloDelivery.Size = New System.Drawing.Size(82, 27)
+        Me.ModuloDelivery.Tag = "ModuloDelivery"
+        Me.ModuloDelivery.Text = "Delivery"
         '
         'AltaPedidoToolStripMenuItem
         '
@@ -446,33 +475,19 @@ Partial Class Principal
         '
         'PedidosRecibidosVerTodosToolStripMenuItem
         '
+        Me.PedidosRecibidosVerTodosToolStripMenuItem.Enabled = False
         Me.PedidosRecibidosVerTodosToolStripMenuItem.Name = "PedidosRecibidosVerTodosToolStripMenuItem"
         Me.PedidosRecibidosVerTodosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
         Me.PedidosRecibidosVerTodosToolStripMenuItem.Tag = "PedidosRecibidosVerTodos"
         Me.PedidosRecibidosVerTodosToolStripMenuItem.Text = "PedidosRecibidosVerTodos"
         '
-        'PreventaToolStripMenuItem
+        'ModuloGGastronomica
         '
-        Me.PreventaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SincronizarClientesToolStripMenuItem})
-        Me.PreventaToolStripMenuItem.Name = "PreventaToolStripMenuItem"
-        Me.PreventaToolStripMenuItem.Size = New System.Drawing.Size(89, 27)
-        Me.PreventaToolStripMenuItem.Tag = "ModuloPreventa"
-        Me.PreventaToolStripMenuItem.Text = "Preventa"
-        '
-        'SincronizarClientesToolStripMenuItem
-        '
-        Me.SincronizarClientesToolStripMenuItem.Name = "SincronizarClientesToolStripMenuItem"
-        Me.SincronizarClientesToolStripMenuItem.Size = New System.Drawing.Size(235, 28)
-        Me.SincronizarClientesToolStripMenuItem.Tag = "SincronizarClientes"
-        Me.SincronizarClientesToolStripMenuItem.Text = "Sincronizar Clientes"
-        '
-        'GestiónGastronómicaToolStripMenuItem
-        '
-        Me.GestiónGastronómicaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalonesToolStripMenuItem, Me.OrdenesToolStripMenuItem})
-        Me.GestiónGastronómicaToolStripMenuItem.Name = "GestiónGastronómicaToolStripMenuItem"
-        Me.GestiónGastronómicaToolStripMenuItem.Size = New System.Drawing.Size(120, 27)
-        Me.GestiónGastronómicaToolStripMenuItem.Tag = "ModuloGGastronomica"
-        Me.GestiónGastronómicaToolStripMenuItem.Text = "Gastronomía"
+        Me.ModuloGGastronomica.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalonesToolStripMenuItem, Me.OrdenesToolStripMenuItem})
+        Me.ModuloGGastronomica.Name = "ModuloGGastronomica"
+        Me.ModuloGGastronomica.Size = New System.Drawing.Size(120, 27)
+        Me.ModuloGGastronomica.Tag = "ModuloGGastronomica"
+        Me.ModuloGGastronomica.Text = "Gastronomía"
         '
         'SalonesToolStripMenuItem
         '
@@ -488,13 +503,13 @@ Partial Class Principal
         Me.OrdenesToolStripMenuItem.Tag = "GGOrdenes"
         Me.OrdenesToolStripMenuItem.Text = "Administrar Ordenes"
         '
-        'VentasToolStripMenuItem
+        'ModuloStock
         '
-        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProductosToolStripMenuItem, Me.ActualizacionDePreciosToolStripMenuItem, Me.StockToolStripMenuItem, Me.ImpresiónEtiquetasToolStripMenuItem, Me.CodificarProductosToolStripMenuItem, Me.LotesDeVencimientoToolStripMenuItem})
-        Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(99, 27)
-        Me.VentasToolStripMenuItem.Tag = "ModuloStock"
-        Me.VentasToolStripMenuItem.Text = "Productos"
+        Me.ModuloStock.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProductosToolStripMenuItem, Me.ActualizacionDePreciosToolStripMenuItem, Me.StockToolStripMenuItem, Me.ImpresiónEtiquetasToolStripMenuItem, Me.CodificarProductosToolStripMenuItem, Me.LotesDeVencimientoToolStripMenuItem, Me.ImportarProductosToolStripMenuItem2})
+        Me.ModuloStock.Name = "ModuloStock"
+        Me.ModuloStock.Size = New System.Drawing.Size(99, 27)
+        Me.ModuloStock.Tag = "ModuloStock"
+        Me.ModuloStock.Text = "Productos"
         '
         'ABMProductosToolStripMenuItem
         '
@@ -506,7 +521,6 @@ Partial Class Principal
         '
         'ProductoEstandarToolStripMenuItem
         '
-        Me.ProductoEstandarToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.box_img
         Me.ProductoEstandarToolStripMenuItem.Name = "ProductoEstandarToolStripMenuItem"
         Me.ProductoEstandarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
         Me.ProductoEstandarToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
@@ -515,13 +529,19 @@ Partial Class Principal
         '
         'ProductoCompuestoToolStripMenuItem
         '
-        Me.ProductoCompuestoToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.products
         Me.ProductoCompuestoToolStripMenuItem.Name = "ProductoCompuestoToolStripMenuItem"
         Me.ProductoCompuestoToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
             Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
         Me.ProductoCompuestoToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
         Me.ProductoCompuestoToolStripMenuItem.Tag = "ABMProductosCompuestos"
         Me.ProductoCompuestoToolStripMenuItem.Text = "Producto compuesto"
+        '
+        'ExportarListaDePreciosToolStripMenuItem
+        '
+        Me.ExportarListaDePreciosToolStripMenuItem.Name = "ExportarListaDePreciosToolStripMenuItem"
+        Me.ExportarListaDePreciosToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
+        Me.ExportarListaDePreciosToolStripMenuItem.Tag = "ExportarListadePrecios"
+        Me.ExportarListaDePreciosToolStripMenuItem.Text = "Exportar Lista de Precios"
         '
         'ActualizacionDePreciosToolStripMenuItem
         '
@@ -533,7 +553,6 @@ Partial Class Principal
         'StockToolStripMenuItem
         '
         Me.StockToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresoDeProductosToolStripMenuItem, Me.ControlDeStockToolStripMenuItem, Me.StockEnAlertaToolStripMenuItem, Me.MovimientosDeStockToolStripMenuItem})
-        Me.StockToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.products
         Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
         Me.StockToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.StockToolStripMenuItem.Tag = "StockParent"
@@ -591,35 +610,20 @@ Partial Class Principal
         Me.LotesDeVencimientoToolStripMenuItem.Tag = "LotesVencimiento"
         Me.LotesDeVencimientoToolStripMenuItem.Text = "Lotes de Vencimiento"
         '
-        'ImportarProductosToolStripMenuItem
+        'ImportarProductosToolStripMenuItem2
         '
-        Me.ImportarProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportarProductosToolStripMenuItem1, Me.ExportarProductosToolStripMenuItem})
-        Me.ImportarProductosToolStripMenuItem.Name = "ImportarProductosToolStripMenuItem"
-        Me.ImportarProductosToolStripMenuItem.Size = New System.Drawing.Size(171, 27)
-        Me.ImportarProductosToolStripMenuItem.Tag = "ModuloImportarExportarProductos"
-        Me.ImportarProductosToolStripMenuItem.Text = "Importar Productos"
+        Me.ImportarProductosToolStripMenuItem2.Name = "ImportarProductosToolStripMenuItem2"
+        Me.ImportarProductosToolStripMenuItem2.Size = New System.Drawing.Size(270, 28)
+        Me.ImportarProductosToolStripMenuItem2.Tag = "ImportarProductos"
+        Me.ImportarProductosToolStripMenuItem2.Text = "Importar Productos"
         '
-        'ImportarProductosToolStripMenuItem1
+        'ModuloProveedores
         '
-        Me.ImportarProductosToolStripMenuItem1.Name = "ImportarProductosToolStripMenuItem1"
-        Me.ImportarProductosToolStripMenuItem1.Size = New System.Drawing.Size(235, 28)
-        Me.ImportarProductosToolStripMenuItem1.Tag = "ImportarProductos"
-        Me.ImportarProductosToolStripMenuItem1.Text = "Importar Productos"
-        '
-        'ExportarProductosToolStripMenuItem
-        '
-        Me.ExportarProductosToolStripMenuItem.Name = "ExportarProductosToolStripMenuItem"
-        Me.ExportarProductosToolStripMenuItem.Size = New System.Drawing.Size(235, 28)
-        Me.ExportarProductosToolStripMenuItem.Tag = "ExportarProductos"
-        Me.ExportarProductosToolStripMenuItem.Text = "Exportar Productos"
-        '
-        'ProveedoresToolStripMenuItem
-        '
-        Me.ProveedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProveedoresToolStripMenuItem, Me.ABMPedidosToolStripMenuItem, Me.ListaDePedidosToolStripMenuItem, Me.RecepciónDePedidoToolStripMenuItem, Me.RecepciónSinPedidoToolStripMenuItem, Me.ProductosPorProveedorToolStripMenuItem})
-        Me.ProveedoresToolStripMenuItem.Name = "ProveedoresToolStripMenuItem"
-        Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(116, 27)
-        Me.ProveedoresToolStripMenuItem.Tag = "ModuloProveedores"
-        Me.ProveedoresToolStripMenuItem.Text = "Proveedores"
+        Me.ModuloProveedores.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProveedoresToolStripMenuItem, Me.ABMPedidosToolStripMenuItem, Me.ListaDePedidosToolStripMenuItem, Me.RecepciónDePedidoToolStripMenuItem, Me.RecepciónSinPedidoToolStripMenuItem, Me.ProductosPorProveedorToolStripMenuItem})
+        Me.ModuloProveedores.Name = "ModuloProveedores"
+        Me.ModuloProveedores.Size = New System.Drawing.Size(116, 27)
+        Me.ModuloProveedores.Tag = "ModuloProveedores"
+        Me.ModuloProveedores.Text = "Proveedores"
         '
         'ABMProveedoresToolStripMenuItem
         '
@@ -663,13 +667,13 @@ Partial Class Principal
         Me.ProductosPorProveedorToolStripMenuItem.Tag = "ProductosPorProveedor"
         Me.ProductosPorProveedorToolStripMenuItem.Text = "Productos por Proveedor"
         '
-        'TransferenciaStockToolStripMenuItem
+        'ModuloTransferenciaStock
         '
-        Me.TransferenciaStockToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnviarStockToolStripMenuItem, Me.RecibirStockToolStripMenuItem, Me.ListaRemitosToolStripMenuItem})
-        Me.TransferenciaStockToolStripMenuItem.Name = "TransferenciaStockToolStripMenuItem"
-        Me.TransferenciaStockToolStripMenuItem.Size = New System.Drawing.Size(167, 27)
-        Me.TransferenciaStockToolStripMenuItem.Tag = "ModuloTransferenciaStock"
-        Me.TransferenciaStockToolStripMenuItem.Text = "Transferencia Stock"
+        Me.ModuloTransferenciaStock.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnviarStockToolStripMenuItem, Me.RecibirStockToolStripMenuItem, Me.ListaRemitosToolStripMenuItem})
+        Me.ModuloTransferenciaStock.Name = "ModuloTransferenciaStock"
+        Me.ModuloTransferenciaStock.Size = New System.Drawing.Size(167, 27)
+        Me.ModuloTransferenciaStock.Tag = "ModuloTransferenciaStock"
+        Me.ModuloTransferenciaStock.Text = "Transferencia Stock"
         '
         'EnviarStockToolStripMenuItem
         '
@@ -692,17 +696,16 @@ Partial Class Principal
         Me.ListaRemitosToolStripMenuItem.Tag = "ListaRemitos"
         Me.ListaRemitosToolStripMenuItem.Text = "Lista Remitos"
         '
-        'CajasToolStripMenuItem
+        'ModuloCajas
         '
-        Me.CajasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirToolStripMenuItem, Me.GastosToolStripMenuItem, Me.MovimientosDeCajaToolStripMenuItem, Me.ExtraccionesToolStripMenuItem, Me.ReporteDeGastosToolStripMenuItem})
-        Me.CajasToolStripMenuItem.Name = "CajasToolStripMenuItem"
-        Me.CajasToolStripMenuItem.Size = New System.Drawing.Size(62, 27)
-        Me.CajasToolStripMenuItem.Tag = "ModuloCajas"
-        Me.CajasToolStripMenuItem.Text = "Cajas"
+        Me.ModuloCajas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirToolStripMenuItem, Me.GastosToolStripMenuItem, Me.MovimientosDeCajaToolStripMenuItem, Me.ExtraccionesToolStripMenuItem, Me.ReporteDeGastosToolStripMenuItem})
+        Me.ModuloCajas.Name = "ModuloCajas"
+        Me.ModuloCajas.Size = New System.Drawing.Size(62, 27)
+        Me.ModuloCajas.Tag = "ModuloCajas"
+        Me.ModuloCajas.Text = "Cajas"
         '
         'AbrirToolStripMenuItem
         '
-        Me.AbrirToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.cashregister
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
         Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
         Me.AbrirToolStripMenuItem.Tag = "CajaAperturaCierre"
@@ -717,7 +720,6 @@ Partial Class Principal
         '
         'MovimientosDeCajaToolStripMenuItem
         '
-        Me.MovimientosDeCajaToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.appicon
         Me.MovimientosDeCajaToolStripMenuItem.Name = "MovimientosDeCajaToolStripMenuItem"
         Me.MovimientosDeCajaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
         Me.MovimientosDeCajaToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
@@ -726,7 +728,6 @@ Partial Class Principal
         '
         'ExtraccionesToolStripMenuItem
         '
-        Me.ExtraccionesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources._22_512
         Me.ExtraccionesToolStripMenuItem.Name = "ExtraccionesToolStripMenuItem"
         Me.ExtraccionesToolStripMenuItem.Size = New System.Drawing.Size(304, 28)
         Me.ExtraccionesToolStripMenuItem.Tag = "ABMExtracciones"
@@ -739,13 +740,13 @@ Partial Class Principal
         Me.ReporteDeGastosToolStripMenuItem.Tag = "ReporteGastos"
         Me.ReporteDeGastosToolStripMenuItem.Text = "Reporte de Gastos"
         '
-        'GeneraciónDeValesToolStripMenuItem
+        'ModuloVales
         '
-        Me.GeneraciónDeValesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmitirValeToolStripMenuItem, Me.AdministrarValesToolStripMenuItem, Me.ABMMotivosValesToolStripMenuItem})
-        Me.GeneraciónDeValesToolStripMenuItem.Name = "GeneraciónDeValesToolStripMenuItem"
-        Me.GeneraciónDeValesToolStripMenuItem.Size = New System.Drawing.Size(61, 27)
-        Me.GeneraciónDeValesToolStripMenuItem.Tag = "ModuloVales"
-        Me.GeneraciónDeValesToolStripMenuItem.Text = "Vales"
+        Me.ModuloVales.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmitirValeToolStripMenuItem, Me.AdministrarValesToolStripMenuItem, Me.ABMMotivosValesToolStripMenuItem})
+        Me.ModuloVales.Name = "ModuloVales"
+        Me.ModuloVales.Size = New System.Drawing.Size(61, 27)
+        Me.ModuloVales.Tag = "ModuloVales"
+        Me.ModuloVales.Text = "Vales"
         '
         'EmitirValeToolStripMenuItem
         '
@@ -768,13 +769,13 @@ Partial Class Principal
         Me.ABMMotivosValesToolStripMenuItem.Tag = "ABMMotivosVales"
         Me.ABMMotivosValesToolStripMenuItem.Text = "ABM Motivos Vales"
         '
-        'CuentasCorrientesToolStripMenuItem
+        'ModuloCuentasCorrientes
         '
-        Me.CuentasCorrientesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EstadoDeCuentaToolStripMenuItem, Me.LibroDeCuentasCorrientesToolStripMenuItem, Me.RegistrarVentaACuentaCorrienteToolStripMenuItem})
-        Me.CuentasCorrientesToolStripMenuItem.Name = "CuentasCorrientesToolStripMenuItem"
-        Me.CuentasCorrientesToolStripMenuItem.Size = New System.Drawing.Size(167, 27)
-        Me.CuentasCorrientesToolStripMenuItem.Tag = "ModuloCuentasCorrientes"
-        Me.CuentasCorrientesToolStripMenuItem.Text = "Cuentas Corrientes"
+        Me.ModuloCuentasCorrientes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EstadoDeCuentaToolStripMenuItem, Me.LibroDeCuentasCorrientesToolStripMenuItem, Me.RegistrarVentaACuentaCorrienteToolStripMenuItem})
+        Me.ModuloCuentasCorrientes.Name = "ModuloCuentasCorrientes"
+        Me.ModuloCuentasCorrientes.Size = New System.Drawing.Size(167, 27)
+        Me.ModuloCuentasCorrientes.Tag = "ModuloCuentasCorrientes"
+        Me.ModuloCuentasCorrientes.Text = "Cuentas Corrientes"
         '
         'EstadoDeCuentaToolStripMenuItem
         '
@@ -792,18 +793,19 @@ Partial Class Principal
         '
         'RegistrarVentaACuentaCorrienteToolStripMenuItem
         '
+        Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Enabled = False
         Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Name = "RegistrarVentaACuentaCorrienteToolStripMenuItem"
         Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Size = New System.Drawing.Size(352, 28)
         Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Tag = "RegistrarVentaCuentaCorriente"
         Me.RegistrarVentaACuentaCorrienteToolStripMenuItem.Text = "Registrar Venta a Cuenta Corriente"
         '
-        'ContabilidadToolStripMenuItem
+        'ModuloContabilidad
         '
-        Me.ContabilidadToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AsignaciónDeIVAMasivoToolStripMenuItem, Me.LibroIVAVentasToolStripMenuItem, Me.LibroIVAComprasToolStripMenuItem})
-        Me.ContabilidadToolStripMenuItem.Name = "ContabilidadToolStripMenuItem"
-        Me.ContabilidadToolStripMenuItem.Size = New System.Drawing.Size(119, 27)
-        Me.ContabilidadToolStripMenuItem.Tag = "ModuloContabilidad"
-        Me.ContabilidadToolStripMenuItem.Text = "Contabilidad"
+        Me.ModuloContabilidad.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AsignaciónDeIVAMasivoToolStripMenuItem, Me.LibroIVAVentasToolStripMenuItem, Me.LibroIVAComprasToolStripMenuItem})
+        Me.ModuloContabilidad.Name = "ModuloContabilidad"
+        Me.ModuloContabilidad.Size = New System.Drawing.Size(119, 27)
+        Me.ModuloContabilidad.Tag = "ModuloContabilidad"
+        Me.ModuloContabilidad.Text = "Contabilidad"
         '
         'AsignaciónDeIVAMasivoToolStripMenuItem
         '
@@ -826,13 +828,13 @@ Partial Class Principal
         Me.LibroIVAComprasToolStripMenuItem.Tag = "LibroIVACompras"
         Me.LibroIVAComprasToolStripMenuItem.Text = "Libro IVA Compras"
         '
-        'EstadisticasToolStripMenuItem
+        'ModuloEstadisticas
         '
-        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MisVentasToolStripMenuItem, Me.MisClientesToolStripMenuItem, Me.MisProveedoresToolStripMenuItem})
-        Me.EstadisticasToolStripMenuItem.Name = "EstadisticasToolStripMenuItem"
-        Me.EstadisticasToolStripMenuItem.Size = New System.Drawing.Size(108, 27)
-        Me.EstadisticasToolStripMenuItem.Tag = "ModuloEstadisticas"
-        Me.EstadisticasToolStripMenuItem.Text = "Estadisticas"
+        Me.ModuloEstadisticas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MisVentasToolStripMenuItem, Me.MisClientesToolStripMenuItem, Me.MisProveedoresToolStripMenuItem})
+        Me.ModuloEstadisticas.Name = "ModuloEstadisticas"
+        Me.ModuloEstadisticas.Size = New System.Drawing.Size(108, 27)
+        Me.ModuloEstadisticas.Tag = "ModuloEstadisticas"
+        Me.ModuloEstadisticas.Text = "Estadisticas"
         '
         'MisVentasToolStripMenuItem
         '
@@ -906,13 +908,13 @@ Partial Class Principal
         Me.MisProveedoresToolStripMenuItem.Tag = "EstadisticasProveedores"
         Me.MisProveedoresToolStripMenuItem.Text = "Proveedores"
         '
-        'UtilidadesToolStripMenuItem
+        'ModuloUtilidades
         '
-        Me.UtilidadesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImprimirPlantillasToolStripMenuItem})
-        Me.UtilidadesToolStripMenuItem.Name = "UtilidadesToolStripMenuItem"
-        Me.UtilidadesToolStripMenuItem.Size = New System.Drawing.Size(97, 27)
-        Me.UtilidadesToolStripMenuItem.Tag = "ModuloUtilidades"
-        Me.UtilidadesToolStripMenuItem.Text = "Utilidades"
+        Me.ModuloUtilidades.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImprimirPlantillasToolStripMenuItem})
+        Me.ModuloUtilidades.Name = "ModuloUtilidades"
+        Me.ModuloUtilidades.Size = New System.Drawing.Size(97, 27)
+        Me.ModuloUtilidades.Tag = "ModuloUtilidades"
+        Me.ModuloUtilidades.Text = "Utilidades"
         '
         'ImprimirPlantillasToolStripMenuItem
         '
@@ -921,13 +923,13 @@ Partial Class Principal
         Me.ImprimirPlantillasToolStripMenuItem.Tag = "ImprimirPlantillas"
         Me.ImprimirPlantillasToolStripMenuItem.Text = "Imprimir Plantillas"
         '
-        'MiFranquiciaToolStripMenuItem
+        'ModuloFranquicia
         '
-        Me.MiFranquiciaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfiguraciónesToolStripMenuItem, Me.ReporteDeVentasToolStripMenuItem})
-        Me.MiFranquiciaToolStripMenuItem.Name = "MiFranquiciaToolStripMenuItem"
-        Me.MiFranquiciaToolStripMenuItem.Size = New System.Drawing.Size(124, 27)
-        Me.MiFranquiciaToolStripMenuItem.Tag = "ModuloFranquicia"
-        Me.MiFranquiciaToolStripMenuItem.Text = "Mi Franquicia"
+        Me.ModuloFranquicia.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfiguraciónesToolStripMenuItem, Me.ReporteDeVentasToolStripMenuItem})
+        Me.ModuloFranquicia.Name = "ModuloFranquicia"
+        Me.ModuloFranquicia.Size = New System.Drawing.Size(124, 27)
+        Me.ModuloFranquicia.Tag = "ModuloFranquicia"
+        Me.ModuloFranquicia.Text = "Mi Franquicia"
         '
         'ConfiguraciónesToolStripMenuItem
         '
@@ -943,13 +945,13 @@ Partial Class Principal
         Me.ReporteDeVentasToolStripMenuItem.Tag = "FranquiciaReporteVentas"
         Me.ReporteDeVentasToolStripMenuItem.Text = "Reporte de Ventas"
         '
-        'GestiónEscolarToolStripMenuItem
+        'ModuloGestionEscolar
         '
-        Me.GestiónEscolarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfigurarMembreteYFirmaToolStripMenuItem, Me.ConfiguraciónDeGradosToolStripMenuItem, Me.AltaInscripciónToolStripMenuItem, Me.RegistroDeInscripciónesToolStripMenuItem})
-        Me.GestiónEscolarToolStripMenuItem.Name = "GestiónEscolarToolStripMenuItem"
-        Me.GestiónEscolarToolStripMenuItem.Size = New System.Drawing.Size(138, 27)
-        Me.GestiónEscolarToolStripMenuItem.Tag = "ModuloGestionEscolar"
-        Me.GestiónEscolarToolStripMenuItem.Text = "Gestión Escolar"
+        Me.ModuloGestionEscolar.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfigurarMembreteYFirmaToolStripMenuItem, Me.ConfiguraciónDeGradosToolStripMenuItem, Me.AltaInscripciónToolStripMenuItem, Me.RegistroDeInscripciónesToolStripMenuItem})
+        Me.ModuloGestionEscolar.Name = "ModuloGestionEscolar"
+        Me.ModuloGestionEscolar.Size = New System.Drawing.Size(138, 27)
+        Me.ModuloGestionEscolar.Tag = "ModuloGestionEscolar"
+        Me.ModuloGestionEscolar.Text = "Gestión Escolar"
         '
         'ConfigurarMembreteYFirmaToolStripMenuItem
         '
@@ -979,13 +981,13 @@ Partial Class Principal
         Me.RegistroDeInscripciónesToolStripMenuItem.Tag = "RegistroInscripciones"
         Me.RegistroDeInscripciónesToolStripMenuItem.Text = "Registro de Inscripciones"
         '
-        'ConfiguracionesToolStripMenuItem
+        'ModuloConfiguraciones
         '
-        Me.ConfiguracionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MiComercioToolStripMenuItem, Me.FondoAplicaciónToolStripMenuItem, Me.ABMRubrosToolStripMenuItem, Me.ABMProvinciasToolStripMenuItem, Me.ABMTransportesToolStripMenuItem, Me.ListasDePreciosToolStripMenuItem, Me.ABMTiposIVAToolStripMenuItem})
-        Me.ConfiguracionesToolStripMenuItem.Name = "ConfiguracionesToolStripMenuItem"
-        Me.ConfiguracionesToolStripMenuItem.Size = New System.Drawing.Size(145, 27)
-        Me.ConfiguracionesToolStripMenuItem.Tag = "ModuloConfiguraciones"
-        Me.ConfiguracionesToolStripMenuItem.Text = "Configuraciones"
+        Me.ModuloConfiguraciones.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MiComercioToolStripMenuItem, Me.FondoAplicaciónToolStripMenuItem, Me.ABMRubrosToolStripMenuItem, Me.ABMProvinciasToolStripMenuItem, Me.ABMTransportesToolStripMenuItem, Me.ListasDePreciosToolStripMenuItem, Me.ABMTiposIVAToolStripMenuItem})
+        Me.ModuloConfiguraciones.Name = "ModuloConfiguraciones"
+        Me.ModuloConfiguraciones.Size = New System.Drawing.Size(145, 27)
+        Me.ModuloConfiguraciones.Tag = "ModuloConfiguraciones"
+        Me.ModuloConfiguraciones.Text = "Configuraciones"
         '
         'MiComercioToolStripMenuItem
         '
@@ -1037,13 +1039,13 @@ Partial Class Principal
         Me.ABMTiposIVAToolStripMenuItem.Tag = "ABMTiposIVA"
         Me.ABMTiposIVAToolStripMenuItem.Text = "ABM TiposIVA"
         '
-        'UsuariosToolStripMenuItem
+        'ModuloSeguridad
         '
-        Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMUsuariosToolStripMenuItem, Me.ABMPermisosToolStripMenuItem, Me.ABMPerfilesToolStripMenuItem})
-        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(87, 27)
-        Me.UsuariosToolStripMenuItem.Tag = "ModuloSeguridad"
-        Me.UsuariosToolStripMenuItem.Text = "Usuarios"
+        Me.ModuloSeguridad.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMUsuariosToolStripMenuItem, Me.ABMPermisosToolStripMenuItem, Me.ABMPerfilesToolStripMenuItem})
+        Me.ModuloSeguridad.Name = "ModuloSeguridad"
+        Me.ModuloSeguridad.Size = New System.Drawing.Size(87, 27)
+        Me.ModuloSeguridad.Tag = "ModuloSeguridad"
+        Me.ModuloSeguridad.Text = "Usuarios"
         '
         'ABMUsuariosToolStripMenuItem
         '
@@ -1066,13 +1068,13 @@ Partial Class Principal
         Me.ABMPerfilesToolStripMenuItem.Tag = "ABMPerfiles"
         Me.ABMPerfilesToolStripMenuItem.Text = "ABM Perfiles"
         '
-        'TerminalVerificadoraToolStripMenuItem
+        'TerminalVerificadoraPrecios
         '
-        Me.TerminalVerificadoraToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TerminalVerificadoraDePreciosToolStripMenuItem1})
-        Me.TerminalVerificadoraToolStripMenuItem.Name = "TerminalVerificadoraToolStripMenuItem"
-        Me.TerminalVerificadoraToolStripMenuItem.Size = New System.Drawing.Size(181, 27)
-        Me.TerminalVerificadoraToolStripMenuItem.Tag = "TerminalVerificadoraPrecios"
-        Me.TerminalVerificadoraToolStripMenuItem.Text = "Terminal Verificadora"
+        Me.TerminalVerificadoraPrecios.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TerminalVerificadoraDePreciosToolStripMenuItem1})
+        Me.TerminalVerificadoraPrecios.Name = "TerminalVerificadoraPrecios"
+        Me.TerminalVerificadoraPrecios.Size = New System.Drawing.Size(181, 27)
+        Me.TerminalVerificadoraPrecios.Tag = "TerminalVerificadoraPrecios"
+        Me.TerminalVerificadoraPrecios.Text = "Terminal Verificadora"
         '
         'TerminalVerificadoraDePreciosToolStripMenuItem1
         '
@@ -1082,13 +1084,13 @@ Partial Class Principal
         Me.TerminalVerificadoraDePreciosToolStripMenuItem1.Tag = "TerminalVerificadoraPrecios"
         Me.TerminalVerificadoraDePreciosToolStripMenuItem1.Text = "Terminal Verificadora de Precios"
         '
-        'AyudaToolStripMenuItem
+        'ModuloAyuda
         '
-        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeSGComercialToolStripMenuItem, Me.CambiarContraseñaToolStripMenuItem})
-        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
-        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(70, 27)
-        Me.AyudaToolStripMenuItem.Tag = "ModuloAyuda"
-        Me.AyudaToolStripMenuItem.Text = "Ayuda"
+        Me.ModuloAyuda.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeSGComercialToolStripMenuItem, Me.CambiarContraseñaToolStripMenuItem})
+        Me.ModuloAyuda.Name = "ModuloAyuda"
+        Me.ModuloAyuda.Size = New System.Drawing.Size(70, 27)
+        Me.ModuloAyuda.Tag = "ModuloAyuda"
+        Me.ModuloAyuda.Text = "Ayuda"
         '
         'AcercaDeSGComercialToolStripMenuItem
         '
@@ -1104,13 +1106,13 @@ Partial Class Principal
         Me.CambiarContraseñaToolStripMenuItem.Tag = "CambiarClaveAcceso"
         Me.CambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña"
         '
-        'SysConfigToolStripMenuItem
+        'SysConfig
         '
-        Me.SysConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.POSTFormToolStripMenuItem, Me.ABMTipoComprobantesToolStripMenuItem, Me.FacturaElectrónicaToolStripMenuItem, Me.MailServerToolStripMenuItem, Me.RecargarPermisosToolStripMenuItem, Me.QRTestToolStripMenuItem})
-        Me.SysConfigToolStripMenuItem.Name = "SysConfigToolStripMenuItem"
-        Me.SysConfigToolStripMenuItem.Size = New System.Drawing.Size(96, 27)
-        Me.SysConfigToolStripMenuItem.Tag = "SysConfig"
-        Me.SysConfigToolStripMenuItem.Text = "SysConfig"
+        Me.SysConfig.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaTerminalToolStripMenuItem, Me.AsignarCajaToolStripMenuItem, Me.ABMCajasToolStripMenuItem1, Me.ABMSucursalesToolStripMenuItem, Me.ModulosToolStripMenuItem, Me.ABMUnidadesMedidaToolStripMenuItem, Me.POSTFormToolStripMenuItem, Me.ABMTipoComprobantesToolStripMenuItem, Me.FacturaElectrónicaToolStripMenuItem, Me.MailServerToolStripMenuItem, Me.RecargarPermisosToolStripMenuItem, Me.QRTestToolStripMenuItem})
+        Me.SysConfig.Name = "SysConfig"
+        Me.SysConfig.Size = New System.Drawing.Size(96, 27)
+        Me.SysConfig.Tag = "SysConfig"
+        Me.SysConfig.Text = "SysConfig"
         '
         'AltaTerminalToolStripMenuItem
         '
@@ -1195,14 +1197,13 @@ Partial Class Principal
         Me.QRTestToolStripMenuItem.Size = New System.Drawing.Size(268, 28)
         Me.QRTestToolStripMenuItem.Text = "QRTest"
         '
-        'NubeToolStripMenuItem
+        'ModuloCloud
         '
-        Me.NubeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.MisSucursalesToolStripMenuItem, Me.SincronizarClientesToolStripMenuItem1})
-        Me.NubeToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Cloud_icon2
-        Me.NubeToolStripMenuItem.Name = "NubeToolStripMenuItem"
-        Me.NubeToolStripMenuItem.Size = New System.Drawing.Size(83, 27)
-        Me.NubeToolStripMenuItem.Tag = "ModuloCloud"
-        Me.NubeToolStripMenuItem.Text = "Nube"
+        Me.ModuloCloud.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubirProductosToolStripMenuItem, Me.SubirStockToolStripMenuItem, Me.DescargarProductosToolStripMenuItem, Me.MisSucursalesToolStripMenuItem, Me.SincronizarClientesToolStripMenuItem1})
+        Me.ModuloCloud.Name = "ModuloCloud"
+        Me.ModuloCloud.Size = New System.Drawing.Size(64, 27)
+        Me.ModuloCloud.Tag = "ModuloCloud"
+        Me.ModuloCloud.Text = "Nube"
         '
         'SubirProductosToolStripMenuItem
         '
@@ -1239,14 +1240,13 @@ Partial Class Principal
         Me.SincronizarClientesToolStripMenuItem1.Tag = "SincronizarClientesCloud"
         Me.SincronizarClientesToolStripMenuItem1.Text = "Sincronizar Clientes"
         '
-        'NotificacionesToolStripMenuItem
+        'ModuloNotificaciones
         '
-        Me.NotificacionesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alert_check_blue
-        Me.NotificacionesToolStripMenuItem.Name = "NotificacionesToolStripMenuItem"
-        Me.NotificacionesToolStripMenuItem.Size = New System.Drawing.Size(148, 27)
-        Me.NotificacionesToolStripMenuItem.Tag = "ModuloNotificaciones"
-        Me.NotificacionesToolStripMenuItem.Text = "Notificaciones"
-        Me.NotificacionesToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ModuloNotificaciones.Name = "ModuloNotificaciones"
+        Me.ModuloNotificaciones.Size = New System.Drawing.Size(148, 27)
+        Me.ModuloNotificaciones.Tag = "ModuloNotificaciones"
+        Me.ModuloNotificaciones.Text = "Notificaciones"
+        Me.ModuloNotificaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'PedidosWebToolStripMenuItem
         '
@@ -1262,13 +1262,13 @@ Partial Class Principal
         Me.PedidosMovilToolStripMenuItem.Tag = "ModuloPedidosMovil"
         Me.PedidosMovilToolStripMenuItem.Text = "Descargar Pedidos Móvil"
         '
-        'SueldosToolStripMenuItem
+        'ModuloSueldos
         '
-        Me.SueldosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfParamétricasToolStripMenuItem, Me.EmpleadosToolStripMenuItem})
-        Me.SueldosToolStripMenuItem.Name = "SueldosToolStripMenuItem"
-        Me.SueldosToolStripMenuItem.Size = New System.Drawing.Size(81, 27)
-        Me.SueldosToolStripMenuItem.Tag = "ModuloSueldos"
-        Me.SueldosToolStripMenuItem.Text = "Sueldos"
+        Me.ModuloSueldos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfParamétricasToolStripMenuItem, Me.EmpleadosToolStripMenuItem})
+        Me.ModuloSueldos.Name = "ModuloSueldos"
+        Me.ModuloSueldos.Size = New System.Drawing.Size(81, 27)
+        Me.ModuloSueldos.Tag = "ModuloSueldos"
+        Me.ModuloSueldos.Text = "Sueldos"
         '
         'ConfParamétricasToolStripMenuItem
         '
@@ -1673,13 +1673,472 @@ Partial Class Principal
         'BGWAlertas
         '
         '
-        'ExportarListaDePreciosToolStripMenuItem
+        'PictureMenu
         '
-        Me.ExportarListaDePreciosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Export_1export
-        Me.ExportarListaDePreciosToolStripMenuItem.Name = "ExportarListaDePreciosToolStripMenuItem"
-        Me.ExportarListaDePreciosToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
-        Me.ExportarListaDePreciosToolStripMenuItem.Tag = "ExportarListadePrecios"
-        Me.ExportarListaDePreciosToolStripMenuItem.Text = "Exportar Lista de Precios"
+        Me.PictureMenu.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureMenu.Image = Global.sgcomercial.My.Resources.Resources.menu_icon_white
+        Me.PictureMenu.Location = New System.Drawing.Point(3, 3)
+        Me.PictureMenu.Name = "PictureMenu"
+        Me.PictureMenu.Size = New System.Drawing.Size(45, 45)
+        Me.PictureMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureMenu.TabIndex = 0
+        Me.PictureMenu.TabStop = False
+        '
+        'PictureLogo
+        '
+        Me.PictureLogo.Image = Global.sgcomercial.My.Resources.Resources.Sistemascomerciales_white
+        Me.PictureLogo.Location = New System.Drawing.Point(68, 3)
+        Me.PictureLogo.Name = "PictureLogo"
+        Me.PictureLogo.Size = New System.Drawing.Size(179, 68)
+        Me.PictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureLogo.TabIndex = 1
+        Me.PictureLogo.TabStop = False
+        '
+        'PanelSlider
+        '
+        Me.PanelSlider.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanelSlider.Controls.Add(Me.FlowLayoutPanelBotonera)
+        Me.PanelSlider.Controls.Add(Me.PanelHeader)
+        Me.PanelSlider.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PanelSlider.Location = New System.Drawing.Point(0, 155)
+        Me.PanelSlider.Name = "PanelSlider"
+        Me.PanelSlider.Size = New System.Drawing.Size(250, 566)
+        Me.PanelSlider.TabIndex = 12
+        '
+        'FlowLayoutPanelBotonera
+        '
+        Me.FlowLayoutPanelBotonera.AutoScroll = True
+        Me.FlowLayoutPanelBotonera.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloNotificaciones)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloVentas)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloConfiguraciones)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloGestionEscolar)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloSeguridad)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloFranquicia)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnTerminalVerificadoraPrecios)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloUtilidades)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloAyuda)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloEstadisticas)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloCloud)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloContabilidad)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloCuentasCorrientes)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloCajas)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloTransferenciaStock)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloProveedores)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloGGastronomica)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloStock)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloDelivery)
+        Me.FlowLayoutPanelBotonera.Controls.Add(Me.FlatBtnModuloSueldos)
+        Me.FlowLayoutPanelBotonera.Dock = System.Windows.Forms.DockStyle.Left
+        Me.FlowLayoutPanelBotonera.Location = New System.Drawing.Point(0, 70)
+        Me.FlowLayoutPanelBotonera.Name = "FlowLayoutPanelBotonera"
+        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 496)
+        Me.FlowLayoutPanelBotonera.TabIndex = 3
+        '
+        'FlatBtnModuloNotificaciones
+        '
+        Me.FlatBtnModuloNotificaciones.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloNotificaciones.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloNotificaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloNotificaciones.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloNotificaciones.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloNotificaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloNotificaciones.Location = New System.Drawing.Point(3, 3)
+        Me.FlatBtnModuloNotificaciones.Name = "FlatBtnModuloNotificaciones"
+        Me.FlatBtnModuloNotificaciones.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloNotificaciones.TabIndex = 18
+        Me.FlatBtnModuloNotificaciones.Tag = "ModuloNotificaciones"
+        Me.FlatBtnModuloNotificaciones.Text = "Notificaciones "
+        Me.FlatBtnModuloNotificaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloNotificaciones.UseVisualStyleBackColor = True
+        '
+        'FlatBtnModuloVentas
+        '
+        Me.FlatBtnModuloVentas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloVentas.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloVentas.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloVentas.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloVentas.Location = New System.Drawing.Point(3, 49)
+        Me.FlatBtnModuloVentas.Name = "FlatBtnModuloVentas"
+        Me.FlatBtnModuloVentas.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloVentas.TabIndex = 0
+        Me.FlatBtnModuloVentas.Tag = "ModuloVentas"
+        Me.FlatBtnModuloVentas.Text = "Ventas"
+        Me.FlatBtnModuloVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloVentas.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloVentas.Visible = False
+        '
+        'FlatBtnModuloConfiguraciones
+        '
+        Me.FlatBtnModuloConfiguraciones.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloConfiguraciones.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloConfiguraciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloConfiguraciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloConfiguraciones.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloConfiguraciones.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloConfiguraciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloConfiguraciones.Location = New System.Drawing.Point(3, 95)
+        Me.FlatBtnModuloConfiguraciones.Name = "FlatBtnModuloConfiguraciones"
+        Me.FlatBtnModuloConfiguraciones.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloConfiguraciones.TabIndex = 13
+        Me.FlatBtnModuloConfiguraciones.Tag = "ModuloConfiguraciones"
+        Me.FlatBtnModuloConfiguraciones.Text = "Configuraciónes"
+        Me.FlatBtnModuloConfiguraciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloConfiguraciones.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloConfiguraciones.Visible = False
+        '
+        'FlatBtnModuloGestionEscolar
+        '
+        Me.FlatBtnModuloGestionEscolar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloGestionEscolar.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloGestionEscolar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloGestionEscolar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloGestionEscolar.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloGestionEscolar.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloGestionEscolar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloGestionEscolar.Location = New System.Drawing.Point(3, 141)
+        Me.FlatBtnModuloGestionEscolar.Name = "FlatBtnModuloGestionEscolar"
+        Me.FlatBtnModuloGestionEscolar.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloGestionEscolar.TabIndex = 12
+        Me.FlatBtnModuloGestionEscolar.Tag = "ModuloGestionEscolar"
+        Me.FlatBtnModuloGestionEscolar.Text = "Gestión Escolar"
+        Me.FlatBtnModuloGestionEscolar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloGestionEscolar.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloGestionEscolar.Visible = False
+        '
+        'FlatBtnModuloSeguridad
+        '
+        Me.FlatBtnModuloSeguridad.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloSeguridad.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloSeguridad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloSeguridad.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloSeguridad.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloSeguridad.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloSeguridad.Location = New System.Drawing.Point(3, 187)
+        Me.FlatBtnModuloSeguridad.Name = "FlatBtnModuloSeguridad"
+        Me.FlatBtnModuloSeguridad.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloSeguridad.TabIndex = 14
+        Me.FlatBtnModuloSeguridad.Tag = "ModuloSeguridad"
+        Me.FlatBtnModuloSeguridad.Text = "Usuarios"
+        Me.FlatBtnModuloSeguridad.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloSeguridad.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloSeguridad.Visible = False
+        '
+        'FlatBtnModuloFranquicia
+        '
+        Me.FlatBtnModuloFranquicia.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloFranquicia.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloFranquicia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloFranquicia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloFranquicia.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloFranquicia.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloFranquicia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloFranquicia.Location = New System.Drawing.Point(3, 233)
+        Me.FlatBtnModuloFranquicia.Name = "FlatBtnModuloFranquicia"
+        Me.FlatBtnModuloFranquicia.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloFranquicia.TabIndex = 11
+        Me.FlatBtnModuloFranquicia.Tag = "ModuloFranquicia"
+        Me.FlatBtnModuloFranquicia.Text = "Mi Franquicia"
+        Me.FlatBtnModuloFranquicia.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloFranquicia.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloFranquicia.Visible = False
+        '
+        'FlatBtnTerminalVerificadoraPrecios
+        '
+        Me.FlatBtnTerminalVerificadoraPrecios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnTerminalVerificadoraPrecios.FlatAppearance.BorderSize = 0
+        Me.FlatBtnTerminalVerificadoraPrecios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnTerminalVerificadoraPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnTerminalVerificadoraPrecios.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnTerminalVerificadoraPrecios.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnTerminalVerificadoraPrecios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnTerminalVerificadoraPrecios.Location = New System.Drawing.Point(3, 279)
+        Me.FlatBtnTerminalVerificadoraPrecios.Name = "FlatBtnTerminalVerificadoraPrecios"
+        Me.FlatBtnTerminalVerificadoraPrecios.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnTerminalVerificadoraPrecios.TabIndex = 15
+        Me.FlatBtnTerminalVerificadoraPrecios.Tag = "TerminalVerificadoraPrecios"
+        Me.FlatBtnTerminalVerificadoraPrecios.Text = "Terminal de Precios"
+        Me.FlatBtnTerminalVerificadoraPrecios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnTerminalVerificadoraPrecios.UseVisualStyleBackColor = True
+        Me.FlatBtnTerminalVerificadoraPrecios.Visible = False
+        '
+        'FlatBtnModuloUtilidades
+        '
+        Me.FlatBtnModuloUtilidades.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloUtilidades.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloUtilidades.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloUtilidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloUtilidades.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloUtilidades.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloUtilidades.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloUtilidades.Location = New System.Drawing.Point(3, 325)
+        Me.FlatBtnModuloUtilidades.Name = "FlatBtnModuloUtilidades"
+        Me.FlatBtnModuloUtilidades.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloUtilidades.TabIndex = 10
+        Me.FlatBtnModuloUtilidades.Tag = "ModuloUtilidades"
+        Me.FlatBtnModuloUtilidades.Text = "Utilidades"
+        Me.FlatBtnModuloUtilidades.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloUtilidades.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloUtilidades.Visible = False
+        '
+        'FlatBtnModuloAyuda
+        '
+        Me.FlatBtnModuloAyuda.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloAyuda.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloAyuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloAyuda.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloAyuda.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloAyuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloAyuda.Location = New System.Drawing.Point(3, 371)
+        Me.FlatBtnModuloAyuda.Name = "FlatBtnModuloAyuda"
+        Me.FlatBtnModuloAyuda.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloAyuda.TabIndex = 16
+        Me.FlatBtnModuloAyuda.Tag = "ModuloAyuda"
+        Me.FlatBtnModuloAyuda.Text = "Ayuda"
+        Me.FlatBtnModuloAyuda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloAyuda.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloAyuda.Visible = False
+        '
+        'FlatBtnModuloEstadisticas
+        '
+        Me.FlatBtnModuloEstadisticas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloEstadisticas.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloEstadisticas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloEstadisticas.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloEstadisticas.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloEstadisticas.Location = New System.Drawing.Point(3, 417)
+        Me.FlatBtnModuloEstadisticas.Name = "FlatBtnModuloEstadisticas"
+        Me.FlatBtnModuloEstadisticas.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloEstadisticas.TabIndex = 9
+        Me.FlatBtnModuloEstadisticas.Tag = "ModuloEstadisticas"
+        Me.FlatBtnModuloEstadisticas.Text = "Estadisticas"
+        Me.FlatBtnModuloEstadisticas.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloEstadisticas.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloEstadisticas.Visible = False
+        '
+        'FlatBtnModuloCloud
+        '
+        Me.FlatBtnModuloCloud.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloCloud.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloCloud.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloCloud.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloCloud.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloCloud.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloCloud.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloCloud.Location = New System.Drawing.Point(3, 463)
+        Me.FlatBtnModuloCloud.Name = "FlatBtnModuloCloud"
+        Me.FlatBtnModuloCloud.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloCloud.TabIndex = 17
+        Me.FlatBtnModuloCloud.Tag = "ModuloCloud"
+        Me.FlatBtnModuloCloud.Text = "Nube"
+        Me.FlatBtnModuloCloud.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloCloud.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloCloud.Visible = False
+        '
+        'FlatBtnModuloContabilidad
+        '
+        Me.FlatBtnModuloContabilidad.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloContabilidad.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloContabilidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloContabilidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloContabilidad.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloContabilidad.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloContabilidad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloContabilidad.Location = New System.Drawing.Point(3, 509)
+        Me.FlatBtnModuloContabilidad.Name = "FlatBtnModuloContabilidad"
+        Me.FlatBtnModuloContabilidad.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloContabilidad.TabIndex = 8
+        Me.FlatBtnModuloContabilidad.Tag = "ModuloContabilidad"
+        Me.FlatBtnModuloContabilidad.Text = "Contabilidad"
+        Me.FlatBtnModuloContabilidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloContabilidad.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloContabilidad.Visible = False
+        '
+        'FlatBtnModuloCuentasCorrientes
+        '
+        Me.FlatBtnModuloCuentasCorrientes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloCuentasCorrientes.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloCuentasCorrientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloCuentasCorrientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloCuentasCorrientes.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloCuentasCorrientes.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloCuentasCorrientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloCuentasCorrientes.Location = New System.Drawing.Point(3, 555)
+        Me.FlatBtnModuloCuentasCorrientes.Name = "FlatBtnModuloCuentasCorrientes"
+        Me.FlatBtnModuloCuentasCorrientes.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloCuentasCorrientes.TabIndex = 7
+        Me.FlatBtnModuloCuentasCorrientes.Tag = "ModuloCuentasCorrientes"
+        Me.FlatBtnModuloCuentasCorrientes.Text = "Cuentas Corrientes"
+        Me.FlatBtnModuloCuentasCorrientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloCuentasCorrientes.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloCuentasCorrientes.Visible = False
+        '
+        'FlatBtnModuloCajas
+        '
+        Me.FlatBtnModuloCajas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloCajas.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloCajas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloCajas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloCajas.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloCajas.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloCajas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloCajas.Location = New System.Drawing.Point(3, 601)
+        Me.FlatBtnModuloCajas.Name = "FlatBtnModuloCajas"
+        Me.FlatBtnModuloCajas.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloCajas.TabIndex = 6
+        Me.FlatBtnModuloCajas.Tag = "ModuloCajas"
+        Me.FlatBtnModuloCajas.Text = "Cajas"
+        Me.FlatBtnModuloCajas.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloCajas.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloCajas.Visible = False
+        '
+        'FlatBtnModuloTransferenciaStock
+        '
+        Me.FlatBtnModuloTransferenciaStock.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloTransferenciaStock.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloTransferenciaStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloTransferenciaStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloTransferenciaStock.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloTransferenciaStock.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloTransferenciaStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloTransferenciaStock.Location = New System.Drawing.Point(3, 647)
+        Me.FlatBtnModuloTransferenciaStock.Name = "FlatBtnModuloTransferenciaStock"
+        Me.FlatBtnModuloTransferenciaStock.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloTransferenciaStock.TabIndex = 5
+        Me.FlatBtnModuloTransferenciaStock.Tag = "ModuloTransferenciaStock"
+        Me.FlatBtnModuloTransferenciaStock.Text = "Transferir Stock"
+        Me.FlatBtnModuloTransferenciaStock.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloTransferenciaStock.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloTransferenciaStock.Visible = False
+        '
+        'FlatBtnModuloProveedores
+        '
+        Me.FlatBtnModuloProveedores.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloProveedores.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloProveedores.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloProveedores.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloProveedores.Location = New System.Drawing.Point(3, 693)
+        Me.FlatBtnModuloProveedores.Name = "FlatBtnModuloProveedores"
+        Me.FlatBtnModuloProveedores.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloProveedores.TabIndex = 4
+        Me.FlatBtnModuloProveedores.Tag = "ModuloProveedores"
+        Me.FlatBtnModuloProveedores.Text = "Proveedores"
+        Me.FlatBtnModuloProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloProveedores.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloProveedores.Visible = False
+        '
+        'FlatBtnModuloGGastronomica
+        '
+        Me.FlatBtnModuloGGastronomica.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloGGastronomica.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloGGastronomica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloGGastronomica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloGGastronomica.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloGGastronomica.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloGGastronomica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloGGastronomica.Location = New System.Drawing.Point(3, 739)
+        Me.FlatBtnModuloGGastronomica.Name = "FlatBtnModuloGGastronomica"
+        Me.FlatBtnModuloGGastronomica.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloGGastronomica.TabIndex = 3
+        Me.FlatBtnModuloGGastronomica.Tag = "ModuloGGastronomica"
+        Me.FlatBtnModuloGGastronomica.Text = "Gastronomía"
+        Me.FlatBtnModuloGGastronomica.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloGGastronomica.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloGGastronomica.Visible = False
+        '
+        'FlatBtnModuloStock
+        '
+        Me.FlatBtnModuloStock.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloStock.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloStock.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloStock.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloStock.Location = New System.Drawing.Point(3, 785)
+        Me.FlatBtnModuloStock.Name = "FlatBtnModuloStock"
+        Me.FlatBtnModuloStock.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloStock.TabIndex = 2
+        Me.FlatBtnModuloStock.Tag = "ModuloStock"
+        Me.FlatBtnModuloStock.Text = "Productos"
+        Me.FlatBtnModuloStock.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloStock.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloStock.Visible = False
+        '
+        'FlatBtnModuloDelivery
+        '
+        Me.FlatBtnModuloDelivery.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloDelivery.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloDelivery.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloDelivery.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloDelivery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloDelivery.Location = New System.Drawing.Point(3, 831)
+        Me.FlatBtnModuloDelivery.Name = "FlatBtnModuloDelivery"
+        Me.FlatBtnModuloDelivery.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloDelivery.TabIndex = 1
+        Me.FlatBtnModuloDelivery.Tag = "ModuloDelivery"
+        Me.FlatBtnModuloDelivery.Text = "Delivery"
+        Me.FlatBtnModuloDelivery.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloDelivery.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloDelivery.Visible = False
+        '
+        'FlatBtnModuloSueldos
+        '
+        Me.FlatBtnModuloSueldos.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlatBtnModuloSueldos.FlatAppearance.BorderSize = 0
+        Me.FlatBtnModuloSueldos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.FlatBtnModuloSueldos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FlatBtnModuloSueldos.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlatBtnModuloSueldos.ForeColor = System.Drawing.Color.White
+        Me.FlatBtnModuloSueldos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FlatBtnModuloSueldos.Location = New System.Drawing.Point(3, 877)
+        Me.FlatBtnModuloSueldos.Name = "FlatBtnModuloSueldos"
+        Me.FlatBtnModuloSueldos.Size = New System.Drawing.Size(250, 40)
+        Me.FlatBtnModuloSueldos.TabIndex = 19
+        Me.FlatBtnModuloSueldos.Tag = "ModuloSueldos"
+        Me.FlatBtnModuloSueldos.Text = "Sueldos"
+        Me.FlatBtnModuloSueldos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FlatBtnModuloSueldos.UseVisualStyleBackColor = True
+        Me.FlatBtnModuloSueldos.Visible = False
+        '
+        'PanelHeader
+        '
+        Me.PanelHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanelHeader.Controls.Add(Me.PictureMenu)
+        Me.PanelHeader.Controls.Add(Me.PictureLogo)
+        Me.PanelHeader.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelHeader.Location = New System.Drawing.Point(0, 0)
+        Me.PanelHeader.Name = "PanelHeader"
+        Me.PanelHeader.Size = New System.Drawing.Size(250, 70)
+        Me.PanelHeader.TabIndex = 2
+        '
+        'MenuStripTop
+        '
+        Me.MenuStripTop.AllowMerge = False
+        Me.MenuStripTop.AutoSize = False
+        Me.MenuStripTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.MenuStripTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.MenuStripTop.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStripTop.ImageScalingSize = New System.Drawing.Size(35, 35)
+        Me.MenuStripTop.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
+        Me.MenuStripTop.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStripTop.Name = "MenuStripTop"
+        Me.MenuStripTop.Size = New System.Drawing.Size(1006, 43)
+        Me.MenuStripTop.TabIndex = 16
+        Me.MenuStripTop.Text = "MenuStripTop"
         '
         'Principal
         '
@@ -1687,11 +2146,13 @@ Partial Class Principal
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1140, 603)
+        Me.ClientSize = New System.Drawing.Size(1006, 721)
+        Me.Controls.Add(Me.PanelSlider)
         Me.Controls.Add(Me.ModulosDataGridView)
         Me.Controls.Add(Me.CajaseventosDataGridView)
         Me.Controls.Add(Me.ParametrosgeneralesDataGridView)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.MenuStripMain)
+        Me.Controls.Add(Me.MenuStripTop)
         Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -1699,14 +2160,14 @@ Partial Class Principal
         Me.ImeMode = System.Windows.Forms.ImeMode.Close
         Me.IsMdiContainer = True
         Me.KeyPreview = True
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.MainMenuStrip = Me.MenuStripTop
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "EPOS"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.MenuStripMain.ResumeLayout(False)
+        Me.MenuStripMain.PerformLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1719,29 +2180,34 @@ Partial Class Principal
         CType(Me.ListaprecioscajaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AlertacuentascorrientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureMenu, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelSlider.ResumeLayout(False)
+        Me.FlowLayoutPanelBotonera.ResumeLayout(False)
+        Me.PanelHeader.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents GestionDeProductosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents VentasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MenuStripMain As System.Windows.Forms.MenuStrip
+    Friend WithEvents ModuloVentas As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ModuloStock As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RegistrarVentaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ABMProductosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CajasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ModuloCajas As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AbrirToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GastosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MovimientosDeCajaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StockToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IngresoDeProductosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ControlDeStockToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ConfiguracionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ModuloConfiguraciones As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ABMRubrosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ABMClientesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReportesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VentasPorDiaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LibroMayorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AyudaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ModuloAyuda As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AcercaDeSGComercialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MiComercioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FondoAplicaciónToolStripMenuItem As ToolStripMenuItem
@@ -1760,7 +2226,7 @@ Partial Class Principal
     Friend WithEvents StockEnAlertaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StockalertaBindingSource As BindingSource
     Friend WithEvents StockalertaTableAdapter As comercialDataSetTableAdapters.stockalertaTableAdapter
-    Friend WithEvents NotificacionesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloNotificaciones As ToolStripMenuItem
     Friend WithEvents ActualizacionDePreciosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductoEstandarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductoCompuestoToolStripMenuItem As ToolStripMenuItem
@@ -1774,13 +2240,13 @@ Partial Class Principal
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
     Friend WithEvents ParametrosgeneralesTableAdapter1 As comercialDataSetTableAdapters.parametrosgeneralesTableAdapter
-    Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloSeguridad As ToolStripMenuItem
     Friend WithEvents ABMUsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMPermisosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FuncionesTableAdapter1 As comercialDataSetTableAdapters.funcionesTableAdapter
     Friend WithEvents PermisosBindingSource As BindingSource
     Friend WithEvents PermisosTableAdapter As comercialDataSetTableAdapters.permisosTableAdapter
-    Friend WithEvents ProveedoresToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloProveedores As ToolStripMenuItem
     Friend WithEvents ABMProveedoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMPedidosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListaDePedidosToolStripMenuItem As ToolStripMenuItem
@@ -1797,11 +2263,11 @@ Partial Class Principal
     Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
-    Friend WithEvents SysConfigToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SysConfig As ToolStripMenuItem
     Friend WithEvents ModulosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AsignarCajaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMUnidadesMedidaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GeneraciónDeValesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloVales As ToolStripMenuItem
     Friend WithEvents EmitirValeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AdministrarValesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMMotivosValesToolStripMenuItem As ToolStripMenuItem
@@ -1811,18 +2277,18 @@ Partial Class Principal
     Friend WithEvents ListaprecioscajaTableAdapter As comercialDataSetTableAdapters.listaprecioscajaTableAdapter
     Friend WithEvents CodificarProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CambioMercaderíaVendidaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TransferenciaStockToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloTransferenciaStock As ToolStripMenuItem
     Friend WithEvents EnviarStockToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RecibirStockToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMSucursalesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListaRemitosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DeliveryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloDelivery As ToolStripMenuItem
     Friend WithEvents AltaPedidoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RecibidosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DespachoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMProvinciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EntregasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CuentasCorrientesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloCuentasCorrientes As ToolStripMenuItem
     Friend WithEvents EstadoDeCuentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LotesDeEnvìosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AltaTerminalToolStripMenuItem As ToolStripMenuItem
@@ -1838,23 +2304,20 @@ Partial Class Principal
     Friend WithEvents AlertacuentascorrientesBindingSource As BindingSource
     Friend WithEvents AlertacuentascorrientesTableAdapter As comercialDataSetTableAdapters.alertacuentascorrientesTableAdapter
     Friend WithEvents ABMTiposIVAToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TerminalVerificadoraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TerminalVerificadoraPrecios As ToolStripMenuItem
     Friend WithEvents TerminalVerificadoraDePreciosToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ImportarProductosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ImportarProductosToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ExportarProductosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ContabilidadToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloContabilidad As ToolStripMenuItem
     Friend WithEvents AsignaciónDeIVAMasivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroIVAVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LibroIVAComprasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents UtilidadesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloUtilidades As ToolStripMenuItem
     Friend WithEvents ImprimirPlantillasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductosPorProveedorToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EstadisticasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloEstadisticas As ToolStripMenuItem
     Friend WithEvents MisVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MisClientesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MisProveedoresToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents NubeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloCloud As ToolStripMenuItem
     Friend WithEvents SubirProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DescargarProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackgroundSyncLibroventasClowd As System.ComponentModel.BackgroundWorker
@@ -1877,18 +2340,16 @@ Partial Class Principal
     Friend WithEvents MailServerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RecargarPermisosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ComprobanesEmitidosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GestiónGastronómicaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloGGastronomica As ToolStripMenuItem
     Friend WithEvents SalonesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OrdenesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BGWClientes As System.ComponentModel.BackgroundWorker
     Friend WithEvents BGWAlertas As System.ComponentModel.BackgroundWorker
     Friend WithEvents PedidosRecibidosVerTodosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MiFranquiciaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloFranquicia As ToolStripMenuItem
     Friend WithEvents ReporteDeVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConfiguraciónesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PreventaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SincronizarClientesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GestiónEscolarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloGestionEscolar As ToolStripMenuItem
     Friend WithEvents ConfiguraciónDeGradosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AltaInscripciónToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistroDeInscripciónesToolStripMenuItem As ToolStripMenuItem
@@ -1903,7 +2364,7 @@ Partial Class Principal
     Friend WithEvents PedidosWebToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PedidosMovilToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SincronizarClientesToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents SueldosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModuloSueldos As ToolStripMenuItem
     Friend WithEvents ConfParamétricasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GruposJerarquicosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CentrosDeCostoToolStripMenuItem As ToolStripMenuItem
@@ -1915,4 +2376,31 @@ Partial Class Principal
     Friend WithEvents AMBIncapacidadesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents QRTestToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExportarListaDePreciosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PictureMenu As PictureBox
+    Friend WithEvents PictureLogo As PictureBox
+    Friend WithEvents PanelSlider As Panel
+    Friend WithEvents FlowLayoutPanelBotonera As FlowLayoutPanel
+    Friend WithEvents FlatBtnModuloVentas As Button
+    Friend WithEvents FlatBtnModuloDelivery As Button
+    Friend WithEvents FlatBtnModuloStock As Button
+    Friend WithEvents FlatBtnModuloGGastronomica As Button
+    Friend WithEvents FlatBtnModuloProveedores As Button
+    Friend WithEvents FlatBtnModuloTransferenciaStock As Button
+    Friend WithEvents FlatBtnModuloCajas As Button
+    Friend WithEvents FlatBtnModuloCuentasCorrientes As Button
+    Friend WithEvents FlatBtnModuloContabilidad As Button
+    Friend WithEvents FlatBtnModuloEstadisticas As Button
+    Friend WithEvents FlatBtnModuloUtilidades As Button
+    Friend WithEvents FlatBtnModuloFranquicia As Button
+    Friend WithEvents FlatBtnModuloGestionEscolar As Button
+    Friend WithEvents FlatBtnModuloConfiguraciones As Button
+    Friend WithEvents FlatBtnModuloSeguridad As Button
+    Friend WithEvents PanelHeader As Panel
+    Friend WithEvents FlatBtnTerminalVerificadoraPrecios As Button
+    Friend WithEvents FlatBtnModuloAyuda As Button
+    Friend WithEvents FlatBtnModuloCloud As Button
+    Friend WithEvents FlatBtnModuloNotificaciones As Button
+    Friend WithEvents MenuStripTop As MenuStrip
+    Friend WithEvents ImportarProductosToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents FlatBtnModuloSueldos As Button
 End Class
