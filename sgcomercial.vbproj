@@ -2457,6 +2457,10 @@
     <None Include="My Project\img\product_iconw_38.png" />
     <None Include="My Project\img\deliveryman_iconw_39.png" />
     <None Include="My Project\img\sueldos_iconw_39.png" />
+    <None Include="My Project\img\NULL_IMG_10.png" />
+    <None Include="My Project\img\print-iconwhite-35.png" />
+    <None Include="My Project\img\list_iconw_40.png" />
+    <None Include="My Project\img\report_math_white_40.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

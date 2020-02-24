@@ -285,6 +285,7 @@ Partial Class Principal
         'RegistrarVentaToolStripMenuItem
         '
         Me.RegistrarVentaToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control
+        Me.RegistrarVentaToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.cart_iconw_35
         Me.RegistrarVentaToolStripMenuItem.Name = "RegistrarVentaToolStripMenuItem"
         Me.RegistrarVentaToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.RegistrarVentaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
@@ -295,6 +296,7 @@ Partial Class Principal
         '
         'CambioMercaderíaVendidaToolStripMenuItem
         '
+        Me.CambioMercaderíaVendidaToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.NULL_IMG_10
         Me.CambioMercaderíaVendidaToolStripMenuItem.Name = "CambioMercaderíaVendidaToolStripMenuItem"
         Me.CambioMercaderíaVendidaToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.CambioMercaderíaVendidaToolStripMenuItem.Tag = "CambioMercaderiaVendida"
@@ -302,6 +304,7 @@ Partial Class Principal
         '
         'CambioMultipleToolStripMenuItem
         '
+        Me.CambioMultipleToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.NULL_IMG_10
         Me.CambioMultipleToolStripMenuItem.Name = "CambioMultipleToolStripMenuItem"
         Me.CambioMultipleToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.CambioMultipleToolStripMenuItem.Tag = "CambioMultiple"
@@ -309,6 +312,7 @@ Partial Class Principal
         '
         'ABMClientesToolStripMenuItem
         '
+        Me.ABMClientesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.users_iconw_35
         Me.ABMClientesToolStripMenuItem.Name = "ABMClientesToolStripMenuItem"
         Me.ABMClientesToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
         Me.ABMClientesToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
@@ -319,6 +323,7 @@ Partial Class Principal
         'ReportesToolStripMenuItem
         '
         Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ComprobanesEmitidosToolStripMenuItem, Me.LibroVentasToolStripMenuItem, Me.VentasPorDiaToolStripMenuItem, Me.LibroMayorToolStripMenuItem, Me.VentasPorUsuarioToolStripMenuItem, Me.LibroDeGastosToolStripMenuItem, Me.LibroVentasCanceladasToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.print_iconwhite_35
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.ReportesToolStripMenuItem.Tag = "ReportesParent"
@@ -375,6 +380,7 @@ Partial Class Principal
         '
         'ConsultarPreciosToolStripMenuItem
         '
+        Me.ConsultarPreciosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.pricetag_iconw_37
         Me.ConsultarPreciosToolStripMenuItem.Name = "ConsultarPreciosToolStripMenuItem"
         Me.ConsultarPreciosToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
         Me.ConsultarPreciosToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
@@ -384,6 +390,7 @@ Partial Class Principal
         'PresupuestosToolStripMenuItem
         '
         Me.PresupuestosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarPresupuestoToolStripMenuItem, Me.PresupuestosGeneradosToolStripMenuItem})
+        Me.PresupuestosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.report_math_white_40
         Me.PresupuestosToolStripMenuItem.Name = "PresupuestosToolStripMenuItem"
         Me.PresupuestosToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.PresupuestosToolStripMenuItem.Tag = "ABMPresupuestos"
@@ -406,6 +413,7 @@ Partial Class Principal
         'CriteriosDeVentaToolStripMenuItem
         '
         Me.CriteriosDeVentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefinirCriteriosToolStripMenuItem})
+        Me.CriteriosDeVentaToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.NULL_IMG_10
         Me.CriteriosDeVentaToolStripMenuItem.Name = "CriteriosDeVentaToolStripMenuItem"
         Me.CriteriosDeVentaToolStripMenuItem.Size = New System.Drawing.Size(302, 28)
         Me.CriteriosDeVentaToolStripMenuItem.Tag = "CriteriosDeVenta"
