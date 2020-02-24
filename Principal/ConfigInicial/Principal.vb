@@ -1308,7 +1308,7 @@ Public Class Principal
             Dim colorBG As New Color
             Dim colorFore As New Color
             colorBG = MenuStripMain.BackColor
-            colorFore = Color.White
+            colorFore = Color.White 'Color.FromArgb(255, 121, 70) ' 'Color.White
             MenuStripTop.ForeColor = colorFore
             MenuStripTop.Items.Clear()
             For i = 0 To modulo.DropDownItems.Count - 1

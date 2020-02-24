@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>46</ApplicationRevision>
-    <ApplicationVersion>4.1.0.46</ApplicationVersion>
+    <ApplicationRevision>47</ApplicationRevision>
+    <ApplicationVersion>4.1.0.47</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -2474,6 +2474,20 @@
     <None Include="My Project\img\stockpallet_iconw_40.png" />
     <None Include="My Project\img\stockmove_white.png" />
     <None Include="My Project\img\productos-box_white_40.png" />
+    <None Include="My Project\img\transport_rev_iconw_40.png" />
+    <None Include="My Project\img\money_down_white_40.png" />
+    <None Include="My Project\img\money_arrows_iconw_40.png" />
+    <None Include="My Project\img\hand_money_iconw_40.png" />
+    <None Include="My Project\img\growth_moneyw_40.png" />
+    <None Include="My Project\img\growth_people_iconw_40.png" />
+    <None Include="My Project\img\growth_box_iconw_40.png" />
+    <None Include="My Project\img\store_iconw_40.png" />
+    <None Include="My Project\img\permission_key_iconw_40.png" />
+    <None Include="My Project\img\permission_profile_iconw_40.png" />
+    <None Include="My Project\img\SC_Icon_white_40.png" />
+    <None Include="My Project\img\download_iconw_40.png" />
+    <None Include="My Project\img\upload_iconw_40.png" />
+    <None Include="My Project\img\syncronize_iconw_40.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />
@@ -2495,42 +2509,42 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.SqlServer.Types">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Recursos\appicon.ico">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
