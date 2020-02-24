@@ -530,6 +530,7 @@ Partial Class Principal
         'ABMProductosToolStripMenuItem
         '
         Me.ABMProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductoEstandarToolStripMenuItem, Me.ProductoCompuestoToolStripMenuItem, Me.ExportarListaDePreciosToolStripMenuItem})
+        Me.ABMProductosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.productos_box_white
         Me.ABMProductosToolStripMenuItem.Name = "ABMProductosToolStripMenuItem"
         Me.ABMProductosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.ABMProductosToolStripMenuItem.Tag = "ABMProductosParent"
@@ -537,6 +538,7 @@ Partial Class Principal
         '
         'ProductoEstandarToolStripMenuItem
         '
+        Me.ProductoEstandarToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.product_iconw_38
         Me.ProductoEstandarToolStripMenuItem.Name = "ProductoEstandarToolStripMenuItem"
         Me.ProductoEstandarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
         Me.ProductoEstandarToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
@@ -545,6 +547,7 @@ Partial Class Principal
         '
         'ProductoCompuestoToolStripMenuItem
         '
+        Me.ProductoCompuestoToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.recipe_iconw_40
         Me.ProductoCompuestoToolStripMenuItem.Name = "ProductoCompuestoToolStripMenuItem"
         Me.ProductoCompuestoToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
             Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
@@ -554,6 +557,7 @@ Partial Class Principal
         '
         'ExportarListaDePreciosToolStripMenuItem
         '
+        Me.ExportarListaDePreciosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Export_iconw_40
         Me.ExportarListaDePreciosToolStripMenuItem.Name = "ExportarListaDePreciosToolStripMenuItem"
         Me.ExportarListaDePreciosToolStripMenuItem.Size = New System.Drawing.Size(338, 28)
         Me.ExportarListaDePreciosToolStripMenuItem.Tag = "ExportarListadePrecios"
@@ -607,6 +611,7 @@ Partial Class Principal
         '
         'ImpresiónEtiquetasToolStripMenuItem
         '
+        Me.ImpresiónEtiquetasToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.pricetag_iconw_37
         Me.ImpresiónEtiquetasToolStripMenuItem.Name = "ImpresiónEtiquetasToolStripMenuItem"
         Me.ImpresiónEtiquetasToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.ImpresiónEtiquetasToolStripMenuItem.Tag = "ImpresionEtiquetas"
@@ -614,6 +619,8 @@ Partial Class Principal
         '
         'CodificarProductosToolStripMenuItem
         '
+        Me.CodificarProductosToolStripMenuItem.Enabled = False
+        Me.CodificarProductosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.NULL_IMG_10
         Me.CodificarProductosToolStripMenuItem.Name = "CodificarProductosToolStripMenuItem"
         Me.CodificarProductosToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.CodificarProductosToolStripMenuItem.Tag = "CodificarProductos"
@@ -621,6 +628,7 @@ Partial Class Principal
         '
         'LotesDeVencimientoToolStripMenuItem
         '
+        Me.LotesDeVencimientoToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.expired_iconw_40
         Me.LotesDeVencimientoToolStripMenuItem.Name = "LotesDeVencimientoToolStripMenuItem"
         Me.LotesDeVencimientoToolStripMenuItem.Size = New System.Drawing.Size(270, 28)
         Me.LotesDeVencimientoToolStripMenuItem.Tag = "LotesVencimiento"
@@ -628,6 +636,7 @@ Partial Class Principal
         '
         'ImportarProductosToolStripMenuItem2
         '
+        Me.ImportarProductosToolStripMenuItem2.Image = Global.sgcomercial.My.Resources.Resources.Export_iconw_40
         Me.ImportarProductosToolStripMenuItem2.Name = "ImportarProductosToolStripMenuItem2"
         Me.ImportarProductosToolStripMenuItem2.Size = New System.Drawing.Size(270, 28)
         Me.ImportarProductosToolStripMenuItem2.Tag = "ImportarProductos"
