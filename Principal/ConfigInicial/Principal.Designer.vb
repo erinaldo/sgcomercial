@@ -436,6 +436,7 @@ Partial Class Principal
         '
         'AltaPedidoToolStripMenuItem
         '
+        Me.AltaPedidoToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.cart_fill_w_40
         Me.AltaPedidoToolStripMenuItem.Name = "AltaPedidoToolStripMenuItem"
         Me.AltaPedidoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
         Me.AltaPedidoToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
@@ -444,6 +445,7 @@ Partial Class Principal
         '
         'RecibidosToolStripMenuItem
         '
+        Me.RecibidosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.incoming_cart_w_40
         Me.RecibidosToolStripMenuItem.Name = "RecibidosToolStripMenuItem"
         Me.RecibidosToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
         Me.RecibidosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
@@ -452,6 +454,7 @@ Partial Class Principal
         '
         'DespachoToolStripMenuItem
         '
+        Me.DespachoToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.transport_iconw_38
         Me.DespachoToolStripMenuItem.Name = "DespachoToolStripMenuItem"
         Me.DespachoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
         Me.DespachoToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
@@ -460,6 +463,7 @@ Partial Class Principal
         '
         'LotesDeEnvìosToolStripMenuItem
         '
+        Me.LotesDeEnvìosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.list_iconw_40
         Me.LotesDeEnvìosToolStripMenuItem.Name = "LotesDeEnvìosToolStripMenuItem"
         Me.LotesDeEnvìosToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
         Me.LotesDeEnvìosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
@@ -468,6 +472,7 @@ Partial Class Principal
         '
         'EntregasToolStripMenuItem
         '
+        Me.EntregasToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.deliveryman_iconw_39
         Me.EntregasToolStripMenuItem.Name = "EntregasToolStripMenuItem"
         Me.EntregasToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
         Me.EntregasToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
@@ -476,6 +481,7 @@ Partial Class Principal
         '
         'LibroDePedidosToolStripMenuItem
         '
+        Me.LibroDePedidosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.book_iconw_40
         Me.LibroDePedidosToolStripMenuItem.Name = "LibroDePedidosToolStripMenuItem"
         Me.LibroDePedidosToolStripMenuItem.Size = New System.Drawing.Size(286, 28)
         Me.LibroDePedidosToolStripMenuItem.Tag = "LibroPedidos"

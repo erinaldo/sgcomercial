@@ -133,11 +133,11 @@
   <data name="menu_icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\menu_icon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cashregister_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\cashregister_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="calc_iconw_38" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\calc_iconw_38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reload-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\reload-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gastronomia_iconw_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\gastronomia_iconw_39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,8 +148,14 @@
   <data name="menu_icon_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\menu_icon_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sueldos_iconw_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\sueldos_iconw_39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="green-plus-icon-13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\green-plus-icon-13.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="incoming-cart_w_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\incoming-cart_w_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="config_iconw_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\config_iconw_35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,11 +199,8 @@
   <data name="UpdateAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\UpdateAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="epos_logo_B_sub" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\epos_logo_B_sub.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cloud-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\Cloud-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="report_math_white_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\report_math_white_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Alert_information" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alert_information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,8 +223,8 @@
   <data name="utilities_iconw_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\utilities_iconw_35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Bienvenidaepos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bienvenidaepos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="franchise_iconw_37" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\franchise_iconw_37.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -231,6 +234,9 @@
   </data>
   <data name="box_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\box_img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cloud-icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\Cloud-icon2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Export_1export" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Export_1export.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -258,6 +264,9 @@
   </data>
   <data name="users_iconw_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\users_iconw_35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cart_fill_w_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\cart_fill_w_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Alert_warning_white_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alert_warning_white_39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -304,20 +313,20 @@
   <data name="edit_pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\edit_pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Cloud-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\Cloud-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sistemascomerciales_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Sistemascomerciales_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CuentaCorriente_iconw_38" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\CuentaCorriente_iconw_38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sueldos_iconw_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\sueldos_iconw_39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="epos_logo_B_sub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\epos_logo_B_sub.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cloud-icon30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Cloud-icon30x30.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WebClowd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\WebClowd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\checked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,11 +334,11 @@
   <data name="contrato" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\contrato.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="Bienvenidaepos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bienvenidaepos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="WebClowd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\WebClowd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cashregister_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\cashregister_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delivery_iconw_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\delivery_iconw_39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -343,10 +352,10 @@
   <data name="Alert_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alert_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Cloud-icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\Cloud-icon2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="reload-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\reload-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="report_math_white_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\report_math_white_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="book_iconw_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\book_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

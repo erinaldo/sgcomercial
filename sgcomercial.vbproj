@@ -2461,6 +2461,9 @@
     <None Include="My Project\img\print-iconwhite-35.png" />
     <None Include="My Project\img\list_iconw_40.png" />
     <None Include="My Project\img\report_math_white_40.png" />
+    <None Include="My Project\img\cart_fill_w_40.png" />
+    <None Include="My Project\img\incoming-cart_w_40.png" />
+    <None Include="My Project\img\book_iconw_40.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />
