@@ -1393,5 +1393,33 @@ and v.idtipocomprobante = tc.idtipocomprobante
 
         End Try
     End Sub
+    Public Enum ListaModulos
+        ModuloVentas
+        ModuloDelivery
+        ModuloStock
+        ModuloImportarExportarProductos
+        ModuloProveedores
+        ModuloTransferenciaStock
+        ModuloCajas
+        ModuloVales
+        ModuloCuentasCorrientes
+        ModuloContabilidad
+        ModuloEstadisticas
+        ModuloUtilidades
+        ModuloConfiguraciones
+        ModuloSeguridad
+        TerminalVerificadoraPrecios
+        ModuloAyuda
+        ModuloNotificaciones
+        ModuloSyncWeb
+        ModuloGGastronomica
+        ModuloFranquicia
+        ModuloPreventa
+        ModuloGestionEscolar
+        ModuloPedidosWeb
+        ModuloPedidosMovil
+        ModuloCloud
+        ModuloSueldos
+    End Enum
 End Module
 
