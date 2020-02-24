@@ -150,13 +150,17 @@ Public Class AltaPedidoDelivery
         If Val(gcantidad) = 0 Then Return
         v_precioventa = gprecioventa
         idproducto = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
-        '--------------------------------------------------------------------------
-        productodisponible = StockTableAdapter.stock_consultardisponible(idproducto)
-        productodisponibleenvasado = StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
-        descripcion = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
-        unidadmedida = ProductosTableAdapter.productos_consultarunidadmedida(gcodigoproducto)
-        medida = ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
-        ''codigotextbox.Text = gcodigoproducto
+        '-------------------------------MAL MAL ESTO HAY QUE CAMBIAR!!-------------------------------------------
+        Dim StockGeneralTableAdapter As New comercialDataSetTableAdapters.stockgeneralTableAdapter()
+        Dim StockGralDataTable As New comercialDataSet.stockgeneralDataTable()
+        StockGralDataTable = StockGeneralTableAdapter.GetDataByProductSheet(gcodigoproducto)
+        '!!-------------------------------------------
+        productodisponible = StockGralDataTable.Rows(0)("disponible") 'StockTableAdapter.stock_consultardisponible(idproducto)
+        productodisponibleenvasado = StockGralDataTable.Rows(0)("unidades") 'StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
+        descripcion = StockGralDataTable.Rows(0)("producto") 'ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
+        unidadmedida = StockGralDataTable.Rows(0)("unidadmedida") 'ProductosTableAdapter.productos_consultarunidadmedida(gcodigoproducto)
+        medida = StockGralDataTable.Rows(0)("medidavalor") 'ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
+        '-------------------------------************************************-------------------------------------------
         If VentasdetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
             newrow = VentasdetalleDataGridView.Rows.Add()
             VentasdetalleDataGridView.Rows(newrow).Cells("idproducto").Value = idproducto

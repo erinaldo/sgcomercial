@@ -33,7 +33,7 @@ Public Class SeleccionarProductoCantidadGenerico
 
     Private Sub ListaproductosDataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ListaproductosDataGridView.CellDoubleClick
         If Len(Trim(TextBox2.Text)) = 0 Then
-            MsgBox("Ingrese cantidad")
+            MsgExPopUp("Ingrese cantidad")
             TextBox2.Select()
             Return
         End If

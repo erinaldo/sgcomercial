@@ -76,6 +76,7 @@ Partial Class EnviarStock
         Me.listaremitosdetalleTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaremitosdetalleTableAdapter()
         Me.StockgeneralTableAdapter = New sgcomercial.comercialDataSetTableAdapters.stockgeneralTableAdapter()
         Me.BGWStockClowd = New System.ComponentModel.BackgroundWorker()
+        Me.CheckStock = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.SucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -375,6 +376,7 @@ Partial Class EnviarStock
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.CheckStock)
         Me.GroupBox3.Controls.Add(Me.Button2)
         Me.GroupBox3.Location = New System.Drawing.Point(12, 560)
         Me.GroupBox3.Name = "GroupBox3"
@@ -386,7 +388,7 @@ Partial Class EnviarStock
         'Button2
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(316, 39)
+        Me.Button2.Location = New System.Drawing.Point(316, 53)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(185, 30)
         Me.Button2.TabIndex = 0
@@ -415,6 +417,8 @@ Partial Class EnviarStock
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -424,9 +428,21 @@ Partial Class EnviarStock
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -436,15 +452,22 @@ Partial Class EnviarStock
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
         Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -465,6 +488,8 @@ Partial Class EnviarStock
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Me.StockTableAdapter
         Me.TableAdapterManager.sucursalesTableAdapter = Me.SucursalesTableAdapter
@@ -472,6 +497,7 @@ Partial Class EnviarStock
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -525,6 +551,17 @@ Partial Class EnviarStock
         'BGWStockClowd
         '
         '
+        'CheckStock
+        '
+        Me.CheckStock.AutoSize = True
+        Me.CheckStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckStock.Location = New System.Drawing.Point(203, 21)
+        Me.CheckStock.Name = "CheckStock"
+        Me.CheckStock.Size = New System.Drawing.Size(411, 21)
+        Me.CheckStock.TabIndex = 1
+        Me.CheckStock.Text = "Validar Existencia de Stock antes de enviar (Si / No)"
+        Me.CheckStock.UseVisualStyleBackColor = True
+        '
         'EnviarStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -552,6 +589,7 @@ Partial Class EnviarStock
         CType(Me.RemitosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RemitosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         CType(Me.MiComercioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.listaremitosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.listaremitosdetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -612,4 +650,5 @@ Partial Class EnviarStock
     Friend WithEvents precioventa As DataGridViewTextBoxColumn
     Friend WithEvents precioventamayorista As DataGridViewTextBoxColumn
     Friend WithEvents precioventagranel As DataGridViewTextBoxColumn
+    Friend WithEvents CheckStock As CheckBox
 End Class

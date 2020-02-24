@@ -2,9 +2,9 @@
     Private Sub EnviarStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.remitosdetalle' Puede moverla o quitarla según sea necesario.
-        Me.RemitosdetalleTableAdapter.Fill(Me.ComercialDataSet.remitosdetalle)
+        'Me.RemitosdetalleTableAdapter.Fill(Me.ComercialDataSet.remitosdetalle)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.remitos' Puede moverla o quitarla según sea necesario.
-        Me.RemitosTableAdapter.Fill(Me.ComercialDataSet.remitos)
+        'Me.RemitosTableAdapter.Fill(Me.ComercialDataSet.remitos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.unidadesmedida' Puede moverla o quitarla según sea necesario.
         Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet.unidadesmedida)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.sucursales' Puede moverla o quitarla según sea necesario.
@@ -14,6 +14,7 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim ProdDataTable As New comercialDataSet.productosDataTable()
         Dim p As SeleccionarProductoCantidadGenerico
         p = New SeleccionarProductoCantidadGenerico
         gcodigoproducto = 0
@@ -22,14 +23,15 @@
         Try
             If gcantidad = 0 Or Len(gcodigoproducto) = 0 Or gcodigoproducto = "0" Then Return
             Dim addedrow As Long = DataGridViewProductos.Rows.Add()
-            Dim umedida As Integer = ProductosTableAdapter.productos_consultarunidadmedida(gcodigoproducto)
-            Dim medida As Decimal = ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
-            Dim descripcion As String = ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
-            Dim preciocosto As Decimal = ProductosTableAdapter.productos_consultarpreciocosto(gcodigoproducto)
-            Dim precioventa As Decimal = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
-            Dim precioventamayorista As Decimal = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
-            Dim precioventagranel As Decimal = ProductosTableAdapter.productos_consultarpreciogranel(gcodigoproducto)
-            ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
+            ProdDataTable = ProductosTableAdapter.GetDataByProductSheet(gcodigoproducto)
+            Dim umedida As Integer = ProdDataTable.Rows(0)("unidadmedida") 'ProductosTableAdapter.productos_consultarunidadmedida(gcodigoproducto)
+            Dim medida As Decimal = ProdDataTable.Rows(0)("medida") 'ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
+            Dim descripcion As String = ProdDataTable.Rows(0)("marca") + " " + ProdDataTable.Rows(0)("modelo") + " " + ProdDataTable.Rows(0)("presentacion") 'ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
+            Dim preciocosto As Decimal = ProdDataTable.Rows(0)("preciocosto") 'ProductosTableAdapter.productos_consultarpreciocosto(gcodigoproducto)
+            Dim precioventa As Decimal = ProdDataTable.Rows(0)("precioventa") 'ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
+            Dim precioventamayorista As Decimal = ProdDataTable.Rows(0)("precioventamayorista") 'ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
+            Dim precioventagranel As Decimal = ProdDataTable.Rows(0)("precioventagranel") 'ProductosTableAdapter.productos_consultarpreciogranel(gcodigoproducto)
+            'ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
             DataGridViewProductos.Rows(addedrow).Cells(0).Value = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
             DataGridViewProductos.Rows(addedrow).Cells(1).Value = gcodigoproducto
             DataGridViewProductos.Rows(addedrow).Cells(2).Value = descripcion
@@ -82,20 +84,23 @@
         '*******************************************************************
         '************** validar existencia en stock **********************
         '*******************************************************************
-        Try
-            For i = 0 To DataGridViewProductos.RowCount - 1
-                Dim cantidad As Decimal = DataGridViewProductos.Rows(i).Cells(3).Value
-                Dim medida As Decimal = DataGridViewProductos.Rows(i).Cells(5).Value
-                Dim productodisponible As Decimal = StockgeneralTableAdapter.stockgeneral_consultardisponible(DataGridViewProductos.Rows(i).Cells("idproducto").Value)
-                cantidad = cantidad * medida
-                If productodisponible < cantidad Then
-                    MsgBox(DataGridViewProductos.Rows(i).Cells(2).Value.toupper, MsgBoxStyle.Exclamation, "Producto insuficiente!")
-                    Return
-                End If
-            Next
-        Catch ex As Exception
-            MsgBox("Ocurrió una excepcion al validar existencia en stock: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia!")
-        End Try
+        If CheckStock.Checked Then
+            Try
+                For i = 0 To DataGridViewProductos.RowCount - 1
+                    Dim cantidad As Decimal = DataGridViewProductos.Rows(i).Cells(3).Value
+                    Dim medida As Decimal = DataGridViewProductos.Rows(i).Cells(5).Value
+                    Dim productodisponible As Decimal = StockgeneralTableAdapter.stockgeneral_consultardisponible(DataGridViewProductos.Rows(i).Cells("idproducto").Value)
+                    cantidad = cantidad * medida
+                    If productodisponible < cantidad Then
+                        MsgBox(DataGridViewProductos.Rows(i).Cells(2).Value.toupper, MsgBoxStyle.Exclamation, "Producto insuficiente!")
+                        Return
+                    End If
+                Next
+            Catch ex As Exception
+                MsgBox("Ocurrió una excepcion al validar existencia en stock: " + ex.Message, MsgBoxStyle.Exclamation, "Advertencia!")
+            End Try
+        End If
+
         '******************************         FIN VALIDACIONES        *************************************
         '*******************************************************************
 
