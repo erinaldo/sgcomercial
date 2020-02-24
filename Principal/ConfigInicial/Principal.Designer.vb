@@ -505,6 +505,7 @@ Partial Class Principal
         '
         'SalonesToolStripMenuItem
         '
+        Me.SalonesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.place_iconw_40
         Me.SalonesToolStripMenuItem.Name = "SalonesToolStripMenuItem"
         Me.SalonesToolStripMenuItem.Size = New System.Drawing.Size(243, 28)
         Me.SalonesToolStripMenuItem.Tag = "GGADMSalones"
@@ -512,6 +513,7 @@ Partial Class Principal
         '
         'OrdenesToolStripMenuItem
         '
+        Me.OrdenesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.gastronomia_iconw_39
         Me.OrdenesToolStripMenuItem.Name = "OrdenesToolStripMenuItem"
         Me.OrdenesToolStripMenuItem.Size = New System.Drawing.Size(243, 28)
         Me.OrdenesToolStripMenuItem.Tag = "GGOrdenes"
