@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>48</ApplicationRevision>
-    <ApplicationVersion>4.1.0.48</ApplicationVersion>
+    <ApplicationRevision>49</ApplicationRevision>
+    <ApplicationVersion>4.1.0.49</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -2488,6 +2488,7 @@
     <None Include="My Project\img\download_iconw_40.png" />
     <None Include="My Project\img\upload_iconw_40.png" />
     <None Include="My Project\img\syncronize_iconw_40.png" />
+    <None Include="My Project\img\AFIP_iconw_50.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

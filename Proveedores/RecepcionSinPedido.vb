@@ -343,7 +343,7 @@ Public Class RecepcionSinPedido
                 '        cantidad = cantidad * medida
                 'End Select
                 StockTableAdapter.stock_insertarmovimientorecepcion(idproducto, cantidad, Today, gusername, "E", rtn)
-                PedidosdetalleTableAdapter.pedidosdetalle_confirmarecepcion(1, rtn, 3)
+                PedidosdetalleTableAdapter.pedidosdetalle_confirmarecepcion(1, rtn, idproducto)
             Next
             '**************************************************************
             '*******    FINALIZAR  automaticamente!!!!!

@@ -34,13 +34,13 @@ Partial Class AcercaDe
         Me.NombreCliente = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.LabelTipoLicencia = New System.Windows.Forms.Label()
         Me.LabelVencimiento = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -51,6 +51,8 @@ Partial Class AcercaDe
         '
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OKButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.OKButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.OKButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.OKButton.Location = New System.Drawing.Point(435, 97)
         Me.OKButton.Margin = New System.Windows.Forms.Padding(4)
         Me.OKButton.Name = "OKButton"
@@ -175,6 +177,7 @@ Partial Class AcercaDe
         Me.GroupBox1.Controls.Add(Me.LabelVersion)
         Me.GroupBox1.Controls.Add(Me.LabelCopyright)
         Me.GroupBox1.Controls.Add(Me.LabelCompanyName)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.White
         Me.GroupBox1.Location = New System.Drawing.Point(287, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(229, 130)
@@ -191,6 +194,7 @@ Partial Class AcercaDe
         Me.GroupBox2.Controls.Add(Me.IDCliente)
         Me.GroupBox2.Controls.Add(Me.Terminal)
         Me.GroupBox2.Controls.Add(Me.IDTerminal)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.White
         Me.GroupBox2.Location = New System.Drawing.Point(287, 133)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(542, 132)
@@ -198,28 +202,41 @@ Partial Class AcercaDe
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos del Cliente"
         '
-        'GroupBox3
+        'LinkLabel2
         '
-        Me.GroupBox3.Controls.Add(Me.LabelTipoLicencia)
-        Me.GroupBox3.Controls.Add(Me.LabelVencimiento)
-        Me.GroupBox3.Controls.Add(Me.Label8)
-        Me.GroupBox3.Controls.Add(Me.Label7)
-        Me.GroupBox3.Location = New System.Drawing.Point(526, 9)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(303, 125)
-        Me.GroupBox3.TabIndex = 15
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Datos de Licencia"
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.LinkColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(207, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LinkLabel2.Location = New System.Drawing.Point(402, 48)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(131, 17)
+        Me.LinkLabel2.TabIndex = 6
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "Conexión a la Nube"
         '
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.LinkColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(207, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LinkLabel1.Location = New System.Drawing.Point(408, 18)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(125, 17)
         Me.LinkLabel1.TabIndex = 5
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Mis Comprobantes"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.LabelTipoLicencia)
+        Me.GroupBox3.Controls.Add(Me.LabelVencimiento)
+        Me.GroupBox3.Controls.Add(Me.Label8)
+        Me.GroupBox3.Controls.Add(Me.Label7)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.White
+        Me.GroupBox3.Location = New System.Drawing.Point(526, 9)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(303, 125)
+        Me.GroupBox3.TabIndex = 15
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Datos de Licencia"
         '
         'LabelTipoLicencia
         '
@@ -269,27 +286,18 @@ Partial Class AcercaDe
         Me.Label7.Text = "Tipo"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'LinkLabel2
-        '
-        Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(402, 48)
-        Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(131, 17)
-        Me.LinkLabel2.TabIndex = 6
-        Me.LinkLabel2.TabStop = True
-        Me.LinkLabel2.Text = "Conexión a la Nube"
-        '
         'AcercaDe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.CancelButton = Me.OKButton
         Me.ClientSize = New System.Drawing.Size(834, 272)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.LogoPictureBox)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False

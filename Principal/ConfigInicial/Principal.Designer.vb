@@ -332,6 +332,7 @@ Partial Class Principal
         '
         'ComprobanesEmitidosToolStripMenuItem
         '
+        Me.ComprobanesEmitidosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.AFIP_iconw_50
         Me.ComprobanesEmitidosToolStripMenuItem.Name = "ComprobanesEmitidosToolStripMenuItem"
         Me.ComprobanesEmitidosToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.ComprobanesEmitidosToolStripMenuItem.Tag = "ComprobanesEmitidos"
@@ -339,6 +340,7 @@ Partial Class Principal
         '
         'LibroVentasToolStripMenuItem
         '
+        Me.LibroVentasToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.report_math_white_40
         Me.LibroVentasToolStripMenuItem.Name = "LibroVentasToolStripMenuItem"
         Me.LibroVentasToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.LibroVentasToolStripMenuItem.Tag = "LibroVentasDetalladas"
@@ -346,6 +348,7 @@ Partial Class Principal
         '
         'VentasPorDiaToolStripMenuItem
         '
+        Me.VentasPorDiaToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.report_math_white_40
         Me.VentasPorDiaToolStripMenuItem.Name = "VentasPorDiaToolStripMenuItem"
         Me.VentasPorDiaToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.VentasPorDiaToolStripMenuItem.Tag = "LibroDiario"
@@ -353,6 +356,7 @@ Partial Class Principal
         '
         'LibroMayorToolStripMenuItem
         '
+        Me.LibroMayorToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.report_math_white_40
         Me.LibroMayorToolStripMenuItem.Name = "LibroMayorToolStripMenuItem"
         Me.LibroMayorToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.LibroMayorToolStripMenuItem.Tag = "LibroMayor"
@@ -360,6 +364,7 @@ Partial Class Principal
         '
         'VentasPorUsuarioToolStripMenuItem
         '
+        Me.VentasPorUsuarioToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.growth_people_iconw_40
         Me.VentasPorUsuarioToolStripMenuItem.Name = "VentasPorUsuarioToolStripMenuItem"
         Me.VentasPorUsuarioToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.VentasPorUsuarioToolStripMenuItem.Tag = "ReporteVentasPorUsuario"
@@ -367,6 +372,7 @@ Partial Class Principal
         '
         'LibroDeGastosToolStripMenuItem
         '
+        Me.LibroDeGastosToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.report_math_white_40
         Me.LibroDeGastosToolStripMenuItem.Name = "LibroDeGastosToolStripMenuItem"
         Me.LibroDeGastosToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.LibroDeGastosToolStripMenuItem.Tag = "LibroGastos"
@@ -374,6 +380,7 @@ Partial Class Principal
         '
         'LibroVentasCanceladasToolStripMenuItem
         '
+        Me.LibroVentasCanceladasToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.report_math_white_40
         Me.LibroVentasCanceladasToolStripMenuItem.Name = "LibroVentasCanceladasToolStripMenuItem"
         Me.LibroVentasCanceladasToolStripMenuItem.Size = New System.Drawing.Size(271, 28)
         Me.LibroVentasCanceladasToolStripMenuItem.Tag = "LibroVentasCanceladas"
@@ -1777,7 +1784,7 @@ Partial Class Principal
         Me.PanelSlider.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelSlider.Location = New System.Drawing.Point(0, 155)
         Me.PanelSlider.Name = "PanelSlider"
-        Me.PanelSlider.Size = New System.Drawing.Size(250, 450)
+        Me.PanelSlider.Size = New System.Drawing.Size(250, 1020)
         Me.PanelSlider.TabIndex = 12
         '
         'FlowLayoutPanelBotonera
@@ -1807,7 +1814,7 @@ Partial Class Principal
         Me.FlowLayoutPanelBotonera.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanelBotonera.Location = New System.Drawing.Point(0, 70)
         Me.FlowLayoutPanelBotonera.Name = "FlowLayoutPanelBotonera"
-        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 380)
+        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 950)
         Me.FlowLayoutPanelBotonera.TabIndex = 3
         '
         'FlatBtnModuloNotificaciones
@@ -2240,7 +2247,7 @@ Partial Class Principal
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 605)
+        Me.ClientSize = New System.Drawing.Size(1006, 1175)
         Me.Controls.Add(Me.PanelSlider)
         Me.Controls.Add(Me.ModulosDataGridView)
         Me.Controls.Add(Me.CajaseventosDataGridView)

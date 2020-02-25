@@ -1347,7 +1347,8 @@ Public Class Principal
             modulo = MenuStripMain.Items(tag)
             Dim color As New Color
             color = Color.Black
-            MenuStripTop.ForeColor = color
+            MenuStripTop.ForeColor = MenuStripMain.ForeColor
+            MenuStripTop.BackColor = MenuStripMain.BackColor
             MenuStripTop.Items.Clear()
             For i = 0 To modulo.DropDownItems.Count - 1
                 Dim submenu As New ToolStripMenuItem()
@@ -1522,5 +1523,13 @@ Public Class Principal
 
     Private Sub ExportarProductosToolStripMenuItem1_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub PictureMenu_MouseHover(sender As Object, e As EventArgs) Handles PictureMenu.MouseHover
+        PictureMenu.BackColor = SCHoverColorStrong
+    End Sub
+
+    Private Sub PictureMenu_MouseLeave(sender As Object, e As EventArgs) Handles PictureMenu.MouseLeave
+        PictureMenu.BackColor = SCBackColor
     End Sub
 End Class
