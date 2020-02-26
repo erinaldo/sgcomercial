@@ -7,6 +7,7 @@ Imports System.Net.Mail
 Public Class Cajasmovimientos
     Public FechaCierre As String
     Private Sub Cajasmovimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.v_gastos' Puede moverla o quitarla según sea necesario.
         Try
             Me.CajaseventosTableAdapter.Fill(Me.ComercialDataSet.cajaseventos)

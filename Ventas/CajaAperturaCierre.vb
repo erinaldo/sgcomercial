@@ -4,6 +4,7 @@ Imports System.Text
 Imports System.Net.Mail
 Public Class CajaAperturaCierre
     Private Sub CajaAperturaCierre_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         Try
             Me.CajasTableAdapter.FillByACTIVA(Me.ComercialDataSet.cajas)
         Catch ex As System.Exception

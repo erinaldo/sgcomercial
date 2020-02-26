@@ -6,6 +6,7 @@ Public Class ConsultaStockRemotoProducto
     End Sub
 
     Private Sub ConsultaStockRemotoProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         If gModuloCloud = 1 Then
             Me.Cursor = Cursors.WaitCursor
             UpdateSTKRemoto()

@@ -1,5 +1,7 @@
 ﻿Public Class ReporteVentasFranquicia
     Private Sub ReporteVentasFranquicia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.KeyPreview = True
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.MiComercio' Puede moverla o quitarla según sea necesario.
         Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
 
@@ -74,5 +76,14 @@
             MessageBox.Show("Ocurrió una excepción: el reporte no esta disponible -> " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
 
+    End Sub
+
+    Private Sub ReporteVentasFranquicia_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgQues("Seguro desea salir de " + Me.Text) = True Then
+                Me.Close()
+            End If
+        End If
     End Sub
 End Class

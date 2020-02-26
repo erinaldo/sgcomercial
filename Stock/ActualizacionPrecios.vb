@@ -3,6 +3,7 @@ Public Class ActualizacionPrecios
     Dim marcaseleccionada As String
     Dim rubroseleccionado As String
     Private Sub ActualizacionPrecios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
         Me.ListaspreciosTableAdapter.FillByEstado(Me.ComercialDataSet.listasprecios, 1)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.rubros' Puede moverla o quitarla según sea necesario.

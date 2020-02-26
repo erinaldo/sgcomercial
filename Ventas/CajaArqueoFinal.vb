@@ -11,6 +11,7 @@
     End Sub
 
     Private Sub CajaArqueoFinal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'BioaccesoDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
         Me.CajaseventosTableAdapter.Fill(Me.BioaccesoDataSet.cajaseventos)
         'TODO: esta línea de código carga datos en la tabla 'BioaccesoDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.

@@ -47,6 +47,7 @@
     End Sub
 
     Private Sub LotesVencimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         enablebuttons(False)
         enablefields(False)
     End Sub

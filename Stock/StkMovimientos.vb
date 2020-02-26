@@ -1,5 +1,6 @@
 ﻿Public Class StkMovimientos
     Private Sub StkMovimientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stkmovimientos' Puede moverla o quitarla según sea necesario.
         StkmovimientosTableAdapter.FillByRangoFechas(Me.ComercialDataSet.stkmovimientos, DPDesde.Value.ToString, DPHasta.Value.ToString)
         ComboBoxFiltro.SelectedIndex = 0

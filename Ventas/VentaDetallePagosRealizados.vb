@@ -16,6 +16,7 @@
     End Sub
 
     Private Sub VentaDetallePagosRealizados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listapagos' Puede moverla o quitarla según sea necesario.
         'Me.ListapagosTableAdapter.Fill(Me.ComercialDataSet.listapagos)
         Me.ListapagosTableAdapter.FillByIDVenta(Me.ComercialDataSet.listapagos, gidventa)

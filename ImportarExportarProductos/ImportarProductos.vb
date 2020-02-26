@@ -318,6 +318,8 @@ Public Class ImportarProductos
     End Sub
 
     Private Sub ImportarProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.KeyPreview = True
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.proveedores' Puede moverla o quitarla según sea necesario.
         Me.ProveedoresTableAdapter.Fill(Me.ComercialDataSet.proveedores)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productosproveedores' Puede moverla o quitarla según sea necesario.

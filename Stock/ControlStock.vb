@@ -1,6 +1,7 @@
 ﻿Public Class ControlStock
 
     Private Sub ControlStock_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         '*************  stock    **************************************
         Dim StockTableAdapter As comercialDataSetTableAdapters.stockTableAdapter
         StockTableAdapter = New comercialDataSetTableAdapters.stockTableAdapter

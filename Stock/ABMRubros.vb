@@ -15,6 +15,7 @@
     End Sub
 
     Private Sub ABMRubros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.rubros' Puede moverla o quitarla según sea necesario.
         Me.RubrosTableAdapter.Fill(Me.ComercialDataSet.rubros)
         enabledit(False)

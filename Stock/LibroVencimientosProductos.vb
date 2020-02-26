@@ -1,5 +1,6 @@
 ﻿Public Class LibroVencimientosProductos
     Private Sub LibroVencimientosProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.librovencimientos' Puede moverla o quitarla según sea necesario.
         'Me.LibrovencimientosTableAdapter.Fill(Me.ComercialDataSet.librovencimientos)
         'Me.ReportViewer1.RefreshReport()

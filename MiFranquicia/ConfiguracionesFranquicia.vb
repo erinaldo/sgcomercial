@@ -1,5 +1,16 @@
 ﻿Public Class ConfiguracionesFranquicia
+    Private Sub ConfiguracionesFranquicia_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        ''''''''''***************************   POR DEFECTO **************************************
+        If e.KeyCode = Keys.Escape Then
+            If MsgQues("Seguro desea salir de " + Me.Text) = True Then
+                Me.Close()
+            End If
+        End If
+    End Sub
+
     Private Sub ConfiguracionesFranquicia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.KeyPreview = True
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listasprecios' Puede moverla o quitarla según sea necesario.
         Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.ListaspreciosTableAdapter.FillByListasRefFranquicia(Me.ComercialDataSet.listasprecios)

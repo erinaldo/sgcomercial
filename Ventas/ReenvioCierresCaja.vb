@@ -15,6 +15,7 @@ Public Class ReenvioCierresCaja
     End Sub
 
     Private Sub ReenvioCierresCaja_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         ''TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.librodiario' Puede moverla o quitarla según sea necesario.
         'Me.librodiarioTableAdapter.Fill(Me.ComercialDataSet.librodiario)
         ''TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.MiComercio' Puede moverla o quitarla según sea necesario.

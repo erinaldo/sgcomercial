@@ -1784,7 +1784,7 @@ Partial Class Principal
         Me.PanelSlider.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelSlider.Location = New System.Drawing.Point(0, 155)
         Me.PanelSlider.Name = "PanelSlider"
-        Me.PanelSlider.Size = New System.Drawing.Size(250, 1020)
+        Me.PanelSlider.Size = New System.Drawing.Size(250, 406)
         Me.PanelSlider.TabIndex = 12
         '
         'FlowLayoutPanelBotonera
@@ -1814,7 +1814,7 @@ Partial Class Principal
         Me.FlowLayoutPanelBotonera.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanelBotonera.Location = New System.Drawing.Point(0, 70)
         Me.FlowLayoutPanelBotonera.Name = "FlowLayoutPanelBotonera"
-        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 950)
+        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 336)
         Me.FlowLayoutPanelBotonera.TabIndex = 3
         '
         'FlatBtnModuloNotificaciones
@@ -2247,7 +2247,7 @@ Partial Class Principal
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 1175)
+        Me.ClientSize = New System.Drawing.Size(1006, 561)
         Me.Controls.Add(Me.PanelSlider)
         Me.Controls.Add(Me.ModulosDataGridView)
         Me.Controls.Add(Me.CajaseventosDataGridView)

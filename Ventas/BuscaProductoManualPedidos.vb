@@ -22,6 +22,7 @@ Public Class BuscaProductoManualPedidos
     End Sub
 
     Private Sub BuscaProductoManual_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         Try
             Dim PermisosTableAdapter As New comercialDataSetTableAdapters.permisosTableAdapter()
             permisoStockParent = PermisosTableAdapter.permisos_consultabymenuname(guserprofile, "StockParent")

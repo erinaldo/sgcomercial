@@ -5,6 +5,7 @@
     End Sub
 
     Private Sub DetalleIngresos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         EstIngUltimoscierresTableAdapter.Fill(Me.ComercialDataSet.EstIngUltimoscierres)
         ReportViewer1.Refresh()
         ReportViewer1.RefreshReport()

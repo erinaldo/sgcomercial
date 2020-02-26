@@ -31,4 +31,8 @@
 
 
     End Sub
+
+    Private Sub EditarVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
+    End Sub
 End Class

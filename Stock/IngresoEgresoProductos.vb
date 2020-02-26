@@ -6,6 +6,7 @@ Public Class ingresoegresoproductos
     'End Sub
 
     Private Sub ingresoegresoproductos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.motivostock' Puede moverla o quitarla según sea necesario.
         Me.MotivostockTableAdapter.Fill(Me.ComercialDataSet.motivostock)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productoscomponentes' Puede moverla o quitarla según sea necesario.

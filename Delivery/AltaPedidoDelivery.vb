@@ -7,6 +7,10 @@ Public Class AltaPedidoDelivery
     Dim v_valdatosnuevosclientes As String
 
     Private Sub AltaPedido_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        '---------------------------------------------------------------
+        Me.KeyPreview = True
+        Me.Icon = SCFORMICON
+        '---------------------------------------------------------------
         Me.TipocondicionivaTableAdapter.Fill(Me.ComercialDataSet.tipocondicioniva)
         Me.TipodocumentosTableAdapter.Fill(Me.ComercialDataSet.tipodocumentos)
         Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet.unidadesmedida)

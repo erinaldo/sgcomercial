@@ -160,7 +160,9 @@ Public Class loginform
     End Sub
 
     Private Sub loginform_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        LoadDefaultICONS()
         LoadDefaultDir()
+        Me.Icon = SCAPPICON
         Dim hi As LoadingForm
         hi = New LoadingForm
         hi.Show()

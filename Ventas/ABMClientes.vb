@@ -72,6 +72,7 @@ Public Class ABMClientes
     End Sub
 
     Private Sub ABMClientes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         CheckModulesAuth()
         '********** 
         Me.TipodocumentosTableAdapter.Fill(Me.ComercialDataSet.tipodocumentos)

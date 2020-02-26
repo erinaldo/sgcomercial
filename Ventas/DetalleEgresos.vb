@@ -4,7 +4,7 @@
 
 
     Private Sub DetalleEgresos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.Icon = SCFORMICON
         Try
             Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, gideventoseleccionado)
             Me.ReportViewer1.RefreshReport()

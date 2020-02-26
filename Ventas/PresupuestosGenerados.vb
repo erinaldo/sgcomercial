@@ -1,5 +1,6 @@
 ﻿Public Class PresupuestosGenerados
     Private Sub PresupuestosGenerados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.libropresupuestos' Puede moverla o quitarla según sea necesario.
         Me.LibropresupuestosTableAdapter.Fill(Me.ComercialDataSet.libropresupuestos)
 

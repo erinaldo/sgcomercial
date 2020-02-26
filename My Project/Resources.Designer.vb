@@ -959,6 +959,46 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        '''</summary>
+        Public ReadOnly Property SC_ICO_DARK() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SC_ICO_DARK", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        '''</summary>
+        Public ReadOnly Property SC_ICO_DARK_35() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SC_ICO_DARK_35", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        '''</summary>
+        Public ReadOnly Property SC_ICO_WHITE() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SC_ICO_WHITE", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        '''</summary>
+        Public ReadOnly Property SC_ICO_WHITE_35() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SC_ICO_WHITE_35", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
         Public ReadOnly Property SC_Icon() As System.Drawing.Bitmap

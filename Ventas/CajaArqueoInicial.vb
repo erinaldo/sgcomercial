@@ -1,6 +1,7 @@
 ﻿Public Class CajaArqueoInicial
 
     Private Sub CajaArqueoInicial_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         gmontoinicial = 0
         Enteros.Select()
     End Sub

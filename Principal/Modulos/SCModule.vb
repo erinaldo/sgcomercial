@@ -11,12 +11,15 @@ Module SCModule
     Public SCBackColor As Color = Drawing.Color.FromArgb(40, 41, 35)
     Public SCForeColorLight As Color = Drawing.Color.FromArgb(255, 255, 255)
     Public SCForeColorStrong As Color = Drawing.Color.FromArgb(1, 207, 255)
+    Public SCAPPICON As System.Drawing.Icon
+    Public SCFORMICON As System.Drawing.Icon
     'Public MySQLStrConn As String = "server=sistemascomerciales.net;user id=sistema1_sgcweb;password=sgcomercial*?;database=sistema1_sgcaguadagrande;persistsecurityinfo=True"
     Public SCStrConn As String = "server=sistemascomerciales.net;user id=sistema1_siscom;password=Sistemascomerciales*?;database=sistema1_siscom;persistsecurityinfo=True"
     '***********************************************************
     Dim da As MySQLDataSetTableAdapters.clientesTableAdapter
     Dim ds As MySQLDataSet
     Dim dt As DataTable
+
     Public MachineName As String = Environment.MachineName
     Public MachineKey As String
     Public SCstatus As Boolean
@@ -205,6 +208,13 @@ Module SCModule
         gSystemDrive = Environment.GetEnvironmentVariable("SystemDrive")
         '**********************************************
         WaitingLicence = False
+        '************************************************************************************
+    End Sub
+    Public Sub LoadDefaultICONS()
+        '**********************************************
+        SCAPPICON = My.Resources.ResourceManager.GetObject("SC_ICO_DARK_35")
+        SCFORMICON = My.Resources.ResourceManager.GetObject("SC_ICO_DARK_35")
+        '************************************************************************************
     End Sub
     '******************************-----------------------------------------------------------------------------------*****************************
     'Public Sub gBuscarActualizaciones()

@@ -2,6 +2,7 @@
 Public Class StockAlerta
     Public filtro As String
     Private Sub StockAlerta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         ComboBoxFiltro.SelectedIndex = 1
         ''TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
         'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)

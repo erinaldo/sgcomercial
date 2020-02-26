@@ -1,6 +1,7 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class CalculaMontoPC
     Private Sub CalculaMontoPC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         TextBoxPC.Text = gpreciocosto
         TextBoxP.Select()
     End Sub

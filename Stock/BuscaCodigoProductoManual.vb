@@ -1,5 +1,6 @@
 ﻿Public Class BuscaCodigoProductoManual
     Private Sub BuscaCodigoProductoManual_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listaproductos' Puede moverla o quitarla según sea necesario.
         Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
