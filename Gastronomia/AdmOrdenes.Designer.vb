@@ -58,6 +58,7 @@ Partial Class AdmOrdenes
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListaordenesmesaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBoxMesa = New System.Windows.Forms.ComboBox()
@@ -185,7 +186,7 @@ Partial Class AdmOrdenes
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
         Me.ParametrosgeneralesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
         Me.ListamesasestadosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listamesasestadosTableAdapter()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         IdtipocomprobanteLabel = New System.Windows.Forms.Label()
         IdformapagoLabel = New System.Windows.Forms.Label()
         Label6 = New System.Windows.Forms.Label()
@@ -272,8 +273,8 @@ Partial Class AdmOrdenes
         Me.NuevaÓrdenToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.green_plus_icon_13
         Me.NuevaÓrdenToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White
         Me.NuevaÓrdenToolStripMenuItem.Name = "NuevaÓrdenToolStripMenuItem"
-        Me.NuevaÓrdenToolStripMenuItem.Size = New System.Drawing.Size(140, 52)
-        Me.NuevaÓrdenToolStripMenuItem.Text = "Nueva Orden"
+        Me.NuevaÓrdenToolStripMenuItem.Size = New System.Drawing.Size(178, 52)
+        Me.NuevaÓrdenToolStripMenuItem.Text = "Nueva Orden (F4)"
         Me.NuevaÓrdenToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'AnularOrdenToolStripMenuItem
@@ -281,8 +282,8 @@ Partial Class AdmOrdenes
         Me.AnularOrdenToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.AnularOrdenToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.cancel
         Me.AnularOrdenToolStripMenuItem.Name = "AnularOrdenToolStripMenuItem"
-        Me.AnularOrdenToolStripMenuItem.Size = New System.Drawing.Size(141, 52)
-        Me.AnularOrdenToolStripMenuItem.Text = "Anular Orden"
+        Me.AnularOrdenToolStripMenuItem.Size = New System.Drawing.Size(179, 52)
+        Me.AnularOrdenToolStripMenuItem.Text = "Anular Orden (F7)"
         Me.AnularOrdenToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'GroupBox1
@@ -293,6 +294,7 @@ Partial Class AdmOrdenes
         Me.GroupBox1.Controls.Add(Me.ListamesasestadosDataGridView)
         Me.GroupBox1.Controls.Add(Me.ListaordenesmesaDataGridView)
         Me.GroupBox1.Controls.Add(Me.MenuStrip1)
+        Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -528,23 +530,34 @@ Partial Class AdmOrdenes
         Me.ListaordenesmesaBindingSource.DataMember = "listaordenesmesa"
         Me.ListaordenesmesaBindingSource.DataSource = Me.ComercialDataSet
         '
+        'Label9
+        '
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(446, 18)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(187, 17)
+        Me.Label9.TabIndex = 1
+        Me.Label9.Text = "[F12] -Pantalla Completa"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(206, 18)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 17)
+        Me.Label2.Size = New System.Drawing.Size(76, 17)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Mesa:"
+        Me.Label2.Text = "Mesa (F2):"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(32, 18)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(48, 17)
+        Me.Label1.Size = New System.Drawing.Size(78, 17)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Salón:"
+        Me.Label1.Text = "Salón (F1):"
         '
         'ComboBoxMesa
         '
@@ -554,7 +567,7 @@ Partial Class AdmOrdenes
         Me.ComboBoxMesa.FormattingEnabled = True
         Me.ComboBoxMesa.Location = New System.Drawing.Point(206, 38)
         Me.ComboBoxMesa.Name = "ComboBoxMesa"
-        Me.ComboBoxMesa.Size = New System.Drawing.Size(162, 24)
+        Me.ComboBoxMesa.Size = New System.Drawing.Size(135, 24)
         Me.ComboBoxMesa.TabIndex = 0
         Me.ComboBoxMesa.ValueMember = "idmesa"
         '
@@ -571,7 +584,7 @@ Partial Class AdmOrdenes
         Me.ComboBoxSalon.FormattingEnabled = True
         Me.ComboBoxSalon.Location = New System.Drawing.Point(32, 38)
         Me.ComboBoxSalon.Name = "ComboBoxSalon"
-        Me.ComboBoxSalon.Size = New System.Drawing.Size(162, 24)
+        Me.ComboBoxSalon.Size = New System.Drawing.Size(135, 24)
         Me.ComboBoxSalon.TabIndex = 0
         Me.ComboBoxSalon.ValueMember = "idsalon"
         '
@@ -613,6 +626,8 @@ Partial Class AdmOrdenes
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -622,9 +637,21 @@ Partial Class AdmOrdenes
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -634,15 +661,22 @@ Partial Class AdmOrdenes
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
         Me.TableAdapterManager.mesasTableAdapter = Me.MesasTableAdapter
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Me.MozosTableAdapter
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -663,6 +697,8 @@ Partial Class AdmOrdenes
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Me.SalonesTableAdapter
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -670,6 +706,7 @@ Partial Class AdmOrdenes
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -1269,7 +1306,7 @@ Partial Class AdmOrdenes
         Me.idformapagocombo.Location = New System.Drawing.Point(105, 304)
         Me.idformapagocombo.Margin = New System.Windows.Forms.Padding(4)
         Me.idformapagocombo.Name = "idformapagocombo"
-        Me.idformapagocombo.Size = New System.Drawing.Size(269, 24)
+        Me.idformapagocombo.Size = New System.Drawing.Size(227, 24)
         Me.idformapagocombo.TabIndex = 43
         Me.idformapagocombo.ValueMember = "idformapago"
         '
@@ -1426,8 +1463,8 @@ Partial Class AdmOrdenes
         Me.CerrarToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.CerrarToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources._22_512
         Me.CerrarToolStripMenuItem.Name = "CerrarToolStripMenuItem"
-        Me.CerrarToolStripMenuItem.Size = New System.Drawing.Size(147, 52)
-        Me.CerrarToolStripMenuItem.Text = "Finalizar Mesa"
+        Me.CerrarToolStripMenuItem.Size = New System.Drawing.Size(185, 52)
+        Me.CerrarToolStripMenuItem.Text = "Finalizar Mesa (F3)"
         Me.CerrarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'AnularMesaToolStripMenuItem
@@ -1435,8 +1472,8 @@ Partial Class AdmOrdenes
         Me.AnularMesaToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.AnularMesaToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.cancel
         Me.AnularMesaToolStripMenuItem.Name = "AnularMesaToolStripMenuItem"
-        Me.AnularMesaToolStripMenuItem.Size = New System.Drawing.Size(132, 52)
-        Me.AnularMesaToolStripMenuItem.Text = "Anular Mesa"
+        Me.AnularMesaToolStripMenuItem.Size = New System.Drawing.Size(170, 52)
+        Me.AnularMesaToolStripMenuItem.Text = "Anular Mesa (F8)"
         Me.AnularMesaToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'StockTableAdapter
@@ -1499,16 +1536,16 @@ Partial Class AdmOrdenes
         '
         Me.ListamesasestadosTableAdapter.ClearBeforeFill = True
         '
-        'Label9
+        'Label10
         '
-        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(446, 18)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(187, 17)
-        Me.Label9.TabIndex = 1
-        Me.Label9.Text = "[F12] -Pantalla Completa"
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(353, 45)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(280, 17)
+        Me.Label10.TabIndex = 1
+        Me.Label10.Text = "[F5] - Navegar Detalle de Ordenes"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'AdmOrdenes
         '
@@ -1723,4 +1760,5 @@ Partial Class AdmOrdenes
     Friend WithEvents idmesa As DataGridViewTextBoxColumn
     Friend WithEvents pendientes As DataGridViewTextBoxColumn
     Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
 End Class

@@ -9,10 +9,12 @@ Public Class AdmOrdenes
         ''''''''''***************************   POR DEFECTO **************************************
         If e.KeyCode = Keys.Escape Then
             If MsgBox("Seguro desea salir de " + Me.Text, MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
+                e.SuppressKeyPress = True
                 Me.Close()
             End If
         End If
         If e.KeyCode = Keys.F12 Then
+            e.SuppressKeyPress = True
             If Me.WindowState = FormWindowState.Normal Then
                 Me.WindowState = FormWindowState.Maximized
             Else
@@ -21,14 +23,74 @@ Public Class AdmOrdenes
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
         If e.KeyCode = Keys.Add Then
+            e.SuppressKeyPress = True
             NuevaÓrdenToolStripMenuItem.PerformClick()
         End If
         If e.KeyCode = Keys.Subtract Then
+            e.SuppressKeyPress = True
             AnularOrdenToolStripMenuItem.PerformClick()
+        End If
+        If e.KeyCode = Keys.F1 Then
+            e.SuppressKeyPress = True
+            ComboBoxSalon.Select()
+        End If
+        If e.KeyCode = Keys.F2 Then
+            e.SuppressKeyPress = True
+            ComboBoxMesa.Select()
+        End If
+        If e.KeyCode = Keys.F3 Then
+            e.SuppressKeyPress = True
+            CerrarToolStripMenuItem.PerformClick()
+        End If
+        If e.KeyCode = Keys.F4 Then
+            e.SuppressKeyPress = True
+            If ComboBoxMesa.Text = "" Then
+                ComboBoxMesa.Select()
+                Return
+            End If
+            Try
+                gidproducto = Nothing
+                glistaprecio = Nothing
+                glistapreferida = Nothing
+                gprecioventa = Nothing
+                gcantidad = Nothing
+                gcodigoproducto = Nothing
+                buscaproductomanual()
+                LoadOrdenes()
+                ColorearGridMesas()
+            Catch ex As Exception
+
+            End Try
+        End If
+        If e.KeyCode = Keys.F7 Then
+            e.SuppressKeyPress = True
+            AnularOrdenToolStripMenuItem.PerformClick()
+        End If
+        If e.KeyCode = Keys.F8 Then
+            e.SuppressKeyPress = True
+            AnularMesaToolStripMenuItem.PerformClick()
+        End If
+        If e.KeyCode = Keys.F5 Then
+            e.SuppressKeyPress = True
+            ListaordenesmesaDataGridView.Select()
+            Try
+
+                Dim count As Integer
+                count = ListaordenesmesaDataGridView.RowCount() - 1
+                If count > ListaordenesmesaDataGridView.CurrentRow.Index Then
+                    ListaordenesmesaBindingSource.MoveNext()
+                Else
+                    ListaordenesmesaBindingSource.MoveFirst()
+                End If
+            Catch ex As Exception
+                ListaordenesmesaDataGridView.Select()
+                ListaordenesmesaBindingSource.MoveFirst()
+            End Try
         End If
     End Sub
 
     Private Sub AdmOrdenes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.listamesasestados' Puede moverla o quitarla según sea necesario.
         'Me.ListamesasestadosTableAdapter.Fill(Me.ComercialDataSet.listamesasestados)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.parametrosgenerales' Puede moverla o quitarla según sea necesario.
@@ -45,14 +107,19 @@ Public Class AdmOrdenes
             Me.SalonesTableAdapter.FillByActivos(Me.ComercialDataSet.salones)
             Me.MesasTableAdapter.FillBySalon(Me.ComercialDataSet.mesas, ComboBoxSalon.SelectedValue)
             ComboBoxSalon.SelectedIndex = 0
-            ComboBoxMesa.SelectedIndex = -1
+            ComboBoxMesa.SelectedIndex = 0
+            Try
+                LoadOrdenes()
+            Catch ex As Exception
+
+            End Try
             '**********************************************************************
             Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
             Me.TipocomprobantesTableAdapter.FillByEstado(Me.ComercialDataSet.tipocomprobantes, "A")
             Me.ListaproductosTableAdapter.Fill(Me.ComercialDataSet.listaproductos)
             '**********************************************************************
-            NuevaÓrdenToolStripMenuItem.Enabled = False
-            AnularOrdenToolStripMenuItem.Enabled = False
+            'NuevaÓrdenToolStripMenuItem.Enabled = False
+            'AnularOrdenToolStripMenuItem.Enabled = False
             Try
                 Idtipocomprobantecombo.SelectedValue = 1
                 idformapagocombo.SelectedValue = 1
@@ -73,9 +140,10 @@ Public Class AdmOrdenes
     End Sub
 
     Private Sub ComboBoxSalon_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSalon.SelectedIndexChanged
+        If ComboBoxSalon.SelectedValue = Nothing Then Return
         Try
             Me.MesasTableAdapter.FillBySalon(Me.ComercialDataSet.mesas, ComboBoxSalon.SelectedValue)
-            ComboBoxMesa.SelectedIndex = -1
+            ComboBoxMesa.SelectedIndex = 0
             ColorearGridMesas()
         Catch ex As Exception
             MessageBox.Show("Aviso!", "Seleccione primero un salón", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -98,6 +166,33 @@ Public Class AdmOrdenes
     End Sub
 
     Private Sub CerrarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarToolStripMenuItem.Click
+        '************* SELECCIONA UN CLIENTE SI TODAVIA NO HAY UNO SELECCIONADO ******************
+        If Not Val(IdclienteTextBox.Text) > 0 Then
+            gclienteseleccionado = 0
+            Dim p As SeleccionarCliente
+            p = New SeleccionarCliente
+            p.ShowDialog()
+            IdclienteTextBox.Text = gclienteseleccionado.ToString
+
+            If gclienteseleccionado > 0 Then
+                Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, gclienteseleccionado)
+                Me.ListaclientesTableAdapter.FillByIdCliente(Me.ComercialDataSet.listaclientes, gclienteseleccionado)
+                If gclienteseleccionado > 1 Then
+                    'PictureBoxEditarCliente.Visible = True
+                    'calculafechavencimiento()
+                    'ButtonDescuentoDefecto.Visible = True
+                Else
+                    'PictureBoxEditarCliente.Visible = False
+                    'ButtonDescuentoDefecto.Visible = False
+                End If
+            Else
+                Me.ClientesTableAdapter.FillByIdcliente(Me.ComercialDataSet.clientes, 0)
+                Me.ListaclientesTableAdapter.FillByIdCliente(Me.ComercialDataSet.listaclientes, 0)
+                'PictureBoxEditarCliente.Visible = False
+            End If
+            gclienteseleccionado = Nothing
+        End If
+        '*************************************************************
         Dim valida As Boolean
         Try
             validardatos(valida)
@@ -214,6 +309,7 @@ Public Class AdmOrdenes
     Private Sub ResetearOpciones()
         Try
             IdclienteTextBox.Text = Nothing
+            Label8.Text = "-------------"
             Idtipocomprobantecombo.SelectedValue = 1
             idformapagocombo.SelectedValue = 1
             TextBoxImporteTotal.Text = Nothing
@@ -281,6 +377,9 @@ Public Class AdmOrdenes
                 OrdenesmesasTableAdapter.ordenesmesas_baja(_idOrdenmesa)
                 LoadOrdenes()
                 ColorearGridMesas()
+                ListaordenesmesaDataGridView.Select()
+            Else
+                ListaordenesmesaDataGridView.Select()
             End If
 
         Catch ex As Exception
@@ -622,5 +721,45 @@ Public Class AdmOrdenes
 
     Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
 
+    End Sub
+
+    Private Sub ListamesasestadosDataGridView_KeyDown(sender As Object, e As KeyEventArgs) Handles ListamesasestadosDataGridView.KeyDown
+        'If e.KeyCode = Keys.F4 Then
+        '    Try
+        '        gidproducto = Nothing
+        '        glistaprecio = Nothing
+        '        glistapreferida = Nothing
+        '        gprecioventa = Nothing
+        '        gcantidad = Nothing
+        '        gcodigoproducto = Nothing
+        '        buscaproductomanual()
+        '        LoadOrdenes()
+        '        ColorearGridMesas()
+        '    Catch ex As Exception
+
+        '    End Try
+        'End If
+    End Sub
+
+    Private Sub ComboBoxMesa_KeyDown(sender As Object, e As KeyEventArgs) Handles ComboBoxMesa.KeyDown
+        'If ComboBoxMesa.Text = "" Then
+        '    ComboBoxMesa.Select()
+        '    Return
+        'End If
+        'If e.KeyCode = Keys.F4 Then
+        '    Try
+        '        gidproducto = Nothing
+        '        glistaprecio = Nothing
+        '        glistapreferida = Nothing
+        '        gprecioventa = Nothing
+        '        gcantidad = Nothing
+        '        gcodigoproducto = Nothing
+        '        buscaproductomanual()
+        '        LoadOrdenes()
+        '        ColorearGridMesas()
+        '    Catch ex As Exception
+
+        '    End Try
+        'End If
     End Sub
 End Class
