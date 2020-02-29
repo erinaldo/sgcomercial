@@ -238,6 +238,12 @@ Partial Class Principal
         Me.FlatBtnModuloSueldos = New System.Windows.Forms.Button()
         Me.PanelHeader = New System.Windows.Forms.Panel()
         Me.MenuStripTop = New System.Windows.Forms.MenuStrip()
+        Me.PanelControlBox = New System.Windows.Forms.Panel()
+        Me.PrincipalTitle = New System.Windows.Forms.Label()
+        Me.PictureBoxAPPICON = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxMinimize = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxMaximize = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxClose = New System.Windows.Forms.PictureBox()
         Me.MenuStripMain.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -256,6 +262,11 @@ Partial Class Principal
         Me.PanelSlider.SuspendLayout()
         Me.FlowLayoutPanelBotonera.SuspendLayout()
         Me.PanelHeader.SuspendLayout()
+        Me.PanelControlBox.SuspendLayout()
+        CType(Me.PictureBoxAPPICON, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxMaximize, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxClose, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStripMain
@@ -266,7 +277,7 @@ Partial Class Principal
         Me.MenuStripMain.ImageScalingSize = New System.Drawing.Size(19, 19)
         Me.MenuStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModuloVentas, Me.ModuloDelivery, Me.ModuloGGastronomica, Me.ModuloStock, Me.ModuloProveedores, Me.ModuloTransferenciaStock, Me.ModuloCajas, Me.ModuloVales, Me.ModuloCuentasCorrientes, Me.ModuloContabilidad, Me.ModuloEstadisticas, Me.ModuloUtilidades, Me.ModuloFranquicia, Me.ModuloGestionEscolar, Me.ModuloConfiguraciones, Me.ModuloSeguridad, Me.TerminalVerificadoraPrecios, Me.ModuloAyuda, Me.SysConfig, Me.ModuloCloud, Me.ModuloNotificaciones, Me.PedidosWebToolStripMenuItem, Me.PedidosMovilToolStripMenuItem, Me.ModuloSueldos})
         Me.MenuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
-        Me.MenuStripMain.Location = New System.Drawing.Point(0, 43)
+        Me.MenuStripMain.Location = New System.Drawing.Point(0, 26)
         Me.MenuStripMain.Name = "MenuStripMain"
         Me.MenuStripMain.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStripMain.ShowItemToolTips = True
@@ -1741,12 +1752,13 @@ Partial Class Principal
         'PictureBox1
         '
         Me.PictureBox1.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ParametrosgeneralesBindingSource, "prgimagen1", True))
-        Me.PictureBox1.Location = New System.Drawing.Point(1104, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(491, 189)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(78, 23)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
         Me.PictureBox1.WaitOnLoad = True
         '
         'BGWClientes
@@ -1782,9 +1794,9 @@ Partial Class Principal
         Me.PanelSlider.Controls.Add(Me.FlowLayoutPanelBotonera)
         Me.PanelSlider.Controls.Add(Me.PanelHeader)
         Me.PanelSlider.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PanelSlider.Location = New System.Drawing.Point(0, 155)
+        Me.PanelSlider.Location = New System.Drawing.Point(0, 138)
         Me.PanelSlider.Name = "PanelSlider"
-        Me.PanelSlider.Size = New System.Drawing.Size(250, 406)
+        Me.PanelSlider.Size = New System.Drawing.Size(250, 423)
         Me.PanelSlider.TabIndex = 12
         '
         'FlowLayoutPanelBotonera
@@ -1814,7 +1826,7 @@ Partial Class Principal
         Me.FlowLayoutPanelBotonera.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanelBotonera.Location = New System.Drawing.Point(0, 70)
         Me.FlowLayoutPanelBotonera.Name = "FlowLayoutPanelBotonera"
-        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 336)
+        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 353)
         Me.FlowLayoutPanelBotonera.TabIndex = 3
         '
         'FlatBtnModuloNotificaciones
@@ -2229,17 +2241,92 @@ Partial Class Principal
         'MenuStripTop
         '
         Me.MenuStripTop.AllowMerge = False
-        Me.MenuStripTop.AutoSize = False
         Me.MenuStripTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.MenuStripTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.MenuStripTop.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStripTop.ImageScalingSize = New System.Drawing.Size(35, 35)
         Me.MenuStripTop.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
-        Me.MenuStripTop.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStripTop.Location = New System.Drawing.Point(0, 22)
         Me.MenuStripTop.Name = "MenuStripTop"
-        Me.MenuStripTop.Size = New System.Drawing.Size(1006, 43)
+        Me.MenuStripTop.Size = New System.Drawing.Size(1006, 4)
         Me.MenuStripTop.TabIndex = 16
         Me.MenuStripTop.Text = "MenuStripTop"
+        '
+        'PanelControlBox
+        '
+        Me.PanelControlBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanelControlBox.Controls.Add(Me.PrincipalTitle)
+        Me.PanelControlBox.Controls.Add(Me.PictureBoxAPPICON)
+        Me.PanelControlBox.Controls.Add(Me.PictureBoxMinimize)
+        Me.PanelControlBox.Controls.Add(Me.PictureBoxMaximize)
+        Me.PanelControlBox.Controls.Add(Me.PictureBoxClose)
+        Me.PanelControlBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelControlBox.Location = New System.Drawing.Point(0, 0)
+        Me.PanelControlBox.Name = "PanelControlBox"
+        Me.PanelControlBox.Size = New System.Drawing.Size(1006, 22)
+        Me.PanelControlBox.TabIndex = 18
+        Me.PanelControlBox.Visible = False
+        '
+        'PrincipalTitle
+        '
+        Me.PrincipalTitle.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PrincipalTitle.Font = New System.Drawing.Font("Century Gothic", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PrincipalTitle.ForeColor = System.Drawing.Color.White
+        Me.PrincipalTitle.Location = New System.Drawing.Point(22, 0)
+        Me.PrincipalTitle.Name = "PrincipalTitle"
+        Me.PrincipalTitle.Size = New System.Drawing.Size(800, 22)
+        Me.PrincipalTitle.TabIndex = 2
+        Me.PrincipalTitle.Text = "Electronic Point of Sale"
+        Me.PrincipalTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PictureBoxAPPICON
+        '
+        Me.PictureBoxAPPICON.Cursor = System.Windows.Forms.Cursors.Default
+        Me.PictureBoxAPPICON.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBoxAPPICON.Image = Global.sgcomercial.My.Resources.Resources.SC_ICO_DARK_20_20
+        Me.PictureBoxAPPICON.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBoxAPPICON.Name = "PictureBoxAPPICON"
+        Me.PictureBoxAPPICON.Size = New System.Drawing.Size(22, 22)
+        Me.PictureBoxAPPICON.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxAPPICON.TabIndex = 1
+        Me.PictureBoxAPPICON.TabStop = False
+        '
+        'PictureBoxMinimize
+        '
+        Me.PictureBoxMinimize.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxMinimize.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PictureBoxMinimize.Image = Global.sgcomercial.My.Resources.Resources.minimize_20_20
+        Me.PictureBoxMinimize.Location = New System.Drawing.Point(922, 0)
+        Me.PictureBoxMinimize.Name = "PictureBoxMinimize"
+        Me.PictureBoxMinimize.Size = New System.Drawing.Size(28, 22)
+        Me.PictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBoxMinimize.TabIndex = 0
+        Me.PictureBoxMinimize.TabStop = False
+        '
+        'PictureBoxMaximize
+        '
+        Me.PictureBoxMaximize.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxMaximize.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PictureBoxMaximize.Image = Global.sgcomercial.My.Resources.Resources.maximize_20_20
+        Me.PictureBoxMaximize.Location = New System.Drawing.Point(950, 0)
+        Me.PictureBoxMaximize.Name = "PictureBoxMaximize"
+        Me.PictureBoxMaximize.Size = New System.Drawing.Size(28, 22)
+        Me.PictureBoxMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBoxMaximize.TabIndex = 0
+        Me.PictureBoxMaximize.TabStop = False
+        Me.PictureBoxMaximize.Visible = False
+        '
+        'PictureBoxClose
+        '
+        Me.PictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PictureBoxClose.Image = Global.sgcomercial.My.Resources.Resources.close_20_20
+        Me.PictureBoxClose.Location = New System.Drawing.Point(978, 0)
+        Me.PictureBoxClose.Name = "PictureBoxClose"
+        Me.PictureBoxClose.Size = New System.Drawing.Size(28, 22)
+        Me.PictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBoxClose.TabIndex = 0
+        Me.PictureBoxClose.TabStop = False
         '
         'Principal
         '
@@ -2255,8 +2342,8 @@ Partial Class Principal
         Me.Controls.Add(Me.MenuStripMain)
         Me.Controls.Add(Me.MenuStripTop)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.PanelControlBox)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.ImeMode = System.Windows.Forms.ImeMode.Close
         Me.IsMdiContainer = True
@@ -2265,7 +2352,7 @@ Partial Class Principal
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "EPOS"
+        Me.Text = "Electronic Point of Sale"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStripMain.ResumeLayout(False)
         Me.MenuStripMain.PerformLayout()
@@ -2286,6 +2373,12 @@ Partial Class Principal
         Me.PanelSlider.ResumeLayout(False)
         Me.FlowLayoutPanelBotonera.ResumeLayout(False)
         Me.PanelHeader.ResumeLayout(False)
+        Me.PanelControlBox.ResumeLayout(False)
+        Me.PanelControlBox.PerformLayout()
+        CType(Me.PictureBoxAPPICON, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxMinimize, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxMaximize, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxClose, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2504,4 +2597,10 @@ Partial Class Principal
     Friend WithEvents MenuStripTop As MenuStrip
     Friend WithEvents ImportarProductosToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents FlatBtnModuloSueldos As Button
+    Friend WithEvents PanelControlBox As Panel
+    Friend WithEvents PictureBoxMinimize As PictureBox
+    Friend WithEvents PictureBoxMaximize As PictureBox
+    Friend WithEvents PictureBoxClose As PictureBox
+    Friend WithEvents PictureBoxAPPICON As PictureBox
+    Friend WithEvents PrincipalTitle As Label
 End Class

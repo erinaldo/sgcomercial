@@ -11,7 +11,9 @@ Public Class Principal
     Dim xi As LoadingForm
     Dim permiso As Integer = 0
     Dim ModuloSeleccionado As New ToolStripMenuItem()
-
+    Dim drag As Boolean
+    Dim mousex As Integer
+    Dim mousey As Integer
     Private Sub Principal_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
         End
     End Sub
@@ -21,10 +23,13 @@ Public Class Principal
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
         Try
             gNombreComercio = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("NombreComercio")
-            Me.Text = " EPOS " + " - [" + gNombreComercio + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]" + " - Facturación Electrónica: [" + GFEAFIPENTORNO + "]"
+            Me.Text = " Electronic Point of Sale " + " - [" + gNombreComercio + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]" + " - Facturación Electrónica: [" + GFEAFIPENTORNO + "]"
+            PrincipalTitle.Text = " Electronic Point of Sale " + " - [" + gNombreComercio + "]" + " - Caja N°: [" + gidcaja.ToString + "] - Usuario: [" + gusername + "] - Sucursal N°: [" + gMiSucursal.ToString + "]" + " - Versión: [" + SoftwareVersion + "]" + " - Facturación Electrónica: [" + GFEAFIPENTORNO + "]"
             If gIsOnline = False Then
-                Me.Text = Me.Text + " - [SIN INTERNET]"
+                Me.Text = PrincipalTitle.Text + " - [SIN INTERNET]"
+                PrincipalTitle.Text = PrincipalTitle.Text + " - [SIN INTERNET]"
             End If
+            'Me.Text = Nothing
         Catch ex As Exception
 
         End Try
@@ -87,6 +92,8 @@ Public Class Principal
         If elast = "N" Then
             ShowPopUp("Recuerda enviar el ultimo CIERRE DE CAJA!", 400)
         End If
+        '********************************************************
+
     End Sub
     Public Sub EjecutarAlertas()
         '====================================================================
@@ -1532,5 +1539,111 @@ Public Class Principal
 
     Private Sub PictureMenu_MouseLeave(sender As Object, e As EventArgs) Handles PictureMenu.MouseLeave
         PictureMenu.BackColor = SCBackColor
+    End Sub
+
+    Private Sub PictureBoxClose_Click(sender As Object, e As EventArgs) Handles PictureBoxClose.Click
+        Me.Close()
+    End Sub
+
+    Private Sub PictureBoxClose_MouseHover(sender As Object, e As EventArgs) Handles PictureBoxClose.MouseHover
+        PictureBoxClose.BackColor = SCHoverColorStrong
+    End Sub
+
+    Private Sub PictureBoxClose_MouseLeave(sender As Object, e As EventArgs) Handles PictureBoxClose.MouseLeave
+        PictureBoxClose.BackColor = SCBackColor
+    End Sub
+
+    Private Sub PictureBoxMaximize_Click(sender As Object, e As EventArgs) Handles PictureBoxMaximize.Click
+        PrincipalMaximizar()
+    End Sub
+    Public Sub PrincipalMaximizar()
+        'If Me.WindowState = FormWindowState.Maximized Then
+        '    Me.WindowState = FormWindowState.Minimized
+        'Else
+        '    Me.WindowState = FormWindowState.Normal
+        'End If
+    End Sub
+
+    Private Sub PictureBoxMaximize_MouseHover(sender As Object, e As EventArgs) Handles PictureBoxMaximize.MouseHover
+        PictureBoxMaximize.BackColor = SCHoverColorStrong
+    End Sub
+
+    Private Sub PictureBoxMinimize_Click(sender As Object, e As EventArgs) Handles PictureBoxMinimize.Click
+        Me.WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub PictureBoxMaximize_MouseLeave(sender As Object, e As EventArgs) Handles PictureBoxMaximize.MouseLeave
+        PictureBoxMaximize.BackColor = SCBackColor
+    End Sub
+
+    Private Sub PictureBoxMinimize_MouseHover(sender As Object, e As EventArgs) Handles PictureBoxMinimize.MouseHover
+        PictureBoxMinimize.BackColor = SCHoverColorStrong
+    End Sub
+
+    Private Sub PictureBoxMinimize_MouseLeave(sender As Object, e As EventArgs) Handles PictureBoxMinimize.MouseLeave
+        PictureBoxMinimize.BackColor = SCBackColor
+    End Sub
+
+    Private Sub PanelControlBox_Paint(sender As Object, e As PaintEventArgs) Handles PanelControlBox.Paint
+
+    End Sub
+
+    Private Sub PanelControlBox_DoubleClick(sender As Object, e As EventArgs) Handles PanelControlBox.DoubleClick
+        PrincipalMaximizar()
+    End Sub
+
+    Private Sub PrincipalTitle_Click(sender As Object, e As EventArgs) Handles PrincipalTitle.Click
+
+    End Sub
+
+    Private Sub PictureBoxAPPICON_Click(sender As Object, e As EventArgs) Handles PictureBoxAPPICON.Click
+
+    End Sub
+
+    Private Sub PictureBoxAPPICON_DoubleClick(sender As Object, e As EventArgs) Handles PictureBoxAPPICON.DoubleClick
+        Me.Close()
+    End Sub
+
+    Private Sub PanelControlBox_MouseDown(sender As Object, e As MouseEventArgs) Handles PanelControlBox.MouseDown
+        Me.drag = True
+        mousex = Windows.Forms.Cursor.Position.X - Me.Left
+        mousey = Windows.Forms.Cursor.Position.Y - Me.Top
+    End Sub
+
+    Private Sub Principal_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+
+
+    End Sub
+
+    Private Sub PanelControlBox_MouseUp(sender As Object, e As MouseEventArgs) Handles PanelControlBox.MouseUp
+        drag = False
+    End Sub
+
+    Private Sub PanelControlBox_MouseMove(sender As Object, e As MouseEventArgs) Handles PanelControlBox.MouseMove
+        If drag Then
+            Me.Top = Windows.Forms.Cursor.Position.Y - mousey
+            Me.Left = Windows.Forms.Cursor.Position.X - mousex
+        End If
+    End Sub
+
+    Private Sub PrincipalTitle_MouseDown(sender As Object, e As MouseEventArgs) Handles PrincipalTitle.MouseDown
+        Me.drag = True
+        mousex = Windows.Forms.Cursor.Position.X - Me.Left
+        mousey = Windows.Forms.Cursor.Position.Y - Me.Top
+    End Sub
+
+    Private Sub PrincipalTitle_MouseUp(sender As Object, e As MouseEventArgs) Handles PrincipalTitle.MouseUp
+        Me.drag = False
+    End Sub
+
+    Private Sub PrincipalTitle_MouseMove(sender As Object, e As MouseEventArgs) Handles PrincipalTitle.MouseMove
+        If drag Then
+            Me.Top = Windows.Forms.Cursor.Position.Y - mousey
+            Me.Left = Windows.Forms.Cursor.Position.X - mousex
+        End If
+    End Sub
+
+    Private Sub PrincipalTitle_DoubleClick(sender As Object, e As EventArgs) Handles PrincipalTitle.DoubleClick
+        PrincipalMaximizar()
     End Sub
 End Class

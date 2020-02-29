@@ -353,6 +353,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Public ReadOnly Property close_20_20() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("close_20_20", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Public ReadOnly Property Cloud_icon() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Cloud-icon", resourceCulture)
@@ -721,6 +731,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Public ReadOnly Property maximize_20_20() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("maximize_20_20", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Public ReadOnly Property menu_icon_white() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("menu_icon_white", resourceCulture)
@@ -734,6 +754,16 @@ Namespace My.Resources
         Public ReadOnly Property menu_icon2() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("menu_icon2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property minimize_20_20() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("minimize_20_20", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -965,6 +995,16 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("SC_ICO_DARK", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property SC_ICO_DARK_20_20() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SC_ICO_DARK_20_20", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         
