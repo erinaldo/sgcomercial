@@ -14,6 +14,7 @@ Public Class Principal
     Dim drag As Boolean
     Dim mousex As Integer
     Dim mousey As Integer
+    Dim PrincipalSizeWindow As String
     Private Sub Principal_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
         End
     End Sub
@@ -38,6 +39,7 @@ Public Class Principal
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Icon = SCAPPICON
         PanelSlider.Width = 50
+        PrincipalSizeWindow = "NORMAL"
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
         Dim hi As LoadingForm
         hi = New LoadingForm
@@ -93,7 +95,7 @@ Public Class Principal
             ShowPopUp("Recuerda enviar el ultimo CIERRE DE CAJA!", 400)
         End If
         '********************************************************
-
+        PrincipalMaximizar()
     End Sub
     Public Sub EjecutarAlertas()
         '====================================================================
@@ -1310,6 +1312,7 @@ Public Class Principal
         '/**************************************************************/
         '/*     CARGA LAS FUNCIONES DISPONIBLES PARA EL MODULO                                                 */
         '*********************************************************************
+        MenuStripTop.AutoSize = True
         Try
             Dim modulo As ToolStripMenuItem
             modulo = MenuStripMain.Items(tag)
@@ -1350,6 +1353,7 @@ Public Class Principal
         '/**************************************************************/
         '/*     CARGA LAS FUNCIONES DISPONIBLES PARA EL MODULO                                                 */
         '*********************************************************************
+        MenuStripTop.AutoSize = True
         Try
             Dim modulo As ToolStripMenuItem
             modulo = MenuStripMain.Items(tag)
@@ -1557,11 +1561,18 @@ Public Class Principal
         PrincipalMaximizar()
     End Sub
     Public Sub PrincipalMaximizar()
-        'If Me.WindowState = FormWindowState.Maximized Then
-        '    Me.WindowState = FormWindowState.Minimized
-        'Else
-        '    Me.WindowState = FormWindowState.Normal
-        'End If
+        If PrincipalSizeWindow = "MAX" Then
+            Me.Size = New Size(700, 500)
+            Me.Location = New Point(0, 0)
+            Me.WindowState = FormWindowState.Normal
+            PrincipalSizeWindow = "NORMAL"
+        Else
+            Me.Size = Screen.PrimaryScreen.WorkingArea.Size
+            Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+            'Me.WindowState = FormWindowState.Maximized
+            PrincipalSizeWindow = "MAX"
+        End If
+
     End Sub
 
     Private Sub PictureBoxMaximize_MouseHover(sender As Object, e As EventArgs) Handles PictureBoxMaximize.MouseHover

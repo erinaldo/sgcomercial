@@ -271,13 +271,14 @@ Partial Class Principal
         '
         'MenuStripMain
         '
+        Me.MenuStripMain.AutoSize = False
         Me.MenuStripMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.MenuStripMain.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStripMain.ForeColor = System.Drawing.Color.White
         Me.MenuStripMain.ImageScalingSize = New System.Drawing.Size(19, 19)
         Me.MenuStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModuloVentas, Me.ModuloDelivery, Me.ModuloGGastronomica, Me.ModuloStock, Me.ModuloProveedores, Me.ModuloTransferenciaStock, Me.ModuloCajas, Me.ModuloVales, Me.ModuloCuentasCorrientes, Me.ModuloContabilidad, Me.ModuloEstadisticas, Me.ModuloUtilidades, Me.ModuloFranquicia, Me.ModuloGestionEscolar, Me.ModuloConfiguraciones, Me.ModuloSeguridad, Me.TerminalVerificadoraPrecios, Me.ModuloAyuda, Me.SysConfig, Me.ModuloCloud, Me.ModuloNotificaciones, Me.PedidosWebToolStripMenuItem, Me.PedidosMovilToolStripMenuItem, Me.ModuloSueldos})
         Me.MenuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
-        Me.MenuStripMain.Location = New System.Drawing.Point(0, 26)
+        Me.MenuStripMain.Location = New System.Drawing.Point(0, 57)
         Me.MenuStripMain.Name = "MenuStripMain"
         Me.MenuStripMain.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStripMain.ShowItemToolTips = True
@@ -1434,7 +1435,7 @@ Partial Class Principal
         Me.ParametrosgeneralesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ParametrosgeneralesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewImageColumn1})
         Me.ParametrosgeneralesDataGridView.DataSource = Me.ParametrosgeneralesBindingSource
-        Me.ParametrosgeneralesDataGridView.Location = New System.Drawing.Point(1081, 91)
+        Me.ParametrosgeneralesDataGridView.Location = New System.Drawing.Point(508, 218)
         Me.ParametrosgeneralesDataGridView.Name = "ParametrosgeneralesDataGridView"
         Me.ParametrosgeneralesDataGridView.RowTemplate.Height = 24
         Me.ParametrosgeneralesDataGridView.Size = New System.Drawing.Size(44, 31)
@@ -1499,7 +1500,7 @@ Partial Class Principal
         Me.CajaseventosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.CajaseventosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.CajaseventosDataGridView.DataSource = Me.CajaseventosBindingSource
-        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(1081, 126)
+        Me.CajaseventosDataGridView.Location = New System.Drawing.Point(508, 253)
         Me.CajaseventosDataGridView.Name = "CajaseventosDataGridView"
         Me.CajaseventosDataGridView.RowTemplate.Height = 24
         Me.CajaseventosDataGridView.Size = New System.Drawing.Size(44, 30)
@@ -1557,7 +1558,7 @@ Partial Class Principal
         Me.ModulosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ModulosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15})
         Me.ModulosDataGridView.DataSource = Me.ModulosBindingSource
-        Me.ModulosDataGridView.Location = New System.Drawing.Point(1081, 162)
+        Me.ModulosDataGridView.Location = New System.Drawing.Point(508, 289)
         Me.ModulosDataGridView.Name = "ModulosDataGridView"
         Me.ModulosDataGridView.RowTemplate.Height = 24
         Me.ModulosDataGridView.Size = New System.Drawing.Size(44, 33)
@@ -1794,9 +1795,9 @@ Partial Class Principal
         Me.PanelSlider.Controls.Add(Me.FlowLayoutPanelBotonera)
         Me.PanelSlider.Controls.Add(Me.PanelHeader)
         Me.PanelSlider.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PanelSlider.Location = New System.Drawing.Point(0, 138)
+        Me.PanelSlider.Location = New System.Drawing.Point(0, 169)
         Me.PanelSlider.Name = "PanelSlider"
-        Me.PanelSlider.Size = New System.Drawing.Size(250, 423)
+        Me.PanelSlider.Size = New System.Drawing.Size(250, 392)
         Me.PanelSlider.TabIndex = 12
         '
         'FlowLayoutPanelBotonera
@@ -1826,7 +1827,7 @@ Partial Class Principal
         Me.FlowLayoutPanelBotonera.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanelBotonera.Location = New System.Drawing.Point(0, 70)
         Me.FlowLayoutPanelBotonera.Name = "FlowLayoutPanelBotonera"
-        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 353)
+        Me.FlowLayoutPanelBotonera.Size = New System.Drawing.Size(277, 322)
         Me.FlowLayoutPanelBotonera.TabIndex = 3
         '
         'FlatBtnModuloNotificaciones
@@ -2241,6 +2242,7 @@ Partial Class Principal
         'MenuStripTop
         '
         Me.MenuStripTop.AllowMerge = False
+        Me.MenuStripTop.AutoSize = False
         Me.MenuStripTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.MenuStripTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.MenuStripTop.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2248,7 +2250,7 @@ Partial Class Principal
         Me.MenuStripTop.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStripTop.Location = New System.Drawing.Point(0, 22)
         Me.MenuStripTop.Name = "MenuStripTop"
-        Me.MenuStripTop.Size = New System.Drawing.Size(1006, 4)
+        Me.MenuStripTop.Size = New System.Drawing.Size(1006, 35)
         Me.MenuStripTop.TabIndex = 16
         Me.MenuStripTop.Text = "MenuStripTop"
         '
@@ -2265,16 +2267,15 @@ Partial Class Principal
         Me.PanelControlBox.Name = "PanelControlBox"
         Me.PanelControlBox.Size = New System.Drawing.Size(1006, 22)
         Me.PanelControlBox.TabIndex = 18
-        Me.PanelControlBox.Visible = False
         '
         'PrincipalTitle
         '
-        Me.PrincipalTitle.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PrincipalTitle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PrincipalTitle.Font = New System.Drawing.Font("Century Gothic", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PrincipalTitle.ForeColor = System.Drawing.Color.White
         Me.PrincipalTitle.Location = New System.Drawing.Point(22, 0)
         Me.PrincipalTitle.Name = "PrincipalTitle"
-        Me.PrincipalTitle.Size = New System.Drawing.Size(800, 22)
+        Me.PrincipalTitle.Size = New System.Drawing.Size(900, 22)
         Me.PrincipalTitle.TabIndex = 2
         Me.PrincipalTitle.Text = "Electronic Point of Sale"
         Me.PrincipalTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -2314,7 +2315,6 @@ Partial Class Principal
         Me.PictureBoxMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictureBoxMaximize.TabIndex = 0
         Me.PictureBoxMaximize.TabStop = False
-        Me.PictureBoxMaximize.Visible = False
         '
         'PictureBoxClose
         '
@@ -2340,10 +2340,11 @@ Partial Class Principal
         Me.Controls.Add(Me.CajaseventosDataGridView)
         Me.Controls.Add(Me.ParametrosgeneralesDataGridView)
         Me.Controls.Add(Me.MenuStripMain)
-        Me.Controls.Add(Me.MenuStripTop)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.MenuStripTop)
         Me.Controls.Add(Me.PanelControlBox)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.ImeMode = System.Windows.Forms.ImeMode.Close
         Me.IsMdiContainer = True
@@ -2353,7 +2354,6 @@ Partial Class Principal
         Me.Name = "Principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Electronic Point of Sale"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStripMain.ResumeLayout(False)
         Me.MenuStripMain.PerformLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2380,7 +2380,6 @@ Partial Class Principal
         CType(Me.PictureBoxMaximize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxClose, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents MenuStripMain As System.Windows.Forms.MenuStrip
