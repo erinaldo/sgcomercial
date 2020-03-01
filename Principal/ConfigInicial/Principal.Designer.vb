@@ -244,6 +244,7 @@ Partial Class Principal
         Me.PictureBoxMinimize = New System.Windows.Forms.PictureBox()
         Me.PictureBoxMaximize = New System.Windows.Forms.PictureBox()
         Me.PictureBoxClose = New System.Windows.Forms.PictureBox()
+        Me.TutorialesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStripMain.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1173,7 +1174,7 @@ Partial Class Principal
         '
         'ModuloAyuda
         '
-        Me.ModuloAyuda.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeSGComercialToolStripMenuItem, Me.CambiarContraseñaToolStripMenuItem})
+        Me.ModuloAyuda.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeSGComercialToolStripMenuItem, Me.CambiarContraseñaToolStripMenuItem, Me.TutorialesToolStripMenuItem})
         Me.ModuloAyuda.Name = "ModuloAyuda"
         Me.ModuloAyuda.Size = New System.Drawing.Size(70, 27)
         Me.ModuloAyuda.Tag = "ModuloAyuda"
@@ -2328,6 +2329,14 @@ Partial Class Principal
         Me.PictureBoxClose.TabIndex = 0
         Me.PictureBoxClose.TabStop = False
         '
+        'TutorialesToolStripMenuItem
+        '
+        Me.TutorialesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alert_information_35
+        Me.TutorialesToolStripMenuItem.Name = "TutorialesToolStripMenuItem"
+        Me.TutorialesToolStripMenuItem.Size = New System.Drawing.Size(263, 28)
+        Me.TutorialesToolStripMenuItem.Tag = "Tutoriales"
+        Me.TutorialesToolStripMenuItem.Text = "Tutoriales"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -2351,6 +2360,7 @@ Partial Class Principal
         Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStripTop
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MinimumSize = New System.Drawing.Size(680, 500)
         Me.Name = "Principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Electronic Point of Sale"
@@ -2602,4 +2612,5 @@ Partial Class Principal
     Friend WithEvents PictureBoxClose As PictureBox
     Friend WithEvents PictureBoxAPPICON As PictureBox
     Friend WithEvents PrincipalTitle As Label
+    Friend WithEvents TutorialesToolStripMenuItem As ToolStripMenuItem
 End Class

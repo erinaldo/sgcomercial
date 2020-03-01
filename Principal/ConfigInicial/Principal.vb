@@ -1562,7 +1562,7 @@ Public Class Principal
     End Sub
     Public Sub PrincipalMaximizar()
         If PrincipalSizeWindow = "MAX" Then
-            Me.Size = New Size(700, 500)
+            Me.Size = New Size(800, 600)
             Me.Location = New Point(0, 0)
             Me.WindowState = FormWindowState.Normal
             PrincipalSizeWindow = "NORMAL"
@@ -1656,5 +1656,9 @@ Public Class Principal
 
     Private Sub PrincipalTitle_DoubleClick(sender As Object, e As EventArgs) Handles PrincipalTitle.DoubleClick
         PrincipalMaximizar()
+    End Sub
+
+    Private Sub TutorialesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TutorialesToolStripMenuItem.Click
+        Process.Start("https://www.youtube.com/playlist?list=PLzIuuDP2FFzbS9twc_fTlYm8JtbwDJk8n")
     End Sub
 End Class

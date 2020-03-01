@@ -43,6 +43,9 @@ Public Class loginform
             guserid = rtn
             guserprofile = UsuariosTableAdapter.usuarios_getperfil(gusername)
             FormPrincipal = New Principal
+            Dim QueryTutoriales As String
+            QueryTutoriales = "exec HabilitarTutoriales " + "'" + guserprofile + "'"
+            QueryBDChange(QueryTutoriales)
             Me.Hide()
             FormPrincipal.Show()
             'End If
