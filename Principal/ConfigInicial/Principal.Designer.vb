@@ -137,6 +137,7 @@ Partial Class Principal
         Me.ModuloAyuda = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeSGComercialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambiarContraseñaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TutorialesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SysConfig = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaTerminalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -244,7 +245,7 @@ Partial Class Principal
         Me.PictureBoxMinimize = New System.Windows.Forms.PictureBox()
         Me.PictureBoxMaximize = New System.Windows.Forms.PictureBox()
         Me.PictureBoxClose = New System.Windows.Forms.PictureBox()
-        Me.TutorialesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TimerHideSlider = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStripMain.SuspendLayout()
         CType(Me.ParametrosgeneralesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1195,6 +1196,14 @@ Partial Class Principal
         Me.CambiarContraseñaToolStripMenuItem.Size = New System.Drawing.Size(263, 28)
         Me.CambiarContraseñaToolStripMenuItem.Tag = "CambiarClaveAcceso"
         Me.CambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña"
+        '
+        'TutorialesToolStripMenuItem
+        '
+        Me.TutorialesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alert_information_35
+        Me.TutorialesToolStripMenuItem.Name = "TutorialesToolStripMenuItem"
+        Me.TutorialesToolStripMenuItem.Size = New System.Drawing.Size(263, 28)
+        Me.TutorialesToolStripMenuItem.Tag = "Tutoriales"
+        Me.TutorialesToolStripMenuItem.Text = "Tutoriales"
         '
         'SysConfig
         '
@@ -2246,8 +2255,8 @@ Partial Class Principal
         Me.MenuStripTop.AutoSize = False
         Me.MenuStripTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.MenuStripTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MenuStripTop.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStripTop.ImageScalingSize = New System.Drawing.Size(35, 35)
+        Me.MenuStripTop.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.MenuStripTop.ImageScalingSize = New System.Drawing.Size(32, 32)
         Me.MenuStripTop.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStripTop.Location = New System.Drawing.Point(0, 22)
         Me.MenuStripTop.Name = "MenuStripTop"
@@ -2329,13 +2338,8 @@ Partial Class Principal
         Me.PictureBoxClose.TabIndex = 0
         Me.PictureBoxClose.TabStop = False
         '
-        'TutorialesToolStripMenuItem
+        'TimerHideSlider
         '
-        Me.TutorialesToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Alert_information_35
-        Me.TutorialesToolStripMenuItem.Name = "TutorialesToolStripMenuItem"
-        Me.TutorialesToolStripMenuItem.Size = New System.Drawing.Size(263, 28)
-        Me.TutorialesToolStripMenuItem.Tag = "Tutoriales"
-        Me.TutorialesToolStripMenuItem.Text = "Tutoriales"
         '
         'Principal
         '
@@ -2613,4 +2617,5 @@ Partial Class Principal
     Friend WithEvents PictureBoxAPPICON As PictureBox
     Friend WithEvents PrincipalTitle As Label
     Friend WithEvents TutorialesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TimerHideSlider As Timer
 End Class

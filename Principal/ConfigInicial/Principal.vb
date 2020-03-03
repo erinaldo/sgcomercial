@@ -15,6 +15,7 @@ Public Class Principal
     Dim mousex As Integer
     Dim mousey As Integer
     Dim PrincipalSizeWindow As String
+    Dim TimeSliderTimer As Integer
     Private Sub Principal_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
         End
     End Sub
@@ -1660,5 +1661,19 @@ Public Class Principal
 
     Private Sub TutorialesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TutorialesToolStripMenuItem.Click
         Process.Start("https://www.youtube.com/playlist?list=PLzIuuDP2FFzbS9twc_fTlYm8JtbwDJk8n")
+    End Sub
+
+    Private Sub MenuStripTop_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStripTop.ItemClicked
+        TimerHideSlider.Interval = 1
+        TimeSliderTimer = 0
+        TimerHideSlider.Start()
+    End Sub
+
+    Private Sub TimerHideSlider_Tick(sender As Object, e As EventArgs) Handles TimerHideSlider.Tick
+        If TimeSliderTimer >= 150 Then
+            PanelSlider.Width = 50
+            TimerHideSlider.Stop()
+        End If
+        TimeSliderTimer += 1
     End Sub
 End Class

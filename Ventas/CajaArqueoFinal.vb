@@ -13,9 +13,9 @@
     Private Sub CajaArqueoFinal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'BioaccesoDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
-        Me.CajaseventosTableAdapter.Fill(Me.BioaccesoDataSet.cajaseventos)
+        'Me.CajaseventosTableAdapter.Fill(Me.BioaccesoDataSet.cajaseventos)
         'TODO: esta línea de código carga datos en la tabla 'BioaccesoDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.
-        Me.CajasoperacionesTableAdapter.Fill(Me.BioaccesoDataSet.cajasoperaciones)
+        'Me.CajasoperacionesTableAdapter.Fill(Me.BioaccesoDataSet.cajasoperaciones)
         '---------------------------
         numIngresos.Value = CajasoperacionesTableAdapter.cajasoperaciones_totalpagos(gidevento)
         numEgresos.Value = CajasoperacionesTableAdapter.cajasoperaciones_totalgastos(gidevento)
@@ -35,6 +35,15 @@
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         gmontofinal = Enteros.Value
+        gtotaldebitos = Numericdebitos.Value
+        gtotalcreditos = Numericcreditos.Value
+        gtotaltransferencias = Numerictransferencias.Value
+        gtotalcheques = Numericcheques.Value
+        gtotaldepositos = Numericdepositos.Value
+        gtotaldepositosef = NumericdepositosEF.Value
+        gtotalgastos = NumericGastos.Value
+        gtotalextracciones = Numericextracciones.Value
+        gtotaldevolucionefectivo = NumericDevolucionef.Value
         Me.Close()
     End Sub
 
@@ -57,5 +66,9 @@
             End If
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
     End Sub
 End Class

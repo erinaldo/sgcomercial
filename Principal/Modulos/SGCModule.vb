@@ -79,7 +79,18 @@ Module SGCModule
     Public gidevento As Long
     Public gideventoseleccionado As Long
     Public gidcaja As Integer
+    '*************variables de arqueo de caja*******************************
     Public gmontofinal As Decimal
+    Public gtotaldebitos As Decimal
+    Public gtotalcreditos As Decimal
+    Public gtotaltransferencias As Decimal
+    Public gtotalcheques As Decimal
+    Public gtotaldepositos As Decimal
+    Public gtotaldepositosef As Decimal
+    Public gtotalgastos As Decimal
+    Public gtotalextracciones As Decimal
+    Public gtotaldevolucionefectivo As Decimal
+    '********************************************
     Public gmontototal As Decimal
     Public gclienteseleccionado As Long
     Public galumnoseleccionado As Long

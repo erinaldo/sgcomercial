@@ -104,7 +104,7 @@ Public Class CajaAperturaCierre
             '******************************
             Dim rtn As Integer
             Try
-                rtn = CajaseventosTableAdapter.cajaseventos_cerrarcaja(Now(), gmontofinal, idcaja, gusername)
+                rtn = CajaseventosTableAdapter.cajaseventos_cerrarcaja(Now(), gmontofinal, idcaja, gusername, gtotaldebitos, gtotalcreditos, gtotaltransferencias, gtotalcheques, gtotaldepositos, gtotaldepositosef, gtotalgastos, gtotalextracciones, gtotaldevolucionefectivo)
                 '*******************************
                 Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)
                 Me.librodiarioTableAdapter.FillByIdevento(Me.ComercialDataSet.librodiario, gidevento)
