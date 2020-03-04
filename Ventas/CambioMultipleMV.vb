@@ -92,20 +92,21 @@
     End Sub
 
     Private Sub CambioMultipleMV_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.pagos' Puede moverla o quitarla según sea necesario.
-        Me.PagosTableAdapter.Fill(Me.ComercialDataSet.pagos)
+        'Me.PagosTableAdapter.Fill(Me.ComercialDataSet.pagos)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.formaspago' Puede moverla o quitarla según sea necesario.
         Me.FormaspagoTableAdapter.Fill(Me.ComercialDataSet.formaspago)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.
-        Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
+        'Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cambiodevolucion' Puede moverla o quitarla según sea necesario.
-        Me.CambiodevolucionTableAdapter.Fill(Me.ComercialDataSet.cambiodevolucion)
+        'Me.CambiodevolucionTableAdapter.Fill(Me.ComercialDataSet.cambiodevolucion)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cambiodevoluciondetalle' Puede moverla o quitarla según sea necesario.
-        Me.CambiodevoluciondetalleTableAdapter.Fill(Me.ComercialDataSet.cambiodevoluciondetalle)
+        'Me.CambiodevoluciondetalleTableAdapter.Fill(Me.ComercialDataSet.cambiodevoluciondetalle)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
-        Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
+        'Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+        'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
 
     End Sub
     Public Sub buscaproductomanualsalida()
@@ -378,13 +379,13 @@
                 Me.Close()
             End If
         End If
-        If e.KeyCode = Keys.F12 And Me.MaximizeBox = True Then
-            If Me.WindowState = FormWindowState.Normal Then
-                Me.WindowState = FormWindowState.Maximized
-            Else
-                Me.WindowState = FormWindowState.Normal
-            End If
-        End If
+        'If e.KeyCode = Keys.F12 And Me.MaximizeBox = True Then
+        '    If Me.WindowState = FormWindowState.Normal Then
+        '        Me.WindowState = FormWindowState.Maximized
+        '    Else
+        '        Me.WindowState = FormWindowState.Normal
+        '    End If
+        'End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
     End Sub
 

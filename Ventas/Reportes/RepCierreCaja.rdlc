@@ -3550,7 +3550,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.6211cm</Width>
+              <Width>2.9226cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.65161cm</Width>
@@ -3565,12 +3565,12 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
               <Width>3.92382cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.72912cm</Width>
+              <Width>4.42761cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.87517cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3653,30 +3653,57 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
                             <TextRun>
                               <Value>Sdo. Inicial: $ </Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!saldoinicial.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                             <TextRun>
                               <Value xml:space="preserve"> </Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                             <TextRun>
                               <Value>- Sdo. Final: $ </Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!saldofinal.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value xml:space="preserve"> </Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>- Sdo. en CAJA: $ </Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!efectivoencaja.Value</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -3700,7 +3727,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.51533cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3742,7 +3769,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
                 <TablixCell />
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox60">
+                    <Textbox Name="Textbox25">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -3758,7 +3785,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox60</rd:DefaultName>
+                      <rd:DefaultName>Textbox25</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -3843,7 +3870,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.5365cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3945,7 +3972,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox66">
+                    <Textbox Name="Textbox27">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -3959,7 +3986,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox66</rd:DefaultName>
+                      <rd:DefaultName>Textbox27</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -4123,8 +4150,8 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
         <DataSetName>cajaseventos</DataSetName>
         <Top>0.03387cm</Top>
         <Left>0.0802cm</Left>
-        <Height>1.8cm</Height>
-        <Width>18.38565cm</Width>
+        <Height>1.927cm</Height>
+        <Width>18.38564cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -6134,6 +6161,10 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
         </Field>
         <Field Name="totaldepositosef">
           <DataField>totaldepositosef</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="efectivoencaja">
+          <DataField>efectivoencaja</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>

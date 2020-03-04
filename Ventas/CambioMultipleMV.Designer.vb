@@ -194,6 +194,7 @@ Partial Class CambioMultipleMV
         Me.DataGridView1.Location = New System.Drawing.Point(6, 79)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(614, 249)
@@ -280,6 +281,7 @@ Partial Class CambioMultipleMV
         Me.DataGridView2.Location = New System.Drawing.Point(12, 79)
         Me.DataGridView2.MultiSelect = False
         Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.RowTemplate.Height = 24
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView2.Size = New System.Drawing.Size(614, 249)
@@ -546,7 +548,7 @@ Partial Class CambioMultipleMV
         'btnConfirmar
         '
         Me.btnConfirmar.Enabled = False
-        Me.btnConfirmar.Location = New System.Drawing.Point(1081, 44)
+        Me.btnConfirmar.Location = New System.Drawing.Point(1081, 50)
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.Size = New System.Drawing.Size(162, 34)
         Me.btnConfirmar.TabIndex = 7

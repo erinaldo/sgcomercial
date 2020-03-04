@@ -5,13 +5,18 @@
 
     Private Sub DetalleEgresos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = SCFORMICON
+        reloadData()
+
+    End Sub
+    Private Sub reloadData()
         Try
             Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, gideventoseleccionado)
-            Me.ReportViewer1.RefreshReport()
+            'Me.ReportViewer1.RefreshReport()
+            NumericTotalDevoluciones.Value = V_gastosTableAdapter.v_gastos_montototaldevolucionesbyevento(gideventoseleccionado)
+            NumericTotalgastos.Value = V_gastosTableAdapter.v_gastos_montototalgastosbyevento(gideventoseleccionado)
         Catch ex As Exception
 
         End Try
-
     End Sub
 
     Private Sub V_gastosDataGridView_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles V_gastosDataGridView.CellContentClick
@@ -26,9 +31,7 @@
                     Case 4 '*****************ANULAR GASTO*****************************
                         If MsgBox("Seguro desea anular la operación (Anular gasto)?", MsgBoxStyle.YesNo, "Pregunta") = vbYes Then
                             CajasoperacionesTableAdapter.cajasoperaciones_bajaopgasto(V_gastosDataGridView.CurrentRow.Cells("idoperacion").Value, gusername)
-                            Me.V_gastosTableAdapter.FillByidevento(Me.ComercialDataSet.v_gastos, gideventoseleccionado)
-
-                            Me.ReportViewer1.RefreshReport()
+                            reloadData()
                         End If
                 End Select
             End If

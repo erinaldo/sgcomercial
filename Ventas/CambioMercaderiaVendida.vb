@@ -28,16 +28,18 @@ Public Class CambioMercaderiaVendida
     End Sub
 
     Private Sub CambioMercaderiaVendida_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCFORMICON
+        Me.Enabled = False
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cambiodevolucion' Puede moverla o quitarla según sea necesario.
-        Me.CambiodevolucionTableAdapter.Fill(Me.ComercialDataSet.cambiodevolucion)
+        'Me.CambiodevolucionTableAdapter.Fill(Me.ComercialDataSet.cambiodevolucion)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajasoperaciones' Puede moverla o quitarla según sea necesario.
-        Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
+        'Me.CajasoperacionesTableAdapter.Fill(Me.ComercialDataSet.cajasoperaciones)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.unidadesmedida' Puede moverla o quitarla según sea necesario.
         Me.UnidadesmedidaTableAdapter.Fill(Me.ComercialDataSet.unidadesmedida)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.stock' Puede moverla o quitarla según sea necesario.
-        Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
+        'Me.StockTableAdapter.Fill(Me.ComercialDataSet.stock)
         'TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
+        'Me.ProductosTableAdapter.Fill(Me.ComercialDataSet.productos)
         ComboBox1.SelectedIndex = -1
         ComboBox2.SelectedIndex = -1
     End Sub
@@ -593,6 +595,7 @@ Public Class CambioMercaderiaVendida
             Dim MONTO As Decimal = MontoDiferencia.Text
             CajasoperacionesTableAdapter.cajasoperaciones_insertarcambiodevolucion(gidevento, IDCAMBIODEVOLUCION, 1, MONTO, gusername)
             '********************** todo OK cierro la pantalla! **************************************
+            MsgSuccessPopUp("Cambio registrado!")
             Me.Close()
         Else
             MsgBox("Operacion cancelada")
@@ -628,7 +631,7 @@ Public Class CambioMercaderiaVendida
                 Return
             End If
         Catch ex As Exception
-            MsgBox("Cantidad devuelto incorrecta")
+            MsgBox("Cantidad devuelto incorrecta: " + ex.Message)
             Return
         End Try
         '************************** MONTO producto Entrante **************************
@@ -639,7 +642,7 @@ Public Class CambioMercaderiaVendida
                 Return
             End If
         Catch ex As Exception
-            MsgBox("Monto de producto devuelto incorrecto!")
+            MsgBox("Monto de producto devuelto incorrecto: " + ex.Message)
             Return
         End Try
         '************************** CANTIDAD producto saliente **************************
@@ -686,13 +689,17 @@ Public Class CambioMercaderiaVendida
                 Me.Close()
             End If
         End If
-        If e.KeyCode = Keys.F12 And Me.MaximizeBox = True Then
-            If Me.WindowState = FormWindowState.Normal Then
-                Me.WindowState = FormWindowState.Maximized
-            Else
-                Me.WindowState = FormWindowState.Normal
-            End If
-        End If
+        'If e.KeyCode = Keys.F12 And Me.MaximizeBox = True Then
+        '    If Me.WindowState = FormWindowState.Normal Then
+        '        Me.WindowState = FormWindowState.Maximized
+        '    Else
+        '        Me.WindowState = FormWindowState.Normal
+        '    End If
+        'End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+
     End Sub
 End Class

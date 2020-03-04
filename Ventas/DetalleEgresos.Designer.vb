@@ -23,11 +23,13 @@ Partial Class DetalleEgresos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.V_gastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.NumericTotalgastos = New System.Windows.Forms.NumericUpDown()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.NumericTotalDevoluciones = New System.Windows.Forms.NumericUpDown()
         Me.V_gastosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idoperacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,6 +57,8 @@ Partial Class DetalleEgresos
         CType(Me.V_gastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.NumericTotalgastos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericTotalDevoluciones, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.V_gastosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,7 +79,10 @@ Partial Class DetalleEgresos
         Me.GroupBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox3.Controls.Add(Me.ReportViewer1)
+        Me.GroupBox3.Controls.Add(Me.Label2)
+        Me.GroupBox3.Controls.Add(Me.NumericTotalgastos)
+        Me.GroupBox3.Controls.Add(Me.Label1)
+        Me.GroupBox3.Controls.Add(Me.NumericTotalDevoluciones)
         Me.GroupBox3.Controls.Add(Me.V_gastosDataGridView)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(12, 12)
@@ -85,22 +92,49 @@ Partial Class DetalleEgresos
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Egresos"
         '
-        'ReportViewer1
+        'Label2
         '
-        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ReportViewer1.AutoSize = True
-        Me.ReportViewer1.BackColor = System.Drawing.SystemColors.ButtonFace
-        ReportDataSource1.Name = "v_gastos"
-        ReportDataSource1.Value = Me.V_gastosBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.GraphEgresos.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(643, 29)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ShowToolBar = False
-        Me.ReportViewer1.Size = New System.Drawing.Size(307, 456)
-        Me.ReportViewer1.TabIndex = 4
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(560, 464)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(58, 17)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "Gastos:"
+        '
+        'NumericTotalgastos
+        '
+        Me.NumericTotalgastos.DecimalPlaces = 2
+        Me.NumericTotalgastos.Enabled = False
+        Me.NumericTotalgastos.Location = New System.Drawing.Point(646, 460)
+        Me.NumericTotalgastos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
+        Me.NumericTotalgastos.Name = "NumericTotalgastos"
+        Me.NumericTotalgastos.ReadOnly = True
+        Me.NumericTotalgastos.Size = New System.Drawing.Size(172, 24)
+        Me.NumericTotalgastos.TabIndex = 10
+        Me.NumericTotalgastos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(34, 464)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(190, 17)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "Devoluciónes por Cambio:"
+        '
+        'NumericTotalDevoluciones
+        '
+        Me.NumericTotalDevoluciones.DecimalPlaces = 2
+        Me.NumericTotalDevoluciones.Enabled = False
+        Me.NumericTotalDevoluciones.Location = New System.Drawing.Point(248, 460)
+        Me.NumericTotalDevoluciones.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
+        Me.NumericTotalDevoluciones.Name = "NumericTotalDevoluciones"
+        Me.NumericTotalDevoluciones.ReadOnly = True
+        Me.NumericTotalDevoluciones.Size = New System.Drawing.Size(172, 24)
+        Me.NumericTotalDevoluciones.TabIndex = 8
+        Me.NumericTotalDevoluciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'V_gastosDataGridView
         '
@@ -118,7 +152,7 @@ Partial Class DetalleEgresos
         Me.V_gastosDataGridView.Name = "V_gastosDataGridView"
         Me.V_gastosDataGridView.ReadOnly = True
         Me.V_gastosDataGridView.RowTemplate.Height = 24
-        Me.V_gastosDataGridView.Size = New System.Drawing.Size(625, 456)
+        Me.V_gastosDataGridView.Size = New System.Drawing.Size(952, 410)
         Me.V_gastosDataGridView.TabIndex = 3
         '
         'DataGridViewTextBoxColumn1
@@ -170,6 +204,8 @@ Partial Class DetalleEgresos
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -179,22 +215,47 @@ Partial Class DetalleEgresos
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -214,12 +275,21 @@ Partial Class DetalleEgresos
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
         Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
@@ -345,11 +415,13 @@ Partial Class DetalleEgresos
         Me.MinimizeBox = False
         Me.Name = "DetalleEgresos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Detalle Egresos"
+        Me.Text = "Detalle Gastos"
         CType(Me.V_gastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        CType(Me.NumericTotalgastos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NumericTotalDevoluciones, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.V_gastosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -363,7 +435,6 @@ Partial Class DetalleEgresos
     Friend WithEvents V_gastosTableAdapter As comercialDataSetTableAdapters.v_gastosTableAdapter
     Friend WithEvents TableAdapterManager As comercialDataSetTableAdapters.TableAdapterManager
     Friend WithEvents V_gastosDataGridView As DataGridView
-    Friend WithEvents ReportViewer1 As ReportViewer
     Friend WithEvents CajasoperacionesBindingSource As BindingSource
     Friend WithEvents CajasoperacionesTableAdapter As comercialDataSetTableAdapters.cajasoperacionesTableAdapter
     Friend WithEvents CajasoperacionesDataGridView As DataGridView
@@ -385,4 +456,8 @@ Partial Class DetalleEgresos
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents anular As DataGridViewButtonColumn
+    Friend WithEvents Label2 As Label
+    Friend WithEvents NumericTotalgastos As NumericUpDown
+    Friend WithEvents Label1 As Label
+    Friend WithEvents NumericTotalDevoluciones As NumericUpDown
 End Class

@@ -90,6 +90,7 @@ Module SGCModule
     Public gtotalgastos As Decimal
     Public gtotalextracciones As Decimal
     Public gtotaldevolucionefectivo As Decimal
+    Public gefectivoencaja As Decimal
     '********************************************
     Public gmontototal As Decimal
     Public gclienteseleccionado As Long

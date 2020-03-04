@@ -549,8 +549,10 @@ Public Class Principal
         Else
             'RegistrarVenta.MdiParent = Me
             'RegistrarVenta.Visible = True
-            CambioMercaderiaVendida.MdiParent = Me
-            CambioMercaderiaVendida.Visible = True
+            'CambioMercaderiaVendida.MdiParent = Me
+            'CambioMercaderiaVendida.Visible = True
+            CambioMultipleMV.MdiParent = Me
+            CambioMultipleMV.Visible = True
         End If
         '***************    FIN consultar el estado de caja *************
 

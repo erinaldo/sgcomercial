@@ -174,6 +174,7 @@ Partial Class CambioMercaderiaVendida
         '
         Me.TextBoxCantidadEntrante.Location = New System.Drawing.Point(172, 108)
         Me.TextBoxCantidadEntrante.Name = "TextBoxCantidadEntrante"
+        Me.TextBoxCantidadEntrante.ReadOnly = True
         Me.TextBoxCantidadEntrante.Size = New System.Drawing.Size(94, 22)
         Me.TextBoxCantidadEntrante.TabIndex = 22
         '
@@ -215,6 +216,7 @@ Partial Class CambioMercaderiaVendida
         '
         'codigotextbox
         '
+        Me.codigotextbox.Enabled = False
         Me.codigotextbox.Location = New System.Drawing.Point(117, 38)
         Me.codigotextbox.Name = "codigotextbox"
         Me.codigotextbox.Size = New System.Drawing.Size(149, 22)
@@ -224,6 +226,7 @@ Partial Class CambioMercaderiaVendida
         '
         Me.PictureSPD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PictureSPD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureSPD.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureSPD.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSPD.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSPD.Location = New System.Drawing.Point(273, 35)
@@ -284,6 +287,7 @@ Partial Class CambioMercaderiaVendida
         '
         Me.TextBoxCantidadSaliente.Location = New System.Drawing.Point(172, 103)
         Me.TextBoxCantidadSaliente.Name = "TextBoxCantidadSaliente"
+        Me.TextBoxCantidadSaliente.ReadOnly = True
         Me.TextBoxCantidadSaliente.Size = New System.Drawing.Size(94, 22)
         Me.TextBoxCantidadSaliente.TabIndex = 26
         '
@@ -325,6 +329,7 @@ Partial Class CambioMercaderiaVendida
         '
         'TextBoxCodigoSaliente
         '
+        Me.TextBoxCodigoSaliente.Enabled = False
         Me.TextBoxCodigoSaliente.Location = New System.Drawing.Point(117, 42)
         Me.TextBoxCodigoSaliente.Name = "TextBoxCodigoSaliente"
         Me.TextBoxCodigoSaliente.Size = New System.Drawing.Size(149, 22)
@@ -334,6 +339,7 @@ Partial Class CambioMercaderiaVendida
         '
         Me.PictureSPN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PictureSPN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureSPN.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureSPN.Image = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSPN.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
         Me.PictureSPN.Location = New System.Drawing.Point(273, 39)
@@ -373,6 +379,8 @@ Partial Class CambioMercaderiaVendida
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
         Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
@@ -382,21 +390,46 @@ Partial Class CambioMercaderiaVendida
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
         Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
         Me.TableAdapterManager.extraccionesTableAdapter = Nothing
         Me.TableAdapterManager.formaspagoTableAdapter = Nothing
         Me.TableAdapterManager.funcionesTableAdapter = Nothing
         Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
         Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
         Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
         Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
@@ -416,11 +449,21 @@ Partial Class CambioMercaderiaVendida
         Me.TableAdapterManager.remitosTableAdapter = Nothing
         Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
         Me.TableAdapterManager.tipoivaTableAdapter = Nothing
         Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
         Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing

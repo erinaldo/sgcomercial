@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>54</ApplicationRevision>
-    <ApplicationVersion>4.1.0.54</ApplicationVersion>
+    <ApplicationRevision>56</ApplicationRevision>
+    <ApplicationVersion>4.1.0.56</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1194,10 +1194,22 @@
     <Compile Include="Ventas\CriteriosVenta\DefinirCriterioVentaRango.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\DetalleDepositosCaja.Designer.vb">
+      <DependentUpon>DetalleDepositosCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\DetalleDepositosCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\DetalleEgresos.Designer.vb">
       <DependentUpon>DetalleEgresos.vb</DependentUpon>
     </Compile>
     <Compile Include="Ventas\DetalleEgresos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\DetalleExtracciones.Designer.vb">
+      <DependentUpon>DetalleExtracciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\DetalleExtracciones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventas\DetalleIngresos.Designer.vb">
@@ -1905,6 +1917,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\CriteriosVenta\DefinirCriterioVentaRango.resx">
       <DependentUpon>DefinirCriterioVentaRango.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\DetalleDepositosCaja.resx">
+      <DependentUpon>DetalleDepositosCaja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\DetalleExtracciones.resx">
+      <DependentUpon>DetalleExtracciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\EditarVenta.resx">
       <DependentUpon>EditarVenta.vb</DependentUpon>
