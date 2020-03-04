@@ -33,12 +33,12 @@ Partial Class CajaArqueoFinal
         Me.CajasoperacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BioaccesoDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.NumericEfectivoEnCaja = New System.Windows.Forms.NumericUpDown()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.numEgresos = New System.Windows.Forms.NumericUpDown()
-        Me.numIngresos = New System.Windows.Forms.NumericUpDown()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -74,15 +74,13 @@ Partial Class CajaArqueoFinal
         Me.CajasoperacionesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
         Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
         Me.CajaseventosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.cajaseventosTableAdapter()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.NumericEfectivoEnCaja = New System.Windows.Forms.NumericUpDown()
         CType(Me.CajasoperacionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajasoperacionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BioaccesoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.NumericEfectivoEnCaja, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numEgresos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numIngresos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericDevolucionef, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Numericextracciones, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericGastos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,7 +93,6 @@ Partial Class CajaArqueoFinal
         CType(Me.Enteros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericEfectivoEnCaja, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CajasoperacionesDataGridView
@@ -168,9 +165,7 @@ Partial Class CajaArqueoFinal
         Me.GroupBox1.Controls.Add(Me.NumericUpDown1)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.numEgresos)
-        Me.GroupBox1.Controls.Add(Me.numIngresos)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label14)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.Label12)
@@ -204,6 +199,31 @@ Partial Class CajaArqueoFinal
         Me.GroupBox1.Size = New System.Drawing.Size(702, 393)
         Me.GroupBox1.TabIndex = 13
         Me.GroupBox1.TabStop = False
+        '
+        'NumericEfectivoEnCaja
+        '
+        Me.NumericEfectivoEnCaja.DecimalPlaces = 2
+        Me.NumericEfectivoEnCaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.NumericEfectivoEnCaja.Location = New System.Drawing.Point(558, 230)
+        Me.NumericEfectivoEnCaja.Margin = New System.Windows.Forms.Padding(4)
+        Me.NumericEfectivoEnCaja.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
+        Me.NumericEfectivoEnCaja.Name = "NumericEfectivoEnCaja"
+        Me.NumericEfectivoEnCaja.Size = New System.Drawing.Size(129, 30)
+        Me.NumericEfectivoEnCaja.TabIndex = 38
+        Me.NumericEfectivoEnCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.NumericEfectivoEnCaja.ThousandsSeparator = True
+        '
+        'Label16
+        '
+        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.Blue
+        Me.Label16.Location = New System.Drawing.Point(375, 210)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(152, 71)
+        Me.Label16.TabIndex = 37
+        Me.Label16.Text = "Deja Efectivo en CAJA:"
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'NumericUpDown1
         '
@@ -247,21 +267,6 @@ Partial Class CajaArqueoFinal
         Me.numEgresos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.numEgresos.Visible = False
         '
-        'numIngresos
-        '
-        Me.numIngresos.DecimalPlaces = 2
-        Me.numIngresos.Enabled = False
-        Me.numIngresos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.numIngresos.Location = New System.Drawing.Point(527, 347)
-        Me.numIngresos.Margin = New System.Windows.Forms.Padding(4)
-        Me.numIngresos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
-        Me.numIngresos.Name = "numIngresos"
-        Me.numIngresos.ReadOnly = True
-        Me.numIngresos.Size = New System.Drawing.Size(160, 30)
-        Me.numIngresos.TabIndex = 35
-        Me.numIngresos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.numIngresos.Visible = False
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -273,18 +278,6 @@ Partial Class CajaArqueoFinal
         Me.Label3.TabIndex = 32
         Me.Label3.Text = "Egresos:"
         Me.Label3.Visible = False
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(422, 349)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(93, 25)
-        Me.Label2.TabIndex = 33
-        Me.Label2.Text = "Ingresos:"
-        Me.Label2.Visible = False
         '
         'Label14
         '
@@ -332,11 +325,11 @@ Partial Class CajaArqueoFinal
         Me.NumericDevolucionef.DecimalPlaces = 2
         Me.NumericDevolucionef.Enabled = False
         Me.NumericDevolucionef.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NumericDevolucionef.Location = New System.Drawing.Point(544, 130)
+        Me.NumericDevolucionef.Location = New System.Drawing.Point(558, 130)
         Me.NumericDevolucionef.Margin = New System.Windows.Forms.Padding(4)
         Me.NumericDevolucionef.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.NumericDevolucionef.Name = "NumericDevolucionef"
-        Me.NumericDevolucionef.Size = New System.Drawing.Size(136, 30)
+        Me.NumericDevolucionef.Size = New System.Drawing.Size(129, 30)
         Me.NumericDevolucionef.TabIndex = 9
         Me.NumericDevolucionef.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.NumericDevolucionef.ThousandsSeparator = True
@@ -346,11 +339,11 @@ Partial Class CajaArqueoFinal
         Me.Numericextracciones.DecimalPlaces = 2
         Me.Numericextracciones.Enabled = False
         Me.Numericextracciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numericextracciones.Location = New System.Drawing.Point(544, 93)
+        Me.Numericextracciones.Location = New System.Drawing.Point(558, 93)
         Me.Numericextracciones.Margin = New System.Windows.Forms.Padding(4)
         Me.Numericextracciones.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numericextracciones.Name = "Numericextracciones"
-        Me.Numericextracciones.Size = New System.Drawing.Size(136, 30)
+        Me.Numericextracciones.Size = New System.Drawing.Size(129, 30)
         Me.Numericextracciones.TabIndex = 8
         Me.Numericextracciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.Numericextracciones.ThousandsSeparator = True
@@ -360,11 +353,11 @@ Partial Class CajaArqueoFinal
         Me.NumericGastos.DecimalPlaces = 2
         Me.NumericGastos.Enabled = False
         Me.NumericGastos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NumericGastos.Location = New System.Drawing.Point(544, 56)
+        Me.NumericGastos.Location = New System.Drawing.Point(558, 56)
         Me.NumericGastos.Margin = New System.Windows.Forms.Padding(4)
         Me.NumericGastos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.NumericGastos.Name = "NumericGastos"
-        Me.NumericGastos.Size = New System.Drawing.Size(136, 30)
+        Me.NumericGastos.Size = New System.Drawing.Size(129, 30)
         Me.NumericGastos.TabIndex = 7
         Me.NumericGastos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.NumericGastos.ThousandsSeparator = True
@@ -374,7 +367,7 @@ Partial Class CajaArqueoFinal
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Maroon
-        Me.Label11.Location = New System.Drawing.Point(562, 23)
+        Me.Label11.Location = New System.Drawing.Point(572, 23)
         Me.Label11.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(96, 23)
@@ -386,11 +379,11 @@ Partial Class CajaArqueoFinal
         Me.NumericdepositosEF.DecimalPlaces = 2
         Me.NumericdepositosEF.Enabled = False
         Me.NumericdepositosEF.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NumericdepositosEF.Location = New System.Drawing.Point(204, 308)
+        Me.NumericdepositosEF.Location = New System.Drawing.Point(208, 308)
         Me.NumericdepositosEF.Margin = New System.Windows.Forms.Padding(4)
         Me.NumericdepositosEF.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.NumericdepositosEF.Name = "NumericdepositosEF"
-        Me.NumericdepositosEF.Size = New System.Drawing.Size(136, 30)
+        Me.NumericdepositosEF.Size = New System.Drawing.Size(131, 30)
         Me.NumericdepositosEF.TabIndex = 6
         Me.NumericdepositosEF.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.NumericdepositosEF.ThousandsSeparator = True
@@ -399,11 +392,11 @@ Partial Class CajaArqueoFinal
         '
         Me.Numericdepositos.DecimalPlaces = 2
         Me.Numericdepositos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numericdepositos.Location = New System.Drawing.Point(204, 266)
+        Me.Numericdepositos.Location = New System.Drawing.Point(208, 266)
         Me.Numericdepositos.Margin = New System.Windows.Forms.Padding(4)
         Me.Numericdepositos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numericdepositos.Name = "Numericdepositos"
-        Me.Numericdepositos.Size = New System.Drawing.Size(136, 30)
+        Me.Numericdepositos.Size = New System.Drawing.Size(131, 30)
         Me.Numericdepositos.TabIndex = 5
         Me.Numericdepositos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.Numericdepositos.ThousandsSeparator = True
@@ -412,11 +405,11 @@ Partial Class CajaArqueoFinal
         '
         Me.Numericcheques.DecimalPlaces = 2
         Me.Numericcheques.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numericcheques.Location = New System.Drawing.Point(204, 224)
+        Me.Numericcheques.Location = New System.Drawing.Point(208, 224)
         Me.Numericcheques.Margin = New System.Windows.Forms.Padding(4)
         Me.Numericcheques.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numericcheques.Name = "Numericcheques"
-        Me.Numericcheques.Size = New System.Drawing.Size(136, 30)
+        Me.Numericcheques.Size = New System.Drawing.Size(131, 30)
         Me.Numericcheques.TabIndex = 4
         Me.Numericcheques.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.Numericcheques.ThousandsSeparator = True
@@ -425,11 +418,11 @@ Partial Class CajaArqueoFinal
         '
         Me.Numerictransferencias.DecimalPlaces = 2
         Me.Numerictransferencias.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numerictransferencias.Location = New System.Drawing.Point(204, 182)
+        Me.Numerictransferencias.Location = New System.Drawing.Point(208, 182)
         Me.Numerictransferencias.Margin = New System.Windows.Forms.Padding(4)
         Me.Numerictransferencias.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numerictransferencias.Name = "Numerictransferencias"
-        Me.Numerictransferencias.Size = New System.Drawing.Size(136, 30)
+        Me.Numerictransferencias.Size = New System.Drawing.Size(131, 30)
         Me.Numerictransferencias.TabIndex = 3
         Me.Numerictransferencias.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.Numerictransferencias.ThousandsSeparator = True
@@ -438,11 +431,11 @@ Partial Class CajaArqueoFinal
         '
         Me.Numericcreditos.DecimalPlaces = 2
         Me.Numericcreditos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numericcreditos.Location = New System.Drawing.Point(204, 140)
+        Me.Numericcreditos.Location = New System.Drawing.Point(208, 140)
         Me.Numericcreditos.Margin = New System.Windows.Forms.Padding(4)
         Me.Numericcreditos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numericcreditos.Name = "Numericcreditos"
-        Me.Numericcreditos.Size = New System.Drawing.Size(136, 30)
+        Me.Numericcreditos.Size = New System.Drawing.Size(131, 30)
         Me.Numericcreditos.TabIndex = 2
         Me.Numericcreditos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.Numericcreditos.ThousandsSeparator = True
@@ -451,11 +444,11 @@ Partial Class CajaArqueoFinal
         '
         Me.Numericdebitos.DecimalPlaces = 2
         Me.Numericdebitos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numericdebitos.Location = New System.Drawing.Point(204, 98)
+        Me.Numericdebitos.Location = New System.Drawing.Point(208, 98)
         Me.Numericdebitos.Margin = New System.Windows.Forms.Padding(4)
         Me.Numericdebitos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numericdebitos.Name = "Numericdebitos"
-        Me.Numericdebitos.Size = New System.Drawing.Size(136, 30)
+        Me.Numericdebitos.Size = New System.Drawing.Size(131, 30)
         Me.Numericdebitos.TabIndex = 1
         Me.Numericdebitos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.Numericdebitos.ThousandsSeparator = True
@@ -477,11 +470,11 @@ Partial Class CajaArqueoFinal
         '
         Me.Enteros.DecimalPlaces = 2
         Me.Enteros.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Enteros.Location = New System.Drawing.Point(204, 56)
+        Me.Enteros.Location = New System.Drawing.Point(208, 56)
         Me.Enteros.Margin = New System.Windows.Forms.Padding(4)
         Me.Enteros.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Enteros.Name = "Enteros"
-        Me.Enteros.Size = New System.Drawing.Size(136, 30)
+        Me.Enteros.Size = New System.Drawing.Size(131, 30)
         Me.Enteros.TabIndex = 0
         Me.Enteros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.Enteros.ThousandsSeparator = True
@@ -556,7 +549,7 @@ Partial Class CajaArqueoFinal
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Teal
-        Me.Label6.Location = New System.Drawing.Point(213, 23)
+        Me.Label6.Location = New System.Drawing.Point(217, 23)
         Me.Label6.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(107, 23)
@@ -579,7 +572,7 @@ Partial Class CajaArqueoFinal
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Button2.Location = New System.Drawing.Point(533, 285)
+        Me.Button2.Location = New System.Drawing.Point(558, 285)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(129, 36)
@@ -759,31 +752,6 @@ Partial Class CajaArqueoFinal
         '
         Me.CajaseventosTableAdapter.ClearBeforeFill = True
         '
-        'Label16
-        '
-        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.Color.Blue
-        Me.Label16.Location = New System.Drawing.Point(375, 210)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(152, 71)
-        Me.Label16.TabIndex = 37
-        Me.Label16.Text = "Deja Efectivo en CAJA:"
-        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'NumericEfectivoEnCaja
-        '
-        Me.NumericEfectivoEnCaja.DecimalPlaces = 2
-        Me.NumericEfectivoEnCaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NumericEfectivoEnCaja.Location = New System.Drawing.Point(544, 230)
-        Me.NumericEfectivoEnCaja.Margin = New System.Windows.Forms.Padding(4)
-        Me.NumericEfectivoEnCaja.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
-        Me.NumericEfectivoEnCaja.Name = "NumericEfectivoEnCaja"
-        Me.NumericEfectivoEnCaja.Size = New System.Drawing.Size(136, 30)
-        Me.NumericEfectivoEnCaja.TabIndex = 38
-        Me.NumericEfectivoEnCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericEfectivoEnCaja.ThousandsSeparator = True
-        '
         'CajaArqueoFinal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -804,9 +772,9 @@ Partial Class CajaArqueoFinal
         CType(Me.BioaccesoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.NumericEfectivoEnCaja, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numEgresos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numIngresos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericDevolucionef, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Numericextracciones, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericGastos, System.ComponentModel.ISupportInitialize).EndInit()
@@ -819,7 +787,6 @@ Partial Class CajaArqueoFinal
         CType(Me.Enteros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaseventosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericEfectivoEnCaja, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -869,9 +836,7 @@ Partial Class CajaArqueoFinal
     Friend WithEvents NumericUpDown1 As NumericUpDown
     Friend WithEvents Label4 As Label
     Friend WithEvents numEgresos As NumericUpDown
-    Friend WithEvents numIngresos As NumericUpDown
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents NumericdepositosEF As NumericUpDown
     Friend WithEvents Label15 As Label
     Friend WithEvents NumericEfectivoEnCaja As NumericUpDown
