@@ -196,7 +196,7 @@ Partial Class CajaArqueoFinal
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(702, 393)
+        Me.GroupBox1.Size = New System.Drawing.Size(760, 393)
         Me.GroupBox1.TabIndex = 13
         Me.GroupBox1.TabStop = False
         '
@@ -204,7 +204,7 @@ Partial Class CajaArqueoFinal
         '
         Me.NumericEfectivoEnCaja.DecimalPlaces = 2
         Me.NumericEfectivoEnCaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NumericEfectivoEnCaja.Location = New System.Drawing.Point(558, 230)
+        Me.NumericEfectivoEnCaja.Location = New System.Drawing.Point(594, 230)
         Me.NumericEfectivoEnCaja.Margin = New System.Windows.Forms.Padding(4)
         Me.NumericEfectivoEnCaja.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.NumericEfectivoEnCaja.Name = "NumericEfectivoEnCaja"
@@ -217,7 +217,7 @@ Partial Class CajaArqueoFinal
         '
         Me.Label16.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.Blue
-        Me.Label16.Location = New System.Drawing.Point(375, 210)
+        Me.Label16.Location = New System.Drawing.Point(411, 210)
         Me.Label16.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(152, 71)
@@ -284,7 +284,7 @@ Partial Class CajaArqueoFinal
         Me.Label14.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label14.Font = New System.Drawing.Font("Century Gothic", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.Maroon
-        Me.Label14.Location = New System.Drawing.Point(364, 135)
+        Me.Label14.Location = New System.Drawing.Point(400, 135)
         Me.Label14.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(163, 86)
@@ -298,7 +298,7 @@ Partial Class CajaArqueoFinal
         Me.Label13.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label13.Font = New System.Drawing.Font("Century Gothic", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Maroon
-        Me.Label13.Location = New System.Drawing.Point(421, 98)
+        Me.Label13.Location = New System.Drawing.Point(457, 98)
         Me.Label13.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(106, 18)
@@ -312,7 +312,7 @@ Partial Class CajaArqueoFinal
         Me.Label12.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Maroon
-        Me.Label12.Location = New System.Drawing.Point(466, 61)
+        Me.Label12.Location = New System.Drawing.Point(502, 61)
         Me.Label12.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(61, 18)
@@ -325,7 +325,7 @@ Partial Class CajaArqueoFinal
         Me.NumericDevolucionef.DecimalPlaces = 2
         Me.NumericDevolucionef.Enabled = False
         Me.NumericDevolucionef.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NumericDevolucionef.Location = New System.Drawing.Point(558, 130)
+        Me.NumericDevolucionef.Location = New System.Drawing.Point(594, 130)
         Me.NumericDevolucionef.Margin = New System.Windows.Forms.Padding(4)
         Me.NumericDevolucionef.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.NumericDevolucionef.Name = "NumericDevolucionef"
@@ -339,7 +339,7 @@ Partial Class CajaArqueoFinal
         Me.Numericextracciones.DecimalPlaces = 2
         Me.Numericextracciones.Enabled = False
         Me.Numericextracciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numericextracciones.Location = New System.Drawing.Point(558, 93)
+        Me.Numericextracciones.Location = New System.Drawing.Point(594, 93)
         Me.Numericextracciones.Margin = New System.Windows.Forms.Padding(4)
         Me.Numericextracciones.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numericextracciones.Name = "Numericextracciones"
@@ -353,7 +353,7 @@ Partial Class CajaArqueoFinal
         Me.NumericGastos.DecimalPlaces = 2
         Me.NumericGastos.Enabled = False
         Me.NumericGastos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NumericGastos.Location = New System.Drawing.Point(558, 56)
+        Me.NumericGastos.Location = New System.Drawing.Point(594, 56)
         Me.NumericGastos.Margin = New System.Windows.Forms.Padding(4)
         Me.NumericGastos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.NumericGastos.Name = "NumericGastos"
@@ -367,7 +367,7 @@ Partial Class CajaArqueoFinal
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Maroon
-        Me.Label11.Location = New System.Drawing.Point(572, 23)
+        Me.Label11.Location = New System.Drawing.Point(608, 23)
         Me.Label11.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(96, 23)
@@ -379,7 +379,7 @@ Partial Class CajaArqueoFinal
         Me.NumericdepositosEF.DecimalPlaces = 2
         Me.NumericdepositosEF.Enabled = False
         Me.NumericdepositosEF.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NumericdepositosEF.Location = New System.Drawing.Point(208, 308)
+        Me.NumericdepositosEF.Location = New System.Drawing.Point(244, 308)
         Me.NumericdepositosEF.Margin = New System.Windows.Forms.Padding(4)
         Me.NumericdepositosEF.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.NumericdepositosEF.Name = "NumericdepositosEF"
@@ -392,7 +392,7 @@ Partial Class CajaArqueoFinal
         '
         Me.Numericdepositos.DecimalPlaces = 2
         Me.Numericdepositos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numericdepositos.Location = New System.Drawing.Point(208, 266)
+        Me.Numericdepositos.Location = New System.Drawing.Point(244, 266)
         Me.Numericdepositos.Margin = New System.Windows.Forms.Padding(4)
         Me.Numericdepositos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numericdepositos.Name = "Numericdepositos"
@@ -405,7 +405,7 @@ Partial Class CajaArqueoFinal
         '
         Me.Numericcheques.DecimalPlaces = 2
         Me.Numericcheques.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numericcheques.Location = New System.Drawing.Point(208, 224)
+        Me.Numericcheques.Location = New System.Drawing.Point(244, 224)
         Me.Numericcheques.Margin = New System.Windows.Forms.Padding(4)
         Me.Numericcheques.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numericcheques.Name = "Numericcheques"
@@ -418,7 +418,7 @@ Partial Class CajaArqueoFinal
         '
         Me.Numerictransferencias.DecimalPlaces = 2
         Me.Numerictransferencias.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numerictransferencias.Location = New System.Drawing.Point(208, 182)
+        Me.Numerictransferencias.Location = New System.Drawing.Point(244, 182)
         Me.Numerictransferencias.Margin = New System.Windows.Forms.Padding(4)
         Me.Numerictransferencias.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numerictransferencias.Name = "Numerictransferencias"
@@ -431,7 +431,7 @@ Partial Class CajaArqueoFinal
         '
         Me.Numericcreditos.DecimalPlaces = 2
         Me.Numericcreditos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numericcreditos.Location = New System.Drawing.Point(208, 140)
+        Me.Numericcreditos.Location = New System.Drawing.Point(244, 140)
         Me.Numericcreditos.Margin = New System.Windows.Forms.Padding(4)
         Me.Numericcreditos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numericcreditos.Name = "Numericcreditos"
@@ -444,7 +444,7 @@ Partial Class CajaArqueoFinal
         '
         Me.Numericdebitos.DecimalPlaces = 2
         Me.Numericdebitos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Numericdebitos.Location = New System.Drawing.Point(208, 98)
+        Me.Numericdebitos.Location = New System.Drawing.Point(244, 98)
         Me.Numericdebitos.Margin = New System.Windows.Forms.Padding(4)
         Me.Numericdebitos.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Numericdebitos.Name = "Numericdebitos"
@@ -458,7 +458,7 @@ Partial Class CajaArqueoFinal
         Me.Label15.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label15.Font = New System.Drawing.Font("Century Gothic", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.Teal
-        Me.Label15.Location = New System.Drawing.Point(9, 296)
+        Me.Label15.Location = New System.Drawing.Point(45, 296)
         Me.Label15.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(176, 64)
@@ -470,7 +470,7 @@ Partial Class CajaArqueoFinal
         '
         Me.Enteros.DecimalPlaces = 2
         Me.Enteros.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Enteros.Location = New System.Drawing.Point(208, 56)
+        Me.Enteros.Location = New System.Drawing.Point(244, 56)
         Me.Enteros.Margin = New System.Windows.Forms.Padding(4)
         Me.Enteros.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
         Me.Enteros.Name = "Enteros"
@@ -484,7 +484,7 @@ Partial Class CajaArqueoFinal
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Teal
-        Me.Label10.Location = New System.Drawing.Point(20, 271)
+        Me.Label10.Location = New System.Drawing.Point(56, 271)
         Me.Label10.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(165, 21)
@@ -497,7 +497,7 @@ Partial Class CajaArqueoFinal
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Teal
-        Me.Label9.Location = New System.Drawing.Point(95, 229)
+        Me.Label9.Location = New System.Drawing.Point(131, 229)
         Me.Label9.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(90, 21)
@@ -510,7 +510,7 @@ Partial Class CajaArqueoFinal
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Teal
-        Me.Label8.Location = New System.Drawing.Point(53, 187)
+        Me.Label8.Location = New System.Drawing.Point(89, 187)
         Me.Label8.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(132, 21)
@@ -523,7 +523,7 @@ Partial Class CajaArqueoFinal
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Teal
-        Me.Label7.Location = New System.Drawing.Point(107, 145)
+        Me.Label7.Location = New System.Drawing.Point(143, 145)
         Me.Label7.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(78, 21)
@@ -536,7 +536,7 @@ Partial Class CajaArqueoFinal
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Teal
-        Me.Label5.Location = New System.Drawing.Point(113, 103)
+        Me.Label5.Location = New System.Drawing.Point(149, 103)
         Me.Label5.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(72, 21)
@@ -549,7 +549,7 @@ Partial Class CajaArqueoFinal
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Teal
-        Me.Label6.Location = New System.Drawing.Point(217, 23)
+        Me.Label6.Location = New System.Drawing.Point(253, 23)
         Me.Label6.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(107, 23)
@@ -561,18 +561,18 @@ Partial Class CajaArqueoFinal
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Teal
-        Me.Label1.Location = New System.Drawing.Point(33, 61)
+        Me.Label1.Location = New System.Drawing.Point(23, 61)
         Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(152, 21)
+        Me.Label1.Size = New System.Drawing.Size(198, 21)
         Me.Label1.TabIndex = 16
-        Me.Label1.Text = "Efectivo en caja:"
+        Me.Label1.Text = "Total Efectivo en caja:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Button2.Location = New System.Drawing.Point(558, 285)
+        Me.Button2.Location = New System.Drawing.Point(594, 285)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(129, 36)
@@ -583,7 +583,7 @@ Partial Class CajaArqueoFinal
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Button1.Location = New System.Drawing.Point(395, 285)
+        Me.Button1.Location = New System.Drawing.Point(431, 285)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 36)
@@ -756,7 +756,7 @@ Partial Class CajaArqueoFinal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(726, 418)
+        Me.ClientSize = New System.Drawing.Size(784, 418)
         Me.Controls.Add(Me.CajasoperacionesDataGridView)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

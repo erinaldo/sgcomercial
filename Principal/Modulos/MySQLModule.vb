@@ -219,8 +219,19 @@ Module MySQLModule
                     Dim telefono As String = Convert.ToString(clienteswebtable.Rows(i).Item(clienteswebtable.telefonoColumn), Nothing)
                     Dim email As String = Convert.ToString(clienteswebtable.Rows(i).Item(clienteswebtable.emailColumn), Nothing)
                     Dim idclientelocal As Long = 0
-                    Dim condicioniva As Long = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.condicionivaColumn), Nothing)
-                    Dim idtipodocumento As Long = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.idtipodocumentoColumn), Nothing)
+                    Dim condicioniva As Long
+                    Dim idtipodocumento As Long
+                    Try
+                        condicioniva = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.condicionivaColumn), Nothing)
+                    Catch ex As Exception
+                        condicioniva = 3
+                    End Try
+                    Try
+                        idtipodocumento = Convert.ToInt64(clienteswebtable.Rows(i).Item(clienteswebtable.idtipodocumentoColumn), Nothing)
+                    Catch ex As Exception
+                        idtipodocumento = 3
+                        cuit = "0"
+                    End Try
                     Try
                         idclientelocal = clientestableadapter.clientes_existeclienteweb(idclienteweb)
                         ''****     ins/upd  CLIENTE     **********
@@ -269,7 +280,7 @@ Module MySQLModule
                 Next
             End If
         Catch ex As Exception
-            MsgBox("Advertencia! " + ex.Message, MsgBoxStyle.Exclamation)
+            MsgBox("Advertencia! [PULLCLIENTE]> " + ex.Message, MsgBoxStyle.Exclamation)
         End Try
 
     End Sub

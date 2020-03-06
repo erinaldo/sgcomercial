@@ -289,7 +289,7 @@
         </ChartNoDataMessage>
         <DataSetName>cajaresumen</DataSetName>
         <Height>8.23003cm</Height>
-        <Width>11.22533cm</Width>
+        <Width>10.04cm</Width>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -581,9 +581,9 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>cajaresumen</DataSetName>
-        <Left>11.22533cm</Left>
+        <Left>10.07527cm</Left>
         <Height>8.23003cm</Height>
-        <Width>13.3915cm</Width>
+        <Width>25.10372cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -598,7 +598,7 @@
     <Height>3.24017in</Height>
     <Style />
   </Body>
-  <Width>9.69167in</Width>
+  <Width>13.85in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

@@ -1672,7 +1672,7 @@ Public Class Principal
     End Sub
 
     Private Sub TimerHideSlider_Tick(sender As Object, e As EventArgs) Handles TimerHideSlider.Tick
-        If TimeSliderTimer >= 150 Then
+        If TimeSliderTimer >= 150 Or PanelSlider.Width = 50 Then
             PanelSlider.Width = 50
             TimerHideSlider.Stop()
         End If

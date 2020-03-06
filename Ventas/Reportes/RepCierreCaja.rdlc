@@ -24,13 +24,13 @@
               <Width>0.31237cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.37377cm</Width>
+              <Width>3.76911cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.4525cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.34948cm</Width>
+              <Width>2.95414cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -54,7 +54,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -108,12 +108,13 @@
                             <TextRun>
                               <Value>ARQUEO AUTOMÁTICO</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -161,12 +162,13 @@
                             <TextRun>
                               <Value>ARQUEO USUARIO</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -214,12 +216,13 @@
                             <TextRun>
                               <Value>DIFERENCIA</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -270,7 +273,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Total ingresos Efectivo (+)</Value>
+                              <Value>Total Efectivo en CAJA (+)</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -338,7 +341,8 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Pago a Cta. Cte." or Fields!tipomovimiento.Value = "Cambio - Dif. (+)"), Fields!monto.Value , Fields!monto.Value * 0))</Value>
+                              <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Pago a Cta. Cte." or Fields!tipomovimiento.Value = "Cambio - Dif. (+)"), Fields!monto.Value , Fields!monto.Value * 0)) +
+Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Depósitos", Fields!monto.Value, Fields!monto.Value * 0)) + first(Fields!saldoinicial.Value, "cajaseventos") - Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Gastos" and Fields!idformapago.Value = "Efectivo", Fields!monto.Value , Fields!monto.Value * 0)) - Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracciones", Fields!monto.Value , Fields!monto.Value * 0)) - Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Cambio - Dif. (-)"), Fields!monto.Value , Fields!monto.Value * 0))</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>DarkGreen</Color>
@@ -399,7 +403,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=first(Fields!saldofinal.Value, "cajaseventos") + first(Fields!totalgastos.Value, "cajaseventos") + first(Fields!totalextracciones.Value, "cajaseventos") + first(Fields!totaldevolucionefectivo.Value, "cajaseventos")</Value>
+                              <Value>=first(Fields!saldofinal.Value, "cajaseventos")</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>DarkGreen</Color>
@@ -460,7 +464,9 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>= first(Fields!saldofinal.Value, "cajaseventos") - Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Pago a Cta. Cte." or Fields!tipomovimiento.Value = "Cambio - Dif. (+)"), Fields!monto.Value , Fields!monto.Value * 0))</Value>
+                              <Value>=first(Fields!saldofinal.Value, "cajaseventos") - 
+(Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Pago a Cta. Cte." or Fields!tipomovimiento.Value = "Cambio - Dif. (+)"), Fields!monto.Value , Fields!monto.Value * 0)) +
+Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Depósitos", Fields!monto.Value, Fields!monto.Value * 0)) + first(Fields!saldoinicial.Value, "cajaseventos") - Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Gastos" and Fields!idformapago.Value = "Efectivo", Fields!monto.Value , Fields!monto.Value * 0)) - Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracciones", Fields!monto.Value , Fields!monto.Value * 0)) - Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Cambio - Dif. (-)"), Fields!monto.Value , Fields!monto.Value * 0)))</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>DarkGreen</Color>
@@ -2110,13 +2116,16 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Pago a 
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=first(Fields!saldofinal.Value, "cajaseventos") +
+                              <Value>=first(Fields!saldofinal.Value, "cajaseventos") -
+first(Fields!saldoinicial.Value, "cajaseventos") +
 first(Fields!totaldebitos.Value, "cajaseventos") +
 first(Fields!totalcreditos.Value, "cajaseventos") +
 first(Fields!totaltransferencias.Value, "cajaseventos") +
 first(Fields!totalcheques.Value, "cajaseventos") +
 first(Fields!totaldepositos.Value, "cajaseventos") +
-first(Fields!totaldepositosef.Value, "cajaseventos")</Value>
+first(Fields!totaldevolucionefectivo.Value, "cajaseventos") +
+first(Fields!totalextracciones.Value, "cajaseventos") +
+first(Fields!totalgastos.Value, "cajaseventos")</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>DarkBlue</Color>
@@ -2178,13 +2187,17 @@ first(Fields!totaldepositosef.Value, "cajaseventos")</Value>
                             </TextRun>
                             <TextRun>
                               <Value>=
-(first(Fields!saldofinal.Value, "cajaseventos") +
+(first(Fields!saldofinal.Value, "cajaseventos") -
+first(Fields!saldoinicial.Value, "cajaseventos") +
 first(Fields!totaldebitos.Value, "cajaseventos") +
 first(Fields!totalcreditos.Value, "cajaseventos") +
 first(Fields!totaltransferencias.Value, "cajaseventos") +
 first(Fields!totalcheques.Value, "cajaseventos") +
 first(Fields!totaldepositos.Value, "cajaseventos") +
-first(Fields!totaldepositosef.Value, "cajaseventos"))
+first(Fields!totaldevolucionefectivo.Value, "cajaseventos") + 
+first(Fields!totalextracciones.Value, "cajaseventos") +
+first(Fields!totalgastos.Value, "cajaseventos") 
+)
 -
 (Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Ventas", Fields!monto.Value , Fields!monto.Value * 0)) +
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Cambio - Dif. (+)", Fields!monto.Value , Fields!monto.Value * 0)) + 
@@ -2316,7 +2329,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Pago a 
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Gastos", Fields!monto.Value , Fields!monto.Value * 0))</Value>
+                              <Value>=Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Gastos" and Fields!idformapago.Value = "Efectivo", Fields!monto.Value , Fields!monto.Value * 0))</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>Red</Color>
@@ -3130,8 +3143,8 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=first(Fields!saldofinal.Value, "cajaseventos") + first(Fields!totaldepositosef.Value, "cajaseventos")
-- first(Fields!totalgastos.Value, "cajaseventos") - first(Fields!totalextracciones.Value, "cajaseventos") - first(Fields!totaldevolucionefectivo.Value, "cajaseventos")</Value>
+                              <Value>=first(Fields!saldofinal.Value, "cajaseventos") -
+first(Fields!saldoinicial.Value, "cajaseventos")</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>DarkGreen</Color>
@@ -3193,9 +3206,8 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=
-(first(Fields!saldofinal.Value, "cajaseventos") + first(Fields!totaldepositosef.Value, "cajaseventos")
-- first(Fields!totalgastos.Value, "cajaseventos") - first(Fields!totalextracciones.Value, "cajaseventos") - first(Fields!totaldevolucionefectivo.Value, "cajaseventos"))
+                              <Value>=(first(Fields!saldofinal.Value, "cajaseventos") -
+first(Fields!saldoinicial.Value, "cajaseventos"))
 -
 (Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Efectivo" and (Fields!tipomovimiento.Value = "Ventas" or Fields!tipomovimiento.Value = "Cambio - Dif. (+)" or Fields!tipomovimiento.Value = "Pago a Cta. Cte."), Fields!monto.Value , Fields!monto.Value * 0)) +
 Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!idformapago.Value = "Depósito Efect." and (Fields!tipomovimiento.Value = "Depósitos"), Fields!monto.Value , Fields!monto.Value * 0)) - 
@@ -4505,7 +4517,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Analisis de Ingreso/Egreso por Forma de Pago</Caption>
+            <Caption>Analisis de Ingreso/Egreso por forma de pago</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
@@ -5553,7 +5565,7 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Análisis de General de Ingreso/Egreso</Caption>
+            <Caption>Análisis General por tipo de operaciones</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>

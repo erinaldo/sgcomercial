@@ -117,7 +117,8 @@ Public Class CajaAperturaCierre
 
             If rtn = 1 Then
                 'MsgBox("Caja Cerrada Exitosamente!", MsgBoxStyle.Information, "Mensaje")
-                CreateObject("WScript.Shell").Popup("Caja Cerrada Exitosamente!" + "-NO APAGUE EL SISTEMA-", 1, "Aviso!", vbInformation)
+                CreateObject("WScript.Shell").Popup("Espere un momento" + " -NO APAGUE EL SISTEMA-", 1, "Aviso!", vbInformation)
+                'MsgExPopUp("Espere un momento - NO APAGUE EL SISTEMA -")
                 If My.Computer.Network.IsAvailable Then
                     mail_cierrecaja()
                 Else
@@ -215,7 +216,8 @@ Public Class CajaAperturaCierre
         End Try
         '****************** COMIENZA EL ENVIO DE MAIL   ********************
         '**********************************************************
-        CreateObject("WScript.Shell").Popup("Enviando Email... -NO APAGUE EL SISTEMA-", 1, "Aviso!", vbInformation)
+        'CreateObject("WScript.Shell").Popup("Enviando Email... -NO APAGUE EL SISTEMA-", 1, "Aviso!", vbInformation)
+        'MsgInfoPopUp("ENVIANDO CIERRE DE CAJA POR EMAIL - NO APAGUE EL SISTEMA -")
         Dim emailmessage As New MailMessage()
         Dim EmailCierreCajaTo As String
         Dim EmailSubject As String = "Cierre de caja al " + Today.ToShortDateString
@@ -236,7 +238,8 @@ Public Class CajaAperturaCierre
             '*************************  ENVIO EMAIL **********************************************
             If ModuloUtilidades.clsSendMail.SendEMail(gNombreComercio, EmailFrom, EmailCierreCajaTo, EmailSubject, EmailBody, EmailFrom, EmailFromPwd, SmtpClient, ArchivoAdjunto) = True Then
                 Me.Cursor = Cursors.Default
-                MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                'MessageBox.Show("El envío de mail del cierre de caja ha sido exitoso!", "Envío email", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MsgSuccessPopUp("Se ha enviado el Cierre de Caja por email")
                 CajaseventosTableAdapter.cajaseventos_updateemailed("S", gidevento)
             Else
                 Me.Cursor = Cursors.Default

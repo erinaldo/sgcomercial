@@ -27,12 +27,14 @@
         Enteros.Select()
         'NumericUpDown1.Value = CajaseventosTableAdapter.cajaseventos_saldoinicial(gidcaja)
         Try
+
             NumericGastos.Value = v_gastosTableAdapter.v_gastos_montototalgastosbyevento(gidevento)
             Numericextracciones.Value = LibroExtraccionesTableAdapter.libroextracciones_montototalbyidevento(gidevento)
             NumericDevolucionef.Value = v_gastosTableAdapter.v_gastos_montototaldevolucionesbyevento(gidevento)
             NumericdepositosEF.Value = LibroDepositosTableAdapter.librodepositos_montototalbyidevento(gidevento)
-        Catch ex As Exception
 
+        Catch ex As Exception
+            MsgEx("No se pudo finalizar la operación: " + ex.Message)
         End Try
     End Sub
 
