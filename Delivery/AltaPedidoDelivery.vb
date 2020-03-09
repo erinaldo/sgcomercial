@@ -370,7 +370,7 @@ Public Class AltaPedidoDelivery
         '********** END ValidarDatosClientesNuevos END
         '*****************************************  INSERTAR PEDIDODELIVERY ***************************************************************
         Try
-            nvopedido = PedidosdeliveryTableAdapter.pedidosdelivery_insertar(nvocliente, Nothing, ComboBoxTransporte.SelectedValue, nvodomicilio, Convert.ToDecimal(TextBoxPagaCon.Text), Today, gusername, Nothing, Nothing, TextBoxObs.Text)
+            nvopedido = PedidosdeliveryTableAdapter.pedidosdelivery_insertar(nvocliente, Nothing, ComboBoxTransporte.SelectedValue, nvodomicilio, Convert.ToDecimal(TextBoxPagaCon.Text), Today, gusername, Nothing, Nothing, TextBoxObs.Text, DateTimePickerFechaaEntregar.Value)
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 Dim idproducto As Long = VentasdetalleDataGridView.Rows(i).Cells("idproducto").Value
                 Dim cantidad As Decimal = VentasdetalleDataGridView.Rows(i).Cells("cantidad").Value
@@ -568,7 +568,7 @@ Public Class AltaPedidoDelivery
         'MsgBox(glistapreferida.ToString)
     End Sub
 
-    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
+    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click, Label24.Click
 
     End Sub
 
