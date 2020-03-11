@@ -32,7 +32,7 @@
     End Sub
 
     Private Sub PedidosRecibidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Me.PedidosdeliveryTableAdapter.Fill(Me.ComercialDataSet.pedidosdelivery)
+        Me.Icon = SCAPPICON
         Me.Cursor = Cursors.WaitCursor
         reloadpedidos()
         colorear()
@@ -297,6 +297,13 @@
     End Sub
 
     Private Sub PedidosDeliveryRecibidos_GotFocus(sender As Object, e As EventArgs) Handles Me.GotFocus
+
+    End Sub
+
+    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
+        Dim jaja As New PedidosDeliveryCalendario()
+        jaja.Text = "Calendario de Pedidos"
+        jaja.Show()
 
     End Sub
 End Class

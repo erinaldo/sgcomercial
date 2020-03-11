@@ -43,20 +43,6 @@ Partial Class PedidosDeliveryRecibidos
         Me.PedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComercialDataSet = New sgcomercial.comercialDataSet()
         Me.ListapedidosdeliveryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.ListapedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MySQLDataSet = New sgcomercial.MySQLDataSet()
-        Me.PedidosdeliveryBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PedidosdeliveryTableAdapter1 = New sgcomercial.MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter()
-        Me.TableAdapterManager1 = New sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager()
-        Me.ClientesTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.clientesTableAdapter()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButtonPedidosWeb = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButtonPedidosMovil = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ListapedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliveryTableAdapter()
-        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
-        Me.PedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliveryTableAdapter()
         Me.idpedidodelivery = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.origen = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -74,6 +60,21 @@ Partial Class PedidosDeliveryRecibidos
         Me.Pagar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Baja = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.modificar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.ListapedidosdeliveryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MySQLDataSet = New sgcomercial.MySQLDataSet()
+        Me.PedidosdeliveryBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PedidosdeliveryTableAdapter1 = New sgcomercial.MySQLDataSetTableAdapters.pedidosdeliveryTableAdapter()
+        Me.TableAdapterManager1 = New sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager()
+        Me.ClientesTableAdapter = New sgcomercial.MySQLDataSetTableAdapters.clientesTableAdapter()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButtonPedidosWeb = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButtonPedidosMovil = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ListapedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listapedidosdeliveryTableAdapter()
+        Me.TableAdapterManager = New sgcomercial.comercialDataSetTableAdapters.TableAdapterManager()
+        Me.PedidosdeliveryTableAdapter = New sgcomercial.comercialDataSetTableAdapters.pedidosdeliveryTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PedidosdeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PedidosdeliveryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -256,195 +257,6 @@ Partial Class PedidosDeliveryRecibidos
         Me.ListapedidosdeliveryDataGridView.Size = New System.Drawing.Size(1075, 416)
         Me.ListapedidosdeliveryDataGridView.TabIndex = 0
         '
-        'ListapedidosdeliveryBindingSource
-        '
-        Me.ListapedidosdeliveryBindingSource.DataMember = "listapedidosdelivery"
-        Me.ListapedidosdeliveryBindingSource.DataSource = Me.ComercialDataSet
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "clientes"
-        Me.ClientesBindingSource.DataSource = Me.MySQLDataSet
-        '
-        'MySQLDataSet
-        '
-        Me.MySQLDataSet.DataSetName = "MySQLDataSet"
-        Me.MySQLDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PedidosdeliveryBindingSource1
-        '
-        Me.PedidosdeliveryBindingSource1.DataMember = "pedidosdelivery"
-        Me.PedidosdeliveryBindingSource1.DataSource = Me.MySQLDataSet
-        '
-        'PedidosdeliveryTableAdapter1
-        '
-        Me.PedidosdeliveryTableAdapter1.ClearBeforeFill = True
-        '
-        'TableAdapterManager1
-        '
-        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager1.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager1.clientesTableAdapter = Me.ClientesTableAdapter
-        Me.TableAdapterManager1.errorlogTableAdapter = Nothing
-        Me.TableAdapterManager1.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager1.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager1.libroventasTableAdapter = Nothing
-        Me.TableAdapterManager1.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager1.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager1.pagosTableAdapter = Nothing
-        Me.TableAdapterManager1.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.pedidosdeliveryTableAdapter = Me.PedidosdeliveryTableAdapter1
-        Me.TableAdapterManager1.productosTableAdapter = Nothing
-        Me.TableAdapterManager1.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager1.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager1.stockgeneralTableAdapter = Nothing
-        Me.TableAdapterManager1.stockTableAdapter = Nothing
-        Me.TableAdapterManager1.synclogTableAdapter = Nothing
-        Me.TableAdapterManager1.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager1.transportesTableAdapter = Nothing
-        Me.TableAdapterManager1.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager1.UpdateOrder = sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager1.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager1.ventasTableAdapter = Nothing
-        '
-        'ClientesTableAdapter
-        '
-        Me.ClientesTableAdapter.ClearBeforeFill = True
-        '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.AllowMerge = False
-        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(35, 35)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButtonPedidosWeb, Me.ToolStripButtonPedidosMovil, Me.ToolStripButton1})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1132, 42)
-        Me.ToolStrip1.TabIndex = 3
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'ToolStripButtonPedidosWeb
-        '
-        Me.ToolStripButtonPedidosWeb.Image = Global.sgcomercial.My.Resources.Resources.WebClowd
-        Me.ToolStripButtonPedidosWeb.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButtonPedidosWeb.Name = "ToolStripButtonPedidosWeb"
-        Me.ToolStripButtonPedidosWeb.Size = New System.Drawing.Size(258, 39)
-        Me.ToolStripButtonPedidosWeb.Tag = "ToolStripButtonPedidosWeb"
-        Me.ToolStripButtonPedidosWeb.Text = "Descargar Pedidos de WebPage"
-        '
-        'ToolStripButtonPedidosMovil
-        '
-        Me.ToolStripButtonPedidosMovil.Image = Global.sgcomercial.My.Resources.Resources.MobileClowd
-        Me.ToolStripButtonPedidosMovil.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButtonPedidosMovil.Name = "ToolStripButtonPedidosMovil"
-        Me.ToolStripButtonPedidosMovil.Size = New System.Drawing.Size(294, 39)
-        Me.ToolStripButtonPedidosMovil.Tag = "ToolStripButtonPedidosAPP"
-        Me.ToolStripButtonPedidosMovil.Text = "Descargar Pedidos de Preventa Móvil"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.Image = Global.sgcomercial.My.Resources.Resources.CheckList
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(177, 39)
-        Me.ToolStripButton1.Text = "Lista de Producción"
-        Me.ToolStripButton1.ToolTipText = "Lista de Producción"
-        '
-        'ListapedidosdeliveryTableAdapter
-        '
-        Me.ListapedidosdeliveryTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.alumnosTableAdapter = Nothing
-        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
-        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
-        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
-        Me.TableAdapterManager.cajasTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
-        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
-        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
-        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
-        Me.TableAdapterManager.clientesTableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
-        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
-        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
-        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
-        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
-        Me.TableAdapterManager.depositosTableAdapter = Nothing
-        Me.TableAdapterManager.errorlogTableAdapter = Nothing
-        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
-        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
-        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
-        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
-        Me.TableAdapterManager.funcionesTableAdapter = Nothing
-        Me.TableAdapterManager.gastosTableAdapter = Nothing
-        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
-        Me.TableAdapterManager.gradosTableAdapter = Nothing
-        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
-        Me.TableAdapterManager.localidadesTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
-        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
-        Me.TableAdapterManager.mesasTableAdapter = Nothing
-        Me.TableAdapterManager.modulosTableAdapter = Nothing
-        Me.TableAdapterManager.motivostockTableAdapter = Nothing
-        Me.TableAdapterManager.mozosTableAdapter = Nothing
-        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
-        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
-        Me.TableAdapterManager.pagosTableAdapter = Nothing
-        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.pedidosTableAdapter = Nothing
-        Me.TableAdapterManager.perfilesTableAdapter = Nothing
-        Me.TableAdapterManager.permisosTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
-        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
-        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.productosTableAdapter = Nothing
-        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.provinciasTableAdapter = Nothing
-        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.remitosTableAdapter = Nothing
-        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
-        Me.TableAdapterManager.rubrosTableAdapter = Nothing
-        Me.TableAdapterManager.salonesTableAdapter = Nothing
-        Me.TableAdapterManager.serviciosTableAdapter = Nothing
-        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
-        Me.TableAdapterManager.stockTableAdapter = Nothing
-        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
-        Me.TableAdapterManager.synclogTableAdapter = Nothing
-        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
-        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
-        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
-        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
-        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
-        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
-        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
-        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
-        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
-        Me.TableAdapterManager.transportesTableAdapter = Nothing
-        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuariosTableAdapter = Nothing
-        Me.TableAdapterManager.valesTableAdapter = Nothing
-        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
-        Me.TableAdapterManager.ventasTableAdapter = Nothing
-        '
-        'PedidosdeliveryTableAdapter
-        '
-        Me.PedidosdeliveryTableAdapter.ClearBeforeFill = True
-        '
         'idpedidodelivery
         '
         Me.idpedidodelivery.DataPropertyName = "idpedidodelivery"
@@ -609,6 +421,214 @@ Partial Class PedidosDeliveryRecibidos
         Me.modificar.UseColumnTextForButtonValue = True
         Me.modificar.Width = 71
         '
+        'ListapedidosdeliveryBindingSource
+        '
+        Me.ListapedidosdeliveryBindingSource.DataMember = "listapedidosdelivery"
+        Me.ListapedidosdeliveryBindingSource.DataSource = Me.ComercialDataSet
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "clientes"
+        Me.ClientesBindingSource.DataSource = Me.MySQLDataSet
+        '
+        'MySQLDataSet
+        '
+        Me.MySQLDataSet.DataSetName = "MySQLDataSet"
+        Me.MySQLDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PedidosdeliveryBindingSource1
+        '
+        Me.PedidosdeliveryBindingSource1.DataMember = "pedidosdelivery"
+        Me.PedidosdeliveryBindingSource1.DataSource = Me.MySQLDataSet
+        '
+        'PedidosdeliveryTableAdapter1
+        '
+        Me.PedidosdeliveryTableAdapter1.ClearBeforeFill = True
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager1.clientesTableAdapter = Me.ClientesTableAdapter
+        Me.TableAdapterManager1.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager1.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager1.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager1.libroventasTableAdapter = Nothing
+        Me.TableAdapterManager1.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager1.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager1.pagosTableAdapter = Nothing
+        Me.TableAdapterManager1.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.pedidosdeliveryTableAdapter = Me.PedidosdeliveryTableAdapter1
+        Me.TableAdapterManager1.productosTableAdapter = Nothing
+        Me.TableAdapterManager1.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager1.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager1.stockgeneralTableAdapter = Nothing
+        Me.TableAdapterManager1.stockTableAdapter = Nothing
+        Me.TableAdapterManager1.synclogTableAdapter = Nothing
+        Me.TableAdapterManager1.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager1.transportesTableAdapter = Nothing
+        Me.TableAdapterManager1.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = sgcomercial.MySQLDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager1.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager1.ventasTableAdapter = Nothing
+        '
+        'ClientesTableAdapter
+        '
+        Me.ClientesTableAdapter.ClearBeforeFill = True
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.AllowMerge = False
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(35, 35)
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButtonPedidosWeb, Me.ToolStripButtonPedidosMovil, Me.ToolStripButton1, Me.ToolStripButton2})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1132, 42)
+        Me.ToolStrip1.TabIndex = 3
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripButtonPedidosWeb
+        '
+        Me.ToolStripButtonPedidosWeb.Image = Global.sgcomercial.My.Resources.Resources.WebClowd
+        Me.ToolStripButtonPedidosWeb.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonPedidosWeb.Name = "ToolStripButtonPedidosWeb"
+        Me.ToolStripButtonPedidosWeb.Size = New System.Drawing.Size(258, 39)
+        Me.ToolStripButtonPedidosWeb.Tag = "ToolStripButtonPedidosWeb"
+        Me.ToolStripButtonPedidosWeb.Text = "Descargar Pedidos de WebPage"
+        '
+        'ToolStripButtonPedidosMovil
+        '
+        Me.ToolStripButtonPedidosMovil.Image = Global.sgcomercial.My.Resources.Resources.MobileClowd
+        Me.ToolStripButtonPedidosMovil.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButtonPedidosMovil.Name = "ToolStripButtonPedidosMovil"
+        Me.ToolStripButtonPedidosMovil.Size = New System.Drawing.Size(294, 39)
+        Me.ToolStripButtonPedidosMovil.Tag = "ToolStripButtonPedidosAPP"
+        Me.ToolStripButtonPedidosMovil.Text = "Descargar Pedidos de Preventa Móvil"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.Image = Global.sgcomercial.My.Resources.Resources.CheckList
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(177, 39)
+        Me.ToolStripButton1.Text = "Lista de Producción"
+        Me.ToolStripButton1.ToolTipText = "Lista de Producción"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.Image = Global.sgcomercial.My.Resources.Resources.calendar2_icon_black
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(197, 39)
+        Me.ToolStripButton2.Text = "Calendario de Pedidos"
+        '
+        'ListapedidosdeliveryTableAdapter
+        '
+        Me.ListapedidosdeliveryTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.alumnosTableAdapter = Nothing
+        Me.TableAdapterManager.auventascanceladasTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bultosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.bultosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.cajasestadosTableAdapter = Nothing
+        Me.TableAdapterManager.cajaseventosTableAdapter = Nothing
+        Me.TableAdapterManager.cajasoperacionesTableAdapter = Nothing
+        Me.TableAdapterManager.cajasTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
+        Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
+        Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
+        Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
+        Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
+        Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
+        Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
+        Me.TableAdapterManager.errorlogTableAdapter = Nothing
+        Me.TableAdapterManager.estadosaiTableAdapter = Nothing
+        Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.estadosordenmesaTableAdapter = Nothing
+        Me.TableAdapterManager.estadospedidodeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.extraccionesTableAdapter = Nothing
+        Me.TableAdapterManager.formaspagoTableAdapter = Nothing
+        Me.TableAdapterManager.funcionesTableAdapter = Nothing
+        Me.TableAdapterManager.gastosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
+        Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
+        Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
+        Me.TableAdapterManager.localidadesTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.lotesenviosTableAdapter = Nothing
+        Me.TableAdapterManager.lotesvencimientoTableAdapter = Nothing
+        Me.TableAdapterManager.mesasTableAdapter = Nothing
+        Me.TableAdapterManager.modulosTableAdapter = Nothing
+        Me.TableAdapterManager.motivostockTableAdapter = Nothing
+        Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
+        Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
+        Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
+        Me.TableAdapterManager.pagosTableAdapter = Nothing
+        Me.TableAdapterManager.parametrosgeneralesTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliverydetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.pedidosTableAdapter = Nothing
+        Me.TableAdapterManager.perfilesTableAdapter = Nothing
+        Me.TableAdapterManager.permisosTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.presupuestosTableAdapter = Nothing
+        Me.TableAdapterManager.productoscomponentesTableAdapter = Nothing
+        Me.TableAdapterManager.productosproveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.productosTableAdapter = Nothing
+        Me.TableAdapterManager.proveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.provinciasTableAdapter = Nothing
+        Me.TableAdapterManager.remitosdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.remitosTableAdapter = Nothing
+        Me.TableAdapterManager.responsablesdeliveryTableAdapter = Nothing
+        Me.TableAdapterManager.rubrosTableAdapter = Nothing
+        Me.TableAdapterManager.salonesTableAdapter = Nothing
+        Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
+        Me.TableAdapterManager.stockremotoTableAdapter = Nothing
+        Me.TableAdapterManager.stockTableAdapter = Nothing
+        Me.TableAdapterManager.sucursalesTableAdapter = Nothing
+        Me.TableAdapterManager.synclogTableAdapter = Nothing
+        Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
+        Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
+        Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
+        Me.TableAdapterManager.tipogastosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoivaTableAdapter = Nothing
+        Me.TableAdapterManager.tipomotivosvalesTableAdapter = Nothing
+        Me.TableAdapterManager.tipomovimientostockTableAdapter = Nothing
+        Me.TableAdapterManager.transportesTableAdapter = Nothing
+        Me.TableAdapterManager.unidadesmedidaTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = sgcomercial.comercialDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.usuariosTableAdapter = Nothing
+        Me.TableAdapterManager.valesTableAdapter = Nothing
+        Me.TableAdapterManager.ventasdetalleTableAdapter = Nothing
+        Me.TableAdapterManager.ventasTableAdapter = Nothing
+        '
+        'PedidosdeliveryTableAdapter
+        '
+        Me.PedidosdeliveryTableAdapter.ClearBeforeFill = True
+        '
         'PedidosDeliveryRecibidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -689,4 +709,5 @@ Partial Class PedidosDeliveryRecibidos
     Friend WithEvents Pagar As DataGridViewButtonColumn
     Friend WithEvents Baja As DataGridViewButtonColumn
     Friend WithEvents modificar As DataGridViewButtonColumn
+    Friend WithEvents ToolStripButton2 As ToolStripButton
 End Class

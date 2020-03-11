@@ -1,5 +1,6 @@
 ﻿Public Class ViewerComanda
     Private Sub ViewerComanda_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Icon = SCAPPICON
 
         Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
         Me.listapedidosdeliveryTableAdapter.FillByIdpedidodelivery(Me.comercialDataSet.listapedidosdelivery, gidpedidodelivery)

@@ -132,6 +132,7 @@ Module SGCModule
     '*****************************
     Public gidpedidodelivery As Long
     Public gidlote As Long
+    Public gfechaaentregar As Date
     '*****************************
     Public gidremito As Long
     '**************************

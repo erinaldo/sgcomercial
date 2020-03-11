@@ -11,6 +11,7 @@ Module SCModule
     Public SCBackColor As Color = Drawing.Color.FromArgb(40, 41, 35)
     Public SCForeColorLight As Color = Drawing.Color.FromArgb(255, 255, 255)
     Public SCForeColorStrong As Color = Drawing.Color.FromArgb(1, 207, 255)
+    Public SCBackColorGray As Color = Drawing.Color.FromArgb(242, 242, 242)
     Public SCAPPICON As System.Drawing.Icon
     Public SCFORMICON As System.Drawing.Icon
     'Public MySQLStrConn As String = "server=sistemascomerciales.net;user id=sistema1_sgcweb;password=sgcomercial*?;database=sistema1_sgcaguadagrande;persistsecurityinfo=True"

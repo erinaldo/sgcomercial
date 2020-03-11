@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>59</ApplicationRevision>
-    <ApplicationVersion>4.1.0.59</ApplicationVersion>
+    <ApplicationRevision>61</ApplicationRevision>
+    <ApplicationVersion>4.1.0.61</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -356,6 +356,12 @@
     <Compile Include="Delivery\LotesEnvios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Delivery\PedidosDeliveryCalendario.Designer.vb">
+      <DependentUpon>PedidosDeliveryCalendario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\PedidosDeliveryCalendario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Delivery\PedidosDeliveryDespacho.Designer.vb">
       <DependentUpon>PedidosDeliveryDespacho.vb</DependentUpon>
     </Compile>
@@ -396,6 +402,12 @@
       <DependentUpon>ViewerListaProduccion.vb</DependentUpon>
     </Compile>
     <Compile Include="Delivery\Reportes\ViewerListaProduccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delivery\VerPedidosDelDia.Designer.vb">
+      <DependentUpon>VerPedidosDelDia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\VerPedidosDelDia.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Estadisticas\Cliente\RankingClientesPorImporte.Designer.vb">
@@ -1588,6 +1600,9 @@
     <EmbeddedResource Include="Delivery\LotesEnvios.resx">
       <DependentUpon>LotesEnvios.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\PedidosDeliveryCalendario.resx">
+      <DependentUpon>PedidosDeliveryCalendario.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delivery\PedidosDeliveryDespacho.resx">
       <DependentUpon>PedidosDeliveryDespacho.vb</DependentUpon>
     </EmbeddedResource>
@@ -1610,6 +1625,9 @@
     <EmbeddedResource Include="Delivery\Reportes\ReportComanda80.rdlc" />
     <EmbeddedResource Include="Delivery\Reportes\ViewerListaProduccion.resx">
       <DependentUpon>ViewerListaProduccion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delivery\VerPedidosDelDia.resx">
+      <DependentUpon>VerPedidosDelDia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas\Cliente\RankingClientesPorImporte.resx">
       <DependentUpon>RankingClientesPorImporte.vb</DependentUpon>
@@ -2516,6 +2534,7 @@
     <None Include="My Project\img\maximize_20_20.gif" />
     <None Include="My Project\img\minimize_20_20.gif" />
     <None Include="My Project\img\SC_ICO_DARK_20_20.png" />
+    <None Include="My Project\img\calendar2_icon_black.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />
