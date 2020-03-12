@@ -469,7 +469,7 @@ Partial Class PedidosDeliveryCalendario
         Me.FlowLayoutPanelDaysPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanelDaysPanel.Location = New System.Drawing.Point(0, 97)
         Me.FlowLayoutPanelDaysPanel.Name = "FlowLayoutPanelDaysPanel"
-        Me.FlowLayoutPanelDaysPanel.Size = New System.Drawing.Size(901, 556)
+        Me.FlowLayoutPanelDaysPanel.Size = New System.Drawing.Size(901, 571)
         Me.FlowLayoutPanelDaysPanel.TabIndex = 4
         '
         'FlowLayoutPanelDay
@@ -626,7 +626,7 @@ Partial Class PedidosDeliveryCalendario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(901, 653)
+        Me.ClientSize = New System.Drawing.Size(901, 668)
         Me.Controls.Add(Me.FlowLayoutPanelDaysPanel)
         Me.Controls.Add(Me.PanelDaysofWeek)
         Me.Controls.Add(Me.PanelCalendarHeader)

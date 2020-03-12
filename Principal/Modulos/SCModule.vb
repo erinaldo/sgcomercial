@@ -6,12 +6,15 @@ Imports System
 
 Module SCModule
     '***********************************************************
-    Public SCHoverColorStrong As Color = Drawing.Color.FromArgb(0, 122, 204)
-    Public SCHoverColorLight As Color = Drawing.Color.FromArgb(14, 172, 244)
-    Public SCBackColor As Color = Drawing.Color.FromArgb(40, 41, 35)
-    Public SCForeColorLight As Color = Drawing.Color.FromArgb(255, 255, 255)
-    Public SCForeColorStrong As Color = Drawing.Color.FromArgb(1, 207, 255)
-    Public SCBackColorGray As Color = Drawing.Color.FromArgb(242, 242, 242)
+    Public SCHoverColorDark As Color = Drawing.Color.FromArgb(0, 122, 204)
+    Public SCHoverColorMid As Color = Drawing.Color.FromArgb(14, 172, 244)
+    Public SCHoverColorLight As Color = Drawing.Color.FromArgb(1, 207, 255)
+    Public SCBackColorDark As Color = Drawing.Color.FromArgb(40, 41, 35)
+    Public SCBackColorMid As Color = Drawing.Color.FromArgb(171, 171, 171)
+    Public SCBackColorLight As Color = Drawing.Color.FromArgb(220, 220, 220)
+    Public SCForeColorWhite As Color = Drawing.Color.FromArgb(255, 255, 255)
+    Public SCForeColorLightCyan As Color = Drawing.Color.FromArgb(1, 207, 255)
+    '***********************************************************
     Public SCAPPICON As System.Drawing.Icon
     Public SCFORMICON As System.Drawing.Icon
     'Public MySQLStrConn As String = "server=sistemascomerciales.net;user id=sistema1_sgcweb;password=sgcomercial*?;database=sistema1_sgcaguadagrande;persistsecurityinfo=True"

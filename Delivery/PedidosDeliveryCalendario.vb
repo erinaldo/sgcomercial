@@ -41,7 +41,7 @@
             Dim fl As New FlowLayoutPanel
             fl.Name = $"flDay{i}"
             fl.Size = New Size(87, 87)
-            fl.BackColor = SCBackColorGray
+            fl.BackColor = SCBackColorLight
             fl.BorderStyle = BorderStyle.FixedSingle
             fl.Cursor = Cursors.Hand
             AddHandler fl.Click, AddressOf SeeAppointmentDayFromFL
@@ -53,6 +53,8 @@
         For Each fl As FlowLayoutPanel In listFlDay
             fl.Controls.Clear()
             fl.Tag = 0
+            fl.BackColor = SCBackColorLight
+
         Next
         For i As Integer = 1 To TotalDaysInMonth
             Dim lbl As New Label
@@ -62,13 +64,21 @@
             lbl.Size = New Size(86, 18)
             lbl.Text = i.ToString
             lbl.Font = New Font("Century Gothic", 11, FontStyle.Bold)
-            lbl.BackColor = SCBackColor
-            lbl.ForeColor = SCForeColorStrong
+            lbl.BackColor = SCBackColorDark
+            lbl.ForeColor = SCForeColorLightCyan
             AddHandler lbl.Click, AddressOf SeeAppointmentDayFromLBL
             listFlDay((i - 1) + (startday - 1)).Tag = i
             listFlDay((i - 1) + (startday - 1)).Controls.Add(lbl)
             AddApointmentToFlDay(i)
+            If New Date(CurrentDate.Year, CurrentDate.Month, i) = Date.Today Then
+                listFlDay((i - 1) + (startday - 1)).BackColor = SCHoverColorDark
+            End If
         Next
+        'For Each fl As FlowLayoutPanel In listFlDay
+        '    If fl.Tag = 0 Then
+        '        fl.Visible = False
+        '    End If
+        'Next
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click

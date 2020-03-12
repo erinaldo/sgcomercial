@@ -1541,11 +1541,11 @@ Public Class Principal
     End Sub
 
     Private Sub PictureMenu_MouseHover(sender As Object, e As EventArgs) Handles PictureMenu.MouseHover
-        PictureMenu.BackColor = SCHoverColorStrong
+        PictureMenu.BackColor = SCHoverColorDark
     End Sub
 
     Private Sub PictureMenu_MouseLeave(sender As Object, e As EventArgs) Handles PictureMenu.MouseLeave
-        PictureMenu.BackColor = SCBackColor
+        PictureMenu.BackColor = SCBackColorDark
     End Sub
 
     Private Sub PictureBoxClose_Click(sender As Object, e As EventArgs) Handles PictureBoxClose.Click
@@ -1553,11 +1553,11 @@ Public Class Principal
     End Sub
 
     Private Sub PictureBoxClose_MouseHover(sender As Object, e As EventArgs) Handles PictureBoxClose.MouseHover
-        PictureBoxClose.BackColor = SCHoverColorStrong
+        PictureBoxClose.BackColor = SCHoverColorDark
     End Sub
 
     Private Sub PictureBoxClose_MouseLeave(sender As Object, e As EventArgs) Handles PictureBoxClose.MouseLeave
-        PictureBoxClose.BackColor = SCBackColor
+        PictureBoxClose.BackColor = SCBackColorDark
     End Sub
 
     Private Sub PictureBoxMaximize_Click(sender As Object, e As EventArgs) Handles PictureBoxMaximize.Click
@@ -1579,7 +1579,7 @@ Public Class Principal
     End Sub
 
     Private Sub PictureBoxMaximize_MouseHover(sender As Object, e As EventArgs) Handles PictureBoxMaximize.MouseHover
-        PictureBoxMaximize.BackColor = SCHoverColorStrong
+        PictureBoxMaximize.BackColor = SCHoverColorDark
     End Sub
 
     Private Sub PictureBoxMinimize_Click(sender As Object, e As EventArgs) Handles PictureBoxMinimize.Click
@@ -1587,15 +1587,15 @@ Public Class Principal
     End Sub
 
     Private Sub PictureBoxMaximize_MouseLeave(sender As Object, e As EventArgs) Handles PictureBoxMaximize.MouseLeave
-        PictureBoxMaximize.BackColor = SCBackColor
+        PictureBoxMaximize.BackColor = SCBackColorDark
     End Sub
 
     Private Sub PictureBoxMinimize_MouseHover(sender As Object, e As EventArgs) Handles PictureBoxMinimize.MouseHover
-        PictureBoxMinimize.BackColor = SCHoverColorStrong
+        PictureBoxMinimize.BackColor = SCHoverColorDark
     End Sub
 
     Private Sub PictureBoxMinimize_MouseLeave(sender As Object, e As EventArgs) Handles PictureBoxMinimize.MouseLeave
-        PictureBoxMinimize.BackColor = SCBackColor
+        PictureBoxMinimize.BackColor = SCBackColorDark
     End Sub
 
     Private Sub PanelControlBox_Paint(sender As Object, e As PaintEventArgs) Handles PanelControlBox.Paint
