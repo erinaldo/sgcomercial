@@ -43,11 +43,8 @@
         TextBox1.Select()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim p As ViewerReporteControlStockGeneral
-        p = New ViewerReporteControlStockGeneral
-        p.ShowDialog()
-        p.Close()
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
@@ -71,11 +68,8 @@
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim p As ViewerReporteRelevamientoStock
-        p = New ViewerReporteRelevamientoStock
-        p.ShowDialog()
-        p.Close()
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub ControlStock_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -100,5 +94,26 @@
             End Try
         End If
         ''''''''''''''''''''*******************************************'''''''''''''''''''''
+    End Sub
+
+    Private Sub ReporteDeControlGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeControlGeneralToolStripMenuItem.Click
+        Dim p As ViewerReporteControlStockGeneral
+        p = New ViewerReporteControlStockGeneral
+        p.ShowDialog()
+        p.Close()
+    End Sub
+
+    Private Sub ReporteDeRelevamientoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeRelevamientoToolStripMenuItem.Click
+        Dim p As ViewerReporteRelevamientoStock
+        p = New ViewerReporteRelevamientoStock
+        p.ShowDialog()
+        p.Close()
+    End Sub
+
+    Private Sub ReporteDeValorizaciónDeStockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeValorizaciónDeStockToolStripMenuItem.Click
+        With ValorizacionStock
+            .Icon = SCFORMICON
+            .Show()
+        End With
     End Sub
 End Class

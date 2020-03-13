@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>62</ApplicationRevision>
-    <ApplicationVersion>4.1.0.62</ApplicationVersion>
+    <ApplicationRevision>63</ApplicationRevision>
+    <ApplicationVersion>4.1.0.63</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -694,6 +694,12 @@
       <DependentUpon>LotesVencimiento.vb</DependentUpon>
     </Compile>
     <Compile Include="Stock\LotesVencimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\ValorizacionStock.Designer.vb">
+      <DependentUpon>ValorizacionStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\ValorizacionStock.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sueldos\ABMCategoriasEmpleados.Designer.vb">
@@ -1773,6 +1779,10 @@
     <EmbeddedResource Include="Stock\Reportes\RepEXListaPrecioVentaDistribuidor.rdlc" />
     <EmbeddedResource Include="Stock\Reportes\RepEXListaPrecioVentaGranel.rdlc" />
     <EmbeddedResource Include="Stock\Reportes\RepEXListaPrecioVentaMayorista.rdlc" />
+    <EmbeddedResource Include="Stock\Reportes\RepValorizacionStock.rdlc" />
+    <EmbeddedResource Include="Stock\ValorizacionStock.resx">
+      <DependentUpon>ValorizacionStock.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sueldos\ABMCategoriasEmpleados.resx">
       <DependentUpon>ABMCategoriasEmpleados.vb</DependentUpon>
     </EmbeddedResource>
