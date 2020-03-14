@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>63</ApplicationRevision>
-    <ApplicationVersion>4.1.0.63</ApplicationVersion>
+    <ApplicationRevision>64</ApplicationRevision>
+    <ApplicationVersion>4.1.0.64</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1260,6 +1260,12 @@
     <Compile Include="Ventas\CriteriosVenta\NuevoCriterioVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventas\PopUpGetDatosFacturacion.Designer.vb">
+      <DependentUpon>PopUpGetDatosFacturacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\PopUpGetDatosFacturacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventas\PopUpGetTipoCbt.Designer.vb">
       <DependentUpon>PopUpGetTipoCbt.vb</DependentUpon>
     </Compile>
@@ -1961,6 +1967,9 @@
     <EmbeddedResource Include="Ventas\CriteriosVenta\NuevoCriterioVenta.resx">
       <DependentUpon>NuevoCriterioVenta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\PopUpGetDatosFacturacion.resx">
+      <DependentUpon>PopUpGetDatosFacturacion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\PopUpGetTipoCbt.resx">
       <DependentUpon>PopUpGetTipoCbt.vb</DependentUpon>
     </EmbeddedResource>
@@ -2545,6 +2554,8 @@
     <None Include="My Project\img\minimize_20_20.gif" />
     <None Include="My Project\img\SC_ICO_DARK_20_20.png" />
     <None Include="My Project\img\calendar2_icon_black.png" />
+    <None Include="My Project\img\Excel_ico_40.png" />
+    <None Include="My Project\img\PDF_ico_40.png" />
     <Content Include="Recursos\appicon.ico" />
     <Content Include="Recursos\arrow_50_50.ico" />
     <Content Include="Recursos\box_img_25_25.ico" />

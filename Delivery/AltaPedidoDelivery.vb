@@ -5,6 +5,10 @@ Public Class AltaPedidoDelivery
     Dim v_precioventa As Decimal
     Dim rtn As Boolean
     Dim v_valdatosnuevosclientes As String
+    Dim StrError As New StrError
+    Dim StrDatosFacturacion As New StrDatosFacturacion
+    Dim idevento As Long
+    Dim CajaseventosTableAdapter As New comercialDataSetTableAdapters.cajaseventosTableAdapter()
 
     Private Sub AltaPedido_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         '---------------------------------------------------------------
@@ -32,6 +36,16 @@ Public Class AltaPedidoDelivery
         ComboBoxLocalidad.SelectedIndex = 0
         ComboBoxProvincia.Enabled = False
         ComboBox1.SelectedIndex = 0
+        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
+        If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
+            If idevento > 0 Then
+                CheckBoxFacturar.Enabled = True
+            Else
+                CheckBoxFacturar.Enabled = False
+            End If
+        Else
+            CheckBoxFacturar.Enabled = False
+        End If
     End Sub
     Private Sub enableedit(ByVal status As String)
         TextBoxNombreCliente.Enabled = status
@@ -236,6 +250,17 @@ Public Class AltaPedidoDelivery
                 CheckBoxNuevoCliente.Select()
                 rtn = False
                 Return
+            Else
+                If CheckBoxFacturar.Enabled = True And CheckBoxFacturar.Checked = True Then
+                    Dim idcliente As Long
+                    idcliente = Val(IdclienteTextBox.Text)
+                    StrError = ValidarDatosClienteAFIP(idcliente)
+                    If StrError.CodError > 1 Then
+                        MessageBox.Show(StrError.MsgError, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        rtn = False
+                        Return
+                    End If
+                End If
             End If
         End If
         If Len(Trim(TextBoxNombreCliente.Text)) = 0 Then
@@ -326,10 +351,15 @@ Public Class AltaPedidoDelivery
         validarcargadatos(rtn)
         If rtn = False Then
             Return
-        Else
-            'MsgBox("Datos Correctos")
         End If
-        If Not MsgBox("Seguro desea guardar el pedido?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+        If CheckBoxFacturar.Checked Then
+            Dim StrError As New StrError
+            GetDatosFacturacion(StrError)
+            If StrError.CodError = -1 Then
+                Return
+            End If
+        End If
+        If Not MessageBox.Show("Seguro desea Guardar el pedido?", "Pregunta!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
             Return
         End If
         '*******************************************************************************************************
@@ -387,7 +417,13 @@ Public Class AltaPedidoDelivery
         '****** REGISTRAR VENTA **********
         Try
             Dim nvavta As Long
-            nvavta = VentasTableAdapter.ventas_insertarventa(nvocliente, Now(), Nothing, 1, gusername, Nothing, Nothing, 1)
+            Dim fechavencimiento As Date
+            If StrDatosFacturacion.fechavencimiento < Today() Then
+                fechavencimiento = Today()
+            Else
+                fechavencimiento = StrDatosFacturacion.fechavencimiento
+            End If
+            nvavta = VentasTableAdapter.ventas_insertarventa(nvocliente, Now(), StrDatosFacturacion.idformapago, 1, gusername, StrDatosFacturacion.nrocbtexterno, fechavencimiento, 1)
             gidventa = nvavta
             For i = 0 To VentasdetalleDataGridView.RowCount - 1
                 Dim idproducto As Long = VentasdetalleDataGridView.Rows(i).Cells("idproducto").Value
@@ -410,6 +446,7 @@ Public Class AltaPedidoDelivery
             End If
         End If
         '===================  FIN FUNCIONES CLOWD NUBE  ================================
+        RegistrarFactura(nvocliente, gidventa)
         MsgSuccessPopUp("Pedido cargado exitosanente!")
         'Me.Close()
         CheckBoxNuevoCliente.Checked = False
@@ -437,6 +474,13 @@ Public Class AltaPedidoDelivery
         TextBoxCP.Text = Nothing
         VentasdetalleDataGridView.Rows.Clear()
         TextBoxObs.Text = Nothing
+        CheckBoxFacturar.Checked = False
+        StrDatosFacturacion.Idtipocomprobante = Nothing
+        StrDatosFacturacion.idformapago = Nothing
+        StrDatosFacturacion.idconcepto = Nothing
+        StrDatosFacturacion.fechaventa = Nothing
+        StrDatosFacturacion.fechavencimiento = Nothing
+        StrDatosFacturacion.montofacturado = Nothing
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBoxEditarDomicilios.Click
@@ -607,17 +651,20 @@ Public Class AltaPedidoDelivery
         End If
 
         If e.KeyCode = Keys.F2 Then
-            If PictureSeleccionarCliente.Enabled = True Then
-                SeleccionarCliente()
+            If CheckBoxFacturar.Checked Then
+                CheckBoxFacturar.Checked = False
+            Else
+                CheckBoxFacturar.Checked = True
             End If
         End If
         If e.KeyCode = Keys.F1 Then
             If CheckBoxNuevoCliente.Checked Then
                 CheckBoxNuevoCliente.Checked = False
+                SeleccionarCliente()
             Else
                 CheckBoxNuevoCliente.Checked = True
+                NuevoCliente()
             End If
-            NuevoCliente()
         End If
     End Sub
 
@@ -712,5 +759,146 @@ Public Class AltaPedidoDelivery
         Next
         recuento()
 
+    End Sub
+
+    Private Sub CheckBoxFacturar_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxFacturar.CheckedChanged
+
+    End Sub
+    Private Sub RegistrarFactura(ByVal idcliente As Long, ByVal idventa As Long)
+        '-------------------------------------------------------------------
+        If CheckBoxFacturar.Checked = False Then Return
+        If StrDatosFacturacion.Idtipocomprobante = 1 Then Return
+        '-------------------------------------------------------------------
+        StrError = ValidarDatosClienteAFIP(idcliente)
+        If StrError.CodError > 1 Then
+            MessageBox.Show(StrError.MsgError, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End If
+        '-----------------------------------------------
+        RegistrarPago(idcliente, idventa, StrError)
+        If StrError.CodError > 1 Then
+            MessageBox.Show(StrError.MsgError, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End If
+        '-----------------------------------------------
+        Try
+            Dim VentasTableAdapter As New comercialDataSetTableAdapters.ventasTableAdapter()
+            VentasTableAdapter.ventas_updateidtipocomprobante(StrDatosFacturacion.Idtipocomprobante, idventa)
+        Catch ex As Exception
+            MessageBox.Show("No se pudo completar la actualización del tipo de comprobante", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End Try
+        '-----------------------------------------------
+        'If MessageBox.Show("Seguro desea Registrar el Comprobante en AFIP?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then Return
+        '-----------------  REGISTRAR FACTURA ELECTRÓNICA   ----------------------------------------
+        '********************************************************************************************
+        '================================================================================================================================
+        If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
+            Dim FECAERequest As New WSFEV1.FECAERequest()
+            Dim TRA As String = Nothing
+            '========================================================================================
+            '       generacion TRA
+            '========================================================================================
+            StrError = GenTRA(TRA)
+            If StrError.CodError > 1 Then
+                MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                '========================================================================================
+                '       Generación Factura Electrónica
+                '========================================================================================
+                StrError = FECAELoadRequest(gidventa, FECAERequest)
+                If StrError.CodError > 0 Then
+                    MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
+            End If
+        End If
+    End Sub
+    Private Sub GetDatosFacturacion(ByRef StrError As StrError)
+        StrDatosFacturacion.Idtipocomprobante = Nothing
+        StrDatosFacturacion.idformapago = Nothing
+        StrDatosFacturacion.idconcepto = Nothing
+        StrDatosFacturacion.fechaventa = Nothing
+        StrDatosFacturacion.fechavencimiento = Nothing
+        StrDatosFacturacion.montofacturado = Nothing
+        Try
+            With PopUpGetDatosFacturacion
+                gTipoCbtSeleccionado = Nothing
+                .FechaventaDateTimePicker.Value = Today
+                .FechaventaDateTimePicker.Enabled = False
+                .FechavencimientoDateTimePicker.Value = Today
+                .TextBoxImporte.Text = LabelTotal.Text
+                .ShowDialog()
+                If gTipoCbtSeleccionado = 1 Then 'si es uno aceptó
+                    StrDatosFacturacion.Idtipocomprobante = .Idtipocomprobantecombo.SelectedValue
+                    StrDatosFacturacion.idformapago = .idformapagocombo.SelectedValue
+                    StrDatosFacturacion.idconcepto = .ComboConcepto.SelectedValue
+                    StrDatosFacturacion.fechaventa = .FechaventaDateTimePicker.Value
+                    StrDatosFacturacion.fechavencimiento = .FechavencimientoDateTimePicker.Value
+                    StrDatosFacturacion.montofacturado = Convert.ToDecimal(.TextBoxImporte.Text)
+                    gTipoCbtSeleccionado = Nothing
+                    StrError.CodError = 1
+                Else 'si es distinto canceló
+                    StrDatosFacturacion.Idtipocomprobante = Nothing
+                    StrDatosFacturacion.idformapago = Nothing
+                    StrDatosFacturacion.idconcepto = Nothing
+                    StrDatosFacturacion.fechaventa = Nothing
+                    StrDatosFacturacion.fechavencimiento = Nothing
+                    StrDatosFacturacion.montofacturado = Nothing
+                    CheckBoxFacturar.Checked = False
+                    gTipoCbtSeleccionado = Nothing
+                    StrError.CodError = -1
+                    Return
+                End If
+            End With
+        Catch ex As Exception
+            StrDatosFacturacion.Idtipocomprobante = Nothing
+            StrDatosFacturacion.idformapago = Nothing
+            StrDatosFacturacion.idconcepto = Nothing
+            StrDatosFacturacion.fechaventa = Nothing
+            StrDatosFacturacion.fechavencimiento = Nothing
+            StrDatosFacturacion.montofacturado = Nothing
+        End Try
+    End Sub
+    Private Sub RegistrarPago(ByVal idcliente As Long, ByVal idventas As Long, ByVal StrError As StrError)
+        Dim CajasoperacionesTableAdapter As New comercialDataSetTableAdapters.cajasoperacionesTableAdapter()
+        Dim idoperacioncaja As Long
+        '*******************************
+        If StrDatosFacturacion.idformapago = 7 And (StrDatosFacturacion.Idtipocomprobante <> 3 And StrDatosFacturacion.Idtipocomprobante <> 4 And StrDatosFacturacion.Idtipocomprobante <> 6 And StrDatosFacturacion.Idtipocomprobante <> 7 And StrDatosFacturacion.Idtipocomprobante <> 9 And StrDatosFacturacion.Idtipocomprobante <> 10 And StrDatosFacturacion.Idtipocomprobante <> 12 And StrDatosFacturacion.Idtipocomprobante <> 13) Then 'ES CUENTA CORRIENTE
+            ''**************************************************************
+            ''***** CUENTA CORRIENTE MOVIMIENTO DE CAJA
+            ''************************************************************** que sea CC y que no sea ningun tipo de Nota de C/D
+
+            idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarvtactacte(idevento, Nothing, StrDatosFacturacion.idformapago, StrDatosFacturacion.montofacturado, gusername, Nothing, idventas)
+            If Not idoperacioncaja > 0 Then
+                StrError.CodError = 2
+                StrError.MsgError = "Ocurrio un error al registrar el movimiento de caja"
+                Return
+            End If
+        Else
+            '**************************************************************
+            '***** INSERTAR PAGO COMÚN
+            '**************************************************************
+            Dim idpagos As Long
+            Dim PagosTableAdapter As New comercialDataSetTableAdapters.pagosTableAdapter()
+            Dim PagosImputacionesTableAdapter As New comercialDataSetTableAdapters.pagosimputacionesTableAdapter()
+
+            idpagos = PagosTableAdapter.pagos_insertarpago(idventas, idcliente, StrDatosFacturacion.montofacturado, StrDatosFacturacion.fechaventa, StrDatosFacturacion.idformapago, StrDatosFacturacion.nrocbtexterno)
+            If idpagos > 0 Then
+                PagosImputacionesTableAdapter.pagosimputaciones_insertar(idpagos, idventas, StrDatosFacturacion.montofacturado)
+            Else
+                StrError.CodError = 2
+                StrError.MsgError = "Ocurrio un error al registrar el pago"
+                Return
+            End If
+            '**************************************************************
+            '***** insertar movimiento de caja
+            '**************************************************************
+            idoperacioncaja = CajasoperacionesTableAdapter.cajasoperaciones_insertarpago(idevento, idpagos, StrDatosFacturacion.idformapago, StrDatosFacturacion.montofacturado, gusername, Nothing)
+            If Not idoperacioncaja > 0 Then
+                StrError.CodError = 2
+                StrError.MsgError = "Ocurrio un error al registrar el movimiento de caja"
+                Return
+            End If
+        End If
     End Sub
 End Class

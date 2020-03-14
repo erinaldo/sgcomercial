@@ -23,8 +23,8 @@ Partial Class ViewerReporteControlStockGeneral
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.MiComercioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.stockgeneralBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -132,12 +132,12 @@ Partial Class ViewerReporteControlStockGeneral
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource3.Name = "MiComercio"
-        ReportDataSource3.Value = Me.MiComercioBindingSource
-        ReportDataSource4.Name = "stockgeneral"
-        ReportDataSource4.Value = Me.stockgeneralBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        ReportDataSource1.Name = "MiComercio"
+        ReportDataSource1.Value = Me.MiComercioBindingSource
+        ReportDataSource2.Name = "stockgeneral"
+        ReportDataSource2.Value = Me.stockgeneralBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RptControlStockGeneral.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(3, 18)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -157,6 +157,8 @@ Partial Class ViewerReporteControlStockGeneral
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ViewerReporteControlStockGeneral"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "ViewerReporteControlStockGeneral"

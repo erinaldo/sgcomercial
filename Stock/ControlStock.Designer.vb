@@ -307,7 +307,7 @@ Partial Class ControlStock
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(30, 30)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteDeControlGeneralToolStripMenuItem, Me.ReporteDeRelevamientoToolStripMenuItem, Me.ReporteDeValorizaciónDeStockToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"

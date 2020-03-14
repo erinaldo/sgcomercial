@@ -658,6 +658,7 @@ Module ModuleAFIP
         Public CodError As Integer
         Public MsgError As String
     End Class
+
     Public Function ValidarDatosClienteAFIP(ByVal idcliente As Long) As StrError
         Dim StrError As New StrError
         Dim ListaClientesTableAdapter As New comercialDataSetTableAdapters.listaclientesTableAdapter
@@ -675,6 +676,20 @@ Module ModuleAFIP
             StrError.MsgError = "Debe indicar el tipo de documento"
             Return StrError
         End If
+        Select Case ListaClientesDataTable.Rows(0).Item("doctipoafip")
+            Case 96
+                If Not Len(ListaClientesDataTable.Rows(0).Item("docnro")) > 7 Then
+                    StrError.CodError = 2
+                    StrError.MsgError = "Debe indicar correctamente el número de documento"
+                    Return StrError
+                End If
+            Case 80
+                If Not Len(ListaClientesDataTable.Rows(0).Item("docnro")) > 7 Then
+                    StrError.CodError = 2
+                    StrError.MsgError = "Debe indicar correctamente el número de documento"
+                    Return StrError
+                End If
+        End Select
         '-----------------------------------------------------------------------------
         If IsDBNull(ListaClientesDataTable.Rows(0).Item("docnro")) Then
             StrError.CodError = 2

@@ -549,6 +549,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property Excel_ico_40() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Excel_ico_40", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca un recurso adaptado de tipo System.Byte[].
         '''</summary>
         Public ReadOnly Property Exo2_0_MediumItalic() As Byte()
@@ -844,6 +854,16 @@ Namespace My.Resources
         Public ReadOnly Property PDF_ico() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("PDF_ico", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property PDF_ico_40() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("PDF_ico_40", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

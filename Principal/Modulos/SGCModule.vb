@@ -145,6 +145,7 @@ Module SGCModule
     '**************************
     Public gUltimoProdBuscado As String
     Public gUltimoCodBuscado As String
+    '************************************
     '**************************'**************************'**************************'**************************
     '**************************'**************************'**************************'**************************
     '*******************************    GLOBAL FUNCTIONS        *********************************
@@ -1434,5 +1435,16 @@ and v.idtipocomprobante = tc.idtipocomprobante
         ModuloCloud
         ModuloSueldos
     End Enum
+    Class StrDatosFacturacion
+        Public Idtipocomprobante As Integer
+        Public idformapago As Integer
+        Public idconcepto As Integer
+        Public montofacturado As Integer
+        Public fechaventa As DateTime
+        Public fechavencimiento As DateTime
+        Public nrocbtexterno As String
+        Public CodError As Integer
+        Public MsgError As String
+    End Class
 End Module
 

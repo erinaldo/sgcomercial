@@ -118,11 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Alert_warning_white_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\Alert_warning_white_39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BG 1X1 (1080X1080) FACE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BG 1X1 (1080X1080) FACE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="place_iconw_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\place_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Export_iconw_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Export_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,14 +127,14 @@
   <data name="birrete_iconw_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\birrete_iconw_35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="cloud-sync-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\cloud-sync-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="growth_people_iconw_401" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\growth_people_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SC_ICO_DARK_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\SC_ICO_DARK_35.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Alert_warning_orange_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alert_warning_orange_39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,6 +148,9 @@
   <data name="stock_box_w_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\stock_box_w_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="download_iconw_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\download_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="growth_people_iconw_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\growth_people_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,11 +160,17 @@
   <data name="gastronomia_iconw_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\gastronomia_iconw_39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="calendar2_icon_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\calendar2_icon_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Alert_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Alert_warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="menu_icon_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\menu_icon_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="productos-box_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\productos-box_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="green-plus-icon-13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\green-plus-icon-13.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,9 +226,6 @@
   <data name="NULL_IMG_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\NULL_IMG_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="productos-box_white_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\productos-box_white_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ClowdWeb_iconw_37" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\ClowdWeb_iconw_37.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -259,11 +262,8 @@
   <data name="utilities_iconw_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\utilities_iconw_35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pricetag_iconw_37" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\pricetag_iconw_37.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="place_iconw_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\place_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="franchise_iconw_37" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\franchise_iconw_37.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -286,8 +286,8 @@
   <data name="deliveryman_iconw_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\deliveryman_iconw_39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="productos-box_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\productos-box_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BG 1X1 (1080X1080) FACE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG 1X1 (1080X1080) FACE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="refresh-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\refresh-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -316,8 +316,8 @@
   <data name="calc_iconw_38" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\calc_iconw_38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download_iconw_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\download_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Alert_warning_white_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\Alert_warning_white_39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cart_fill_w_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\cart_fill_w_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -346,6 +346,9 @@
   <data name="FEAFIP_OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\FEAFIP_OFF.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SC_ICO_WHITE_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\SC_ICO_WHITE_35.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="config_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\config_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -364,8 +367,8 @@
   <data name="expired_iconw_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\expired_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SC_ICO_DARK_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\SC_ICO_DARK_35.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="productos-box_white_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\productos-box_white_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Exo2_0_MediumItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exo2.0-MediumItalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -378,6 +381,9 @@
   </data>
   <data name="stockpallet_iconw_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\stockpallet_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Excel_ico_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\Excel_ico_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cloud-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\Cloud-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -406,8 +412,8 @@
   <data name="permission_key_iconw_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\permission_key_iconw_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SC_ICO_WHITE_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\SC_ICO_WHITE_35.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pricetag_iconw_37" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\pricetag_iconw_37.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SC_ICO_DARK" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\SC_ICO_DARK.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -460,7 +466,7 @@
   <data name="SC_ICO_DARK_20_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>img\SC_ICO_DARK_20_20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendar2_icon_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>img\calendar2_icon_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PDF_ico_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>img\PDF_ico_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -508,6 +508,9 @@ Public Class RegistrarVenta
                         Return
                     End If
                 Else
+                    '**************************************************************
+                    '***** INSERTAR PAGO COMÚN
+                    '**************************************************************
                     idpagos = PagosTableAdapter.pagos_insertarpago(idventas, Val(IdclienteTextBox.Text), total, Today(), idformapagocombo.SelectedValue, NrocomprobanteTextBox.Text)
                     If idpagos > 0 Then
                         PagosImputaciones.pagosimputaciones_insertar(idpagos, idventas, total)

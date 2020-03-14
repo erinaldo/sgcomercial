@@ -17,6 +17,7 @@
     End Sub
 
     Private Sub ViewerReporteControlStockGeneral_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Cursor = Cursors.WaitCursor
         'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.listarubros' Puede moverla o quitarla según sea necesario.
         Me.ListarubrosTableAdapter.Fill(Me.comercialDataSet.listarubros)
         ComboBox1.SelectedValue = -1
@@ -26,6 +27,7 @@
         Me.stockgeneralTableAdapter.Fill(Me.comercialDataSet.stockgeneral)
         stockgeneralBindingSource.Filter = ""
         Me.ReportViewer1.RefreshReport()
+        Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

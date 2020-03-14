@@ -116,6 +116,7 @@ Public Class ComprobantesEmitidos
                             VentasTableAdapter.ventas_updateidtipocomprobante(gTipoCbtSeleccionado, gidventa)
                         Catch ex As Exception
                             MessageBox.Show("No se pudo completar la selección del tipo de comprobante", "Advertencia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            Return
                         End Try
                     End If
 

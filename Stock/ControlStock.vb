@@ -97,10 +97,11 @@
     End Sub
 
     Private Sub ReporteDeControlGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeControlGeneralToolStripMenuItem.Click
-        Dim p As ViewerReporteControlStockGeneral
-        p = New ViewerReporteControlStockGeneral
-        p.ShowDialog()
-        p.Close()
+        Me.Cursor = Cursors.WaitCursor
+        With ViewerReporteControlStockGeneral
+            .ShowDialog()
+        End With
+        Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub ReporteDeRelevamientoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeRelevamientoToolStripMenuItem.Click
@@ -111,9 +112,12 @@
     End Sub
 
     Private Sub ReporteDeValorizaciónDeStockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeValorizaciónDeStockToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
         With ValorizacionStock
             .Icon = SCFORMICON
-            .Show()
+            '.Parent = FormPrincipal
+            .ShowDialog()
         End With
+        Me.Cursor = Cursors.Default
     End Sub
 End Class
