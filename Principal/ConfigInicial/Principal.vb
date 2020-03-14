@@ -292,21 +292,12 @@ Public Class Principal
 
     Private Sub RegistrarVentaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RegistrarVentaToolStripMenuItem.Click
         '***************    consultar el estado de caja *************
-        gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
-        If gidcaja = 0 Then
-            MsgEx("Este ordenador no esta Registrado para operar como CAJA!")
-            Return
-        End If
-
-        gidevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
-        If gidevento = 0 Then
-            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
-        Else
+        '-----------------------------------------
+        If GetEstadoCaja() = 0 Then
             RegistrarVenta.MdiParent = Me
             RegistrarVenta.Visible = True
         End If
         '***************    FIN consultar el estado de caja *************
-
     End Sub
 
     Private Sub ABMClientesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ABMClientesToolStripMenuItem.Click
@@ -533,30 +524,12 @@ Public Class Principal
 
     Private Sub CambioMercaderíaVendidaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CambioMercaderíaVendidaToolStripMenuItem.Click
         '***************    consultar el estado de caja *************
-        gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
-        If gidcaja = 0 Then
-            MsgErrPopUp("Este ordenador no esta Registrado para operar como CAJA!")
-            Return
-        End If
-
-        Dim idevento As Integer
-        'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
-        'lblCaja.Text = "Caja Nº: " + idcaja.ToString
-        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
-        gidevento = idevento
-        If idevento = 0 Then
-            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
-        Else
-            'RegistrarVenta.MdiParent = Me
-            'RegistrarVenta.Visible = True
-            'CambioMercaderiaVendida.MdiParent = Me
-            'CambioMercaderiaVendida.Visible = True
+        '-----------------------------------------
+        If GetEstadoCaja() = 0 Then
             CambioMultipleMV.MdiParent = Me
             CambioMultipleMV.Visible = True
         End If
         '***************    FIN consultar el estado de caja *************
-
-
     End Sub
 
     Private Sub EnviarStockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnviarStockToolStripMenuItem.Click
@@ -676,27 +649,7 @@ Public Class Principal
     End Sub
 
     Private Sub RegistrarVentaACuentaCorrienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarVentaACuentaCorrienteToolStripMenuItem.Click
-        'RegistrarVentaCC.MdiParent = Me
-        'RegistrarVentaCC.Visible = True
-        '***************    consultar el estado de caja *************
-        gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
-        If gidcaja = 0 Then
-            MsgErrPopUp("Este ordenador no esta Registrado para operar como CAJA!")
-            Return
-        End If
 
-        Dim idevento As Integer
-        'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
-        'lblCaja.Text = "Caja Nº: " + idcaja.ToString
-        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
-
-        If idevento = 0 Then
-            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
-        Else
-            RegistrarVenta.MdiParent = Me
-            RegistrarVenta.Visible = True
-        End If
-        '***************    FIN consultar el estado de caja *************
     End Sub
 
     Private Sub MovimientosDeStockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MovimientosDeStockToolStripMenuItem.Click
@@ -712,26 +665,13 @@ Public Class Principal
 
     Private Sub CambioMultipleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CambioMultipleToolStripMenuItem.Click
         '***************    consultar el estado de caja *************
-        gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
-        If gidcaja = 0 Then
-            MsgErrPopUp("Este ordenador no esta Registrado para operar como CAJA!")
-            Return
-        End If
-
-        Dim idevento As Integer
-        'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
-        'lblCaja.Text = "Caja Nº: " + idcaja.ToString
-        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
-        gidevento = idevento
-        If idevento = 0 Then
-            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
-        Else
-            'RegistrarVenta.MdiParent = Me
-            'RegistrarVenta.Visible = True
+        '-----------------------------------------
+        If GetEstadoCaja() = 0 Then
             CambioMultipleMV.MdiParent = Me
             CambioMultipleMV.Visible = True
         End If
         '***************    FIN consultar el estado de caja *************
+
     End Sub
 
 
@@ -1089,20 +1029,8 @@ Public Class Principal
 
     Private Sub OrdenesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenesToolStripMenuItem.Click
         '***************    consultar el estado de caja *************
-        gidcaja = ParametrosgeneralesTableAdapter1.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
-        If gidcaja = 0 Then
-            MsgExPopUp("Este ordenador no esta Registrado para operar como CAJA!", "CAC")
-            Return
-        End If
-
-        Dim idevento As Integer
-        'idcaja = CajasDataGridView.Rows(CajasDataGridView.CurrentRow.Index).Cells(0).Value
-        'lblCaja.Text = "Caja Nº: " + idcaja.ToString
-        idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
-
-        If idevento = 0 Then
-            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
-        Else
+        '-----------------------------------------
+        If GetEstadoCaja() = 0 Then
             AdmOrdenes.MdiParent = Me
             AdmOrdenes.Visible = True
         End If

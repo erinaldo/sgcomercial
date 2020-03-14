@@ -9,6 +9,7 @@ Public Class AltaPedidoDelivery
     Dim StrDatosFacturacion As New StrDatosFacturacion
     Dim idevento As Long
     Dim CajaseventosTableAdapter As New comercialDataSetTableAdapters.cajaseventosTableAdapter()
+    Dim EstadoCaja As String
 
     Private Sub AltaPedido_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         '---------------------------------------------------------------
@@ -37,12 +38,13 @@ Public Class AltaPedidoDelivery
         ComboBoxProvincia.Enabled = False
         ComboBox1.SelectedIndex = 0
         idevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
-        If GFEAFIPENTORNO = "HOMOLOGACION" Or GFEAFIPENTORNO = "PRODUCCION" Then
-            If idevento > 0 Then
-                CheckBoxFacturar.Enabled = True
-            Else
-                CheckBoxFacturar.Enabled = False
-            End If
+        '***************    consultar el estado de caja *************
+        ConsultarEstadoCaja()
+        '***************    FIN consultar el estado de caja *************
+    End Sub
+    Private Sub ConsultarEstadoCaja()
+        If GetEstadoCaja() = 0 Then
+            CheckBoxFacturar.Enabled = True
         Else
             CheckBoxFacturar.Enabled = False
         End If
@@ -651,6 +653,10 @@ Public Class AltaPedidoDelivery
         End If
 
         If e.KeyCode = Keys.F2 Then
+            ConsultarEstadoCaja()
+            '------------------------------------------------------
+            If CheckBoxFacturar.Enabled = False Then Return
+            '------------------------------------------------------
             If CheckBoxFacturar.Checked Then
                 CheckBoxFacturar.Checked = False
             Else
@@ -810,7 +816,13 @@ Public Class AltaPedidoDelivery
                 If StrError.CodError > 0 Then
                     MessageBox.Show(StrError.MsgError, "No se pudo completar la operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
+                '-----------    SALIO TODO OK IMPRIMO FACTURA -----------
+                ImprimirFactura(idventa)
+                '----------------------------------------------------- saliendo del if
             End If
+        Else
+            '-----------    SALIO TODO OK IMPRIMO TICKET NO FACTURA -----------
+            ImprimirFactura(idventa)
         End If
     End Sub
     Private Sub GetDatosFacturacion(ByRef StrError As StrError)

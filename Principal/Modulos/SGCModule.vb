@@ -1446,5 +1446,65 @@ and v.idtipocomprobante = tc.idtipocomprobante
         Public CodError As Integer
         Public MsgError As String
     End Class
+    Public Sub ImprimirFactura(ByVal idventa As Long)
+        Dim impresion As String
+        Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Dim ErrorLogTableAdapter As New comercialDataSetTableAdapters.errorlogTableAdapter()
+        impresion = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ImpresionTicket")
+
+        Select Case impresion
+            Case "Nunca"
+                    'Radionunca.Checked = True
+            Case "Siempre"
+                Try
+                    'Dim p As ViewTicketFE
+                    Dim p As New ViewerFactura
+                    'p.MdiParent = Me.ParentForm
+                    p.ShowInTaskbar = True
+                    'p.TopMost = True
+                    p.ShowDialog()
+                Catch ex As Exception
+                    ErrorLogTableAdapter.errorlog_insertar("Registrar Venta", "Aplicacion", "Confirmar", ex.Message)
+                End Try
+            Case "Preguntar"
+                If MsgQues("Desea Imprimir el comprobante?") = True Then
+                    Try
+                        Dim p As New ViewerFactura
+                        'p.MdiParent = Me.ParentForm
+                        p.ShowInTaskbar = True
+                        'p.TopMost = True
+                        p.ShowDialog()
+                    Catch ex As Exception
+                        ErrorLogTableAdapter.errorlog_insertar("Registrar Venta", "Aplicacion", "Confirmar", ex.Message)
+                    End Try
+                End If
+        End Select
+    End Sub
+    Public Function GetEstadoCaja() As Long
+        Dim StrError As New StrError()
+        Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+        Dim CajaseventosTableAdapter As New comercialDataSetTableAdapters.cajaseventosTableAdapter()
+        '***************    consultar el estado de caja *************
+        gidcaja = ParametrosgeneralesTableAdapter.parametrosgenerales_getprgvalor1byprgstring1(gmacadress)
+        If gidcaja = 0 Then
+            StrError.CodError = 1
+            StrError.MsgError = "Este ordenador no esta Registrado para operar como CAJA!"
+            MsgExPopUp("Este ordenador no esta Registrado para operar como CAJA!")
+            Return StrError.CodError
+        End If
+
+        gidevento = CajaseventosTableAdapter.cajaseventos_isopen(gidcaja)
+        If gidevento = 0 Then
+            StrError.CodError = 2
+            StrError.MsgError = "Caja Cerrada. Abra la caja antes de registrar una venta"
+            MsgExPopUp("Caja Cerrada. Abra la caja antes de registrar una venta", "CAC")
+            Return StrError.CodError
+        Else
+            StrError.CodError = 0
+            StrError.MsgError = "OK"
+            Return StrError.CodError
+        End If
+        '***************    FIN consultar el estado de caja *************
+    End Function
 End Module
 
