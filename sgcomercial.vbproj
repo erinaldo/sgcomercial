@@ -602,6 +602,12 @@
     <Compile Include="Principal\ParametrosGenerales\FeConf.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Principal\ParametrosGenerales\IFiscal.Designer.vb">
+      <DependentUpon>IFiscal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ParametrosGenerales\IFiscal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Principal\ParametrosGenerales\MailServerConf.Designer.vb">
       <DependentUpon>MailServerConf.vb</DependentUpon>
     </Compile>
@@ -1737,6 +1743,9 @@
     <EmbeddedResource Include="Principal\ParametrosGenerales\FeConf.resx">
       <DependentUpon>FeConf.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Principal\ParametrosGenerales\IFiscal.resx">
+      <DependentUpon>IFiscal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\ParametrosGenerales\MailServerConf.resx">
       <DependentUpon>MailServerConf.vb</DependentUpon>
     </EmbeddedResource>
@@ -2620,6 +2629,15 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="FiscalPrinterLib">
+      <Guid>{39ABE45D-F077-4D34-A361-6906C77D67F7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>

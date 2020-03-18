@@ -330,6 +330,26 @@ Public Class loginform
             End If
             LabelClowdInfo.Visible = False
         End If
+        '====================   IMPRESOR FISCAL CONFIG ==================
+        If (e.KeyCode = Keys.F AndAlso e.Control AndAlso e.Shift) Then
+            WaitingLicence = True
+            LabelClowdInfo.Visible = True
+            Dim su As SUAuth
+            su = New SUAuth
+            gSUToken = Nothing
+            su.ShowDialog()
+            If gSUToken = True Then
+                Dim conf As IFiscal
+                conf = New IFiscal
+                conf.ShowDialog()
+                Me.Hide()
+                Me.loginform_Load(e, e)
+                Me.Show()
+            Else
+                Me.loginform_Load(e, e)
+            End If
+            LabelClowdInfo.Visible = False
+        End If
 
         If (e.KeyCode = Keys.L AndAlso e.Modifiers = Keys.Control) Then
             'Me.Dispose()

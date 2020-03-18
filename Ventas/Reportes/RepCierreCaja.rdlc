@@ -5131,6 +5131,18 @@ Sum(Microsoft.VisualBasic.Interaction.IIf(Fields!tipomovimiento.Value = "Extracc
                               </Style>
                             </TextRun>
                             <TextRun>
+                              <Value> en </Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!idformapago.Value</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
                               <Value>:</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
