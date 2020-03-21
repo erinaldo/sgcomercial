@@ -1,6 +1,11 @@
 ﻿Public Class ReporteCierreCaja
     Private Sub ReporteCierreCaja_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Select Case gFormatoCierreCaja
+            Case "Automático"
+                Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja_old.rdlc"
+            Case Else
+                Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja.rdlc"
+        End Select
         Me.MiComercioTableAdapter.Fill(Me.comercialDataSet.MiComercio)
 
         Me.CajaseventosTableAdapter.FillByIdevento(Me.comercialDataSet.cajaseventos, gidevento)

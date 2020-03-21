@@ -25,6 +25,12 @@ Public Class ReenvioCierresCaja
         ''TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajaresumen' Puede moverla o quitarla según sea necesario.
         'Me.cajaresumenTableAdapter.Fill(Me.ComercialDataSet.cajaresumen)
         ''TODO: esta línea de código carga datos en la tabla 'ComercialDataSet.cajaseventos' Puede moverla o quitarla según sea necesario.
+        Select Case gFormatoCierreCaja
+            Case "Automático"
+                Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja_old.rdlc"
+            Case Else
+                Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja.rdlc"
+        End Select
         Me.CajaseventosTableAdapter.FillByCerradas(Me.ComercialDataSet.cajaseventos)
         CajaseventosDataGridView.Sort(CajaseventosDataGridView.Columns(0), ListSortDirection.Descending)
         ReportViewer1.Visible = False

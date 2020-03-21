@@ -52,51 +52,63 @@ Public Class Principal
         hi.ProgressBar.PerformStep()
         hi.Refresh()
         '''''''''''''''''''''''''''''''''''''''''''''''''''''
-        Me.ModulosTableAdapter.Fill(Me.ComercialDataSet.modulos)
-        Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
-        '''''''''''''''''''''''''''''''''''
-        ParametrosgeneralesTableAdapter.FillByPrgclave(Me.ComercialDataSet.parametrosgenerales, "FondoAplicacion")
-        FormPrincipal.BackgroundImage = PictureBox1.Image
-        '======================================
-        FeAFIPLoad()
-        '======================================
-        '   TITULO DE LA VENTANA PRINCIPAL
-        PrincipalTituloPrincipal()
-        '''''''''''''''' carga  modulos y funciones a BD '''''''''''''''''''''''
-        InsertarModulos()
-        ''''''''''''''  CARGA DE PERMISOS DE USUARIO '''''''''''''''''''''
-        If Not gusername = "lucasmartinbs" Then
-            cargapermisos()
-            MenuStripMain.Visible = False
-        Else
-            MenuStripMain.Visible = False
-        End If
-        '''''''''''''''''''''''''''''''''''''''''''''''''''''
-        '''''''''''''''''''''''''''''''''''''''''''''''''''''
-        hi.mensaje.Text = "Cargando Notificaciones de Usuario..."
-        hi.ProgressBar.PerformStep()
-        hi.Refresh()
-        '''''''''''''''''''''''''''''''''''''''''''''''''''''
-        If Not BGWAlertas.IsBusy Then
-            BGWAlertas.RunWorkerAsync()
-        End If
-        '================= BACKGROUND WORKERS   ==========================
-        CheckModulesAuth()
-        If gModuloCloud = 1 Then
-            'BackgroundSyncLibroventasClowd.RunWorkerAsync()
-            'BGWStock.RunWorkerAsync()
-        End If
-        '======================================
-        Cursor.Current = Cursors.Default
-        hi.Dispose()
-        '======================================
-        Dim elast As Char
-        elast = CajaseventosTableAdapter.cajaseventos_emailedlast()
-        If elast = "N" Then
-            ShowPopUp("Recuerda enviar el ultimo CIERRE DE CAJA!", 400)
-        End If
-        '********************************************************
-        PrincipalMaximizar()
+        Try
+            Me.ModulosTableAdapter.Fill(Me.ComercialDataSet.modulos)
+            Me.PermisosTableAdapter.Fill(Me.ComercialDataSet.permisos)
+            '''''''''''''''''''''''''''''''''''
+            ParametrosgeneralesTableAdapter.FillByPrgclave(Me.ComercialDataSet.parametrosgenerales, "FondoAplicacion")
+            FormPrincipal.BackgroundImage = PictureBox1.Image
+            '****************************
+            Try
+                gFormatoCierreCaja = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("FormatoCierreCaja")
+            Catch ex As Exception
+            End Try
+            '=============  CARGA VARIABLES FACTURACION ELECTRONICA =========================
+            FeAFIPLoad()
+            '======================================
+            '   TITULO DE LA VENTANA PRINCIPAL
+            PrincipalTituloPrincipal()
+            '**********************************************************************************
+            '''''''''''''''' carga  modulos y funciones a BD '''''''''''''''''''''''
+            InsertarModulos()
+            ''''''''''''''  CARGA DE PERMISOS DE USUARIO '''''''''''''''''''''
+            If Not gusername = "lucasmartinbs" Then
+                cargapermisos()
+                MenuStripMain.Visible = False
+            Else
+                MenuStripMain.Visible = False
+            End If
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''
+            hi.mensaje.Text = "Cargando Notificaciones de Usuario..."
+            hi.ProgressBar.PerformStep()
+            hi.Refresh()
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''
+            If Not BGWAlertas.IsBusy Then
+                BGWAlertas.RunWorkerAsync()
+            End If
+            '================= BACKGROUND WORKERS   ==========================
+            CheckModulesAuth()
+            If gModuloCloud = 1 Then
+                'BackgroundSyncLibroventasClowd.RunWorkerAsync()
+                'BGWStock.RunWorkerAsync()
+            End If
+            '======================================
+            Cursor.Current = Cursors.Default
+            hi.Dispose()
+            '======================================
+            Dim elast As Char
+            elast = CajaseventosTableAdapter.cajaseventos_emailedlast()
+            If elast = "N" Then
+                ShowPopUp("Recuerda enviar el ultimo CIERRE DE CAJA!", 400)
+            End If
+            '********************************************************
+            PrincipalMaximizar()
+        Catch ex As Exception
+            MsgEx("El SERVIDOR LOCAL no esta respondiendo-> revisa tu conexión de red: " + ex.Message)
+            Me.Close()
+        End Try
+        '**********
     End Sub
     Public Sub EjecutarAlertas()
         '====================================================================

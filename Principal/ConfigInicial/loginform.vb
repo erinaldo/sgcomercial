@@ -253,6 +253,19 @@ Public Class loginform
         '----------------------------------
         textusuario.Select()
         IsLucasmartinbs()
+        '==== borrar esto
+        Try
+            '********** FORMATO CIERRE DE CAJA
+            '==== borrar esto
+            If gMiIDCliente = 2 Then
+                Dim ParametrosgeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
+                '==== borrar esto
+                ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("FormatoCierreCaja", Nothing, "Automático", Nothing)
+                '==== borrar esto
+            End If
+        Catch ex As Exception
+        End Try
+        '==== FIN borrar esto
     End Sub
 
     Private Sub GetCajaOperativa()
@@ -336,21 +349,21 @@ Public Class loginform
             LabelClowdInfo.Visible = True
             Dim su As SUAuth
             su = New SUAuth
-            gSUToken = Nothing
-            su.ShowDialog()
+            gSUToken = True
+            'su.ShowDialog()
             If gSUToken = True Then
                 Dim conf As IFiscal
                 conf = New IFiscal
                 conf.ShowDialog()
-                Me.Hide()
-                Me.loginform_Load(e, e)
-                Me.Show()
+                'Me.Hide()
+                'Me.loginform_Load(e, e)
+                'Me.Show()
             Else
-                Me.loginform_Load(e, e)
+                'Me.loginform_Load(e, e)
             End If
             LabelClowdInfo.Visible = False
         End If
-
+        '====================   RELOAD INICIO ==================
         If (e.KeyCode = Keys.L AndAlso e.Modifiers = Keys.Control) Then
             'Me.Dispose()
             loginform_Load(e, e)

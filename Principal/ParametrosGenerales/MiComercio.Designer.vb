@@ -92,6 +92,8 @@ Partial Class MiComercio
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
         Me.ComboValDatosNuevosClientes = New System.Windows.Forms.ComboBox()
         Me.TipocomprobantesTableAdapter = New sgcomercial.comercialDataSetTableAdapters.tipocomprobantesTableAdapter()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.ComboBoxFormatoCierreCaja = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametrosgeneralesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -374,15 +376,21 @@ Partial Class MiComercio
         Me.TableAdapterManager.cajasTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevoluciondetalleTableAdapter = Nothing
         Me.TableAdapterManager.cambiodevolucionTableAdapter = Nothing
+        Me.TableAdapterManager.categoriasempleadosTableAdapter = Nothing
+        Me.TableAdapterManager.centroscostoTableAdapter = Nothing
         Me.TableAdapterManager.clientesdomiciliosTableAdapter = Nothing
         Me.TableAdapterManager.clientesserviciosTableAdapter = Nothing
         Me.TableAdapterManager.clientesTableAdapter = Nothing
+        Me.TableAdapterManager.conceptossueldosTableAdapter = Nothing
+        Me.TableAdapterManager.condicionempleoTableAdapter = Nothing
+        Me.TableAdapterManager.convenioempleoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaproductosTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventarangosTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaregalorangoTableAdapter = Nothing
         Me.TableAdapterManager.criteriosventaTableAdapter = Nothing
         Me.TableAdapterManager.cuentascorrientesTableAdapter = Nothing
         Me.TableAdapterManager.depositosTableAdapter = Nothing
+        Me.TableAdapterManager.empleadosTableAdapter = Nothing
         Me.TableAdapterManager.errorlogTableAdapter = Nothing
         Me.TableAdapterManager.estadosaiTableAdapter = Nothing
         Me.TableAdapterManager.estadosentregadeliveryTableAdapter = Nothing
@@ -394,6 +402,8 @@ Partial Class MiComercio
         Me.TableAdapterManager.gastosTableAdapter = Nothing
         Me.TableAdapterManager.gradosalumnosTableAdapter = Nothing
         Me.TableAdapterManager.gradosTableAdapter = Nothing
+        Me.TableAdapterManager.gruposjerarquicosTableAdapter = Nothing
+        Me.TableAdapterManager.incapacidadesTableAdapter = Nothing
         Me.TableAdapterManager.listaspreciosTableAdapter = Nothing
         Me.TableAdapterManager.localidadesTableAdapter = Nothing
         Me.TableAdapterManager.lotesenviosdetalleTableAdapter = Nothing
@@ -403,6 +413,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.modulosTableAdapter = Nothing
         Me.TableAdapterManager.motivostockTableAdapter = Nothing
         Me.TableAdapterManager.mozosTableAdapter = Nothing
+        Me.TableAdapterManager.obrassocialesTableAdapter = Nothing
         Me.TableAdapterManager.ordenesmesasTableAdapter = Nothing
         Me.TableAdapterManager.pagosimputacionesTableAdapter = Nothing
         Me.TableAdapterManager.pagosTableAdapter = Nothing
@@ -426,6 +437,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.rubrosTableAdapter = Nothing
         Me.TableAdapterManager.salonesTableAdapter = Nothing
         Me.TableAdapterManager.serviciosTableAdapter = Nothing
+        Me.TableAdapterManager.sindicatosTableAdapter = Nothing
         Me.TableAdapterManager.stockremotoTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.sucursalesTableAdapter = Nothing
@@ -433,6 +445,7 @@ Partial Class MiComercio
         Me.TableAdapterManager.ticketaccesofeTableAdapter = Nothing
         Me.TableAdapterManager.tipocomprobantesTableAdapter = Nothing
         Me.TableAdapterManager.tipoconceptosTableAdapter = Nothing
+        Me.TableAdapterManager.tipoconceptosueldoTableAdapter = Nothing
         Me.TableAdapterManager.tipocondicionivaTableAdapter = Nothing
         Me.TableAdapterManager.tipodocumentosTableAdapter = Nothing
         Me.TableAdapterManager.tipoestadosTableAdapter = Nothing
@@ -661,7 +674,9 @@ Partial Class MiComercio
         '
         'GroupBox9
         '
+        Me.GroupBox9.Controls.Add(Me.ComboBoxFormatoCierreCaja)
         Me.GroupBox9.Controls.Add(Me.EmailCierreCajaTo)
+        Me.GroupBox9.Controls.Add(Me.Label12)
         Me.GroupBox9.Controls.Add(Me.Label8)
         Me.GroupBox9.Location = New System.Drawing.Point(9, 476)
         Me.GroupBox9.Name = "GroupBox9"
@@ -672,15 +687,15 @@ Partial Class MiComercio
         '
         'EmailCierreCajaTo
         '
-        Me.EmailCierreCajaTo.Location = New System.Drawing.Point(237, 28)
+        Me.EmailCierreCajaTo.Location = New System.Drawing.Point(146, 28)
         Me.EmailCierreCajaTo.Name = "EmailCierreCajaTo"
-        Me.EmailCierreCajaTo.Size = New System.Drawing.Size(339, 22)
+        Me.EmailCierreCajaTo.Size = New System.Drawing.Size(263, 22)
         Me.EmailCierreCajaTo.TabIndex = 1
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(97, 31)
+        Me.Label8.Location = New System.Drawing.Point(6, 31)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(134, 17)
         Me.Label8.TabIndex = 0
@@ -807,6 +822,25 @@ Partial Class MiComercio
         'TipocomprobantesTableAdapter
         '
         Me.TipocomprobantesTableAdapter.ClearBeforeFill = True
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(427, 31)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(64, 17)
+        Me.Label12.TabIndex = 0
+        Me.Label12.Text = "Formato:"
+        '
+        'ComboBoxFormatoCierreCaja
+        '
+        Me.ComboBoxFormatoCierreCaja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxFormatoCierreCaja.FormattingEnabled = True
+        Me.ComboBoxFormatoCierreCaja.Items.AddRange(New Object() {"Automático/Usuario", "Automático"})
+        Me.ComboBoxFormatoCierreCaja.Location = New System.Drawing.Point(497, 28)
+        Me.ComboBoxFormatoCierreCaja.Name = "ComboBoxFormatoCierreCaja"
+        Me.ComboBoxFormatoCierreCaja.Size = New System.Drawing.Size(154, 24)
+        Me.ComboBoxFormatoCierreCaja.TabIndex = 2
         '
         'MiComercio
         '
@@ -936,4 +970,6 @@ Partial Class MiComercio
     Friend WithEvents Label10 As Label
     Friend WithEvents TipocomprobantesBindingSource As BindingSource
     Friend WithEvents TipocomprobantesTableAdapter As comercialDataSetTableAdapters.tipocomprobantesTableAdapter
+    Friend WithEvents ComboBoxFormatoCierreCaja As ComboBox
+    Friend WithEvents Label12 As Label
 End Class

@@ -38,7 +38,14 @@ Public Class CajaAperturaCierre
             End If
             '***************    FIN consultar el estado de caja *************
         End If
-        'Me.Select()
+
+        Select Case gFormatoCierreCaja
+            Case "Automático"
+                Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja_old.rdlc"
+            Case Else
+                Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja.rdlc"
+        End Select
+        'MsgBox(Me.ReportViewer1.LocalReport.ReportEmbeddedResource)
         'Me.ReportViewer1.RefreshReport()
     End Sub
 
@@ -117,7 +124,7 @@ Public Class CajaAperturaCierre
 
             If rtn = 1 Then
                 'MsgBox("Caja Cerrada Exitosamente!", MsgBoxStyle.Information, "Mensaje")
-                CreateObject("WScript.Shell").Popup("Espere un momento" + " -NO APAGUE EL SISTEMA-", 1, "Aviso!", vbInformation)
+                CreateObject("WScript.Shell").Popup("Espere un momento" + " -NO APAGUE EL SISTEMA-", 2, "Aviso!", vbInformation)
                 'MsgExPopUp("Espere un momento - NO APAGUE EL SISTEMA -")
                 If My.Computer.Network.IsAvailable Then
                     mail_cierrecaja()
@@ -139,7 +146,7 @@ Public Class CajaAperturaCierre
                         C.ShowDialog()
                         isopen(idcaja)
                     Case "Preguntar"
-                        If MsgBox("Desea Imprimir el comprobante?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
+                        If MsgBox("Desea Imprimir el Reporte de Cierre de Caja?", MsgBoxStyle.YesNo, "Pregunta") = MsgBoxResult.Yes Then
                             Dim C As ReporteCierreCaja
                             C = New ReporteCierreCaja
                             C.ShowDialog()

@@ -35,8 +35,8 @@
     <PublisherName>sistemascomerciales.net</PublisherName>
     <SuiteName>SGComercial</SuiteName>
     <MinimumRequiredVersion>4.0.7.12</MinimumRequiredVersion>
-    <ApplicationRevision>65</ApplicationRevision>
-    <ApplicationVersion>4.1.0.65</ApplicationVersion>
+    <ApplicationRevision>66</ApplicationRevision>
+    <ApplicationVersion>4.1.0.66</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1994,6 +1994,7 @@
     <EmbeddedResource Include="Ventas\Reportes\LibroVentasCanceladas.resx">
       <DependentUpon>LibroVentasCanceladas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Reportes\RepCierreCaja_old.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepComandera50.rdlc" />
     <EmbeddedResource Include="Ventas\Reportes\RepComandera80.rdlc" />
     <EmbeddedResource Include="TransferenciaStock\EnviarStock.resx">

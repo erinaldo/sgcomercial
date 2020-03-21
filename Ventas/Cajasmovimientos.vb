@@ -56,6 +56,12 @@ Public Class Cajasmovimientos
                     MsgBox("El reporte todavia no esta finalizado, antes debe cerrar la caja!")
                     Return
                 End If
+                Select Case gFormatoCierreCaja
+                    Case "Automático"
+                        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja_old.rdlc"
+                    Case Else
+                        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepCierreCaja.rdlc"
+                End Select
                 gidevento = CajaseventosDataGridView.CurrentRow.Cells(0).Value()
                 FechaCierre = CajaseventosDataGridView.CurrentRow.Cells("FechacierreDataGridViewTextBoxColumn").Value()
                 Me.CajaseventosTableAdapter.FillByIdevento(Me.ComercialDataSet.cajaseventos, gidevento)

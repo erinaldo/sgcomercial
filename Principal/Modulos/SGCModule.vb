@@ -55,6 +55,7 @@ Module SGCModule
     Public gNombreComercio As String
     Public gPublicDocumentsPath As String
     Public WaitingLicence As Boolean
+    Public gFormatoCierreCaja As String
     '************************************************
     Public FormPrincipal As Principal
     '************************************************

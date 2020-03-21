@@ -101,6 +101,10 @@ Public Class MiComercio
         End If
         '***************    ValidarDatosNuevosClientes   ******************************************
         ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("ValDatosNuevosClientes", Nothing, ComboValDatosNuevosClientes.Text, Nothing)
+        '********** FORMATO CIERRE DE CAJA
+        ParametrosgeneralesTableAdapter.parametrosgenerales_updatebyprgclave("FormatoCierreCaja", Nothing, ComboBoxFormatoCierreCaja.Text, Nothing)
+        gFormatoCierreCaja = ComboBoxFormatoCierreCaja.Text
+        '**********
         '***************    -----------     FIN     ------------  ******************************************
     End Sub
 
@@ -215,6 +219,11 @@ Public Class MiComercio
         Dim v_valdatosnuevosclientes As String
         v_valdatosnuevosclientes = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("ValDatosNuevosClientes")
         ComboValDatosNuevosClientes.Text = v_valdatosnuevosclientes
+        '**********
+        '********** FORMATO CIERRE DE CAJA
+        Dim FormatoCierreCaja As String
+        FormatoCierreCaja = ParametrosgeneralesTableAdapter.parametrosgenerales_GetPrgstring1("FormatoCierreCaja")
+        ComboBoxFormatoCierreCaja.Text = FormatoCierreCaja
         '**********
         '**********
         textnombrecomercio.Select()

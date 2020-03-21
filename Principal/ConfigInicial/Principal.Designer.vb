@@ -273,6 +273,7 @@ Partial Class Principal
         '
         'MenuStripMain
         '
+        Me.MenuStripMain.Visible = False
         Me.MenuStripMain.AutoSize = False
         Me.MenuStripMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.MenuStripMain.Font = New System.Drawing.Font("Segoe UI", 10.0!)
