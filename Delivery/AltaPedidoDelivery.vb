@@ -168,18 +168,21 @@ Public Class AltaPedidoDelivery
         p.ShowDialog()
         ''***********************
         If Val(gcantidad) = 0 Then Return
+        If gcodigoproducto = Nothing Then Return
         v_precioventa = gprecioventa
         idproducto = ProductosTableAdapter.productos_existeproducto(gcodigoproducto)
-        '-------------------------------MAL MAL ESTO HAY QUE CAMBIAR!!-------------------------------------------
+        '-------------------------------------------------------------------------
         Dim StockGeneralTableAdapter As New comercialDataSetTableAdapters.stockgeneralTableAdapter()
         Dim StockGralDataTable As New comercialDataSet.stockgeneralDataTable()
         StockGralDataTable = StockGeneralTableAdapter.GetDataByProductSheet(gcodigoproducto)
         '!!-------------------------------------------
-        productodisponible = StockGralDataTable.Rows(0)("disponible") 'StockTableAdapter.stock_consultardisponible(idproducto)
-        productodisponibleenvasado = StockGralDataTable.Rows(0)("unidades") 'StockTableAdapter.stock_consultardisponibleenvasado(idproducto)
-        descripcion = StockGralDataTable.Rows(0)("producto") 'ProductosTableAdapter.productos_consultardescripcion(gcodigoproducto)
-        unidadmedida = StockGralDataTable.Rows(0)("unidadmedida") 'ProductosTableAdapter.productos_consultarunidadmedida(gcodigoproducto)
-        medida = StockGralDataTable.Rows(0)("medidavalor") 'ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
+        If StockGralDataTable.Count > 0 Then
+            productodisponible = StockGralDataTable.Rows(0)("disponible")
+            productodisponibleenvasado = StockGralDataTable.Rows(0)("unidades")
+            descripcion = StockGralDataTable.Rows(0)("producto")
+            unidadmedida = StockGralDataTable.Rows(0)("unidadmedida")
+            medida = StockGralDataTable.Rows(0)("medidavalor")
+        End If
         '-------------------------------************************************-------------------------------------------
         If VentasdetalleDataGridView.RowCount = 0 Then  '** ES EL PRIMER ARTICULO DE LA LISTA
             newrow = VentasdetalleDataGridView.Rows.Add()

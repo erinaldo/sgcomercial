@@ -152,7 +152,7 @@ Public Class ImportarProductos
         If result = False Then
             Return
         End If
-        MsgBox("Se encontraron " + actualizaciones.ToString + " productos para actualizar y " + altas.ToString + " producto nuevos. Presione el botón CONFIRMAR para completar la operación", vbInformation, "AVISO")
+        MsgBox("Se encontraron " + actualizaciones.ToString + " productos para actualizar y " + altas.ToString + " producto/s nuevo/s. Presione el botón CONFIRMAR para completar la operación", vbInformation, "AVISO")
         BtnConfirmar.Enabled = True
         'If MsgBox("Se encontraron " + actualizaciones.ToString + " productos para actualizar y " + altas.ToString + " producto nuevos. Presione el botón CONFIRMAR para completar la operación", vbYes, "Pregunta") Then
         '    BtnConfirmar.Enabled = True

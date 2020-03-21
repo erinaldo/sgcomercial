@@ -331,47 +331,50 @@ Public Class BuscaProductoManualPedidos
     End Sub
 
     Private Sub ComboListaPrecios_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboListaPrecios.SelectedIndexChanged
-        Dim precioventagranel As Decimal = 0
-        Try
-            Select Case ComboListaPrecios.SelectedValue
-                Case 1
-                    glistaprecio = 1
-                    'precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
-                    precioventatextbox.Text = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
-                    gprecioventa = precioventatextbox.Text
-                'MsgBox("hola" + precioventa.ToString)
-                Case 2
-                    glistaprecio = 2
-                    precioventagranel = ProductosTableAdapter.productos_consultarpreciogranel(gcodigoproducto)
-                    Dim medida As Decimal
-                    medida = ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
-                    precioventatextbox.Text = precioventagranel / medida
-                    gprecioventa = precioventatextbox.Text
-                'MsgBox("hola" + precioventagranel.ToString)
-                Case 3
-                    glistaprecio = 3
-                    'precioventamayorista = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
-                    precioventatextbox.Text = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
-                    gprecioventa = precioventatextbox.Text
-                'MsgBox("hola" + precioventamayorista.ToString)
-                Case 4
-                    glistaprecio = 4
-                    'precioventacomercios / precioventadistribuidor
-                    precioventatextbox.Text = ProductosTableAdapter.productos_precioventadistribuidor(gcodigoproducto)
-                    gprecioventa = precioventatextbox.Text
-                    'MsgBox("hola" + precioventamayorista.ToString)
-                Case Else
-                    MsgBox("Opcion no configurada", MsgBoxStyle.Exclamation)
-            End Select
-            calcular()
-            cantidadtextbox.Select()
-        Catch ex As Exception
-            MsgBox("No se pudo completar la operación: " + ex.Message)
-        End Try
+        gcodigoproducto = ProductosDataGridView.CurrentRow.Cells("codigoproducto").Value
+        calculapreciolista()
+        'Dim precioventagranel As Decimal = 0
+        'Try
+        '    Select Case ComboListaPrecios.SelectedValue
+        '        Case 1
+        '            glistaprecio = 1
+        '            'precioventa = ProductosTableAdapter.productos_consultarprecioventa(codigoproducto)
+        '            precioventatextbox.Text = ProductosTableAdapter.productos_consultarprecioventa(gcodigoproducto)
+        '            gprecioventa = precioventatextbox.Text
+        '        'MsgBox("hola" + precioventa.ToString)
+        '        Case 2
+        '            glistaprecio = 2
+        '            precioventagranel = ProductosTableAdapter.productos_consultarpreciogranel(gcodigoproducto)
+        '            Dim medida As Decimal
+        '            medida = ProductosTableAdapter.productos_consultarmedida(gcodigoproducto)
+        '            precioventatextbox.Text = precioventagranel / medida
+        '            gprecioventa = precioventatextbox.Text
+        '        'MsgBox("hola" + precioventagranel.ToString)
+        '        Case 3
+        '            glistaprecio = 3
+        '            'precioventamayorista = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
+        '            precioventatextbox.Text = ProductosTableAdapter.productos_consultarpreciomayorista(gcodigoproducto)
+        '            gprecioventa = precioventatextbox.Text
+        '        'MsgBox("hola" + precioventamayorista.ToString)
+        '        Case 4
+        '            glistaprecio = 4
+        '            'precioventacomercios / precioventadistribuidor
+        '            precioventatextbox.Text = ProductosTableAdapter.productos_precioventadistribuidor(gcodigoproducto)
+        '            gprecioventa = precioventatextbox.Text
+        '            'MsgBox("hola" + precioventamayorista.ToString)
+        '        Case Else
+        '            MsgBox("Opcion no configurada", MsgBoxStyle.Exclamation)
+        '    End Select
+        '    calcular()
+        '    cantidadtextbox.Select()
+        'Catch ex As Exception
+        '    MsgBox("No se pudo completar la operación: " + ex.Message)
+        'End Try
 
     End Sub
     Public Sub calculapreciolista()
         Dim precioventagranel As Decimal = 0
+        If gcodigoproducto = Nothing Then Return
         Select Case ComboListaPrecios.SelectedValue
             Case 1
                 glistaprecio = 1

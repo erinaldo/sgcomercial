@@ -32,12 +32,14 @@ Partial Class AyudaImportarProductos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(543, 517)
+        Me.GroupBox1.Size = New System.Drawing.Size(695, 517)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ayuda"
@@ -46,7 +48,7 @@ Partial Class AyudaImportarProductos
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(109, 445)
+        Me.Label2.Location = New System.Drawing.Point(185, 445)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(324, 17)
         Me.Label2.TabIndex = 2
@@ -54,15 +56,17 @@ Partial Class AyudaImportarProductos
         '
         'Label1
         '
+        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.Location = New System.Drawing.Point(27, 28)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(488, 397)
+        Me.Label1.Size = New System.Drawing.Size(662, 397)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = resources.GetString("Label1.Text")
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(227, 471)
+        Me.Button1.Location = New System.Drawing.Point(303, 471)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(89, 29)
         Me.Button1.TabIndex = 0
@@ -74,7 +78,7 @@ Partial Class AyudaImportarProductos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(570, 541)
+        Me.ClientSize = New System.Drawing.Size(722, 541)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

@@ -128,13 +128,13 @@ La primer fila en el archivo debe corresponder al nombre de la columna, el archi
 	2-marca
 	3-modelo
 	4-presentacion
-	5-unidadmedida (kilos, metros, litros, otras unidades)
+	5-unidadmedida (kilos, metros, litros, unidad cerrada, unidad fraccionable )
 	6-medida
-	7-preciocosto
-	8-precioventa
-	9-precioventagranel
-	10-precioventamayorista
-	11-precioventadistribuidor
+	7-preciocosto (no usar separador de mil - use separador decimal (,) coma)
+	8-precioventa (no usar separador de mil - use separador decimal (,) coma)
+	9-precioventagranel (no usar separador de mil - use separador decimal (,) coma)
+	10-precioventamayorista (no usar separador de mil - use separador decimal (,) coma)
+	11-precioventadistribuidor (no usar separador de mil - use separador decimal (,) coma)
 	12-idrubro
 	13-stockminimo
 	14-descripcion
