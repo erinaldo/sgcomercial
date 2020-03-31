@@ -11,10 +11,14 @@ Public Class EstadoCuentaCorriente
             filtrarcliente()
         End If
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-        Dim autorizado As Int16
-        autorizado = PermisosTableAdapter1.permisos_consultabymenuname(guserprofile, "EstadoCuentaCorriente")
-        If Not autorizado = 1 Then
-            ListacuentascorrientesDataGridView.Columns("Anular").Visible = False
+        If Not guserprofile = "ADMINISTRADOR" Then
+            Dim autorizado As Int16
+            autorizado = PermisosTableAdapter1.permisos_consultabymenuname(guserprofile, "AnularOperacionesCuentaCorriente")
+            'AnularOperacionesCuentaCorriente
+            'EstadoCuentaCorriente
+            If Not autorizado = 1 Then
+                ListacuentascorrientesDataGridView.Columns("Anular").Visible = False
+            End If
         End If
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     End Sub

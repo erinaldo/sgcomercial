@@ -221,7 +221,7 @@ Public Class Principal
                 otroItem.Enabled = False
             End If
             ''''''''''''    ACCESOS OCULTOS POR DEFECTO  '''''''''''''''''''''''''''
-            If otroItem.Name = "RegistrarVentaACuentaCorrienteToolStripMenuItem" Or otroItem.Name = "RegistrarPresupuestoToolStripMenuItem" Or otroItem.Name = "PedidosRecibidosVerTodosToolStripMenuItem" Then
+            If otroItem.Name = "RegistrarVentaACuentaCorrienteToolStripMenuItem" Or otroItem.Name = "RegistrarPresupuestoToolStripMenuItem" Or otroItem.Name = "PedidosRecibidosVerTodosToolStripMenuItem" Or otroItem.Name = "AnularOperacionesCuentaCorrienteToolStripMenuItem" Then
                 otroItem.Visible = False
                 otroItem.Enabled = False
             End If
