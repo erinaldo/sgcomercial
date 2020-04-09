@@ -280,7 +280,6 @@
     End Sub
 
     Private Sub ToolStripButtonPedidosWeb_Click(sender As Object, e As EventArgs) Handles ToolStripButtonPedidosWeb.Click
-
         If MsgQues("Esta Operación puede tomar unos minutos. Desea continuar?") = True Then
             Me.Cursor = Cursors.WaitCursor
             SynPedidos("WEB")

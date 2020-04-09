@@ -1499,6 +1499,8 @@ Partial Public Class siscomDataSet
         
         Private columnfechalogin As Global.System.Data.DataColumn
         
+        Private columntrlspdsac As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1655,6 +1657,14 @@ Partial Public Class siscomDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property trlspdsacColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntrlspdsac
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1691,9 +1701,9 @@ Partial Public Class siscomDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddterminalesRow(ByVal idcliente As Integer, ByVal mac As String, ByVal nombre As String, ByVal tvid As String, ByVal fechaalta As Date, ByVal fechabaja As Date, ByVal sgcversion As String, ByVal autoupdater As Integer, ByVal idsucursal As Integer, ByVal tipolicencia As String, ByVal forceupdate As Integer, ByVal hdsn As String, ByVal mbsn As String, ByVal fechalogin As Date) As terminalesRow
+        Public Overloads Function AddterminalesRow(ByVal idcliente As Integer, ByVal mac As String, ByVal nombre As String, ByVal tvid As String, ByVal fechaalta As Date, ByVal fechabaja As Date, ByVal sgcversion As String, ByVal autoupdater As Integer, ByVal idsucursal As Integer, ByVal tipolicencia As String, ByVal forceupdate As Integer, ByVal hdsn As String, ByVal mbsn As String, ByVal fechalogin As Date, ByVal trlspdsac As Integer) As terminalesRow
             Dim rowterminalesRow As terminalesRow = CType(Me.NewRow,terminalesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, idcliente, mac, nombre, tvid, fechaalta, fechabaja, sgcversion, autoupdater, idsucursal, tipolicencia, forceupdate, hdsn, mbsn, fechalogin}
+            Dim columnValuesArray() As Object = New Object() {Nothing, idcliente, mac, nombre, tvid, fechaalta, fechabaja, sgcversion, autoupdater, idsucursal, tipolicencia, forceupdate, hdsn, mbsn, fechalogin, trlspdsac}
             rowterminalesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowterminalesRow)
             Return rowterminalesRow
@@ -1737,6 +1747,7 @@ Partial Public Class siscomDataSet
             Me.columnhdsn = MyBase.Columns("hdsn")
             Me.columnmbsn = MyBase.Columns("mbsn")
             Me.columnfechalogin = MyBase.Columns("fechalogin")
+            Me.columntrlspdsac = MyBase.Columns("trlspdsac")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1772,6 +1783,8 @@ Partial Public Class siscomDataSet
             MyBase.Columns.Add(Me.columnmbsn)
             Me.columnfechalogin = New Global.System.Data.DataColumn("fechalogin", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfechalogin)
+            Me.columntrlspdsac = New Global.System.Data.DataColumn("trlspdsac", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntrlspdsac)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidterminales}, true))
             Me.columnidterminales.AutoIncrement = true
             Me.columnidterminales.AutoIncrementSeed = -1
@@ -2869,6 +2882,8 @@ Partial Public Class siscomDataSet
         
         Private columntipolicencia As Global.System.Data.DataColumn
         
+        Private columntrlspdsac As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3001,6 +3016,14 @@ Partial Public Class siscomDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property trlspdsacColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntrlspdsac
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3037,9 +3060,9 @@ Partial Public Class siscomDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddmisclientesRow(ByVal nombre As String, ByVal mac As String, ByVal equipo As String, ByVal tvid As String, ByVal fechaalta As Date, ByVal fechabaja As Date, ByVal sgcversion As String, ByVal autoupdater As Integer, ByVal idsucursal As Integer, ByVal tipolicencia As String) As misclientesRow
+        Public Overloads Function AddmisclientesRow(ByVal nombre As String, ByVal mac As String, ByVal equipo As String, ByVal tvid As String, ByVal fechaalta As Date, ByVal fechabaja As Date, ByVal sgcversion As String, ByVal autoupdater As Integer, ByVal idsucursal As Integer, ByVal tipolicencia As String, ByVal trlspdsac As Integer) As misclientesRow
             Dim rowmisclientesRow As misclientesRow = CType(Me.NewRow,misclientesRow)
-            Dim columnValuesArray() As Object = New Object() {nombre, Nothing, mac, equipo, tvid, fechaalta, fechabaja, sgcversion, autoupdater, Nothing, idsucursal, tipolicencia}
+            Dim columnValuesArray() As Object = New Object() {nombre, Nothing, mac, equipo, tvid, fechaalta, fechabaja, sgcversion, autoupdater, Nothing, idsucursal, tipolicencia, trlspdsac}
             rowmisclientesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowmisclientesRow)
             Return rowmisclientesRow
@@ -3080,6 +3103,7 @@ Partial Public Class siscomDataSet
             Me.columnidclientes = MyBase.Columns("idclientes")
             Me.columnidsucursal = MyBase.Columns("idsucursal")
             Me.columntipolicencia = MyBase.Columns("tipolicencia")
+            Me.columntrlspdsac = MyBase.Columns("trlspdsac")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3109,6 +3133,8 @@ Partial Public Class siscomDataSet
             MyBase.Columns.Add(Me.columnidsucursal)
             Me.columntipolicencia = New Global.System.Data.DataColumn("tipolicencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntipolicencia)
+            Me.columntrlspdsac = New Global.System.Data.DataColumn("trlspdsac", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntrlspdsac)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidterminales}, true))
             Me.columnnombre.MaxLength = 75
             Me.columnidterminales.AutoIncrement = true
@@ -6694,6 +6720,21 @@ Partial Public Class siscomDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property trlspdsac() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableterminales.trlspdsacColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'trlspdsac' de la tabla 'terminales' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableterminales.trlspdsacColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsidclienteNull() As Boolean
             Return Me.IsNull(Me.tableterminales.idclienteColumn)
         End Function
@@ -6858,6 +6899,18 @@ Partial Public Class siscomDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetfechaloginNull()
             Me(Me.tableterminales.fechaloginColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstrlspdsacNull() As Boolean
+            Return Me.IsNull(Me.tableterminales.trlspdsacColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettrlspdsacNull()
+            Me(Me.tableterminales.trlspdsacColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -7369,6 +7422,21 @@ Partial Public Class siscomDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property trlspdsac() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablemisclientes.trlspdsacColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'trlspdsac' de la tabla 'misclientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemisclientes.trlspdsacColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsnombreNull() As Boolean
             Return Me.IsNull(Me.tablemisclientes.nombreColumn)
         End Function
@@ -7485,6 +7553,18 @@ Partial Public Class siscomDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SettipolicenciaNull()
             Me(Me.tablemisclientes.tipolicenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstrlspdsacNull() As Boolean
+            Return Me.IsNull(Me.tablemisclientes.trlspdsacColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettrlspdsacNull()
+            Me(Me.tablemisclientes.trlspdsacColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -11210,6 +11290,7 @@ Namespace siscomDataSetTableAdapters
             tableMapping.ColumnMappings.Add("hdsn", "hdsn")
             tableMapping.ColumnMappings.Add("mbsn", "mbsn")
             tableMapping.ColumnMappings.Add("fechalogin", "fechalogin")
+            tableMapping.ColumnMappings.Add("trlspdsac", "trlspdsac")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -11224,7 +11305,8 @@ Namespace siscomDataSetTableAdapters
                 "te` IS NULL) OR (`forceupdate` = @p21)) AND ((@p22 = 1 AND `tipolicencia` IS NUL"& _ 
                 "L) OR (`tipolicencia` = @p23)) AND ((@p24 = 1 AND `hdsn` IS NULL) OR (`hdsn` = @"& _ 
                 "p25)) AND ((@p26 = 1 AND `mbsn` IS NULL) OR (`mbsn` = @p27)) AND ((@p28 = 1 AND "& _ 
-                "`fechalogin` IS NULL) OR (`fechalogin` = @p29)))"
+                "`fechalogin` IS NULL) OR (`fechalogin` = @p29)) AND ((@p30 = 1 AND `trlspdsac` I"& _ 
+                "S NULL) OR (`trlspdsac` = @p31)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -11472,12 +11554,29 @@ Namespace siscomDataSetTableAdapters
             param.SourceColumn = "fechalogin"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p30"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "trlspdsac"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p31"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "trlspdsac"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `terminales` (`idcliente`, `mac`, `nombre`, `tvid`, `fechaalta`, `fec"& _ 
                 "habaja`, `sgcversion`, `autoupdater`, `idsucursal`, `forceupdate`, `tipolicencia"& _ 
-                "`, `hdsn`, `mbsn`, `fechalogin`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8,"& _ 
-                " @p9, @p10, @p11, @p12, @p13, @p14)"
+                "`, `hdsn`, `mbsn`, `fechalogin`, `trlspdsac`) VALUES (@p1, @p2, @p3, @p4, @p5, @"& _ 
+                "p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -11577,23 +11676,31 @@ Namespace siscomDataSetTableAdapters
             param.IsNullable = true
             param.SourceColumn = "fechalogin"
             Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p15"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "trlspdsac"
+            Me._adapter.InsertCommand.Parameters.Add(param)
             Me._adapter.UpdateCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `terminales` SET `idcliente` = @p1, `mac` = @p2, `nombre` = @p3, `tvid` = "& _ 
                 "@p4, `fechaalta` = @p5, `fechabaja` = @p6, `sgcversion` = @p7, `autoupdater` = @"& _ 
                 "p8, `idsucursal` = @p9, `forceupdate` = @p10, `tipolicencia` = @p11, `hdsn` = @p"& _ 
-                "12, `mbsn` = @p13, `fechalogin` = @p14 WHERE ((`idterminales` = @p15) AND ((@p16"& _ 
-                " = 1 AND `idcliente` IS NULL) OR (`idcliente` = @p17)) AND ((@p18 = 1 AND `mac` "& _ 
-                "IS NULL) OR (`mac` = @p19)) AND ((@p20 = 1 AND `nombre` IS NULL) OR (`nombre` = "& _ 
-                "@p21)) AND ((@p22 = 1 AND `tvid` IS NULL) OR (`tvid` = @p23)) AND ((@p24 = 1 AND"& _ 
-                " `fechaalta` IS NULL) OR (`fechaalta` = @p25)) AND ((@p26 = 1 AND `fechabaja` IS"& _ 
-                " NULL) OR (`fechabaja` = @p27)) AND ((@p28 = 1 AND `sgcversion` IS NULL) OR (`sg"& _ 
-                "cversion` = @p29)) AND ((@p30 = 1 AND `autoupdater` IS NULL) OR (`autoupdater` ="& _ 
-                " @p31)) AND ((@p32 = 1 AND `idsucursal` IS NULL) OR (`idsucursal` = @p33)) AND ("& _ 
-                "(@p34 = 1 AND `forceupdate` IS NULL) OR (`forceupdate` = @p35)) AND ((@p36 = 1 A"& _ 
-                "ND `tipolicencia` IS NULL) OR (`tipolicencia` = @p37)) AND ((@p38 = 1 AND `hdsn`"& _ 
-                " IS NULL) OR (`hdsn` = @p39)) AND ((@p40 = 1 AND `mbsn` IS NULL) OR (`mbsn` = @p"& _ 
-                "41)) AND ((@p42 = 1 AND `fechalogin` IS NULL) OR (`fechalogin` = @p43)))"
+                "12, `mbsn` = @p13, `fechalogin` = @p14, `trlspdsac` = @p15 WHERE ((`idterminales"& _ 
+                "` = @p16) AND ((@p17 = 1 AND `idcliente` IS NULL) OR (`idcliente` = @p18)) AND ("& _ 
+                "(@p19 = 1 AND `mac` IS NULL) OR (`mac` = @p20)) AND ((@p21 = 1 AND `nombre` IS N"& _ 
+                "ULL) OR (`nombre` = @p22)) AND ((@p23 = 1 AND `tvid` IS NULL) OR (`tvid` = @p24)"& _ 
+                ") AND ((@p25 = 1 AND `fechaalta` IS NULL) OR (`fechaalta` = @p26)) AND ((@p27 = "& _ 
+                "1 AND `fechabaja` IS NULL) OR (`fechabaja` = @p28)) AND ((@p29 = 1 AND `sgcversi"& _ 
+                "on` IS NULL) OR (`sgcversion` = @p30)) AND ((@p31 = 1 AND `autoupdater` IS NULL)"& _ 
+                " OR (`autoupdater` = @p32)) AND ((@p33 = 1 AND `idsucursal` IS NULL) OR (`idsucu"& _ 
+                "rsal` = @p34)) AND ((@p35 = 1 AND `forceupdate` IS NULL) OR (`forceupdate` = @p3"& _ 
+                "6)) AND ((@p37 = 1 AND `tipolicencia` IS NULL) OR (`tipolicencia` = @p38)) AND ("& _ 
+                "(@p39 = 1 AND `hdsn` IS NULL) OR (`hdsn` = @p40)) AND ((@p41 = 1 AND `mbsn` IS N"& _ 
+                "ULL) OR (`mbsn` = @p42)) AND ((@p43 = 1 AND `fechalogin` IS NULL) OR (`fechalogi"& _ 
+                "n` = @p44)) AND ((@p45 = 1 AND `trlspdsac` IS NULL) OR (`trlspdsac` = @p46)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p1"
@@ -11698,17 +11805,15 @@ Namespace siscomDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "idterminales"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumn = "trlspdsac"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p16"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "idcliente"
+            param.SourceColumn = "idterminales"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p17"
@@ -11717,18 +11822,27 @@ Namespace siscomDataSetTableAdapters
             param.IsNullable = true
             param.SourceColumn = "idcliente"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p18"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "mac"
+            param.SourceColumn = "idcliente"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p19"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "mac"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p20"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
@@ -11736,33 +11850,33 @@ Namespace siscomDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p20"
+            param.ParameterName = "@p21"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "nombre"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p21"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
-            param.IsNullable = true
-            param.SourceColumn = "nombre"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p22"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
-            param.SourceColumn = "tvid"
+            param.SourceColumn = "nombre"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p23"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "tvid"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p24"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
@@ -11770,24 +11884,24 @@ Namespace siscomDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p24"
+            param.ParameterName = "@p25"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "fechaalta"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p25"
-            param.DbType = Global.System.Data.DbType.DateTime
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.DateTime
-            param.IsNullable = true
-            param.SourceColumn = "fechaalta"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p26"
+            param.DbType = Global.System.Data.DbType.DateTime
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.DateTime
+            param.IsNullable = true
+            param.SourceColumn = "fechaalta"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p27"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -11796,7 +11910,7 @@ Namespace siscomDataSetTableAdapters
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p27"
+            param.ParameterName = "@p28"
             param.DbType = Global.System.Data.DbType.DateTime
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.DateTime
             param.IsNullable = true
@@ -11804,7 +11918,7 @@ Namespace siscomDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p28"
+            param.ParameterName = "@p29"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -11813,21 +11927,12 @@ Namespace siscomDataSetTableAdapters
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p29"
+            param.ParameterName = "@p30"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
             param.SourceColumn = "sgcversion"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p30"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "autoupdater"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p31"
@@ -11836,15 +11941,15 @@ Namespace siscomDataSetTableAdapters
             param.IsNullable = true
             param.SourceColumn = "autoupdater"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p32"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "idsucursal"
+            param.SourceColumn = "autoupdater"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p33"
@@ -11853,15 +11958,15 @@ Namespace siscomDataSetTableAdapters
             param.IsNullable = true
             param.SourceColumn = "idsucursal"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p34"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
-            param.SourceColumn = "forceupdate"
+            param.SourceColumn = "idsucursal"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p35"
@@ -11870,9 +11975,18 @@ Namespace siscomDataSetTableAdapters
             param.IsNullable = true
             param.SourceColumn = "forceupdate"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p36"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "forceupdate"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p37"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -11881,7 +11995,7 @@ Namespace siscomDataSetTableAdapters
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p37"
+            param.ParameterName = "@p38"
             param.DbType = Global.System.Data.DbType.StringFixedLength
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[String]
             param.IsNullable = true
@@ -11889,24 +12003,24 @@ Namespace siscomDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p38"
+            param.ParameterName = "@p39"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "hdsn"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p39"
-            param.DbType = Global.System.Data.DbType.[String]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
-            param.IsNullable = true
-            param.SourceColumn = "hdsn"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@p40"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "hdsn"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p41"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -11915,7 +12029,7 @@ Namespace siscomDataSetTableAdapters
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p41"
+            param.ParameterName = "@p42"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
             param.IsNullable = true
@@ -11923,7 +12037,7 @@ Namespace siscomDataSetTableAdapters
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p42"
+            param.ParameterName = "@p43"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -11932,11 +12046,28 @@ Namespace siscomDataSetTableAdapters
             param.SourceColumnNullMapping = true
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p43"
+            param.ParameterName = "@p44"
             param.DbType = Global.System.Data.DbType.DateTime
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.DateTime
             param.IsNullable = true
             param.SourceColumn = "fechalogin"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p45"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "trlspdsac"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@p46"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = true
+            param.SourceColumn = "trlspdsac"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
         End Sub
@@ -11955,13 +12086,13 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT idterminales, idcliente, mac, nombre, tvid, fechaalta, fechabaja, sgcversi"& _ 
-                "on, autoupdater, idsucursal, forceupdate, tipolicencia, hdsn, mbsn, fechalogin F"& _ 
-                "ROM terminales"
+                "on, autoupdater, idsucursal, forceupdate, tipolicencia, hdsn, mbsn, fechalogin, "& _ 
+                "trlspdsac FROM terminales"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT fechabaja, sgcversion, autoupdater, idsucursal, tipolicencia, forceupdate,"& _ 
-                " hdsn, mbsn, fechalogin FROM terminales WHERE (mac = @mac)"
+                " hdsn, mbsn, fechalogin, trlspdsac FROM terminales WHERE (mac = @mac)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@mac"
@@ -11974,7 +12105,8 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT fechabaja, sgcversion, autoupdater, idsucursal, tipolicencia, forceupdate,"& _ 
-                " hdsn, mbsn, idterminales, fechalogin FROM terminales WHERE (hdsn = @hdsn)"
+                " hdsn, mbsn, idterminales, fechalogin, trlspdsac FROM terminales WHERE (hdsn = @"& _ 
+                "hdsn)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@hdsn"
@@ -12045,7 +12177,7 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(4) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT autoupdater, idsucursal, forceupdate, tipolicencia, hdsn, mbsn, fechalogin"& _ 
-                " FROM terminales WHERE (idterminales = @idterminales)"
+                ", trlspdsac FROM terminales WHERE (idterminales = @idterminales)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@idterminales"
@@ -12056,8 +12188,8 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(param)
             Me._commandCollection(5) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT idcliente, forceupdate, tipolicencia, hdsn, mbsn, fechalogin FROM terminal"& _ 
-                "es WHERE (mac = @mac)"
+            Me._commandCollection(5).CommandText = "SELECT idcliente, forceupdate, tipolicencia, hdsn, mbsn, fechalogin, trlspdsac FR"& _ 
+                "OM terminales WHERE (mac = @mac)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@mac"
@@ -12070,7 +12202,7 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(6) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(6).Connection = Me.Connection
             Me._commandCollection(6).CommandText = "SELECT sgcversion, autoupdater, idsucursal, forceupdate, tipolicencia, hdsn, mbsn"& _ 
-                ", fechalogin FROM terminales WHERE (idterminales = @idterminales)"
+                ", fechalogin, trlspdsac FROM terminales WHERE (idterminales = @idterminales)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@idterminales"
@@ -12081,8 +12213,8 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(6).Parameters.Add(param)
             Me._commandCollection(7) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(7).Connection = Me.Connection
-            Me._commandCollection(7).CommandText = "SELECT idsucursal, forceupdate, tipolicencia, hdsn, mbsn, fechalogin FROM termina"& _ 
-                "les WHERE (mac = @mac)"
+            Me._commandCollection(7).CommandText = "SELECT idsucursal, forceupdate, tipolicencia, hdsn, mbsn, fechalogin, trlspdsac F"& _ 
+                "ROM terminales WHERE (mac = @mac)"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@mac"
@@ -12106,8 +12238,8 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(8).Parameters.Add(param)
             Me._commandCollection(9) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(9).Connection = Me.Connection
-            Me._commandCollection(9).CommandText = "SELECT forceupdate, fechalogin FROM terminales WHERE (idterminales = @idterminale"& _ 
-                "s)"
+            Me._commandCollection(9).CommandText = "SELECT forceupdate, fechalogin, trlspdsac FROM terminales WHERE (idterminales = @"& _ 
+                "idterminales)"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@idterminales"
@@ -12118,8 +12250,8 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(9).Parameters.Add(param)
             Me._commandCollection(10) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(10).Connection = Me.Connection
-            Me._commandCollection(10).CommandText = "SELECT forceupdate, tipolicencia, hdsn, mbsn, fechalogin FROM terminales WHERE (m"& _ 
-                "ac = @mac)"
+            Me._commandCollection(10).CommandText = "SELECT forceupdate, tipolicencia, hdsn, mbsn, fechalogin, trlspdsac FROM terminal"& _ 
+                "es WHERE (mac = @mac)"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@mac"
@@ -12254,7 +12386,7 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(17) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(17).Connection = Me.Connection
             Me._commandCollection(17).CommandText = "SELECT fechabaja, sgcversion, autoupdater, idsucursal, tipolicencia, forceupdate,"& _ 
-                " hdsn, mbsn, fechalogin FROM terminales WHERE (mac = @mac)"
+                " hdsn, mbsn, fechalogin, trlspdsac FROM terminales WHERE (mac = @mac)"
             Me._commandCollection(17).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@mac"
@@ -12390,7 +12522,23 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal p1 As Integer, ByVal p3 As Global.System.Nullable(Of Integer), ByVal p5 As String, ByVal p7 As String, ByVal p9 As String, ByVal p11 As Global.System.Nullable(Of Date), ByVal p13 As Global.System.Nullable(Of Date), ByVal p15 As String, ByVal p17 As Global.System.Nullable(Of Integer), ByVal p19 As Global.System.Nullable(Of Integer), ByVal p21 As Global.System.Nullable(Of Integer), ByVal p23 As String, ByVal p25 As String, ByVal p27 As String, ByVal p29 As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete( _
+                    ByVal p1 As Integer,  _
+                    ByVal p3 As Global.System.Nullable(Of Integer),  _
+                    ByVal p5 As String,  _
+                    ByVal p7 As String,  _
+                    ByVal p9 As String,  _
+                    ByVal p11 As Global.System.Nullable(Of Date),  _
+                    ByVal p13 As Global.System.Nullable(Of Date),  _
+                    ByVal p15 As String,  _
+                    ByVal p17 As Global.System.Nullable(Of Integer),  _
+                    ByVal p19 As Global.System.Nullable(Of Integer),  _
+                    ByVal p21 As Global.System.Nullable(Of Integer),  _
+                    ByVal p23 As String,  _
+                    ByVal p25 As String,  _
+                    ByVal p27 As String,  _
+                    ByVal p29 As Global.System.Nullable(Of Date),  _
+                    ByVal p31 As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p1,Integer)
             If (p3.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -12490,6 +12638,13 @@ Namespace siscomDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
             End If
+            If (p31.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(p31.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -12509,7 +12664,7 @@ Namespace siscomDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As String, ByVal p3 As String, ByVal p4 As String, ByVal p5 As Global.System.Nullable(Of Date), ByVal p6 As Global.System.Nullable(Of Date), ByVal p7 As String, ByVal p8 As Global.System.Nullable(Of Integer), ByVal p9 As Global.System.Nullable(Of Integer), ByVal p10 As Global.System.Nullable(Of Integer), ByVal p11 As String, ByVal p12 As String, ByVal p13 As String, ByVal p14 As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Integer), ByVal p2 As String, ByVal p3 As String, ByVal p4 As String, ByVal p5 As Global.System.Nullable(Of Date), ByVal p6 As Global.System.Nullable(Of Date), ByVal p7 As String, ByVal p8 As Global.System.Nullable(Of Integer), ByVal p9 As Global.System.Nullable(Of Integer), ByVal p10 As Global.System.Nullable(Of Integer), ByVal p11 As String, ByVal p12 As String, ByVal p13 As String, ByVal p14 As Global.System.Nullable(Of Date), ByVal p15 As Global.System.Nullable(Of Integer)) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -12580,6 +12735,11 @@ Namespace siscomDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
+            If (p15.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(p15.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -12614,21 +12774,23 @@ Namespace siscomDataSetTableAdapters
                     ByVal p12 As String,  _
                     ByVal p13 As String,  _
                     ByVal p14 As Global.System.Nullable(Of Date),  _
-                    ByVal p15 As Integer,  _
-                    ByVal p17 As Global.System.Nullable(Of Integer),  _
-                    ByVal p19 As String,  _
-                    ByVal p21 As String,  _
-                    ByVal p23 As String,  _
-                    ByVal p25 As Global.System.Nullable(Of Date),  _
-                    ByVal p27 As Global.System.Nullable(Of Date),  _
-                    ByVal p29 As String,  _
-                    ByVal p31 As Global.System.Nullable(Of Integer),  _
-                    ByVal p33 As Global.System.Nullable(Of Integer),  _
-                    ByVal p35 As Global.System.Nullable(Of Integer),  _
-                    ByVal p37 As String,  _
-                    ByVal p39 As String,  _
-                    ByVal p41 As String,  _
-                    ByVal p43 As Global.System.Nullable(Of Date)) As Integer
+                    ByVal p15 As Global.System.Nullable(Of Integer),  _
+                    ByVal p16 As Integer,  _
+                    ByVal p18 As Global.System.Nullable(Of Integer),  _
+                    ByVal p20 As String,  _
+                    ByVal p22 As String,  _
+                    ByVal p24 As String,  _
+                    ByVal p26 As Global.System.Nullable(Of Date),  _
+                    ByVal p28 As Global.System.Nullable(Of Date),  _
+                    ByVal p30 As String,  _
+                    ByVal p32 As Global.System.Nullable(Of Integer),  _
+                    ByVal p34 As Global.System.Nullable(Of Integer),  _
+                    ByVal p36 As Global.System.Nullable(Of Integer),  _
+                    ByVal p38 As String,  _
+                    ByVal p40 As String,  _
+                    ByVal p42 As String,  _
+                    ByVal p44 As Global.System.Nullable(Of Date),  _
+                    ByVal p46 As Global.System.Nullable(Of Integer)) As Integer
             If (p1.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1.Value,Integer)
             Else
@@ -12699,104 +12861,116 @@ Namespace siscomDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(p15,Integer)
-            If (p17.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(p17.Value,Integer)
+            If (p15.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(p15.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (p19 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p16,Integer)
+            If (p18.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p18.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(p19,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
-            If (p21 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            If (p20 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(p21,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(p20,String)
             End If
-            If (p23 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            If (p22 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(p23,String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(p22,String)
             End If
-            If (p25.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(p25.Value,Date)
+            If (p24 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(p24,String)
             End If
-            If (p27.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(p27.Value,Date)
+            If (p26.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(p26.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             End If
-            If (p29 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            If (p28.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(p28.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(p29,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             End If
-            If (p31.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(p31.Value,Integer)
+            If (p30 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(p30,String)
             End If
-            If (p33.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(p33.Value,Integer)
+            If (p32.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(p32.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
-            If (p35.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(p35.Value,Integer)
+            If (p34.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(p34.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             End If
-            If (p37 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+            If (p36.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(p36.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(p37,String)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             End If
-            If (p39 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+            If (p38 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(p39,String)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(p38,String)
             End If
-            If (p41 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            If (p40 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(p41,String)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(p40,String)
             End If
-            If (p43.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(p43.Value,Date)
+            If (p42 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(p42,String)
+            End If
+            If (p44.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(p44.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+            End If
+            If (p46.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(p46.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -15221,6 +15395,7 @@ Namespace siscomDataSetTableAdapters
             tableMapping.ColumnMappings.Add("idclientes", "idclientes")
             tableMapping.ColumnMappings.Add("idsucursal", "idsucursal")
             tableMapping.ColumnMappings.Add("tipolicencia", "tipolicencia")
+            tableMapping.ColumnMappings.Add("trlspdsac", "trlspdsac")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -15238,13 +15413,13 @@ Namespace siscomDataSetTableAdapters
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT nombre, idterminales, mac, equipo, tvid, fechaalta, fechabaja, sgcversion,"& _ 
-                " autoupdater, idclientes, idsucursal, tipolicencia FROM misclientes"
+                " autoupdater, idclientes, idsucursal, tipolicencia, trlspdsac FROM misclientes"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT nombre, idterminales, mac, equipo, tvid, fechaalta, fechabaja, sgcversion,"& _ 
-                " autoupdater, idclientes, idsucursal, tipolicencia FROM misclientes WHERE (mac ="& _ 
-                " @mac)"
+                " autoupdater, idclientes, idsucursal, tipolicencia, trlspdsac FROM misclientes W"& _ 
+                "HERE (mac = @mac)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@mac"

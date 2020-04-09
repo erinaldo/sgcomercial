@@ -377,8 +377,8 @@ Public Class AltaPedidoDelivery
             Try
                 idtipodocumento = ComboDocTipo.SelectedValue
                 condicioniva = ComboCondicionIVA.SelectedValue
-                nvocliente = ClientesTableAdapter.clientes_insertar(Nothing, TextBoxNombreCliente.Text, TextBoxTelefono.Text, TextBoxEmail.Text, TextBoxCuit.Text, idtipodocumento, condicioniva)
-                nvodomicilio = ClientesdomiciliosTableAdapter.clientesdomicilios_insertar(nvocliente, TextBoxDireccion.Text, TextBoxReferencias.Text, Val(ComboBoxProvincia.SelectedValue), Val(ComboBoxLocalidad.SelectedValue), TextBoxCP.Text, Nothing)
+                nvocliente = ClientesTableAdapter.clientes_insertar(Nothing, TextBoxNombreCliente.Text, TextBoxTelefono.Text, TextBoxEmail.Text, TextBoxCuit.Text, idtipodocumento, condicioniva, "SYS")
+                nvodomicilio = ClientesdomiciliosTableAdapter.clientesdomicilios_insertar(nvocliente, TextBoxDireccion.Text, TextBoxReferencias.Text, Val(ComboBoxProvincia.SelectedValue), Val(ComboBoxLocalidad.SelectedValue), TextBoxCP.Text, Nothing, Nothing, Nothing)
                 '*************************
             Catch ex As Exception
                 MsgBox("Ocurrio un error al tratar de guardar los datos del nuevo cliente: " + ex.Message)

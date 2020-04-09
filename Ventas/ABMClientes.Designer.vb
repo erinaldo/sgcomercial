@@ -62,6 +62,13 @@ Partial Class ABMClientes
         Me.TelefonoTextBox = New System.Windows.Forms.TextBox()
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.ClientesDataGridView = New System.Windows.Forms.DataGridView()
+        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cuit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EditarDomicilio = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboDocTipo = New System.Windows.Forms.ComboBox()
         Me.TipodocumentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -87,13 +94,6 @@ Partial Class ABMClientes
         Me.MiComercioTableAdapter = New sgcomercial.comercialDataSetTableAdapters.MiComercioTableAdapter()
         Me.listaclientesdomiciliosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.listaclientesdomiciliosTableAdapter()
         Me.BGWLCD = New System.ComponentModel.BackgroundWorker()
-        Me.idcliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cuit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EditarDomicilio = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
         IdclienteLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         RazonsocialLabel = New System.Windows.Forms.Label()
@@ -125,90 +125,81 @@ Partial Class ABMClientes
         'IdclienteLabel
         '
         IdclienteLabel.AutoSize = True
-        IdclienteLabel.Location = New System.Drawing.Point(281, 22)
-        IdclienteLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        IdclienteLabel.Location = New System.Drawing.Point(211, 18)
         IdclienteLabel.Name = "IdclienteLabel"
-        IdclienteLabel.Size = New System.Drawing.Size(75, 17)
+        IdclienteLabel.Size = New System.Drawing.Size(57, 13)
         IdclienteLabel.TabIndex = 1
         IdclienteLabel.Text = "N° Cliente:"
         '
         'NombreLabel
         '
         NombreLabel.AutoSize = True
-        NombreLabel.Location = New System.Drawing.Point(56, 54)
-        NombreLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        NombreLabel.Location = New System.Drawing.Point(42, 44)
         NombreLabel.Name = "NombreLabel"
-        NombreLabel.Size = New System.Drawing.Size(62, 17)
+        NombreLabel.Size = New System.Drawing.Size(47, 13)
         NombreLabel.TabIndex = 3
         NombreLabel.Text = "Nombre:"
         '
         'RazonsocialLabel
         '
         RazonsocialLabel.AutoSize = True
-        RazonsocialLabel.Location = New System.Drawing.Point(34, 85)
-        RazonsocialLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        RazonsocialLabel.Location = New System.Drawing.Point(26, 69)
         RazonsocialLabel.Name = "RazonsocialLabel"
-        RazonsocialLabel.Size = New System.Drawing.Size(84, 17)
+        RazonsocialLabel.Size = New System.Drawing.Size(65, 13)
         RazonsocialLabel.TabIndex = 5
         RazonsocialLabel.Text = "Documento:"
         '
         'TelefonoLabel
         '
         TelefonoLabel.AutoSize = True
-        TelefonoLabel.Location = New System.Drawing.Point(50, 116)
-        TelefonoLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        TelefonoLabel.Location = New System.Drawing.Point(38, 94)
         TelefonoLabel.Name = "TelefonoLabel"
-        TelefonoLabel.Size = New System.Drawing.Size(68, 17)
+        TelefonoLabel.Size = New System.Drawing.Size(52, 13)
         TelefonoLabel.TabIndex = 7
         TelefonoLabel.Text = "Teléfono:"
         '
         'EmailLabel
         '
         EmailLabel.AutoSize = True
-        EmailLabel.Location = New System.Drawing.Point(72, 149)
-        EmailLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        EmailLabel.Location = New System.Drawing.Point(54, 121)
         EmailLabel.Name = "EmailLabel"
-        EmailLabel.Size = New System.Drawing.Size(46, 17)
+        EmailLabel.Size = New System.Drawing.Size(35, 13)
         EmailLabel.TabIndex = 9
         EmailLabel.Text = "Email:"
         '
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(457, 54)
-        Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label2.Location = New System.Drawing.Point(343, 44)
         Label2.Name = "Label2"
-        Label2.Size = New System.Drawing.Size(99, 17)
+        Label2.Size = New System.Drawing.Size(77, 13)
         Label2.TabIndex = 12
         Label2.Text = "Condición IVA:"
         '
         'Label3
         '
         Label3.AutoSize = True
-        Label3.Location = New System.Drawing.Point(413, 85)
-        Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label3.Location = New System.Drawing.Point(310, 69)
         Label3.Name = "Label3"
-        Label3.Size = New System.Drawing.Size(143, 17)
+        Label3.Size = New System.Drawing.Size(111, 13)
         Label3.TabIndex = 13
         Label3.Text = "Días de vencimiento :"
         '
         'Label5
         '
         Label5.AutoSize = True
-        Label5.Location = New System.Drawing.Point(404, 116)
-        Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label5.Location = New System.Drawing.Point(303, 94)
         Label5.Name = "Label5"
-        Label5.Size = New System.Drawing.Size(152, 17)
+        Label5.Size = New System.Drawing.Size(116, 13)
         Label5.TabIndex = 16
         Label5.Text = "Porcentaje Descuento:"
         '
         'Label7
         '
         Label7.AutoSize = True
-        Label7.Location = New System.Drawing.Point(48, 182)
-        Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label7.Location = New System.Drawing.Point(36, 148)
         Label7.Name = "Label7"
-        Label7.Size = New System.Drawing.Size(70, 17)
+        Label7.Size = New System.Drawing.Size(54, 13)
         Label7.TabIndex = 19
         Label7.Text = "Provincia:"
         '
@@ -217,10 +208,9 @@ Partial Class ABMClientes
         Label8.AutoSize = True
         Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Label8.ForeColor = System.Drawing.Color.Red
-        Label8.Location = New System.Drawing.Point(42, 54)
-        Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label8.Location = New System.Drawing.Point(32, 44)
         Label8.Name = "Label8"
-        Label8.Size = New System.Drawing.Size(14, 17)
+        Label8.Size = New System.Drawing.Size(12, 13)
         Label8.TabIndex = 20
         Label8.Text = "*"
         '
@@ -229,10 +219,9 @@ Partial Class ABMClientes
         Label9.AutoSize = True
         Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Label9.ForeColor = System.Drawing.Color.Red
-        Label9.Location = New System.Drawing.Point(20, 84)
-        Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label9.Location = New System.Drawing.Point(15, 68)
         Label9.Name = "Label9"
-        Label9.Size = New System.Drawing.Size(14, 17)
+        Label9.Size = New System.Drawing.Size(12, 13)
         Label9.TabIndex = 20
         Label9.Text = "*"
         '
@@ -241,10 +230,9 @@ Partial Class ABMClientes
         Label10.AutoSize = True
         Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Label10.ForeColor = System.Drawing.Color.Red
-        Label10.Location = New System.Drawing.Point(442, 54)
-        Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label10.Location = New System.Drawing.Point(332, 44)
         Label10.Name = "Label10"
-        Label10.Size = New System.Drawing.Size(14, 17)
+        Label10.Size = New System.Drawing.Size(12, 13)
         Label10.TabIndex = 20
         Label10.Text = "*"
         '
@@ -253,10 +241,9 @@ Partial Class ABMClientes
         Label11.AutoSize = True
         Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Label11.ForeColor = System.Drawing.Color.Red
-        Label11.Location = New System.Drawing.Point(689, 0)
-        Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label11.Location = New System.Drawing.Point(517, 0)
         Label11.Name = "Label11"
-        Label11.Size = New System.Drawing.Size(150, 17)
+        Label11.Size = New System.Drawing.Size(116, 13)
         Label11.TabIndex = 20
         Label11.Text = "(*) Dato Obligatorio"
         '
@@ -295,7 +282,7 @@ Partial Class ABMClientes
         Me.ClientesBindingNavigator.MovePreviousItem = Nothing
         Me.ClientesBindingNavigator.Name = "ClientesBindingNavigator"
         Me.ClientesBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ClientesBindingNavigator.Size = New System.Drawing.Size(1036, 47)
+        Me.ClientesBindingNavigator.Size = New System.Drawing.Size(777, 42)
         Me.ClientesBindingNavigator.TabIndex = 0
         Me.ClientesBindingNavigator.Text = "BindingNavigator1"
         '
@@ -304,14 +291,14 @@ Partial Class ABMClientes
         Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(111, 44)
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(89, 39)
         Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
         Me.BindingNavigatorAddNewItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 44)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 39)
         Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Número total de elementos"
         '
@@ -321,34 +308,34 @@ Partial Class ABMClientes
         Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
         Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(24, 44)
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(24, 39)
         Me.BindingNavigatorDeleteItem.Text = "Eliminar"
         Me.BindingNavigatorDeleteItem.Visible = False
         '
         'BindingNavigatorSeparator
         '
         Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 47)
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 42)
         '
         'BindingNavigatorPositionItem
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Posición"
         Me.BindingNavigatorPositionItem.AutoSize = False
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(65, 27)
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Posición actual"
         '
         'BindingNavigatorSeparator1
         '
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 47)
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 42)
         '
         'ClientesBindingNavigatorSaveItem
         '
         Me.ClientesBindingNavigatorSaveItem.Image = CType(resources.GetObject("ClientesBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.ClientesBindingNavigatorSaveItem.Name = "ClientesBindingNavigatorSaveItem"
-        Me.ClientesBindingNavigatorSaveItem.Size = New System.Drawing.Size(107, 44)
+        Me.ClientesBindingNavigatorSaveItem.Size = New System.Drawing.Size(85, 39)
         Me.ClientesBindingNavigatorSaveItem.Text = "Guardar datos"
         Me.ClientesBindingNavigatorSaveItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.ClientesBindingNavigatorSaveItem.Visible = False
@@ -358,7 +345,7 @@ Partial Class ABMClientes
         Me.ToolStripButtonEditar.Image = Global.sgcomercial.My.Resources.Resources.editar
         Me.ToolStripButtonEditar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButtonEditar.Name = "ToolStripButtonEditar"
-        Me.ToolStripButtonEditar.Size = New System.Drawing.Size(52, 44)
+        Me.ToolStripButtonEditar.Size = New System.Drawing.Size(41, 39)
         Me.ToolStripButtonEditar.Text = "Editar"
         Me.ToolStripButtonEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -367,7 +354,7 @@ Partial Class ABMClientes
         Me.ToolStripButton2.Image = Global.sgcomercial.My.Resources.Resources.cancel
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(70, 44)
+        Me.ToolStripButton2.Size = New System.Drawing.Size(57, 39)
         Me.ToolStripButton2.Text = "Cancelar"
         Me.ToolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.ToolStripButton2.Visible = False
@@ -378,7 +365,7 @@ Partial Class ABMClientes
         Me.ExportarBtn.Image = Global.sgcomercial.My.Resources.Resources.Export_1export
         Me.ExportarBtn.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ExportarBtn.Name = "ExportarBtn"
-        Me.ExportarBtn.Size = New System.Drawing.Size(131, 44)
+        Me.ExportarBtn.Size = New System.Drawing.Size(105, 39)
         Me.ExportarBtn.Text = "Exportar Listado"
         Me.ExportarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -386,34 +373,32 @@ Partial Class ABMClientes
         '
         Me.ExcelToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.Excel_ico
         Me.ExcelToolStripMenuItem.Name = "ExcelToolStripMenuItem"
-        Me.ExcelToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.ExcelToolStripMenuItem.Size = New System.Drawing.Size(101, 22)
         Me.ExcelToolStripMenuItem.Text = "Excel"
         '
         'PDFToolStripMenuItem
         '
         Me.PDFToolStripMenuItem.Image = Global.sgcomercial.My.Resources.Resources.PDF_ico
         Me.PDFToolStripMenuItem.Name = "PDFToolStripMenuItem"
-        Me.PDFToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.PDFToolStripMenuItem.Size = New System.Drawing.Size(101, 22)
         Me.PDFToolStripMenuItem.Text = "PDF"
         '
         'IdclienteTextBox
         '
         Me.IdclienteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "idcliente", True))
-        Me.IdclienteTextBox.Location = New System.Drawing.Point(361, 18)
-        Me.IdclienteTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.IdclienteTextBox.Location = New System.Drawing.Point(271, 15)
         Me.IdclienteTextBox.Name = "IdclienteTextBox"
         Me.IdclienteTextBox.ReadOnly = True
-        Me.IdclienteTextBox.Size = New System.Drawing.Size(132, 22)
-        Me.IdclienteTextBox.TabIndex = 2
+        Me.IdclienteTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.IdclienteTextBox.TabIndex = 9
         '
         'NombreTextBox
         '
         Me.NombreTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "nombre", True))
-        Me.NombreTextBox.Location = New System.Drawing.Point(125, 51)
-        Me.NombreTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.NombreTextBox.Location = New System.Drawing.Point(94, 41)
         Me.NombreTextBox.Name = "NombreTextBox"
-        Me.NombreTextBox.Size = New System.Drawing.Size(271, 22)
+        Me.NombreTextBox.Size = New System.Drawing.Size(204, 20)
         Me.NombreTextBox.TabIndex = 0
         '
         'CUITTextBox
@@ -421,29 +406,26 @@ Partial Class ABMClientes
         Me.CUITTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.CUITTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "cuit", True))
         Me.CUITTextBox.Enabled = False
-        Me.CUITTextBox.Location = New System.Drawing.Point(253, 82)
-        Me.CUITTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.CUITTextBox.Location = New System.Drawing.Point(190, 67)
         Me.CUITTextBox.Name = "CUITTextBox"
-        Me.CUITTextBox.Size = New System.Drawing.Size(143, 22)
+        Me.CUITTextBox.Size = New System.Drawing.Size(108, 20)
         Me.CUITTextBox.TabIndex = 2
         '
         'TelefonoTextBox
         '
         Me.TelefonoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "telefono", True))
-        Me.TelefonoTextBox.Location = New System.Drawing.Point(125, 113)
-        Me.TelefonoTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.TelefonoTextBox.Location = New System.Drawing.Point(94, 92)
         Me.TelefonoTextBox.Name = "TelefonoTextBox"
-        Me.TelefonoTextBox.Size = New System.Drawing.Size(271, 22)
+        Me.TelefonoTextBox.Size = New System.Drawing.Size(204, 20)
         Me.TelefonoTextBox.TabIndex = 3
         '
         'EmailTextBox
         '
         Me.EmailTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "email", True))
-        Me.EmailTextBox.Location = New System.Drawing.Point(125, 146)
-        Me.EmailTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.EmailTextBox.Location = New System.Drawing.Point(94, 119)
         Me.EmailTextBox.Name = "EmailTextBox"
-        Me.EmailTextBox.Size = New System.Drawing.Size(271, 22)
+        Me.EmailTextBox.Size = New System.Drawing.Size(204, 20)
         Me.EmailTextBox.TabIndex = 4
         '
         'ClientesDataGridView
@@ -458,13 +440,76 @@ Partial Class ABMClientes
         Me.ClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ClientesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idcliente, Me.DataGridViewTextBoxColumn2, Me.cuit, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.EditarDomicilio, Me.eliminar})
         Me.ClientesDataGridView.DataSource = Me.ClientesBindingSource
-        Me.ClientesDataGridView.Location = New System.Drawing.Point(12, 73)
-        Me.ClientesDataGridView.Margin = New System.Windows.Forms.Padding(4)
+        Me.ClientesDataGridView.Location = New System.Drawing.Point(9, 59)
         Me.ClientesDataGridView.Name = "ClientesDataGridView"
         Me.ClientesDataGridView.ReadOnly = True
         Me.ClientesDataGridView.RowHeadersVisible = False
-        Me.ClientesDataGridView.Size = New System.Drawing.Size(975, 199)
+        Me.ClientesDataGridView.Size = New System.Drawing.Size(731, 162)
         Me.ClientesDataGridView.TabIndex = 13
+        '
+        'idcliente
+        '
+        Me.idcliente.DataPropertyName = "idcliente"
+        Me.idcliente.HeaderText = "N°"
+        Me.idcliente.Name = "idcliente"
+        Me.idcliente.ReadOnly = True
+        Me.idcliente.Width = 129
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre / Razón Social"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'cuit
+        '
+        Me.cuit.DataPropertyName = "cuit"
+        Me.cuit.HeaderText = "Cuit"
+        Me.cuit.Name = "cuit"
+        Me.cuit.ReadOnly = True
+        Me.cuit.Width = 128
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "telefono"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Teléfono"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 129
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "email"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Email"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 129
+        '
+        'EditarDomicilio
+        '
+        Me.EditarDomicilio.DataPropertyName = "idcliente"
+        Me.EditarDomicilio.HeaderText = "Editar Domicilio"
+        Me.EditarDomicilio.Name = "EditarDomicilio"
+        Me.EditarDomicilio.ReadOnly = True
+        Me.EditarDomicilio.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.EditarDomicilio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.EditarDomicilio.Text = "Editar Domicilio"
+        Me.EditarDomicilio.ToolTipText = "Editar Domicilio"
+        Me.EditarDomicilio.UseColumnTextForButtonValue = True
+        Me.EditarDomicilio.Width = 128
+        '
+        'eliminar
+        '
+        Me.eliminar.DataPropertyName = "idcliente"
+        Me.eliminar.HeaderText = "Eliminar"
+        Me.eliminar.Name = "eliminar"
+        Me.eliminar.ReadOnly = True
+        Me.eliminar.Text = "Eliminar"
+        Me.eliminar.ToolTipText = "Eliminar"
+        Me.eliminar.UseColumnTextForButtonValue = True
+        Me.eliminar.Width = 129
         '
         'GroupBox1
         '
@@ -495,11 +540,9 @@ Partial Class ABMClientes
         Me.GroupBox1.Controls.Add(Me.TelefonoTextBox)
         Me.GroupBox1.Controls.Add(Me.CUITTextBox)
         Me.GroupBox1.Controls.Add(TelefonoLabel)
-        Me.GroupBox1.Location = New System.Drawing.Point(21, 52)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 42)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(999, 228)
+        Me.GroupBox1.Size = New System.Drawing.Size(749, 185)
         Me.GroupBox1.TabIndex = 14
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del cliente"
@@ -511,9 +554,10 @@ Partial Class ABMClientes
         Me.ComboDocTipo.DisplayMember = "descripcion"
         Me.ComboDocTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboDocTipo.FormattingEnabled = True
-        Me.ComboDocTipo.Location = New System.Drawing.Point(125, 81)
+        Me.ComboDocTipo.Location = New System.Drawing.Point(94, 66)
+        Me.ComboDocTipo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ComboDocTipo.Name = "ComboDocTipo"
-        Me.ComboDocTipo.Size = New System.Drawing.Size(121, 24)
+        Me.ComboDocTipo.Size = New System.Drawing.Size(92, 21)
         Me.ComboDocTipo.TabIndex = 1
         Me.ComboDocTipo.ValueMember = "idtipodocumento"
         '
@@ -529,9 +573,10 @@ Partial Class ABMClientes
         Me.ComboBox2.DisplayMember = "nombreprovincia"
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(125, 182)
+        Me.ComboBox2.Location = New System.Drawing.Point(94, 148)
+        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(271, 24)
+        Me.ComboBox2.Size = New System.Drawing.Size(204, 21)
         Me.ComboBox2.TabIndex = 5
         Me.ComboBox2.ValueMember = "idprovincia"
         '
@@ -548,35 +593,39 @@ Partial Class ABMClientes
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(669, 116)
+        Me.Label6.Location = New System.Drawing.Point(502, 94)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(290, 17)
+        Me.Label6.Size = New System.Drawing.Size(218, 13)
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "(por defecto aplicable al total de cada venta)"
         '
         'porcentajedescuentoTextbox
         '
         Me.porcentajedescuentoTextbox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "porcentajedescuento", True))
-        Me.porcentajedescuentoTextbox.Location = New System.Drawing.Point(563, 113)
+        Me.porcentajedescuentoTextbox.Location = New System.Drawing.Point(422, 92)
+        Me.porcentajedescuentoTextbox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.porcentajedescuentoTextbox.Name = "porcentajedescuentoTextbox"
-        Me.porcentajedescuentoTextbox.Size = New System.Drawing.Size(100, 22)
+        Me.porcentajedescuentoTextbox.Size = New System.Drawing.Size(76, 20)
         Me.porcentajedescuentoTextbox.TabIndex = 8
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(669, 85)
+        Me.Label4.Location = New System.Drawing.Point(502, 69)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(256, 17)
+        Me.Label4.Size = New System.Drawing.Size(191, 13)
         Me.Label4.TabIndex = 15
         Me.Label4.Text = "(por defecto para vtas. a cta. corriente)"
         '
         'DiasvencimientoTextBox
         '
         Me.DiasvencimientoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "diasvencimiento", True))
-        Me.DiasvencimientoTextBox.Location = New System.Drawing.Point(563, 82)
+        Me.DiasvencimientoTextBox.Location = New System.Drawing.Point(422, 67)
+        Me.DiasvencimientoTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DiasvencimientoTextBox.Name = "DiasvencimientoTextBox"
-        Me.DiasvencimientoTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.DiasvencimientoTextBox.Size = New System.Drawing.Size(76, 20)
         Me.DiasvencimientoTextBox.TabIndex = 7
         '
         'ComboCondicionIVA
@@ -586,10 +635,9 @@ Partial Class ABMClientes
         Me.ComboCondicionIVA.DisplayMember = "descripcion"
         Me.ComboCondicionIVA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboCondicionIVA.FormattingEnabled = True
-        Me.ComboCondicionIVA.Location = New System.Drawing.Point(563, 50)
-        Me.ComboCondicionIVA.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboCondicionIVA.Location = New System.Drawing.Point(422, 41)
         Me.ComboCondicionIVA.Name = "ComboCondicionIVA"
-        Me.ComboCondicionIVA.Size = New System.Drawing.Size(283, 24)
+        Me.ComboCondicionIVA.Size = New System.Drawing.Size(213, 21)
         Me.ComboCondicionIVA.TabIndex = 6
         Me.ComboCondicionIVA.ValueMember = "idtipocondicioniva"
         '
@@ -607,11 +655,9 @@ Partial Class ABMClientes
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.ClientesDataGridView)
-        Me.GroupBox2.Location = New System.Drawing.Point(21, 287)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Location = New System.Drawing.Point(16, 233)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(999, 288)
+        Me.GroupBox2.Size = New System.Drawing.Size(749, 234)
         Me.GroupBox2.TabIndex = 15
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lista de clientes"
@@ -625,27 +671,26 @@ Partial Class ABMClientes
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepListaClientes.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 128)
+        Me.ReportViewer1.Location = New System.Drawing.Point(9, 104)
+        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(975, 144)
+        Me.ReportViewer1.Size = New System.Drawing.Size(732, 117)
         Me.ReportViewer1.TabIndex = 17
         Me.ReportViewer1.Visible = False
         '
         'filtrotextbox
         '
-        Me.filtrotextbox.Location = New System.Drawing.Point(367, 33)
-        Me.filtrotextbox.Margin = New System.Windows.Forms.Padding(4)
+        Me.filtrotextbox.Location = New System.Drawing.Point(275, 27)
         Me.filtrotextbox.Name = "filtrotextbox"
-        Me.filtrotextbox.Size = New System.Drawing.Size(132, 22)
+        Me.filtrotextbox.Size = New System.Drawing.Size(100, 20)
         Me.filtrotextbox.TabIndex = 16
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(119, 37)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(89, 30)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(73, 17)
+        Me.Label1.Size = New System.Drawing.Size(53, 13)
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Filtrar por:"
         '
@@ -654,10 +699,9 @@ Partial Class ABMClientes
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Nombre", "Cuit"})
-        Me.ComboBox1.Location = New System.Drawing.Point(197, 32)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox1.Location = New System.Drawing.Point(148, 26)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(160, 24)
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 14
         '
         'ClientesTableAdapter
@@ -785,81 +829,16 @@ Partial Class ABMClientes
         'BGWLCD
         '
         '
-        'idcliente
-        '
-        Me.idcliente.DataPropertyName = "idcliente"
-        Me.idcliente.HeaderText = "N°"
-        Me.idcliente.Name = "idcliente"
-        Me.idcliente.ReadOnly = True
-        Me.idcliente.Width = 129
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nombre"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre / Razón Social"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'cuit
-        '
-        Me.cuit.DataPropertyName = "cuit"
-        Me.cuit.HeaderText = "Cuit"
-        Me.cuit.Name = "cuit"
-        Me.cuit.ReadOnly = True
-        Me.cuit.Width = 128
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "telefono"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Teléfono"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 129
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "email"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Email"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 129
-        '
-        'EditarDomicilio
-        '
-        Me.EditarDomicilio.DataPropertyName = "idcliente"
-        Me.EditarDomicilio.HeaderText = "Editar Domicilio"
-        Me.EditarDomicilio.Name = "EditarDomicilio"
-        Me.EditarDomicilio.ReadOnly = True
-        Me.EditarDomicilio.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.EditarDomicilio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.EditarDomicilio.Text = "Editar Domicilio"
-        Me.EditarDomicilio.ToolTipText = "Editar Domicilio"
-        Me.EditarDomicilio.UseColumnTextForButtonValue = True
-        Me.EditarDomicilio.Width = 128
-        '
-        'eliminar
-        '
-        Me.eliminar.DataPropertyName = "idcliente"
-        Me.eliminar.HeaderText = "Eliminar"
-        Me.eliminar.Name = "eliminar"
-        Me.eliminar.ReadOnly = True
-        Me.eliminar.Text = "Eliminar"
-        Me.eliminar.ToolTipText = "Eliminar"
-        Me.eliminar.UseColumnTextForButtonValue = True
-        Me.eliminar.Width = 129
-        '
         'ABMClientes
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1036, 586)
+        Me.ClientSize = New System.Drawing.Size(777, 476)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.ClientesBindingNavigator)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ABMClientes"

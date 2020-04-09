@@ -117,16 +117,18 @@ Public Class loginform
                 misclientesTableAdapter = New siscomDataSetTableAdapters.misclientesTableAdapter()
                 Dim misclientesdatatable As siscomDataSet.misclientesDataTable
                 misclientesdatatable = misclientesTableAdapter.GetDataByMac(gmacadress)
+                Dim ParametrosGeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
                 If misclientesdatatable.Rows.Count = 1 Then
                     lMiSucursal = misclientesdatatable.Rows(0).Item(misclientesdatatable.idsucursalColumn)
                     If gMiSucursal = 0 Or lMiSucursal <> gMiSucursal Then
-                        Dim ParametrosGeneralesTableAdapter As New comercialDataSetTableAdapters.parametrosgeneralesTableAdapter()
                         ParametrosGeneralesTableAdapter.parametrosgenerales_updatebyprgclave("gMiSucursal", lMiSucursal, Nothing, Nothing)
                         gMiSucursal = lMiSucursal
                     End If
                     gMiIDCliente = misclientesdatatable.Rows(0).Item(misclientesdatatable.idclientesColumn)
                     gNombreCliente = misclientesdatatable.Rows(0).Item(misclientesdatatable.nombreColumn)
                     gNombreTerminal = misclientesdatatable.Rows(0).Item(misclientesdatatable.equipoColumn)
+                    gTrlsPDSAC = misclientesdatatable.Rows(0).Item(misclientesdatatable.trlspdsacColumn)
+                    ParametrosGeneralesTableAdapter.parametrosgenerales_updatebyprgclave("TrlsPDSAC", gTrlsPDSAC, gTrlsPDSAC.ToString, Nothing)
                     LabelDatosCliente.Text = "" + gNombreCliente + " - Terminal: [" + gNombreTerminal + "] - Sucursal N°: " + gMiSucursal.ToString + ""
                 End If
                 gIsOnline = True
