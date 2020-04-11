@@ -14,58 +14,16 @@
     End Sub
 
     Private Sub BarCodePrint_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'comercialDataSet.productos' Puede moverla o quitarla según sea necesario.
-        Me.productosTableAdapter.Fill(Me.comercialDataSet.productos)
+
         BtnImprimir.Enabled = False
         LabelDescripcion.Text = Nothing
-        Me.ReportViewer1.RefreshReport()
         ComboBox1.SelectedIndex = 0
+        ReportViewer2.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+
     End Sub
 
     Private Sub codev_TextChanged(sender As Object, e As EventArgs) Handles codev.TextChanged
-        Dim interno As String = codev.Text
-        Dim normal, msg As String
-        Dim rtn As Boolean = False
-        normal = Nothing
-        msg = Nothing
-        Try
-            '**** si el codigo ingresado tiene 13 digitos que pase a verificarlo... sino que lo normalice
-            If Not Len(interno) = 13 Then
-                NormalizarCodigo(interno, normal, rtn)
-                If rtn = False Then
-                    EAN132.Text = Nothing
-                    labelcodev.Text = Nothing
-                    BtnImprimir.Enabled = False
-                    MsgBox("Error al normalizar el codigo: " + normal)
-                    Return
-                End If
-            Else
-                normal = interno
-            End If
-            'MsgBox(normal)
-            '*************  verifica el codigo  *******************
-            VerificarCodigo(normal, msg, rtn)
-            'MsgBox(normal)
-            If rtn = False Then
-                MsgBox("Ocurrio un error en VerificarCodigo: " + msg)
-                EAN132.Text = Nothing
-                labelcodev.Text = Nothing
-                BtnImprimir.Enabled = False
-                Return
-            End If
 
-            '***************    todo correcto entonces que lo genere *****************
-            Dim strbarcode As String = ""
-            GetEAN13(normal, strbarcode, rtn)
-            EAN132.Text = strbarcode
-            labelcodev.Text = strbarcode
-            BtnImprimir.Enabled = True
-
-        Catch ex As Exception
-            EAN132.Text = Nothing
-            labelcodev.Text = Nothing
-            BtnImprimir.Enabled = False
-        End Try
     End Sub
 
     Private Sub BtnImprimir_Click(sender As Object, e As EventArgs) Handles BtnImprimir.Click
@@ -79,39 +37,39 @@
 
         Select Case ComboBox1.Text
             Case 4
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", labelcodev.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", EAN132.Text, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom1", desc, False))
                 Me.ReportViewer1.LocalReport.SetParameters(parametros)
             Case 8
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", labelcodev.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", EAN132.Text, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom1", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom2", desc, False))
                 Me.ReportViewer1.LocalReport.SetParameters(parametros)
             Case 12
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect3", labelcodev.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect3", EAN132.Text, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom1", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom2", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom3", desc, False))
                 Me.ReportViewer1.LocalReport.SetParameters(parametros)
             Case 16
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect3", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect4", labelcodev.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect3", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect4", EAN132.Text, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom1", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom2", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom3", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom4", desc, False))
                 Me.ReportViewer1.LocalReport.SetParameters(parametros)
             Case 20
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect3", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect4", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect5", labelcodev.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect3", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect4", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect5", EAN132.Text, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom1", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom2", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom3", desc, False))
@@ -119,12 +77,12 @@
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom5", desc, False))
                 Me.ReportViewer1.LocalReport.SetParameters(parametros)
             Case 24
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect3", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect4", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect5", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect6", labelcodev.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect3", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect4", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect5", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect6", EAN132.Text, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom1", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom2", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom3", desc, False))
@@ -133,13 +91,13 @@
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom6", desc, False))
                 Me.ReportViewer1.LocalReport.SetParameters(parametros)
             Case 28
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect3", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect4", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect5", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect6", labelcodev.Text, False))
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect7", labelcodev.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect1", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect2", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect3", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect4", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect5", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect6", EAN132.Text, False))
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("rect7", EAN132.Text, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom1", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom2", desc, False))
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom3", desc, False))
@@ -149,42 +107,74 @@
                 parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("recnom7", desc, False))
                 Me.ReportViewer1.LocalReport.SetParameters(parametros)
         End Select
-
-
         Me.ReportViewer1.RefreshReport()
-
-
-
-        'Me.librodiarioTableAdapter.FillByDiarioTipo(Me.comercialDataSet.librodiario, DateTimePicker1.Text, "Venta")
-
-
-
-        'Dim bitmap As Bitmap
-        'bitmap = New Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
-
-        'Dim g As Graphics
-        'g = Graphics.FromImage(bitmap)
-
-        'Dim rect As Rectangle
-        'rect = EAN132.RectangleToScreen(EAN132.ClientRectangle)
-
-        'g.CopyFromScreen(EAN132.Location, EAN132.Location, bitmap.Size)
-
-
-        'PictureBox1.Image = bitmap
     End Sub
 
     Private Sub PictureSeleccionarCliente_Click(sender As Object, e As EventArgs) Handles PictureSeleccionarCliente.Click
         gcodigoproducto = 0
         'LabelDescripcion.Text = Nothing
         'gproductodescripcion = Nothing
-        BuscarCodigoInterno.ShowDialog()
+        Dim cd As New BuscarCodigoInterno()
+        cd.ShowDialog()
         If Len(Trim(gcodigoproducto)) > 0 And gcodigoproducto <> "0" Then
-            codev.Text = gcodigoproducto.ToString
-            LabelDescripcion.Text = gproductodescripcion
-            BtnImprimir.PerformClick()
+            Dim StrError As StrError
+            Dim strbarcode As String
+            Try
+                GetEAN13(gcodigoproducto, strbarcode, StrError)
+                If StrError.CodError = 0 Then
+                    EAN132.Text = strbarcode
+                    labelcodev.Text = gcodigoproducto
+                    BtnImprimir.Enabled = True
+                    LabelDescripcion.Text = gproductodescripcion
+                    BtnImprimir.PerformClick()
+                End If
+            Catch ex As Exception
+                EAN132.Text = Nothing
+                labelcodev.Text = Nothing
+                BtnImprimir.Enabled = False
+            End Try
+        End If
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        Dim msg As String
+        Dim StrError As StrError
+        Dim normalized As String
+
+        Dim cd As New BuscarCodigoInterno()
+        cd.ShowDialog()
+        If Len(Trim(gcodigoproducto)) > 0 And gcodigoproducto <> "0" Then
+            TextBox1.Text = gcodigoproducto
+            Label5.Text = gproductodescripcion
+
+            Dim strbarcode As String = ""
+            GetEAN13(gcodigoproducto, strbarcode, StrError)
+            If StrError.CodError = 0 Then
+                Dim parametros As New List(Of Microsoft.Reporting.WinForms.ReportParameter)
+                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("pBarcode", strbarcode, False))
+                Me.ReportViewer2.LocalReport.SetParameters(parametros)
+
+                Me.productosTableAdapter.FillByidproducto(Me.comercialDataSet.productos, productosTableAdapter.productos_existeproducto(gcodigoproducto.ToString))
+                Me.ReportViewer2.RefreshReport()
+            Else
+                MsgExPopUp(StrError.MsgError)
+            End If
+            '/*********************************************
         End If
 
+
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged_2(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub ReportViewer2_Load(sender As Object, e As EventArgs) Handles ReportViewer2.Load
+
+    End Sub
+
+    Private Sub ReportViewer2_RenderingComplete(sender As Object, e As RenderingCompleteEventArgs) Handles ReportViewer2.RenderingComplete
 
     End Sub
 End Class

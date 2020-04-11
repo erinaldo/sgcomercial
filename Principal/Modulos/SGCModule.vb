@@ -194,16 +194,39 @@ Module SGCModule
     '***************************    GetEAN13    ***************************************************
     ' convierte un codigo numerico de 13 digitos en string barcode para representar en la fuente EAN13
     '*************************************************************************************************
-    Public Sub GetEAN13(ByVal codigo As String, ByRef barcode As String, ByRef rtn As Integer)
+    Public Sub GetEAN13(ByVal codigointerno As String, ByRef barcode As String, ByRef strerror As StrError)
+        Dim normalized As String
+        Dim rtn As Boolean
+        Dim msg As String
+        strerror = New StrError()
+
+        strerror.CodError = 0
+        '**** si el codigo ingresado tiene 13 digitos que pase a verificarlo... sino que lo normalice
+        If Not Len(codigointerno) = 13 Then
+            NormalizarCodigo(codigointerno, normalized, rtn)
+            If rtn = False Then
+                strerror.CodError = 1
+                strerror.MsgError = "Error al normalizar el codigo: " + codigointerno
+                Return
+            End If
+        Else
+            normalized = codigointerno
+        End If
+        '    '*************  verifica el codigo  *******************
+        VerificarCodigo(normalized, msg, rtn)
+        If rtn = False Then
+            strerror.CodError = 1
+            strerror.MsgError = "Error al VerificarCodigo el codigo: " + msg
+            Return
+        End If
+        '    '***************    todo correcto entonces que lo genere *****************
         Dim p1 As Integer = 0
         Dim p2 As Integer = 0
         Dim p3 As Integer = 0
         Dim p4 As Integer = 0
         Dim p5 As Integer = 0
-
-
-
-        Select Case Mid(codigo, 1, 1)
+        '****************************************
+        Select Case Mid(normalized, 1, 1)
             Case 0
                 p1 = 48
                 p2 = 48
@@ -276,23 +299,26 @@ Module SGCModule
 
 
         Try
-            barcode = Convert.ToChar(Convert.ToInt16(Mid(codigo, 1, 1)) + 33)   '1
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 2, 1)) + 96)  '2
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 3, 1)) + p1)  '3 --------------
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 4, 1)) + p2)  '4 -----------------
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 5, 1)) + p3)  '5
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 6, 1)) + p4)  '6
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 7, 1)) + p5)  '7
+            barcode = Convert.ToChar(Convert.ToInt16(Mid(normalized, 1, 1)) + 33)   '1
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 2, 1)) + 96)  '2
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 3, 1)) + p1)  '3 --------------
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 4, 1)) + p2)  '4 -----------------
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 5, 1)) + p3)  '5
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 6, 1)) + p4)  '6
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 7, 1)) + p5)  '7
             barcode += "|"
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 8, 1)) + 80)  '8
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 9, 1)) + 80)  '9
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 10, 1)) + 80) '10
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 11, 1)) + 80) '11
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 12, 1)) + 80) '12
-            barcode += Convert.ToChar(Convert.ToInt16(Mid(codigo, 13, 1)) + 112) '13    
-            rtn = 1
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 8, 1)) + 80)  '8
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 9, 1)) + 80)  '9
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 10, 1)) + 80) '10
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 11, 1)) + 80) '11
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 12, 1)) + 80) '12
+            barcode += Convert.ToChar(Convert.ToInt16(Mid(normalized, 13, 1)) + 112) '13    
+
+            strerror.CodError = 0
         Catch ex As Exception
-            rtn = 0
+
+            strerror.CodError = 1
+            strerror.MsgError = "Ocurrió un error en la generación EAN-13"
         End Try
     End Sub
     '***********************************************************************************************

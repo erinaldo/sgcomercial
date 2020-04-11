@@ -1544,7 +1544,8 @@
     <EmbeddedResource Include="BarCodePrint\BuscarCodigoInterno.resx">
       <DependentUpon>BuscarCodigoInterno.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BarCodePrint\RepPlantillaBarCode.rdlc" />
+    <EmbeddedResource Include="BarCodePrint\Plantillas\RepEtiq3x6.rdlc" />
+    <EmbeddedResource Include="BarCodePrint\Plantillas\RepPlantillaBarCode.rdlc" />
     <EmbeddedResource Include="Cloud\CldLibroVentas.resx">
       <DependentUpon>CldLibroVentas.vb</DependentUpon>
     </EmbeddedResource>

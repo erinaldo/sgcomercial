@@ -443,9 +443,8 @@ Public Class Principal
     End Sub
 
     Private Sub ImpresiónEtiquetasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImpresiónEtiquetasToolStripMenuItem.Click
-        BarCodePrint.TopMost = True
-        BarCodePrint.ShowDialog()
-
+        BarCodePrint.MdiParent = Me
+        BarCodePrint.Visible = True
     End Sub
 
     Private Sub RecepciónSinPedidoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RecepciónSinPedidoToolStripMenuItem.Click
