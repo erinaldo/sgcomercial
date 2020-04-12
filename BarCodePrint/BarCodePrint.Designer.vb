@@ -24,8 +24,8 @@ Partial Class BarCodePrint
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BarCodePrint))
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.productosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -44,9 +44,9 @@ Partial Class BarCodePrint
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.ReportViewer2 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -54,7 +54,8 @@ Partial Class BarCodePrint
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.productosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.ComboTipoCodigo = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.productosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -63,10 +64,10 @@ Partial Class BarCodePrint
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'productosBindingSource
@@ -159,9 +160,9 @@ Partial Class BarCodePrint
         '
         resources.ApplyResources(Me.ReportViewer1, "ReportViewer1")
         Me.ReportViewer1.IsDocumentMapWidthFixed = True
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.productosBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource5.Name = "DataSet1"
+        ReportDataSource5.Value = Me.productosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "sgcomercial.RepPlantillaBarCode.rdlc"
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ShowBackButton = False
@@ -205,11 +206,17 @@ Partial Class BarCodePrint
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.TabStop = False
         '
+        'PictureBox2
+        '
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.TabStop = False
+        '
         'ReportViewer2
         '
-        ReportDataSource2.Name = "productos"
-        ReportDataSource2.Value = Me.productosBindingSource
-        Me.ReportViewer2.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource6.Name = "productos"
+        ReportDataSource6.Value = Me.productosBindingSource
+        Me.ReportViewer2.LocalReport.DataSources.Add(ReportDataSource6)
         Me.ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEtiq3x6EAN13.rdlc"
         resources.ApplyResources(Me.ReportViewer2, "ReportViewer2")
         Me.ReportViewer2.Name = "ReportViewer2"
@@ -226,19 +233,15 @@ Partial Class BarCodePrint
         'GroupBox3
         '
         resources.ApplyResources(Me.GroupBox3, "GroupBox3")
-        Me.GroupBox3.Controls.Add(Me.TextBox2)
+        Me.GroupBox3.Controls.Add(Me.ComboTipoCodigo)
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.PictureBox1)
         Me.GroupBox3.Controls.Add(Me.TextBox1)
+        Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.GroupBox4)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.TabStop = False
-        '
-        'TextBox2
-        '
-        resources.ApplyResources(Me.TextBox2, "TextBox2")
-        Me.TextBox2.Name = "TextBox2"
         '
         'Label5
         '
@@ -282,11 +285,18 @@ Partial Class BarCodePrint
         '
         Me.productosTableAdapter.ClearBeforeFill = True
         '
-        'PictureBox2
+        'ComboTipoCodigo
         '
-        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.TabStop = False
+        Me.ComboTipoCodigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboTipoCodigo.FormattingEnabled = True
+        Me.ComboTipoCodigo.Items.AddRange(New Object() {resources.GetString("ComboTipoCodigo.Items"), resources.GetString("ComboTipoCodigo.Items1"), resources.GetString("ComboTipoCodigo.Items2")})
+        resources.ApplyResources(Me.ComboTipoCodigo, "ComboTipoCodigo")
+        Me.ComboTipoCodigo.Name = "ComboTipoCodigo"
+        '
+        'Label6
+        '
+        resources.ApplyResources(Me.Label6, "Label6")
+        Me.Label6.Name = "Label6"
         '
         'BarCodePrint
         '
@@ -307,11 +317,11 @@ Partial Class BarCodePrint
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage1.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -342,6 +352,7 @@ Partial Class BarCodePrint
     Friend WithEvents Label4 As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents ComboTipoCodigo As ComboBox
+    Friend WithEvents Label6 As Label
 End Class

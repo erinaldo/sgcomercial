@@ -120,6 +120,20 @@
     <ReportSection>
       <Body>
         <ReportItems>
+          <Image Name="Image1">
+            <Source>External</Source>
+            <Value>=Parameters!pBarcode.Value</Value>
+            <Sizing>Fit</Sizing>
+            <Top>1.19062cm</Top>
+            <Left>0.26458cm</Left>
+            <Height>1.73495cm</Height>
+            <Width>5.25167cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
           <Textbox Name="marca">
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -140,8 +154,10 @@
             </Paragraphs>
             <rd:DefaultName>marca</rd:DefaultName>
             <Top>0.00741cm</Top>
+            <Left>0.26458cm</Left>
             <Height>0.44525cm</Height>
-            <Width>2.96016cm</Width>
+            <Width>2.69558cm</Width>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -176,7 +192,7 @@
             <Left>2.83668cm</Left>
             <Height>0.44525cm</Height>
             <Width>2.67957cm</Width>
-            <ZIndex>1</ZIndex>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -208,9 +224,10 @@
             </Paragraphs>
             <rd:DefaultName>modelo</rd:DefaultName>
             <Top>0.4422cm</Top>
+            <Left>0.26458cm</Left>
             <Height>0.44525cm</Height>
-            <Width>5.51625cm</Width>
-            <ZIndex>2</ZIndex>
+            <Width>5.25167cm</Width>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -256,42 +273,9 @@
             </Paragraphs>
             <rd:DefaultName>presentacion</rd:DefaultName>
             <Top>0.87524cm</Top>
+            <Left>0.26458cm</Left>
             <Height>0.44525cm</Height>
-            <Width>5.51625cm</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="pBarcode">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!pBarcode.Value</Value>
-                    <Style>
-                      <FontFamily>code 128</FontFamily>
-                      <FontSize>32pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>pBarcode</rd:DefaultName>
-            <Height>1.79849cm</Height>
-            <Width>5.51625cm</Width>
+            <Width>5.25167cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -305,7 +289,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>0.70807in</Height>
+        <Height>1.1518in</Height>
         <Style />
       </Body>
       <Width>2.17175in</Width>

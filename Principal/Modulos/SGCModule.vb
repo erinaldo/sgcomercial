@@ -191,6 +191,19 @@ Module SGCModule
     End Sub
 
     '***********************************************************************************************
+    '***************************    GetNormalCode128    ***************************************************
+    ' extraigo de la base de datos los elementos que componen mi local code128 y los devuelvo
+    Public Sub GetNormalCode128(ByVal codigointerno As String, ByRef barcode As String, ByRef strerror As StrError)
+        Dim productosTableAdapter As New comercialDataSetTableAdapters.productosTableAdapter()
+        Dim productosDataTable As New comercialDataSet.productosDataTable()
+        productosDataTable = productosTableAdapter.GetDataByProductSheet(codigointerno)
+        barcode = ""
+        barcode = productosDataTable.Rows.Item(0)("codigoproducto") + "!"
+        barcode += productosDataTable.Rows.Item(0)("presentacion") + "!"
+        barcode += productosDataTable.Rows.Item(0)("talle")
+    End Sub
+
+    '***********************************************************************************************
     '***************************    GetEAN13    ***************************************************
     ' convierte un codigo numerico de 13 digitos en string barcode para representar en la fuente EAN13
     '*************************************************************************************************
@@ -206,7 +219,7 @@ Module SGCModule
             NormalizarCodigo(codigointerno, normalized, rtn)
             If rtn = False Then
                 strerror.CodError = 1
-                strerror.MsgError = "Error al normalizar el codigo: " + codigointerno
+                strerror.MsgError = "Error al normalizar el codigo EAN-13: " + codigointerno
                 Return
             End If
         Else
@@ -216,7 +229,7 @@ Module SGCModule
         VerificarCodigo(normalized, msg, rtn)
         If rtn = False Then
             strerror.CodError = 1
-            strerror.MsgError = "Error al VerificarCodigo el codigo: " + msg
+            strerror.MsgError = "Error al VerificarCodigo el codigo EAN-13: " + msg
             Return
         End If
         '    '***************    todo correcto entonces que lo genere *****************
@@ -1533,6 +1546,9 @@ and v.idtipocomprobante = tc.idtipocomprobante
             Return StrError.CodError
         End If
         '***************    FIN consultar el estado de caja *************
+    End Function
+    Public Function isAlpha(ByVal letterChar As String) As Boolean
+        Return Regex.IsMatch(letterChar, "^[^\W\d_]{1}[0-9]+$")
     End Function
 End Module
 

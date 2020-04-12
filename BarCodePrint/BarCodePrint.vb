@@ -19,6 +19,7 @@
         LabelDescripcion.Text = Nothing
         ComboBox1.SelectedIndex = 0
         ReportViewer2.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+        ComboTipoCodigo.SelectedIndex = 0
 
     End Sub
 
@@ -139,45 +140,74 @@
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         Dim msg As String = ""
         Dim StrError As New StrError()
-        Dim normalized As String = ""
-
-        'Dim BC As Image
-        'BC = GenCode128.Code128Rendering.MakeBarcodeImage("2-302-904A!!XL", 2, True)
-        'PictureBox2.Image = BC
-
-
-        ''/*******************************
-        'ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEtiq3x6CODE128.rdlc"
-        ''/**************************************/
-
-        'Dim cd As New BuscarCodigoInterno()
-        'cd.ShowDialog()
-        'If Len(Trim(gcodigoproducto)) > 0 And gcodigoproducto <> "0" Then
-        '    TextBox1.Text = gcodigoproducto
-        '    Label5.Text = gproductodescripcion
-
-        '    Dim strbarcode As String = "*WOKIPEDIA*"
-
-        '    '/***********************************************/
-        '    'GetEAN13(gcodigoproducto, strbarcode, StrError)
-        '    'strbarcode = Code128(gcodigoproducto)
-        '    StrError.CodError = 0
-        '    '/***********************************************/
-        '    If StrError.CodError = 0 Then
-        '        Dim parametros As New List(Of Microsoft.Reporting.WinForms.ReportParameter)
-        '        parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("pBarcode", strbarcode, False))
-        '        Me.ReportViewer2.LocalReport.SetParameters(parametros)
-
-        '        Me.productosTableAdapter.FillByidproducto(Me.comercialDataSet.productos, productosTableAdapter.productos_existeproducto(gcodigoproducto.ToString))
-        '        Me.ReportViewer2.RefreshReport()
-        '    Else
-        '        MsgExPopUp(StrError.MsgError)
-        '    End If
-        '    '/*********************************************
-        'End If
-
-
-
+        Dim normalizedEAN As String = ""
+        Dim normalized128 As String = ""
+        Dim templateimage As String = ""
+        Dim BC As Image
+        Dim cd As New BuscarCodigoInterno()
+        cd.ShowDialog()
+        '/*****************************/
+        Try
+            If Len(Trim(gcodigoproducto)) > 0 And gcodigoproducto <> "0" Then
+                Dim parametros As New List(Of Microsoft.Reporting.WinForms.ReportParameter)
+                Select Case ComboTipoCodigo.Text
+                    Case "Code128"
+                        ReportViewer2.LocalReport.EnableExternalImages = True
+                        ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEtiq3x6CODE128.rdlc"
+                        GetNormalCode128(gcodigoproducto, normalized128, StrError)
+                        If StrError.CodError = 0 Then
+                            BC = GenCode128.Code128Rendering.MakeBarcodeImage(normalized128, 2, True)
+                            PictureBox2.Image = BC
+                            BC.Save(Application.StartupPath + "\barcode.jpg", Imaging.ImageFormat.Jpeg)
+                            templateimage = "file:\" + Application.StartupPath + "\barcode.jpg"
+                            StrError.CodError = 0
+                            parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("pBarcode", templateimage, False))
+                        End If
+                '/*******************************
+                    Case "EAN-13"
+                        ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEtiq3x6EAN13.rdlc"
+                        GetEAN13(gcodigoproducto, normalizedEAN, StrError)
+                        parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("pBarcode", normalizedEAN, False))
+                    Case "Ambos"
+                        ReportViewer2.LocalReport.EnableExternalImages = True
+                        ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEtiq3x6EAN13WC128.rdlc"
+                        '/************  GET EAN 13*****************/
+                        If Not isAlpha(gcodigoproducto) Then
+                            GetEAN13(gcodigoproducto, normalizedEAN, StrError)
+                        End If
+                        '/***************   GET 128 **************/
+                        StrError.CodError = 0
+                        GetNormalCode128(gcodigoproducto, normalized128, StrError)
+                        If StrError.CodError = 0 Then
+                            BC = GenCode128.Code128Rendering.MakeBarcodeImage(normalized128, 2, True)
+                            PictureBox2.Image = BC
+                            BC.Save(Application.StartupPath + "\barcode.jpg", Imaging.ImageFormat.Jpeg)
+                            templateimage = "file:\" + Application.StartupPath + "\barcode.jpg"
+                        End If
+                        '/*****************************/
+                        parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("pBarcode", normalizedEAN, False))
+                        parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("pImage", templateimage, False))
+                End Select
+                '/*******************************
+                If StrError.CodError = 0 Then
+                    '/*******************************
+                    Me.ReportViewer2.LocalReport.SetParameters(parametros)
+                    '/*******************************
+                    Me.productosTableAdapter.FillByidproducto(Me.comercialDataSet.productos, productosTableAdapter.productos_existeproducto(gcodigoproducto.ToString))
+                    Me.ReportViewer2.RefreshReport()
+                Else
+                    ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEtiq3x6EAN13.rdlc"
+                    parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("pBarcode", "", False))
+                    Me.ReportViewer2.LocalReport.SetParameters(parametros)
+                    Me.productosTableAdapter.FillByidproducto(Me.comercialDataSet.productos, 0)
+                    Me.ReportViewer2.RefreshReport()
+                    MsgExPopUp(StrError.MsgError)
+                End If
+                '/*********************************************
+            End If
+        Catch ex As Exception
+            MsgEx("Ocurrió una excepción: " + ex.Message)
+        End Try
     End Sub
 
     Private Sub TextBox1_TextChanged_2(sender As Object, e As EventArgs) Handles TextBox1.TextChanged

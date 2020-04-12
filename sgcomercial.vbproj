@@ -1546,6 +1546,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BarCodePrint\Plantillas\RepEtiq3x6CODE128.rdlc" />
     <EmbeddedResource Include="BarCodePrint\Plantillas\RepEtiq3x6EAN13.rdlc" />
+    <EmbeddedResource Include="BarCodePrint\Plantillas\RepEtiq3x6EAN13WC128.rdlc" />
     <EmbeddedResource Include="BarCodePrint\Plantillas\RepPlantillaBarCode.rdlc" />
     <EmbeddedResource Include="Cloud\CldLibroVentas.resx">
       <DependentUpon>CldLibroVentas.vb</DependentUpon>
