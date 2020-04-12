@@ -137,30 +137,44 @@
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        Dim msg As String
-        Dim StrError As StrError
-        Dim normalized As String
+        Dim msg As String = ""
+        Dim StrError As New StrError()
+        Dim normalized As String = ""
 
-        Dim cd As New BuscarCodigoInterno()
-        cd.ShowDialog()
-        If Len(Trim(gcodigoproducto)) > 0 And gcodigoproducto <> "0" Then
-            TextBox1.Text = gcodigoproducto
-            Label5.Text = gproductodescripcion
+        'Dim BC As Image
+        'BC = GenCode128.Code128Rendering.MakeBarcodeImage("2-302-904A!!XL", 2, True)
+        'PictureBox2.Image = BC
 
-            Dim strbarcode As String = ""
-            GetEAN13(gcodigoproducto, strbarcode, StrError)
-            If StrError.CodError = 0 Then
-                Dim parametros As New List(Of Microsoft.Reporting.WinForms.ReportParameter)
-                parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("pBarcode", strbarcode, False))
-                Me.ReportViewer2.LocalReport.SetParameters(parametros)
 
-                Me.productosTableAdapter.FillByidproducto(Me.comercialDataSet.productos, productosTableAdapter.productos_existeproducto(gcodigoproducto.ToString))
-                Me.ReportViewer2.RefreshReport()
-            Else
-                MsgExPopUp(StrError.MsgError)
-            End If
-            '/*********************************************
-        End If
+        ''/*******************************
+        'ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEtiq3x6CODE128.rdlc"
+        ''/**************************************/
+
+        'Dim cd As New BuscarCodigoInterno()
+        'cd.ShowDialog()
+        'If Len(Trim(gcodigoproducto)) > 0 And gcodigoproducto <> "0" Then
+        '    TextBox1.Text = gcodigoproducto
+        '    Label5.Text = gproductodescripcion
+
+        '    Dim strbarcode As String = "*WOKIPEDIA*"
+
+        '    '/***********************************************/
+        '    'GetEAN13(gcodigoproducto, strbarcode, StrError)
+        '    'strbarcode = Code128(gcodigoproducto)
+        '    StrError.CodError = 0
+        '    '/***********************************************/
+        '    If StrError.CodError = 0 Then
+        '        Dim parametros As New List(Of Microsoft.Reporting.WinForms.ReportParameter)
+        '        parametros.Add(New Microsoft.Reporting.WinForms.ReportParameter("pBarcode", strbarcode, False))
+        '        Me.ReportViewer2.LocalReport.SetParameters(parametros)
+
+        '        Me.productosTableAdapter.FillByidproducto(Me.comercialDataSet.productos, productosTableAdapter.productos_existeproducto(gcodigoproducto.ToString))
+        '        Me.ReportViewer2.RefreshReport()
+        '    Else
+        '        MsgExPopUp(StrError.MsgError)
+        '    End If
+        '    '/*********************************************
+        'End If
 
 
 

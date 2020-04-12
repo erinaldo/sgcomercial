@@ -108,10 +108,6 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.Words, Version=19.11.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>packages\Aspose.Words.19.11.0\lib\net40\Aspose.Words.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -126,6 +122,10 @@
     </Reference>
     <Reference Include="Esent.Isam, Version=1.9.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Database.Isam.1.9.4\lib\net40\Esent.Isam.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GenCode128, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GenCode128.1.0.0\lib\GenCode128.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Google.Apis, Version=1.41.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
@@ -1544,6 +1544,7 @@
     <EmbeddedResource Include="BarCodePrint\BuscarCodigoInterno.resx">
       <DependentUpon>BuscarCodigoInterno.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BarCodePrint\Plantillas\RepEtiq3x6CODE128.rdlc" />
     <EmbeddedResource Include="BarCodePrint\Plantillas\RepEtiq3x6EAN13.rdlc" />
     <EmbeddedResource Include="BarCodePrint\Plantillas\RepPlantillaBarCode.rdlc" />
     <EmbeddedResource Include="Cloud\CldLibroVentas.resx">
@@ -2243,7 +2244,9 @@
     <None Include="My Project\app.manifest">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Principal\DataSets\comercialDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

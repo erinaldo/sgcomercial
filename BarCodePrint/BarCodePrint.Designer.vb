@@ -26,6 +26,8 @@ Partial Class BarCodePrint
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BarCodePrint))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.productosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.comercialDataSet = New sgcomercial.comercialDataSet()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LabelDescripcion = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -40,31 +42,42 @@ Partial Class BarCodePrint
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ReportViewer2 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.productosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.comercialDataSet = New sgcomercial.comercialDataSet()
-        Me.productosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.productosTableAdapter = New sgcomercial.comercialDataSetTableAdapters.productosTableAdapter()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        CType(Me.productosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.productosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage1.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'productosBindingSource
+        '
+        Me.productosBindingSource.DataMember = "productos"
+        Me.productosBindingSource.DataSource = Me.comercialDataSet
+        '
+        'comercialDataSet
+        '
+        Me.comercialDataSet.DataSetName = "comercialDataSet"
+        Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox2
         '
@@ -176,14 +189,6 @@ Partial Class BarCodePrint
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
-        'TabPage1
-        '
-        Me.TabPage1.Controls.Add(Me.GroupBox2)
-        Me.TabPage1.Controls.Add(Me.GroupBox1)
-        resources.ApplyResources(Me.TabPage1, "TabPage1")
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.GroupBox5)
@@ -192,55 +197,20 @@ Partial Class BarCodePrint
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'GroupBox3
-        '
-        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
-        Me.GroupBox3.Controls.Add(Me.Label5)
-        Me.GroupBox3.Controls.Add(Me.PictureBox1)
-        Me.GroupBox3.Controls.Add(Me.TextBox1)
-        Me.GroupBox3.Controls.Add(Me.Label4)
-        Me.GroupBox3.Controls.Add(Me.GroupBox4)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.TabStop = False
-        '
-        'GroupBox4
-        '
-        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.TabStop = False
-        '
         'GroupBox5
         '
         resources.ApplyResources(Me.GroupBox5, "GroupBox5")
+        Me.GroupBox5.Controls.Add(Me.PictureBox2)
         Me.GroupBox5.Controls.Add(Me.ReportViewer2)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.TabStop = False
-        '
-        'Label4
-        '
-        resources.ApplyResources(Me.Label4, "Label4")
-        Me.Label4.Name = "Label4"
-        '
-        'TextBox1
-        '
-        resources.ApplyResources(Me.TextBox1, "TextBox1")
-        Me.TextBox1.Name = "TextBox1"
-        '
-        'PictureBox1
-        '
-        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureBox1.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.TabStop = False
         '
         'ReportViewer2
         '
         ReportDataSource2.Name = "productos"
         ReportDataSource2.Value = Me.productosBindingSource
         Me.ReportViewer2.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEtiq3x6.rdlc"
+        Me.ReportViewer2.LocalReport.ReportEmbeddedResource = "sgcomercial.RepEtiq3x6EAN13.rdlc"
         resources.ApplyResources(Me.ReportViewer2, "ReportViewer2")
         Me.ReportViewer2.Name = "ReportViewer2"
         Me.ReportViewer2.ShowBackButton = False
@@ -253,24 +223,70 @@ Partial Class BarCodePrint
         Me.ReportViewer2.ShowPromptAreaButton = False
         Me.ReportViewer2.ShowStopButton = False
         '
-        'productosBindingSource
+        'GroupBox3
         '
-        Me.productosBindingSource.DataMember = "productos"
-        Me.productosBindingSource.DataSource = Me.comercialDataSet
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
+        Me.GroupBox3.Controls.Add(Me.TextBox2)
+        Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.PictureBox1)
+        Me.GroupBox3.Controls.Add(Me.TextBox1)
+        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.GroupBox4)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.TabStop = False
         '
-        'comercialDataSet
+        'TextBox2
         '
-        Me.comercialDataSet.DataSetName = "comercialDataSet"
-        Me.comercialDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'productosTableAdapter
-        '
-        Me.productosTableAdapter.ClearBeforeFill = True
+        resources.ApplyResources(Me.TextBox2, "TextBox2")
+        Me.TextBox2.Name = "TextBox2"
         '
         'Label5
         '
         resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.Name = "Label5"
+        '
+        'PictureBox1
+        '
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Image = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureBox1.InitialImage = Global.sgcomercial.My.Resources.Resources.lup_
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.TabStop = False
+        '
+        'TextBox1
+        '
+        resources.ApplyResources(Me.TextBox1, "TextBox1")
+        Me.TextBox1.Name = "TextBox1"
+        '
+        'Label4
+        '
+        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.Name = "Label4"
+        '
+        'GroupBox4
+        '
+        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.TabStop = False
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.GroupBox2)
+        Me.TabPage1.Controls.Add(Me.GroupBox1)
+        resources.ApplyResources(Me.TabPage1, "TabPage1")
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'productosTableAdapter
+        '
+        Me.productosTableAdapter.ClearBeforeFill = True
+        '
+        'PictureBox2
+        '
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.TabStop = False
         '
         'BarCodePrint
         '
@@ -282,19 +298,20 @@ Partial Class BarCodePrint
         Me.MinimizeBox = False
         Me.Name = "BarCodePrint"
         Me.Tag = "BarCodePrint"
+        CType(Me.productosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PictureSeleccionarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.productosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.comercialDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage1.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -325,4 +342,6 @@ Partial Class BarCodePrint
     Friend WithEvents Label4 As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
