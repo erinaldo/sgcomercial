@@ -118,8 +118,8 @@
         Dim cd As New BuscarCodigoInterno()
         cd.ShowDialog()
         If Len(Trim(gcodigoproducto)) > 0 And gcodigoproducto <> "0" Then
-            Dim StrError As StrError
-            Dim strbarcode As String
+            Dim StrError As New StrError()
+            Dim strbarcode As String = ""
             Try
                 GetEAN13(gcodigoproducto, strbarcode, StrError)
                 If StrError.CodError = 0 Then

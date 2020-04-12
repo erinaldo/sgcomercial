@@ -156,7 +156,7 @@ Public Class AltaPedidoDelivery
     Public Sub buscaproductomanual()
         gcantidad = 0
         Dim idproducto As Long
-        Dim descripcion As String
+        Dim descripcion As String = ""
         Dim newrow As Long
         Dim addnewrow As Boolean = False
         Dim unidadmedida As Integer

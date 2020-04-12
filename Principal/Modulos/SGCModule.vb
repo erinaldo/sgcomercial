@@ -208,9 +208,9 @@ Module SGCModule
     ' convierte un codigo numerico de 13 digitos en string barcode para representar en la fuente EAN13
     '*************************************************************************************************
     Public Sub GetEAN13(ByVal codigointerno As String, ByRef barcode As String, ByRef strerror As StrError)
-        Dim normalized As String
+        Dim normalized As String = ""
         Dim rtn As Boolean
-        Dim msg As String
+        Dim msg As String = ""
         strerror = New StrError()
 
         strerror.CodError = 0
